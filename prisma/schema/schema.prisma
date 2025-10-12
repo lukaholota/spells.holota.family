@@ -79,9 +79,9 @@ model Spell {
   spellRaces       SpellRaces[]
   spellbookSpells  SpellbookSpells[]
   subclasses       Subclass[]        @relation("SubclassExpandedSpells")
-  perses Pers[]
-  races Race[]
-  subraces Subrace[]
+  perses           Pers[]
+  races            Race[]
+  subraces         Subrace[]
 }
 
 model SpellClasses {
@@ -119,7 +119,7 @@ model User {
   password  String?     @db.VarChar
   character Character[]
   spellbook Spellbook[]
-  pers Pers[]
+  pers      Pers[]
 }
 
 enum Ability {
@@ -193,10 +193,10 @@ enum ArmorType {
 }
 
 enum SkillProficiencyType {
-  NONE          // +0 (just ability modifier)
-  HALF          // +floor(prof_bonus / 2) - рідко, але існує
-  PROFICIENT    // +prof_bonus 🔥
-  EXPERTISE     // +prof_bonus * 2 🔥🔥
+  NONE // +0 (just ability modifier)
+  HALF // +floor(prof_bonus / 2) - рідко, але існує
+  PROFICIENT // +prof_bonus 🔥
+  EXPERTISE // +prof_bonus * 2 🔥🔥
 }
 
 enum RestType {
@@ -271,35 +271,35 @@ enum EquipmentPackCategory {
 
 enum Source {
   // Core rulebooks
-  PHB                // Player's Handbook - Книга гравця
-  DMG                // Dungeon Master's Guide
-  MM                 // Monster Manual
+  PHB // Player's Handbook - Книга гравця
+  DMG // Dungeon Master's Guide
+  MM // Monster Manual
 
   // Major supplements (з заклинаннями)
-  XGTE               // Xanathar's Guide to Everything - Занатарів довідник
-  TCOE               // Tasha's Cauldron of Everything - Ташин казан
-  FTOD               // Fizban's Treasury of Dragons - Скарбниця драконів Фізбана
+  XGTE // Xanathar's Guide to Everything - Занатарів довідник
+  TCOE // Tasha's Cauldron of Everything - Ташин казан
+  FTOD // Fizban's Treasury of Dragons - Скарбниця драконів Фізбана
 
   // Campaign settings (з заклинаннями)
-  EGTW               // Explorer's Guide to Wildemount - Посібник до Вайлдмаунта
-  SCAG               // Sword Coast Adventurer's Guide
-  GGTR               // Guildmasters' Guide to Ravnica
-  AI                 // Acquisitions Incorporated
-  IDROTF             // Icewind Dale: Rime of the Frostmaiden
+  EGTW // Explorer's Guide to Wildemount - Посібник до Вайлдмаунта
+  SCAG // Sword Coast Adventurer's Guide
+  GGTR // Guildmasters' Guide to Ravnica
+  AI // Acquisitions Incorporated
+  IDROTF // Icewind Dale: Rime of the Frostmaiden
 
   // Other supplements
-  VGTM               // Volo's Guide to Monsters
-  MTOF               // Mordenkainen's Tome of Foes
-  MPMM               // Mordenkainen Presents: Monsters of the Multiverse
-  BPGOTG             // Bigby Presents: Glory of the Giants
-  VRGTR              // Van Richten's Guide to Ravenloft
-  MOOT               // Mythic Odysseys of Theros
-  SACOC              // Strixhaven: A Curriculum of Chaos
+  VGTM // Volo's Guide to Monsters
+  MTOF // Mordenkainen's Tome of Foes
+  MPMM // Mordenkainen Presents: Monsters of the Multiverse
+  BPGOTG // Bigby Presents: Glory of the Giants
+  VRGTR // Van Richten's Guide to Ravenloft
+  MOOT // Mythic Odysseys of Theros
+  SACOC // Strixhaven: A Curriculum of Chaos
 
   // 2024 versions (One D&D)
-  PHB_2024           // Player's Handbook 2024
-  DMG_2024           // Dungeon Master's Guide 2024
-  MM_2024            // Monster Manual 2024
+  PHB_2024 // Player's Handbook 2024
+  DMG_2024 // Dungeon Master's Guide 2024
+  MM_2024 // Monster Manual 2024
 }
 
 enum WeaponType {
@@ -388,6 +388,118 @@ enum Skills {
   PERSUASION
 }
 
+enum BackgroundCategory {
+  // Core PHB Backgrounds
+  ACOLYTE
+  CHARLATAN
+  CRIMINAL
+  ENTERTAINER
+  FOLK_HERO
+  GUILD_ARTISAN
+  GUILD_MERCHANT
+  HERMIT
+  NOBLE
+  OUTLANDER
+  SAGE
+  SAILOR
+  SOLDIER
+  URCHIN
+
+  // Variants
+  GLADIATOR // Entertainer variant
+  KNIGHT // Noble variant
+  PIRATE // Sailor variant
+  SPY // Criminal variant
+
+  // Xanathar's Guide to Everything
+  ANTHROPOLOGIST
+  ARCHAEOLOGIST
+  CITY_WATCH
+  CLAN_CRAFTER
+  CLOISTERED_SCHOLAR
+  COURTIER
+  FACTION_AGENT
+  FAR_TRAVELER
+  INHERITOR
+  INVESTIGATOR
+  KNIGHT_OF_THE_ORDER
+  MERCENARY_VETERAN
+  URBAN_BOUNTY_HUNTER
+  UTHGARDT_TRIBE_MEMBER
+  WATERDHAVIAN_NOBLE
+
+  // Sword Coast Adventurer's Guide
+  FISHER
+  SHIPWRIGHT
+  SMUGGLER
+  MARINE
+
+  // Ravnica Backgrounds
+  AZORIUS_FUNCTIONARY
+  BOROS_LEGIONNAIRE
+  DIMIR_OPERATIVE
+  GOLGARI_AGENT
+  GRUUL_ANARCH
+  IZZET_ENGINEER
+  ORZHOV_REPRESENTATIVE
+  RAKDOS_CULTIST
+  SELESNYA_INITIATE
+  SIMIC_SCIENTIST
+
+  // Wildemount
+  GRINNER
+  VOLSTRUCKER_AGENT
+
+  // Theros
+  ATHLETE
+
+  // Strixhaven
+  LOREHOLD_STUDENT
+  PRISMARI_STUDENT
+  QUANDRIX_STUDENT
+  SILVERQUILL_STUDENT
+  WITHERBLOOM_STUDENT
+
+  // Other Official
+  ASTRAL_DRIFTER
+  FACELESS
+  FAILED_MERCHANT
+  FEYLOST
+  GAMBLER
+  HAUNTED_ONE
+  PLAINTIFF
+  RIVAL_INTERN
+  WILDSPACER
+  WITCHLIGHT_HAND
+
+  // Dragonlance
+  KNIGHT_OF_SOLAMNIA
+  MAGE_OF_HIGH_SORCERY
+
+  // Eberron (House Agents)
+  HOUSE_AGENT
+
+  // 2024 PHB
+  ARTISAN
+  CHARLATAN_2024
+  CRIMINAL_2024
+  ENTERTAINER_2024
+  FARMER
+  GUARD
+  GUIDE
+  HERMIT_2024
+  MERCHANT
+  NOBLE_2024
+  SAGE_2024
+  SAILOR_2024
+  SCRIBE
+  SOLDIER_2024
+  WAYFARER
+
+  // Custom - може обрати 2 будь-які навички
+  CUSTOM
+}
+
 enum FeatureDisplayType {
   STANDARD
   RESOURCE
@@ -397,16 +509,16 @@ enum FeatureDisplayType {
 }
 
 enum WeaponProperty {
-  FINESSE      // Use DEX instead of STR
-  VERSATILE    // 1h or 2h with different damage
-  LIGHT        // Can dual wield
-  HEAVY        // Small creatures disadvantage
-  REACH        // +5 ft reach
-  TWO_HANDED   // Requires 2 hands
-  THROWN       // Can be thrown
-  AMMUNITION   // Requires ammo
-  LOADING      // Can't multi-attack
-  SPECIAL      // Has special rules
+  FINESSE // Use DEX instead of STR
+  VERSATILE // 1h or 2h with different damage
+  LIGHT // Can dual wield
+  HEAVY // Small creatures disadvantage
+  REACH // +5 ft reach
+  TWO_HANDED // Requires 2 hands
+  THROWN // Can be thrown
+  AMMUNITION // Requires ammo
+  LOADING // Can't multi-attack
+  SPECIAL // Has special rules
   MAGIC_WEAPON
 }
 
@@ -438,6 +550,31 @@ enum FeatCategory {
   EPIC_BOON
 }
 
+enum ToolCategory {
+  // Artisan's Tools
+  ARTISAN_TOOLS
+
+  // Gaming Sets
+  DICE_SET
+  DRAGONCHESS_SET
+  PLAYING_CARD_SET
+  THREE_DRAGON_ANTE_SET
+
+  // Musical Instruments
+  MUSICAL_INSTRUMENT
+
+  // Other Tools
+  DISGUISE_KIT
+  FORGERY_KIT
+  HERBALISM_KIT
+  NAVIGATORS_TOOLS
+  POISONERS_KIT
+  THIEVES_TOOLS
+
+  // Vehicles
+  VEHICLES_LAND
+  VEHICLES_WATER
+}
 
 model Class {
   classId Int    @id @default(autoincrement())
@@ -459,20 +596,23 @@ model Class {
   multiclassWisReq Int @default(0)
   multiclassChaReq Int @default(0)
 
-  armorProficiencies  ArmorType[] @default([])
-  weaponProficiencies WeaponType[]
-  savingThrows        Ability[]
-  skillProficiencies  Ability[]
+  armorProficiencies     ArmorType[]  @default([])
+  weaponProficiencies    WeaponType[]
+  savingThrows           Ability[]
+  skillProficiencies     Ability[]
+  toolProficiencies      Json?
+  languagesToChooseCount Int          @default(0)
+  languages              Language[]   @default([])
 
   subclasses                  Subclass[]
   classFeatures               ClassFeature[]
   specialSpellSlotProgression Json?
-  perses Pers[]
-  persMulticlasses PersMulticlass[]
-  startingEquipmentOption ClassStartingEquipmentOption[]
+  perses                      Pers[]
+  persMulticlasses            PersMulticlass[]
+  startingEquipmentOption     ClassStartingEquipmentOption[]
 
-  createdAt                                       DateTime @default(now())
-  updatedAt                                       DateTime @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 model Subclass {
@@ -484,60 +624,51 @@ model Subclass {
   grantsSpells   Boolean @default(false)
   expendedSpells Spell[] @relation("SubclassExpandedSpells")
 
-  class    Class          @relation(fields: [classId], references: [classId], onDelete: Cascade)
-  features SubclassFeature[]
-  perses Pers[]
-  persMulticlasses PersMulticlass[]
+  languagesToChooseCount Int        @default(0)
+  languages              Language[] @default([])
+
+  class             Class             @relation(fields: [classId], references: [classId], onDelete: Cascade)
+  features          SubclassFeature[]
+  perses            Pers[]
+  persMulticlasses  PersMulticlass[]
+  toolProficiencies Json?
 
   @@unique([classId, name])
 }
 
-// model CombinedSpellSlotProgression {
-//   casterLevel Int @id
-//   lvl1        Int @default(0)
-//   lvl2        Int @default(0)
-//   lvl3        Int @default(0)
-//   lvl4        Int @default(0)
-//   lvl5        Int @default(0)
-//   lvl6        Int @default(0)
-//   lvl7        Int @default(0)
-//   lvl8        Int @default(0)
-//   lvl9        Int @default(0)
-// }
-
 model Pers {
-  persId  Int @id @default(autoincrement())
+  persId Int    @id @default(autoincrement())
   userId Int
-  name String @db.VarChar(100)
-  level Int @default(1)
+  name   String @db.VarChar(100)
+  level  Int    @default(1)
 
   currentSpellSlots Int[] @default([])
   // for warlock class special use
 
   // Primary class
-  classId Int
+  classId    Int
   subclassId Int?
 
-  raceId Int
+  raceId    Int
   subraceId Int?
 
   currentHp Int
-  maxHp Int
-  tempHp Int @default(0)
+  maxHp     Int
+  tempHp    Int @default(0)
 
-  raceCustom String @db.VarChar(100) @default("")
-  classCustom String @db.VarChar(100) @default("")
-  alignment String @db.VarChar(100) @default("")
-  xp Int @default(0)
-  customBackground String @db.VarChar(100) @default("")
-  customFeatures String @db.Text @default("")
-  customLanguagesKnown String @db.Text @default("")
-  customEquipment String @db.Text @default("")
-  personalityTraits String @db.Text @default("")
-  ideals String @db.Text @default("")
-  bonds String @db.Text @default("")
-  flaws String @db.Text @default("")
-  backstory String @db.Text @default("")
+  raceCustom           String @default("") @db.VarChar(100)
+  classCustom          String @default("") @db.VarChar(100)
+  alignment            String @default("") @db.VarChar(100)
+  xp                   Int    @default(0)
+  customBackground     String @default("") @db.VarChar(100)
+  customFeatures       String @default("") @db.Text
+  customLanguagesKnown String @default("") @db.Text
+  customEquipment      String @default("") @db.Text
+  personalityTraits    String @default("") @db.Text
+  ideals               String @default("") @db.Text
+  bonds                String @default("") @db.Text
+  flaws                String @default("") @db.Text
+  backstory            String @default("") @db.Text
 
   str Int
   dex Int
@@ -552,35 +683,35 @@ model Pers {
   gp Int @default(0)
   pp Int @default(0)
 
-  user User @relation(fields: [userId], references: [userId], onDelete: Cascade)
-  class Class @relation(fields: [classId], references: [classId])
+  user     User      @relation(fields: [userId], references: [userId], onDelete: Cascade)
+  class    Class     @relation(fields: [classId], references: [classId])
   subclass Subclass? @relation(fields: [subclassId], references: [subclassId])
-  race Race @relation(fields: [raceId], references: [raceId])
-  subrace Subrace? @relation(fields: [subraceId], references: [subraceId])
+  race     Race      @relation(fields: [raceId], references: [raceId])
+  subrace  Subrace?  @relation(fields: [subraceId], references: [subraceId])
 
-  skills PersSkill[]
+  skills       PersSkill[]
   multiclasses PersMulticlass[]
-  features PersFeature[]
-  spells Spell[]
-  feats PersFeat[]
-  armors PersArmor[]
-  weapons PersWeapon[]
-  magicItems PersMagicItem[]
-  notes PersNote[]
+  features     PersFeature[]
+  spells       Spell[]
+  feats        PersFeat[]
+  armors       PersArmor[]
+  weapons      PersWeapon[]
+  magicItems   PersMagicItem[]
+  notes        PersNote[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
 
 model PersMulticlass {
-  persMulticlassId Int @id @default(autoincrement())
-  persId Int
-  classId Int
-  subclassId Int?
-  classLevel Int
+  persMulticlassId Int  @id @default(autoincrement())
+  persId           Int
+  classId          Int
+  subclassId       Int?
+  classLevel       Int
 
-  pers Pers @relation(fields: [persId], references: [persId])
-  class Class @relation(fields: [classId], references: [classId])
+  pers     Pers      @relation(fields: [persId], references: [persId])
+  class    Class     @relation(fields: [classId], references: [classId])
   subclass Subclass? @relation(fields: [subclassId], references: [subclassId])
 
   @@unique([persId, classId])
@@ -588,22 +719,22 @@ model PersMulticlass {
 
 model PersFeature {
   persFeatureId Int @id @default(autoincrement())
-  persId Int
-  featureId Int
+  persId        Int
+  featureId     Int
 
   usesRemaining Int?
 
   feature Feature @relation(fields: [featureId], references: [featureId], onDelete: Cascade)
-  pers Pers @relation(fields: [persId], references: [persId])
+  pers    Pers    @relation(fields: [persId], references: [persId])
 
   @@unique([persId, featureId])
 }
 
 model Feature {
-  featureId Int @id @default(autoincrement()) @unique
+  featureId Int @id @unique @default(autoincrement())
 
-  name         String @db.VarChar(100)
-  description  String @db.Text
+  name        String @db.VarChar(100)
+  description String @db.Text
 
   modifiesStats  Json?
   limitedUsesPer RestType?
@@ -611,13 +742,13 @@ model Feature {
 
   displayType FeatureDisplayType @default(STANDARD)
 
-  classFeature       ClassFeature[]
-  subclassFeature    SubclassFeature[]
-  raceTrait          RaceTrait[]
-  subraceTrait       SubraceTrait[]
-  backgroundFeature  BackgroundFeature[]
-  featFeature        FeatFeature[]
-  magicItemFeature   MagicItemFeature[]
+  classFeature      ClassFeature[]
+  subclassFeature   SubclassFeature[]
+  raceTrait         RaceTrait[]
+  subraceTrait      SubraceTrait[]
+  backgroundFeature BackgroundFeature[]
+  featFeature       FeatFeature[]
+  magicItemFeature  MagicItemFeature[]
 
   persFeatures PersFeature[]
 
@@ -626,64 +757,64 @@ model Feature {
 }
 
 model ClassFeature {
-  classFeatureId Int  @id @default(autoincrement())
+  classFeatureId Int @id @default(autoincrement())
   classId        Int
-  featureId Int
+  featureId      Int
 
-  levelGranted Int
+  levelGranted     Int
   grantsSpellSlots Boolean @default(false)
 
   feature Feature @relation(fields: [featureId], references: [featureId], onDelete: Cascade)
-  class              Class     @relation(fields: [classId], references: [classId])
+  class   Class   @relation(fields: [classId], references: [classId])
 }
 
 model SubclassFeature {
-  subclassFeatureId Int  @id @default(autoincrement())
+  subclassFeatureId Int @id @default(autoincrement())
   subclassId        Int
-  featureId      Int
+  featureId         Int
 
   levelGranted Int
 
   grantsSpellSlots Boolean @default(false)
 
-  feature Feature @relation(fields: [featureId], references: [featureId], onDelete: Cascade)
-  subclass   Subclass     @relation(fields: [subclassId], references: [subclassId])
+  feature  Feature  @relation(fields: [featureId], references: [featureId], onDelete: Cascade)
+  subclass Subclass @relation(fields: [subclassId], references: [subclassId])
 }
 
 model RaceTrait {
-  raceTraitId Int  @id @default(autoincrement())
-  raceId        Int
-  featureId      Int
+  raceTraitId Int @id @default(autoincrement())
+  raceId      Int
+  featureId   Int
 
   feature Feature @relation(fields: [featureId], references: [featureId], onDelete: Cascade)
-  race              Race     @relation(fields: [raceId], references: [raceId])
+  race    Race    @relation(fields: [raceId], references: [raceId])
 }
 
 model SubraceTrait {
-  subraceTraitId Int  @id @default(autoincrement())
-  subraceId        Int
+  subraceTraitId Int @id @default(autoincrement())
+  subraceId      Int
   featureId      Int
 
   feature Feature @relation(fields: [featureId], references: [featureId], onDelete: Cascade)
-  subrace              Subrace     @relation(fields: [subraceId], references: [subraceId])
+  subrace Subrace @relation(fields: [subraceId], references: [subraceId])
 }
 
 model BackgroundFeature {
-  backgroundFeatureId Int  @id @default(autoincrement())
+  backgroundFeatureId Int @id @default(autoincrement())
   backgroundId        Int
-  featureId      Int
+  featureId           Int
 
-  feature Feature @relation(fields: [featureId], references: [featureId], onDelete: Cascade)
-  background              Background     @relation(fields: [backgroundId], references: [backgroundId])
+  feature    Feature    @relation(fields: [featureId], references: [featureId], onDelete: Cascade)
+  background Background @relation(fields: [backgroundId], references: [backgroundId])
 }
 
 model FeatFeature {
-  featFeatureId Int  @id @default(autoincrement())
+  featFeatureId Int @id @default(autoincrement())
   featId        Int
-  featureId      Int
+  featureId     Int
 
   feature Feature @relation(fields: [featureId], references: [featureId], onDelete: Cascade)
-  feat              Feat     @relation(fields: [featId], references: [featId])
+  feat    Feat    @relation(fields: [featId], references: [featId])
 
   @@unique([featId, featureId])
   @@index([featId])
@@ -691,12 +822,12 @@ model FeatFeature {
 }
 
 model MagicItemFeature {
-  MagicItemFeatureId Int  @id @default(autoincrement())
+  MagicItemFeatureId Int @id @default(autoincrement())
   magicItemId        Int
-  featureId      Int
+  featureId          Int
 
-  feature Feature @relation(fields: [featureId], references: [featureId], onDelete: Cascade)
-  magicItem  MagicItem     @relation(fields: [magicItemId], references: [magicItemId])
+  feature   Feature   @relation(fields: [featureId], references: [featureId], onDelete: Cascade)
+  magicItem MagicItem @relation(fields: [magicItemId], references: [magicItemId])
 }
 
 // model PersSpell {
@@ -709,45 +840,48 @@ model MagicItemFeature {
 // }
 
 model Race {
-  raceId Int @id @default(autoincrement())
-  name String @unique // lower_case eng     if duplicate: name (source)
-  size Size[] @default([MEDIUM]) // small, medium
-  speed Int @default(30)
-  burrowSpeed Int @default(0)
-  flightSpeed Int @default(0)
-  swimSpeed Int @default(0)
-  climbSpeed Int @default(0)
+  raceId      Int    @id @default(autoincrement())
+  name        String @unique // lower_case eng     if duplicate: name (source)
+  size        Size[] @default([MEDIUM]) // small, medium
+  speed       Int    @default(30)
+  burrowSpeed Int    @default(0)
+  flightSpeed Int    @default(0)
+  swimSpeed   Int    @default(0)
+  climbSpeed  Int    @default(0)
 
   source Source @default(PHB)
 
-  languages Language[] @default([COMMON])
-  proficiencies Json // {skills: [PERCEPTION], weapons: [LONGSWORD], tools etc}
+  languages              Language[] @default([COMMON])
+  languagesToChooseCount Int        @default(0)
+
+  proficiencies     Json // {skills: [PERCEPTION], weapons: [LONGSWORD], tools etc}
   damageResistances DamageType[] @default([])
 
   innateSpells Spell[]
 
   subraces Subrace[]
-  perses Pers[]
+  perses   Pers[]
 
   traits RaceTrait[]
 }
 
 model Subrace {
-  subraceId Int @id @default(autoincrement())
-  raceId Int
-  name String @unique // lower_case eng     if duplicate: name (source)
+  subraceId     Int    @id @default(autoincrement())
+  raceId        Int
+  name          String @unique // lower_case eng     if duplicate: name (source)
   speedModifier Int?
 
   source Source @default(PHB)
 
-  additionalAbilityScoreIncreases Json?   // {WIS: 1}
-  additionalLanguages Language[] @default([])
-  additionalProficiencies Json?  // {skills: [PERCEPTION], weapons: [LONGSWORD], tools etc}
-  additionalResistances DamageType[] @default([])
+  additionalAbilityScoreIncreases Json? // {WIS: 1}
+  additionalLanguages             Language[]   @default([])
+  languagesToChooseCount          Int          @default(0)
+  additionalProficiencies         Json? // {skills: [PERCEPTION], weapons: [LONGSWORD], tools etc}
+  additionalResistances           DamageType[] @default([])
 
   innateSpells Spell[]
 
-  race Race @relation(fields: [raceId], references: [raceId])
+  race   Race   @relation(fields: [raceId], references: [raceId])
   perses Pers[]
 
   traits SubraceTrait[]
@@ -756,20 +890,25 @@ model Subrace {
 }
 
 model Background {
-  backgroundId Int @id @default(autoincrement())
-  name String @unique
-  source Source @default(PHB)
+  backgroundId           Int                @id @default(autoincrement())
+  name                   BackgroundCategory @unique
+  source                 Source             @default(PHB)
+  toolProficiencies      Json?
+  languagesToChooseCount Int                @default(0)
 
-  backgroundFeatures BackgroundFeature[]
+  backgroundFeatures          BackgroundFeature[]
   backgroundStartingEquipment BackgroundStartingEquipment?
 }
 
 model Feat {
-  featId Int @id @default(autoincrement())
-  name String @db.VarChar(100)
-  category FeatCategory
-  shortDescription String @db.Text
-  longDescription String @db.Text
+  featId           Int          @id @default(autoincrement())
+  name             String       @db.VarChar(100)
+  category         FeatCategory
+  shortDescription String       @db.Text
+  longDescription  String       @db.Text
+
+  languagesToChooseCount Int        @default(0)
+  languages              Language[] @default([])
 
   prerequisites Json?
   // minLevel Int?
@@ -778,27 +917,27 @@ model Feat {
   // requiredFeatureId Int?
   // requiresClassId Int?
 
-  featFeatures FeatFeature[]
+  featFeatures     FeatFeature[]
   featAbilityBoost FeatAbilityBoost?
-  persFeats PersFeat[]
+  persFeats        PersFeat[]
 }
 
 model FeatAbilityBoost {
   boostId Int @id @default(autoincrement())
-  featId Int @unique
+  featId  Int @unique
 
-  ability Ability?
-  increaseValue Int //+1 +2
+  ability           Ability?
+  increaseValue     Int //+1 +2
   abilitiesToChoose Ability[] @default([])
-  maxValue Int @default(20)
+  maxValue          Int       @default(20)
 
   feat Feat @relation(fields: [featId], references: [featId])
 }
 
 model PersFeat {
   persFeatId Int @id @default(autoincrement())
-  featId Int
-  persId Int
+  featId     Int
+  persId     Int
 
   feat Feat @relation(fields: [featId], references: [featId])
   pers Pers @relation(fields: [persId], references: [persId])
@@ -807,17 +946,17 @@ model PersFeat {
 }
 
 model MagicItem {
-  magicItemId Int @id @default(autoincrement())
-  name String @unique @db.VarChar(100)
+  magicItemId Int    @id @default(autoincrement())
+  name        String @unique @db.VarChar(100)
 
   itemType MagicItemType
-  rarity ItemRarity
+  rarity   ItemRarity
 
   description String @db.Text
 
-  bonusToAC Int?
+  bonusToAC         Int?
   BonusToAttackRoll Int?
-  BonusToDamage Int?
+  BonusToDamage     Int?
 
   features MagicItemFeature[]
 
@@ -825,10 +964,10 @@ model MagicItem {
 }
 
 model Weapon {
-  weaponId Int @id @default(autoincrement())
-  name WeaponCategory @unique
+  weaponId Int            @id @default(autoincrement())
+  name     WeaponCategory @unique
 
-  damage String // "1d8" "2d6"
+  damage     String // "1d8" "2d6"
   damageType DamageType
   weaponType WeaponType
 
@@ -837,35 +976,35 @@ model Weapon {
   versatileDamage String?
 
   normalRange Int?
-  longRange Int?
+  longRange   Int?
 
-  persWeapons PersWeapon[]
-  classStartingEquipmentOption ClassStartingEquipmentOption[]
+  persWeapons                       PersWeapon[]
+  classStartingEquipmentOption      ClassStartingEquipmentOption[]
   backgroundStartingEquipmentOption BackgroundStartingEquipment[]
 }
 
 model Armor {
-  armorId Int @id @default(autoincrement())
-  name ArmorCategory @unique
+  armorId Int           @id @default(autoincrement())
+  name    ArmorCategory @unique
 
   armorType ArmorType
-  baseAC Int  // 11 для leather, 14 для scale mail, 18 для plate
+  baseAC    Int // 11 для leather, 14 для scale mail, 18 для plate
 
-  strengthReq Int? // 13 для chain mail, 15 для plate
+  strengthReq         Int? // 13 для chain mail, 15 для plate
   stealthDisadvantage Boolean @default(false)
 
-  persArmor PersArmor[]
+  persArmor                    PersArmor[]
   classStartingEquipmentOption ClassStartingEquipmentOption[]
-  backgroundStartingEquipment BackgroundStartingEquipment[]
+  backgroundStartingEquipment  BackgroundStartingEquipment[]
 }
 
 model PersSkill {
-  persSkillId Int @id @default(autoincrement())
-  skillId Int
-  persId Int
+  persSkillId     Int                  @id @default(autoincrement())
+  skillId         Int
+  persId          Int
   proficiencyType SkillProficiencyType @default(NONE)
-  customModifier Int?
-  name Skills
+  customModifier  Int?
+  name            Skills
 
   pers Pers @relation(fields: [persId], references: [persId])
 
@@ -874,117 +1013,116 @@ model PersSkill {
 
 model PersWeapon {
   persWeaponId Int @id @default(autoincrement())
-  persId Int
-  weaponId Int
+  persId       Int
+  weaponId     Int
 
-  overrideDamage String?
-  attackBonus Int?
-  overrideName String?
-  overrideNormalRange Int?
-  overrideLongRange Int?
-  overrideDamageType DamageType?
+  overrideDamage        String?
+  attackBonus           Int?
+  overrideName          String?
+  overrideNormalRange   Int?
+  overrideLongRange     Int?
+  overrideDamageType    DamageType?
   overrideAttackAbility Ability?
 
   isProficient Boolean @default(true)
 
-  pers Pers @relation(fields: [persId], references: [persId])
+  pers   Pers   @relation(fields: [persId], references: [persId])
   weapon Weapon @relation(fields: [weaponId], references: [weaponId])
 }
 
 model PersArmor {
   persArmorId Int @id @default(autoincrement())
-  armorId Int
-  persId Int
+  armorId     Int
+  persId      Int
 
   overrideBaseAC Int?
-  miscACBonus Int?
-  isProficient Boolean @default(true)
+  miscACBonus    Int?
+  isProficient   Boolean @default(true)
 
   equipped Boolean @default(false)
 
-  pers Pers @relation(fields: [persId], references: [persId])
+  pers  Pers  @relation(fields: [persId], references: [persId])
   armor Armor @relation(fields: [armorId], references: [armorId])
 }
 
 model PersMagicItem {
   persMagicItemId Int @id @default(autoincrement())
-  persId Int
-  magicItemId Int
+  persId          Int
+  magicItemId     Int
 
-  pers Pers @relation(fields: [persId], references: [persId])
+  pers      Pers      @relation(fields: [persId], references: [persId])
   magicItem MagicItem @relation(fields: [magicItemId], references: [magicItemId])
 }
 
-model EquipmentPack {  // component pouch
-  equipmentPackId Int @id @default(autoincrement())
-  name EquipmentPackCategory @unique
-  description String @db.Text
+model EquipmentPack {
+  // component pouch
+  equipmentPackId Int                   @id @default(autoincrement())
+  name            EquipmentPackCategory @unique
+  description     String                @db.Text
 
   items Json // {name: , quantity: }
 
   classStartingEquipmentOptions ClassStartingEquipmentOption[]
-  backgroundStartingEquipment BackgroundStartingEquipment[]
+  backgroundStartingEquipment   BackgroundStartingEquipment[]
 }
 
 model ClassStartingEquipmentOption {
   optionId Int @id @default(autoincrement())
-  classId Int
+  classId  Int
 
   choiceGroup Int // 1, 2, 3
-  option String @db.Char(1) // 'A' 'B' 'C'
+  option      String @db.Char(1) // 'A' 'B' 'C'
 
-  weaponId Int?
-  armorId Int?
+  weaponId        Int?
+  armorId         Int?
   equipmentPackId Int?
 
   quantity Int @default(1)
 
-  chooseAnyArmor Boolean @default(false)
-  armorType ArmorType?
+  chooseAnyArmor Boolean    @default(false)
+  armorType      ArmorType?
 
-  chooseAnyWeapon Boolean @default(false)
-  weaponType WeaponType?
-  weaponCount Int @default(1)
+  chooseAnyWeapon Boolean     @default(false)
+  weaponType      WeaponType?
+  weaponCount     Int         @default(1)
 
   description String? @db.Text // "одна воєнна зброя"
 
-  class Class @relation(fields: [classId], references: [classId])
-  weapon Weapon? @relation(fields: [weaponId], references: [weaponId])
-  armor Armor? @relation(fields: [armorId], references: [armorId])
+  class         Class          @relation(fields: [classId], references: [classId])
+  weapon        Weapon?        @relation(fields: [weaponId], references: [weaponId])
+  armor         Armor?         @relation(fields: [armorId], references: [armorId])
   equipmentPack EquipmentPack? @relation(fields: [equipmentPackId], references: [equipmentPackId])
 
   @@index([classId, choiceGroup, option])
 }
 
 model BackgroundStartingEquipment {
-  equipmentId Int @id @default(autoincrement())
+  equipmentId  Int @id @default(autoincrement())
   backgroundId Int @unique
 
-  weaponId Int?
-  armorId Int?
+  weaponId        Int?
+  armorId         Int?
   equipmentPackId Int?
-  items Json?
+  items           Json?
 
-  quantity Int @default(1)
+  chooseAnyArmor Boolean    @default(false)
+  armorType      ArmorType?
 
-  chooseAnyArmor Boolean @default(false)
-  armorType ArmorType?
-
-  chooseAnyWeapon Boolean @default(false)
-  weaponType WeaponType?
-  weaponCount Int @default(1)
+  chooseAnyWeapon Boolean     @default(false)
+  weaponType      WeaponType?
+  weaponCount     Int         @default(1)
 
   description String? @db.Text // "одна воєнна зброя"
 
-  background Background? @relation(fields: [backgroundId], references: [backgroundId])
-  weapon Weapon? @relation(fields: [weaponId], references: [weaponId])
-  armor Armor? @relation(fields: [armorId], references: [armorId])
+  background    Background?    @relation(fields: [backgroundId], references: [backgroundId])
+  weapon        Weapon?        @relation(fields: [weaponId], references: [weaponId])
+  armor         Armor?         @relation(fields: [armorId], references: [armorId])
   equipmentPack EquipmentPack? @relation(fields: [equipmentPackId], references: [equipmentPackId])
 }
 
 model PersNote {
   persNoteId Int @id @default(autoincrement())
-  persId Int
+  persId     Int
 
   text String @db.Text
 

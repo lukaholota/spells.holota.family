@@ -853,7 +853,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "C:\\Users\\luka\\WebstormProjects\\pers\\prisma\\src\\generated\\prisma",
+      "value": "C:\\Users\\user\\WebstormProjects\\spells.holota.family\\prisma\\src\\generated\\prisma",
       "fromEnvVar": null
     },
     "config": {
@@ -867,7 +867,7 @@ const config = {
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "C:\\Users\\luka\\WebstormProjects\\pers\\prisma\\schema\\schema.prisma",
+    "sourceFilePath": "C:\\Users\\user\\WebstormProjects\\spells.holota.family\\prisma\\schema\\schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
