@@ -1,6 +1,8 @@
 import { PrismaClient} from "../src/generated/prisma";
 import { seedWeapons } from "./seed/weaponSeed";
 import { seedArmor } from "./seed/armorSeed";
+import { seedEquipmentPacks } from "./seed/equipmentPackSeed";
+import { seedBackground } from "./seed/backgroundSeed";
 const prisma = new PrismaClient()
 
 async function main() {
@@ -8,6 +10,8 @@ async function main() {
 
     await seedWeapons(prisma)
     await seedArmor(prisma)
+    await seedEquipmentPacks(prisma)
+    await seedBackground(prisma)
 }
 
 main()

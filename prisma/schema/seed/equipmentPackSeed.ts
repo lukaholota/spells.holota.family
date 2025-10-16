@@ -66,7 +66,8 @@ export const seedEquipmentPacks = async (prisma: PrismaClient) => {
                 { name: 'Свічка', quantity: 5 },
                 { name: 'Раціони (1 день)', quantity: 5 },
                 { name: 'Бурдюк', quantity: 1 },
-                { name: 'Набір для маскування', quantity: 1 }
+                { name: 'Набір для маскування', quantity: 1 },
+                { name: 'Музичний інструмент ', quantity: 1}
             ]
         },
         {
@@ -96,7 +97,8 @@ export const seedEquipmentPacks = async (prisma: PrismaClient) => {
                 { name: 'Кадило', quantity: 1 },
                 { name: 'Ризи', quantity: 1 },
                 { name: 'Раціони (1 день)', quantity: 2 },
-                { name: 'Бурдюк', quantity: 1 }
+                { name: 'Бурдюк', quantity: 1 },
+                { name: 'Священний символ', quantity: 1}
             ]
         },
         {
