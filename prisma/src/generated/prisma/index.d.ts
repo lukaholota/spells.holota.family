@@ -9849,6 +9849,7 @@ export namespace Prisma {
   export type SpellMinAggregateOutputType = {
     spellId: number | null
     name: string | null
+    engName: string | null
     level: number | null
     school: string | null
     castingTime: string | null
@@ -9864,6 +9865,7 @@ export namespace Prisma {
   export type SpellMaxAggregateOutputType = {
     spellId: number | null
     name: string | null
+    engName: string | null
     level: number | null
     school: string | null
     castingTime: string | null
@@ -9879,6 +9881,7 @@ export namespace Prisma {
   export type SpellCountAggregateOutputType = {
     spellId: number
     name: number
+    engName: number
     level: number
     school: number
     castingTime: number
@@ -9906,6 +9909,7 @@ export namespace Prisma {
   export type SpellMinAggregateInputType = {
     spellId?: true
     name?: true
+    engName?: true
     level?: true
     school?: true
     castingTime?: true
@@ -9921,6 +9925,7 @@ export namespace Prisma {
   export type SpellMaxAggregateInputType = {
     spellId?: true
     name?: true
+    engName?: true
     level?: true
     school?: true
     castingTime?: true
@@ -9936,6 +9941,7 @@ export namespace Prisma {
   export type SpellCountAggregateInputType = {
     spellId?: true
     name?: true
+    engName?: true
     level?: true
     school?: true
     castingTime?: true
@@ -10038,6 +10044,7 @@ export namespace Prisma {
   export type SpellGroupByOutputType = {
     spellId: number
     name: string
+    engName: string
     level: number
     school: string | null
     castingTime: string
@@ -10072,6 +10079,7 @@ export namespace Prisma {
   export type SpellSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     spellId?: boolean
     name?: boolean
+    engName?: boolean
     level?: boolean
     school?: boolean
     castingTime?: boolean
@@ -10095,6 +10103,7 @@ export namespace Prisma {
   export type SpellSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     spellId?: boolean
     name?: boolean
+    engName?: boolean
     level?: boolean
     school?: boolean
     castingTime?: boolean
@@ -10110,6 +10119,7 @@ export namespace Prisma {
   export type SpellSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     spellId?: boolean
     name?: boolean
+    engName?: boolean
     level?: boolean
     school?: boolean
     castingTime?: boolean
@@ -10125,6 +10135,7 @@ export namespace Prisma {
   export type SpellSelectScalar = {
     spellId?: boolean
     name?: boolean
+    engName?: boolean
     level?: boolean
     school?: boolean
     castingTime?: boolean
@@ -10137,7 +10148,7 @@ export namespace Prisma {
     source?: boolean
   }
 
-  export type SpellOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"spellId" | "name" | "level" | "school" | "castingTime" | "range" | "components" | "duration" | "description" | "hasRitual" | "hasConcentration" | "source", ExtArgs["result"]["spell"]>
+  export type SpellOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"spellId" | "name" | "engName" | "level" | "school" | "castingTime" | "range" | "components" | "duration" | "description" | "hasRitual" | "hasConcentration" | "source", ExtArgs["result"]["spell"]>
   export type SpellInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     characterSpells?: boolean | Spell$characterSpellsArgs<ExtArgs>
     spellClasses?: boolean | Spell$spellClassesArgs<ExtArgs>
@@ -10165,6 +10176,7 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       spellId: number
       name: string
+      engName: string
       level: number
       school: string | null
       castingTime: string
@@ -10607,6 +10619,7 @@ export namespace Prisma {
   interface SpellFieldRefs {
     readonly spellId: FieldRef<"Spell", 'Int'>
     readonly name: FieldRef<"Spell", 'String'>
+    readonly engName: FieldRef<"Spell", 'String'>
     readonly level: FieldRef<"Spell", 'Int'>
     readonly school: FieldRef<"Spell", 'String'>
     readonly castingTime: FieldRef<"Spell", 'String'>
@@ -23693,6 +23706,7 @@ export namespace Prisma {
   export type FeatureMinAggregateOutputType = {
     featureId: number | null
     name: string | null
+    engName: string | null
     description: string | null
     shortDescription: string | null
     limitedUsesPer: $Enums.RestType | null
@@ -23705,6 +23719,7 @@ export namespace Prisma {
   export type FeatureMaxAggregateOutputType = {
     featureId: number | null
     name: string | null
+    engName: string | null
     description: string | null
     shortDescription: string | null
     limitedUsesPer: $Enums.RestType | null
@@ -23717,6 +23732,7 @@ export namespace Prisma {
   export type FeatureCountAggregateOutputType = {
     featureId: number
     name: number
+    engName: number
     description: number
     shortDescription: number
     modifiesStats: number
@@ -23742,6 +23758,7 @@ export namespace Prisma {
   export type FeatureMinAggregateInputType = {
     featureId?: true
     name?: true
+    engName?: true
     description?: true
     shortDescription?: true
     limitedUsesPer?: true
@@ -23754,6 +23771,7 @@ export namespace Prisma {
   export type FeatureMaxAggregateInputType = {
     featureId?: true
     name?: true
+    engName?: true
     description?: true
     shortDescription?: true
     limitedUsesPer?: true
@@ -23766,6 +23784,7 @@ export namespace Prisma {
   export type FeatureCountAggregateInputType = {
     featureId?: true
     name?: true
+    engName?: true
     description?: true
     shortDescription?: true
     modifiesStats?: true
@@ -23866,6 +23885,7 @@ export namespace Prisma {
   export type FeatureGroupByOutputType = {
     featureId: number
     name: string
+    engName: string
     description: string
     shortDescription: string | null
     modifiesStats: JsonValue | null
@@ -23898,6 +23918,7 @@ export namespace Prisma {
   export type FeatureSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     featureId?: boolean
     name?: boolean
+    engName?: boolean
     description?: boolean
     shortDescription?: boolean
     modifiesStats?: boolean
@@ -23922,6 +23943,7 @@ export namespace Prisma {
   export type FeatureSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     featureId?: boolean
     name?: boolean
+    engName?: boolean
     description?: boolean
     shortDescription?: boolean
     modifiesStats?: boolean
@@ -23935,6 +23957,7 @@ export namespace Prisma {
   export type FeatureSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     featureId?: boolean
     name?: boolean
+    engName?: boolean
     description?: boolean
     shortDescription?: boolean
     modifiesStats?: boolean
@@ -23948,6 +23971,7 @@ export namespace Prisma {
   export type FeatureSelectScalar = {
     featureId?: boolean
     name?: boolean
+    engName?: boolean
     description?: boolean
     shortDescription?: boolean
     modifiesStats?: boolean
@@ -23958,7 +23982,7 @@ export namespace Prisma {
     updatedAt?: boolean
   }
 
-  export type FeatureOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"featureId" | "name" | "description" | "shortDescription" | "modifiesStats" | "limitedUsesPer" | "usesCount" | "displayType" | "createdAt" | "updatedAt", ExtArgs["result"]["feature"]>
+  export type FeatureOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"featureId" | "name" | "engName" | "description" | "shortDescription" | "modifiesStats" | "limitedUsesPer" | "usesCount" | "displayType" | "createdAt" | "updatedAt", ExtArgs["result"]["feature"]>
   export type FeatureInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     givesSpells?: boolean | Feature$givesSpellsArgs<ExtArgs>
     classFeatures?: boolean | Feature$classFeaturesArgs<ExtArgs>
@@ -23992,6 +24016,7 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       featureId: number
       name: string
+      engName: string
       description: string
       shortDescription: string | null
       modifiesStats: Prisma.JsonValue | null
@@ -24435,6 +24460,7 @@ export namespace Prisma {
   interface FeatureFieldRefs {
     readonly featureId: FieldRef<"Feature", 'Int'>
     readonly name: FieldRef<"Feature", 'String'>
+    readonly engName: FieldRef<"Feature", 'String'>
     readonly description: FieldRef<"Feature", 'String'>
     readonly shortDescription: FieldRef<"Feature", 'String'>
     readonly modifiesStats: FieldRef<"Feature", 'Json'>
@@ -37799,9 +37825,6 @@ export namespace Prisma {
     maxSelection: number | null
     languagesToChooseCount: number | null
     modifiesSpeed: number | null
-    draconicDamageType: $Enums.DamageType | null
-    breathWeaponShape: $Enums.AOEShapes | null
-    breathWeaponAOE: string | null
   }
 
   export type RaceChoiceOptionMaxAggregateOutputType = {
@@ -37815,9 +37838,6 @@ export namespace Prisma {
     maxSelection: number | null
     languagesToChooseCount: number | null
     modifiesSpeed: number | null
-    draconicDamageType: $Enums.DamageType | null
-    breathWeaponShape: $Enums.AOEShapes | null
-    breathWeaponAOE: string | null
   }
 
   export type RaceChoiceOptionCountAggregateOutputType = {
@@ -37834,9 +37854,6 @@ export namespace Prisma {
     grantsLanguages: number
     languagesToChooseCount: number
     modifiesSpeed: number
-    draconicDamageType: number
-    breathWeaponShape: number
-    breathWeaponAOE: number
     _all: number
   }
 
@@ -37870,9 +37887,6 @@ export namespace Prisma {
     maxSelection?: true
     languagesToChooseCount?: true
     modifiesSpeed?: true
-    draconicDamageType?: true
-    breathWeaponShape?: true
-    breathWeaponAOE?: true
   }
 
   export type RaceChoiceOptionMaxAggregateInputType = {
@@ -37886,9 +37900,6 @@ export namespace Prisma {
     maxSelection?: true
     languagesToChooseCount?: true
     modifiesSpeed?: true
-    draconicDamageType?: true
-    breathWeaponShape?: true
-    breathWeaponAOE?: true
   }
 
   export type RaceChoiceOptionCountAggregateInputType = {
@@ -37905,9 +37916,6 @@ export namespace Prisma {
     grantsLanguages?: true
     languagesToChooseCount?: true
     modifiesSpeed?: true
-    draconicDamageType?: true
-    breathWeaponShape?: true
-    breathWeaponAOE?: true
     _all?: true
   }
 
@@ -38011,9 +38019,6 @@ export namespace Prisma {
     grantsLanguages: $Enums.Language[]
     languagesToChooseCount: number
     modifiesSpeed: number | null
-    draconicDamageType: $Enums.DamageType | null
-    breathWeaponShape: $Enums.AOEShapes | null
-    breathWeaponAOE: string | null
     _count: RaceChoiceOptionCountAggregateOutputType | null
     _avg: RaceChoiceOptionAvgAggregateOutputType | null
     _sum: RaceChoiceOptionSumAggregateOutputType | null
@@ -38049,9 +38054,6 @@ export namespace Prisma {
     grantsLanguages?: boolean
     languagesToChooseCount?: boolean
     modifiesSpeed?: boolean
-    draconicDamageType?: boolean
-    breathWeaponShape?: boolean
-    breathWeaponAOE?: boolean
     grantsTraits?: boolean | RaceChoiceOption$grantsTraitsArgs<ExtArgs>
     race?: boolean | RaceDefaultArgs<ExtArgs>
     subrace?: boolean | RaceChoiceOption$subraceArgs<ExtArgs>
@@ -38073,9 +38075,6 @@ export namespace Prisma {
     grantsLanguages?: boolean
     languagesToChooseCount?: boolean
     modifiesSpeed?: boolean
-    draconicDamageType?: boolean
-    breathWeaponShape?: boolean
-    breathWeaponAOE?: boolean
     race?: boolean | RaceDefaultArgs<ExtArgs>
     subrace?: boolean | RaceChoiceOption$subraceArgs<ExtArgs>
   }, ExtArgs["result"]["raceChoiceOption"]>
@@ -38094,9 +38093,6 @@ export namespace Prisma {
     grantsLanguages?: boolean
     languagesToChooseCount?: boolean
     modifiesSpeed?: boolean
-    draconicDamageType?: boolean
-    breathWeaponShape?: boolean
-    breathWeaponAOE?: boolean
     race?: boolean | RaceDefaultArgs<ExtArgs>
     subrace?: boolean | RaceChoiceOption$subraceArgs<ExtArgs>
   }, ExtArgs["result"]["raceChoiceOption"]>
@@ -38115,12 +38111,9 @@ export namespace Prisma {
     grantsLanguages?: boolean
     languagesToChooseCount?: boolean
     modifiesSpeed?: boolean
-    draconicDamageType?: boolean
-    breathWeaponShape?: boolean
-    breathWeaponAOE?: boolean
   }
 
-  export type RaceChoiceOptionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"optionId" | "raceId" | "subraceId" | "choiceGroupName" | "optionName" | "description" | "selectMultiple" | "maxSelection" | "grantsASI" | "grantsSkillProficiencies" | "grantsLanguages" | "languagesToChooseCount" | "modifiesSpeed" | "draconicDamageType" | "breathWeaponShape" | "breathWeaponAOE", ExtArgs["result"]["raceChoiceOption"]>
+  export type RaceChoiceOptionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"optionId" | "raceId" | "subraceId" | "choiceGroupName" | "optionName" | "description" | "selectMultiple" | "maxSelection" | "grantsASI" | "grantsSkillProficiencies" | "grantsLanguages" | "languagesToChooseCount" | "modifiesSpeed", ExtArgs["result"]["raceChoiceOption"]>
   export type RaceChoiceOptionInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     grantsTraits?: boolean | RaceChoiceOption$grantsTraitsArgs<ExtArgs>
     race?: boolean | RaceDefaultArgs<ExtArgs>
@@ -38159,9 +38152,6 @@ export namespace Prisma {
       grantsLanguages: $Enums.Language[]
       languagesToChooseCount: number
       modifiesSpeed: number | null
-      draconicDamageType: $Enums.DamageType | null
-      breathWeaponShape: $Enums.AOEShapes | null
-      breathWeaponAOE: string | null
     }, ExtArgs["result"]["raceChoiceOption"]>
     composites: {}
   }
@@ -38602,9 +38592,6 @@ export namespace Prisma {
     readonly grantsLanguages: FieldRef<"RaceChoiceOption", 'Language[]'>
     readonly languagesToChooseCount: FieldRef<"RaceChoiceOption", 'Int'>
     readonly modifiesSpeed: FieldRef<"RaceChoiceOption", 'Int'>
-    readonly draconicDamageType: FieldRef<"RaceChoiceOption", 'DamageType'>
-    readonly breathWeaponShape: FieldRef<"RaceChoiceOption", 'AOEShapes'>
-    readonly breathWeaponAOE: FieldRef<"RaceChoiceOption", 'String'>
   }
     
 
@@ -39113,6 +39100,8 @@ export namespace Prisma {
     name: $Enums.BackgroundCategory | null
     source: $Enums.Source | null
     languagesToChooseCount: number | null
+    specialAbilityName: string | null
+    description: string | null
   }
 
   export type BackgroundMaxAggregateOutputType = {
@@ -39120,6 +39109,8 @@ export namespace Prisma {
     name: $Enums.BackgroundCategory | null
     source: $Enums.Source | null
     languagesToChooseCount: number | null
+    specialAbilityName: string | null
+    description: string | null
   }
 
   export type BackgroundCountAggregateOutputType = {
@@ -39130,6 +39121,8 @@ export namespace Prisma {
     skillProficiencies: number
     languagesToChooseCount: number
     items: number
+    specialAbilityName: number
+    description: number
     _all: number
   }
 
@@ -39149,6 +39142,8 @@ export namespace Prisma {
     name?: true
     source?: true
     languagesToChooseCount?: true
+    specialAbilityName?: true
+    description?: true
   }
 
   export type BackgroundMaxAggregateInputType = {
@@ -39156,6 +39151,8 @@ export namespace Prisma {
     name?: true
     source?: true
     languagesToChooseCount?: true
+    specialAbilityName?: true
+    description?: true
   }
 
   export type BackgroundCountAggregateInputType = {
@@ -39166,6 +39163,8 @@ export namespace Prisma {
     skillProficiencies?: true
     languagesToChooseCount?: true
     items?: true
+    specialAbilityName?: true
+    description?: true
     _all?: true
   }
 
@@ -39263,6 +39262,8 @@ export namespace Prisma {
     skillProficiencies: $Enums.Skills[]
     languagesToChooseCount: number
     items: JsonValue | null
+    specialAbilityName: string | null
+    description: string | null
     _count: BackgroundCountAggregateOutputType | null
     _avg: BackgroundAvgAggregateOutputType | null
     _sum: BackgroundSumAggregateOutputType | null
@@ -39292,6 +39293,8 @@ export namespace Prisma {
     skillProficiencies?: boolean
     languagesToChooseCount?: boolean
     items?: boolean
+    specialAbilityName?: boolean
+    description?: boolean
     perses?: boolean | Background$persesArgs<ExtArgs>
     _count?: boolean | BackgroundCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["background"]>
@@ -39304,6 +39307,8 @@ export namespace Prisma {
     skillProficiencies?: boolean
     languagesToChooseCount?: boolean
     items?: boolean
+    specialAbilityName?: boolean
+    description?: boolean
   }, ExtArgs["result"]["background"]>
 
   export type BackgroundSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -39314,6 +39319,8 @@ export namespace Prisma {
     skillProficiencies?: boolean
     languagesToChooseCount?: boolean
     items?: boolean
+    specialAbilityName?: boolean
+    description?: boolean
   }, ExtArgs["result"]["background"]>
 
   export type BackgroundSelectScalar = {
@@ -39324,9 +39331,11 @@ export namespace Prisma {
     skillProficiencies?: boolean
     languagesToChooseCount?: boolean
     items?: boolean
+    specialAbilityName?: boolean
+    description?: boolean
   }
 
-  export type BackgroundOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"backgroundId" | "name" | "source" | "toolProficiencies" | "skillProficiencies" | "languagesToChooseCount" | "items", ExtArgs["result"]["background"]>
+  export type BackgroundOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"backgroundId" | "name" | "source" | "toolProficiencies" | "skillProficiencies" | "languagesToChooseCount" | "items" | "specialAbilityName" | "description", ExtArgs["result"]["background"]>
   export type BackgroundInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     perses?: boolean | Background$persesArgs<ExtArgs>
     _count?: boolean | BackgroundCountOutputTypeDefaultArgs<ExtArgs>
@@ -39347,6 +39356,8 @@ export namespace Prisma {
       skillProficiencies: $Enums.Skills[]
       languagesToChooseCount: number
       items: Prisma.JsonValue | null
+      specialAbilityName: string | null
+      description: string | null
     }, ExtArgs["result"]["background"]>
     composites: {}
   }
@@ -39778,6 +39789,8 @@ export namespace Prisma {
     readonly skillProficiencies: FieldRef<"Background", 'Skills[]'>
     readonly languagesToChooseCount: FieldRef<"Background", 'Int'>
     readonly items: FieldRef<"Background", 'Json'>
+    readonly specialAbilityName: FieldRef<"Background", 'String'>
+    readonly description: FieldRef<"Background", 'String'>
   }
     
 
@@ -54136,6 +54149,7 @@ export namespace Prisma {
   export const SpellScalarFieldEnum: {
     spellId: 'spellId',
     name: 'name',
+    engName: 'engName',
     level: 'level',
     school: 'school',
     castingTime: 'castingTime',
@@ -54310,6 +54324,7 @@ export namespace Prisma {
   export const FeatureScalarFieldEnum: {
     featureId: 'featureId',
     name: 'name',
+    engName: 'engName',
     description: 'description',
     shortDescription: 'shortDescription',
     modifiesStats: 'modifiesStats',
@@ -54468,10 +54483,7 @@ export namespace Prisma {
     grantsSkillProficiencies: 'grantsSkillProficiencies',
     grantsLanguages: 'grantsLanguages',
     languagesToChooseCount: 'languagesToChooseCount',
-    modifiesSpeed: 'modifiesSpeed',
-    draconicDamageType: 'draconicDamageType',
-    breathWeaponShape: 'breathWeaponShape',
-    breathWeaponAOE: 'breathWeaponAOE'
+    modifiesSpeed: 'modifiesSpeed'
   };
 
   export type RaceChoiceOptionScalarFieldEnum = (typeof RaceChoiceOptionScalarFieldEnum)[keyof typeof RaceChoiceOptionScalarFieldEnum]
@@ -54484,7 +54496,9 @@ export namespace Prisma {
     toolProficiencies: 'toolProficiencies',
     skillProficiencies: 'skillProficiencies',
     languagesToChooseCount: 'languagesToChooseCount',
-    items: 'items'
+    items: 'items',
+    specialAbilityName: 'specialAbilityName',
+    description: 'description'
   };
 
   export type BackgroundScalarFieldEnum = (typeof BackgroundScalarFieldEnum)[keyof typeof BackgroundScalarFieldEnum]
@@ -54974,34 +54988,6 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'DamageType'
-   */
-  export type EnumDamageTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DamageType'>
-    
-
-
-  /**
-   * Reference to a field of type 'DamageType[]'
-   */
-  export type ListEnumDamageTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DamageType[]'>
-    
-
-
-  /**
-   * Reference to a field of type 'AOEShapes'
-   */
-  export type EnumAOEShapesFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AOEShapes'>
-    
-
-
-  /**
-   * Reference to a field of type 'AOEShapes[]'
-   */
-  export type ListEnumAOEShapesFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AOEShapes[]'>
-    
-
-
-  /**
    * Reference to a field of type 'BackgroundCategory'
    */
   export type EnumBackgroundCategoryFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BackgroundCategory'>
@@ -55054,6 +55040,20 @@ export namespace Prisma {
    * Reference to a field of type 'ItemRarity[]'
    */
   export type ListEnumItemRarityFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ItemRarity[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'DamageType'
+   */
+  export type EnumDamageTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DamageType'>
+    
+
+
+  /**
+   * Reference to a field of type 'DamageType[]'
+   */
+  export type ListEnumDamageTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DamageType[]'>
     
 
 
@@ -55435,6 +55435,7 @@ export namespace Prisma {
     NOT?: SpellWhereInput | SpellWhereInput[]
     spellId?: IntFilter<"Spell"> | number
     name?: StringFilter<"Spell"> | string
+    engName?: StringFilter<"Spell"> | string
     level?: IntFilter<"Spell"> | number
     school?: StringNullableFilter<"Spell"> | string | null
     castingTime?: StringFilter<"Spell"> | string
@@ -55457,6 +55458,7 @@ export namespace Prisma {
   export type SpellOrderByWithRelationInput = {
     spellId?: SortOrder
     name?: SortOrder
+    engName?: SortOrder
     level?: SortOrder
     school?: SortOrderInput | SortOrder
     castingTime?: SortOrder
@@ -55479,6 +55481,7 @@ export namespace Prisma {
   export type SpellWhereUniqueInput = Prisma.AtLeast<{
     spellId?: number
     name?: string
+    engName?: string
     AND?: SpellWhereInput | SpellWhereInput[]
     OR?: SpellWhereInput[]
     NOT?: SpellWhereInput | SpellWhereInput[]
@@ -55499,11 +55502,12 @@ export namespace Prisma {
     subclasses?: SubclassListRelationFilter
     perses?: PersListRelationFilter
     features?: FeatureListRelationFilter
-  }, "spellId" | "name">
+  }, "spellId" | "name" | "engName">
 
   export type SpellOrderByWithAggregationInput = {
     spellId?: SortOrder
     name?: SortOrder
+    engName?: SortOrder
     level?: SortOrder
     school?: SortOrderInput | SortOrder
     castingTime?: SortOrder
@@ -55527,6 +55531,7 @@ export namespace Prisma {
     NOT?: SpellScalarWhereWithAggregatesInput | SpellScalarWhereWithAggregatesInput[]
     spellId?: IntWithAggregatesFilter<"Spell"> | number
     name?: StringWithAggregatesFilter<"Spell"> | string
+    engName?: StringWithAggregatesFilter<"Spell"> | string
     level?: IntWithAggregatesFilter<"Spell"> | number
     school?: StringNullableWithAggregatesFilter<"Spell"> | string | null
     castingTime?: StringWithAggregatesFilter<"Spell"> | string
@@ -56438,6 +56443,7 @@ export namespace Prisma {
     NOT?: FeatureWhereInput | FeatureWhereInput[]
     featureId?: IntFilter<"Feature"> | number
     name?: StringFilter<"Feature"> | string
+    engName?: StringFilter<"Feature"> | string
     description?: StringFilter<"Feature"> | string
     shortDescription?: StringNullableFilter<"Feature"> | string | null
     modifiesStats?: JsonNullableFilter<"Feature">
@@ -56461,6 +56467,7 @@ export namespace Prisma {
   export type FeatureOrderByWithRelationInput = {
     featureId?: SortOrder
     name?: SortOrder
+    engName?: SortOrder
     description?: SortOrder
     shortDescription?: SortOrderInput | SortOrder
     modifiesStats?: SortOrderInput | SortOrder
@@ -56483,10 +56490,11 @@ export namespace Prisma {
 
   export type FeatureWhereUniqueInput = Prisma.AtLeast<{
     featureId?: number
+    name?: string
+    engName?: string
     AND?: FeatureWhereInput | FeatureWhereInput[]
     OR?: FeatureWhereInput[]
     NOT?: FeatureWhereInput | FeatureWhereInput[]
-    name?: StringFilter<"Feature"> | string
     description?: StringFilter<"Feature"> | string
     shortDescription?: StringNullableFilter<"Feature"> | string | null
     modifiesStats?: JsonNullableFilter<"Feature">
@@ -56505,11 +56513,12 @@ export namespace Prisma {
     featFeatures?: FeatFeatureListRelationFilter
     magicItemFeatures?: MagicItemFeatureListRelationFilter
     persFeatures?: PersFeatureListRelationFilter
-  }, "featureId" | "featureId">
+  }, "featureId" | "featureId" | "name" | "engName">
 
   export type FeatureOrderByWithAggregationInput = {
     featureId?: SortOrder
     name?: SortOrder
+    engName?: SortOrder
     description?: SortOrder
     shortDescription?: SortOrderInput | SortOrder
     modifiesStats?: SortOrderInput | SortOrder
@@ -56531,6 +56540,7 @@ export namespace Prisma {
     NOT?: FeatureScalarWhereWithAggregatesInput | FeatureScalarWhereWithAggregatesInput[]
     featureId?: IntWithAggregatesFilter<"Feature"> | number
     name?: StringWithAggregatesFilter<"Feature"> | string
+    engName?: StringWithAggregatesFilter<"Feature"> | string
     description?: StringWithAggregatesFilter<"Feature"> | string
     shortDescription?: StringNullableWithAggregatesFilter<"Feature"> | string | null
     modifiesStats?: JsonNullableWithAggregatesFilter<"Feature">
@@ -57304,9 +57314,6 @@ export namespace Prisma {
     grantsLanguages?: EnumLanguageNullableListFilter<"RaceChoiceOption">
     languagesToChooseCount?: IntFilter<"RaceChoiceOption"> | number
     modifiesSpeed?: IntNullableFilter<"RaceChoiceOption"> | number | null
-    draconicDamageType?: EnumDamageTypeNullableFilter<"RaceChoiceOption"> | $Enums.DamageType | null
-    breathWeaponShape?: EnumAOEShapesNullableFilter<"RaceChoiceOption"> | $Enums.AOEShapes | null
-    breathWeaponAOE?: StringNullableFilter<"RaceChoiceOption"> | string | null
     grantsTraits?: RaceChoiceOptionTraitListRelationFilter
     race?: XOR<RaceScalarRelationFilter, RaceWhereInput>
     subrace?: XOR<SubraceNullableScalarRelationFilter, SubraceWhereInput> | null
@@ -57327,9 +57334,6 @@ export namespace Prisma {
     grantsLanguages?: SortOrder
     languagesToChooseCount?: SortOrder
     modifiesSpeed?: SortOrderInput | SortOrder
-    draconicDamageType?: SortOrderInput | SortOrder
-    breathWeaponShape?: SortOrderInput | SortOrder
-    breathWeaponAOE?: SortOrderInput | SortOrder
     grantsTraits?: RaceChoiceOptionTraitOrderByRelationAggregateInput
     race?: RaceOrderByWithRelationInput
     subrace?: SubraceOrderByWithRelationInput
@@ -57354,9 +57358,6 @@ export namespace Prisma {
     grantsLanguages?: EnumLanguageNullableListFilter<"RaceChoiceOption">
     languagesToChooseCount?: IntFilter<"RaceChoiceOption"> | number
     modifiesSpeed?: IntNullableFilter<"RaceChoiceOption"> | number | null
-    draconicDamageType?: EnumDamageTypeNullableFilter<"RaceChoiceOption"> | $Enums.DamageType | null
-    breathWeaponShape?: EnumAOEShapesNullableFilter<"RaceChoiceOption"> | $Enums.AOEShapes | null
-    breathWeaponAOE?: StringNullableFilter<"RaceChoiceOption"> | string | null
     grantsTraits?: RaceChoiceOptionTraitListRelationFilter
     race?: XOR<RaceScalarRelationFilter, RaceWhereInput>
     subrace?: XOR<SubraceNullableScalarRelationFilter, SubraceWhereInput> | null
@@ -57377,9 +57378,6 @@ export namespace Prisma {
     grantsLanguages?: SortOrder
     languagesToChooseCount?: SortOrder
     modifiesSpeed?: SortOrderInput | SortOrder
-    draconicDamageType?: SortOrderInput | SortOrder
-    breathWeaponShape?: SortOrderInput | SortOrder
-    breathWeaponAOE?: SortOrderInput | SortOrder
     _count?: RaceChoiceOptionCountOrderByAggregateInput
     _avg?: RaceChoiceOptionAvgOrderByAggregateInput
     _max?: RaceChoiceOptionMaxOrderByAggregateInput
@@ -57404,9 +57402,6 @@ export namespace Prisma {
     grantsLanguages?: EnumLanguageNullableListFilter<"RaceChoiceOption">
     languagesToChooseCount?: IntWithAggregatesFilter<"RaceChoiceOption"> | number
     modifiesSpeed?: IntNullableWithAggregatesFilter<"RaceChoiceOption"> | number | null
-    draconicDamageType?: EnumDamageTypeNullableWithAggregatesFilter<"RaceChoiceOption"> | $Enums.DamageType | null
-    breathWeaponShape?: EnumAOEShapesNullableWithAggregatesFilter<"RaceChoiceOption"> | $Enums.AOEShapes | null
-    breathWeaponAOE?: StringNullableWithAggregatesFilter<"RaceChoiceOption"> | string | null
   }
 
   export type BackgroundWhereInput = {
@@ -57420,6 +57415,8 @@ export namespace Prisma {
     skillProficiencies?: EnumSkillsNullableListFilter<"Background">
     languagesToChooseCount?: IntFilter<"Background"> | number
     items?: JsonNullableFilter<"Background">
+    specialAbilityName?: StringNullableFilter<"Background"> | string | null
+    description?: StringNullableFilter<"Background"> | string | null
     perses?: PersListRelationFilter
   }
 
@@ -57431,6 +57428,8 @@ export namespace Prisma {
     skillProficiencies?: SortOrder
     languagesToChooseCount?: SortOrder
     items?: SortOrderInput | SortOrder
+    specialAbilityName?: SortOrderInput | SortOrder
+    description?: SortOrderInput | SortOrder
     perses?: PersOrderByRelationAggregateInput
   }
 
@@ -57445,6 +57444,8 @@ export namespace Prisma {
     skillProficiencies?: EnumSkillsNullableListFilter<"Background">
     languagesToChooseCount?: IntFilter<"Background"> | number
     items?: JsonNullableFilter<"Background">
+    specialAbilityName?: StringNullableFilter<"Background"> | string | null
+    description?: StringNullableFilter<"Background"> | string | null
     perses?: PersListRelationFilter
   }, "backgroundId" | "name">
 
@@ -57456,6 +57457,8 @@ export namespace Prisma {
     skillProficiencies?: SortOrder
     languagesToChooseCount?: SortOrder
     items?: SortOrderInput | SortOrder
+    specialAbilityName?: SortOrderInput | SortOrder
+    description?: SortOrderInput | SortOrder
     _count?: BackgroundCountOrderByAggregateInput
     _avg?: BackgroundAvgOrderByAggregateInput
     _max?: BackgroundMaxOrderByAggregateInput
@@ -57474,6 +57477,8 @@ export namespace Prisma {
     skillProficiencies?: EnumSkillsNullableListFilter<"Background">
     languagesToChooseCount?: IntWithAggregatesFilter<"Background"> | number
     items?: JsonNullableWithAggregatesFilter<"Background">
+    specialAbilityName?: StringNullableWithAggregatesFilter<"Background"> | string | null
+    description?: StringNullableWithAggregatesFilter<"Background"> | string | null
   }
 
   export type FeatWhereInput = {
@@ -58661,6 +58666,7 @@ export namespace Prisma {
 
   export type SpellCreateInput = {
     name: string
+    engName: string
     level: number
     school?: string | null
     castingTime: string
@@ -58683,6 +58689,7 @@ export namespace Prisma {
   export type SpellUncheckedCreateInput = {
     spellId?: number
     name: string
+    engName: string
     level: number
     school?: string | null
     castingTime: string
@@ -58704,6 +58711,7 @@ export namespace Prisma {
 
   export type SpellUpdateInput = {
     name?: StringFieldUpdateOperationsInput | string
+    engName?: StringFieldUpdateOperationsInput | string
     level?: IntFieldUpdateOperationsInput | number
     school?: NullableStringFieldUpdateOperationsInput | string | null
     castingTime?: StringFieldUpdateOperationsInput | string
@@ -58726,6 +58734,7 @@ export namespace Prisma {
   export type SpellUncheckedUpdateInput = {
     spellId?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
+    engName?: StringFieldUpdateOperationsInput | string
     level?: IntFieldUpdateOperationsInput | number
     school?: NullableStringFieldUpdateOperationsInput | string | null
     castingTime?: StringFieldUpdateOperationsInput | string
@@ -58748,6 +58757,7 @@ export namespace Prisma {
   export type SpellCreateManyInput = {
     spellId?: number
     name: string
+    engName: string
     level: number
     school?: string | null
     castingTime: string
@@ -58762,6 +58772,7 @@ export namespace Prisma {
 
   export type SpellUpdateManyMutationInput = {
     name?: StringFieldUpdateOperationsInput | string
+    engName?: StringFieldUpdateOperationsInput | string
     level?: IntFieldUpdateOperationsInput | number
     school?: NullableStringFieldUpdateOperationsInput | string | null
     castingTime?: StringFieldUpdateOperationsInput | string
@@ -58777,6 +58788,7 @@ export namespace Prisma {
   export type SpellUncheckedUpdateManyInput = {
     spellId?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
+    engName?: StringFieldUpdateOperationsInput | string
     level?: IntFieldUpdateOperationsInput | number
     school?: NullableStringFieldUpdateOperationsInput | string | null
     castingTime?: StringFieldUpdateOperationsInput | string
@@ -59720,6 +59732,7 @@ export namespace Prisma {
 
   export type FeatureCreateInput = {
     name: string
+    engName: string
     description: string
     shortDescription?: string | null
     modifiesStats?: NullableJsonNullValueInput | InputJsonValue
@@ -59743,6 +59756,7 @@ export namespace Prisma {
   export type FeatureUncheckedCreateInput = {
     featureId?: number
     name: string
+    engName: string
     description: string
     shortDescription?: string | null
     modifiesStats?: NullableJsonNullValueInput | InputJsonValue
@@ -59765,6 +59779,7 @@ export namespace Prisma {
 
   export type FeatureUpdateInput = {
     name?: StringFieldUpdateOperationsInput | string
+    engName?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     shortDescription?: NullableStringFieldUpdateOperationsInput | string | null
     modifiesStats?: NullableJsonNullValueInput | InputJsonValue
@@ -59788,6 +59803,7 @@ export namespace Prisma {
   export type FeatureUncheckedUpdateInput = {
     featureId?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
+    engName?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     shortDescription?: NullableStringFieldUpdateOperationsInput | string | null
     modifiesStats?: NullableJsonNullValueInput | InputJsonValue
@@ -59811,6 +59827,7 @@ export namespace Prisma {
   export type FeatureCreateManyInput = {
     featureId?: number
     name: string
+    engName: string
     description: string
     shortDescription?: string | null
     modifiesStats?: NullableJsonNullValueInput | InputJsonValue
@@ -59823,6 +59840,7 @@ export namespace Prisma {
 
   export type FeatureUpdateManyMutationInput = {
     name?: StringFieldUpdateOperationsInput | string
+    engName?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     shortDescription?: NullableStringFieldUpdateOperationsInput | string | null
     modifiesStats?: NullableJsonNullValueInput | InputJsonValue
@@ -59836,6 +59854,7 @@ export namespace Prisma {
   export type FeatureUncheckedUpdateManyInput = {
     featureId?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
+    engName?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     shortDescription?: NullableStringFieldUpdateOperationsInput | string | null
     modifiesStats?: NullableJsonNullValueInput | InputJsonValue
@@ -60561,9 +60580,6 @@ export namespace Prisma {
     grantsLanguages?: RaceChoiceOptionCreategrantsLanguagesInput | $Enums.Language[]
     languagesToChooseCount?: number
     modifiesSpeed?: number | null
-    draconicDamageType?: $Enums.DamageType | null
-    breathWeaponShape?: $Enums.AOEShapes | null
-    breathWeaponAOE?: string | null
     grantsTraits?: RaceChoiceOptionTraitCreateNestedManyWithoutRaceChoiceOptionInput
     race: RaceCreateNestedOneWithoutRaceChoiceOptionsInput
     subrace?: SubraceCreateNestedOneWithoutRaceChoiceOptionsInput
@@ -60584,9 +60600,6 @@ export namespace Prisma {
     grantsLanguages?: RaceChoiceOptionCreategrantsLanguagesInput | $Enums.Language[]
     languagesToChooseCount?: number
     modifiesSpeed?: number | null
-    draconicDamageType?: $Enums.DamageType | null
-    breathWeaponShape?: $Enums.AOEShapes | null
-    breathWeaponAOE?: string | null
     grantsTraits?: RaceChoiceOptionTraitUncheckedCreateNestedManyWithoutRaceChoiceOptionInput
     perses?: PersUncheckedCreateNestedManyWithoutRaceChoiceOptionsInput
   }
@@ -60602,9 +60615,6 @@ export namespace Prisma {
     grantsLanguages?: RaceChoiceOptionUpdategrantsLanguagesInput | $Enums.Language[]
     languagesToChooseCount?: IntFieldUpdateOperationsInput | number
     modifiesSpeed?: NullableIntFieldUpdateOperationsInput | number | null
-    draconicDamageType?: NullableEnumDamageTypeFieldUpdateOperationsInput | $Enums.DamageType | null
-    breathWeaponShape?: NullableEnumAOEShapesFieldUpdateOperationsInput | $Enums.AOEShapes | null
-    breathWeaponAOE?: NullableStringFieldUpdateOperationsInput | string | null
     grantsTraits?: RaceChoiceOptionTraitUpdateManyWithoutRaceChoiceOptionNestedInput
     race?: RaceUpdateOneRequiredWithoutRaceChoiceOptionsNestedInput
     subrace?: SubraceUpdateOneWithoutRaceChoiceOptionsNestedInput
@@ -60625,9 +60635,6 @@ export namespace Prisma {
     grantsLanguages?: RaceChoiceOptionUpdategrantsLanguagesInput | $Enums.Language[]
     languagesToChooseCount?: IntFieldUpdateOperationsInput | number
     modifiesSpeed?: NullableIntFieldUpdateOperationsInput | number | null
-    draconicDamageType?: NullableEnumDamageTypeFieldUpdateOperationsInput | $Enums.DamageType | null
-    breathWeaponShape?: NullableEnumAOEShapesFieldUpdateOperationsInput | $Enums.AOEShapes | null
-    breathWeaponAOE?: NullableStringFieldUpdateOperationsInput | string | null
     grantsTraits?: RaceChoiceOptionTraitUncheckedUpdateManyWithoutRaceChoiceOptionNestedInput
     perses?: PersUncheckedUpdateManyWithoutRaceChoiceOptionsNestedInput
   }
@@ -60646,9 +60653,6 @@ export namespace Prisma {
     grantsLanguages?: RaceChoiceOptionCreategrantsLanguagesInput | $Enums.Language[]
     languagesToChooseCount?: number
     modifiesSpeed?: number | null
-    draconicDamageType?: $Enums.DamageType | null
-    breathWeaponShape?: $Enums.AOEShapes | null
-    breathWeaponAOE?: string | null
   }
 
   export type RaceChoiceOptionUpdateManyMutationInput = {
@@ -60662,9 +60666,6 @@ export namespace Prisma {
     grantsLanguages?: RaceChoiceOptionUpdategrantsLanguagesInput | $Enums.Language[]
     languagesToChooseCount?: IntFieldUpdateOperationsInput | number
     modifiesSpeed?: NullableIntFieldUpdateOperationsInput | number | null
-    draconicDamageType?: NullableEnumDamageTypeFieldUpdateOperationsInput | $Enums.DamageType | null
-    breathWeaponShape?: NullableEnumAOEShapesFieldUpdateOperationsInput | $Enums.AOEShapes | null
-    breathWeaponAOE?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type RaceChoiceOptionUncheckedUpdateManyInput = {
@@ -60681,9 +60682,6 @@ export namespace Prisma {
     grantsLanguages?: RaceChoiceOptionUpdategrantsLanguagesInput | $Enums.Language[]
     languagesToChooseCount?: IntFieldUpdateOperationsInput | number
     modifiesSpeed?: NullableIntFieldUpdateOperationsInput | number | null
-    draconicDamageType?: NullableEnumDamageTypeFieldUpdateOperationsInput | $Enums.DamageType | null
-    breathWeaponShape?: NullableEnumAOEShapesFieldUpdateOperationsInput | $Enums.AOEShapes | null
-    breathWeaponAOE?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type BackgroundCreateInput = {
@@ -60693,6 +60691,8 @@ export namespace Prisma {
     skillProficiencies?: BackgroundCreateskillProficienciesInput | $Enums.Skills[]
     languagesToChooseCount?: number
     items?: NullableJsonNullValueInput | InputJsonValue
+    specialAbilityName?: string | null
+    description?: string | null
     perses?: PersCreateNestedManyWithoutBackgroundInput
   }
 
@@ -60704,6 +60704,8 @@ export namespace Prisma {
     skillProficiencies?: BackgroundCreateskillProficienciesInput | $Enums.Skills[]
     languagesToChooseCount?: number
     items?: NullableJsonNullValueInput | InputJsonValue
+    specialAbilityName?: string | null
+    description?: string | null
     perses?: PersUncheckedCreateNestedManyWithoutBackgroundInput
   }
 
@@ -60714,6 +60716,8 @@ export namespace Prisma {
     skillProficiencies?: BackgroundUpdateskillProficienciesInput | $Enums.Skills[]
     languagesToChooseCount?: IntFieldUpdateOperationsInput | number
     items?: NullableJsonNullValueInput | InputJsonValue
+    specialAbilityName?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     perses?: PersUpdateManyWithoutBackgroundNestedInput
   }
 
@@ -60725,6 +60729,8 @@ export namespace Prisma {
     skillProficiencies?: BackgroundUpdateskillProficienciesInput | $Enums.Skills[]
     languagesToChooseCount?: IntFieldUpdateOperationsInput | number
     items?: NullableJsonNullValueInput | InputJsonValue
+    specialAbilityName?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     perses?: PersUncheckedUpdateManyWithoutBackgroundNestedInput
   }
 
@@ -60736,6 +60742,8 @@ export namespace Prisma {
     skillProficiencies?: BackgroundCreateskillProficienciesInput | $Enums.Skills[]
     languagesToChooseCount?: number
     items?: NullableJsonNullValueInput | InputJsonValue
+    specialAbilityName?: string | null
+    description?: string | null
   }
 
   export type BackgroundUpdateManyMutationInput = {
@@ -60745,6 +60753,8 @@ export namespace Prisma {
     skillProficiencies?: BackgroundUpdateskillProficienciesInput | $Enums.Skills[]
     languagesToChooseCount?: IntFieldUpdateOperationsInput | number
     items?: NullableJsonNullValueInput | InputJsonValue
+    specialAbilityName?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type BackgroundUncheckedUpdateManyInput = {
@@ -60755,6 +60765,8 @@ export namespace Prisma {
     skillProficiencies?: BackgroundUpdateskillProficienciesInput | $Enums.Skills[]
     languagesToChooseCount?: IntFieldUpdateOperationsInput | number
     items?: NullableJsonNullValueInput | InputJsonValue
+    specialAbilityName?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type FeatCreateInput = {
@@ -61985,6 +61997,7 @@ export namespace Prisma {
   export type SpellCountOrderByAggregateInput = {
     spellId?: SortOrder
     name?: SortOrder
+    engName?: SortOrder
     level?: SortOrder
     school?: SortOrder
     castingTime?: SortOrder
@@ -62005,6 +62018,7 @@ export namespace Prisma {
   export type SpellMaxOrderByAggregateInput = {
     spellId?: SortOrder
     name?: SortOrder
+    engName?: SortOrder
     level?: SortOrder
     school?: SortOrder
     castingTime?: SortOrder
@@ -62020,6 +62034,7 @@ export namespace Prisma {
   export type SpellMinOrderByAggregateInput = {
     spellId?: SortOrder
     name?: SortOrder
+    engName?: SortOrder
     level?: SortOrder
     school?: SortOrder
     castingTime?: SortOrder
@@ -63042,6 +63057,7 @@ export namespace Prisma {
   export type FeatureCountOrderByAggregateInput = {
     featureId?: SortOrder
     name?: SortOrder
+    engName?: SortOrder
     description?: SortOrder
     shortDescription?: SortOrder
     modifiesStats?: SortOrder
@@ -63060,6 +63076,7 @@ export namespace Prisma {
   export type FeatureMaxOrderByAggregateInput = {
     featureId?: SortOrder
     name?: SortOrder
+    engName?: SortOrder
     description?: SortOrder
     shortDescription?: SortOrder
     limitedUsesPer?: SortOrder
@@ -63072,6 +63089,7 @@ export namespace Prisma {
   export type FeatureMinOrderByAggregateInput = {
     featureId?: SortOrder
     name?: SortOrder
+    engName?: SortOrder
     description?: SortOrder
     shortDescription?: SortOrder
     limitedUsesPer?: SortOrder
@@ -63694,20 +63712,6 @@ export namespace Prisma {
     _max?: NestedEnumVariantsFilter<$PrismaModel>
   }
 
-  export type EnumDamageTypeNullableFilter<$PrismaModel = never> = {
-    equals?: $Enums.DamageType | EnumDamageTypeFieldRefInput<$PrismaModel> | null
-    in?: $Enums.DamageType[] | ListEnumDamageTypeFieldRefInput<$PrismaModel> | null
-    notIn?: $Enums.DamageType[] | ListEnumDamageTypeFieldRefInput<$PrismaModel> | null
-    not?: NestedEnumDamageTypeNullableFilter<$PrismaModel> | $Enums.DamageType | null
-  }
-
-  export type EnumAOEShapesNullableFilter<$PrismaModel = never> = {
-    equals?: $Enums.AOEShapes | EnumAOEShapesFieldRefInput<$PrismaModel> | null
-    in?: $Enums.AOEShapes[] | ListEnumAOEShapesFieldRefInput<$PrismaModel> | null
-    notIn?: $Enums.AOEShapes[] | ListEnumAOEShapesFieldRefInput<$PrismaModel> | null
-    not?: NestedEnumAOEShapesNullableFilter<$PrismaModel> | $Enums.AOEShapes | null
-  }
-
   export type RaceChoiceOptionRaceIdSubraceIdChoiceGroupNameOptionNameCompoundUniqueInput = {
     raceId: number
     subraceId: number
@@ -63729,9 +63733,6 @@ export namespace Prisma {
     grantsLanguages?: SortOrder
     languagesToChooseCount?: SortOrder
     modifiesSpeed?: SortOrder
-    draconicDamageType?: SortOrder
-    breathWeaponShape?: SortOrder
-    breathWeaponAOE?: SortOrder
   }
 
   export type RaceChoiceOptionAvgOrderByAggregateInput = {
@@ -63754,9 +63755,6 @@ export namespace Prisma {
     maxSelection?: SortOrder
     languagesToChooseCount?: SortOrder
     modifiesSpeed?: SortOrder
-    draconicDamageType?: SortOrder
-    breathWeaponShape?: SortOrder
-    breathWeaponAOE?: SortOrder
   }
 
   export type RaceChoiceOptionMinOrderByAggregateInput = {
@@ -63770,9 +63768,6 @@ export namespace Prisma {
     maxSelection?: SortOrder
     languagesToChooseCount?: SortOrder
     modifiesSpeed?: SortOrder
-    draconicDamageType?: SortOrder
-    breathWeaponShape?: SortOrder
-    breathWeaponAOE?: SortOrder
   }
 
   export type RaceChoiceOptionSumOrderByAggregateInput = {
@@ -63782,26 +63777,6 @@ export namespace Prisma {
     maxSelection?: SortOrder
     languagesToChooseCount?: SortOrder
     modifiesSpeed?: SortOrder
-  }
-
-  export type EnumDamageTypeNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.DamageType | EnumDamageTypeFieldRefInput<$PrismaModel> | null
-    in?: $Enums.DamageType[] | ListEnumDamageTypeFieldRefInput<$PrismaModel> | null
-    notIn?: $Enums.DamageType[] | ListEnumDamageTypeFieldRefInput<$PrismaModel> | null
-    not?: NestedEnumDamageTypeNullableWithAggregatesFilter<$PrismaModel> | $Enums.DamageType | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedEnumDamageTypeNullableFilter<$PrismaModel>
-    _max?: NestedEnumDamageTypeNullableFilter<$PrismaModel>
-  }
-
-  export type EnumAOEShapesNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.AOEShapes | EnumAOEShapesFieldRefInput<$PrismaModel> | null
-    in?: $Enums.AOEShapes[] | ListEnumAOEShapesFieldRefInput<$PrismaModel> | null
-    notIn?: $Enums.AOEShapes[] | ListEnumAOEShapesFieldRefInput<$PrismaModel> | null
-    not?: NestedEnumAOEShapesNullableWithAggregatesFilter<$PrismaModel> | $Enums.AOEShapes | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedEnumAOEShapesNullableFilter<$PrismaModel>
-    _max?: NestedEnumAOEShapesNullableFilter<$PrismaModel>
   }
 
   export type EnumBackgroundCategoryFilter<$PrismaModel = never> = {
@@ -63819,6 +63794,8 @@ export namespace Prisma {
     skillProficiencies?: SortOrder
     languagesToChooseCount?: SortOrder
     items?: SortOrder
+    specialAbilityName?: SortOrder
+    description?: SortOrder
   }
 
   export type BackgroundAvgOrderByAggregateInput = {
@@ -63831,6 +63808,8 @@ export namespace Prisma {
     name?: SortOrder
     source?: SortOrder
     languagesToChooseCount?: SortOrder
+    specialAbilityName?: SortOrder
+    description?: SortOrder
   }
 
   export type BackgroundMinOrderByAggregateInput = {
@@ -63838,6 +63817,8 @@ export namespace Prisma {
     name?: SortOrder
     source?: SortOrder
     languagesToChooseCount?: SortOrder
+    specialAbilityName?: SortOrder
+    description?: SortOrder
   }
 
   export type BackgroundSumOrderByAggregateInput = {
@@ -64329,6 +64310,13 @@ export namespace Prisma {
     _max?: NestedEnumSkillsFilter<$PrismaModel>
   }
 
+  export type EnumDamageTypeNullableFilter<$PrismaModel = never> = {
+    equals?: $Enums.DamageType | EnumDamageTypeFieldRefInput<$PrismaModel> | null
+    in?: $Enums.DamageType[] | ListEnumDamageTypeFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.DamageType[] | ListEnumDamageTypeFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumDamageTypeNullableFilter<$PrismaModel> | $Enums.DamageType | null
+  }
+
   export type WeaponScalarRelationFilter = {
     is?: WeaponWhereInput
     isNot?: WeaponWhereInput
@@ -64392,6 +64380,16 @@ export namespace Prisma {
     attackBonus?: SortOrder
     overrideNormalRange?: SortOrder
     overrideLongRange?: SortOrder
+  }
+
+  export type EnumDamageTypeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.DamageType | EnumDamageTypeFieldRefInput<$PrismaModel> | null
+    in?: $Enums.DamageType[] | ListEnumDamageTypeFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.DamageType[] | ListEnumDamageTypeFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumDamageTypeNullableWithAggregatesFilter<$PrismaModel> | $Enums.DamageType | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedEnumDamageTypeNullableFilter<$PrismaModel>
+    _max?: NestedEnumDamageTypeNullableFilter<$PrismaModel>
   }
 
   export type ArmorScalarRelationFilter = {
@@ -67760,14 +67758,6 @@ export namespace Prisma {
     push?: $Enums.Language | $Enums.Language[]
   }
 
-  export type NullableEnumDamageTypeFieldUpdateOperationsInput = {
-    set?: $Enums.DamageType | null
-  }
-
-  export type NullableEnumAOEShapesFieldUpdateOperationsInput = {
-    set?: $Enums.AOEShapes | null
-  }
-
   export type RaceChoiceOptionTraitUpdateManyWithoutRaceChoiceOptionNestedInput = {
     create?: XOR<RaceChoiceOptionTraitCreateWithoutRaceChoiceOptionInput, RaceChoiceOptionTraitUncheckedCreateWithoutRaceChoiceOptionInput> | RaceChoiceOptionTraitCreateWithoutRaceChoiceOptionInput[] | RaceChoiceOptionTraitUncheckedCreateWithoutRaceChoiceOptionInput[]
     connectOrCreate?: RaceChoiceOptionTraitCreateOrConnectWithoutRaceChoiceOptionInput | RaceChoiceOptionTraitCreateOrConnectWithoutRaceChoiceOptionInput[]
@@ -68407,6 +68397,10 @@ export namespace Prisma {
     connect?: WeaponWhereUniqueInput
   }
 
+  export type NullableEnumDamageTypeFieldUpdateOperationsInput = {
+    set?: $Enums.DamageType | null
+  }
+
   export type PersUpdateOneRequiredWithoutWeaponsNestedInput = {
     create?: XOR<PersCreateWithoutWeaponsInput, PersUncheckedCreateWithoutWeaponsInput>
     connectOrCreate?: PersCreateOrConnectWithoutWeaponsInput
@@ -68953,40 +68947,6 @@ export namespace Prisma {
     _max?: NestedEnumVariantsFilter<$PrismaModel>
   }
 
-  export type NestedEnumDamageTypeNullableFilter<$PrismaModel = never> = {
-    equals?: $Enums.DamageType | EnumDamageTypeFieldRefInput<$PrismaModel> | null
-    in?: $Enums.DamageType[] | ListEnumDamageTypeFieldRefInput<$PrismaModel> | null
-    notIn?: $Enums.DamageType[] | ListEnumDamageTypeFieldRefInput<$PrismaModel> | null
-    not?: NestedEnumDamageTypeNullableFilter<$PrismaModel> | $Enums.DamageType | null
-  }
-
-  export type NestedEnumAOEShapesNullableFilter<$PrismaModel = never> = {
-    equals?: $Enums.AOEShapes | EnumAOEShapesFieldRefInput<$PrismaModel> | null
-    in?: $Enums.AOEShapes[] | ListEnumAOEShapesFieldRefInput<$PrismaModel> | null
-    notIn?: $Enums.AOEShapes[] | ListEnumAOEShapesFieldRefInput<$PrismaModel> | null
-    not?: NestedEnumAOEShapesNullableFilter<$PrismaModel> | $Enums.AOEShapes | null
-  }
-
-  export type NestedEnumDamageTypeNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.DamageType | EnumDamageTypeFieldRefInput<$PrismaModel> | null
-    in?: $Enums.DamageType[] | ListEnumDamageTypeFieldRefInput<$PrismaModel> | null
-    notIn?: $Enums.DamageType[] | ListEnumDamageTypeFieldRefInput<$PrismaModel> | null
-    not?: NestedEnumDamageTypeNullableWithAggregatesFilter<$PrismaModel> | $Enums.DamageType | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedEnumDamageTypeNullableFilter<$PrismaModel>
-    _max?: NestedEnumDamageTypeNullableFilter<$PrismaModel>
-  }
-
-  export type NestedEnumAOEShapesNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.AOEShapes | EnumAOEShapesFieldRefInput<$PrismaModel> | null
-    in?: $Enums.AOEShapes[] | ListEnumAOEShapesFieldRefInput<$PrismaModel> | null
-    notIn?: $Enums.AOEShapes[] | ListEnumAOEShapesFieldRefInput<$PrismaModel> | null
-    not?: NestedEnumAOEShapesNullableWithAggregatesFilter<$PrismaModel> | $Enums.AOEShapes | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedEnumAOEShapesNullableFilter<$PrismaModel>
-    _max?: NestedEnumAOEShapesNullableFilter<$PrismaModel>
-  }
-
   export type NestedEnumBackgroundCategoryFilter<$PrismaModel = never> = {
     equals?: $Enums.BackgroundCategory | EnumBackgroundCategoryFieldRefInput<$PrismaModel>
     in?: $Enums.BackgroundCategory[] | ListEnumBackgroundCategoryFieldRefInput<$PrismaModel>
@@ -69174,6 +69134,23 @@ export namespace Prisma {
     _max?: NestedEnumSkillsFilter<$PrismaModel>
   }
 
+  export type NestedEnumDamageTypeNullableFilter<$PrismaModel = never> = {
+    equals?: $Enums.DamageType | EnumDamageTypeFieldRefInput<$PrismaModel> | null
+    in?: $Enums.DamageType[] | ListEnumDamageTypeFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.DamageType[] | ListEnumDamageTypeFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumDamageTypeNullableFilter<$PrismaModel> | $Enums.DamageType | null
+  }
+
+  export type NestedEnumDamageTypeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.DamageType | EnumDamageTypeFieldRefInput<$PrismaModel> | null
+    in?: $Enums.DamageType[] | ListEnumDamageTypeFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.DamageType[] | ListEnumDamageTypeFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumDamageTypeNullableWithAggregatesFilter<$PrismaModel> | $Enums.DamageType | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedEnumDamageTypeNullableFilter<$PrismaModel>
+    _max?: NestedEnumDamageTypeNullableFilter<$PrismaModel>
+  }
+
   export type NestedEnumEquipmentPackCategoryFilter<$PrismaModel = never> = {
     equals?: $Enums.EquipmentPackCategory | EnumEquipmentPackCategoryFieldRefInput<$PrismaModel>
     in?: $Enums.EquipmentPackCategory[] | ListEnumEquipmentPackCategoryFieldRefInput<$PrismaModel>
@@ -69333,6 +69310,7 @@ export namespace Prisma {
 
   export type SpellCreateWithoutCharacterSpellsInput = {
     name: string
+    engName: string
     level: number
     school?: string | null
     castingTime: string
@@ -69354,6 +69332,7 @@ export namespace Prisma {
   export type SpellUncheckedCreateWithoutCharacterSpellsInput = {
     spellId?: number
     name: string
+    engName: string
     level: number
     school?: string | null
     castingTime: string
@@ -69412,6 +69391,7 @@ export namespace Prisma {
 
   export type SpellUpdateWithoutCharacterSpellsInput = {
     name?: StringFieldUpdateOperationsInput | string
+    engName?: StringFieldUpdateOperationsInput | string
     level?: IntFieldUpdateOperationsInput | number
     school?: NullableStringFieldUpdateOperationsInput | string | null
     castingTime?: StringFieldUpdateOperationsInput | string
@@ -69433,6 +69413,7 @@ export namespace Prisma {
   export type SpellUncheckedUpdateWithoutCharacterSpellsInput = {
     spellId?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
+    engName?: StringFieldUpdateOperationsInput | string
     level?: IntFieldUpdateOperationsInput | number
     school?: NullableStringFieldUpdateOperationsInput | string | null
     castingTime?: StringFieldUpdateOperationsInput | string
@@ -69673,6 +69654,7 @@ export namespace Prisma {
 
   export type FeatureCreateWithoutGivesSpellsInput = {
     name: string
+    engName: string
     description: string
     shortDescription?: string | null
     modifiesStats?: NullableJsonNullValueInput | InputJsonValue
@@ -69695,6 +69677,7 @@ export namespace Prisma {
   export type FeatureUncheckedCreateWithoutGivesSpellsInput = {
     featureId?: number
     name: string
+    engName: string
     description: string
     shortDescription?: string | null
     modifiesStats?: NullableJsonNullValueInput | InputJsonValue
@@ -69926,6 +69909,7 @@ export namespace Prisma {
     NOT?: FeatureScalarWhereInput | FeatureScalarWhereInput[]
     featureId?: IntFilter<"Feature"> | number
     name?: StringFilter<"Feature"> | string
+    engName?: StringFilter<"Feature"> | string
     description?: StringFilter<"Feature"> | string
     shortDescription?: StringNullableFilter<"Feature"> | string | null
     modifiesStats?: JsonNullableFilter<"Feature">
@@ -69938,6 +69922,7 @@ export namespace Prisma {
 
   export type SpellCreateWithoutSpellClassesInput = {
     name: string
+    engName: string
     level: number
     school?: string | null
     castingTime: string
@@ -69959,6 +69944,7 @@ export namespace Prisma {
   export type SpellUncheckedCreateWithoutSpellClassesInput = {
     spellId?: number
     name: string
+    engName: string
     level: number
     school?: string | null
     castingTime: string
@@ -69995,6 +69981,7 @@ export namespace Prisma {
 
   export type SpellUpdateWithoutSpellClassesInput = {
     name?: StringFieldUpdateOperationsInput | string
+    engName?: StringFieldUpdateOperationsInput | string
     level?: IntFieldUpdateOperationsInput | number
     school?: NullableStringFieldUpdateOperationsInput | string | null
     castingTime?: StringFieldUpdateOperationsInput | string
@@ -70016,6 +70003,7 @@ export namespace Prisma {
   export type SpellUncheckedUpdateWithoutSpellClassesInput = {
     spellId?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
+    engName?: StringFieldUpdateOperationsInput | string
     level?: IntFieldUpdateOperationsInput | number
     school?: NullableStringFieldUpdateOperationsInput | string | null
     castingTime?: StringFieldUpdateOperationsInput | string
@@ -70036,6 +70024,7 @@ export namespace Prisma {
 
   export type SpellCreateWithoutSpellRacesInput = {
     name: string
+    engName: string
     level: number
     school?: string | null
     castingTime: string
@@ -70057,6 +70046,7 @@ export namespace Prisma {
   export type SpellUncheckedCreateWithoutSpellRacesInput = {
     spellId?: number
     name: string
+    engName: string
     level: number
     school?: string | null
     castingTime: string
@@ -70093,6 +70083,7 @@ export namespace Prisma {
 
   export type SpellUpdateWithoutSpellRacesInput = {
     name?: StringFieldUpdateOperationsInput | string
+    engName?: StringFieldUpdateOperationsInput | string
     level?: IntFieldUpdateOperationsInput | number
     school?: NullableStringFieldUpdateOperationsInput | string | null
     castingTime?: StringFieldUpdateOperationsInput | string
@@ -70114,6 +70105,7 @@ export namespace Prisma {
   export type SpellUncheckedUpdateWithoutSpellRacesInput = {
     spellId?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
+    engName?: StringFieldUpdateOperationsInput | string
     level?: IntFieldUpdateOperationsInput | number
     school?: NullableStringFieldUpdateOperationsInput | string | null
     castingTime?: StringFieldUpdateOperationsInput | string
@@ -70215,6 +70207,7 @@ export namespace Prisma {
 
   export type SpellCreateWithoutSpellbookSpellsInput = {
     name: string
+    engName: string
     level: number
     school?: string | null
     castingTime: string
@@ -70236,6 +70229,7 @@ export namespace Prisma {
   export type SpellUncheckedCreateWithoutSpellbookSpellsInput = {
     spellId?: number
     name: string
+    engName: string
     level: number
     school?: string | null
     castingTime: string
@@ -70286,6 +70280,7 @@ export namespace Prisma {
 
   export type SpellUpdateWithoutSpellbookSpellsInput = {
     name?: StringFieldUpdateOperationsInput | string
+    engName?: StringFieldUpdateOperationsInput | string
     level?: IntFieldUpdateOperationsInput | number
     school?: NullableStringFieldUpdateOperationsInput | string | null
     castingTime?: StringFieldUpdateOperationsInput | string
@@ -70307,6 +70302,7 @@ export namespace Prisma {
   export type SpellUncheckedUpdateWithoutSpellbookSpellsInput = {
     spellId?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
+    engName?: StringFieldUpdateOperationsInput | string
     level?: IntFieldUpdateOperationsInput | number
     school?: NullableStringFieldUpdateOperationsInput | string | null
     castingTime?: StringFieldUpdateOperationsInput | string
@@ -70932,6 +70928,7 @@ export namespace Prisma {
 
   export type SpellCreateWithoutSubclassesInput = {
     name: string
+    engName: string
     level: number
     school?: string | null
     castingTime: string
@@ -70953,6 +70950,7 @@ export namespace Prisma {
   export type SpellUncheckedCreateWithoutSubclassesInput = {
     spellId?: number
     name: string
+    engName: string
     level: number
     school?: string | null
     castingTime: string
@@ -71225,6 +71223,7 @@ export namespace Prisma {
     NOT?: SpellScalarWhereInput | SpellScalarWhereInput[]
     spellId?: IntFilter<"Spell"> | number
     name?: StringFilter<"Spell"> | string
+    engName?: StringFilter<"Spell"> | string
     level?: IntFilter<"Spell"> | number
     school?: StringNullableFilter<"Spell"> | string | null
     castingTime?: StringFilter<"Spell"> | string
@@ -71583,6 +71582,8 @@ export namespace Prisma {
     skillProficiencies?: BackgroundCreateskillProficienciesInput | $Enums.Skills[]
     languagesToChooseCount?: number
     items?: NullableJsonNullValueInput | InputJsonValue
+    specialAbilityName?: string | null
+    description?: string | null
   }
 
   export type BackgroundUncheckedCreateWithoutPersesInput = {
@@ -71593,6 +71594,8 @@ export namespace Prisma {
     skillProficiencies?: BackgroundCreateskillProficienciesInput | $Enums.Skills[]
     languagesToChooseCount?: number
     items?: NullableJsonNullValueInput | InputJsonValue
+    specialAbilityName?: string | null
+    description?: string | null
   }
 
   export type BackgroundCreateOrConnectWithoutPersesInput = {
@@ -71671,6 +71674,7 @@ export namespace Prisma {
 
   export type SpellCreateWithoutPersesInput = {
     name: string
+    engName: string
     level: number
     school?: string | null
     castingTime: string
@@ -71692,6 +71696,7 @@ export namespace Prisma {
   export type SpellUncheckedCreateWithoutPersesInput = {
     spellId?: number
     name: string
+    engName: string
     level: number
     school?: string | null
     castingTime: string
@@ -71856,9 +71861,6 @@ export namespace Prisma {
     grantsLanguages?: RaceChoiceOptionCreategrantsLanguagesInput | $Enums.Language[]
     languagesToChooseCount?: number
     modifiesSpeed?: number | null
-    draconicDamageType?: $Enums.DamageType | null
-    breathWeaponShape?: $Enums.AOEShapes | null
-    breathWeaponAOE?: string | null
     grantsTraits?: RaceChoiceOptionTraitCreateNestedManyWithoutRaceChoiceOptionInput
     race: RaceCreateNestedOneWithoutRaceChoiceOptionsInput
     subrace?: SubraceCreateNestedOneWithoutRaceChoiceOptionsInput
@@ -71878,9 +71880,6 @@ export namespace Prisma {
     grantsLanguages?: RaceChoiceOptionCreategrantsLanguagesInput | $Enums.Language[]
     languagesToChooseCount?: number
     modifiesSpeed?: number | null
-    draconicDamageType?: $Enums.DamageType | null
-    breathWeaponShape?: $Enums.AOEShapes | null
-    breathWeaponAOE?: string | null
     grantsTraits?: RaceChoiceOptionTraitUncheckedCreateNestedManyWithoutRaceChoiceOptionInput
   }
 
@@ -72147,6 +72146,8 @@ export namespace Prisma {
     skillProficiencies?: BackgroundUpdateskillProficienciesInput | $Enums.Skills[]
     languagesToChooseCount?: IntFieldUpdateOperationsInput | number
     items?: NullableJsonNullValueInput | InputJsonValue
+    specialAbilityName?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type BackgroundUncheckedUpdateWithoutPersesInput = {
@@ -72157,6 +72158,8 @@ export namespace Prisma {
     skillProficiencies?: BackgroundUpdateskillProficienciesInput | $Enums.Skills[]
     languagesToChooseCount?: IntFieldUpdateOperationsInput | number
     items?: NullableJsonNullValueInput | InputJsonValue
+    specialAbilityName?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type PersSkillUpsertWithWhereUniqueWithoutPersInput = {
@@ -72420,9 +72423,6 @@ export namespace Prisma {
     grantsLanguages?: EnumLanguageNullableListFilter<"RaceChoiceOption">
     languagesToChooseCount?: IntFilter<"RaceChoiceOption"> | number
     modifiesSpeed?: IntNullableFilter<"RaceChoiceOption"> | number | null
-    draconicDamageType?: EnumDamageTypeNullableFilter<"RaceChoiceOption"> | $Enums.DamageType | null
-    breathWeaponShape?: EnumAOEShapesNullableFilter<"RaceChoiceOption"> | $Enums.AOEShapes | null
-    breathWeaponAOE?: StringNullableFilter<"RaceChoiceOption"> | string | null
   }
 
   export type PersCreateWithoutMulticlassesInput = {
@@ -72861,6 +72861,7 @@ export namespace Prisma {
 
   export type FeatureCreateWithoutPersFeaturesInput = {
     name: string
+    engName: string
     description: string
     shortDescription?: string | null
     modifiesStats?: NullableJsonNullValueInput | InputJsonValue
@@ -72883,6 +72884,7 @@ export namespace Prisma {
   export type FeatureUncheckedCreateWithoutPersFeaturesInput = {
     featureId?: number
     name: string
+    engName: string
     description: string
     shortDescription?: string | null
     modifiesStats?: NullableJsonNullValueInput | InputJsonValue
@@ -73032,6 +73034,7 @@ export namespace Prisma {
 
   export type FeatureUpdateWithoutPersFeaturesInput = {
     name?: StringFieldUpdateOperationsInput | string
+    engName?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     shortDescription?: NullableStringFieldUpdateOperationsInput | string | null
     modifiesStats?: NullableJsonNullValueInput | InputJsonValue
@@ -73054,6 +73057,7 @@ export namespace Prisma {
   export type FeatureUncheckedUpdateWithoutPersFeaturesInput = {
     featureId?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
+    engName?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     shortDescription?: NullableStringFieldUpdateOperationsInput | string | null
     modifiesStats?: NullableJsonNullValueInput | InputJsonValue
@@ -73193,6 +73197,7 @@ export namespace Prisma {
 
   export type SpellCreateWithoutFeaturesInput = {
     name: string
+    engName: string
     level: number
     school?: string | null
     castingTime: string
@@ -73214,6 +73219,7 @@ export namespace Prisma {
   export type SpellUncheckedCreateWithoutFeaturesInput = {
     spellId?: number
     name: string
+    engName: string
     level: number
     school?: string | null
     castingTime: string
@@ -73638,6 +73644,7 @@ export namespace Prisma {
 
   export type FeatureCreateWithoutClassFeaturesInput = {
     name: string
+    engName: string
     description: string
     shortDescription?: string | null
     modifiesStats?: NullableJsonNullValueInput | InputJsonValue
@@ -73660,6 +73667,7 @@ export namespace Prisma {
   export type FeatureUncheckedCreateWithoutClassFeaturesInput = {
     featureId?: number
     name: string
+    engName: string
     description: string
     shortDescription?: string | null
     modifiesStats?: NullableJsonNullValueInput | InputJsonValue
@@ -73761,6 +73769,7 @@ export namespace Prisma {
 
   export type FeatureUpdateWithoutClassFeaturesInput = {
     name?: StringFieldUpdateOperationsInput | string
+    engName?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     shortDescription?: NullableStringFieldUpdateOperationsInput | string | null
     modifiesStats?: NullableJsonNullValueInput | InputJsonValue
@@ -73783,6 +73792,7 @@ export namespace Prisma {
   export type FeatureUncheckedUpdateWithoutClassFeaturesInput = {
     featureId?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
+    engName?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     shortDescription?: NullableStringFieldUpdateOperationsInput | string | null
     modifiesStats?: NullableJsonNullValueInput | InputJsonValue
@@ -73874,6 +73884,7 @@ export namespace Prisma {
 
   export type FeatureCreateWithoutSubclassFeaturesInput = {
     name: string
+    engName: string
     description: string
     shortDescription?: string | null
     modifiesStats?: NullableJsonNullValueInput | InputJsonValue
@@ -73896,6 +73907,7 @@ export namespace Prisma {
   export type FeatureUncheckedCreateWithoutSubclassFeaturesInput = {
     featureId?: number
     name: string
+    engName: string
     description: string
     shortDescription?: string | null
     modifiesStats?: NullableJsonNullValueInput | InputJsonValue
@@ -73965,6 +73977,7 @@ export namespace Prisma {
 
   export type FeatureUpdateWithoutSubclassFeaturesInput = {
     name?: StringFieldUpdateOperationsInput | string
+    engName?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     shortDescription?: NullableStringFieldUpdateOperationsInput | string | null
     modifiesStats?: NullableJsonNullValueInput | InputJsonValue
@@ -73987,6 +74000,7 @@ export namespace Prisma {
   export type FeatureUncheckedUpdateWithoutSubclassFeaturesInput = {
     featureId?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
+    engName?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     shortDescription?: NullableStringFieldUpdateOperationsInput | string | null
     modifiesStats?: NullableJsonNullValueInput | InputJsonValue
@@ -74046,6 +74060,7 @@ export namespace Prisma {
 
   export type FeatureCreateWithoutRaceTraitsInput = {
     name: string
+    engName: string
     description: string
     shortDescription?: string | null
     modifiesStats?: NullableJsonNullValueInput | InputJsonValue
@@ -74068,6 +74083,7 @@ export namespace Prisma {
   export type FeatureUncheckedCreateWithoutRaceTraitsInput = {
     featureId?: number
     name: string
+    engName: string
     description: string
     shortDescription?: string | null
     modifiesStats?: NullableJsonNullValueInput | InputJsonValue
@@ -74229,6 +74245,7 @@ export namespace Prisma {
 
   export type FeatureUpdateWithoutRaceTraitsInput = {
     name?: StringFieldUpdateOperationsInput | string
+    engName?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     shortDescription?: NullableStringFieldUpdateOperationsInput | string | null
     modifiesStats?: NullableJsonNullValueInput | InputJsonValue
@@ -74251,6 +74268,7 @@ export namespace Prisma {
   export type FeatureUncheckedUpdateWithoutRaceTraitsInput = {
     featureId?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
+    engName?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     shortDescription?: NullableStringFieldUpdateOperationsInput | string | null
     modifiesStats?: NullableJsonNullValueInput | InputJsonValue
@@ -74381,6 +74399,7 @@ export namespace Prisma {
 
   export type FeatureCreateWithoutSubraceTraitsInput = {
     name: string
+    engName: string
     description: string
     shortDescription?: string | null
     modifiesStats?: NullableJsonNullValueInput | InputJsonValue
@@ -74403,6 +74422,7 @@ export namespace Prisma {
   export type FeatureUncheckedCreateWithoutSubraceTraitsInput = {
     featureId?: number
     name: string
+    engName: string
     description: string
     shortDescription?: string | null
     modifiesStats?: NullableJsonNullValueInput | InputJsonValue
@@ -74482,6 +74502,7 @@ export namespace Prisma {
 
   export type FeatureUpdateWithoutSubraceTraitsInput = {
     name?: StringFieldUpdateOperationsInput | string
+    engName?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     shortDescription?: NullableStringFieldUpdateOperationsInput | string | null
     modifiesStats?: NullableJsonNullValueInput | InputJsonValue
@@ -74504,6 +74525,7 @@ export namespace Prisma {
   export type FeatureUncheckedUpdateWithoutSubraceTraitsInput = {
     featureId?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
+    engName?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     shortDescription?: NullableStringFieldUpdateOperationsInput | string | null
     modifiesStats?: NullableJsonNullValueInput | InputJsonValue
@@ -74573,6 +74595,7 @@ export namespace Prisma {
 
   export type FeatureCreateWithoutRaceVariantTraitsInput = {
     name: string
+    engName: string
     description: string
     shortDescription?: string | null
     modifiesStats?: NullableJsonNullValueInput | InputJsonValue
@@ -74595,6 +74618,7 @@ export namespace Prisma {
   export type FeatureUncheckedCreateWithoutRaceVariantTraitsInput = {
     featureId?: number
     name: string
+    engName: string
     description: string
     shortDescription?: string | null
     modifiesStats?: NullableJsonNullValueInput | InputJsonValue
@@ -74662,6 +74686,7 @@ export namespace Prisma {
 
   export type FeatureUpdateWithoutRaceVariantTraitsInput = {
     name?: StringFieldUpdateOperationsInput | string
+    engName?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     shortDescription?: NullableStringFieldUpdateOperationsInput | string | null
     modifiesStats?: NullableJsonNullValueInput | InputJsonValue
@@ -74684,6 +74709,7 @@ export namespace Prisma {
   export type FeatureUncheckedUpdateWithoutRaceVariantTraitsInput = {
     featureId?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
+    engName?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     shortDescription?: NullableStringFieldUpdateOperationsInput | string | null
     modifiesStats?: NullableJsonNullValueInput | InputJsonValue
@@ -74741,6 +74767,7 @@ export namespace Prisma {
 
   export type FeatureCreateWithoutRaceChoiceOptionsTraitsInput = {
     name: string
+    engName: string
     description: string
     shortDescription?: string | null
     modifiesStats?: NullableJsonNullValueInput | InputJsonValue
@@ -74763,6 +74790,7 @@ export namespace Prisma {
   export type FeatureUncheckedCreateWithoutRaceChoiceOptionsTraitsInput = {
     featureId?: number
     name: string
+    engName: string
     description: string
     shortDescription?: string | null
     modifiesStats?: NullableJsonNullValueInput | InputJsonValue
@@ -74798,9 +74826,6 @@ export namespace Prisma {
     grantsLanguages?: RaceChoiceOptionCreategrantsLanguagesInput | $Enums.Language[]
     languagesToChooseCount?: number
     modifiesSpeed?: number | null
-    draconicDamageType?: $Enums.DamageType | null
-    breathWeaponShape?: $Enums.AOEShapes | null
-    breathWeaponAOE?: string | null
     race: RaceCreateNestedOneWithoutRaceChoiceOptionsInput
     subrace?: SubraceCreateNestedOneWithoutRaceChoiceOptionsInput
     perses?: PersCreateNestedManyWithoutRaceChoiceOptionsInput
@@ -74820,9 +74845,6 @@ export namespace Prisma {
     grantsLanguages?: RaceChoiceOptionCreategrantsLanguagesInput | $Enums.Language[]
     languagesToChooseCount?: number
     modifiesSpeed?: number | null
-    draconicDamageType?: $Enums.DamageType | null
-    breathWeaponShape?: $Enums.AOEShapes | null
-    breathWeaponAOE?: string | null
     perses?: PersUncheckedCreateNestedManyWithoutRaceChoiceOptionsInput
   }
 
@@ -74844,6 +74866,7 @@ export namespace Prisma {
 
   export type FeatureUpdateWithoutRaceChoiceOptionsTraitsInput = {
     name?: StringFieldUpdateOperationsInput | string
+    engName?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     shortDescription?: NullableStringFieldUpdateOperationsInput | string | null
     modifiesStats?: NullableJsonNullValueInput | InputJsonValue
@@ -74866,6 +74889,7 @@ export namespace Prisma {
   export type FeatureUncheckedUpdateWithoutRaceChoiceOptionsTraitsInput = {
     featureId?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
+    engName?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     shortDescription?: NullableStringFieldUpdateOperationsInput | string | null
     modifiesStats?: NullableJsonNullValueInput | InputJsonValue
@@ -74907,9 +74931,6 @@ export namespace Prisma {
     grantsLanguages?: RaceChoiceOptionUpdategrantsLanguagesInput | $Enums.Language[]
     languagesToChooseCount?: IntFieldUpdateOperationsInput | number
     modifiesSpeed?: NullableIntFieldUpdateOperationsInput | number | null
-    draconicDamageType?: NullableEnumDamageTypeFieldUpdateOperationsInput | $Enums.DamageType | null
-    breathWeaponShape?: NullableEnumAOEShapesFieldUpdateOperationsInput | $Enums.AOEShapes | null
-    breathWeaponAOE?: NullableStringFieldUpdateOperationsInput | string | null
     race?: RaceUpdateOneRequiredWithoutRaceChoiceOptionsNestedInput
     subrace?: SubraceUpdateOneWithoutRaceChoiceOptionsNestedInput
     perses?: PersUpdateManyWithoutRaceChoiceOptionsNestedInput
@@ -74929,14 +74950,12 @@ export namespace Prisma {
     grantsLanguages?: RaceChoiceOptionUpdategrantsLanguagesInput | $Enums.Language[]
     languagesToChooseCount?: IntFieldUpdateOperationsInput | number
     modifiesSpeed?: NullableIntFieldUpdateOperationsInput | number | null
-    draconicDamageType?: NullableEnumDamageTypeFieldUpdateOperationsInput | $Enums.DamageType | null
-    breathWeaponShape?: NullableEnumAOEShapesFieldUpdateOperationsInput | $Enums.AOEShapes | null
-    breathWeaponAOE?: NullableStringFieldUpdateOperationsInput | string | null
     perses?: PersUncheckedUpdateManyWithoutRaceChoiceOptionsNestedInput
   }
 
   export type FeatureCreateWithoutFeatFeaturesInput = {
     name: string
+    engName: string
     description: string
     shortDescription?: string | null
     modifiesStats?: NullableJsonNullValueInput | InputJsonValue
@@ -74959,6 +74978,7 @@ export namespace Prisma {
   export type FeatureUncheckedCreateWithoutFeatFeaturesInput = {
     featureId?: number
     name: string
+    engName: string
     description: string
     shortDescription?: string | null
     modifiesStats?: NullableJsonNullValueInput | InputJsonValue
@@ -75026,6 +75046,7 @@ export namespace Prisma {
 
   export type FeatureUpdateWithoutFeatFeaturesInput = {
     name?: StringFieldUpdateOperationsInput | string
+    engName?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     shortDescription?: NullableStringFieldUpdateOperationsInput | string | null
     modifiesStats?: NullableJsonNullValueInput | InputJsonValue
@@ -75048,6 +75069,7 @@ export namespace Prisma {
   export type FeatureUncheckedUpdateWithoutFeatFeaturesInput = {
     featureId?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
+    engName?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     shortDescription?: NullableStringFieldUpdateOperationsInput | string | null
     modifiesStats?: NullableJsonNullValueInput | InputJsonValue
@@ -75105,6 +75127,7 @@ export namespace Prisma {
 
   export type FeatureCreateWithoutMagicItemFeaturesInput = {
     name: string
+    engName: string
     description: string
     shortDescription?: string | null
     modifiesStats?: NullableJsonNullValueInput | InputJsonValue
@@ -75127,6 +75150,7 @@ export namespace Prisma {
   export type FeatureUncheckedCreateWithoutMagicItemFeaturesInput = {
     featureId?: number
     name: string
+    engName: string
     description: string
     shortDescription?: string | null
     modifiesStats?: NullableJsonNullValueInput | InputJsonValue
@@ -75192,6 +75216,7 @@ export namespace Prisma {
 
   export type FeatureUpdateWithoutMagicItemFeaturesInput = {
     name?: StringFieldUpdateOperationsInput | string
+    engName?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     shortDescription?: NullableStringFieldUpdateOperationsInput | string | null
     modifiesStats?: NullableJsonNullValueInput | InputJsonValue
@@ -75214,6 +75239,7 @@ export namespace Prisma {
   export type FeatureUncheckedUpdateWithoutMagicItemFeaturesInput = {
     featureId?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
+    engName?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     shortDescription?: NullableStringFieldUpdateOperationsInput | string | null
     modifiesStats?: NullableJsonNullValueInput | InputJsonValue
@@ -75442,9 +75468,6 @@ export namespace Prisma {
     grantsLanguages?: RaceChoiceOptionCreategrantsLanguagesInput | $Enums.Language[]
     languagesToChooseCount?: number
     modifiesSpeed?: number | null
-    draconicDamageType?: $Enums.DamageType | null
-    breathWeaponShape?: $Enums.AOEShapes | null
-    breathWeaponAOE?: string | null
     grantsTraits?: RaceChoiceOptionTraitCreateNestedManyWithoutRaceChoiceOptionInput
     subrace?: SubraceCreateNestedOneWithoutRaceChoiceOptionsInput
     perses?: PersCreateNestedManyWithoutRaceChoiceOptionsInput
@@ -75463,9 +75486,6 @@ export namespace Prisma {
     grantsLanguages?: RaceChoiceOptionCreategrantsLanguagesInput | $Enums.Language[]
     languagesToChooseCount?: number
     modifiesSpeed?: number | null
-    draconicDamageType?: $Enums.DamageType | null
-    breathWeaponShape?: $Enums.AOEShapes | null
-    breathWeaponAOE?: string | null
     grantsTraits?: RaceChoiceOptionTraitUncheckedCreateNestedManyWithoutRaceChoiceOptionInput
     perses?: PersUncheckedCreateNestedManyWithoutRaceChoiceOptionsInput
   }
@@ -75816,9 +75836,6 @@ export namespace Prisma {
     grantsLanguages?: RaceChoiceOptionCreategrantsLanguagesInput | $Enums.Language[]
     languagesToChooseCount?: number
     modifiesSpeed?: number | null
-    draconicDamageType?: $Enums.DamageType | null
-    breathWeaponShape?: $Enums.AOEShapes | null
-    breathWeaponAOE?: string | null
     grantsTraits?: RaceChoiceOptionTraitCreateNestedManyWithoutRaceChoiceOptionInput
     race: RaceCreateNestedOneWithoutRaceChoiceOptionsInput
     perses?: PersCreateNestedManyWithoutRaceChoiceOptionsInput
@@ -75837,9 +75854,6 @@ export namespace Prisma {
     grantsLanguages?: RaceChoiceOptionCreategrantsLanguagesInput | $Enums.Language[]
     languagesToChooseCount?: number
     modifiesSpeed?: number | null
-    draconicDamageType?: $Enums.DamageType | null
-    breathWeaponShape?: $Enums.AOEShapes | null
-    breathWeaponAOE?: string | null
     grantsTraits?: RaceChoiceOptionTraitUncheckedCreateNestedManyWithoutRaceChoiceOptionInput
     perses?: PersUncheckedCreateNestedManyWithoutRaceChoiceOptionsInput
   }
@@ -79296,6 +79310,7 @@ export namespace Prisma {
 
   export type FeatureUpdateWithoutGivesSpellsInput = {
     name?: StringFieldUpdateOperationsInput | string
+    engName?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     shortDescription?: NullableStringFieldUpdateOperationsInput | string | null
     modifiesStats?: NullableJsonNullValueInput | InputJsonValue
@@ -79318,6 +79333,7 @@ export namespace Prisma {
   export type FeatureUncheckedUpdateWithoutGivesSpellsInput = {
     featureId?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
+    engName?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     shortDescription?: NullableStringFieldUpdateOperationsInput | string | null
     modifiesStats?: NullableJsonNullValueInput | InputJsonValue
@@ -79340,6 +79356,7 @@ export namespace Prisma {
   export type FeatureUncheckedUpdateManyWithoutGivesSpellsInput = {
     featureId?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
+    engName?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     shortDescription?: NullableStringFieldUpdateOperationsInput | string | null
     modifiesStats?: NullableJsonNullValueInput | InputJsonValue
@@ -80021,6 +80038,7 @@ export namespace Prisma {
 
   export type SpellUpdateWithoutSubclassesInput = {
     name?: StringFieldUpdateOperationsInput | string
+    engName?: StringFieldUpdateOperationsInput | string
     level?: IntFieldUpdateOperationsInput | number
     school?: NullableStringFieldUpdateOperationsInput | string | null
     castingTime?: StringFieldUpdateOperationsInput | string
@@ -80042,6 +80060,7 @@ export namespace Prisma {
   export type SpellUncheckedUpdateWithoutSubclassesInput = {
     spellId?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
+    engName?: StringFieldUpdateOperationsInput | string
     level?: IntFieldUpdateOperationsInput | number
     school?: NullableStringFieldUpdateOperationsInput | string | null
     castingTime?: StringFieldUpdateOperationsInput | string
@@ -80063,6 +80082,7 @@ export namespace Prisma {
   export type SpellUncheckedUpdateManyWithoutSubclassesInput = {
     spellId?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
+    engName?: StringFieldUpdateOperationsInput | string
     level?: IntFieldUpdateOperationsInput | number
     school?: NullableStringFieldUpdateOperationsInput | string | null
     castingTime?: StringFieldUpdateOperationsInput | string
@@ -80381,6 +80401,7 @@ export namespace Prisma {
 
   export type SpellUpdateWithoutPersesInput = {
     name?: StringFieldUpdateOperationsInput | string
+    engName?: StringFieldUpdateOperationsInput | string
     level?: IntFieldUpdateOperationsInput | number
     school?: NullableStringFieldUpdateOperationsInput | string | null
     castingTime?: StringFieldUpdateOperationsInput | string
@@ -80402,6 +80423,7 @@ export namespace Prisma {
   export type SpellUncheckedUpdateWithoutPersesInput = {
     spellId?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
+    engName?: StringFieldUpdateOperationsInput | string
     level?: IntFieldUpdateOperationsInput | number
     school?: NullableStringFieldUpdateOperationsInput | string | null
     castingTime?: StringFieldUpdateOperationsInput | string
@@ -80423,6 +80445,7 @@ export namespace Prisma {
   export type SpellUncheckedUpdateManyWithoutPersesInput = {
     spellId?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
+    engName?: StringFieldUpdateOperationsInput | string
     level?: IntFieldUpdateOperationsInput | number
     school?: NullableStringFieldUpdateOperationsInput | string | null
     castingTime?: StringFieldUpdateOperationsInput | string
@@ -80574,9 +80597,6 @@ export namespace Prisma {
     grantsLanguages?: RaceChoiceOptionUpdategrantsLanguagesInput | $Enums.Language[]
     languagesToChooseCount?: IntFieldUpdateOperationsInput | number
     modifiesSpeed?: NullableIntFieldUpdateOperationsInput | number | null
-    draconicDamageType?: NullableEnumDamageTypeFieldUpdateOperationsInput | $Enums.DamageType | null
-    breathWeaponShape?: NullableEnumAOEShapesFieldUpdateOperationsInput | $Enums.AOEShapes | null
-    breathWeaponAOE?: NullableStringFieldUpdateOperationsInput | string | null
     grantsTraits?: RaceChoiceOptionTraitUpdateManyWithoutRaceChoiceOptionNestedInput
     race?: RaceUpdateOneRequiredWithoutRaceChoiceOptionsNestedInput
     subrace?: SubraceUpdateOneWithoutRaceChoiceOptionsNestedInput
@@ -80596,9 +80616,6 @@ export namespace Prisma {
     grantsLanguages?: RaceChoiceOptionUpdategrantsLanguagesInput | $Enums.Language[]
     languagesToChooseCount?: IntFieldUpdateOperationsInput | number
     modifiesSpeed?: NullableIntFieldUpdateOperationsInput | number | null
-    draconicDamageType?: NullableEnumDamageTypeFieldUpdateOperationsInput | $Enums.DamageType | null
-    breathWeaponShape?: NullableEnumAOEShapesFieldUpdateOperationsInput | $Enums.AOEShapes | null
-    breathWeaponAOE?: NullableStringFieldUpdateOperationsInput | string | null
     grantsTraits?: RaceChoiceOptionTraitUncheckedUpdateManyWithoutRaceChoiceOptionNestedInput
   }
 
@@ -80616,9 +80633,6 @@ export namespace Prisma {
     grantsLanguages?: RaceChoiceOptionUpdategrantsLanguagesInput | $Enums.Language[]
     languagesToChooseCount?: IntFieldUpdateOperationsInput | number
     modifiesSpeed?: NullableIntFieldUpdateOperationsInput | number | null
-    draconicDamageType?: NullableEnumDamageTypeFieldUpdateOperationsInput | $Enums.DamageType | null
-    breathWeaponShape?: NullableEnumAOEShapesFieldUpdateOperationsInput | $Enums.AOEShapes | null
-    breathWeaponAOE?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type ClassFeatureCreateManyFeatureInput = {
@@ -80673,6 +80687,7 @@ export namespace Prisma {
 
   export type SpellUpdateWithoutFeaturesInput = {
     name?: StringFieldUpdateOperationsInput | string
+    engName?: StringFieldUpdateOperationsInput | string
     level?: IntFieldUpdateOperationsInput | number
     school?: NullableStringFieldUpdateOperationsInput | string | null
     castingTime?: StringFieldUpdateOperationsInput | string
@@ -80694,6 +80709,7 @@ export namespace Prisma {
   export type SpellUncheckedUpdateWithoutFeaturesInput = {
     spellId?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
+    engName?: StringFieldUpdateOperationsInput | string
     level?: IntFieldUpdateOperationsInput | number
     school?: NullableStringFieldUpdateOperationsInput | string | null
     castingTime?: StringFieldUpdateOperationsInput | string
@@ -80715,6 +80731,7 @@ export namespace Prisma {
   export type SpellUncheckedUpdateManyWithoutFeaturesInput = {
     spellId?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
+    engName?: StringFieldUpdateOperationsInput | string
     level?: IntFieldUpdateOperationsInput | number
     school?: NullableStringFieldUpdateOperationsInput | string | null
     castingTime?: StringFieldUpdateOperationsInput | string
@@ -81033,9 +81050,6 @@ export namespace Prisma {
     grantsLanguages?: RaceChoiceOptionCreategrantsLanguagesInput | $Enums.Language[]
     languagesToChooseCount?: number
     modifiesSpeed?: number | null
-    draconicDamageType?: $Enums.DamageType | null
-    breathWeaponShape?: $Enums.AOEShapes | null
-    breathWeaponAOE?: string | null
   }
 
   export type RaceVariantCreateManyRaceInput = {
@@ -81267,9 +81281,6 @@ export namespace Prisma {
     grantsLanguages?: RaceChoiceOptionUpdategrantsLanguagesInput | $Enums.Language[]
     languagesToChooseCount?: IntFieldUpdateOperationsInput | number
     modifiesSpeed?: NullableIntFieldUpdateOperationsInput | number | null
-    draconicDamageType?: NullableEnumDamageTypeFieldUpdateOperationsInput | $Enums.DamageType | null
-    breathWeaponShape?: NullableEnumAOEShapesFieldUpdateOperationsInput | $Enums.AOEShapes | null
-    breathWeaponAOE?: NullableStringFieldUpdateOperationsInput | string | null
     grantsTraits?: RaceChoiceOptionTraitUpdateManyWithoutRaceChoiceOptionNestedInput
     subrace?: SubraceUpdateOneWithoutRaceChoiceOptionsNestedInput
     perses?: PersUpdateManyWithoutRaceChoiceOptionsNestedInput
@@ -81288,9 +81299,6 @@ export namespace Prisma {
     grantsLanguages?: RaceChoiceOptionUpdategrantsLanguagesInput | $Enums.Language[]
     languagesToChooseCount?: IntFieldUpdateOperationsInput | number
     modifiesSpeed?: NullableIntFieldUpdateOperationsInput | number | null
-    draconicDamageType?: NullableEnumDamageTypeFieldUpdateOperationsInput | $Enums.DamageType | null
-    breathWeaponShape?: NullableEnumAOEShapesFieldUpdateOperationsInput | $Enums.AOEShapes | null
-    breathWeaponAOE?: NullableStringFieldUpdateOperationsInput | string | null
     grantsTraits?: RaceChoiceOptionTraitUncheckedUpdateManyWithoutRaceChoiceOptionNestedInput
     perses?: PersUncheckedUpdateManyWithoutRaceChoiceOptionsNestedInput
   }
@@ -81308,9 +81316,6 @@ export namespace Prisma {
     grantsLanguages?: RaceChoiceOptionUpdategrantsLanguagesInput | $Enums.Language[]
     languagesToChooseCount?: IntFieldUpdateOperationsInput | number
     modifiesSpeed?: NullableIntFieldUpdateOperationsInput | number | null
-    draconicDamageType?: NullableEnumDamageTypeFieldUpdateOperationsInput | $Enums.DamageType | null
-    breathWeaponShape?: NullableEnumAOEShapesFieldUpdateOperationsInput | $Enums.AOEShapes | null
-    breathWeaponAOE?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type RaceVariantUpdateWithoutRaceInput = {
@@ -81423,9 +81428,6 @@ export namespace Prisma {
     grantsLanguages?: RaceChoiceOptionCreategrantsLanguagesInput | $Enums.Language[]
     languagesToChooseCount?: number
     modifiesSpeed?: number | null
-    draconicDamageType?: $Enums.DamageType | null
-    breathWeaponShape?: $Enums.AOEShapes | null
-    breathWeaponAOE?: string | null
   }
 
   export type SubraceTraitCreateManySubraceInput = {
@@ -81614,9 +81616,6 @@ export namespace Prisma {
     grantsLanguages?: RaceChoiceOptionUpdategrantsLanguagesInput | $Enums.Language[]
     languagesToChooseCount?: IntFieldUpdateOperationsInput | number
     modifiesSpeed?: NullableIntFieldUpdateOperationsInput | number | null
-    draconicDamageType?: NullableEnumDamageTypeFieldUpdateOperationsInput | $Enums.DamageType | null
-    breathWeaponShape?: NullableEnumAOEShapesFieldUpdateOperationsInput | $Enums.AOEShapes | null
-    breathWeaponAOE?: NullableStringFieldUpdateOperationsInput | string | null
     grantsTraits?: RaceChoiceOptionTraitUpdateManyWithoutRaceChoiceOptionNestedInput
     race?: RaceUpdateOneRequiredWithoutRaceChoiceOptionsNestedInput
     perses?: PersUpdateManyWithoutRaceChoiceOptionsNestedInput
@@ -81635,9 +81634,6 @@ export namespace Prisma {
     grantsLanguages?: RaceChoiceOptionUpdategrantsLanguagesInput | $Enums.Language[]
     languagesToChooseCount?: IntFieldUpdateOperationsInput | number
     modifiesSpeed?: NullableIntFieldUpdateOperationsInput | number | null
-    draconicDamageType?: NullableEnumDamageTypeFieldUpdateOperationsInput | $Enums.DamageType | null
-    breathWeaponShape?: NullableEnumAOEShapesFieldUpdateOperationsInput | $Enums.AOEShapes | null
-    breathWeaponAOE?: NullableStringFieldUpdateOperationsInput | string | null
     grantsTraits?: RaceChoiceOptionTraitUncheckedUpdateManyWithoutRaceChoiceOptionNestedInput
     perses?: PersUncheckedUpdateManyWithoutRaceChoiceOptionsNestedInput
   }
@@ -81655,9 +81651,6 @@ export namespace Prisma {
     grantsLanguages?: RaceChoiceOptionUpdategrantsLanguagesInput | $Enums.Language[]
     languagesToChooseCount?: IntFieldUpdateOperationsInput | number
     modifiesSpeed?: NullableIntFieldUpdateOperationsInput | number | null
-    draconicDamageType?: NullableEnumDamageTypeFieldUpdateOperationsInput | $Enums.DamageType | null
-    breathWeaponShape?: NullableEnumAOEShapesFieldUpdateOperationsInput | $Enums.AOEShapes | null
-    breathWeaponAOE?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type SubraceTraitUpdateWithoutSubraceInput = {

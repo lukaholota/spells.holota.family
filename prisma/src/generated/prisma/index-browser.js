@@ -172,6 +172,7 @@ exports.Prisma.CreatureScalarFieldEnum = {
 exports.Prisma.SpellScalarFieldEnum = {
   spellId: 'spellId',
   name: 'name',
+  engName: 'engName',
   level: 'level',
   school: 'school',
   castingTime: 'castingTime',
@@ -313,6 +314,7 @@ exports.Prisma.PersFeatureScalarFieldEnum = {
 exports.Prisma.FeatureScalarFieldEnum = {
   featureId: 'featureId',
   name: 'name',
+  engName: 'engName',
   description: 'description',
   shortDescription: 'shortDescription',
   modifiesStats: 'modifiesStats',
@@ -435,10 +437,7 @@ exports.Prisma.RaceChoiceOptionScalarFieldEnum = {
   grantsSkillProficiencies: 'grantsSkillProficiencies',
   grantsLanguages: 'grantsLanguages',
   languagesToChooseCount: 'languagesToChooseCount',
-  modifiesSpeed: 'modifiesSpeed',
-  draconicDamageType: 'draconicDamageType',
-  breathWeaponShape: 'breathWeaponShape',
-  breathWeaponAOE: 'breathWeaponAOE'
+  modifiesSpeed: 'modifiesSpeed'
 };
 
 exports.Prisma.BackgroundScalarFieldEnum = {
@@ -448,7 +447,9 @@ exports.Prisma.BackgroundScalarFieldEnum = {
   toolProficiencies: 'toolProficiencies',
   skillProficiencies: 'skillProficiencies',
   languagesToChooseCount: 'languagesToChooseCount',
-  items: 'items'
+  items: 'items',
+  specialAbilityName: 'specialAbilityName',
+  description: 'description'
 };
 
 exports.Prisma.FeatScalarFieldEnum = {
@@ -937,31 +938,6 @@ exports.Variants = exports.$Enums.Variants = {
   TIEFLING_VARIANT_WINGED_SCAG: 'TIEFLING_VARIANT_WINGED_SCAG'
 };
 
-exports.DamageType = exports.$Enums.DamageType = {
-  BLUDGEONING: 'BLUDGEONING',
-  PIERCING: 'PIERCING',
-  SLASHING: 'SLASHING',
-  ACID: 'ACID',
-  COLD: 'COLD',
-  FIRE: 'FIRE',
-  LIGHTNING: 'LIGHTNING',
-  THUNDER: 'THUNDER',
-  FORCE: 'FORCE',
-  NECROTIC: 'NECROTIC',
-  POISON: 'POISON',
-  PSYCHIC: 'PSYCHIC',
-  RADIANT: 'RADIANT'
-};
-
-exports.AOEShapes = exports.$Enums.AOEShapes = {
-  CONE: 'CONE',
-  CUBE: 'CUBE',
-  CYLINDER: 'CYLINDER',
-  EMANATION: 'EMANATION',
-  LINE: 'LINE',
-  SPHERE: 'SPHERE'
-};
-
 exports.BackgroundCategory = exports.$Enums.BackgroundCategory = {
   ACOLYTE: 'ACOLYTE',
   CHARLATAN: 'CHARLATAN',
@@ -1075,6 +1051,22 @@ exports.ItemRarity = exports.$Enums.ItemRarity = {
   VERY_RARE: 'VERY_RARE',
   LEGENDARY: 'LEGENDARY',
   ARTIFACT: 'ARTIFACT'
+};
+
+exports.DamageType = exports.$Enums.DamageType = {
+  BLUDGEONING: 'BLUDGEONING',
+  PIERCING: 'PIERCING',
+  SLASHING: 'SLASHING',
+  ACID: 'ACID',
+  COLD: 'COLD',
+  FIRE: 'FIRE',
+  LIGHTNING: 'LIGHTNING',
+  THUNDER: 'THUNDER',
+  FORCE: 'FORCE',
+  NECROTIC: 'NECROTIC',
+  POISON: 'POISON',
+  PSYCHIC: 'PSYCHIC',
+  RADIANT: 'RADIANT'
 };
 
 exports.WeaponProperty = exports.$Enums.WeaponProperty = {

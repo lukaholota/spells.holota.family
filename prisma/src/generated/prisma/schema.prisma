@@ -9,146 +9,6 @@ datasource db {
   shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
 }
 
-model Character {
-  characterId Int     @id @default(autoincrement()) @map("character_id")
-  name        String? @db.VarChar
-  userId      Int?    @map("user_id")
-
-  user            User?             @relation(fields: [userId], references: [userId], onDelete: NoAction, onUpdate: NoAction)
-  characterSpells CharacterSpells[]
-
-  @@map("character")
-}
-
-model CharacterSpells {
-  characterSpellId Int  @id @default(autoincrement()) @map("character_spell_id")
-  characterId      Int? @map("character_id")
-  spellId          Int? @map("spell_id")
-
-  character Character? @relation(fields: [characterId], references: [characterId], onDelete: NoAction, onUpdate: NoAction)
-  spell     Spell?     @relation(fields: [spellId], references: [spellId], onDelete: Cascade, onUpdate: Cascade)
-
-  @@map("character_spells")
-}
-
-model Creature {
-  creatureId        Int     @id @default(autoincrement()) @map("creature_id")
-  name              String? @db.VarChar
-  nameEng           String? @map("name_eng") @db.VarChar
-  size              String? @db.VarChar
-  type              String? @db.VarChar
-  alignment         String? @db.VarChar
-  source            Source  @default(MM)
-  ac                String? @db.VarChar
-  hp                String? @db.VarChar
-  speed             String? @db.VarChar
-  strength          String? @db.VarChar
-  dexterity         String? @db.VarChar
-  constitution      String? @db.VarChar
-  intelligence      String? @db.VarChar
-  wisdom            String? @db.VarChar
-  charisma          String? @db.VarChar
-  skills            String? @db.VarChar
-  senses            String? @db.VarChar
-  languages         String? @db.VarChar
-  challenge         String? @db.VarChar
-  damageImmunity    String? @map("damage_immunity") @db.VarChar
-  damageResistance  String? @map("damage_resistance") @db.VarChar
-  conditionImmunity String? @map("condition_immunity") @db.VarChar
-  savingThrows      String? @map("saving_throws") @db.VarChar
-  specialAbilities  String? @map("special_abilities") @db.VarChar
-  actions           String? @db.VarChar
-  reactions         String? @db.VarChar
-  legendaryActions  String? @map("legendary_actions") @db.VarChar
-  proficiencyBonus  String? @map("proficiency_bonus") @db.VarChar
-  description       String? @db.VarChar
-  lairActions       String? @map("lair_actions") @db.VarChar
-  lairInfo          String? @map("lair_info") @db.VarChar
-  regionEffects     String? @map("region_effects") @db.VarChar
-  xp                String? @db.VarChar
-
-  @@map("creature")
-}
-
-model Spell {
-  spellId          Int     @id @default(autoincrement()) @map("spell_id")
-  name             String  @unique(map: "unique_names") @db.VarChar(255)
-  level            Int
-  school           String? @db.VarChar(255)
-  castingTime      String  @map("casting_time") @db.VarChar(255)
-  range            String  @db.VarChar(255)
-  components       String? @db.VarChar(500)
-  duration         String  @db.VarChar(255)
-  description      String  @db.Text
-  hasRitual        String? @map("has_ritual") @db.VarChar
-  hasConcentration String? @map("has_concentration") @db.VarChar
-  source           Source  @default(PHB)
-
-  characterSpells CharacterSpells[]
-  spellClasses    SpellClasses[]
-  spellRaces      SpellRaces[]
-  spellbookSpells SpellbookSpells[]
-  subclasses      Subclass[]        @relation("SubclassExpandedSpells")
-  perses          Pers[]
-  features        Feature[]
-
-  @@map("spell")
-}
-
-model SpellClasses {
-  classId   Int    @id @default(autoincrement()) @map("class_id") // OLDDDDDD
-  spellId   Int    @map("spell_id")
-  className String @map("class_name") @db.VarChar(255)
-
-  spell Spell @relation(fields: [spellId], references: [spellId], onDelete: NoAction, onUpdate: NoAction, map: "fk_spell_classes")
-
-  @@map("spell_classes")
-}
-
-model SpellRaces {
-  spellId  Int?    @map("spell_id")
-  raceId   Int     @id @default(autoincrement()) @map("race_id") // OLDDDDDDD
-  raceName String? @map("race_name") @db.VarChar
-
-  spell Spell? @relation(fields: [spellId], references: [spellId], onDelete: NoAction, onUpdate: NoAction)
-
-  @@map("spell_races")
-}
-
-model Spellbook {
-  spellbookId Int  @id @default(autoincrement()) @map("spellbook_id")
-  userId      Int? @map("user_id")
-
-  user            User?             @relation(fields: [userId], references: [userId], onDelete: NoAction, onUpdate: NoAction, map: "fk_user_id")
-  spellbookSpells SpellbookSpells[]
-
-  @@map("spellbook")
-}
-
-model SpellbookSpells {
-  spellbookSpellId Int  @id @default(autoincrement()) @map("spellbook_spell_id")
-  spellId          Int? @map("spell_id")
-  spellbookId      Int? @map("spellbook_id")
-
-  spell     Spell?     @relation(fields: [spellId], references: [spellId], onDelete: NoAction, onUpdate: NoAction)
-  spellbook Spellbook? @relation(fields: [spellbookId], references: [spellbookId], onDelete: NoAction, onUpdate: NoAction)
-
-  @@map("spellbook_spells")
-}
-
-model User {
-  userId   Int     @id @default(autoincrement()) @map("user_id")
-  login    String  @db.VarChar
-  password String? @db.VarChar
-
-  character Character[]
-  spellbook Spellbook[]
-  pers      Pers[]
-
-  @@map("user")
-}
-
-// Enums залишаються без змін - вони вже в правильному форматі
 enum Ability {
   STR
   DEX
@@ -705,6 +565,148 @@ enum AOEShapes {
   SPHERE
 }
 
+model Character {
+  characterId Int     @id @default(autoincrement()) @map("character_id")
+  name        String? @db.VarChar
+  userId      Int?    @map("user_id")
+
+  user            User?             @relation(fields: [userId], references: [userId], onDelete: NoAction, onUpdate: NoAction)
+  characterSpells CharacterSpells[]
+
+  @@map("character")
+}
+
+model CharacterSpells {
+  characterSpellId Int  @id @default(autoincrement()) @map("character_spell_id")
+  characterId      Int? @map("character_id")
+  spellId          Int? @map("spell_id")
+
+  character Character? @relation(fields: [characterId], references: [characterId], onDelete: NoAction, onUpdate: NoAction)
+  spell     Spell?     @relation(fields: [spellId], references: [spellId], onDelete: Cascade, onUpdate: Cascade)
+
+  @@map("character_spells")
+}
+
+model Creature {
+  creatureId        Int     @id @default(autoincrement()) @map("creature_id")
+  name              String? @db.VarChar
+  nameEng           String? @map("name_eng") @db.VarChar
+  size              String? @db.VarChar
+  type              String? @db.VarChar
+  alignment         String? @db.VarChar
+  source            Source  @default(MM)
+  ac                String? @db.VarChar
+  hp                String? @db.VarChar
+  speed             String? @db.VarChar
+  strength          String? @db.VarChar
+  dexterity         String? @db.VarChar
+  constitution      String? @db.VarChar
+  intelligence      String? @db.VarChar
+  wisdom            String? @db.VarChar
+  charisma          String? @db.VarChar
+  skills            String? @db.VarChar
+  senses            String? @db.VarChar
+  languages         String? @db.VarChar
+  challenge         String? @db.VarChar
+  damageImmunity    String? @map("damage_immunity") @db.VarChar
+  damageResistance  String? @map("damage_resistance") @db.VarChar
+  conditionImmunity String? @map("condition_immunity") @db.VarChar
+  savingThrows      String? @map("saving_throws") @db.VarChar
+  specialAbilities  String? @map("special_abilities") @db.VarChar
+  actions           String? @db.VarChar
+  reactions         String? @db.VarChar
+  legendaryActions  String? @map("legendary_actions") @db.VarChar
+  proficiencyBonus  String? @map("proficiency_bonus") @db.VarChar
+  description       String? @db.VarChar
+  lairActions       String? @map("lair_actions") @db.VarChar
+  lairInfo          String? @map("lair_info") @db.VarChar
+  regionEffects     String? @map("region_effects") @db.VarChar
+  xp                String? @db.VarChar
+
+  @@map("creature")
+}
+
+model Spell {
+  spellId          Int     @id @default(autoincrement()) @map("spell_id")
+  name             String  @unique(map: "unique_names") @db.VarChar(255)
+  engName          String  @unique @map("eng_name") @db.VarChar(255)
+  level            Int
+  school           String? @db.VarChar(255)
+  castingTime      String  @map("casting_time") @db.VarChar(255)
+  range            String  @db.VarChar(255)
+  components       String? @db.VarChar(500)
+  duration         String  @db.VarChar(255)
+  description      String  @db.Text
+  hasRitual        String? @map("has_ritual") @db.VarChar
+  hasConcentration String? @map("has_concentration") @db.VarChar
+  source           Source  @default(PHB)
+
+  characterSpells CharacterSpells[]
+  spellClasses    SpellClasses[]
+  spellRaces      SpellRaces[]
+  spellbookSpells SpellbookSpells[]
+  subclasses      Subclass[]        @relation("SubclassExpandedSpells")
+  perses          Pers[]
+  features        Feature[]
+
+  @@map("spell")
+}
+
+model SpellClasses {
+  classId   Int    @id @default(autoincrement()) @map("class_id") // OLDDDDDD
+  spellId   Int    @map("spell_id")
+  className String @map("class_name") @db.VarChar(255)
+
+  spell Spell @relation(fields: [spellId], references: [spellId], onDelete: NoAction, onUpdate: NoAction, map: "fk_spell_classes")
+
+  @@map("spell_classes")
+}
+
+model SpellRaces {
+  spellId  Int?    @map("spell_id")
+  raceId   Int     @id @default(autoincrement()) @map("race_id") // OLDDDDDDD
+  raceName String? @map("race_name") @db.VarChar
+
+  spell Spell? @relation(fields: [spellId], references: [spellId], onDelete: NoAction, onUpdate: NoAction)
+
+  @@map("spell_races")
+}
+
+model Spellbook {
+  spellbookId Int  @id @default(autoincrement()) @map("spellbook_id")
+  userId      Int? @map("user_id")
+
+  user            User?             @relation(fields: [userId], references: [userId], onDelete: NoAction, onUpdate: NoAction, map: "fk_user_id")
+  spellbookSpells SpellbookSpells[]
+
+  @@map("spellbook")
+}
+
+model SpellbookSpells {
+  spellbookSpellId Int  @id @default(autoincrement()) @map("spellbook_spell_id")
+  spellId          Int? @map("spell_id")
+  spellbookId      Int? @map("spellbook_id")
+
+  spell     Spell?     @relation(fields: [spellId], references: [spellId], onDelete: NoAction, onUpdate: NoAction)
+  spellbook Spellbook? @relation(fields: [spellbookId], references: [spellbookId], onDelete: NoAction, onUpdate: NoAction)
+
+  @@map("spellbook_spells")
+}
+
+model User {
+  userId   Int     @id @default(autoincrement()) @map("user_id")
+  login    String  @db.VarChar
+  password String? @db.VarChar
+
+  character Character[]
+  spellbook Spellbook[]
+  pers      Pers[]
+
+  @@map("user")
+}
+
+// Enums залишаються без змін - вони вже в правильному форматі
+
 model Class {
   classId Int    @id @default(autoincrement()) @map("class_id")
   name    String @unique
@@ -875,7 +877,8 @@ model PersFeature {
 model Feature {
   featureId Int @id @unique @default(autoincrement()) @map("feature_id")
 
-  name             String  @db.VarChar(100)
+  name             String  @unique @db.VarChar(100)
+  engName          String  @unique @map("eng_name") @db.VarChar(100)
   description      String  @db.Text
   shortDescription String? @map("short_description") @db.Text
 
@@ -1022,7 +1025,7 @@ model Race {
   languages              Language[] @default([COMMON])
   languagesToChooseCount Int        @default(0) @map("languages_to_choose_count")
 
-  ASI                 Json
+  ASI                 Json // {WIS: 2, ANY: 1}
   toolProficiencies   ToolCategory[]   @default([]) @map("tool_proficiencies")
   skillProficiencies  Skills[]         @map("skill_proficiencies")
   weaponProficiencies WeaponCategory[] @default([]) @map("weapon_proficiencies")
@@ -1105,10 +1108,6 @@ model RaceChoiceOption {
   languagesToChooseCount   Int                     @default(0) @map("languages_to_choose_count")
   modifiesSpeed            Int?                    @map("modifies_speed")
 
-  draconicDamageType DamageType? @map("draconic_damage_type")
-  breathWeaponShape  AOEShapes?  @map("breath_weapon_shape")
-  breathWeaponAOE    String?     @map("breath_weapon_aoe")
-
   race    Race     @relation(fields: [raceId], references: [raceId])
   subrace Subrace? @relation(fields: [subraceId], references: [subraceId])
   perses  Pers[]
@@ -1126,6 +1125,8 @@ model Background {
   skillProficiencies     Skills[]       @map("skill_proficiencies")
   languagesToChooseCount Int            @default(0) @map("languages_to_choose_count")
   items                  Json?
+  specialAbilityName     String?
+  description            String?        @db.Text // ability description
 
   perses Pers[]
 
