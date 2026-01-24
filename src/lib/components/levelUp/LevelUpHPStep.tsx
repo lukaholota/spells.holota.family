@@ -221,9 +221,6 @@ export default function LevelUpHPStep({
                     {totalIncrease !== null ? `+${totalIncrease}` : "?"}
                 </span>
             </div>
-            <p className="text-[10px] text-slate-500 uppercase tracking-wider font-semibold">
-              Формула: Кістка ({hpIncrease || 0}) + Статура ({newConMod}) {toughBonus > 0 ? `+ Здоровань (${toughBonus})` : ""} {retroactiveConHp > 0 ? `+ Статура за мин. рівні (${retroactiveConHp})` : ""}
-            </p>
           </div>
 
           <div className="flex flex-wrap gap-2">

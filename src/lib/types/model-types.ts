@@ -47,11 +47,11 @@ import {
   SubclassChoiceOption,
   ChoiceOption,
   ChoiceOptionFeature,
-} from '@prisma/client';
+} from "@prisma/client";
 
 // Якщо в тебе є окремий фронтовий enum Skill — підтягуємо
 // Якщо немає — можеш видалити цей імпорт і замінити Skill на Skills
-import { Skill } from './enums';
+import { Skill } from "./enums";
 
 // ============================================================================
 // 2. JSON-типи, які ТИ ВЖЕ ВИКОРИСТОВУЄШ У СІДАХ
@@ -68,7 +68,9 @@ export type SkillProficienciesChoice = {
   chooseAny?: boolean;
 };
 
-export type SkillProficiencies = SkillProficienciesArray | SkillProficienciesChoice;
+export type SkillProficiencies =
+  | SkillProficienciesArray
+  | SkillProficienciesChoice;
 
 // 2.2. Race ASI
 
@@ -87,8 +89,8 @@ type FlexibleASIGroup = {
 
 export type RaceASI = {
   basic?: {
-    simple: AbilityScoreMap;      // типу { STR: 2, CON: 1 }
-    flexible?: FlexibleASIGroup;  // групи вибору
+    simple: AbilityScoreMap; // типу { STR: 2, CON: 1 }
+    flexible?: FlexibleASIGroup; // групи вибору
   };
   tasha?: {
     flexible: FlexibleASIGroup;
@@ -112,13 +114,13 @@ export type ToolProficiencies = ToolCategory[];
 
 export type MulticlassReqs = {
   required: Ability[]; // які стати повинні мати мін. значення
-  score: number;       // наприклад 13
+  score: number; // наприклад 13
 };
 
 // 2.5. AC модифікації (Feature.modifiesAC / prerequisites / Race.ac)
 
 // Те, що в prerequisites для AC:
-export type ACPrerequisiteTag = 'UNARMORED' | 'NO_SHIELD';
+export type ACPrerequisiteTag = "UNARMORED" | "NO_SHIELD";
 
 // Варіант 1:
 // modifiesAC: {
@@ -157,12 +159,12 @@ export type ModifiesAC = ACBaseFormula | NaturalArmorAC;
 // ac: { consistentBonus: 1 }
 export type RaceAC =
   | {
-  base: number;
-  bonus: Ability | null;
-}
+      base: number;
+      bonus: Ability | null;
+    }
   | {
-  consistentBonus: number;
-};
+      consistentBonus: number;
+    };
 
 // 2.6. Bonus to saving throws
 //
@@ -188,8 +190,10 @@ export type BonusToSavingThrows = {
 // }
 
 export type SkillExpertises = {
-  chooseFromCurrentProficiencies: boolean;
+  chooseFromCurrentProficiencies?: boolean;
   count?: number;
+  options?: string[];
+  getProficiencyAsWell?: boolean;
 };
 
 // 2.8. usesCountSpecial – всі варіанти, які ти показував
@@ -216,12 +220,12 @@ export type UsesCountSpecialArray = UsesCountPerLevel[];
 //   stat: 'CHA',
 //   operation: 'ADD',
 // }
-export type UsesCountFormulaGroup = 'STAT_BASED' | 'LEVEL_BASED';
-export type UsesCountFormulaOperation = 'ADD' | 'MULTIPLY';
+export type UsesCountFormulaGroup = "STAT_BASED" | "LEVEL_BASED";
+export type UsesCountFormulaOperation = "ADD" | "MULTIPLY";
 
 export type UsesCountSpecialFormulaStatBased = {
-  type: 'FORMULA';
-  group: 'STAT_BASED';
+  type: "FORMULA";
+  group: "STAT_BASED";
   base: number;
   stat: Ability;
   operation: UsesCountFormulaOperation;
@@ -236,8 +240,8 @@ export type UsesCountSpecialFormulaStatBased = {
 //   operation: 'MULTIPLY',
 // }
 export type UsesCountSpecialFormulaLevelBased = {
-  type: 'FORMULA';
-  group: 'LEVEL_BASED';
+  type: "FORMULA";
+  group: "LEVEL_BASED";
   multiplier: number;
   operation: UsesCountFormulaOperation;
 };
@@ -249,7 +253,7 @@ export type UsesCountSpecialFormulaLevelBased = {
 //   stat: 'CHA'
 // }
 export type UsesCountSpecialStaticFromStat = {
-  type: 'STATIC_FROM_STAT';
+  type: "STATIC_FROM_STAT";
   stat: Ability;
 };
 
@@ -320,6 +324,16 @@ export type RacePrisma = Prisma.RaceGetPayload<{
         };
       };
     };
+    traits: {
+      include: {
+        feature: true;
+      };
+    };
+  };
+}>;
+
+export type SubracePrisma = Prisma.SubraceGetPayload<{
+  include: {
     traits: {
       include: {
         feature: true;
@@ -445,8 +459,6 @@ export type FeaturePrisma = Prisma.FeatureGetPayload<{
     givesSpells: true;
   };
 }>;
-
-
 
 // 3.6. MagicItem
 
@@ -595,7 +607,11 @@ export type AbilityKey = keyof typeof Ability;
 
 export type RaceI = Omit<
   RacePrisma,
-  'ASI' | 'skillProficiencies' | 'toolProficiencies' | 'weaponProficiencies' | 'ac'
+  | "ASI"
+  | "skillProficiencies"
+  | "toolProficiencies"
+  | "weaponProficiencies"
+  | "ac"
 > & {
   ASI: RaceASI;
   skillProficiencies: SkillProficiencies | null;
@@ -604,11 +620,27 @@ export type RaceI = Omit<
   ac: RaceAC | null;
 };
 
+export type SubraceI = Omit<
+  SubracePrisma,
+  | "additionalASI"
+  | "skillProficiencies"
+  | "toolProficiencies"
+  | "weaponProficiencies"
+> & {
+  additionalASI: AbilityScoreMap | null;
+  skillProficiencies: SkillProficiencies | null;
+  toolProficiencies: ToolProficiencies | null;
+  weaponProficiencies: WeaponProficiencies | null;
+};
+
 // 4.2. ClassI — Class + фулл граф + нормальні JSON-типы
 
 export type ClassI = Omit<
   ClassPrisma,
-  'skillProficiencies' | 'weaponProficiencies' | 'weaponProficienciesSpecial' | 'multiclassReqs'
+  | "skillProficiencies"
+  | "weaponProficiencies"
+  | "weaponProficienciesSpecial"
+  | "multiclassReqs"
 > & {
   skillProficiencies: SkillProficiencies;
   weaponProficiencies: WeaponProficiencies;
@@ -619,7 +651,7 @@ export type ClassI = Omit<
 // 4.3. BackgroundI — Background з нормальними skill/tool JSON
 
 export interface BackgroundI
-  extends Omit<BackgroundPrisma, 'skillProficiencies' | 'toolProficiencies'> {
+  extends Omit<BackgroundPrisma, "skillProficiencies" | "toolProficiencies"> {
   skillProficiencies: SkillProficiencies;
   toolProficiencies: ToolProficiencies;
   gainsFeats?: FeatPrisma[];
@@ -630,7 +662,11 @@ export interface BackgroundI
 export interface FeatureI
   extends Omit<
     FeaturePrisma,
-    'modifiesAC' | 'bonusToSavingThrows' | 'skillProficiencies' | 'skillExpertises' | 'usesCountSpecial'
+    | "modifiesAC"
+    | "bonusToSavingThrows"
+    | "skillProficiencies"
+    | "skillExpertises"
+    | "usesCountSpecial"
   > {
   modifiesAC?: ModifiesAC | null;
   bonusToSavingThrows?: BonusToSavingThrows | null;
@@ -641,14 +677,17 @@ export interface FeatureI
 
 // 4.5. PersI — для miscSaveBonuses
 
-export interface PersI extends Omit<PersPrisma, 'miscSaveBonuses'> {
+export interface PersI extends Omit<PersPrisma, "miscSaveBonuses"> {
   miscSaveBonuses?: MiscSaveBonuses | null;
 }
 
 // 4.6. MagicItemI — нормальний тип для weaponProficiencies JSON
 
 export interface MagicItemI
-  extends Omit<MagicItemPrisma, 'weaponProficiencies' | 'weaponProficienciesSpecial'> {
+  extends Omit<
+    MagicItemPrisma,
+    "weaponProficiencies" | "weaponProficienciesSpecial"
+  > {
   weaponProficiencies?: WeaponProficiencies | null;
   weaponProficienciesSpecial?: WeaponProficienciesSpecial | null;
 }
@@ -661,9 +700,9 @@ export interface SubclassI extends Subclass {
   subclassChoiceOptions: (SubclassChoiceOption & {
     choiceOption: ChoiceOption & {
       features: (ChoiceOptionFeature & {
-        feature: Feature
-      })[]
-    }
+        feature: Feature;
+      })[];
+    };
   })[];
 }
 
@@ -725,14 +764,29 @@ export interface SimpleBonusValue {
   value: number;
 }
 
-export type SimpleBonusField = 'hp' | 'ac' | 'speed' | 'proficiency' | 'initiative' | 'spellAttack' | 'spellDC';
+export type SimpleBonusField =
+  | "hp"
+  | "ac"
+  | "speed"
+  | "proficiency"
+  | "initiative"
+  | "spellAttack"
+  | "spellDC";
 
 // PersWithBonuses - adds strongly typed bonus fields (overriding Json? from Prisma)
 export type PersWithBonuses = Omit<
   Pers,
-  'statBonuses' | 'statModifierBonuses' | 'saveBonuses' | 'skillBonuses' |
-  'hpBonuses' | 'acBonuses' | 'speedBonuses' | 'proficiencyBonuses' |
-  'initiativeBonuses' | 'spellAttackBonuses' | 'spellDCBonuses'
+  | "statBonuses"
+  | "statModifierBonuses"
+  | "saveBonuses"
+  | "skillBonuses"
+  | "hpBonuses"
+  | "acBonuses"
+  | "speedBonuses"
+  | "proficiencyBonuses"
+  | "initiativeBonuses"
+  | "spellAttackBonuses"
+  | "spellDCBonuses"
 > & {
   statBonuses: StatBonuses | null;
   statModifierBonuses: StatBonuses | null;
@@ -747,5 +801,9 @@ export type PersWithBonuses = Omit<
   spellDCBonuses: SimpleBonusValue | null;
 };
 
-export type BonusType = 'stat' | 'statModifier' | 'save' | 'skill' | SimpleBonusField;
-
+export type BonusType =
+  | "stat"
+  | "statModifier"
+  | "save"
+  | "skill"
+  | SimpleBonusField;

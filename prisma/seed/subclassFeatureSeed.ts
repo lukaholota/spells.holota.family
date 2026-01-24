@@ -1,4 +1,4 @@
-import { FeatureDisplayType, PrismaClient, RestType, Subclasses } from "@prisma/client"
+import { FeatureDisplayType, Language, PrismaClient, RestType, Skills, Subclasses } from "@prisma/client"
 import { normalizeFeatureCreateInput, type SeedFeatureCreateInput } from "./helpers/featureDisplayType"
 
 type SubclassFeatureLink = {
@@ -1642,6 +1642,12 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "На 1 рівні ви вивчаєте дві мови й отримуєте Володіння двома навичками на вибір: Магія, Історія, Природа або Релігія. Для цих навичок ваш Бонус Майстерності подвоюється.",
       displayType: [FeatureDisplayType.PASSIVE],
+      skillExpertises: {
+        count: 2,
+        options: [Skills.ARCANA, Skills.HISTORY, Skills.NATURE, Skills.RELIGION],
+        getProficiencyAsWell: true,
+      },
+      languagesToChooseCount: 2,
     },
     {
       name: "Божественність: Знання віків",
@@ -3010,6 +3016,7 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       shortDescription: "Володієте мовою Первинною (аурен, акван, ігнан, террен).",
       description: "На 1 рівні ви володієте мовою Первинною, що включає діалекти аурен, акван, ігнан і террен.",
       displayType: [FeatureDisplayType.PASSIVE],
+      givesLanguages: [Language.PRIMORDIAL],
     },
     {
       name: "Бурхлива магія",
@@ -3830,6 +3837,7 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "На 2 рівні ви вільно розумієте звірів і можете розмовляти мовою Сильван. Ви маєте перевагу на перевірки Харизми, зроблені для впливу на звірів і фей.",
       displayType: [FeatureDisplayType.PASSIVE],
+      givesLanguages: [Language.SYLVAN],
     },
     {
       name: "Дух-тотем",
@@ -4522,7 +4530,31 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       engName: "Hunter's Prey",
       shortDescription: "Ви обираєте одну з можливостей: Вбивця велетнів, Знищувач орд, Вбивця колосів.",
       description:
-        "На 3 рівні ви отримуєте одну з наступних особливостей на ваш вибір:\n\n**Вбивця колосів (Colossus Slayer)**: Ваша рішучість дозволяє завдавати удари ворогам. Один раз за хід, коли ви влучаєте атакою зброєю по істоті, хіти якої не повні (менше максимуму), ви можете завдати додатково 1к8 шкоди.\n\n**Вбивця велетнів (Giant Killer)**: Коли істота розміру Великий або більше в межах 5 футів від вас влучає або промахується по вам атакою, ви можете використати реакцію, щоб негайно атакувати цю істоту після її атаки (за умови, що ви її бачите).\n\n**Знищувач орд (Horde Breaker)**: Один раз за хід, коли ви робите атаку зброєю, ви можете зробити ще одну атаку тією ж зброєю проти іншої істоти, що знаходиться в межах 5 футів від першої цілі і в межах досяжності вашої зброї.",
+        "На 3 рівні ви отримуєте одну з наступних особливостей на ваш вибір: Вбивця велетнів, Знищувач орд, Вбивця колосів",
+      displayType: [FeatureDisplayType.PASSIVE],
+    },
+    {
+      name: "Вбивця колосів",
+      engName: "Colossus Slayer (Hunter)",
+      shortDescription: "Раз за хід при влучанні по пораненій істоті — +1к8 шкоди.",
+      description:
+        "Ваша рішучість дозволяє завдавати удари ворогам. Один раз за хід, коли ви влучаєте атакою зброєю по істоті, хіти якої не повні (менше максимуму), ви можете завдати додатково 1к8 шкоди.",
+      displayType: [FeatureDisplayType.PASSIVE],
+    },
+    {
+      name: "Вбивця велетнів",
+      engName: "Giant Killer (Hunter)",
+      shortDescription: "Реакцією атакуєте Велику+ істоту в 5 футах після її атаки по вам.",
+      description:
+        "Коли істота розміру Великий або більше в межах 5 футів від вас влучає або промахується по вам атакою, ви можете використати реакцію, щоб негайно атакувати цю істоту після її атаки (за умови, що ви її бачите).",
+      displayType: [FeatureDisplayType.REACTION],
+    },
+    {
+      name: "Знищувач орд",
+      engName: "Horde Breaker (Hunter)",
+      shortDescription: "Раз за хід: ще одна атака по іншій істоті біля першої (в досяжності).",
+      description:
+        "Один раз за хід, коли ви робите атаку зброєю, ви можете зробити ще одну атаку тією ж зброєю проти іншої істоти, що знаходиться в межах 5 футів від першої цілі і в межах досяжності вашої зброї.",
       displayType: [FeatureDisplayType.PASSIVE],
     },
     {
@@ -4530,7 +4562,29 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       engName: "Defensive Tactics",
       shortDescription: "Ви обираєте: Втеча від орди, Захист від мультиатаки, Сталева воля.",
       description:
-        "На 7 рівні ви обираєте одну з наступних особливостей:\n\n**Втеча від орди (Escape the Horde)**: Провоковані атаки проти вас робляться з перешкодою.\n\n**Захист від мультиатаки (Multiattack Defense)**: Коли істота влучає по вам атакою, ви отримуєте +4 до КД проти всіх наступних атак цієї істоти до кінця ходу.\n\n**Сталева воля (Steel Will)**: Ви маєте перевагу на ряткидки проти переляку.",
+        "На 7 рівні ви обираєте одну з наступних особливостей.",
+      displayType: [FeatureDisplayType.PASSIVE],
+    },
+    {
+      name: "Втеча від орди",
+      engName: "Escape the Horde (Hunter)",
+      shortDescription: "Провоковані атаки проти вас робляться з перешкодою.",
+      description: "Провоковані атаки проти вас робляться з перешкодою.",
+      displayType: [FeatureDisplayType.PASSIVE],
+    },
+    {
+      name: "Захист від мультиатаки",
+      engName: "Multiattack Defense (Hunter)",
+      shortDescription: "Після влучання по вам істота дає вам +4 до КД проти її атак до кінця ходу.",
+      description:
+        "Коли істота влучає по вам атакою, ви отримуєте +4 до КД проти всіх наступних атак цієї істоти до кінця ходу.",
+      displayType: [FeatureDisplayType.PASSIVE],
+    },
+    {
+      name: "Сталева воля",
+      engName: "Steel Will (Hunter)",
+      shortDescription: "Ви маєте перевагу на ряткидки проти переляку.",
+      description: "Ви маєте перевагу на ряткидки проти переляку.",
       displayType: [FeatureDisplayType.PASSIVE],
     },
     {
@@ -4538,7 +4592,23 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       engName: "Multiattack (Hunter)",
       shortDescription: "Ви обираєте: Залп або Вихор удару.",
       description:
-        "На 11 рівні ви обираєте одну з наступних особливостей:\n\n**Залп (Volley)**: Дією ви можете зробити далеку атаку по будь-якій кількості істот у межах 10 футів від точки, яку ви бачите в дистанції вашої зброї. Ви повинні мати боєприпаси для кожної цілі, робите окремий кидок атаки для кожної.\n\n**Вихор удару (Whirlwind Attack)**: Дією ви можете зробити атаку ближнього бою по будь-якій кількості істот у межах 5 футів від вас, роблячи окремий кидок для кожної.",
+        "На 11 рівні ви обираєте одну з наступних особливостей.",
+      displayType: [FeatureDisplayType.ACTION],
+    },
+    {
+      name: "Залп",
+      engName: "Volley (Hunter)",
+      shortDescription: "Дією далека атака по будь-якій кількості істот у 10 футах від точки в дальності зброї.",
+      description:
+        "Дією ви можете зробити далеку атаку по будь-якій кількості істот у межах 10 футів від точки, яку ви бачите в дистанції вашої зброї. Ви повинні мати боєприпаси для кожної цілі, робите окремий кидок атаки для кожної.",
+      displayType: [FeatureDisplayType.ACTION],
+    },
+    {
+      name: "Вихор удару",
+      engName: "Whirlwind Attack (Hunter)",
+      shortDescription: "Дією атака ближнього бою по будь-якій кількості істот у 5 футах від вас.",
+      description:
+        "Дією ви можете зробити атаку ближнього бою по будь-якій кількості істот у межах 5 футів від вас, роблячи окремий кидок для кожної.",
       displayType: [FeatureDisplayType.ACTION],
     },
     {
@@ -4546,8 +4616,32 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       engName: "Superior Hunter's Defense",
       shortDescription: "Ви обираєте: Ухиляння, Стійкість проти течії, Неймовірна спритність.",
       description:
-        "На 15 рівні ви обираєте одну з наступних особливостей:\n\n**Ухиляння (Evasion)**: Коли ви підпадаєте під ефект, що дозволяє зробити ряткидок Спритності для отримання половини шкоди (наприклад, подих дракона), ви не отримуєте шкоди при успіху і лише половину при провалі.\n\n**Стійкість проти течії (Stand Against the Tide)**: Коли ворожа істота промахується по вам атакою ближнього бою, ви можете використати реакцію, щоб змусити цю істоту негайно повторити цю атаку проти іншої істоти (окрім себе) на ваш вибір.\n\n**Неймовірна спритність (Uncanny Dodge)**: Коли нападник, якого ви бачите, влучає по вам атакою, ви можете використати реакцію, щоб зменшити шкоду від цієї атаки вдвічі.",
+        "На 15 рівні ви обираєте одну з наступних особливостей.",
       displayType: [FeatureDisplayType.PASSIVE],
+    },
+    {
+      name: "Ухиляння",
+      engName: "Evasion (Hunter)",
+      shortDescription: "На успішному ряткидку Спритності — 0 шкоди; при провалі — половина.",
+      description:
+        "Коли ви підпадаєте під ефект, що дозволяє зробити ряткидок Спритності для отримання половини шкоди (наприклад, подих дракона), ви не отримуєте шкоди при успіху і лише половину при провалі.",
+      displayType: [FeatureDisplayType.PASSIVE],
+    },
+    {
+      name: "Стійкість проти течії",
+      engName: "Stand Against the Tide (Hunter)",
+      shortDescription: "Реакцією змушуєте ворога, що промахнувся, атакувати іншу істоту.",
+      description:
+        "Коли ворожа істота промахується по вам атакою ближнього бою, ви можете використати реакцію, щоб змусити цю істоту негайно повторити цю атаку проти іншої істоти (окрім себе) на ваш вибір.",
+      displayType: [FeatureDisplayType.REACTION],
+    },
+    {
+      name: "Неймовірна спритність",
+      engName: "Uncanny Dodge (Hunter)",
+      shortDescription: "Реакцією вдвічі зменшуєте шкоду від атаки, яка влучила.",
+      description:
+        "Коли нападник, якого ви бачите, влучає по вам атакою, ви можете використати реакцію, щоб зменшити шкоду від цієї атаки вдвічі.",
+      displayType: [FeatureDisplayType.REACTION],
     },
 
     // ===== Beast Master =====
@@ -5954,6 +6048,7 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Ви спрямовуєте драконячу силу. Ви отримуєте наступні переваги:\n\n**Драконяча присутність.** Якщо ви провалюєте перевірку Харизми (Залякування) або Харизми (Переконання), ви можете використати реакцію, щоб перекинути кидок, і повинні використати новий результат. Раз використавши цю здатність, ви не можете використати її знову до закінчення тривалого відпочинку, якщо не витратите 1 очко кі.\n\n**Драконячий удар.** Коли ви завдаєте шкоди ударом без зброї, ви можете змінити тип шкоди на кислоту, холод, вогонь, блискавку або отруту.\n\n**Мова драконів.** Ви вивчаєте драконячу мову або іншу мову на вибір.",
       displayType: [FeatureDisplayType.PASSIVE],
+      givesLanguages: [Language.DRACONIC],
     },
     {
       name: "Подих дракона",

@@ -351,6 +351,9 @@ export async function levelUpCharacter(persId: number, data: any) {
     const saveProficienciesToAdd = new Set<Ability>();
     let nextAdditionalSaveProficiencies: Ability[] | null = null;
 
+    const expertiseSelections = (data?.expertiseSchema?.expertises || []) as Skills[];
+    expertiseSelections.forEach(s => skillsToExpertise.add(s));
+
     if (featId) {
       const feat = await prisma.feat.findUnique({
         where: { featId },
@@ -594,6 +597,14 @@ export async function levelUpCharacter(persId: number, data: any) {
       return map;
     };
 
+    const isKnowledgeGroup = (name: string) => {
+      const lower = String(name || "").toLowerCase();
+      return (
+        lower.includes("blessing of knowledge") ||
+        lower.startsWith("благословення знань")
+      );
+    };
+
     const validateChoiceSelections = async (args: {
       scope: "class" | "subclass";
       selections: SelectionsRecord;
@@ -646,7 +657,11 @@ export async function levelUpCharacter(persId: number, data: any) {
           subclassName: args.subclassName,
         });
 
-        const expected = rule ? Number(rule.picksAtLevel(classLevelAfter)) || 0 : 1;
+        const expected = rule
+          ? Number(rule.picksAtLevel(classLevelAfter)) || 0
+          : isKnowledgeGroup(baseGroup)
+            ? 2
+            : 1;
         const selected = selectedByGroup.get(baseGroup) ?? [];
 
         // If a rule exists but returns 0, treat as non-required (defensive), but still validate ids.
@@ -703,6 +718,10 @@ export async function levelUpCharacter(persId: number, data: any) {
 
     const classChoiceSelections = data?.classChoiceSelections as SelectionsRecord;
     const subclassChoiceSelections = data?.subclassChoiceSelections as SelectionsRecord;
+    const languageSelections = (data?.languagesSchema?.languages || []) as string[];
+    const languageSelectionExtras = languageSelections.map((l) => translateValue(String(l)));
+    const featLanguageExtras = featGrantedLanguages.map((l) => translateValue(String(l)));
+    const featLanguageChoiceLines = featGrantedLanguageCount > 0 ? [`Обери ще ${featGrantedLanguageCount}`] : [];
 
     const allowedClassOptionsAtLevel = (selectedClass.classChoiceOptions || []).filter((opt: any) =>
       (opt.levelsGranted || []).includes(classLevelAfter)
@@ -949,6 +968,42 @@ export async function levelUpCharacter(persId: number, data: any) {
 
     for (const fid of replacementFeatureIdsToAdd) featuresToAdd.add(fid);
 
+    const featureLanguageExtras: string[] = [];
+    if (featuresToAdd.size > 0) {
+      const featuresWithLanguages = await prisma.feature.findMany({
+        where: { featureId: { in: Array.from(featuresToAdd) } },
+        select: { givesLanguages: true },
+      });
+
+      for (const f of featuresWithLanguages) {
+        (f.givesLanguages || []).forEach((l) => featureLanguageExtras.push(translateValue(String(l))));
+      }
+    }
+
+    const combinedLanguageExtras = [
+      ...featLanguageExtras,
+      ...featLanguageChoiceLines,
+      ...languageSelectionExtras,
+      ...featureLanguageExtras,
+    ].filter((l) => String(l || "").trim());
+
+    // Process skillExpertises from features being added
+    const featuresWithExpertiseData = await prisma.feature.findMany({
+        where: { featureId: { in: Array.from(featuresToAdd) } },
+        select: { featureId: true, skillExpertises: true }
+    });
+    
+    for (const f of featuresWithExpertiseData) {
+        const se = f.skillExpertises as any;
+        if (se?.getProficiencyAsWell && Array.isArray(se.options)) {
+            for (const skill of expertiseSelections) {
+                if (se.options.includes(skill)) {
+                    skillsToAdd.add(skill as Skills);
+                }
+            }
+        }
+    }
+
     // Spell slots: when max slots increase on level-up (incl. getting spellcasting via subclass like Eldritch Knight),
     // add the gained slots to current slots instead of leaving them at 0.
     const beforeMaxStandard = getMaxStandardSlots(pers as any);
@@ -1058,10 +1113,6 @@ export async function levelUpCharacter(persId: number, data: any) {
                 return Array.from(set).join("\n");
               };
 
-              const languageExtras: string[] = [];
-              for (const l of featGrantedLanguages) languageExtras.push(translateValue(String(l)));
-              if (featGrantedLanguageCount > 0) languageExtras.push(`Обери ще ${featGrantedLanguageCount}`);
-
               const profExtras: string[] = [];
               const armorText = formatArmorProficiencies(featGrantedArmorProficiencies);
               if (armorText && armorText !== "—") profExtras.push(armorText);
@@ -1071,8 +1122,26 @@ export async function levelUpCharacter(persId: number, data: any) {
               if (weaponText && weaponText !== "—") profExtras.push(weaponText);
 
               return {
-                customLanguagesKnown: mergeLines((pers as any).customLanguagesKnown, languageExtras),
                 customProficiencies: mergeLines((pers as any).customProficiencies, profExtras),
+              };
+            })()
+            : {}),
+          ...(combinedLanguageExtras.length > 0
+            ? (() => {
+              const mergeLines = (base: unknown, extras: string[]) => {
+                const baseText = typeof base === "string" ? base : "";
+                const baseLines = baseText
+                  .split(/\r?\n/)
+                  .map((l) => l.trim())
+                  .filter(Boolean);
+                const set = new Set(baseLines);
+                for (const line of extras.map((l) => String(l).trim()).filter(Boolean)) {
+                  set.add(line);
+                }
+                return Array.from(set).join("\n");
+              };
+              return {
+                customLanguagesKnown: mergeLines((pers as any).customLanguagesKnown, combinedLanguageExtras),
               };
             })()
             : {}),

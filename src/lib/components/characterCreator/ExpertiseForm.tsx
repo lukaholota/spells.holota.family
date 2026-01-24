@@ -8,19 +8,24 @@ import { usePersFormStore } from "@/lib/stores/persFormStore";
 import { useEffect, useMemo } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Check } from "lucide-react";
+import { Check, Lock } from "lucide-react";
 import { engEnumSkills } from "@/lib/refs/translation";
 import { Skills } from "@prisma/client";
+import { SkillExpertises } from "@/lib/types/model-types";
 
 interface Props {
   selectedClass: ClassI;
+  subclass?: any;
+  activeFeatures: any[];
   race: RaceI;
   background: BackgroundI;
   formId: string;
   onNextDisabledChange?: (disabled: boolean) => void;
+  extraSkills?: string[];
+  extraExpertises?: string[];
 }
 
-export const ExpertiseForm = ({ selectedClass, formId, onNextDisabledChange }: Props) => {
+export const ExpertiseForm = ({ selectedClass, subclass, activeFeatures, formId, onNextDisabledChange, extraSkills = [], extraExpertises = [] }: Props) => {
   const { formData, updateFormData, nextStep } = usePersFormStore();
   
   const { form, onSubmit } = useStepForm(expertiseSchema, (data) => {
@@ -28,14 +33,23 @@ export const ExpertiseForm = ({ selectedClass, formId, onNextDisabledChange }: P
     nextStep();
   });
   
-  const expertiseFeature = useMemo(() => 
-    selectedClass.features.find(f => 
-      f.levelGranted === 1 && 
-      (f.feature.skillExpertises as { count?: number } | undefined)?.count && 
-      ((f.feature.skillExpertises as { count?: number } | undefined)?.count || 0) > 0
-    ), [selectedClass]);
+  const expertiseFeatures = useMemo(() => 
+    activeFeatures.filter(f => {
+       const se = f.skillExpertises as SkillExpertises | undefined;
+       if (!se) return false;
+       return (se.count !== undefined && se.count > 0) || 
+              (se.options !== undefined && se.options.length > 0) ||
+              se.chooseFromCurrentProficiencies;
+    }), [activeFeatures]);
 
-  const expertiseCount = (expertiseFeature?.feature.skillExpertises as { count?: number })?.count || 0;
+  const expertiseCount = useMemo(() => 
+    expertiseFeatures.reduce((acc, f) => {
+        const se = f.skillExpertises as SkillExpertises;
+        // If count is specified, use it. If not, default to 1 if we have options or chooseFromCurrentProficiencies
+        const count = se.count !== undefined ? se.count : 1;
+        return acc + count;
+    }, 0)
+  , [expertiseFeatures]);
   
   const selectedExpertises = form.watch("expertises") || [];
 
@@ -61,9 +75,51 @@ export const ExpertiseForm = ({ selectedClass, formId, onNextDisabledChange }: P
         formData.skillsSchema.basicChoices?.selectedClass?.forEach(skill => skills.add(skill));
       }
     }
+
+    // From feats and other extra sources
+    extraSkills.forEach(skill => {
+        if (Object.values(Skills).includes(skill as Skills)) {
+            skills.add(skill);
+        }
+    });
+
+    // Add skills that are granted by expertise features themselves (getProficiencyAsWell)
+    expertiseFeatures.forEach(f => {
+       const se = f.skillExpertises as SkillExpertises;
+       if (se.getProficiencyAsWell && se.options) {
+          // Note: we don't add them ALL to proficiency yet, only if they can be picked.
+          // Actually, they ARE available for selection.
+       }
+    });
     
     return Array.from(skills);
-  }, [formData.skills, formData.skillsSchema]);
+  }, [formData.skills, formData.skillsSchema, extraSkills, expertiseFeatures]);
+
+  const availableSkillsForExpertise = useMemo(() => {
+    const skills = new Set<string>();
+    
+    expertiseFeatures.forEach(f => {
+      const se = f.skillExpertises as SkillExpertises;
+      if (se.chooseFromCurrentProficiencies) {
+        availableProficiencies.forEach(s => skills.add(s));
+      }
+      if (se.options) {
+        se.options.forEach(s => skills.add(s));
+      }
+    });
+
+    return Array.from(skills);
+  }, [expertiseFeatures, availableProficiencies]);
+
+  // BUGFIX: If a skill chosen for expertise is lost (removed in earlier steps), 
+  // it should be automatically removed from expertise.
+  useEffect(() => {
+    const validExpertises = selectedExpertises.filter(s => availableSkillsForExpertise.includes(s));
+    if (validExpertises.length !== selectedExpertises.length) {
+      form.setValue("expertises", validExpertises);
+      updateFormData({ expertiseSchema: { expertises: validExpertises } });
+    }
+  }, [availableSkillsForExpertise, selectedExpertises, form, updateFormData]);
 
   useEffect(() => {
     // Expertise selection is optional: user may proceed with fewer than the max.
@@ -85,16 +141,16 @@ export const ExpertiseForm = ({ selectedClass, formId, onNextDisabledChange }: P
     }
   };
 
-  if (!expertiseFeature) return null;
+  if (expertiseFeatures.length === 0) return null;
 
   // Show warning if no skills selected yet
 
   return (
     <form id={formId} onSubmit={onSubmit} className="space-y-6">
-      {availableProficiencies.length === 0 ? (
+      {availableSkillsForExpertise.length === 0 ? (
         <Card className="border-yellow-500/50">
           <div className="p-6 text-center">
-            <p className="text-yellow-400 mb-2">⚠️ Немає обраних навичок!</p>
+            <p className="text-yellow-400 mb-2">⚠️ Немає доступних навичок для експертизи!</p>
             <p className="text-sm text-slate-400">
               Можна продовжити без експертизи або повернутись на крок &quot;Навички&quot;.
             </p>
@@ -109,18 +165,40 @@ export const ExpertiseForm = ({ selectedClass, formId, onNextDisabledChange }: P
         <p className="text-sm text-slate-400">
           Оберіть {expertiseCount} навички, в яких ви станете експертом (подвійний бонус майстерності).
         </p>
-        <p className="text-xs text-amber-400 mt-1">
-          ⚠️ Експертизу можна отримати ТІЛЬКИ в навичках, які ви вже маєте!
-        </p>
       </div>
 
-      {availableProficiencies.length > 0 ? (
-        <div className="grid gap-2 sm:grid-cols-2 md:grid-cols-3">
-          {availableProficiencies.map((skill) => {
+      <div className="space-y-4">
+        {expertiseFeatures.map(f => {
+          const se = f.skillExpertises as any;
+          const count = se.count ?? 1;
+          const list = se.options 
+            ? ` (${se.options.map((s: string) => engEnumSkills.find(g => g.eng === s)?.ukr || s).join(', ')})` 
+            : ' (з усіх наявних)';
+          return (
+            <div key={f.featureId} className="flex items-center gap-3 p-3 bg-white/5 border border-white/10 rounded-lg">
+               <div className="flex-1">
+                 <div className="font-semibold text-slate-200">{f.name}</div>
+                 <div className="text-xs text-slate-400">
+                    Надає {count} {count === 1 ? 'експертизу' : 'експертизи'} {list}
+                    {se.getProficiencyAsWell && " (+ володіння)"}
+                 </div>
+               </div>
+               <div className="bg-indigo-500/20 text-indigo-300 px-2 py-1 rounded text-xs font-bold border border-indigo-500/30">
+                 +{count}
+               </div>
+            </div>
+          );
+        })}
+      </div>
+
+      {availableSkillsForExpertise.length > 0 ? (
+        <div className="grid gap-2 sm:grid-cols-2">
+          {availableSkillsForExpertise.map((skill) => {
             const isSelected = selectedExpertises.includes(skill as Skills);
+            const alreadyHasExpertise = extraExpertises.includes(skill);
             const isMaxReached = selectedExpertises.length >= expertiseCount;
-            const isDisabled = !isSelected && isMaxReached;
-            const active = isSelected;
+            const isDisabled = alreadyHasExpertise || (!isSelected && isMaxReached);
+            const active = isSelected || alreadyHasExpertise;
             const skillTranslation = engEnumSkills.find(s => s.eng === skill)?.ukr || skill;
 
             return (
@@ -132,11 +210,16 @@ export const ExpertiseForm = ({ selectedClass, formId, onNextDisabledChange }: P
                 className={clsx(
                   "justify-between border-white/15 bg-white/5 text-slate-200 hover:bg-white/7 hover:text-white",
                   active && "border-gradient-rpg border-gradient-rpg-active glass-active text-slate-100",
-                  isDisabled && "opacity-60"
+                  (isDisabled && !alreadyHasExpertise) && "opacity-60",
+                  alreadyHasExpertise && "opacity-80"
                 )}
                 onClick={() => !isDisabled && toggleExpertise(skill)}
               >
-                <span>{skillTranslation}</span>
+                <span className="flex items-center gap-2">
+                  {alreadyHasExpertise && <Lock className="h-3 w-3" />}
+                  {skillTranslation}
+                  {alreadyHasExpertise && <span className="text-xs opacity-80">(Експертиза)</span>}
+                </span>
                 {active && <Check className="h-4 w-4" />}
               </Button>
             );

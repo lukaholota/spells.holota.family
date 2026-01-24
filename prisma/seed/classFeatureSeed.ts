@@ -1,4 +1,4 @@
-import { Ability, FeatureDisplayType, Prisma, PrismaClient, RestType, Skills } from "@prisma/client";
+import { Ability, FeatureDisplayType, Language, Prisma, PrismaClient, RestType, Skills } from "@prisma/client";
 import { normalizeFeatureCreateInput, type SeedFeatureCreateInput } from "./helpers/featureDisplayType";
 
 export const seedClassFeatures = async ( prisma: PrismaClient ) => {
@@ -652,7 +652,6 @@ export const seedClassFeatures = async ( prisma: PrismaClient ) => {
             languagesToChooseCount: 2,
             skillExpertises: {
                 chooseFromCurrentProficiencies: true,
-
             }
         },
 
@@ -907,6 +906,7 @@ export const seedClassFeatures = async ( prisma: PrismaClient ) => {
             description: 'Під час навчання на пройдисвіта ви вивчили злодійську мову - таємну суміш діалекту, жаргону та коду, що дозволяє вам ховати повідомлення в, здавалося б, звичайній розмові. Тільки інша істота, яка знає злодійську мову, розуміє такі повідомлення. Передача такого повідомлення займає в чотири рази більше часу, ніж висловити ту ж ідею відкрито.\n\nКрім того, ви розумієте набір таємних знаків і символів, що використовуються для передачі коротких, простих повідомлень, таких як: чи є район небезпечним, чи є територія гільдії злодіїв, чи є поблизу награбоване, чи легко обдурити людей у цій місцевості, або чи нададуть вони безпечний притулок для злодіїв у бігах.',
             shortDescription: 'Таємна мова злодіїв + система знаків',
             displayType: [FeatureDisplayType.PASSIVE],
+            givesLanguages: [Language.THIEVES_CANT]
         },
 
         // 2 РІВЕНЬ
@@ -2121,6 +2121,7 @@ export const seedClassFeatures = async ( prisma: PrismaClient ) => {
             description: 'Ви знаєте друїдичну мову — таємну мову друїдів. Ви можете говорити цією мовою та залишати нею приховані повідомлення. Інші істоти не можуть її зрозуміти без допомоги магії.',
             shortDescription: 'Таємна мова друїдів для спілкування та прихованих повідомлень',
             displayType: [FeatureDisplayType.PASSIVE],
+            givesLanguages: [Language.DRUIDIC]
         },
         {
             name: 'Чаротворство (Друїд)',

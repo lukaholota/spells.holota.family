@@ -16,6 +16,7 @@ model Feature {
   skillProficiencies                 Json?                                 @map("skill_proficiencies")
   savingThrows                       Ability[]                             @map("saving_throws")
   languagesToChooseCount             Int                                   @default(0) @map("languages_to_choose_count")
+  givesLanguages                     Language[]                            @default([]) @map("gives_languages")
   skillExpertises                    Json?                                 @map("skill_expertises")
   invocationsCount                   Int?                                  @map("invocations_count")
   bonusToAttackRoll                  Int?                                  @map("bonus_to_attack_roll")

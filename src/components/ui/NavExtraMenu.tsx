@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useCallback, useMemo, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { Menu, LogIn, LogOut, Home } from "lucide-react";
+import { Menu, LogIn, LogOut, Home, Heart } from "lucide-react";
 import { signOut, useSession } from "next-auth/react";
 
 import { cn } from "@/lib/utils";
@@ -144,6 +144,17 @@ export function NavExtraMenu({ showHomeLinkInMenu = false, className }: Props) {
                         Reddit
                       </a>
 
+                      <a
+                        href="https://send.monobank.ua/jar/8HZeSFfqwf"
+                        target="_blank"
+                        rel="noreferrer"
+                        onClick={close}
+                        className="flex items-center gap-2 rounded-xl px-3 py-2 text-sm text-slate-200 hover:bg-white/5"
+                      >
+                        <Heart className="h-4 w-4 text-rose-400" />
+                        На розвиток сайту :)
+                      </a>
+
                       {menuItems.isAuthed ? (
                         <button
                           ref={logoutConfirmMobile.ref}
@@ -209,6 +220,17 @@ export function NavExtraMenu({ showHomeLinkInMenu = false, className }: Props) {
                       >
                         <Image src="/images/reddit.svg" alt="Reddit" width={16} height={16} className="opacity-100" />
                         Reddit
+                      </a>
+
+                      <a
+                        href="https://send.monobank.ua/jar/8HZeSFfqwf"
+                        target="_blank"
+                        rel="noreferrer"
+                        onClick={close}
+                        className="flex items-center gap-2 rounded-xl px-3 py-2 text-sm text-slate-200 hover:bg-white/5"
+                      >
+                        <Heart className="h-4 w-4 text-rose-400" />
+                        На розвиток сайту :)
                       </a>
 
                       {menuItems.isAuthed ? (

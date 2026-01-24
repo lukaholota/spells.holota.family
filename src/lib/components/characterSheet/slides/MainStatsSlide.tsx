@@ -66,7 +66,21 @@ export default function MainStatsSlide({ pers, onPersUpdate, isReadOnly }: MainS
   const [deathFailures, setDeathFailures] = useState<number>(() => (pers as any).deathSaveFailures ?? 0);
   const [isDead, setIsDead] = useState<boolean>(() => Boolean((pers as any).isDead));
 
-  const [detailsOpen, setDetailsOpen] = useState(false);
+  const [detailsOpen, setDetailsOpen] = useState(() => {
+    if (typeof window !== "undefined") {
+      return localStorage.getItem("pers_details_open") === "true";
+    }
+    return false;
+  });
+
+  const toggleDetails = useCallback(() => {
+    setDetailsOpen((prev) => {
+      const next = !prev;
+      localStorage.setItem("pers_details_open", String(next));
+      return next;
+    });
+  }, []);
+
   const [languagesOpen, setLanguagesOpen] = useState(false);
   const [didInitDetails, setDidInitDetails] = useState(false);
 
@@ -258,7 +272,7 @@ export default function MainStatsSlide({ pers, onPersUpdate, isReadOnly }: MainS
           lastSavedDataRef.current = null;
         }
       });
-    }, 1000);
+    }, 2000);
 
     return () => window.clearTimeout(handle);
   }, [
@@ -808,13 +822,22 @@ export default function MainStatsSlide({ pers, onPersUpdate, isReadOnly }: MainS
           type="button"
           variant="secondary"
           className="w-full"
-          onClick={() => setDetailsOpen((v) => !v)}
+          onClick={toggleDetails}
         >
           Детальна інформація
         </Button>
 
         {detailsOpen ? (
           <div className="mt-3 rounded-xl border border-white/10 bg-slate-900/40 p-3 space-y-3">
+            <div className="space-y-1">
+              <div className="text-xs font-semibold text-slate-200">Нотатки</div>
+              <textarea
+                value={draftNotes}
+                onChange={(e) => setDraftNotes(e.target.value)}
+                className="w-full min-h-[400px] rounded-md border border-white/10 bg-slate-950/40 px-3 py-2 text-sm text-slate-100 outline-none focus:ring-1 focus:ring-white/20"
+              />
+            </div>
+
             {/* Alignment & XP */}
             <div className="grid grid-cols-2 gap-3">
               <div className="space-y-1">
@@ -988,15 +1011,6 @@ export default function MainStatsSlide({ pers, onPersUpdate, isReadOnly }: MainS
               <textarea
                 value={draftBackstory}
                 onChange={(e) => setDraftBackstory(e.target.value)}
-                className="w-full min-h-[120px] rounded-md border border-white/10 bg-slate-950/40 px-3 py-2 text-sm text-slate-100 outline-none focus:ring-1 focus:ring-white/20"
-              />
-            </div>
-
-            <div className="space-y-1">
-              <div className="text-xs font-semibold text-slate-200">Нотатки</div>
-              <textarea
-                value={draftNotes}
-                onChange={(e) => setDraftNotes(e.target.value)}
                 className="w-full min-h-[120px] rounded-md border border-white/10 bg-slate-950/40 px-3 py-2 text-sm text-slate-100 outline-none focus:ring-1 focus:ring-white/20"
               />
             </div>

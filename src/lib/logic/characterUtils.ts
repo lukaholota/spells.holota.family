@@ -23,8 +23,12 @@ export const getEffectiveSkills = (
      pers.skills.forEach((s: any) => {
          if (typeof s === 'string') {
              skills.add(s);
-         } else if (s && typeof s === 'object' && 'name' in s) {
-             skills.add(s.name);
+         } else if (s && typeof s === 'object') {
+             if ('skill' in s && typeof s.skill === 'string') {
+               skills.add(s.skill);
+             } else if ('name' in s && typeof s.name === 'string') {
+               skills.add(s.name);
+             }
          }
      });
   }
@@ -62,3 +66,79 @@ export const getEffectiveExpertises = (
 
     return Array.from(expertises);
 }
+
+/**
+ * Extracts skill enum value from optionNameEng
+ * Handles formats like "Skill Expert Proficiency (ATHLETICS)" -> "ATHLETICS"
+ * @param optionNameEng - The English option name
+ * @returns The skill enum value or original string
+ */
+export const extractSkillFromOptionName = (optionNameEng: string): string => {
+  // Try to extract skill from parentheses
+  const match = optionNameEng.match(/\(([^)]+)\)\s*$/);
+  if (match) {
+    return match[1];
+  }
+  return optionNameEng;
+};
+
+export type ChoiceOptionSkillEffect = {
+  kind: "SKILL_PROFICIENCY" | "SKILL_EXPERTISE";
+  skill: string;
+};
+
+export const extractChoiceOptionSkillEffects = (choiceOption: any): ChoiceOptionSkillEffect[] => {
+  const out: ChoiceOptionSkillEffect[] = [];
+  if (!choiceOption) return out;
+
+  const kind = String(choiceOption.effectKind ?? "").trim();
+  const skill = String(choiceOption.effectSkill ?? "").trim();
+  if ((kind === "SKILL_PROFICIENCY" || kind === "SKILL_EXPERTISE") && skill) {
+    out.push({ kind: kind as ChoiceOptionSkillEffect["kind"], skill });
+  }
+
+  const effects = Array.isArray(choiceOption.effects) ? choiceOption.effects : [];
+  for (const effect of effects) {
+    const k = String(effect?.kind ?? "").trim();
+    const s = String(effect?.skill ?? "").trim();
+    if ((k === "SKILL_PROFICIENCY" || k === "SKILL_EXPERTISE") && s) {
+      out.push({ kind: k as ChoiceOptionSkillEffect["kind"], skill: s });
+    }
+  }
+
+  return out;
+};
+
+export const extractSkillsFromChoiceOption = (choiceOption: any): string[] => {
+  const skills = new Set<string>();
+  const effects = extractChoiceOptionSkillEffects(choiceOption);
+  effects.forEach((e) => {
+    skills.add(e.skill);
+  });
+
+  if (skills.size === 0) {
+    const name = String(choiceOption?.optionNameEng ?? choiceOption?.optionName ?? "");
+    const extracted = extractSkillFromOptionName(name);
+    if (extracted && extracted !== "UNKNOWN") skills.add(extracted);
+  }
+
+  return Array.from(skills);
+};
+
+export const extractExpertisesFromChoiceOption = (choiceOption: any): string[] => {
+  const skills = new Set<string>();
+  const effects = extractChoiceOptionSkillEffects(choiceOption);
+  effects.forEach((e) => {
+    if (e.kind === "SKILL_EXPERTISE") skills.add(e.skill);
+  });
+  if (skills.size === 0) {
+    const rawNameEng = String(choiceOption?.optionNameEng ?? "");
+    const rawName = String(choiceOption?.optionName ?? "");
+    const combined = `${rawNameEng} ${rawName}`.toLowerCase();
+    if (combined.includes("expertise") || combined.includes("експертиза")) {
+      const extracted = extractSkillFromOptionName(rawNameEng || rawName);
+      if (extracted && extracted !== "UNKNOWN") skills.add(extracted);
+    }
+  }
+  return Array.from(skills);
+};

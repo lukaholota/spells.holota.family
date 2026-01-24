@@ -12,6 +12,7 @@ import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
 import { Check, Lock } from "lucide-react";
 import { usePersFormStore } from "@/lib/stores/persFormStore";
+import clsx from "clsx";
 
 interface Props {
   race: RaceI
@@ -20,6 +21,9 @@ interface Props {
   background: BackgroundI
   formId: string
   onNextDisabledChange?: (disabled: boolean) => void
+  activeFeatures?: any[]
+  extraExistingSkills?: string[]
+  extraExistingExpertises?: string[]
 }
 
 type GroupName = 'race' | 'selectedClass' | 'background';
@@ -61,18 +65,6 @@ function getSkillProficienciesCount(skillProfs: SkillProficiencies | null): numb
   return skillProfs.choiceCount
 }
 
-function getTotalSkillProficienciesCount(
-  {raceCount, classCount, backgroundCount, subraceCount, variantCount}: { 
-    raceCount: number, 
-    classCount: number, 
-    backgroundCount: number,
-    subraceCount: number,
-    variantCount: number
-  }
-): number {
-  return raceCount + classCount + backgroundCount + subraceCount + variantCount
-}
-
 interface hasSkills {
   skillProficiencies: SkillProficiencies | null
 }
@@ -83,8 +75,34 @@ function populateSkills<T extends hasSkills>(model: T) {
   }
 }
 
-export const SkillsForm = ({race, raceVariant, selectedClass, background, formId, onNextDisabledChange}: Props) => {
+export const SkillsForm = ({
+  race,
+  raceVariant,
+  selectedClass,
+  background,
+  formId,
+  onNextDisabledChange,
+  activeFeatures: _activeFeatures = [],
+  extraExistingSkills = [],
+  extraExistingExpertises = [],
+}: Props) => {
   const { formData, updateFormData, nextStep } = usePersFormStore();
+
+  const existingSkillsSet = useMemo(() => {
+    const out = new Set<Skill>();
+    extraExistingSkills.forEach((s) => {
+      if (isSkill(s)) out.add(s);
+    });
+    return out;
+  }, [extraExistingSkills]);
+
+  const existingExpertisesSet = useMemo(() => {
+    const out = new Set<Skill>();
+    extraExistingExpertises.forEach((s) => {
+      if (isSkill(s)) out.add(s);
+    });
+    return out;
+  }, [extraExistingExpertises]);
   
   // Get selected subrace from formData
   const selectedSubrace = useMemo(() => {
@@ -238,6 +256,9 @@ export const SkillsForm = ({race, raceVariant, selectedClass, background, formId
     return fixedSkillsFromRaceAndBackground; // In non-Tasha mode, these are locked
   }, [isTasha, fixedSkillsFromRaceAndBackground]);
 
+  // Skills that are always locked (granted from other sources / other steps)
+  const alwaysLockedGrantedSkills = useMemo(() => Array.from(existingSkillsSet), [existingSkillsSet]);
+
   const raceSkillProficiencies = useMemo(() => {
     if (raceVariant?.name === 'HUMAN_VARIANT') {
       // Variant Human gets 1 skill of choice
@@ -260,16 +281,26 @@ export const SkillsForm = ({race, raceVariant, selectedClass, background, formId
   const subraceCount = getSkillProficienciesCount(normalizeSkillProficiencies(selectedSubrace?.skillProficiencies))
   const variantCount = 0
 
-  // In Tasha mode, ALL skills (including fixed ones) become free choices in ONE pool
-  // Add raceChoiceOptions total count to Tasha pool as well? Usually yes, if flexible.
-  const tashaChoiceCountTotal = isTasha 
-    ? getTotalSkillProficienciesCount({
-        raceCount,
-        classCount,
-        backgroundCount,
-        subraceCount,
-        variantCount
-      }) + raceOptionsTotalCount
+  // In Tasha mode, race/background/subrace fixed proficiencies become a unified choice pool.
+  // The amount of choices should match the effective non‑Tasha total coming from these origins,
+  // i.e. fixed skills count is treated as distinct (no duplicate inflation).
+  const tashaFixedConvertibleCount = fixedSkillsFromRaceAndBackground.length;
+
+  const raceChoiceOnlyCount = Array.isArray(raceSkillProficiencies) ? 0 : raceCount;
+  const backgroundChoiceOnlyCount = backgroundSkillProficiencies ? backgroundCount : 0;
+  const normalizedSubraceProfs = normalizeSkillProficiencies(selectedSubrace?.skillProficiencies);
+  const subraceChoiceOnlyCount = normalizedSubraceProfs && !Array.isArray(normalizedSubraceProfs) ? subraceCount : 0;
+
+  const tashaChoiceCountTotal = isTasha
+    ? (
+        tashaFixedConvertibleCount +
+        raceChoiceOnlyCount +
+        classCount +
+        backgroundChoiceOnlyCount +
+        subraceChoiceOnlyCount +
+        variantCount +
+        raceOptionsTotalCount
+      )
     : 0;
     
   const tashaChoiceCountCurrent = tashaChoiceCountTotal - (tashaChoices?.length ?? 0)
@@ -300,6 +331,12 @@ export const SkillsForm = ({race, raceVariant, selectedClass, background, formId
   }, [raceSkillProficiencies, selectedClass.skillProficiencies, backgroundSkillProficiencies]);
 
   const checkIfSelectedByOthers = (groupName: GroupName | string, skill: Skill) => {
+    // Skills granted by other steps/sources are always treated as already selected
+    if (existingSkillsSet.has(skill)) return true;
+
+    // In non‑Tasha mode, fixed proficiencies (race/background/subrace) are always already selected
+    if (!isTasha && fixedSkillsFromRaceAndBackground.includes(skill)) return true;
+
     // Check main groups
     const mainGroups: Record<string, string[]> = {
       race: Array.isArray(race.skillProficiencies)
@@ -328,11 +365,24 @@ export const SkillsForm = ({race, raceVariant, selectedClass, background, formId
     const inMain = Object.values(mainGroups).some(value => value?.includes(skill));
     if (inMain) return true;
 
-    // Check race options
+    // Race Option Skills (e.g. Custom Lineage Skill)
     const inRaceOptions = Object.values(raceOptionGroups).some(value => value.includes(skill));
+    if (inRaceOptions) return true;
     
-    return inRaceOptions;
+    return false;
   }
+
+  const lockedSkillsInUICombined = useMemo(() => {
+    if (isTasha) {
+      // In Tasha mode, show only always-locked granted skills here (fixed race/bg skills are convertible)
+      return [...alwaysLockedGrantedSkills];
+    }
+    // In non‑Tasha, show all locked skills (race/bg/subrace fixed + always-locked granted)
+    const out = new Set<Skill>();
+    lockedSkillsInUI.forEach((s) => out.add(s));
+    alwaysLockedGrantedSkills.forEach((s) => out.add(s));
+    return Array.from(out);
+  }, [isTasha, lockedSkillsInUI, alwaysLockedGrantedSkills]);
 
   // Set validation metadata fields
   useEffect(() => {
@@ -369,6 +419,7 @@ export const SkillsForm = ({race, raceVariant, selectedClass, background, formId
   }, [isTasha, tashaChoices.length, tashaChoiceCountTotal, basicChoices, classCount, choiceOptions, raceOptionCounts, onNextDisabledChange, raceCount]);
 
   const handleToggleTashaSkill = (skill: Skill) => {
+    if (existingSkillsSet.has(skill)) return;
     const has = tashaChoices.includes(skill)
 
     // Can't select if already at limit and not currently selected
@@ -382,6 +433,7 @@ export const SkillsForm = ({race, raceVariant, selectedClass, background, formId
   }
 
   const handleToggleBasicSkill = ({skill, groupName}: { skill: Skill, groupName: GroupName }) => {
+    if (existingSkillsSet.has(skill)) return;
     const current = basicChoices[groupName] ?? []
     const has = current.includes(skill)
 
@@ -395,6 +447,7 @@ export const SkillsForm = ({race, raceVariant, selectedClass, background, formId
   }
 
   const handleToggleOptionSkill = ({skill, optionId}: { skill: Skill, optionId: string }) => {
+    if (existingSkillsSet.has(skill)) return;
     const current = choiceOptions[optionId] ?? [];
     const has = current.includes(skill);
     const max = raceOptionCounts[optionId] || 0;
@@ -443,10 +496,12 @@ export const SkillsForm = ({race, raceVariant, selectedClass, background, formId
               
               <div className="grid gap-2 sm:grid-cols-2 md:grid-cols-3">
                 {engEnumSkills.map((skill, index) => {
+                  const isExisting = existingSkillsSet.has(skill.eng as any);
+                  const isExistingExpertise = existingExpertisesSet.has(skill.eng as any);
                   const isSelected = tashaChoices.includes(skill.eng);
                   const isReachedLimit = tashaChoiceCountCurrent < 1;
-                  const isDisabled = !isSelected && isReachedLimit;
-                  const active = isSelected;
+                  const isDisabled = isExisting || (!isSelected && isReachedLimit);
+                  const active = isSelected || isExisting;
                   
                   return (
                     <Button
@@ -457,9 +512,13 @@ export const SkillsForm = ({race, raceVariant, selectedClass, background, formId
                       className={`justify-between border-white/15 bg-white/5 text-slate-200 hover:bg-white/7 hover:text-white ${
                         active ? "border-gradient-rpg border-gradient-rpg-active glass-active text-slate-100" : ""
                       } ${isDisabled ? "opacity-60" : ""}`}
-                      onClick={() => handleToggleTashaSkill(skill.eng)}
+                      onClick={() => !isExisting && handleToggleTashaSkill(skill.eng)}
                     >
-                      <span>{skill.ukr}</span>
+                      <span className="flex items-center gap-2">
+                        {isExisting && <Lock className="h-3 w-3" />}
+                        {skill.ukr}
+                        {isExistingExpertise && <span className="text-xs opacity-80">(Експертиза)</span>}
+                      </span>
                       {active && <Check className="h-4 w-4" />}
                     </Button>
                   );
@@ -469,24 +528,30 @@ export const SkillsForm = ({race, raceVariant, selectedClass, background, formId
           ) : (
             <div className="space-y-5">
               {/* Show fixed skills from background/race/subrace in NON-Tasha mode */}
-              {lockedSkillsInUI.length > 0 && (
+              {lockedSkillsInUICombined.length > 0 && (
                 <div className="rounded-lg border border-amber-500/30 bg-amber-500/5 p-3">
                   <div className="flex items-center gap-2 mb-2">
                     <Lock className="h-4 w-4 text-amber-400" />
                     <h3 className="text-sm font-semibold text-amber-200">Фіксовані навички</h3>
                   </div>
                   <div className="flex flex-wrap gap-2">
-                    {lockedSkillsInUI.map((skill) => {
+                    {lockedSkillsInUICombined.map((skill) => {
                       const skillGroup = engEnumSkills.find((s) => s.eng === skill);
+                      const isExpertise = existingExpertisesSet.has(skill as any);
                       return (
-                        <Badge key={skill} className="bg-amber-900/30 text-amber-100 border border-amber-700/50">
-                          {skillGroup?.ukr}
+                        <Badge key={skill} className={clsx(
+                          "border",
+                          isExpertise 
+                            ? "bg-blue-900/30 text-blue-100 border-blue-700/50"
+                            : "bg-amber-900/30 text-amber-100 border-amber-700/50"
+                        )}>
+                          {skillGroup?.ukr} {isExpertise && "(Експертиза)"}
                         </Badge>
                       );
                     })}
                   </div>
                   <p className="text-xs text-amber-300/70 mt-2">
-                    Ці навички автоматично отримані від раси та передісторії
+                    Ці навички вже отримані з інших джерел і не змінюються на цьому кроці
                   </p>
                 </div>
               )}
@@ -522,6 +587,8 @@ export const SkillsForm = ({race, raceVariant, selectedClass, background, formId
                          
                          const isSelected = currentSelections.includes(skill);
                          const isSelectedByOthers = checkIfSelectedByOthers(optId, skill);
+                         const isExisting = existingSkillsSet.has(skill);
+                         const isExistingExpertise = existingExpertisesSet.has(skill);
                          const isMaxReached = remaining < 1;
                          const isDisabled = (!isSelected && isMaxReached) || isSelectedByOthers;
                          const active = isSelected || isSelectedByOthers;
@@ -539,7 +606,7 @@ export const SkillsForm = ({race, raceVariant, selectedClass, background, formId
                                   ? "border-gradient-rpg border-gradient-rpg-active glass-active bg-white/5 text-slate-100" 
                                   : "border-white/15 bg-white/5 text-slate-200"
                             } ${isDisabled && !isSelectedByOthers ? "opacity-60" : ""}`}
-                            onClick={() => !isSelectedByOthers && handleToggleOptionSkill({
+                            onClick={() => !isSelectedByOthers && !isExisting && handleToggleOptionSkill({
                               skill: skillGroup.eng as Skill, // ensure type
                               optionId: optId
                             })}
@@ -547,9 +614,10 @@ export const SkillsForm = ({race, raceVariant, selectedClass, background, formId
                             <span className="flex items-center gap-2">
                               {isSelectedByOthers && <Lock className="h-3 w-3" />}
                               {skillGroup.ukr}
+                              {isExistingExpertise && <span className="text-xs opacity-80">(Експертиза)</span>}
                             </span>
-                             {active && !isSelectedByOthers && <Check className="h-4 w-4" />}
-                             {isSelectedByOthers && <span className="text-xs opacity-70">(вже обрано)</span>}
+                             {active && <Check className="h-4 w-4" />}
+                             {isSelectedByOthers && !isExistingExpertise && <span className="text-xs opacity-70">(вже обрано)</span>}
                            </Button>
                          )
                       })}
@@ -574,6 +642,8 @@ export const SkillsForm = ({race, raceVariant, selectedClass, background, formId
                       if (!skillGroup) return null;
                       const isSelected = (choices ?? []).includes(skill)
                       const isSelectedByOthers = checkIfSelectedByOthers(groupName, skill)
+                      const isExisting = existingSkillsSet.has(skill as any)
+                      const isExistingExpertise = existingExpertisesSet.has(skill as any)
                       const isMaxReached = basicCounts[groupName] < 1;
                       const isDisabled = (!isSelected && isMaxReached) || isSelectedByOthers
                       const active = isSelected || isSelectedByOthers;
@@ -591,7 +661,7 @@ export const SkillsForm = ({race, raceVariant, selectedClass, background, formId
                                 ? "border-gradient-rpg border-gradient-rpg-active glass-active bg-white/5 text-slate-100" 
                                 : "border-white/15 bg-white/5 text-slate-200"
                           } ${isDisabled && !isSelectedByOthers ? "opacity-60" : ""}`}
-                          onClick={() => !isSelectedByOthers && handleToggleBasicSkill({
+                          onClick={() => !isSelectedByOthers && !isExisting && handleToggleBasicSkill({
                             skill: Skills[skillGroup.eng],
                             groupName: groupName
                           })}
@@ -599,9 +669,10 @@ export const SkillsForm = ({race, raceVariant, selectedClass, background, formId
                           <span className="flex items-center gap-2">
                             {isSelectedByOthers && <Lock className="h-3 w-3" />}
                             {skillGroup.ukr}
+                            {isExistingExpertise && <span className="text-xs opacity-80">(Експертиза)</span>}
                           </span>
-                          {active && !isSelectedByOthers && <Check className="h-4 w-4" />}
-                          {isSelectedByOthers && <span className="text-xs opacity-70">(вже обрано)</span>}
+                          {active && <Check className="h-4 w-4" />}
+                          {isSelectedByOthers && !isExistingExpertise && <span className="text-xs opacity-70">(вже обрано)</span>}
                         </Button>
                       )
                     })}

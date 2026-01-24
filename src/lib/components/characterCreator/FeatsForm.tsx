@@ -15,8 +15,8 @@ import { Search, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 import { normalizeRaceASI } from "@/lib/components/characterCreator/infoUtils";
-import { RaceI, RaceASI } from "@/lib/types/model-types";
-import { Subrace, RaceVariant, Ability, Races } from "@prisma/client";
+import { RaceI, RaceASI, PersPrisma } from "@/lib/types/model-types";
+import { Subrace, RaceVariant, Ability, Races, Subraces } from "@prisma/client";
 import { PrerequisiteConfirmationDialog } from "@/lib/components/ui/PrerequisiteConfirmationDialog";
 import { checkFeatPrerequisites } from "@/lib/logic/prerequisiteUtils";
 
@@ -27,16 +27,18 @@ interface Props {
   race: RaceI | undefined;
   subrace: Subrace | undefined;
   raceVariant: RaceVariant | undefined | null;
+  pers?: PersPrisma | null;
 
   prereqContext?: {
     level?: number;
     stats?: Record<Ability, number>;
     hasSpellcasting?: boolean;
     race?: Races;
+    subrace?: Subraces;
   };
 }
 
-export const FeatsForm = ({ feats, formId, onNextDisabledChange, race, subrace, raceVariant, prereqContext }: Props) => {
+export const FeatsForm = ({ feats, formId, onNextDisabledChange, race, subrace, raceVariant, pers, prereqContext }: Props) => {
   const { updateFormData, nextStep, formData } = usePersFormStore();
   
   const [confirmOpen, setConfirmOpen] = useState(false);
@@ -61,13 +63,37 @@ export const FeatsForm = ({ feats, formId, onNextDisabledChange, race, subrace, 
 
   const filteredFeats = useMemo(() => {
     const normalizedSearch = (search || "").toLowerCase().trim();
-    if (!normalizedSearch) return feats;
+    
+    // Duplication rules: only SKILLED and ELEMENTAL_ADEPT can be duplicated
+    const alreadyChosenBackgroundFeatId = formData.backgroundFeatId;
+    const existingPersFeatIds = new Set((pers?.feats || []).map(pf => pf.featId));
+    const allowedDuplicates = ["SKILLED", "ELEMENTAL_ADEPT"];
+
     return feats.filter(f => {
-      const name = featTranslations[f.name] ?? f.name;
-      return name.toLowerCase().includes(normalizedSearch) || 
-             f.engName.toLowerCase().includes(normalizedSearch);
+      // 1. Filter by search
+      if (normalizedSearch) {
+        const name = featTranslations[f.name] ?? f.name;
+        const matchesSearch = name.toLowerCase().includes(normalizedSearch) || 
+                             f.engName.toLowerCase().includes(normalizedSearch);
+        if (!matchesSearch) return false;
+      }
+
+      // 2. Filter by duplication
+      const isAllowedDup = allowedDuplicates.includes(f.name);
+      
+      // Check background feat (creation flow)
+      if (alreadyChosenBackgroundFeatId === f.featId && !isAllowedDup) {
+        return false;
+      }
+
+      // Check existing feats (level-up flow)
+      if (existingPersFeatIds.has(f.featId) && !isAllowedDup) {
+        return false;
+      }
+
+      return true;
     });
-  }, [feats, search]);
+  }, [feats, search, formData.backgroundFeatId, pers]);
 
   const prereqLevel = prereqContext?.level ?? 1;
   const prereqHasSpellcasting = prereqContext?.hasSpellcasting ?? false;
@@ -155,6 +181,7 @@ export const FeatsForm = ({ feats, formId, onNextDisabledChange, race, subrace, 
   }, [formData, race, subrace, raceVariant]);
 
   const prereqStats = prereqContext?.stats ?? effectiveStats;
+  const prereqSubrace = prereqContext?.subrace ?? ((formData as any).subraceName as Subraces | undefined);
 
   const featPrereqs = useMemo(() => {
     const map = new Map<number, ReturnType<typeof checkFeatPrerequisites>>();
@@ -166,11 +193,12 @@ export const FeatsForm = ({ feats, formId, onNextDisabledChange, race, subrace, 
           stats: prereqStats,
           hasSpellcasting: prereqHasSpellcasting,
           race: prereqRace,
+          subrace: prereqSubrace,
         })
       );
     }
     return map;
-  }, [filteredFeats, prereqLevel, prereqStats, prereqHasSpellcasting, prereqRace]);
+  }, [filteredFeats, prereqLevel, prereqStats, prereqHasSpellcasting, prereqRace, prereqSubrace]);
 
   const selectFeat = (feat: Feat) => {
     if (feat.featId === chosenFeatId) return;

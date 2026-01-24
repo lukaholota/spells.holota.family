@@ -69,7 +69,7 @@ export const usePersFormStore = create<FormStore>()(
 
       nextStep: () =>
         set((state) => ({
-          currentStep: Math.min(state.currentStep + 1, state.totalSteps || 7)
+          currentStep: state.currentStep + 1
         })),
 
       prevStep: () =>

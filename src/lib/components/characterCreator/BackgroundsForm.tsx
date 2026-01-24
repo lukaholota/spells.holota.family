@@ -73,18 +73,22 @@ export const BackgroundsForm = (
     return ua.includes(normalizedBackgroundSearch) || en.includes(normalizedBackgroundSearch);
   }, [normalizedBackgroundSearch]);
 
+  const getLabel = useCallback((name: string) => backgroundTranslations[name] || backgroundTranslationsEng[name] || name, []);
+
   const primaryBackgrounds = useMemo(
     () => backgrounds
       .filter(b => PHB_BACKGROUNDS.has(b.name))
-      .filter(b => matchesSearch(b.name)),
-    [backgrounds, matchesSearch]
+      .filter(b => matchesSearch(b.name))
+      .sort((a, b) => getLabel(a.name).localeCompare(getLabel(b.name), 'uk')),
+    [backgrounds, matchesSearch, getLabel]
   );
   const otherBackgrounds = useMemo(
     () => backgrounds
       .filter(b => b.source !== Source.PHB_2024)
       .filter(b => !PHB_BACKGROUNDS.has(b.name))
-      .filter(b => matchesSearch(b.name)),
-    [backgrounds, matchesSearch]
+      .filter(b => matchesSearch(b.name))
+      .sort((a, b) => getLabel(a.name).localeCompare(getLabel(b.name), 'uk')),
+    [backgrounds, matchesSearch, getLabel]
   );
 
   const hasNoResults = !primaryBackgrounds.length && !otherBackgrounds.length;

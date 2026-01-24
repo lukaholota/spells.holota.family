@@ -11,6 +11,7 @@ import {
   formatWeaponProficiencies,
   translateValue,
 } from "@/lib/components/characterCreator/infoUtils";
+import { extractExpertisesFromChoiceOption, extractSkillsFromChoiceOption } from "@/lib/logic/characterUtils";
 import { calculateCasterLevel } from "@/lib/logic/spell-logic";
 import { SPELL_SLOT_PROGRESSION } from "@/lib/refs/static";
 
@@ -416,24 +417,23 @@ export async function createCharacter(data: PersFormData) {
     }
 
     if (validData.featChoiceSelections) {
-      const extractSkill = (nameEng?: string | null) => {
-        if (!nameEng) return null;
-        const match = nameEng.match(/\(([A-Z_]+)\)$/);
-        return match ? match[1] : nameEng;
-      };
+      for (const rawId of Object.values(validData.featChoiceSelections)) {
+        const ids = Array.isArray(rawId) ? rawId : [rawId];
+        for (const choiceOptionId of ids) {
+          const featChoice = feat.featChoiceOptions?.find((fco) => fco.choiceOptionId === Number(choiceOptionId));
+          const option = featChoice?.choiceOption;
+          if (!option) continue;
 
-      for (const choiceOptionId of Object.values(validData.featChoiceSelections)) {
-        const featChoice = feat.featChoiceOptions?.find((fco) => fco.choiceOptionId === Number(choiceOptionId));
-        const option = featChoice?.choiceOption;
-        if (!option) continue;
-
-        const skillCode = extractSkill(option.optionNameEng);
-        if (skillCode && Object.values(Skills).includes(skillCode as Skills)) {
-          if (option.optionNameEng.includes("Expertise")) {
-            expertiseFromFeat.add(skillCode);
-          } else if (option.optionNameEng.includes("Proficiency")) {
-            allSkills.add(skillCode);
-          }
+          extractSkillsFromChoiceOption(option).forEach((skillCode) => {
+            if (Object.values(Skills).includes(skillCode as Skills)) {
+              allSkills.add(skillCode);
+            }
+          });
+          extractExpertisesFromChoiceOption(option).forEach((skillCode) => {
+            if (Object.values(Skills).includes(skillCode as Skills)) {
+              expertiseFromFeat.add(skillCode);
+            }
+          });
         }
       }
     }
@@ -445,24 +445,23 @@ export async function createCharacter(data: PersFormData) {
     }
 
     if (validData.backgroundFeatChoiceSelections) {
-      const extractSkill = (nameEng?: string | null) => {
-        if (!nameEng) return null;
-        const match = nameEng.match(/\(([A-Z_]+)\)$/);
-        return match ? match[1] : nameEng;
-      };
+      for (const rawId of Object.values(validData.backgroundFeatChoiceSelections)) {
+        const ids = Array.isArray(rawId) ? rawId : [rawId];
+        for (const choiceOptionId of ids) {
+          const featChoice = backgroundFeat.featChoiceOptions?.find((fco) => fco.choiceOptionId === Number(choiceOptionId));
+          const option = featChoice?.choiceOption;
+          if (!option) continue;
 
-      for (const choiceOptionId of Object.values(validData.backgroundFeatChoiceSelections)) {
-        const featChoice = backgroundFeat.featChoiceOptions?.find((fco) => fco.choiceOptionId === Number(choiceOptionId));
-        const option = featChoice?.choiceOption;
-        if (!option) continue;
-
-        const skillCode = extractSkill(option.optionNameEng);
-        if (skillCode && Object.values(Skills).includes(skillCode as Skills)) {
-          if (option.optionNameEng.includes("Expertise")) {
-            expertiseFromFeat.add(skillCode);
-          } else if (option.optionNameEng.includes("Proficiency")) {
-            allSkills.add(skillCode);
-          }
+          extractSkillsFromChoiceOption(option).forEach((skillCode) => {
+            if (Object.values(Skills).includes(skillCode as Skills)) {
+              allSkills.add(skillCode);
+            }
+          });
+          extractExpertisesFromChoiceOption(option).forEach((skillCode) => {
+            if (Object.values(Skills).includes(skillCode as Skills)) {
+              expertiseFromFeat.add(skillCode);
+            }
+          });
         }
       }
     }
@@ -710,28 +709,9 @@ export async function createCharacter(data: PersFormData) {
     ((opt as any).languages ?? []).forEach((l: Language) => languagesKnown.add(translateValue(String(l))));
   }
 
-  const languageChoiceLines: string[] = [];
-  const appendChoiceCount = (count?: number | null) => {
-    const n = typeof count === "number" ? count : 0;
-    if (n > 0) languageChoiceLines.push(`Обери ще ${n}`);
-  };
-
-  appendChoiceCount((race as any).languagesToChooseCount);
-  appendChoiceCount((subrace as any)?.languagesToChooseCount);
-  appendChoiceCount((background as any)?.languagesToChooseCount);
-  appendChoiceCount((feat as any)?.grantedLanguageCount);
-  appendChoiceCount((backgroundFeat as any)?.grantedLanguageCount);
-  appendChoiceCount((cls as any).languagesToChooseCount);
-  for (const opt of raceChoiceOptions) {
-    appendChoiceCount((opt as any).languagesToChooseCount);
+  if (validData.languagesSchema?.languages) {
+    validData.languagesSchema.languages.forEach((l) => languagesKnown.add(translateValue(String(l))));
   }
-
-  const customLanguagesKnown = [
-    Array.from(languagesKnown).filter(Boolean).join("\n"),
-    languageChoiceLines.join("\n"),
-  ]
-    .filter((x) => x && x.trim())
-    .join("\n");
 
   const profLines: string[] = [];
   const armorAll = [
@@ -796,6 +776,62 @@ export async function createCharacter(data: PersFormData) {
       ...raceChoiceTraitFeatureIds,
     ])
   ).filter((id) => Number.isFinite(id) && id > 0);
+
+  // Check if any feature grants proficiency via skillExpertises.getProficiencyAsWell
+  const featuresWithExpertiseData = await prisma.feature.findMany({
+    where: { featureId: { in: allFeatureIdsToCreate } },
+    select: { featureId: true, skillExpertises: true }
+  });
+
+  const selectedExpertisesForProficiencyCheck = validData.expertiseSchema?.expertises || [];
+  for (const f of featuresWithExpertiseData) {
+    const se = f.skillExpertises as any;
+    if (se?.getProficiencyAsWell && Array.isArray(se.options)) {
+      for (const skill of selectedExpertisesForProficiencyCheck) {
+        if (se.options.includes(skill)) {
+           allSkills.add(skill);
+        }
+      }
+    }
+  }
+
+  if (allFeatureIdsToCreate.length > 0) {
+    const featuresWithLanguages = await prisma.feature.findMany({
+      where: { featureId: { in: allFeatureIdsToCreate } },
+      select: { givesLanguages: true },
+    });
+
+    for (const f of featuresWithLanguages) {
+      (f.givesLanguages || []).forEach((l) => languagesKnown.add(translateValue(String(l))));
+    }
+  }
+
+  const languageChoiceLines: string[] = [];
+  const appendChoiceCount = (count?: number | null) => {
+    const n = typeof count === "number" ? count : 0;
+    if (n > 0) languageChoiceLines.push(`Обери ще ${n}`);
+  };
+
+  // If the user picked languages in the form, don't keep "choose more" prompts.
+  const hasLanguageSelections = Boolean(validData.languagesSchema?.languages?.length);
+  if (!hasLanguageSelections) {
+    appendChoiceCount((race as any).languagesToChooseCount);
+    appendChoiceCount((subrace as any)?.languagesToChooseCount);
+    appendChoiceCount((background as any)?.languagesToChooseCount);
+    appendChoiceCount((feat as any)?.grantedLanguageCount);
+    appendChoiceCount((backgroundFeat as any)?.grantedLanguageCount);
+    appendChoiceCount((cls as any).languagesToChooseCount);
+    for (const opt of raceChoiceOptions) {
+      appendChoiceCount((opt as any).languagesToChooseCount);
+    }
+  }
+
+  const customLanguagesKnown = [
+    Array.from(languagesKnown).filter(Boolean).join("\n"),
+    languageChoiceLines.join("\n"),
+  ]
+    .filter((x) => x && x.trim())
+    .join("\n");
 
 
   try {

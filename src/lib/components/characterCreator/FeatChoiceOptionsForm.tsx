@@ -11,7 +11,7 @@ import { usePersFormStore } from "@/lib/stores/persFormStore";
 import { SkillsEnum } from "@/lib/types/enums";
 import { translateValue } from "@/lib/components/characterCreator/infoUtils";
 import clsx from "clsx";
-import { getEffectiveSkills } from "@/lib/logic/characterUtils";
+import { getEffectiveSkills, extractSkillFromOptionName, extractSkillsFromChoiceOption, extractExpertisesFromChoiceOption } from "@/lib/logic/characterUtils";
 import { Button } from "@/components/ui/button";
 import { HelpCircle } from "lucide-react";
 import { ControlledInfoDialog, InfoSectionTitle } from "@/lib/components/characterCreator/EntityInfoDialog";
@@ -26,6 +26,9 @@ interface Props {
   onNextDisabledChange?: (disabled: boolean) => void;
   pers?: PersI | null;
   mode?: 'race' | 'background';
+  extraExistingSkills?: string[];
+  extraExistingChoiceOptionIds?: number[];
+  extraExistingExpertises?: string[];
 }
 
 type Group = {
@@ -133,21 +136,6 @@ const isAbilityOptionGroup = (options: NonNullable<FeatPrisma["featChoiceOptions
 };
 
 /**
- * Extracts skill enum value from optionNameEng
- * Handles formats like "Skill Expert Proficiency (ATHLETICS)" -> "ATHLETICS"
- * @param optionNameEng - The English option name
- * @returns The skill enum value or original string
- */
-const extractSkillFromOptionName = (optionNameEng: string): string => {
-  // Try to extract skill from parentheses
-  const match = optionNameEng.match(/\(([^)]+)\)\s*$/);
-  if (match) {
-    return match[1];
-  }
-  return optionNameEng;
-};
-
-/**
  * Determines if all options in a group are skills
  * @param options - Array of feat choice options
  * @returns true if all options are from Skills enum
@@ -197,7 +185,7 @@ const localizeGroupName = (groupName: string, featKey?: string | null): string =
   return cleaned.split(featKey).join(localizedFeat);
 };
 
-const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange, pers, mode = 'race' }: Props) => {
+const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange, pers, mode = 'race', extraExistingSkills = [], extraExistingChoiceOptionIds = [], extraExistingExpertises = [] }: Props) => {
   const { formData, updateFormData, nextStep } = usePersFormStore();
 
   const [infoOpen, setInfoOpen] = useState(false);
@@ -215,6 +203,10 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange, per
     updateFormData({ [storageKey]: (data as any)[storageKey] });
     nextStep();
   });
+
+  useEffect(() => {
+    form.register(storageKey as any);
+  }, [form, storageKey]);
   
   const watchedSelections = useWatch({
     control: form.control,
@@ -233,8 +225,10 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange, per
    * Handles both Tasha's mode and existing pers data
    */
   const existingSkills = useMemo(() => {
-    return getEffectiveSkills(pers, formData);
-  }, [formData, pers]);
+    const base = getEffectiveSkills(pers, formData);
+    const combined = new Set([...base, ...extraExistingSkills]);
+    return Array.from(combined);
+  }, [formData, pers, extraExistingSkills]);
 
   /**
    * Gets all expertises the character already has
@@ -246,7 +240,7 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange, per
     const persSkills = (pers as any)?.skills as any[] | undefined;
     if (Array.isArray(persSkills)) {
       for (const s of persSkills) {
-        const name = String(s?.name ?? "").trim();
+        const name = String(s?.skill ?? s?.name ?? "").trim();
         const prof = String(s?.proficiencyType ?? "").trim();
         if (!name) continue;
         if (prof === "EXPERTISE") expertises.add(name);
@@ -258,8 +252,11 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange, per
       formData.expertiseSchema.expertises.forEach((exp: string) => expertises.add(exp));
     }
 
+    // From extra expertises passed from other feat choices
+    extraExistingExpertises.forEach(exp => expertises.add(exp));
+
     return Array.from(expertises);
-  }, [formData.expertiseSchema, pers]);
+  }, [formData.expertiseSchema, pers, extraExistingExpertises]);
 
   const currentAbilityScores = useMemo(() => {
     // Level-up / edit flows: use actual persisted scores.
@@ -347,9 +344,13 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange, per
 
     addFromRecord((formData as any)?.classChoiceSelections);
     addFromRecord((formData as any)?.subclassChoiceSelections);
+    addFromRecord((formData as any)?.raceChoiceSelections);
+
+    // Add extra IDs passed from other feat choices
+    extraExistingChoiceOptionIds.forEach(id => ids.add(id));
 
     return ids;
-  }, [formData, pers]);
+  }, [formData, pers, extraExistingChoiceOptionIds]);
 
   const isManeuverOption = useCallback((optNameEng: string, groupName?: string) => {
     if ((groupName || "").toLowerCase().includes("манев")) return true;
@@ -637,10 +638,8 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange, per
         const selectedIds = getSelectedIdsForGroup(group.groupName);
         selectedIds.forEach(id => {
             const option = group.options.find(opt => opt.choiceOptionId === id);
-            if (option) {
-              const skillName = extractSkillFromOptionName(option.choiceOption.optionNameEng);
-              skills.add(skillName);
-            }
+            if (!option) return;
+            extractSkillsFromChoiceOption(option.choiceOption).forEach((s) => skills.add(s));
         });
       }
     });
@@ -671,9 +670,8 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange, per
         const selectedIds = getSelectedIdsForGroup(group.groupName);
         selectedIds.forEach(id => {
             const option = group.options.find(opt => opt.choiceOptionId === id);
-            if (option) {
-                expertises.add(extractSkillFromOptionName(option.choiceOption.optionNameEng));
-            }
+            if (!option) return;
+            extractExpertisesFromChoiceOption(option.choiceOption).forEach((s) => expertises.add(s));
         });
       }
     });
@@ -767,7 +765,7 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange, per
     group: Group,
     opt: NonNullable<FeatPrisma["featChoiceOptions"]>[0]
   ): { disabled: boolean; prereqUnmet?: boolean; reason?: string } => {
-    const optionName = extractSkillFromOptionName(opt.choiceOption.optionNameEng);
+    const optionSkill = extractSkillsFromChoiceOption(opt.choiceOption)[0] || extractSkillFromOptionName(opt.choiceOption.optionNameEng);
     
     const currentSelected = getSelectedIdsForGroup(group.groupName);
     const isSelected = currentSelected.includes(opt.choiceOptionId);
@@ -816,7 +814,7 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange, per
 
     // If this is a SKILL group (not expertise)
     if (group.isSkill && !group.isExpertise) {
-      if (existingSkills.includes(optionName)) {
+      if (!isSelected && existingSkills.includes(optionSkill)) {
         return { disabled: true, reason: 'Вже володієте цією навичкою' };
       }
       
@@ -827,7 +825,7 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange, per
           g.isSkill && !g.isExpertise &&
           getSelectedIdsForGroup(g.groupName).some(id => {
              const o = g.options.find(opt => opt.choiceOptionId === id);
-             return o && extractSkillFromOptionName(o.choiceOption.optionNameEng) === optionName;
+             return o && (extractSkillsFromChoiceOption(o.choiceOption)[0] || extractSkillFromOptionName(o.choiceOption.optionNameEng)) === optionSkill;
           })
       );
 
@@ -838,14 +836,14 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange, per
     
     // If this is an EXPERTISE group
     if (group.isExpertise && group.isSkill) {
-      const hasSkill = allAvailableSkillsForExpertise.includes(optionName);
+      const hasSkill = allAvailableSkillsForExpertise.includes(optionSkill);
       if (!hasSkill) {
         return { disabled: true, reason: 'Потрібна навичка' };
       }
-      if (existingExpertises.includes(optionName)) {
+      if (!isSelected && existingExpertises.includes(optionSkill)) {
         return { disabled: true, reason: 'Вже маєте експертизу' };
       }
-      if (!isSelected && selectedExpertisesInForm.includes(optionName)) {
+      if (!isSelected && selectedExpertisesInForm.includes(optionSkill)) {
         return { disabled: true, reason: 'Вже обрано' };
       }
     }

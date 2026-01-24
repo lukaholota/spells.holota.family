@@ -208,6 +208,10 @@ export const expertiseSchema = z.object({
   expertises: z.array(skills).default([])
 });
 
+export const languagesSchema = z.object({
+  languages: z.array(z.string()).default([]),
+});
+
 export const equipmentSchema = z.object({
     choiceGroupToId: z.record(
       z.string(), // js has no numeric keys
@@ -253,6 +257,7 @@ export const fullCharacterSchema = z.object({
   }).optional(),
   skillsSchema: skillsSchema.optional(),
   expertiseSchema: expertiseSchema.optional(),
+  languagesSchema: languagesSchema.optional(),
   equipmentSchema: equipmentSchema.optional(),
   nameSchema: nameSchema.optional()
   ,
@@ -260,6 +265,7 @@ export const fullCharacterSchema = z.object({
   // Level-up (не використовується під час створення персонажа)
   // -------------------------------------------------------------------------
   levelUpPath: z.enum(["EXISTING", "MULTICLASS"]).optional(),
+  levelUpAsiChoiceType: z.enum(["ASI", "FEAT"]).optional(),
   levelUpHpIncrease: z.number().int().min(0).optional(),
   levelUpHpMode: z.enum(["AVERAGE", "RANDOM", "MANUAL"]).optional(),
   levelUpHpManualInput: z.string().optional(),

@@ -29,8 +29,10 @@ import SubclassChoiceOptionsForm from "@/lib/components/characterCreator/Subclas
 import FeatsForm from "@/lib/components/characterCreator/FeatsForm";
 import { BackgroundFeatsForm } from "@/lib/components/characterCreator/BackgroundFeatsForm";
 import { ExpertiseForm } from "@/lib/components/characterCreator/ExpertiseForm";
+import { LanguagesForm } from "@/lib/components/characterCreator/LanguagesForm";
 
 import { createCharacter } from "@/lib/actions/character";
+import { extractSkillsFromChoiceOption, extractExpertisesFromChoiceOption, extractSkillFromOptionName } from "@/lib/logic/characterUtils";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import { PersFormData } from "@/lib/zod/schemas/persCreateSchema";
@@ -64,7 +66,8 @@ export const MultiStepForm = (
     setCurrentStep,
     setTotalSteps,
     isHydrated,
-  } = usePersFormStore()
+    updateFormData,
+  } = usePersFormStore();
   const [authDialogOpen, setAuthDialogOpen] = useState(false);
   const [nextDisabled, setNextDisabled] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -96,7 +99,7 @@ export const MultiStepForm = (
     if (currentStep - 1 > highestStepCompleted) {
       setHighestStepCompleted(currentStep - 1);
     }
-  }, [currentStep, isHydrated]);
+  }, [currentStep, isHydrated, formData, highestStepCompleted, resetForm]);
 
   useEffect(() => {
     if (!isHydrated || !initialDataForStep) return;
@@ -160,6 +163,42 @@ export const MultiStepForm = (
     }
   }
 
+  const prevClassIdRef = useRef<number | null>(formData.classId || null);
+  const prevRaceIdRef = useRef<number | null>(formData.raceId || null);
+
+  useEffect(() => {
+    if (formData.classId && prevClassIdRef.current && formData.classId !== prevClassIdRef.current) {
+       updateFormData({
+         subclassId: undefined,
+         classChoiceSelections: {},
+         subclassChoiceSelections: {},
+         classOptionalFeatureSelections: {},
+         skillsSchema: undefined,
+         skills: [],
+         expertiseSchema: undefined,
+         languagesSchema: undefined,
+         equipmentSchema: undefined,
+         equipment: [],
+         choiceGroupToId: {},
+         anyWeaponSelection: {},
+        } as any);
+    }
+    prevClassIdRef.current = formData.classId || null;
+  }, [formData.classId, updateFormData]);
+
+  useEffect(() => {
+    if (formData.raceId && prevRaceIdRef.current && formData.raceId !== prevRaceIdRef.current) {
+       updateFormData({
+         subraceId: undefined,
+         raceVariantId: undefined,
+         raceChoiceSelections: {},
+         skillsSchema: undefined,
+         skills: [],
+       });
+    }
+    prevRaceIdRef.current = formData.raceId || null;
+  }, [formData.raceId, updateFormData]);
+
   const race = useMemo(() => races.find(r => r.raceId === formData.raceId) as RaceI, [races, formData.raceId])
   const subrace = useMemo(
     () => (race?.subraces || []).find((sr) => sr.subraceId === formData.subraceId),
@@ -204,6 +243,162 @@ export const MultiStepForm = (
   const backgroundFeat = useMemo(() => feats.find(f => f.featId === formData.backgroundFeatId), [feats, formData.backgroundFeatId]);
   const hasBackgroundFeatChoices = useMemo(() => (backgroundFeat?.featChoiceOptions?.length ?? 0) > 0, [backgroundFeat]);
 
+  const featSelectedSkills = useMemo(() => {
+    if (!feat || !formData.featChoiceSelections) return [];
+    const skills: string[] = [];
+    Object.values(formData.featChoiceSelections).forEach((val: any) => {
+      const ids = Array.isArray(val) ? val : [val];
+      ids.forEach((id) => {
+        const opt = feat.featChoiceOptions?.find((o: any) => o.choiceOptionId === id);
+        if (!opt) return;
+        extractSkillsFromChoiceOption(opt.choiceOption).forEach((s) => {
+          if (s && s !== "UNKNOWN") skills.push(s);
+        });
+      });
+    });
+    return skills;
+  }, [feat, formData.featChoiceSelections]);
+
+  const backgroundFeatSelectedSkills = useMemo(() => {
+    if (!backgroundFeat || !formData.backgroundFeatChoiceSelections) return [];
+    const skills: string[] = [];
+    Object.values(formData.backgroundFeatChoiceSelections).forEach((val: any) => {
+      const ids = Array.isArray(val) ? val : [val];
+      ids.forEach((id) => {
+        const opt = backgroundFeat.featChoiceOptions?.find((o: any) => o.choiceOptionId === id);
+        if (!opt) return;
+        extractSkillsFromChoiceOption(opt.choiceOption).forEach((s) => {
+          if (s && s !== "UNKNOWN") skills.push(s);
+        });
+      });
+    });
+    return skills;
+  }, [backgroundFeat, formData.backgroundFeatChoiceSelections]);
+
+  const featSelectedExpertises = useMemo(() => {
+    if (!feat || !formData.featChoiceSelections) return [];
+    const expertises: string[] = [];
+    Object.values(formData.featChoiceSelections).forEach((val: any) => {
+      const ids = Array.isArray(val) ? val : [val];
+      ids.forEach((id) => {
+        const opt = feat.featChoiceOptions?.find((o: any) => o.choiceOptionId === id);
+        if (!opt) return;
+        extractExpertisesFromChoiceOption(opt.choiceOption).forEach((s) => expertises.push(s));
+      });
+    });
+    return expertises;
+  }, [feat, formData.featChoiceSelections]);
+
+  const backgroundFeatSelectedExpertises = useMemo(() => {
+    if (!backgroundFeat || !formData.backgroundFeatChoiceSelections) return [];
+    const expertises: string[] = [];
+    Object.values(formData.backgroundFeatChoiceSelections).forEach((val: any) => {
+      const ids = Array.isArray(val) ? val : [val];
+      ids.forEach((id) => {
+        const opt = backgroundFeat.featChoiceOptions?.find((o: any) => o.choiceOptionId === id);
+        if (!opt) return;
+        extractExpertisesFromChoiceOption(opt.choiceOption).forEach((s) => expertises.push(s));
+      });
+    });
+    return expertises;
+  }, [backgroundFeat, formData.backgroundFeatChoiceSelections]);
+
+  const featSelectedIds = useMemo(() => {
+    if (!formData.featChoiceSelections) return [];
+    const ids: number[] = [];
+    Object.values(formData.featChoiceSelections).forEach((val: any) => {
+        if (Array.isArray(val)) ids.push(...val);
+        else ids.push(val);
+    });
+    return ids;
+  }, [formData.featChoiceSelections]);
+
+  const backgroundFeatSelectedIds = useMemo(() => {
+    if (!formData.backgroundFeatChoiceSelections) return [];
+    const ids: number[] = [];
+    Object.values(formData.backgroundFeatChoiceSelections).forEach((val: any) => {
+        if (Array.isArray(val)) ids.push(...val);
+        else ids.push(val);
+    });
+    return ids;
+  }, [formData.backgroundFeatChoiceSelections]);
+
+  const allSelectionsSkills = useMemo(() => {
+    const skills = new Set<string>();
+    
+    // Race
+    if (race && (formData as any).raceChoiceSelections) {
+      Object.values((formData as any).raceChoiceSelections).forEach((id: any) => {
+        const opt = (race as any).raceChoiceOptions?.find((o: any) => o.optionId === id);
+        if (opt) {
+          const rawName = (opt as any).optionNameEng ?? opt.optionName ?? "";
+          const s = extractSkillFromOptionName(String(rawName));
+          if (s && s !== "UNKNOWN") skills.add(s);
+        }
+      });
+    }
+
+    // Class
+    if (cls && formData.classChoiceSelections) {
+        Object.values(formData.classChoiceSelections).forEach((val: any) => {
+            const ids = Array.isArray(val) ? val : [val];
+            ids.forEach(id => {
+                const opt = cls.classChoiceOptions?.find((o: any) => o.choiceOptionId === id);
+                if (opt) {
+                    extractSkillsFromChoiceOption(opt.choiceOption).forEach((s) => skills.add(s));
+                }
+            });
+        });
+    }
+
+    // Subclass
+    if (subclass && formData.subclassChoiceSelections) {
+        Object.values(formData.subclassChoiceSelections).forEach((val: any) => {
+            const ids = Array.isArray(val) ? val : [val];
+            ids.forEach(id => {
+                const opt = subclass.subclassChoiceOptions?.find((o: any) => o.choiceOptionId === id);
+                if (opt) {
+                    extractSkillsFromChoiceOption(opt.choiceOption).forEach((s) => skills.add(s));
+                }
+            });
+        });
+    }
+
+    return Array.from(skills);
+  }, [race, cls, subclass, formData]);
+
+  const allSelectionsExpertises = useMemo(() => {
+    const expertises = new Set<string>();
+    
+    // Class
+    if (cls && formData.classChoiceSelections) {
+        Object.values(formData.classChoiceSelections).forEach((val: any) => {
+            const ids = Array.isArray(val) ? val : [val];
+            ids.forEach(id => {
+                const opt = cls.classChoiceOptions?.find((o: any) => o.choiceOptionId === id);
+                if (opt) {
+                  extractExpertisesFromChoiceOption(opt.choiceOption).forEach((s) => expertises.add(s));
+                }
+            });
+        });
+    }
+
+    // Subclass
+    if (subclass && formData.subclassChoiceSelections) {
+        Object.values(formData.subclassChoiceSelections).forEach((val: any) => {
+            const ids = Array.isArray(val) ? val : [val];
+            ids.forEach(id => {
+                const opt = subclass.subclassChoiceOptions?.find((o: any) => o.choiceOptionId === id);
+                if (opt) {
+                  extractExpertisesFromChoiceOption(opt.choiceOption).forEach((s) => expertises.add(s));
+                }
+            });
+        });
+    }
+
+    return Array.from(expertises);
+  }, [cls, subclass, formData.classChoiceSelections, formData.subclassChoiceSelections]);
+
   const hasSubclasses = useMemo(() => {
     if (!cls) return false;
     const allowedClasses = ["CLERIC_2014", "WARLOCK_2014", "SORCERER_2014"];
@@ -215,13 +410,112 @@ export const MultiStepForm = (
     [subclass]
   );
 
+  const activeFeatures = useMemo(() => {
+    if (!cls) return [];
+    let features = [...cls.features.filter(f => f.levelGranted === 1).map(f => f.feature)];
+
+    // Class Choices
+    if (formData.classChoiceSelections) {
+      Object.values(formData.classChoiceSelections).forEach((val: any) => {
+        const ids = Array.isArray(val) ? val : [val];
+        ids.forEach(id => {
+          const opt = cls.classChoiceOptions?.find(o => o.choiceOptionId === id);
+          if (opt && opt.levelsGranted?.includes(1)) {
+            opt.choiceOption.features.forEach(f => features.push(f.feature));
+          }
+        });
+      });
+    }
+    
+    // Remove if replaced by optional features
+    if (formData.classOptionalFeatureSelections) {
+      const replacedIds = new Set<number>();
+      cls.classOptionalFeatures.forEach(cof => {
+        if (formData.classOptionalFeatureSelections![cof.optionalFeatureId]) {
+          cof.replacesFeatures.forEach(rf => replacedIds.add(rf.replacedFeatureId));
+        }
+      });
+      features = features.filter(f => !replacedIds.has(f.featureId));
+      
+      // Add optional features themselves
+      cls.classOptionalFeatures.forEach(cof => {
+        if (formData.classOptionalFeatureSelections![cof.optionalFeatureId] && cof.feature) {
+          features.push(cof.feature);
+        }
+      });
+    }
+
+    if (subclass) {
+      features.push(...subclass.features.filter(f => f.levelGranted === 1).map(f => f.feature));
+
+      // Subclass Choices
+      if (formData.subclassChoiceSelections) {
+        Object.values(formData.subclassChoiceSelections).forEach((val: any) => {
+          const ids = Array.isArray(val) ? val : [val];
+          ids.forEach(id => {
+            const opt = subclass.subclassChoiceOptions?.find(o => o.choiceOptionId === id);
+            if (opt && opt.levelsGranted?.includes(1)) {
+              opt.choiceOption.features.forEach(f => features.push(f.feature));
+            }
+          });
+        });
+      }
+    }
+    
+    // Race features and choices
+    if (race) {
+      features.push(...race.traits.map(t => t.feature));
+      if (subrace) {
+        features.push(...subrace.traits.map(t => t.feature));
+      }
+      if (raceVariant) {
+        features.push(...raceVariant.traits.map(t => t.feature));
+      }
+
+      if (formData.raceChoiceSelections) {
+        Object.values(formData.raceChoiceSelections).forEach((id: any) => {
+          const opt = (race as any).raceChoiceOptions?.find((o: any) => o.optionId === id);
+          if (opt?.traits?.length) {
+            opt.traits.forEach((t: any) => features.push(t.feature));
+          }
+        });
+      }
+    }
+    
+    return features;
+  }, [cls, subclass, race, subrace, raceVariant, formData]);
+
   const hasExpertiseChoice = useMemo(() => {
-    if (!cls) return false;
-    return cls.features.some(f => 
-      f.levelGranted === 1 && 
-      (f.feature.skillExpertises as any)?.count > 0
-    );
-  }, [cls]);
+    return activeFeatures.some(f => {
+      const se = f.skillExpertises as any;
+      return (se?.count || 0) > 0 || se?.chooseFromCurrentProficiencies || (se?.options?.length > 0);
+    });
+  }, [activeFeatures]);
+
+  const hasLanguageChoice = useMemo(() => {
+    if (!race || !cls) return false;
+    let count = (race.languagesToChooseCount || 0) + (cls.languagesToChooseCount || 0);
+    if (subclass) count += (subclass.languagesToChooseCount || 0);
+    if (subrace) count += (subrace.languagesToChooseCount || 0);
+    if (bg) count += (bg.languagesToChooseCount || 0);
+    if (feat?.grantedLanguageCount) count += feat.grantedLanguageCount;
+    if (backgroundFeat?.grantedLanguageCount) count += backgroundFeat.grantedLanguageCount;
+    
+    activeFeatures.forEach(f => {
+      count += (f.languagesToChooseCount || 0);
+    });
+
+    if (formData.raceChoiceSelections) {
+      Object.values(formData.raceChoiceSelections).forEach((id: any) => {
+        const opt = race.raceChoiceOptions?.find((o) => o.optionId === id);
+        if (opt && (opt as any).languagesToChooseCount) {
+          count += (opt as any).languagesToChooseCount;
+        }
+      });
+    }
+    
+    return count > 0;
+  }, [race, cls, subclass, subrace, bg, feat, backgroundFeat, activeFeatures, formData.raceChoiceSelections]);
 
   const steps = useMemo(() => {
     const dynamicSteps: { id: string; name: string; component: string }[] = [
@@ -266,11 +560,6 @@ export const MultiStepForm = (
       { id: "skills", name: "Навички", component: "skills" },
     );
 
-    if (hasExpertiseChoice) {
-      dynamicSteps.push({ id: "expertise", name: "Експертиза", component: "expertise" });
-    }
-
-    // MOVED: Feat selection AFTER skills and expertise
     if (hasFeatChoice) {
       dynamicSteps.push({ id: "feat", name: "Риса", component: "feat" });
     }
@@ -285,13 +574,35 @@ export const MultiStepForm = (
       dynamicSteps.push({ id: "backgroundFeatChoices", name: "Опції риси походження", component: "backgroundFeatChoices" });
     }
 
+    if (hasExpertiseChoice) {
+      dynamicSteps.push({ id: "expertise", name: "Експертиза", component: "expertise" });
+    }
+
+    if (hasLanguageChoice) {
+      dynamicSteps.push({ id: "languages", name: "Мови", component: "languages" });
+    }
+
     dynamicSteps.push(
       { id: "equipment", name: "Спорядження", component: "equipment" },
       { id: "name", name: "Імʼя", component: "name" },
     );
 
     return dynamicSteps;
-  }, [hasLevelOneChoices, hasLevelOneOptionalFeatures, hasSubraces, hasRaceVariants, hasRaceChoiceOptions, hasSubclasses, hasLevelOneSubclassChoices, hasFeatChoice, hasFeatChoices, hasExpertiseChoice]);
+  }, [
+    hasLevelOneChoices,
+    hasLevelOneOptionalFeatures,
+    hasSubraces,
+    hasRaceVariants,
+    hasRaceChoiceOptions,
+    hasSubclasses,
+    hasLevelOneSubclassChoices,
+    hasFeatChoice,
+    hasFeatChoices,
+    hasBackgroundFeatChoice,
+    hasBackgroundFeatChoices,
+    hasExpertiseChoice,
+    hasLanguageChoice
+  ]);
 
   useEffect(() => {
     const total = steps.length;
@@ -313,6 +624,7 @@ export const MultiStepForm = (
       formData.classId || 
       formData.backgroundId ||
       formData.featId ||
+      formData.backgroundFeatId ||
       formData.skills?.length ||
       formData.name;
     
@@ -413,6 +725,8 @@ export const MultiStepForm = (
             onNextDisabledChange={handleNextDisabledChange}
             prereqContext={{
               hasSpellcasting,
+              race: race?.name as any,
+              subrace: (subrace as any)?.name,
             }}
           />
         );
@@ -423,6 +737,9 @@ export const MultiStepForm = (
             formId={activeFormId}
             onNextDisabledChange={handleNextDisabledChange}
             mode="race"
+            extraExistingSkills={[...backgroundFeatSelectedSkills, ...allSelectionsSkills]}
+            extraExistingChoiceOptionIds={backgroundFeatSelectedIds}
+            extraExistingExpertises={[...backgroundFeatSelectedExpertises, ...allSelectionsExpertises]}
           />
         );
       case "backgroundFeat":
@@ -436,6 +753,8 @@ export const MultiStepForm = (
             onNextDisabledChange={handleNextDisabledChange}
             prereqContext={{
               hasSpellcasting,
+              race: race?.name as any,
+              subrace: (subrace as any)?.name,
             }}
           />
         );
@@ -446,6 +765,9 @@ export const MultiStepForm = (
             formId={activeFormId}
             onNextDisabledChange={handleNextDisabledChange}
             mode="background"
+            extraExistingSkills={[...featSelectedSkills, ...allSelectionsSkills]}
+            extraExistingChoiceOptionIds={featSelectedIds}
+            extraExistingExpertises={[...featSelectedExpertises, ...allSelectionsExpertises]}
           />
         );
       case "class":
@@ -531,14 +853,36 @@ export const MultiStepForm = (
             background={bg}
             formId={activeFormId}
             onNextDisabledChange={handleNextDisabledChange}
+            activeFeatures={activeFeatures}
+            extraExistingSkills={[...featSelectedSkills, ...backgroundFeatSelectedSkills, ...allSelectionsSkills, ...allSelectionsExpertises]}
+            extraExistingExpertises={[...featSelectedExpertises, ...backgroundFeatSelectedExpertises, ...allSelectionsExpertises]}
           />
         );
       case "expertise":
         return (
           <ExpertiseForm
             selectedClass={cls}
+            subclass={subclass}
+            activeFeatures={activeFeatures}
             race={race}
             background={bg}
+            formId={activeFormId}
+            onNextDisabledChange={handleNextDisabledChange}
+            extraSkills={[...featSelectedSkills, ...backgroundFeatSelectedSkills, ...allSelectionsSkills]}
+            extraExpertises={[...featSelectedExpertises, ...backgroundFeatSelectedExpertises, ...allSelectionsExpertises]}
+          />
+        );
+      case "languages":
+        return (
+          <LanguagesForm
+            race={race}
+            selectedClass={cls}
+            subclass={subclass}
+            background={bg}
+            selectedSubrace={subrace as any}
+            activeFeatures={activeFeatures}
+            feat={feat}
+            backgroundFeat={backgroundFeat}
             formId={activeFormId}
             onNextDisabledChange={handleNextDisabledChange}
           />

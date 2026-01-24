@@ -88,7 +88,14 @@ export default function LevelUpASIForm({
   raceName,
 }: Props) {
   const { updateFormData, formData } = usePersFormStore();
-  const [choiceType, setChoiceType] = useState<ChoiceType>("ASI");
+  const storedChoiceType = (formData as any)?.levelUpAsiChoiceType as ChoiceType | undefined;
+  const inferredChoiceType: ChoiceType = storedChoiceType
+    ? storedChoiceType
+    : (formData as any)?.featId
+      ? "FEAT"
+      : "ASI";
+  const [choiceType, setChoiceType] = useState<ChoiceType>(inferredChoiceType);
+  const userChangedRef = useRef(false);
   const [featFormDisabled, setFeatFormDisabled] = useState(true);
   const [featOptionsDisabled, setFeatOptionsDisabled] = useState(true);
   const prevDisabledRef = useRef<boolean | undefined>(undefined);
@@ -100,6 +107,20 @@ export default function LevelUpASIForm({
   );
 
   useEffect(() => {
+    if (!storedChoiceType) {
+      userChangedRef.current = false;
+    }
+  }, [storedChoiceType]);
+
+  useEffect(() => {
+    // Sync local tab with store when it comes from persisted state.
+    if (storedChoiceType && storedChoiceType !== choiceType && !userChangedRef.current) {
+      setChoiceType(storedChoiceType);
+      return;
+    }
+
+    updateFormData({ levelUpAsiChoiceType: choiceType } as any);
+
     // Keep store coherent when switching mode.
     if (choiceType === "ASI") {
       updateFormData({
@@ -111,7 +132,7 @@ export default function LevelUpASIForm({
         customAsi: [],
       });
     }
-  }, [choiceType, updateFormData]);
+  }, [choiceType, storedChoiceType, updateFormData]);
 
   useEffect(() => {
     const asiValid = choiceType === "ASI" ? totalAsi === 2 : true;
@@ -233,7 +254,10 @@ export default function LevelUpASIForm({
               "border-white/15 bg-white/5 text-slate-200 hover:bg-white/7 hover:text-white " +
               (choiceType === "ASI" ? "border-gradient-rpg border-gradient-rpg-active glass-active text-slate-100" : "")
             }
-            onClick={() => setChoiceType("ASI")}
+            onClick={() => {
+              userChangedRef.current = true;
+              setChoiceType("ASI");
+            }}
           >
             Збільшити характеристики
           </Button>
@@ -244,7 +268,10 @@ export default function LevelUpASIForm({
               "border-white/15 bg-white/5 text-slate-200 hover:bg-white/7 hover:text-white " +
               (choiceType === "FEAT" ? "border-gradient-rpg border-gradient-rpg-active glass-active text-slate-100" : "")
             }
-            onClick={() => setChoiceType("FEAT")}
+            onClick={() => {
+              userChangedRef.current = true;
+              setChoiceType("FEAT");
+            }}
           >
             Взяти рису (Feat)
           </Button>
@@ -337,6 +364,7 @@ export default function LevelUpASIForm({
             race={race}
             subrace={subrace ?? undefined}
             raceVariant={raceVariant}
+            pers={pers as any}
             prereqContext={{
               level: levelAfter,
               stats: baseStats,

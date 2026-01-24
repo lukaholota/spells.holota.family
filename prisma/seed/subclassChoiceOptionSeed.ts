@@ -104,23 +104,23 @@ export const seedSubclassChoiceOptions = async (prisma: PrismaClient) => {
     { groupName: "Дракон-предок", optionName: "Білий дракон (холод)", optionNameEng: "White Dragon (Cold)", featureEngName: "Draconic Ancestry" },
 
     // Hunter's Prey (Hunter)
-    { groupName: "Здобич мисливця", optionName: "Вбивця колосів", optionNameEng: "Colossus Slayer (Hunter)", featureEngName: "Hunter's Prey" },
-    { groupName: "Здобич мисливця", optionName: "Вбивця велетнів", optionNameEng: "Giant Killer (Hunter)", featureEngName: "Hunter's Prey" },
-    { groupName: "Здобич мисливця", optionName: "Знищувач орд", optionNameEng: "Horde Breaker (Hunter)", featureEngName: "Hunter's Prey" },
+    { groupName: "Здобич мисливця", optionName: "Вбивця колосів", optionNameEng: "Colossus Slayer (Hunter)", featureEngName: "Colossus Slayer (Hunter)" },
+    { groupName: "Здобич мисливця", optionName: "Вбивця велетнів", optionNameEng: "Giant Killer (Hunter)", featureEngName: "Giant Killer (Hunter)" },
+    { groupName: "Здобич мисливця", optionName: "Знищувач орд", optionNameEng: "Horde Breaker (Hunter)", featureEngName: "Horde Breaker (Hunter)" },
 
     // Defensive Tactics (Hunter)
-    { groupName: "Оборонна тактика", optionName: "Втеча від орди", optionNameEng: "Escape the Horde (Hunter)", featureEngName: "Defensive Tactics" },
-    { groupName: "Оборонна тактика", optionName: "Захист від мультиатаки", optionNameEng: "Multiattack Defense (Hunter)", featureEngName: "Defensive Tactics" },
-    { groupName: "Оборонна тактика", optionName: "Сталева воля", optionNameEng: "Steel Will (Hunter)", featureEngName: "Defensive Tactics" },
+    { groupName: "Оборонна тактика", optionName: "Втеча від орди", optionNameEng: "Escape the Horde (Hunter)", featureEngName: "Escape the Horde (Hunter)" },
+    { groupName: "Оборонна тактика", optionName: "Захист від мультиатаки", optionNameEng: "Multiattack Defense (Hunter)", featureEngName: "Multiattack Defense (Hunter)" },
+    { groupName: "Оборонна тактика", optionName: "Сталева воля", optionNameEng: "Steel Will (Hunter)", featureEngName: "Steel Will (Hunter)" },
 
     // Multiattack (Hunter)
-    { groupName: "Мультиатака", optionName: "Залп", optionNameEng: "Volley (Hunter)", featureEngName: "Multiattack (Hunter)" },
-    { groupName: "Мультиатака", optionName: "Вихор удару", optionNameEng: "Whirlwind Attack (Hunter)", featureEngName: "Multiattack (Hunter)" },
+    { groupName: "Мультиатака", optionName: "Залп", optionNameEng: "Volley (Hunter)", featureEngName: "Volley (Hunter)" },
+    { groupName: "Мультиатака", optionName: "Вихор удару", optionNameEng: "Whirlwind Attack (Hunter)", featureEngName: "Whirlwind Attack (Hunter)" },
 
     // Superior Hunter's Defense
-    { groupName: "Захист вищого мисливця", optionName: "Ухиляння", optionNameEng: "Evasion (Hunter)", featureEngName: "Superior Hunter's Defense" },
-    { groupName: "Захист вищого мисливця", optionName: "Стійкість проти течії", optionNameEng: "Stand Against the Tide (Hunter)", featureEngName: "Superior Hunter's Defense" },
-    { groupName: "Захист вищого мисливця", optionName: "Неймовірна спритність", optionNameEng: "Uncanny Dodge (Hunter)", featureEngName: "Superior Hunter's Defense" },
+    { groupName: "Захист вищого мисливця", optionName: "Ухиляння", optionNameEng: "Evasion (Hunter)", featureEngName: "Evasion (Hunter)" },
+    { groupName: "Захист вищого мисливця", optionName: "Стійкість проти течії", optionNameEng: "Stand Against the Tide (Hunter)", featureEngName: "Stand Against the Tide (Hunter)" },
+    { groupName: "Захист вищого мисливця", optionName: "Неймовірна спритність", optionNameEng: "Uncanny Dodge (Hunter)", featureEngName: "Uncanny Dodge (Hunter)" },
 
     // Fighting Style (Swords)
     { groupName: "Бойовий стиль (Swords)", optionName: "Дуелянт", optionNameEng: "Dueling (Swords)", featureEngName: "Fighting Style (Swords)" },
