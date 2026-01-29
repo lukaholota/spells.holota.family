@@ -70,15 +70,21 @@ export const ASIForm = (
   const subrace = useMemo(() => {
     return (race.subraces || []).find((sr: any) => sr.subraceId === (subraceId ?? undefined));
   }, [race, subraceId]);
+
+  const subraceReplacesAsi = Boolean((subrace as any)?.replacesASI);
   
   const raceAsi = useMemo(() => {
-    if (raceVariant?.overridesRaceASI) {
-      return normalizeRaceASI(raceVariant.overridesRaceASI) as unknown as RaceASI;
-    }
-    return normalizeRaceASI(race.ASI) as RaceASI;
-  }, [race, raceVariant]);
+    const baseAsi = raceVariant?.overridesRaceASI
+      ? raceVariant.overridesRaceASI
+      : subraceReplacesAsi
+        ? (subrace as any)?.additionalASI
+        : race.ASI;
+
+    return normalizeRaceASI(baseAsi) as RaceASI;
+  }, [race, raceVariant, subrace, subraceReplacesAsi]);
 
   const subraceFixedAsi = useMemo(() => {
+    if (subraceReplacesAsi) return {} as Record<string, number>;
     const map = (subrace as any)?.additionalASI as Record<string, unknown> | undefined;
     if (!map || typeof map !== "object") return {} as Record<string, number>;
 
@@ -97,7 +103,7 @@ export const ASIForm = (
       .filter(([, v]) => Number.isFinite(v) && Number(v) !== 0);
 
     return Object.fromEntries(entries) as Record<string, number>;
-  }, [subrace]);
+  }, [subrace, subraceReplacesAsi]);
 
   const scrollToRacialBonuses = () => {
     const prefersReducedMotion =

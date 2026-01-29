@@ -64,10 +64,11 @@ export const useCharacterStats = ({ race, raceVariant, feat }: UseCharacterStats
     };
 
     const subrace = (race?.subraces || []).find((sr: any) => sr.subraceId === (formData.subraceId ?? undefined));
+    const subraceReplacesAsi = Boolean((subrace as any)?.replacesASI);
 
     // 2. Racial Bonuses (Fixed)
     const effectiveASI = normalizeRaceASI(
-      (raceVariant?.overridesRaceASI ?? race?.ASI) as any
+      (raceVariant?.overridesRaceASI ?? (subraceReplacesAsi ? (subrace as any)?.additionalASI : race?.ASI)) as any
     ) as RaceASI | undefined;
 
     if (formData.isDefaultASI) {
@@ -77,11 +78,13 @@ export const useCharacterStats = ({ race, raceVariant, feat }: UseCharacterStats
         });
       }
 
-      const additionalASI = (subrace as any)?.additionalASI as Record<string, number> | undefined;
-      if (additionalASI && typeof additionalASI === 'object') {
-        Object.entries(additionalASI).forEach(([ability, bonus]) => {
-          addBonus(ability, Number(bonus), "за підрасу");
-        });
+      if (!subraceReplacesAsi) {
+        const additionalASI = (subrace as any)?.additionalASI as Record<string, number> | undefined;
+        if (additionalASI && typeof additionalASI === 'object') {
+          Object.entries(additionalASI).forEach(([ability, bonus]) => {
+            addBonus(ability, Number(bonus), "за підрасу");
+          });
+        }
       }
     }
 
@@ -97,7 +100,7 @@ export const useCharacterStats = ({ race, raceVariant, feat }: UseCharacterStats
           : (effectiveASI?.tasha?.flexible?.groups ?? []);
 
         const additionalASI = (subrace as any)?.additionalASI as Record<string, number> | undefined;
-        const subraceGroups = !formData.isDefaultASI && additionalASI && typeof additionalASI === 'object'
+        const subraceGroups = !subraceReplacesAsi && !formData.isDefaultASI && additionalASI && typeof additionalASI === 'object'
           ? (() => {
               const byValue = new Map<number, number>();
               Object.entries(additionalASI).forEach(([_ability, bonus]) => {

@@ -185,6 +185,7 @@ export const seedClasses = async (prisma: PrismaClient) => {
                     { feature: { connect: { engName: "Font of Inspiration" } }, levelGranted: 5 },
                     { feature: { connect: { engName: "Countercharm" } }, levelGranted: 6 },
                     { feature: { connect: { engName: "Magical Secrets" } }, levelGranted: 10 },
+                    { feature: { connect: { engName: "Expertise (Bard) 2" } }, levelGranted: 10 },
                     { feature: { connect: { engName: "Superior Inspiration" } }, levelGranted: 20 },
                 ]
             }

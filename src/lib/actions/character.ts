@@ -204,6 +204,11 @@ export async function createCharacter(data: PersFormData) {
     ? await prisma.subrace.findUnique({ where: { subraceId: validData.subraceId } })
     : null;
 
+  const subraceReplacesAsi = Boolean((subrace as any)?.replacesASI);
+  if (subraceReplacesAsi && !variant?.overridesRaceASI) {
+    effectiveASI = (subrace as any)?.additionalASI;
+  }
+
   const background = await prisma.background.findUnique({ where: { backgroundId: validData.backgroundId } });
   if (!background) return { error: "Background not found" };
 
@@ -264,7 +269,7 @@ export async function createCharacter(data: PersFormData) {
 
   if (validData.isDefaultASI) {
     addBonuses(scores, getSimpleBonuses(normalizeASI(effectiveASI)));
-    if (subrace) addBonuses(scores, getPlainBonuses(subrace.additionalASI));
+    if (subrace && !subraceReplacesAsi) addBonuses(scores, getPlainBonuses(subrace.additionalASI));
   }
 
   if (validData.racialBonusChoiceSchema) {
@@ -273,7 +278,7 @@ export async function createCharacter(data: PersFormData) {
       : validData.racialBonusChoiceSchema.tashaChoices;
 
     const raceGroups = extractFlexibleGroups(effectiveASI, validData.isDefaultASI ? "basic" : "tasha");
-    const extraGroups = !validData.isDefaultASI && subrace ? subraceTashaGroups(subrace.additionalASI) : [];
+    const extraGroups = !validData.isDefaultASI && subrace && !subraceReplacesAsi ? subraceTashaGroups(subrace.additionalASI) : [];
     applyRacialChoices(scores, choices, [...raceGroups, ...extraGroups]);
   }
 

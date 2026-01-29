@@ -116,9 +116,10 @@ export const FeatsForm = ({ feats, formId, onNextDisabledChange, race, subrace, 
     // 2. Racial Bonuses
     if (race) {
       const isDefaultASI = formData.isDefaultASI ?? true;
-      const raceAsi = raceVariant?.overridesRaceASI 
+      const subraceReplacesAsi = Boolean((subrace as any)?.replacesASI);
+      const raceAsi = raceVariant?.overridesRaceASI
         ? normalizeRaceASI(raceVariant.overridesRaceASI) as unknown as RaceASI
-        : normalizeRaceASI(race.ASI) as RaceASI;
+        : normalizeRaceASI(subraceReplacesAsi ? (subrace as any)?.additionalASI : race.ASI) as RaceASI;
 
       // Fixed bonuses (only if Default ASI is active)
       if (isDefaultASI) {
@@ -128,14 +129,14 @@ export const FeatsForm = ({ feats, formId, onNextDisabledChange, race, subrace, 
          });
 
          // Fixed subrace bonuses
-         if (subrace) {
-            const subraceAsi = (subrace as any).additionalASI || {};
-            Object.entries(subraceAsi).forEach(([ability, val]) => {
-              if (typeof val === 'number') {
-                 stats[ability] = (stats[ability] || 0) + val;
-              }
-            });
-         }
+        if (subrace && !subraceReplacesAsi) {
+          const subraceAsi = (subrace as any).additionalASI || {};
+          Object.entries(subraceAsi).forEach(([ability, val]) => {
+            if (typeof val === 'number') {
+              stats[ability] = (stats[ability] || 0) + val;
+            }
+          });
+        }
       }
 
       // Choice bonuses (from formData)

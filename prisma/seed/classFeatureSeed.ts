@@ -2021,9 +2021,24 @@ export const seedClassFeatures = async ( prisma: PrismaClient ) => {
         {
             name: 'Експертиза (Бард)',
             engName: 'Expertise (Bard)',
-            description: 'Починаючи з 3 рівня, виберіть 2 ваших володіння навичками. Ваш Бонус Майстерності (БМ) подвоюється для будь-якої перевірки характеристики, яку ви робите, використовуючи одну з обраних навичок. На вищому рівні барда ви обираєте ще 2 навички для цієї переваги.',
+            description: 'Починаючи з 3 рівня, оберіть дві навички, якими ви володієте. Ваш Бонус Майстерності (БМ) подвоюється для будь-якої перевірки характеристики, яку ви робите, використовуючи одну з обраних навичок.',
             shortDescription: 'Подвійний БМ у 2 навичках (згодом ще 2)',
             displayType: [FeatureDisplayType.PASSIVE],
+            skillExpertises: {
+                chooseFromCurrentProficiencies: true,
+                count: 2
+            }
+        },
+        {
+            name: 'Експертиза (Бард) 2',
+            engName: 'Expertise (Bard) 2',
+            description: 'Починаючи з 10 рівня, ви можете обрати ще дві навички, якими володієте. Ваш Бонус Майстерності (БМ) подвоюється для будь-якої перевірки характеристики, яку ви робите, використовуючи одну з обраних навичок.',
+            shortDescription: 'Подвійний БМ ще у 2 навичках (10 рівень)',
+            displayType: [FeatureDisplayType.PASSIVE],
+            skillExpertises: {
+                chooseFromCurrentProficiencies: true,
+                count: 2
+            }
         },
         {
             name: 'Джерело натхнення',

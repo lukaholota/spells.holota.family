@@ -66,17 +66,19 @@ export default function MainStatsSlide({ pers, onPersUpdate, isReadOnly }: MainS
   const [deathFailures, setDeathFailures] = useState<number>(() => (pers as any).deathSaveFailures ?? 0);
   const [isDead, setIsDead] = useState<boolean>(() => Boolean((pers as any).isDead));
 
-  const [detailsOpen, setDetailsOpen] = useState(() => {
-    if (typeof window !== "undefined") {
-      return localStorage.getItem("pers_details_open") === "true";
-    }
-    return false;
-  });
+  const [detailsOpen, setDetailsOpen] = useState(false);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    setDetailsOpen(localStorage.getItem("pers_details_open") === "true");
+  }, []);
 
   const toggleDetails = useCallback(() => {
     setDetailsOpen((prev) => {
       const next = !prev;
-      localStorage.setItem("pers_details_open", String(next));
+      if (typeof window !== "undefined") {
+        localStorage.setItem("pers_details_open", String(next));
+      }
       return next;
     });
   }, []);

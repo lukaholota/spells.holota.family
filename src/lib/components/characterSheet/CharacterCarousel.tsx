@@ -106,21 +106,21 @@ export default function CharacterCarousel({ pers, onPersUpdate, groupedFeatures,
   };
 
   return (
-    <div className="flex flex-col md:h-full md:overflow-hidden">
+    <div className="flex h-full min-h-0 flex-col overflow-hidden">
       {/* Content */}
-      <div className="relative md:flex-1 md:overflow-hidden">
+      <div className="relative flex-1 min-h-0 overflow-hidden">
         <div
-          className="px-3 pt-3 pb-2 md:px-4 md:pt-4 md:absolute md:inset-0"
+          className="h-full min-h-0 px-3 pt-3 pb-2 md:px-4 md:pt-4 md:absolute md:inset-0"
           onTouchStart={onTouchStart}
           onTouchEnd={onTouchEnd}
         >
-          <div className="grid gap-3 md:gap-4 md:h-full" style={{ gridTemplateColumns: `repeat(${visibleCount}, 1fr)` }}>
+          <div className="grid h-full min-h-0 gap-3 md:gap-4" style={{ gridTemplateColumns: `repeat(${visibleCount}, 1fr)` }}>
             {visibleSlides.map((slide) => (
               <div
                 key={`${slide.id}-${slide.index}`}
-                className="bg-slate-900/90 backdrop-blur-sm border border-white/10 rounded-xl shadow-2xl shadow-black/30 overflow-hidden md:h-full"
+                className="bg-slate-900/90 backdrop-blur-sm border border-white/10 rounded-xl shadow-2xl shadow-black/30 h-full min-h-0 overflow-hidden"
               >
-                <div className="md:h-full md:overflow-y-auto" style={{ scrollBehavior: "smooth" }}>
+                <div className="h-full min-h-0 overflow-y-auto" style={{ scrollBehavior: "smooth" }}>
                   {renderSlide(slide.id)}
                 </div>
               </div>

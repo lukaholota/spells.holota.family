@@ -763,8 +763,12 @@ export default function FeaturesSlide({ pers, groupedFeatures, isReadOnly }: Fea
   }, [backgroundName, classEntries, entityKind, entityVariantIndex, pers, raceName, subclassEntries, subraceName]);
 
   return (
-    <div className="h-full overflow-y-auto overscroll-contain p-3 sm:p-4 space-y-3">
-      <h2 className="text-xl sm:text-2xl font-bold text-slate-50">Здібності</h2>
+    <div className="flex h-full min-h-0 flex-col">
+      <div
+        className="flex-1 min-h-0 overflow-y-auto p-3 sm:p-4 space-y-3 touch-pan-y"
+        style={{ WebkitOverflowScrolling: "touch" }}
+      >
+        <h2 className="text-xl sm:text-2xl font-bold text-slate-50">Здібності</h2>
 
       <div className="grid grid-cols-2 sm:grid-cols-3 gap-1">
         <button
@@ -959,11 +963,12 @@ export default function FeaturesSlide({ pers, groupedFeatures, isReadOnly }: Fea
         {entityDialog.content}
       </ControlledInfoDialog>
 
-      <MagicItemInfoModal 
-        item={magicItemToShow || {}} 
-        open={!!magicItemToShow} 
-        onOpenChange={(open) => !open && setMagicItemToShow(null)} 
-      />
+        <MagicItemInfoModal 
+          item={magicItemToShow || {}} 
+          open={!!magicItemToShow} 
+          onOpenChange={(open) => !open && setMagicItemToShow(null)} 
+        />
+      </div>
     </div>
   );
 }
