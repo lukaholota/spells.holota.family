@@ -27,6 +27,7 @@ export function DiceSidebar() {
   const [count, setCount] = useState(1);
   const [isRolling, setIsRolling] = useState(false);
   const [lastResult, setLastResult] = useState<number | null>(null);
+  const [lastRolls, setLastRolls] = useState<Array<{ sides: number; value: number }> | null>(null);
   const [isReady, setIsReady] = useState(false);
 
   const isOpenRef = useRef(isOpen);
@@ -61,6 +62,7 @@ export function DiceSidebar() {
     rollIdRef.current += 1; // invalidate any in-flight callbacks
     setIsRolling(false);
     setLastResult(null);
+    setLastRolls(null);
     diceService.clear();
   }, [clearSafetyTimer]);
 
@@ -96,6 +98,7 @@ export function DiceSidebar() {
       }
 
       setLastResult(result.total);
+      setLastRolls(result.rolls);
       setIsRolling(false);
     });
 
@@ -120,6 +123,7 @@ export function DiceSidebar() {
 
     setIsRolling(true);
     setLastResult(null);
+    setLastRolls(null);
     diceService.clear();
 
     const thisRollId = (rollIdRef.current += 1);
@@ -137,6 +141,19 @@ export function DiceSidebar() {
     // Fire-and-forget: completion is handled by diceService.onRollComplete.
     void diceService.roll(count, sides);
   };
+
+  const breakdownText = lastRolls
+    ? Array.from(
+        lastRolls.reduce((acc, roll) => {
+          const key = roll.sides;
+          if (!acc.has(key)) acc.set(key, [] as number[]);
+          acc.get(key)?.push(roll.value);
+          return acc;
+        }, new Map<number, number[]>())
+      )
+        .map(([sides, values]) => `к${sides}: ${values.join(", ")}`)
+        .join(" · ")
+    : null;
 
   return (
     <AnimatePresence>
@@ -199,31 +216,40 @@ export function DiceSidebar() {
 
           <div className="flex-1" />
 
-          {/* Result Display (Small) */}
-          <AnimatePresence>
-            {lastResult !== null && (
-               <motion.div
-                initial={{ opacity: 0, scale: 0.5, y: 10 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.5 }}
-                className="mb-2 flex h-12 w-12 items-center justify-center rounded-xl border border-amber-500/50 bg-amber-500/10 text-xl font-bold text-amber-400"
-               >
-                 {lastResult}
-               </motion.div>
-            )}
-          </AnimatePresence>
+          <div className="flex flex-col items-center gap-2 pb-3">
+            {/* Result Display (Small) */}
+            <div className="flex h-16 w-full flex-col items-center justify-center gap-1">
+              <AnimatePresence>
+                {lastResult !== null && (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.5, y: 10 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.5 }}
+                    className="flex h-12 w-12 items-center justify-center rounded-xl border border-amber-500/50 bg-amber-500/10 text-xl font-bold text-amber-400"
+                  >
+                    {lastResult}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+              {breakdownText && (
+                <div className="px-1 text-center text-[9px] font-medium text-amber-300/80">
+                  {breakdownText}
+                </div>
+              )}
+            </div>
 
-          {/* Roll Button */}
-          <button
-            onClick={handleRoll}
-            disabled={!isReady || isRolling}
-            className={cn(
-              "mb-2 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-amber-500 to-amber-600 text-slate-950 shadow-lg shadow-amber-500/20 transition-all hover:scale-105 active:scale-95 disabled:opacity-50 disabled:active:scale-100",
-              isRolling && "animate-pulse cursor-not-allowed"
-            )}
-          >
-            <Dices className={cn("h-7 w-7", isRolling && "animate-spin")} />
-          </button>
+            {/* Roll Button */}
+            <button
+              onClick={handleRoll}
+              disabled={!isReady || isRolling}
+              className={cn(
+                "flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-amber-500 to-amber-600 text-slate-950 shadow-lg shadow-amber-500/20 transition-all hover:scale-105 active:scale-95 disabled:opacity-50 disabled:active:scale-100",
+                isRolling && "animate-pulse cursor-not-allowed"
+              )}
+            >
+              <Dices className={cn("h-7 w-7", isRolling && "animate-spin")} />
+            </button>
+          </div>
         </motion.div>
       )}
     </AnimatePresence>
