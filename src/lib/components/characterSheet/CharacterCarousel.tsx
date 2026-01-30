@@ -4,7 +4,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { PersWithRelations } from "@/lib/actions/pers";
 import MainStatsSlide from "./slides/MainStatsSlide";
 import SkillsSlide from "./slides/SkillsSlide";
-import CombatPage from "./CombatPage";
+import CombatSlide from "./slides/CombatSlide";
 import MagicSlide from "./slides/MagicSlide";
 import FeaturesSlide from "./slides/FeaturesSlide";
 import { ChevronLeft, ChevronRight } from "lucide-react";
@@ -74,7 +74,7 @@ export default function CharacterCarousel({ pers, onPersUpdate, groupedFeatures,
   const renderSlide = (id: SlideId) => {
     if (id === "stats") return <MainStatsSlide pers={pers} onPersUpdate={onPersUpdate} isReadOnly={isReadOnly} />;
     if (id === "skills") return <SkillsSlide pers={pers} onPersUpdate={onPersUpdate} isReadOnly={isReadOnly} />;
-    if (id === "equipment") return <CombatPage pers={pers} onPersUpdate={onPersUpdate} isReadOnly={isReadOnly} />;
+    if (id === "equipment") return <CombatSlide pers={pers} onPersUpdate={onPersUpdate} isReadOnly={isReadOnly} />;
     if (id === "magic") return <MagicSlide pers={pers} onPersUpdate={onPersUpdate} isReadOnly={isReadOnly} />;
     if (id === "features") return <FeaturesSlide pers={pers} onPersUpdate={onPersUpdate} groupedFeatures={groupedFeatures} isReadOnly={isReadOnly} />;
     return null;

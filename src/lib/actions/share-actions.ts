@@ -136,6 +136,7 @@ export async function getPersByShareToken(token: string) {
         },
         weapons: { include: { weapon: true } },
         armors: { include: { armor: true } },
+        resourcePools: true,
     }
   });
 

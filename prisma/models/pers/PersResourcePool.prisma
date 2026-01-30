@@ -1,0 +1,10 @@
+model PersResourcePool {
+  persResourcePoolId Int    @id @default(autoincrement()) @map("pers_resource_pool_id")
+  persId             Int    @map("pers_id")
+  poolKey            String @map("pool_key") @db.VarChar(50)
+  usesRemaining      Int?   @map("uses_remaining")
+  pers               Pers   @relation(fields: [persId], references: [persId], onDelete: Cascade)
+
+  @@unique([persId, poolKey])
+  @@map("pers_resource_pool")
+}

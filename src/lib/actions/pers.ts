@@ -534,6 +534,7 @@ export async function getPersById(id: number) {
             },
             weapons: { include: { weapon: true } },
             armors: { include: { armor: true } },
+            resourcePools: true,
             user: true,
         }
     });
@@ -563,6 +564,7 @@ export type CharacterFeatureGroupKey = "passive" | "actions" | "bonusActions" | 
 export interface CharacterFeatureItem {
     key: string;
     featureId?: number;
+    usesPoolKey?: string | null;
     name: string;
     shortDescription?: string | null;
     description: string;
@@ -658,6 +660,7 @@ export async function getCharacterFeaturesGrouped(persId: number): Promise<Chara
                     }
                 }
             },
+            resourcePools: true,
             user: true,
         },
     });
@@ -709,6 +712,42 @@ export async function getCharacterFeaturesGrouped(persId: number): Promise<Chara
     pers.choiceOptions.forEach(co => co.features.forEach(cof => choiceFeatureIds.set(cof.feature.featureId, "CHOICE")));
     pers.raceChoiceOptions.forEach(rco => rco.traits.forEach(t => { if (t.featureId) choiceFeatureIds.set(t.featureId, "RACE_CHOICE"); }));
 
+    const poolRemainingByKey = new Map<string, number | null>();
+    pers.resourcePools?.forEach(pool => {
+        poolRemainingByKey.set(pool.poolKey, pool.usesRemaining ?? null);
+    });
+
+    const poolProvidersByKey = new Map<string, any>();
+    const registerPoolProvider = (feature: any) => {
+        if (!feature?.usesPoolKey) return;
+        if (poolProvidersByKey.has(feature.usesPoolKey)) return;
+
+        const hasCounts =
+            feature.usesCountDependsOnProficiencyBonus ||
+            typeof feature.usesCount === "number" ||
+            (feature.usesCountSpecial && typeof feature.usesCountSpecial === "object");
+
+        if (hasCounts) poolProvidersByKey.set(feature.usesPoolKey, feature);
+    };
+
+    const collectPoolProviders = (features: any[] = []) => {
+        features.forEach(f => registerPoolProvider(f?.feature ?? f));
+    };
+
+    collectPoolProviders(pers.features.map(pf => pf.feature));
+    collectPoolProviders(pers.class.features);
+    collectPoolProviders(pers.subclass?.features ?? []);
+    pers.multiclasses.forEach(mc => {
+        collectPoolProviders(mc.class.features);
+        collectPoolProviders(mc.subclass?.features ?? []);
+    });
+    collectPoolProviders(pers.race.traits.map(t => t.feature));
+    collectPoolProviders(pers.subrace?.traits.map(t => t.feature) ?? []);
+    pers.raceVariants.forEach(rv => collectPoolProviders(rv.traits.map(t => t.feature)));
+    pers.choiceOptions.forEach(co => collectPoolProviders(co.features.map(f => f.feature)));
+    pers.raceChoiceOptions.forEach(rco => collectPoolProviders(rco.traits.map(t => t.feature)));
+    pers.persInfusions.forEach(pi => registerPoolProvider(pi.infusion?.feature));
+
 
     const buckets: CharacterFeaturesGroupedResult = {
         passive: [],
@@ -720,6 +759,30 @@ export async function getCharacterFeaturesGrouped(persId: number): Promise<Chara
     const proficiencyBonus = (level: number) => {
         if (!Number.isFinite(level) || level <= 0) return 2;
         return 2 + Math.floor((level - 1) / 4);
+    };
+
+    const calculateMaxUsesForFeature = (f: any) => {
+        if (!f) return null;
+        const special = f.usesCountSpecial as any;
+        if (special && typeof special === "object" && special.equalsToClassLevel === true) {
+            if (f.featureId && featureClassLevelMap.has(f.featureId)) {
+                return featureClassLevelMap.get(f.featureId) ?? pers.level;
+            }
+            return pers.level;
+        }
+
+        if (f.usesCountDependsOnProficiencyBonus) return proficiencyBonus(pers.level);
+        if (typeof f.usesCount === "number") return f.usesCount;
+        return null;
+    };
+
+    const getPoolInfo = (f: any) => {
+        if (!f?.usesPoolKey) return null;
+        const provider = poolProvidersByKey.get(f.usesPoolKey) ?? f;
+        const maxUses = calculateMaxUsesForFeature(provider);
+        const remaining = poolRemainingByKey.get(f.usesPoolKey) ?? null;
+        const restType = provider?.limitedUsesPer ?? f?.limitedUsesPer ?? null;
+        return { maxUses, remaining, restType };
     };
 
     const seenFeatureIds = new Set<number>();
@@ -747,7 +810,9 @@ export async function getCharacterFeaturesGrouped(persId: number): Promise<Chara
     for (const pf of pers.features) {
         const f = pf.feature;
 
-        const usesPer = (() => {
+        const poolInfo = getPoolInfo(f);
+
+        const usesPer = poolInfo?.maxUses ?? (() => {
             const special = f.usesCountSpecial as any;
             if (special && typeof special === 'object' && special.equalsToClassLevel === true) {
                  return featureClassLevelMap.get(f.featureId) ?? pers.level;
@@ -767,15 +832,16 @@ export async function getCharacterFeaturesGrouped(persId: number): Promise<Chara
         push({
             key: `PERS:feature:${f.featureId}`,
             featureId: f.featureId,
+            usesPoolKey: f.usesPoolKey ?? null,
             name: f.name,
             shortDescription: f.shortDescription ?? null,
             description: f.description,
             displayTypes: normalizeDisplayTypes(f.displayType),
             source: source as FeatureSource,
             sourceName: f.name,
-            usesRemaining: pf.usesRemaining ?? null,
+            usesRemaining: poolInfo?.remaining ?? pf.usesRemaining ?? null,
             usesPer,
-            restType: f.limitedUsesPer ?? null,
+            restType: poolInfo?.restType ?? f.limitedUsesPer ?? null,
             createdAt: pf.persFeatureId,
         });
     }
@@ -788,6 +854,7 @@ export async function getCharacterFeaturesGrouped(persId: number): Promise<Chara
             push({
                 key: `CHOICE:${co.groupName}:option:${co.choiceOptionId}:feature:${f.featureId}`,
                 featureId: f.featureId,
+                usesPoolKey: f.usesPoolKey ?? null,
                 name: f.name,
                 shortDescription: f.shortDescription ?? null,
                 description: f.description,
@@ -809,6 +876,7 @@ export async function getCharacterFeaturesGrouped(persId: number): Promise<Chara
             push({
                 key: `RACE_CHOICE:${rco.choiceGroupName}:option:${rco.optionId}:feature:${f.featureId}`,
                 featureId: f.featureId,
+                usesPoolKey: f.usesPoolKey ?? null,
                 name: f.name,
                 shortDescription: f.shortDescription ?? null,
                 description: f.description,
@@ -906,6 +974,7 @@ export async function getCharacterFeaturesGrouped(persId: number): Promise<Chara
             source: "INFUSION",
             sourceName: "Вливання",
             magicItem: inf.replicatedMagicItem ?? null,
+            usesPoolKey: feature?.usesPoolKey ?? null,
             usesPer,
             restType: feature?.limitedUsesPer ?? null,
             usesRemaining: feature?.usesCount, // Fallback, though not tracked yet

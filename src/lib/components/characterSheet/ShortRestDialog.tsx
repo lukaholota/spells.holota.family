@@ -17,6 +17,7 @@ interface ShortRestDialogProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
   onPersUpdate?: (next: PersWithRelations) => void;
+  onGroupedFeaturesRefresh?: () => void;
 }
 
 interface HitDieInfo {
@@ -27,7 +28,7 @@ interface HitDieInfo {
   max: number;
 }
 
-export default function ShortRestDialog({ pers, open, onOpenChange, onPersUpdate }: ShortRestDialogProps) {
+export default function ShortRestDialog({ pers, open, onOpenChange, onPersUpdate, onGroupedFeaturesRefresh }: ShortRestDialogProps) {
   const router = useRouter();
   const [isRefreshing, startRefreshTransition] = useTransition();
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -127,6 +128,7 @@ export default function ShortRestDialog({ pers, open, onOpenChange, onPersUpdate
         };
 
         onPersUpdate?.(nextPers);
+        onGroupedFeaturesRefresh?.();
 
         toast.success(restTranslations.shortRestComplete, {
           description: `${restTranslations.hpRestored}: ${res.hpRestored}, ${restTranslations.featuresRestored}: ${res.featuresRestored}`,

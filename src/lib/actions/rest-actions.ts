@@ -241,6 +241,61 @@ export async function shortRest(
       featuresRestored++;
     }
   }
+
+  // Restore pooled resources with SHORT_REST
+  const pools = await prisma.persResourcePool.findMany({
+    where: { persId },
+  });
+
+  for (const pool of pools) {
+    const provider = await prisma.feature.findFirst({
+      where: {
+        usesPoolKey: pool.poolKey,
+        limitedUsesPer: RestType.SHORT_REST,
+        OR: [
+          { usesCount: { not: null } },
+          { usesCountDependsOnProficiencyBonus: true },
+          { usesCountSpecial: { not: null } },
+        ],
+      },
+      select: {
+        usesCount: true,
+        usesCountDependsOnProficiencyBonus: true,
+        usesCountSpecial: true,
+        classFeatures: { select: { classId: true } },
+      },
+    });
+
+    if (!provider) continue;
+
+    const special = provider.usesCountSpecial as any;
+    const classIdsWithFeature = new Set(provider.classFeatures.map((cf) => cf.classId));
+
+    const maxUses = (() => {
+      if (special && typeof special === "object" && special.equalsToClassLevel === true) {
+        if (classIdsWithFeature.has(pers.class.classId)) {
+          const multiclassSum = pers.multiclasses.reduce((acc, current) => acc + (Number(current.classLevel) || 0), 0);
+          return Math.max(1, (Number(pers.level) || 1) - multiclassSum);
+        }
+
+        const mc = pers.multiclasses.find((m) => classIdsWithFeature.has(m.classId));
+        if (mc) return Number(mc.classLevel) || 1;
+
+        return pers.level;
+      }
+
+      if (provider.usesCountDependsOnProficiencyBonus) return proficiencyBonus;
+      return provider.usesCount ?? 0;
+    })();
+
+    if (maxUses > 0) {
+      await prisma.persResourcePool.update({
+        where: { persId_poolKey: { persId, poolKey: pool.poolKey } },
+        data: { usesRemaining: maxUses },
+      });
+      featuresRestored++;
+    }
+  }
   
   // Update database
   await prisma.pers.update({
@@ -337,6 +392,61 @@ export async function longRest(persId: number): Promise<LongRestResult | LongRes
             featureId: pf.featureId,
           },
         },
+        data: { usesRemaining: maxUses },
+      });
+      featuresRestored++;
+    }
+  }
+
+  // Restore pooled resources with SHORT_REST or LONG_REST
+  const pools = await prisma.persResourcePool.findMany({
+    where: { persId },
+  });
+
+  for (const pool of pools) {
+    const provider = await prisma.feature.findFirst({
+      where: {
+        usesPoolKey: pool.poolKey,
+        limitedUsesPer: { in: [RestType.SHORT_REST, RestType.LONG_REST] },
+        OR: [
+          { usesCount: { not: null } },
+          { usesCountDependsOnProficiencyBonus: true },
+          { usesCountSpecial: { not: null } },
+        ],
+      },
+      select: {
+        usesCount: true,
+        usesCountDependsOnProficiencyBonus: true,
+        usesCountSpecial: true,
+        classFeatures: { select: { classId: true } },
+      },
+    });
+
+    if (!provider) continue;
+
+    const special = provider.usesCountSpecial as any;
+    const classIdsWithFeature = new Set(provider.classFeatures.map((cf) => cf.classId));
+
+    const maxUses = (() => {
+      if (special && typeof special === "object" && special.equalsToClassLevel === true) {
+        if (classIdsWithFeature.has(pers.class.classId)) {
+          const multiclassSum = pers.multiclasses.reduce((acc, current) => acc + (Number(current.classLevel) || 0), 0);
+          return Math.max(1, (Number(pers.level) || 1) - multiclassSum);
+        }
+
+        const mc = pers.multiclasses.find((m) => classIdsWithFeature.has(m.classId));
+        if (mc) return Number(mc.classLevel) || 1;
+
+        return pers.level;
+      }
+
+      if (provider.usesCountDependsOnProficiencyBonus) return proficiencyBonus;
+      return provider.usesCount ?? 0;
+    })();
+
+    if (maxUses > 0) {
+      await prisma.persResourcePool.update({
+        where: { persId_poolKey: { persId, poolKey: pool.poolKey } },
         data: { usesRemaining: maxUses },
       });
       featuresRestored++;

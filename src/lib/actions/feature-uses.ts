@@ -27,6 +27,7 @@ export async function spendFeatureUse({
       usesCount: true, 
       usesCountDependsOnProficiencyBonus: true, 
       usesCountSpecial: true,
+      usesPoolKey: true,
       classFeatures: { select: { classId: true } }
     },
   });
@@ -43,6 +44,85 @@ export async function spendFeatureUse({
 
   if (!pers || pers.userId !== user.id) return { success: false, error: "Немає доступу до персонажа" };
 
+  const calculateMaxUsesForFeature = (featureInput: {
+    usesCount: number | null;
+    usesCountDependsOnProficiencyBonus: boolean;
+    usesCountSpecial: unknown;
+    classFeatures: Array<{ classId: number }>;
+  }) => {
+      const special = featureInput.usesCountSpecial as any;
+      
+      // Handle equalsToClassLevel
+      if (special && typeof special === 'object' && special.equalsToClassLevel === true) {
+          const classIdsWithFeature = new Set(featureInput.classFeatures.map(cf => cf.classId));
+          
+          if (classIdsWithFeature.has(pers.classId)) {
+               const multiclassSum = pers.multiclasses.reduce((acc, current) => acc + (Number(current.classLevel) || 0), 0);
+               return Math.max(1, (Number(pers.level) || 1) - multiclassSum);
+          }
+          
+          const mc = pers.multiclasses.find(m => classIdsWithFeature.has(m.classId));
+          if (mc) {
+              return Number(mc.classLevel) || 1;
+          }
+          
+          return pers.level;
+      }
+
+      if (featureInput.usesCountDependsOnProficiencyBonus) {
+          return Math.ceil(pers.level / 4) + 1;
+      }
+      
+      return featureInput.usesCount;
+  };
+
+  const poolKey = feature.usesPoolKey;
+  if (poolKey) {
+      const hasCounts = feature.usesCountDependsOnProficiencyBonus || typeof feature.usesCount === "number" || (feature.usesCountSpecial && typeof feature.usesCountSpecial === "object");
+      const provider = hasCounts
+        ? feature
+        : await prisma.feature.findFirst({
+            where: {
+              usesPoolKey: poolKey,
+              OR: [
+                { usesCount: { not: null } },
+                { usesCountDependsOnProficiencyBonus: true },
+                { usesCountSpecial: { not: null } }
+              ]
+            },
+            select: {
+              usesCount: true,
+              usesCountDependsOnProficiencyBonus: true,
+              usesCountSpecial: true,
+              classFeatures: { select: { classId: true } }
+            }
+          }) ?? feature;
+
+      const max = calculateMaxUsesForFeature(provider);
+      const pool = await prisma.persResourcePool.findUnique({
+          where: { persId_poolKey: { persId, poolKey } },
+          select: { usesRemaining: true },
+      });
+
+      const cur = pool?.usesRemaining ?? max;
+      if (typeof cur !== "number" || typeof max !== "number") {
+        return { success: true, usesRemaining: null };
+      }
+
+      const next = Math.max(0, Math.trunc(cur) - 1);
+      const updatedPool = await prisma.persResourcePool.upsert({
+        where: { persId_poolKey: { persId, poolKey } },
+        create: { persId, poolKey, usesRemaining: next },
+        update: { usesRemaining: next },
+        select: { usesRemaining: true },
+      });
+
+      revalidatePath(`/char/${persId}`);
+      revalidatePath(`/character/${persId}`);
+
+      return { success: true, usesRemaining: updatedPool.usesRemaining };
+  }
+
   const pf = await prisma.persFeature.findUnique({
     where: {
       persId_featureId: {
@@ -53,41 +133,7 @@ export async function spendFeatureUse({
     select: { usesRemaining: true },
   });
 
-  // Calculate max uses helper
-  const calculateMaxUses = () => {
-      const special = feature.usesCountSpecial as any;
-      
-      // Handle equalsToClassLevel
-      if (special && typeof special === 'object' && special.equalsToClassLevel === true) {
-          // Find which class grants this feature
-          const classIdsWithFeature = new Set(feature.classFeatures.map(cf => cf.classId));
-          
-          // Check main class
-          if (classIdsWithFeature.has(pers.classId)) {
-               const multiclassSum = pers.multiclasses.reduce((acc, current) => acc + (Number(current.classLevel) || 0), 0);
-               return Math.max(1, (Number(pers.level) || 1) - multiclassSum);
-          }
-          
-          // Check multiclasses
-          const mc = pers.multiclasses.find(m => classIdsWithFeature.has(m.classId));
-          if (mc) {
-              return Number(mc.classLevel) || 1;
-          }
-          
-          // Fallback to total level if class not found (shouldn't happen for class features)
-          return pers.level;
-      }
-
-      if (feature.usesCountDependsOnProficiencyBonus) {
-          return Math.ceil(pers.level / 4) + 1;
-      }
-      
-      return feature.usesCount;
-  };
-
-  const max = calculateMaxUses();
-
-  // If no record or usesRemaining is null, start from max
+  const max = calculateMaxUsesForFeature(feature);
   const cur = pf?.usesRemaining ?? max;
   
   if (typeof cur !== "number" || typeof max !== "number") {
@@ -143,6 +189,7 @@ export async function restoreFeatureUse({
       usesCount: true, 
       usesCountDependsOnProficiencyBonus: true, 
       usesCountSpecial: true,
+      usesPoolKey: true,
       classFeatures: { select: { classId: true } }
     },
   });
@@ -158,22 +205,16 @@ export async function restoreFeatureUse({
 
   if (!pers || pers.userId !== user.id) return { success: false, error: "Немає доступу до персонажа" };
 
-  const pf = await prisma.persFeature.findUnique({
-    where: {
-      persId_featureId: {
-        persId,
-        featureId,
-      },
-    },
-    select: { usesRemaining: true },
-  });
-
-  // Calculate max uses helper (same logic)
-  const calculateMaxUses = () => {
-      const special = feature.usesCountSpecial as any;
+  const calculateMaxUsesForFeature = (featureInput: {
+    usesCount: number | null;
+    usesCountDependsOnProficiencyBonus: boolean;
+    usesCountSpecial: unknown;
+    classFeatures: Array<{ classId: number }>;
+  }) => {
+      const special = featureInput.usesCountSpecial as any;
       
       if (special && typeof special === 'object' && special.equalsToClassLevel === true) {
-          const classIdsWithFeature = new Set(feature.classFeatures.map(cf => cf.classId));
+          const classIdsWithFeature = new Set(featureInput.classFeatures.map(cf => cf.classId));
           
           if (classIdsWithFeature.has(pers.classId)) {
                const multiclassSum = pers.multiclasses.reduce((acc, current) => acc + (Number(current.classLevel) || 0), 0);
@@ -188,16 +229,71 @@ export async function restoreFeatureUse({
           return pers.level;
       }
 
-      if (feature.usesCountDependsOnProficiencyBonus) {
+      if (featureInput.usesCountDependsOnProficiencyBonus) {
           return Math.ceil(pers.level / 4) + 1;
       }
       
-      return feature.usesCount;
+      return featureInput.usesCount;
   };
 
-  const max = calculateMaxUses();
-  
-  // If no record or usesRemaining is null, start from max
+  const poolKey = feature.usesPoolKey;
+  if (poolKey) {
+      const hasCounts = feature.usesCountDependsOnProficiencyBonus || typeof feature.usesCount === "number" || (feature.usesCountSpecial && typeof feature.usesCountSpecial === "object");
+      const provider = hasCounts
+        ? feature
+        : await prisma.feature.findFirst({
+            where: {
+              usesPoolKey: poolKey,
+              OR: [
+                { usesCount: { not: null } },
+                { usesCountDependsOnProficiencyBonus: true },
+                { usesCountSpecial: { not: null } }
+              ]
+            },
+            select: {
+              usesCount: true,
+              usesCountDependsOnProficiencyBonus: true,
+              usesCountSpecial: true,
+              classFeatures: { select: { classId: true } }
+            }
+          }) ?? feature;
+
+      const max = calculateMaxUsesForFeature(provider);
+      const pool = await prisma.persResourcePool.findUnique({
+          where: { persId_poolKey: { persId, poolKey } },
+          select: { usesRemaining: true },
+      });
+
+      const cur = pool?.usesRemaining ?? max;
+      if (typeof cur !== "number" || typeof max !== "number") {
+        return { success: true, usesRemaining: null };
+      }
+
+      const next = Math.min(max, Math.trunc(cur) + 1);
+      const updatedPool = await prisma.persResourcePool.upsert({
+        where: { persId_poolKey: { persId, poolKey } },
+        create: { persId, poolKey, usesRemaining: next },
+        update: { usesRemaining: next },
+        select: { usesRemaining: true },
+      });
+
+      revalidatePath(`/char/${persId}`);
+      revalidatePath(`/character/${persId}`);
+
+      return { success: true, usesRemaining: updatedPool.usesRemaining };
+  }
+
+  const pf = await prisma.persFeature.findUnique({
+    where: {
+      persId_featureId: {
+        persId,
+        featureId,
+      },
+    },
+    select: { usesRemaining: true },
+  });
+
+  const max = calculateMaxUsesForFeature(feature);
   const cur = pf?.usesRemaining ?? max;
 
   if (typeof cur !== "number" || typeof max !== "number") {

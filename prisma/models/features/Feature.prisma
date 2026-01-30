@@ -11,6 +11,7 @@ model Feature {
   engName                            String                                @unique @map("eng_name") @db.VarChar(100)
   usesCountSpecial                   Json?                                 @map("uses_count_special")
   usesCountDependsOnProficiencyBonus Boolean                               @default(false) @map("uses_count_depends_on_proficiency_bonus")
+  usesPoolKey                        String?                               @map("uses_pool_key") @db.VarChar(50)
   modifiesAC                         Json?                                 @map("modifies_ac")
   /// [SkillProficiencies]
   skillProficiencies                 Json?                                 @map("skill_proficiencies")

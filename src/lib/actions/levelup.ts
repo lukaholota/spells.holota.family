@@ -94,7 +94,7 @@ const getAllClassesCached = unstable_cache(
       },
       orderBy: [{ sortOrder: "asc" }, { classId: "asc" }],
     }),
-  ["levelup:classes:v3"],
+  ["levelup:classes:v4"],
   { revalidate: 60 * 60 * 24 }
 );
 

@@ -13,10 +13,10 @@ import {
 } from "@/lib/refs/translation";
 import { Sword, Shield, Settings2, AlertTriangle, CheckCircle2 } from "lucide-react";
 import { useTransition } from "react";
-import AddWeaponDialog from "./AddWeaponDialog";
-import AddArmorDialog from "./AddArmorDialog";
-import WeaponCustomizeModal from "./WeaponCustomizeModal";
-import ArmorCustomizeModal from "./ArmorCustomizeModal";
+import AddWeaponDialog from "../AddWeaponDialog";
+import AddArmorDialog from "../AddArmorDialog";
+import WeaponCustomizeModal from "../WeaponCustomizeModal";
+import ArmorCustomizeModal from "../ArmorCustomizeModal";
 import { Button } from "@/components/ui/button";
 import { updateShieldStatus, updateArmor, deleteArmor, updateRaceStaticAcBonus } from "@/lib/actions/equipment-actions";
 import { Switch } from "@/components/ui/switch";
@@ -25,7 +25,7 @@ import { toast } from "sonner";
 import { calculateWeaponAttackBonus, calculateWeaponDamageBonus } from "@/lib/logic/bonus-calculator";
 import { Trash2, Sparkles, Zap } from "lucide-react";
 import { useRouter } from "next/navigation";
-import AddMagicItemDialog from "./AddMagicItemDialog";
+import AddMagicItemDialog from "../AddMagicItemDialog";
 import { updateMagicItem, deleteMagicItem } from "@/lib/actions/magic-item-actions";
 import { MagicItemInfoModal } from "@/lib/components/levelUp/MagicItemInfoModal";
 import { magicItemTypeTranslations, itemRarityTranslations } from "@/lib/refs/translation";
@@ -126,13 +126,13 @@ function MagicItemRow({
     )
 }
 
-type CombatPageProps = {
+type CombatSlideProps = {
   pers: PersWithRelations;
   onPersUpdate?: (next: PersWithRelations) => void;
   isReadOnly?: boolean;
 };
 
-export default function CombatPage({ pers, onPersUpdate, isReadOnly }: CombatPageProps) {
+export default function CombatSlide({ pers, onPersUpdate, isReadOnly }: CombatSlideProps) {
 // Redundant stats removed
 
   const [selectedWeapon, setSelectedWeapon] = useState<PersWeaponWithWeapon | null>(null);

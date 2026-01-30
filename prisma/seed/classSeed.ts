@@ -329,6 +329,18 @@ export const seedClasses = async (prisma: PrismaClient) => {
                         levelGranted: 2,
                     },
                     {
+                        feature: { connect: { engName: "Flurry of Blows" } },
+                        levelGranted: 2,
+                    },
+                    {
+                        feature: { connect: { engName: "Patient Defense" } },
+                        levelGranted: 2,
+                    },
+                    {
+                        feature: { connect: { engName: "Step of the Wind" } },
+                        levelGranted: 2,
+                    },
+                    {
                         feature: { connect: { engName: "Unarmored Movement" } },
                         levelGranted: 2,
                     },

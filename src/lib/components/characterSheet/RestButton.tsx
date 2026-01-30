@@ -27,9 +27,10 @@ import { PersWithRelations } from "@/lib/actions/pers";
 interface RestButtonProps {
   pers: PersWithRelations;
   onPersUpdate?: (next: PersWithRelations) => void;
+  onGroupedFeaturesRefresh?: () => void;
 }
 
-export default function RestButton({ pers, onPersUpdate }: RestButtonProps) {
+export default function RestButton({ pers, onPersUpdate, onGroupedFeaturesRefresh }: RestButtonProps) {
   const router = useRouter();
   const [isRefreshing, startRefreshTransition] = useTransition();
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -63,6 +64,8 @@ export default function RestButton({ pers, onPersUpdate }: RestButtonProps) {
         deathSaveFailures: 0 as any,
         isDead: false as any,
       });
+
+      onGroupedFeaturesRefresh?.();
 
       toast.success(restTranslations.longRestComplete, {
         description: `HP: ${res.newCurrentHp}, ${restTranslations.featuresRestored}: ${res.featuresRestored}`,
@@ -106,6 +109,7 @@ export default function RestButton({ pers, onPersUpdate }: RestButtonProps) {
         open={shortRestOpen}
         onOpenChange={setShortRestOpen}
         onPersUpdate={onPersUpdate ? (next) => onPersUpdate(next) : undefined}
+        onGroupedFeaturesRefresh={onGroupedFeaturesRefresh}
       />
 
       <Dialog open={longRestOpen} onOpenChange={setLongRestOpen}>

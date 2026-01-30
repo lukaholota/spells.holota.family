@@ -79,6 +79,7 @@ model Pers {
   armors                      PersArmor[]
   feats                       PersFeat[]
   features                    PersFeature[]
+  resourcePools               PersResourcePool[]
   persInfusions               PersInfusion[]
   magicItems                  PersMagicItem[]
   multiclasses                PersMulticlass[]

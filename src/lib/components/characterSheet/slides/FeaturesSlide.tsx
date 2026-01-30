@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState, useTransition } from "react";
+import { useEffect, useMemo, useState, useTransition } from "react";
 import { CharacterFeatureItem, CharacterFeaturesGroupedResult, PersWithRelations } from "@/lib/actions/pers";
 import { FeatureDisplayType, SpellcastingType } from "@prisma/client";
 import { ChevronRight } from "lucide-react";
@@ -149,6 +149,12 @@ export default function FeaturesSlide({ pers, groupedFeatures, isReadOnly }: Fea
   const [magicItemToShow, setMagicItemToShow] = useState<any>(null);
 
   const [usesOverrideByKey, setUsesOverrideByKey] = useState<Record<string, number | null>>({});
+  const [usesOverrideByPoolKey, setUsesOverrideByPoolKey] = useState<Record<string, number | null>>({});
+
+  useEffect(() => {
+    setUsesOverrideByKey({});
+    setUsesOverrideByPoolKey({});
+  }, [groupedFeatures, pers.persId]);
 
   const classEntries = useMemo(() => {
     const multiclasses = ((pers as any).multiclasses || []) as any[];
@@ -294,6 +300,10 @@ export default function FeaturesSlide({ pers, groupedFeatures, isReadOnly }: Fea
 // limitedUseGroups removed
 
   const getUsesRemaining = (item: CharacterFeatureItem) => {
+    if (item.usesPoolKey) {
+      const pooled = usesOverrideByPoolKey[item.usesPoolKey];
+      if (typeof pooled === "number") return pooled;
+    }
     const overridden = usesOverrideByKey[item.key];
     if (typeof overridden === "number") return overridden;
     // If no override, use actual value from item. 
@@ -306,7 +316,11 @@ export default function FeaturesSlide({ pers, groupedFeatures, isReadOnly }: Fea
     const cur = getUsesRemaining(item);
     if (typeof cur !== "number" || cur <= 0) return;
 
-    setUsesOverrideByKey((prev) => ({ ...prev, [item.key]: Math.max(0, cur - 1) }));
+    if (item.usesPoolKey) {
+      setUsesOverrideByPoolKey((prev) => ({ ...prev, [item.usesPoolKey as string]: Math.max(0, cur - 1) }));
+    } else {
+      setUsesOverrideByKey((prev) => ({ ...prev, [item.key]: Math.max(0, cur - 1) }));
+    }
     startTransition(async () => {
       const res = await spendFeatureUse({ persId: pers.persId, featureId: item.featureId! });
       if (!res.success) {
@@ -314,7 +328,11 @@ export default function FeaturesSlide({ pers, groupedFeatures, isReadOnly }: Fea
         router.refresh();
         return;
       }
-      setUsesOverrideByKey((prev) => ({ ...prev, [item.key]: res.usesRemaining }));
+      if (item.usesPoolKey) {
+        setUsesOverrideByPoolKey((prev) => ({ ...prev, [item.usesPoolKey as string]: res.usesRemaining }));
+      } else {
+        setUsesOverrideByKey((prev) => ({ ...prev, [item.key]: res.usesRemaining }));
+      }
       router.refresh();
     });
   };
@@ -324,7 +342,11 @@ export default function FeaturesSlide({ pers, groupedFeatures, isReadOnly }: Fea
     const cur = getUsesRemaining(item);
     if (typeof cur !== "number" || cur >= (item.usesPer ?? 0)) return;
 
-    setUsesOverrideByKey((prev) => ({ ...prev, [item.key]: cur + 1 }));
+    if (item.usesPoolKey) {
+      setUsesOverrideByPoolKey((prev) => ({ ...prev, [item.usesPoolKey as string]: cur + 1 }));
+    } else {
+      setUsesOverrideByKey((prev) => ({ ...prev, [item.key]: cur + 1 }));
+    }
     startTransition(async () => {
       const res = await restoreFeatureUse({ persId: pers.persId, featureId: item.featureId! });
       if (!res.success) {
@@ -332,7 +354,11 @@ export default function FeaturesSlide({ pers, groupedFeatures, isReadOnly }: Fea
           router.refresh();
           return;
       }
-      setUsesOverrideByKey((prev) => ({ ...prev, [item.key]: res.usesRemaining }));
+      if (item.usesPoolKey) {
+        setUsesOverrideByPoolKey((prev) => ({ ...prev, [item.usesPoolKey as string]: res.usesRemaining }));
+      } else {
+        setUsesOverrideByKey((prev) => ({ ...prev, [item.key]: res.usesRemaining }));
+      }
       router.refresh();
     });
   };

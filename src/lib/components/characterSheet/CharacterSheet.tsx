@@ -117,6 +117,19 @@ export default function CharacterSheet({ pers, groupedFeatures, isPublicView }: 
     }, 3000);
   };
 
+  const refreshGroupedFeatures = (persId?: string) => {
+    const id = persId ?? localPers?.persId;
+    if (!id) return;
+    startFeaturesTransition(async () => {
+      try {
+        const gf = await getCharacterFeaturesGrouped(id);
+        setLocalGroupedFeatures(gf);
+      } catch (e) {
+        console.error(e);
+      }
+    });
+  };
+
   return (
     <div className="md:h-screen min-h-screen w-full bg-slate-900 flex flex-col">
       <div className="p-3 px-4 border-b border-white/10 flex justify-between items-center bg-slate-900/70 backdrop-blur sticky top-0 z-20">
@@ -193,7 +206,13 @@ export default function CharacterSheet({ pers, groupedFeatures, isPublicView }: 
                 shareToken={isPublicView ? shareToken : undefined}
               />
                {!isReadOnly && <ShareDialog persId={localPers.persId} initialToken={localPers.shareToken} />}
-               {!isReadOnly && <RestButton pers={localPers} onPersUpdate={setLocalPers} />}
+               {!isReadOnly && (
+                 <RestButton
+                   pers={localPers}
+                   onPersUpdate={setLocalPers}
+                   onGroupedFeaturesRefresh={() => refreshGroupedFeatures()}
+                 />
+               )}
                {!isReadOnly && (
                  <Button
                    size="sm"
