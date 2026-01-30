@@ -117,9 +117,9 @@ export default function CharacterSheet({ pers, groupedFeatures, isPublicView }: 
     }, 3000);
   };
 
-  const refreshGroupedFeatures = (persId?: string) => {
+  const refreshGroupedFeatures = (persId?: number) => {
     const id = persId ?? localPers?.persId;
-    if (!id) return;
+    if (typeof id !== "number" || Number.isNaN(id)) return;
     startFeaturesTransition(async () => {
       try {
         const gf = await getCharacterFeaturesGrouped(id);

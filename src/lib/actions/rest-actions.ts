@@ -3,7 +3,7 @@
 import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
-import { RestType } from "@prisma/client";
+import { Prisma, RestType } from "@prisma/client";
 import { getAbilityMod } from "@/lib/logic/utils";
 import { calculateCasterLevel } from "@/lib/logic/spell-logic";
 import { SPELL_SLOT_PROGRESSION } from "@/lib/refs/static";
@@ -255,7 +255,7 @@ export async function shortRest(
         OR: [
           { usesCount: { not: null } },
           { usesCountDependsOnProficiencyBonus: true },
-          { usesCountSpecial: { not: null } },
+          { usesCountSpecial: { not: Prisma.AnyNull } },
         ],
       },
       select: {
@@ -411,7 +411,7 @@ export async function longRest(persId: number): Promise<LongRestResult | LongRes
         OR: [
           { usesCount: { not: null } },
           { usesCountDependsOnProficiencyBonus: true },
-          { usesCountSpecial: { not: null } },
+          { usesCountSpecial: { not: Prisma.AnyNull } },
         ],
       },
       select: {

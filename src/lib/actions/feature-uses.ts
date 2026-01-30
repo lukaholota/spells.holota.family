@@ -2,6 +2,7 @@
 
 import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
+import { Prisma } from "@prisma/client";
 import { revalidatePath } from "next/cache";
 
 export async function spendFeatureUse({
@@ -87,7 +88,7 @@ export async function spendFeatureUse({
               OR: [
                 { usesCount: { not: null } },
                 { usesCountDependsOnProficiencyBonus: true },
-                { usesCountSpecial: { not: null } }
+                { usesCountSpecial: { not: Prisma.AnyNull } }
               ]
             },
             select: {
@@ -247,7 +248,7 @@ export async function restoreFeatureUse({
               OR: [
                 { usesCount: { not: null } },
                 { usesCountDependsOnProficiencyBonus: true },
-                { usesCountSpecial: { not: null } }
+                { usesCountSpecial: { not: Prisma.AnyNull } }
               ]
             },
             select: {
