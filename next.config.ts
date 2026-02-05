@@ -2,11 +2,6 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   output: "standalone",
-  eslint: {
-    // Allow builds to complete even when ESLint reports issues.
-    // Useful for CI or when lint rules are too strict during development.
-    ignoreDuringBuilds: true,
-  },
   experimental: {
     webpackMemoryOptimizations: true
   }, 
