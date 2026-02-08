@@ -48,7 +48,7 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: 'ДнД українською',
-  description: 'char.holota.family - твій особистий помічник у світі днд! Створюй персонажа, знаходь заклинання, магічні предмети та кидай кубики прямо на сайиі!',
+  description: 'char.holota.family - твій особистий помічник у світі днд! Створюй персонажа, знаходь заклинання, магічні предмети та кидай кубики прямо на сайті!',
   icons: {
     icon: [
       {
