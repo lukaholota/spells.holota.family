@@ -29,7 +29,7 @@ import AddMagicItemDialog from "../AddMagicItemDialog";
 import { updateMagicItem, deleteMagicItem } from "@/lib/actions/magic-item-actions";
 import { MagicItemInfoModal } from "@/lib/components/levelUp/MagicItemInfoModal";
 import { magicItemTypeTranslations, itemRarityTranslations } from "@/lib/refs/translation";
-import { Ability, AbilityBonusType, ArmorCategory, ArmorType } from "@prisma/client";
+import { Ability, AbilityBonusType } from "@prisma/client";
 import { calculateFinalModifier } from "@/lib/logic/bonus-calculator";
 
 
@@ -132,7 +132,7 @@ type CombatSlideProps = {
   isReadOnly?: boolean;
 };
 
-export default function CombatSlide({ pers, onPersUpdate, isReadOnly }: CombatSlideProps) {
+export default function CombatSlide({ pers, onPersUpdate: _onPersUpdate, isReadOnly }: CombatSlideProps) {
 // Redundant stats removed
 
   const [selectedWeapon, setSelectedWeapon] = useState<PersWeaponWithWeapon | null>(null);
@@ -176,9 +176,11 @@ export default function CombatSlide({ pers, onPersUpdate, isReadOnly }: CombatSl
     setWearsShield(pers.wearsShield);
   }, [pers.wearsShield]);
 
+  const raceStaticAcBonusValue = (pers as any).raceStaticAcBonus;
+
   useEffect(() => {
-    setRaceStaticAcBonus((pers as any).raceStaticAcBonus ?? 0);
-  }, [(pers as any).raceStaticAcBonus]);
+    setRaceStaticAcBonus(raceStaticAcBonusValue ?? 0);
+  }, [raceStaticAcBonusValue]);
 
   const handleShieldToggle = async (val: boolean) => {
     setWearsShield(val); // Optimistic update
@@ -237,6 +239,21 @@ export default function CombatSlide({ pers, onPersUpdate, isReadOnly }: CombatSl
         if (pf.feat?.grantedArmorProficiencies) {
           (pf.feat.grantedArmorProficiencies as string[]).forEach((p: string) => profs.add(p));
         }
+      });
+    }
+
+    // Feature-granted armor proficiencies
+    if ((pers as any).features) {
+      (pers as any).features.forEach((pf: any) => {
+        const armor = pf?.feature?.armorProficiencies as string[] | undefined;
+        if (Array.isArray(armor)) armor.forEach((p: string) => profs.add(p));
+      });
+    }
+
+    if ((pers as any).classOptionalFeatures) {
+      (pers as any).classOptionalFeatures.forEach((opt: any) => {
+        const armor = opt?.feature?.armorProficiencies as string[] | undefined;
+        if (Array.isArray(armor)) armor.forEach((p: string) => profs.add(p));
       });
     }
 

@@ -366,7 +366,8 @@ export const seedClassFeatures = async ( prisma: PrismaClient ) => {
             description: 'Відразу після того, як ви виконали дію Атака у свій хід, ви можете витратити 1 очко кі, щоб зробити два безозбройні удари бонусною дією.',
             shortDescription: '1 кі → 2 безозбройні удари бонусною дією',
             displayType: [FeatureDisplayType.BONUSACTION],
-            usesPoolKey: "KI"
+            usesPoolKey: "KI",
+            usePrice: 1
         },
         {
             name: 'Терплячий захист',
@@ -374,7 +375,8 @@ export const seedClassFeatures = async ( prisma: PrismaClient ) => {
             description: 'Ви можете витратити 1 очко кі, щоб виконати дію Захист бонусною дією у свій хід. (перешкода на атаки проти вас до початку вашого наступного ходу)',
             shortDescription: '1 кі → Дія Захист бонусною дією',
             displayType: [FeatureDisplayType.BONUSACTION],
-            usesPoolKey: "KI"
+            usesPoolKey: "KI",
+            usePrice: 1
         },
         {
             name: 'Крок вітру',
@@ -382,7 +384,8 @@ export const seedClassFeatures = async ( prisma: PrismaClient ) => {
             description: 'Ви можете витратити 1 очко кі, щоб виконати дію Відступ або Ривок бонусною дією у свій хід, і ваша дистанція стрибка подвоюється на цей хід.',
             shortDescription: '1 кі → Відступ/Ривок бонусною дією, стрибок ×2',
             displayType: [FeatureDisplayType.BONUSACTION],
-            usesPoolKey: "KI"
+            usesPoolKey: "KI",
+            usePrice: 1
         },
         {
             name: 'Рух без броні',
@@ -406,6 +409,8 @@ export const seedClassFeatures = async ( prisma: PrismaClient ) => {
             description: 'Починаючи з 3 рівня, ви можете використовувати свою реакцію, щоб відхилити або спіймати снаряд, коли вас влучає дальня атака зброєю. Коли ви це робите, шкода, яку ви отримуєте від атаки, зменшується на 1к10 + ваш модифікатор Спритності + ваш рівень монаха.\n\nЯкщо ви зменшуєте шкоду до 0, ви можете спіймати снаряд, якщо він достатньо малий, щоб ви могли тримати його однією рукою, і у вас вільна принаймні одна рука. Якщо ви ловите снаряд таким чином, ви можете витратити 1 очко кі, щоб зробити дальню атаку (дальність 20/60 футів) зброєю або снарядом, який ви щойно спіймали, як частину тієї ж реакції. Ви робите цю атаку з майстерністю, незалежно від вашої майстерності зі зброєю, і снаряд вважається монашою зброєю для цієї атаки.',
             shortDescription: 'Зменшити шкоду від дальньої атаки на 1к10+СПР+рівень',
             displayType: [FeatureDisplayType.REACTION],
+            usesPoolKey: "KI",
+            usePrice: 1
         },
         {
             name: 'Атака, посилена Кі',
@@ -429,6 +434,8 @@ export const seedClassFeatures = async ( prisma: PrismaClient ) => {
             description: 'На 4 рівні ви можете дією витратити 2 очки кі і кинути кістку Бойових Мистецтв. Ви відновлюєте кількість хіт-поінтів, що дорівнює випавшому числу плюс ваш Бонус Майстерності (БМ).',
             shortDescription: '2 кі → відновити ХП = кістка Бойових Мистецтв + БМ',
             displayType: [FeatureDisplayType.ACTION],
+            usesPoolKey: "KI",
+            usePrice: 2
         },
 
         // 5 РІВЕНЬ
@@ -445,6 +452,8 @@ export const seedClassFeatures = async ( prisma: PrismaClient ) => {
             description: 'Починаючи з 5 рівня, ви можете втрутитися в потік кі в тілі противника. Коли ви влучаєте іншого створіння атакою рукопашною зброєю, ви можете витратити 1 очко кі, щоб спробувати приголомшливий удар. Ціль повинна пройти ряткидок Статури або бути приголомшеною до кінця вашого наступного ходу.',
             shortDescription: '1 очко кі: ціль робить ряткидок СТА або приголомшена',
             displayType: [FeatureDisplayType.PASSIVE],
+            usesPoolKey: "KI",
+            usePrice: 1
         },
         {
             name: 'Зосереджене прицілювання',
@@ -452,6 +461,8 @@ export const seedClassFeatures = async ( prisma: PrismaClient ) => {
             description: 'Також на 5 рівні, коли ви промахуєтеся кидком атаки, ви можете витратити від 1 до 3 очок кі, щоб збільшити свій кидок атаки на 2 за кожне з цих очок кі, які ви витрачаєте, потенційно перетворюючи промах на влучання.',
             shortDescription: '1-3 кі → +2 до атаки за кожне кі (після промаху)',
             displayType: [FeatureDisplayType.PASSIVE],
+            usesPoolKey: "KI",
+            usePrice: 1
         },
 
         // 6 РІВЕНЬ
@@ -513,7 +524,9 @@ export const seedClassFeatures = async ( prisma: PrismaClient ) => {
             description: 'Починаючи з 14 рівня, ваше володіння кі дає вам Володіння всіма ряткидками.\n\nКрім того, щоразу, коли ви робите ряткидок і провалюєте його, ви можете витратити 1 очко кі, щоб перекинути його і взяти другий результат.',
             shortDescription: 'Майстерність у всіх ряткидках, 1 кі = перекинути провалений ряткидок',
             displayType: [FeatureDisplayType.PASSIVE],
-            savingThrows: [Ability.STR, Ability.DEX, Ability.CON, Ability.INT, Ability.WIS, Ability.CHA]
+            savingThrows: [Ability.STR, Ability.DEX, Ability.CON, Ability.INT, Ability.WIS, Ability.CHA],
+            usesPoolKey: "KI",
+            usePrice: 1
         },
 
         // 15 РІВЕНЬ
@@ -529,9 +542,20 @@ export const seedClassFeatures = async ( prisma: PrismaClient ) => {
         {
             name: 'Порожнє тіло',
             engName: 'Empty Body',
-            description: 'Починаючи з 18 рівня, ви можете використовувати свою дію, щоб витратити 4 очки кі і стати невидимим на 1 хвилину. Протягом цього часу ви також маєте опір до всієї шкоди, крім шкоди силовим полем.\n\nКрім того, ви можете витратити 8 очок кі, щоб використати заклинання Астральна проєкція [Astral Projection]  без потреби в матеріальних компонентах. Коли ви це робите, ви не можете взяти з собою жодних інших створінь.',
-            shortDescription: '4 кі = невидимість + опір до шкоди; 8 кі = астральна проекція',
+            description: 'Починаючи з 18 рівня, ви можете використовувати свою дію, щоб витратити 4 очки кі і стати невидимим на 1 хвилину. Протягом цього часу ви також маєте опір до всієї шкоди, крім шкоди силовим полем.',
+            shortDescription: '4 кі → невидимість + опір до шкоди на 1 хвилину',
             displayType: [FeatureDisplayType.ACTION],
+            usesPoolKey: "KI",
+            usePrice: 4
+        },
+        {
+            name: 'Астральна проєкція (Порожнє тіло)',
+            engName: 'Empty Body: Astral Projection',
+            description: 'Ви можете витратити 8 очок кі, щоб використати заклинання <a href="/spell/1069">Астральна проєкція [Astral Projection]</a> без потреби в матеріальних компонентах. Коли ви це робите, ви не можете взяти з собою жодних інших створінь.',
+            shortDescription: '8 кі → <a href="/spell/1069">Астральна проєкція [Astral Projection]</a> без компонентів',
+            displayType: [FeatureDisplayType.ACTION],
+            usesPoolKey: "KI",
+            usePrice: 8,
             givesSpells: {
                 connect: { engName: 'Astral Projection' },
             }
@@ -792,6 +816,7 @@ export const seedClassFeatures = async ( prisma: PrismaClient ) => {
             displayType: [FeatureDisplayType.ACTION, FeatureDisplayType.BONUSACTION],
             limitedUsesPer: RestType.SHORT_REST,
             usesCount: 1,
+            usesPoolKey: "CHANNEL_DIVINITY",
         },
         {
             name: 'Заклинання клятви',
@@ -857,12 +882,8 @@ export const seedClassFeatures = async ( prisma: PrismaClient ) => {
             description: 'Також на 3 рівні ви можете витратити використання вашого Каналу божественності, щоб підживити ваші заклинання. Бонусною дією ви торкаєтеся свого святого символа, вимовляєте молитву і відновлюєте один витрачений слот заклинань, рівень якого не може бути вищим за половину вашого бонусу майстерності (округленого вгору). Кількість разів, коли ви можете використовувати цю здібність, залежить від рівня, якого ви досягли в цьому класі: 3 рівень - один раз; 7 рівень - двічі; 15 рівень - тричі. Ви відновлюєте всі витрачені використання, коли завершуєте тривалий відпочинок.',
             shortDescription: 'Витратити Channel Divinity → відновити слот заклинань бонусною дією',
             displayType: [FeatureDisplayType.BONUSACTION],
-            limitedUsesPer: RestType.LONG_REST,
-            usesCountSpecial: [
-                { lvl: 3, uses: 1, },
-                { lvl: 7, uses: 2, },
-                { lvl: 15, uses: 3, }
-            ],
+            usesPoolKey: "CHANNEL_DIVINITY",
+            usePrice: 1,
         },
 
 
@@ -1764,6 +1785,7 @@ export const seedClassFeatures = async ( prisma: PrismaClient ) => {
                 equalsToClassLevel: true,
             },
             displayType: [FeatureDisplayType.CLASS_RESOURCE],
+            usesPoolKey: "SORCERY_POINTS",
         },
         {
             name: 'Метамагія',
@@ -1787,6 +1809,8 @@ export const seedClassFeatures = async ( prisma: PrismaClient ) => {
             description: 'Починаючи з 5 рівня, коли ви провалюєте перевірку характеристики, ви можете витратити 1 очко магії, щоб повторити кидок. Ви повинні використати новий результат.',
             shortDescription: 'Витратьте 1 очко магії, щоб перекинути перевірку',
             displayType: [FeatureDisplayType.PASSIVE],
+            usesPoolKey: "SORCERY_POINTS",
+            usePrice: 1,
         },
         {
             name: 'Гнучкість чародія',
@@ -1803,6 +1827,8 @@ export const seedClassFeatures = async ( prisma: PrismaClient ) => {
             description: 'Коли ви накладаєте заклинання, що вимагає від інших істот у зоні ефекту робити ряткидок, ви можете витратити 1 очко магії, щоб обрати кількість істот, що не перевищує ваш модифікатор Харизми (мінімум одну). Обрані істоти автоматично успішно проходять ці ряткидки.',
             shortDescription: 'Захистіть союзників у зоні заклинання за 1 очко магії',
             displayType: [FeatureDisplayType.PASSIVE],
+            usesPoolKey: "SORCERY_POINTS",
+            usePrice: 1,
         },
         {
             name: 'Віддалене заклинання',
@@ -1810,6 +1836,8 @@ export const seedClassFeatures = async ( prisma: PrismaClient ) => {
             description: 'Коли ви накладаєте заклинання з дистанцією 5 футів або більше, ви можете витратити 1 очко магії, щоб подвоїти дистанцію заклинання. Заклинання з дистанцією дотик отримують дистанцію 30 футів.',
             shortDescription: 'Подвоїти дистанцію заклинання або зробити дотик на 30 футів',
             displayType: [FeatureDisplayType.PASSIVE],
+            usesPoolKey: "SORCERY_POINTS",
+            usePrice: 1,
         },
         {
             name: 'Підсилене заклинання',
@@ -1817,6 +1845,8 @@ export const seedClassFeatures = async ( prisma: PrismaClient ) => {
             description: 'Коли ви кидаєте кубики шкоди для заклинання, ви можете витратити 1 очко магії, щоб перекинути до кількості кубиків, що не перевищує ваш модифікатор Харизми (мінімум один). Ви повинні використати нові результати. Ви можете застосувати цю опцію навіть якщо вже використали іншу метамагію.',
             shortDescription: 'Перекиньте кубики шкоди (до модифікатора Харизми)',
             displayType: [FeatureDisplayType.PASSIVE],
+            usesPoolKey: "SORCERY_POINTS",
+            usePrice: 1,
         },
         {
             name: 'Подовжене заклинання',
@@ -1824,6 +1854,8 @@ export const seedClassFeatures = async ( prisma: PrismaClient ) => {
             description: 'Коли ви накладаєте заклинання з тривалістю 1 хвилина або більше, ви можете витратити 1 очко магії, щоб подвоїти його тривалість, до максимуму 24 години.',
             shortDescription: 'Подвоїти тривалість заклинання (до 24 годин)',
             displayType: [FeatureDisplayType.PASSIVE],
+            usesPoolKey: "SORCERY_POINTS",
+            usePrice: 1,
         },
         {
             name: 'Підвищене заклинання',
@@ -1831,6 +1863,8 @@ export const seedClassFeatures = async ( prisma: PrismaClient ) => {
             description: 'Коли ви накладаєте заклинання, яке змушує ціль робити ряткидок, ви можете витратити 3 очки магії, щоб надати першому ряткидку цієї цілі перешкоду.',
             shortDescription: 'За 3 очки надайте перешкоду першому ряткидку проти заклинання',
             displayType: [FeatureDisplayType.PASSIVE],
+            usesPoolKey: "SORCERY_POINTS",
+            usePrice: 3,
         },
         {
             name: 'Пришвидшене заклинання',
@@ -1838,6 +1872,8 @@ export const seedClassFeatures = async ( prisma: PrismaClient ) => {
             description: 'Коли ви накладаєте заклинання, яке зазвичай вимагає дії, ви можете витратити 2 очки магії, щоб змінити час накладання на бонусну дію.',
             shortDescription: 'Перетворіть заклинання з дією на бонусну дію',
             displayType: [FeatureDisplayType.PASSIVE],
+            usesPoolKey: "SORCERY_POINTS",
+            usePrice: 2,
         },
         {
             name: 'Приховане заклинання',
@@ -1845,6 +1881,8 @@ export const seedClassFeatures = async ( prisma: PrismaClient ) => {
             description: 'Коли ви накладаєте заклинання, ви можете витратити 1 очко магії, щоб накласти його без вербальних і соматичних компонентів.',
             shortDescription: 'Накласти без вербальних і соматичних компонентів',
             displayType: [FeatureDisplayType.PASSIVE],
+            usesPoolKey: "SORCERY_POINTS",
+            usePrice: 1,
         },
         {
             name: 'Спарене заклинання',
@@ -1852,6 +1890,8 @@ export const seedClassFeatures = async ( prisma: PrismaClient ) => {
             description: 'Коли ви накладаєте заклинання, що націлюється лише на одну істоту і не має радіусу дії, ви можете витратити очки магії, що дорівнюють рівню заклинання (1 для замовляння), щоб націлити другу істоту в межах дистанції. Заклинання не може бути націлене на себе.',
             shortDescription: 'За очки магії націліть заклинання ще на одну істоту',
             displayType: [FeatureDisplayType.PASSIVE],
+            usesPoolKey: "SORCERY_POINTS",
+            usePrice: 1,
         },
         {
             name: 'Спрямоване заклинання',
@@ -1859,6 +1899,8 @@ export const seedClassFeatures = async ( prisma: PrismaClient ) => {
             description: 'Коли ви провалюєте кидок атаки заклинанням, ви можете витратити 2 очки магії, щоб повторити кидок. Ви повинні використати новий результат. Ви не можете застосовувати цю опцію до заклинань, що вимагають кидків атаки до кількох цілей.',
             shortDescription: 'За 2 очки магії повторіть кидок атаки заклинанням',
             displayType: [FeatureDisplayType.PASSIVE],
+            usesPoolKey: "SORCERY_POINTS",
+            usePrice: 2,
         },
         {
             name: 'Перетворене заклинання',
@@ -2008,6 +2050,15 @@ export const seedClassFeatures = async ( prisma: PrismaClient ) => {
             description: 'Бонусною дією ви надихаєте іншу істоту (зазвичай у межах 60 футів), даруючи їй кістку натхнення. Протягом певного часу вона може додати значення цієї кістки до однієї перевірки характеристики, кидка атаки або ряткидку, зробленого після отримання натхнення.\n\nКількість використань залежить від вашої Харизми (мінімум 1), а витрачені використання відновлюються після тривалого відпочинку. Розмір кістки натхнення зростає з рівнем барда.',
             shortDescription: 'Бонусною дією дайте союзнику “кістку натхнення” (використань = Харизма)',
             displayType: [FeatureDisplayType.BONUSACTION, FeatureDisplayType.CLASS_RESOURCE],
+            usesCountSpecial: {
+                type: 'FORMULA',
+                group: 'STAT_BASED',
+                base: 0,
+                stat: 'CHA',
+                operation: 'ADD',
+                minimum: 1,
+            },
+            usesPoolKey: "BARDIC_INSPIRATION",
         },
         {
             name: 'Майстер на всі руки',
@@ -2105,6 +2156,7 @@ export const seedClassFeatures = async ( prisma: PrismaClient ) => {
                 { lvl: 6, uses: 2 },
                 { lvl: 18, uses: 3 },
             ],
+            usesPoolKey: "CHANNEL_DIVINITY",
         },
         {
             name: 'Вигнання нежиті',
@@ -2112,6 +2164,8 @@ export const seedClassFeatures = async ( prisma: PrismaClient ) => {
             description: 'Починаючи з 2 рівня, ви можете дією використати Канал божественності, щоб вигнати нежить. Нежить у межах дії повинна зробити ряткидок Мудрості; при провалі вона стає вигнаною на 1 хвилину або доки не отримає шкоду.',
             shortDescription: 'Дією витратьте Канал божественності, щоб вигнати нежить',
             displayType: [FeatureDisplayType.ACTION],
+            usesPoolKey: "CHANNEL_DIVINITY",
+            usePrice: 1,
         },
         {
             name: 'Знищення нежиті',
@@ -2157,6 +2211,8 @@ export const seedClassFeatures = async ( prisma: PrismaClient ) => {
             shortDescription: 'Дією перетворіться на звіра; використання відновлюються після короткого відпочинку',
             displayType: [FeatureDisplayType.CLASS_RESOURCE, FeatureDisplayType.ACTION],
             limitedUsesPer: RestType.SHORT_REST,
+            usesCount: 2,
+            usesPoolKey: "WILD_SHAPE",
         },
         {
             name: 'Коло друїдів',

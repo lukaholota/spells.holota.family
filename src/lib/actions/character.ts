@@ -220,6 +220,7 @@ export async function createCharacter(data: PersFormData) {
       savingThrows: true,
       armorProficiencies: true,
       weaponProficiencies: true,
+      weaponProficienciesSpecial: true,
       toolProficiencies: true,
       toolToChooseCount: true,
       languages: true,
@@ -747,13 +748,67 @@ export async function createCharacter(data: PersFormData) {
 
   const weaponTextParts = [
     formatWeaponProficiencies((race as any).weaponProficiencies),
-    formatWeaponProficiencies((cls as any).weaponProficiencies),
+    formatWeaponProficiencies(
+      (cls as any).weaponProficiencies,
+      (cls as any).weaponProficienciesSpecial
+    ),
     formatWeaponProficiencies((subclass as any)?.weaponProficiencies),
     formatWeaponProficiencies((subrace as any)?.weaponProficiencies),
     formatWeaponProficiencies((feat as any)?.grantedWeaponProficiencies),
     formatWeaponProficiencies((backgroundFeat as any)?.grantedWeaponProficiencies),
   ].filter((x) => x && x !== "—");
   if (weaponTextParts.length) profLines.push(weaponTextParts.join("\n"));
+
+  const allFeatureIdsToCreate = Array.from(
+    new Set([
+      ...uniqueFeatureIds,
+      ...optionalGrantedFeatureIds,
+      ...choiceOptionFeatureIds,
+      ...raceChoiceTraitFeatureIds,
+    ])
+  ).filter((id) => Number.isFinite(id) && id > 0);
+
+  const featureProficiencyLines: string[] = [];
+  if (allFeatureIdsToCreate.length > 0) {
+    const featuresWithProficiencies = await prisma.feature.findMany({
+      where: { featureId: { in: allFeatureIdsToCreate } },
+      select: {
+        skillProficiencies: true,
+        armorProficiencies: true,
+        weaponProficiencies: true,
+        weaponProficienciesSpecial: true,
+        toolProficiencies: true,
+      },
+    });
+
+    for (const f of featuresWithProficiencies) {
+      const skillProfs = f.skillProficiencies as any;
+      if (Array.isArray(skillProfs)) {
+        skillProfs.forEach((s) => allSkills.add(String(s)));
+      }
+
+      const armorText = formatArmorProficiencies((f.armorProficiencies ?? []) as ArmorType[]);
+      if (armorText && armorText !== "—") featureProficiencyLines.push(armorText);
+
+      const toolText = formatToolProficiencies((f.toolProficiencies ?? []) as any, null);
+      if (toolText && toolText !== "—") featureProficiencyLines.push(toolText);
+
+      const weaponText = formatWeaponProficiencies(
+        f.weaponProficiencies as any,
+        f.weaponProficienciesSpecial as any
+      );
+      if (weaponText && weaponText !== "—") featureProficiencyLines.push(weaponText);
+    }
+  }
+
+  if (featureProficiencyLines.length) {
+    const existing = new Set(profLines);
+    for (const line of featureProficiencyLines) {
+      if (!line || line === "—" || existing.has(line)) continue;
+      existing.add(line);
+      profLines.push(line);
+    }
+  }
 
   const customProficiencies = profLines.join("\n");
 
@@ -772,15 +827,6 @@ export async function createCharacter(data: PersFormData) {
     | { slots: number; level: number }
     | undefined;
   const initialCurrentPactSlots = pactInfo?.slots ? Math.max(0, Math.trunc(pactInfo.slots)) : 0;
-
-  const allFeatureIdsToCreate = Array.from(
-    new Set([
-      ...uniqueFeatureIds,
-      ...optionalGrantedFeatureIds,
-      ...choiceOptionFeatureIds,
-      ...raceChoiceTraitFeatureIds,
-    ])
-  ).filter((id) => Number.isFinite(id) && id > 0);
 
   // Check if any feature grants proficiency via skillExpertises.getProficiencyAsWell
   const featuresWithExpertiseData = await prisma.feature.findMany({

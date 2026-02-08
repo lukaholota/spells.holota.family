@@ -314,12 +314,13 @@ export default function FeaturesSlide({ pers, groupedFeatures, isReadOnly }: Fea
   const spendOneUse = (item: CharacterFeatureItem) => {
     if (isReadOnly || !item.featureId) return;
     const cur = getUsesRemaining(item);
-    if (typeof cur !== "number" || cur <= 0) return;
+    const cost = Math.max(1, Number(item.usePrice ?? 1));
+    if (typeof cur !== "number" || cur < cost) return;
 
     if (item.usesPoolKey) {
-      setUsesOverrideByPoolKey((prev) => ({ ...prev, [item.usesPoolKey as string]: Math.max(0, cur - 1) }));
+      setUsesOverrideByPoolKey((prev) => ({ ...prev, [item.usesPoolKey as string]: Math.max(0, cur - cost) }));
     } else {
-      setUsesOverrideByKey((prev) => ({ ...prev, [item.key]: Math.max(0, cur - 1) }));
+      setUsesOverrideByKey((prev) => ({ ...prev, [item.key]: Math.max(0, cur - cost) }));
     }
     startTransition(async () => {
       const res = await spendFeatureUse({ persId: pers.persId, featureId: item.featureId! });
@@ -340,12 +341,14 @@ export default function FeaturesSlide({ pers, groupedFeatures, isReadOnly }: Fea
   const restoreOneUse = (item: CharacterFeatureItem) => {
     if (isReadOnly || !item.featureId) return;
     const cur = getUsesRemaining(item);
-    if (typeof cur !== "number" || cur >= (item.usesPer ?? 0)) return;
+    const cost = Math.max(1, Number(item.usePrice ?? 1));
+    const max = item.usesPer ?? 0;
+    if (typeof cur !== "number" || cur >= max) return;
 
     if (item.usesPoolKey) {
-      setUsesOverrideByPoolKey((prev) => ({ ...prev, [item.usesPoolKey as string]: cur + 1 }));
+      setUsesOverrideByPoolKey((prev) => ({ ...prev, [item.usesPoolKey as string]: Math.min(max, cur + cost) }));
     } else {
-      setUsesOverrideByKey((prev) => ({ ...prev, [item.key]: cur + 1 }));
+      setUsesOverrideByKey((prev) => ({ ...prev, [item.key]: Math.min(max, cur + cost) }));
     }
     startTransition(async () => {
       const res = await restoreFeatureUse({ persId: pers.persId, featureId: item.featureId! });
@@ -613,7 +616,13 @@ export default function FeaturesSlide({ pers, groupedFeatures, isReadOnly }: Fea
               <InfoPill label="Рятунки" value={formatAbilityList(cls.savingThrows)} />
               <InfoPill label="Навички" value={formatSkillProficiencies(cls.skillProficiencies)} />
               <InfoPill label="Інструменти" value={formatToolProficiencies(cls.toolProficiencies, cls.toolToChooseCount)} />
-              <InfoPill label="Зброя" value={formatWeaponProficiencies(cls.weaponProficiencies)} />
+              <InfoPill
+                label="Зброя"
+                value={formatWeaponProficiencies(
+                  cls.weaponProficiencies,
+                  cls.weaponProficienciesSpecial
+                )}
+              />
               <InfoPill label="Броня" value={formatArmorProficiencies(cls.armorProficiencies)} />
               <InfoPill label="Мови" value={formatLanguages(cls.languages, cls.languagesToChooseCount)} />
               <InfoPill label="Мультиклас" value={formatMulticlassReqs(cls.multiclassReqs)} />
@@ -938,7 +947,8 @@ export default function FeaturesSlide({ pers, groupedFeatures, isReadOnly }: Fea
                             ...item,
                             displayType: item.displayTypes,
                             usesRemaining: remaining,
-                            usesCount: item.usesPer
+                          usesCount: item.usesPer,
+                          usePrice: item.usePrice ?? 1
                         };
 
                         return (

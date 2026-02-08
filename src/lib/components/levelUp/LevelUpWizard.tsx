@@ -22,6 +22,7 @@ import ClassChoiceOptionsForm from "@/lib/components/characterCreator/ClassChoic
 import SubclassChoiceOptionsForm from "@/lib/components/characterCreator/SubclassChoiceOptionsForm";
 import FeatChoiceOptionsForm from "@/lib/components/characterCreator/FeatChoiceOptionsForm";
 import LevelUpASIForm from "@/lib/components/levelUp/LevelUpASIForm";
+import LevelUpSkillProficienciesForm from "@/lib/components/levelUp/LevelUpSkillProficienciesForm";
 import ClassesForm from "@/lib/components/characterCreator/ClassesForm";
 import OptionalFeaturesForm from "@/lib/components/levelUp/OptionalFeaturesForm";
 import LevelUpHPStep from "@/lib/components/levelUp/LevelUpHPStep";
@@ -463,6 +464,21 @@ export default function LevelUpWizard({ info }: Props) {
     selectedFeat,
   ]);
 
+  const needsSkillProficiencies = useMemo(() => {
+    return currentLevelFeatures.some((f) => {
+      const sp = f.skillProficiencies as any;
+      if (!sp) return false;
+      if (Array.isArray(sp)) return false;
+      const rawCount =
+        typeof sp.choiceCount === "number"
+          ? sp.choiceCount
+          : typeof sp.any === "number"
+            ? sp.any
+            : Number(sp.choiceCount);
+      return Number.isFinite(rawCount) && rawCount > 0;
+    });
+  }, [currentLevelFeatures]);
+
   const needsExpertise = useMemo(() => {
     return currentLevelFeatures.some((f) => {
       const se = f.skillExpertises as any;
@@ -675,11 +691,21 @@ export default function LevelUpWizard({ info }: Props) {
       (selectedFeat as any)?.featChoiceOptions as any
     );
 
+    const levelUpSkillSelections = (formData as any).levelUpSkillSelections as
+      | Record<string, string[]>
+      | undefined;
+    if (levelUpSkillSelections) {
+      Object.values(levelUpSkillSelections).forEach((list) => {
+        (Array.isArray(list) ? list : []).forEach((skill) => out.add(skill));
+      });
+    }
+
     return Array.from(out);
   }, [
     formData.classChoiceSelections,
     formData.subclassChoiceSelections,
     formData.featChoiceSelections,
+    (formData as any).levelUpSkillSelections,
     selectedClass,
     effectiveSubclass,
     selectedFeat,
@@ -808,6 +834,14 @@ export default function LevelUpWizard({ info }: Props) {
       });
     }
 
+    if (needsSkillProficiencies) {
+      result.push({
+        id: "skills",
+        title: "Навички",
+        initialDisabled: true,
+      });
+    }
+
     if (needsExpertise) {
       result.push({
         id: "expertise",
@@ -929,6 +963,7 @@ export default function LevelUpWizard({ info }: Props) {
     needsExpertise,
     needsLanguages,
     needsInfusions,
+    needsSkillProficiencies,
     needsSubclass,
     selectedFeatHasChoices,
     selectedFeatId,
@@ -1046,6 +1081,29 @@ export default function LevelUpWizard({ info }: Props) {
             requiredCount={4}
             formId="infusions-form"
             onNextDisabledChange={onNextDisabledChange}
+          />
+        );
+      }
+      case "skills": {
+        const levelUpSkillSelections = (formData as any).levelUpSkillSelections as
+          | Record<string, string[]>
+          | undefined;
+        const selectedBySkillForm = levelUpSkillSelections
+          ? Object.values(levelUpSkillSelections).flat()
+          : [];
+
+        const extraExistingSkills = [
+          ...pers!.skills.map((s: any) => s.name),
+          ...levelUpSelectedSkills.filter((s) => !selectedBySkillForm.includes(s)),
+          ...levelUpSelectedExpertises,
+        ];
+
+        return (
+          <LevelUpSkillProficienciesForm
+            activeFeatures={currentLevelFeatures}
+            formId="levelup-skills-form"
+            onNextDisabledChange={onNextDisabledChange}
+            extraExistingSkills={extraExistingSkills}
           />
         );
       }
@@ -1748,6 +1806,7 @@ function PathStep({
       customAsi: [],
       featId: undefined,
       featChoiceSelections: {},
+      levelUpSkillSelections: {},
       levelUpHpIncrease: undefined,
     });
   };
@@ -1883,7 +1942,8 @@ function PathStep({
                             <InfoPill
                               label="Зброя"
                               value={formatWeaponProficiencies(
-                                cls.weaponProficiencies
+                                cls.weaponProficiencies,
+                                cls.weaponProficienciesSpecial
                               )}
                             />
                             <InfoPill

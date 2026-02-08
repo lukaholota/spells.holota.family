@@ -397,6 +397,10 @@ export const seedClasses = async (prisma: PrismaClient) => {
                         levelGranted: 18,
                     },
                     {
+                        feature: { connect: { engName: "Empty Body: Astral Projection" } },
+                        levelGranted: 18,
+                    },
+                    {
                         feature: { connect: { engName: "Perfect Self" } },
                         levelGranted: 20,
                     },

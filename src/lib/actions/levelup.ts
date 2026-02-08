@@ -56,6 +56,47 @@ function applyMaxDeltaToCurrent(current: number[], beforeMax: number[], afterMax
   });
 }
 
+const ALL_SKILLS = Object.values(Skills) as Skills[];
+
+function normalizeSkillProficiencies(value: unknown):
+  | { type: "fixed"; skills: Skills[] }
+  | { type: "choice"; choiceCount: number; options: Skills[] }
+  | null {
+  if (!value) return null;
+
+  if (Array.isArray(value)) {
+    const skills = value.filter((s): s is Skills => ALL_SKILLS.includes(s as Skills));
+    return { type: "fixed", skills };
+  }
+
+  if (typeof value === "object") {
+    const raw = value as { options?: unknown; choices?: unknown; choiceCount?: unknown; chooseAny?: unknown; any?: unknown };
+    const anyCount = typeof raw.any === "number" ? raw.any : Number(raw.any);
+    const choiceCount =
+      typeof raw.choiceCount === "number"
+        ? raw.choiceCount
+        : Number.isFinite(anyCount)
+          ? anyCount
+          : Number(raw.choiceCount);
+
+    const optionsSource = Array.isArray(raw.options)
+      ? raw.options
+      : Array.isArray(raw.choices)
+        ? raw.choices
+        : [];
+
+    const chooseAny = Boolean(raw.chooseAny) || optionsSource.includes("ANY" as any) || Number.isFinite(anyCount);
+    const filtered = optionsSource.filter((s) => ALL_SKILLS.includes(s as Skills)) as Skills[];
+    const options = chooseAny || filtered.length === 0 ? [...ALL_SKILLS] : filtered;
+
+    if (Number.isFinite(choiceCount) && choiceCount > 0) {
+      return { type: "choice", choiceCount: Math.max(0, Math.trunc(choiceCount)), options };
+    }
+  }
+
+  return null;
+}
+
 const getAllClassesCached = unstable_cache(
   async () =>
     prisma.class.findMany({
@@ -352,6 +393,7 @@ export async function levelUpCharacter(persId: number, data: any) {
     let nextAdditionalSaveProficiencies: Ability[] | null = null;
 
     const expertiseSelections = (data?.expertiseSchema?.expertises || []) as Skills[];
+    const levelUpSkillSelections = (data?.levelUpSkillSelections || {}) as Record<string, string[]>;
     expertiseSelections.forEach(s => skillsToExpertise.add(s));
 
     if (featId) {
@@ -968,6 +1010,52 @@ export async function levelUpCharacter(persId: number, data: any) {
 
     for (const fid of replacementFeatureIdsToAdd) featuresToAdd.add(fid);
 
+    const featureProficiencyExtras: string[] = [];
+    if (featuresToAdd.size > 0) {
+      const featuresWithProficiencies = await prisma.feature.findMany({
+        where: { featureId: { in: Array.from(featuresToAdd) } },
+        select: {
+          featureId: true,
+          name: true,
+          skillProficiencies: true,
+          armorProficiencies: true,
+          weaponProficiencies: true,
+          weaponProficienciesSpecial: true,
+          toolProficiencies: true,
+        },
+      });
+
+      for (const f of featuresWithProficiencies) {
+        const normalized = normalizeSkillProficiencies(f.skillProficiencies as any);
+        if (normalized?.type === "fixed") {
+          normalized.skills.forEach((s) => skillsToAdd.add(s));
+        } else if (normalized?.type === "choice") {
+          const rawSelections = levelUpSkillSelections[String(f.featureId)] ?? [];
+          const unique = Array.from(new Set(rawSelections.map((s) => String(s))))
+            .filter((s) => ALL_SKILLS.includes(s as Skills))
+            .filter((s) => normalized.options.includes(s as Skills));
+
+          if (unique.length > normalized.choiceCount) {
+            return { error: `Оберіть не більше ${normalized.choiceCount} навичок для ${f.name}` } as const;
+          }
+
+          unique.forEach((s) => skillsToAdd.add(s as Skills));
+        }
+
+        const armorText = formatArmorProficiencies((f.armorProficiencies ?? []) as ArmorType[]);
+        if (armorText && armorText !== "—") featureProficiencyExtras.push(armorText);
+
+        const toolText = formatToolProficiencies((f.toolProficiencies ?? []) as any, null);
+        if (toolText && toolText !== "—") featureProficiencyExtras.push(toolText);
+
+        const weaponText = formatWeaponProficiencies(
+          f.weaponProficiencies as any,
+          f.weaponProficienciesSpecial as any
+        );
+        if (weaponText && weaponText !== "—") featureProficiencyExtras.push(weaponText);
+      }
+    }
+
     const featureLanguageExtras: string[] = [];
     if (featuresToAdd.size > 0) {
       const featuresWithLanguages = await prisma.feature.findMany({
@@ -1057,6 +1145,49 @@ export async function levelUpCharacter(persId: number, data: any) {
         });
       }
 
+      const mergeLines = (base: unknown, extras: string[]) => {
+        const baseText = typeof base === "string" ? base : "";
+        const baseLines = baseText
+          .split(/\r?\n/)
+          .map((l) => l.trim())
+          .filter(Boolean);
+        const set = new Set(baseLines);
+        for (const line of extras.map((l) => String(l).trim()).filter(Boolean)) {
+          set.add(line);
+        }
+        return Array.from(set).join("\n");
+      };
+
+      const customProficiencyExtras: string[] = [];
+
+      if (chosenSubclassIdRaw && selectedSubclass) {
+        const armorText = formatArmorProficiencies(
+          ((selectedSubclass as any).armorProficiencies ?? []) as ArmorType[]
+        );
+        if (armorText && armorText !== "—") customProficiencyExtras.push(armorText);
+        const weaponText = formatWeaponProficiencies(
+          (selectedSubclass as any).weaponProficiencies as any
+        );
+        if (weaponText && weaponText !== "—") customProficiencyExtras.push(weaponText);
+      }
+
+      if (featId) {
+        const armorText = formatArmorProficiencies(featGrantedArmorProficiencies);
+        if (armorText && armorText !== "—") customProficiencyExtras.push(armorText);
+        const toolText = formatToolProficiencies(featGrantedToolProficiencies as any, null);
+        if (toolText && toolText !== "—") customProficiencyExtras.push(toolText);
+        const weaponText = formatWeaponProficiencies(featGrantedWeaponProficiencies as any);
+        if (weaponText && weaponText !== "—") customProficiencyExtras.push(weaponText);
+      }
+
+      if (featureProficiencyExtras.length) {
+        customProficiencyExtras.push(...featureProficiencyExtras);
+      }
+
+      const customProficiencyUpdate = customProficiencyExtras.length
+        ? { customProficiencies: mergeLines((pers as any).customProficiencies, customProficiencyExtras) }
+        : {};
+
       // Update Pers core
       const disconnectIds = Array.from(new Set(replacementChoiceOptionDisconnectIds));
       const connectIds = Array.from(new Set([...choiceOptionIds, ...replacementChoiceOptionConnectIds]));
@@ -1072,74 +1203,9 @@ export async function levelUpCharacter(persId: number, data: any) {
             : {}),
           ...newStats,
           ...(nextAdditionalSaveProficiencies ? { additionalSaveProficiencies: nextAdditionalSaveProficiencies } : {}),
-          ...((chosenSubclassIdRaw && selectedSubclass)
-            ? (() => {
-              const mergeLines = (base: unknown, extras: string[]) => {
-                const baseText = typeof base === "string" ? base : "";
-                const baseLines = baseText
-                  .split(/\r?\n/)
-                  .map((l) => l.trim())
-                  .filter(Boolean);
-                const set = new Set(baseLines);
-                for (const line of extras.map((l) => String(l).trim()).filter(Boolean)) {
-                  set.add(line);
-                }
-                return Array.from(set).join("\n");
-              };
-
-              const profExtras: string[] = [];
-              const armorText = formatArmorProficiencies(((selectedSubclass as any).armorProficiencies ?? []) as ArmorType[]);
-              if (armorText && armorText !== "—") profExtras.push(armorText);
-              const weaponText = formatWeaponProficiencies((selectedSubclass as any).weaponProficiencies as any);
-              if (weaponText && weaponText !== "—") profExtras.push(weaponText);
-
-              return {
-                customProficiencies: mergeLines((pers as any).customProficiencies, profExtras),
-              };
-            })()
-            : {}),
-          ...(featId
-            ? (() => {
-              const mergeLines = (base: unknown, extras: string[]) => {
-                const baseText = typeof base === "string" ? base : "";
-                const baseLines = baseText
-                  .split(/\r?\n/)
-                  .map((l) => l.trim())
-                  .filter(Boolean);
-                const set = new Set(baseLines);
-                for (const line of extras.map((l) => String(l).trim()).filter(Boolean)) {
-                  set.add(line);
-                }
-                return Array.from(set).join("\n");
-              };
-
-              const profExtras: string[] = [];
-              const armorText = formatArmorProficiencies(featGrantedArmorProficiencies);
-              if (armorText && armorText !== "—") profExtras.push(armorText);
-              const toolText = formatToolProficiencies(featGrantedToolProficiencies as any, null);
-              if (toolText && toolText !== "—") profExtras.push(toolText);
-              const weaponText = formatWeaponProficiencies(featGrantedWeaponProficiencies as any);
-              if (weaponText && weaponText !== "—") profExtras.push(weaponText);
-
-              return {
-                customProficiencies: mergeLines((pers as any).customProficiencies, profExtras),
-              };
-            })()
-            : {}),
+          ...customProficiencyUpdate,
           ...(combinedLanguageExtras.length > 0
             ? (() => {
-              const mergeLines = (base: unknown, extras: string[]) => {
-                const baseText = typeof base === "string" ? base : "";
-                const baseLines = baseText
-                  .split(/\r?\n/)
-                  .map((l) => l.trim())
-                  .filter(Boolean);
-                const set = new Set(baseLines);
-                for (const line of extras.map((l) => String(l).trim()).filter(Boolean)) {
-                  set.add(line);
-                }
-                return Array.from(set).join("\n");
-              };
               return {
                 customLanguagesKnown: mergeLines((pers as any).customLanguagesKnown, combinedLanguageExtras),
               };

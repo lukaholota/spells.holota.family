@@ -208,6 +208,10 @@ export const expertiseSchema = z.object({
   expertises: z.array(skills).default([])
 });
 
+export const levelUpSkillProficienciesSchema = z.object({
+  levelUpSkillSelections: z.record(z.string(), z.array(skills)).default({}),
+});
+
 export const languagesSchema = z.object({
   languages: z.array(z.string()).default([]),
 });
@@ -269,6 +273,7 @@ export const fullCharacterSchema = z.object({
   levelUpHpIncrease: z.number().int().min(0).optional(),
   levelUpHpMode: z.enum(["AVERAGE", "RANDOM", "MANUAL"]).optional(),
   levelUpHpManualInput: z.string().optional(),
+  levelUpSkillSelections: z.record(z.string(), z.array(skills)).default({}).optional(),
 })
 
  .superRefine((data, ctx) => {

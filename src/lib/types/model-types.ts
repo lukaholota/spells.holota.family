@@ -665,12 +665,20 @@ export interface FeatureI
     | "modifiesAC"
     | "bonusToSavingThrows"
     | "skillProficiencies"
+    | "weaponProficiencies"
+    | "weaponProficienciesSpecial"
+    | "armorProficiencies"
+    | "toolProficiencies"
     | "skillExpertises"
     | "usesCountSpecial"
   > {
   modifiesAC?: ModifiesAC | null;
   bonusToSavingThrows?: BonusToSavingThrows | null;
   skillProficiencies?: SkillProficiencies | null;
+  weaponProficiencies?: WeaponProficiencies | null;
+  weaponProficienciesSpecial?: WeaponProficienciesSpecial | null;
+  armorProficiencies?: ArmorType[] | null;
+  toolProficiencies?: ToolProficiencies | null;
   skillExpertises?: SkillExpertises | null;
   usesCountSpecial?: UsesCountSpecial | null;
 }

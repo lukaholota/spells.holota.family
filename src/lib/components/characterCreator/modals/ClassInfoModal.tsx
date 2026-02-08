@@ -52,7 +52,13 @@ export const ClassInfoModal = ({ cls, triggerClassName, trigger }: Props) => {
         <InfoPill label="Рятунки" value={formatAbilityList(cls.savingThrows)} />
         <InfoPill label="Навички" value={formatSkillProficiencies(cls.skillProficiencies)} />
         <InfoPill label="Інструменти" value={formatToolProficiencies(cls.toolProficiencies, cls.toolToChooseCount)} />
-        <InfoPill label="Зброя" value={formatWeaponProficiencies(cls.weaponProficiencies)} />
+        <InfoPill
+          label="Зброя"
+          value={formatWeaponProficiencies(
+            cls.weaponProficiencies,
+            cls.weaponProficienciesSpecial
+          )}
+        />
         <InfoPill label="Броня" value={formatArmorProficiencies(cls.armorProficiencies)} />
         <InfoPill label="Мови" value={formatLanguages(cls.languages, cls.languagesToChooseCount)} />
         <InfoPill label="Мультиклас" value={formatMulticlassReqs(cls.multiclassReqs)} />

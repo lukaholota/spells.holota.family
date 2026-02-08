@@ -565,6 +565,7 @@ export interface CharacterFeatureItem {
     key: string;
     featureId?: number;
     usesPoolKey?: string | null;
+    usePrice?: number | null;
     name: string;
     shortDescription?: string | null;
     description: string;
@@ -764,11 +765,58 @@ export async function getCharacterFeaturesGrouped(persId: number): Promise<Chara
     const calculateMaxUsesForFeature = (f: any) => {
         if (!f) return null;
         const special = f.usesCountSpecial as any;
-        if (special && typeof special === "object" && special.equalsToClassLevel === true) {
+        const getClassLevel = () => {
             if (f.featureId && featureClassLevelMap.has(f.featureId)) {
                 return featureClassLevelMap.get(f.featureId) ?? pers.level;
             }
             return pers.level;
+        };
+
+        const getAbilityMod = (stat: string) => {
+            const key = String(stat || "").toLowerCase();
+            const score = (pers as any)[key];
+            if (typeof score !== "number") return 0;
+            return Math.floor((score - 10) / 2);
+        };
+
+        if (Array.isArray(special)) {
+            const classLevel = getClassLevel();
+            const match = [...special]
+                .filter((entry) => typeof entry?.lvl === "number" && classLevel >= entry.lvl)
+                .sort((a, b) => b.lvl - a.lvl)[0];
+            if (match && typeof match.uses === "number") return match.uses;
+        }
+
+        if (special && typeof special === "object" && special.equalsToClassLevel === true) {
+            return getClassLevel();
+        }
+
+        if (special && typeof special === "object" && special.type === "FORMULA") {
+            const operation = String(special.operation || "ADD").toUpperCase();
+            const minimum = typeof special.minimum === "number" ? special.minimum : null;
+
+            if (special.group === "STAT_BASED") {
+                const base = Number(special.base ?? 0);
+                const mod = getAbilityMod(special.stat);
+                const value = operation === "MULTIPLY" ? base * mod : base + mod;
+                return minimum !== null ? Math.max(minimum, value) : value;
+            }
+
+            if (special.group === "LEVEL_BASED") {
+                const classLevel = getClassLevel();
+                const multiplier = Number(special.multiplier ?? 1);
+                const base = Number(special.base ?? 0);
+                const value = operation === "MULTIPLY" ? classLevel * multiplier : base + classLevel;
+                return minimum !== null ? Math.max(minimum, value) : value;
+            }
+
+            if (special.group === "PROFICIENCY_BONUS") {
+                const pb = proficiencyBonus(pers.level);
+                const multiplier = Number(special.multiplier ?? 1);
+                const base = Number(special.base ?? 0);
+                const value = operation === "MULTIPLY" ? pb * multiplier : base + pb;
+                return minimum !== null ? Math.max(minimum, value) : value;
+            }
         }
 
         if (f.usesCountDependsOnProficiencyBonus) return proficiencyBonus(pers.level);
@@ -833,6 +881,7 @@ export async function getCharacterFeaturesGrouped(persId: number): Promise<Chara
             key: `PERS:feature:${f.featureId}`,
             featureId: f.featureId,
             usesPoolKey: f.usesPoolKey ?? null,
+            usePrice: f.usePrice ?? 1,
             name: f.name,
             shortDescription: f.shortDescription ?? null,
             description: f.description,
@@ -855,6 +904,7 @@ export async function getCharacterFeaturesGrouped(persId: number): Promise<Chara
                 key: `CHOICE:${co.groupName}:option:${co.choiceOptionId}:feature:${f.featureId}`,
                 featureId: f.featureId,
                 usesPoolKey: f.usesPoolKey ?? null,
+                usePrice: f.usePrice ?? 1,
                 name: f.name,
                 shortDescription: f.shortDescription ?? null,
                 description: f.description,
@@ -877,6 +927,7 @@ export async function getCharacterFeaturesGrouped(persId: number): Promise<Chara
                 key: `RACE_CHOICE:${rco.choiceGroupName}:option:${rco.optionId}:feature:${f.featureId}`,
                 featureId: f.featureId,
                 usesPoolKey: f.usesPoolKey ?? null,
+                usePrice: f.usePrice ?? 1,
                 name: f.name,
                 shortDescription: f.shortDescription ?? null,
                 description: f.description,
@@ -975,6 +1026,7 @@ export async function getCharacterFeaturesGrouped(persId: number): Promise<Chara
             sourceName: "Вливання",
             magicItem: inf.replicatedMagicItem ?? null,
             usesPoolKey: feature?.usesPoolKey ?? null,
+            usePrice: feature?.usePrice ?? 1,
             usesPer,
             restType: feature?.limitedUsesPer ?? null,
             usesRemaining: feature?.usesCount, // Fallback, though not tracked yet

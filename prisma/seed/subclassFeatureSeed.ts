@@ -1,4 +1,15 @@
-import { FeatureDisplayType, Language, PrismaClient, RestType, Skills, Subclasses } from "@prisma/client"
+import {
+  ArmorType,
+  FeatureDisplayType,
+  Language,
+  PrismaClient,
+  RestType,
+  Skills,
+  Subclasses,
+  ToolCategory,
+  WeaponCategory,
+  WeaponType,
+} from "@prisma/client"
 import { normalizeFeatureCreateInput, type SeedFeatureCreateInput } from "./helpers/featureDisplayType"
 
 type SubclassFeatureLink = {
@@ -29,10 +40,11 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       shortDescription:
         "2 використання арканних пострілів за короткий/тривалий відпочинок; з 18 рівня їхні ефекти посилюються.",
       description:
-        "На 3 рівні ви опановуєте два варіанти Арканних пострілів на свій вибір. Раз за хід, коли ви вистрілюєте зі шортбоуа чи лонгбоуа в межах Дії Атака, можете накласти один з обраних варіантів на стрілу. Рішення приймаєте, коли стріла влучає (якщо опція не вимагає кидка атаки).\n\nВи маєте 2 використання Арканного пострілу та відновлюєте всі витрати після короткого або тривалого відпочинку. На 7, 10 і 15 рівнях ви вивчаєте додатковий варіант. При кожному отриманні нового варіанту можете замінити один відомий на інший.\n\nКС ряткидків для ваших Арканних пострілів = 8 + ваш Бонус Майстерності + ваш модифікатор Інтелекту.\n\nНа 18 рівні кожен ваш Арканний постріл отримує посилення, зазначене в описі відповідної опції.",
+        "На 3 рівні ви опановуєте два варіанти Арканних пострілів на свій вибір. Раз за хід, коли ви вистрілюєте з короткого або довгого лука в межах Дії Атака, можете накласти один з обраних варіантів на стрілу. Рішення приймаєте, коли стріла влучає (якщо опція не вимагає кидка атаки).\n\nВи маєте 2 використання Арканного пострілу та відновлюєте всі витрати після короткого або тривалого відпочинку. На 7, 10 і 15 рівнях ви вивчаєте додатковий варіант. При кожному отриманні нового варіанту можете замінити один відомий на інший.\n\nКС ряткидків для ваших Арканних пострілів = 8 + ваш Бонус Майстерності + ваш модифікатор Інтелекту.\n\nНа 18 рівні кожен ваш Арканний постріл отримує посилення, зазначене в описі відповідної опції.",
       displayType: [FeatureDisplayType.CLASS_RESOURCE],
       limitedUsesPer: RestType.SHORT_REST,
       usesCount: 2,
+      usesPoolKey: "ARCANE_SHOT",
     },
     {
       name: "Магічна стріла",
@@ -40,6 +52,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       shortDescription: "Ваші немагічні стріли з лука вважаються магічними для обходу спротиву/імунітету.",
       description:
         "На 7 рівні, коли ви стріляєте з шортбоуа чи лонгбоуа немагічною стрілою, ви можете зробити її магічною для цілей обходу спротиву та імунітету до немагічних атак і шкоди. Магія зникає одразу після влучання або промаху.",
+      usesPoolKey: "SORCERY_POINTS",
+      usePrice: 3,
       displayType: [FeatureDisplayType.PASSIVE],
     },
     {
@@ -48,17 +62,20 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       shortDescription: "Реакцією перенаправляєте хибну стрілу в іншу ціль у межах 60 футів.",
       description:
         "На 7 рівні, якщо ви промахнулися з дальньої атаки зі шортбоуа чи лонгбоуа, можете реакцією зробити кидок атаки тим самим нападом проти іншої цілі в межах 60 футів від вас.",
+      usesPoolKey: "SORCERY_POINTS",
+      usePrice: 1,
       displayType: [FeatureDisplayType.REACTION],
     },
     {
       name: "Завжди напоготові",
       engName: "Ever-Ready Shot",
       shortDescription: "Якщо не маєте використань Арканного пострілу, відновлюєте одне при кидку ініціативи.",
+      usesPoolKey: "SORCERY_POINTS",
+      usePrice: 5,
       description:
         "На 15 рівні, коли ви кидаєте ініціативу і не маєте жодного використання Арканного пострілу, відновлюєте одне використання.",
       displayType: [FeatureDisplayType.PASSIVE],
     },
-
     // Arcane Shot options
     {
       name: "Вигнання стрілою",
@@ -68,6 +85,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Використовуючи магію відштовхування, ви намагаєтеся вигнати ціль у безпечне місце у Фейвайлді. Уражена стрілою істота робить ряткидок Харизми або вигнана: її швидкість стає 0, вона Недієздатна. Наприкінці свого наступного ходу ціль повертається в ту ж або найближчу вільну клітинку.\n\nЗ 18 рівня ціль також отримує 2к6 силової шкоди при влучанні.",
       displayType: [FeatureDisplayType.PASSIVE],
+      usesPoolKey: "ARCANE_SHOT",
+      usePrice: 1,
     },
     {
       name: "Зваблива стріла",
@@ -77,6 +96,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Уражена стрілою істота додатково отримує 2к6 психічної шкоди, а ви обираєте союзника в межах 30 футів від цілі. Ціль робить ряткидок Мудрості; при провалі вона зачарована обраним союзником до початку вашого наступного ходу. Ефект закінчується раніше, якщо союзник завдає цілі шкоди чи змушує її робити ряткидок.\n\nЗ 18 рівня психічна шкода становить 4к6.",
       displayType: [FeatureDisplayType.PASSIVE],
+      usesPoolKey: "ARCANE_SHOT",
+      usePrice: 1,
     },
     {
       name: "Розривна стріла",
@@ -85,6 +106,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Одразу після влучання стріла вибухає силовою енергією. Ціль та всі інші істоти в межах 10 футів отримують по 2к6 силової шкоди.\n\nЗ 18 рівня шкода становить 4к6.",
       displayType: [FeatureDisplayType.PASSIVE],
+      usesPoolKey: "ARCANE_SHOT",
+      usePrice: 1,
     },
     {
       name: "Ослаблювальна стріла",
@@ -94,6 +117,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Ціль отримує додаткові 2к6 некротичної шкоди. Вона робить ряткидок Статури; при провалі шкода від її атак зброєю до початку вашого наступного ходу зменшується удвічі (округлення донизу).\n\nЗ 18 рівня некротична шкода становить 4к6.",
       displayType: [FeatureDisplayType.PASSIVE],
+      usesPoolKey: "ARCANE_SHOT",
+      usePrice: 1,
     },
     {
       name: "Хапальна стріла",
@@ -103,6 +128,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Ціль отримує додаткові 2к6 отруйної шкоди, її швидкість зменшується на 10 футів, а вперше кожного свого ходу, коли вона рухається на 1 фут або більше без телепортації, отримує 2к6 рубальної шкоди. Ціль або істота в досяжності може Дією зробити перевірку Сили (Атлетика) проти вашого КС Арканного пострілу, щоб зняти колючі зарості. Інакше вони тривають 1 хвилину або доки ви не застосуєте цю опцію знову.\n\nЗ 18 рівня обидві шкоди становлять 4к6.",
       displayType: [FeatureDisplayType.PASSIVE],
+      usesPoolKey: "ARCANE_SHOT",
+      usePrice: 1,
     },
     {
       name: "Пронизувальна стріла",
@@ -112,6 +139,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Ви не робите кидок атаки. Стріла летить лінією 1 фут завширшки та 30 футів завдовжки, ігноруючи укриття та перешкоди. Кожна істота в лінії робить ряткидок Спритності. При провалі вона отримує шкоду, ніби була влучена стрілою, плюс 1к6 колотої шкоди; при успіху — половину.\n\nЗ 18 рівня додаткова колота шкода становить 2к6.",
       displayType: [FeatureDisplayType.PASSIVE],
+      usesPoolKey: "ARCANE_SHOT",
+      usePrice: 1,
     },
     {
       name: "Стріла-наведення",
@@ -121,6 +150,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Ви обираєте істоту, яку бачили протягом останньої хвилини. Стріла летить до неї, оминаючи кути та ігноруючи тричвертні та половинні укриття. Якщо ціль у межах дальності та є шлях для стріли, ціль робить ряткидок Спритності. При провалі вона отримує шкоду, ніби була влучена стрілою, плюс 1к6 силової шкоди, а ви дізнаєтеся її поточне місцезнаходження. При успіху — половина додаткової шкоди, без виявлення позиції.\n\nЗ 18 рівня силова шкода становить 2к6.",
       displayType: [FeatureDisplayType.PASSIVE],
+      usesPoolKey: "ARCANE_SHOT",
+      usePrice: 1,
     },
     {
       name: "Тіньова стріла",
@@ -130,6 +161,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Ціль отримує додаткові 2к6 психічної шкоди та робить ряткидок Мудрості. При провалі до початку вашого наступного ходу вона не бачить нічого далі ніж на 5 футів від себе.\n\nЗ 18 рівня психічна шкода становить 4к6.",
       displayType: [FeatureDisplayType.PASSIVE],
+      usesPoolKey: "ARCANE_SHOT",
+      usePrice: 1,
     },
 
     // ===== Battle Master =====
@@ -142,6 +175,12 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
         "На 3 рівні ви вивчаєте три маневри на вибір із списку Майстра бою. Ви застосовуєте лише один маневр на атаку. На 7, 10 та 15 рівнях вивчаєте ще по два маневри; при кожному вивченні можете замінити відомий маневр на інший.\n\nВи маєте 4 кубики переваги d8. Кубик витрачається, коли ви застосовуєте маневр, і відновлюється після короткого або тривалого відпочинку. Ще один кубик отримуєте на 7 рівні (5 кубиків) і на 15 рівні (6 кубиків).\n\nДеякі маневри вимагають від цілі ряткидок: КС = 8 + ваш Бонус Майстерності + ваш модифікатор Сили або Спритності (на вибір).\n\nНа 10 рівні розмір кубиків стає d10, на 18 — d12.",
       displayType: [FeatureDisplayType.CLASS_RESOURCE],
       limitedUsesPer: RestType.SHORT_REST,
+      usesCountSpecial: [
+        { lvl: 3, uses: 4 },
+        { lvl: 7, uses: 5 },
+        { lvl: 15, uses: 6 },
+      ],
+      usesPoolKey: "SUPERIORITY_DICE",
     },
     {
       name: "Учень війни",
@@ -184,6 +223,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Коли ви робите перевірку Спритності (Непомітність) або кидок ініціативи, можете витратити кубик переваги та додати кидок кубика до результату (якщо не Недієздатні).",
       displayType: [FeatureDisplayType.PASSIVE],
+      usesPoolKey: "SUPERIORITY_DICE",
+      usePrice: 1,
     },
     {
       name: "Пастка й обмін",
@@ -193,6 +234,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Коли ви перебуваєте в межах 5 футів від істоти у свій хід, можете витратити кубик переваги та помінятися з нею місцями, витративши щонайменше 5 футів руху (істота має бути згодною й не Недієздатною). Цей рух не провокує можливих атак. Киньте кубик переваги: до початку вашого наступного ходу ви або інша істота (на вибір) отримує бонус до КБ, рівний кидку.",
       displayType: [FeatureDisplayType.PASSIVE],
+      usesPoolKey: "SUPERIORITY_DICE",
+      usePrice: 1,
     },
     {
       name: "Готовність",
@@ -201,6 +244,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Коли істота, яку ви бачите, входить у вашу досяжність із рукопашною зброєю, можете реакцією витратити кубик переваги та зробити одну атаку цією зброєю. При влучанні додайте кубик переваги до шкоди.",
       displayType: [FeatureDisplayType.REACTION],
+      usesPoolKey: "SUPERIORITY_DICE",
+      usePrice: 1,
     },
     {
       name: "Наказ атакувати",
@@ -209,6 +254,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Коли ви робите Дію Атака, можете відмовитися від однієї своєї атаки та бонусною дією наказати союзнику, який вас бачить або чує, ударити. Ви витрачаєте кубик переваги, і союзник реакцією робить одну атаку зброєю, додаючи кубик до шкоди.",
       displayType: [FeatureDisplayType.BONUSACTION],
+      usesPoolKey: "SUPERIORITY_DICE",
+      usePrice: 1,
     },
     {
       name: "Владна присутність",
@@ -217,6 +264,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Коли робите перевірку Харизми (Залякування), (Виступ) або (Переконання), можете витратити кубик переваги та додати його кидок до результату.",
       displayType: [FeatureDisplayType.PASSIVE],
+      usesPoolKey: "SUPERIORITY_DICE",
+      usePrice: 1,
     },
     {
       name: "Роззброювальний удар",
@@ -225,6 +274,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Коли ви влучаєте атакою зброєю, можете витратити кубик переваги, щоб спробувати роззброїти ціль. Додайте кубик до шкоди, а ціль робить ряткидок Сили. При провалі вона скидає обраний предмет, який тримає, на своїх ногах.",
       displayType: [FeatureDisplayType.PASSIVE],
+      usesPoolKey: "SUPERIORITY_DICE",
+      usePrice: 1,
     },
     {
       name: "Відволікаючий удар",
@@ -234,6 +285,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Коли ви влучаєте атакою зброєю, можете витратити кубик переваги, щоб відволікти ціль. Додайте кубик до шкоди, а наступний кидок атаки по цілі від іншого нападника до початку вашого наступного ходу робиться з перевагою.",
       displayType: [FeatureDisplayType.PASSIVE],
+      usesPoolKey: "SUPERIORITY_DICE",
+      usePrice: 1,
     },
     {
       name: "Ухильні кроки",
@@ -242,6 +295,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Коли ви рухаєтеся, можете витратити кубик переваги, кинути його та додати результат до КБ, доки не перестанете рухатися цього ходу.",
       displayType: [FeatureDisplayType.PASSIVE],
+      usesPoolKey: "SUPERIORITY_DICE",
+      usePrice: 1,
     },
     {
       name: "Обманний удар",
@@ -251,6 +306,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Витрачаючи кубик переваги та бонусну дію, ви обираєте ціль у межах 5 футів. Наступний кидок атаки по цій цілі цього ходу робиться з перевагою; при влучанні додайте кубик до шкоди.",
       displayType: [FeatureDisplayType.BONUSACTION],
+      usesPoolKey: "SUPERIORITY_DICE",
+      usePrice: 1,
     },
     {
       name: "Дратівливий удар",
@@ -260,6 +317,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Коли ви влучаєте атакою зброєю, можете витратити кубик переваги, щоб спровокувати ціль. Додайте кубик до шкоди, а ціль робить ряткидок Мудрості. При провалі вона має перешкоду на атаки проти будь-кого, крім вас, до кінця вашого наступного ходу.",
       displayType: [FeatureDisplayType.PASSIVE],
+      usesPoolKey: "SUPERIORITY_DICE",
+      usePrice: 1,
     },
     {
       name: "Захоплювальний удар",
@@ -269,6 +328,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Одразу після влучання рукопашною атакою у свій хід можете витратити кубик переваги та бонусною дією спробувати захопити ціль (згідно правил PHB). Додайте кубик переваги до перевірки Сили (Атлетика).",
       displayType: [FeatureDisplayType.BONUSACTION],
+      usesPoolKey: "SUPERIORITY_DICE",
+      usePrice: 1,
     },
     {
       name: "Укол із випаду",
@@ -277,6 +338,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Коли ви робите рукопашну атаку зброєю у свій хід, можете витратити кубик переваги, щоб збільшити досяжність цієї атаки на 5 футів. При влучанні додайте кубик до шкоди.",
       displayType: [FeatureDisplayType.PASSIVE],
+      usesPoolKey: "SUPERIORITY_DICE",
+      usePrice: 1,
     },
     {
       name: "Маневровий удар",
@@ -286,6 +349,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Коли ви влучаєте атакою зброєю, можете витратити кубик переваги, щоб допомогти союзнику. Додайте кубик до шкоди та оберіть союзника, який бачить або чує вас. Він може реакцією переміститися до половини своєї швидкості без провокування можливих атак від вашої цілі.",
       displayType: [FeatureDisplayType.PASSIVE],
+      usesPoolKey: "SUPERIORITY_DICE",
+      usePrice: 1,
     },
     {
       name: "Лякаючий удар",
@@ -295,6 +360,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Коли ви влучаєте атакою зброєю, можете витратити кубик переваги, щоб спробувати налякати ціль. Додайте кубик до шкоди, а ціль робить ряткидок Мудрості. При провалі вона налякана вами до кінця вашого наступного ходу.",
       displayType: [FeatureDisplayType.PASSIVE],
+      usesPoolKey: "SUPERIORITY_DICE",
+      usePrice: 1,
     },
     {
       name: "Парирування",
@@ -304,6 +371,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Коли інша істота завдає вам шкоди рукопашною атакою, ви можете реакцією витратити кубик переваги, зменшивши шкоду на кидок кубика + ваш модифікатор Спритності.",
       displayType: [FeatureDisplayType.REACTION],
+      usesPoolKey: "SUPERIORITY_DICE",
+      usePrice: 1,
     },
     {
       name: "Точний удар",
@@ -312,6 +381,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Коли ви робите кидок атаки по істоті, можете витратити кубик переваги та додати його до кидка. Можна зробити до або після кидка, але до застосування ефектів атаки.",
       displayType: [FeatureDisplayType.PASSIVE],
+      usesPoolKey: "SUPERIORITY_DICE",
+      usePrice: 1,
     },
     {
       name: "Відштовхувальний удар",
@@ -321,6 +392,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Коли ви влучаєте атакою зброєю, можете витратити кубик переваги, щоб спробувати відштовхнути ціль. Додайте кубик до шкоди, а якщо ціль Велика чи менша, вона робить ряткидок Сили. При провалі ви штовхаєте її до 15 футів від себе.",
       displayType: [FeatureDisplayType.PASSIVE],
+      usesPoolKey: "SUPERIORITY_DICE",
+      usePrice: 1,
     },
     {
       name: "Швидкий кидок",
@@ -329,6 +402,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Витративши кубик переваги та бонусну дію, ви робите дальню атаку зброєю з властивістю «метальна». Ви можете дістати зброю як частину цієї атаки. При влучанні додайте кубик до шкоди.",
       displayType: [FeatureDisplayType.BONUSACTION],
+      usesPoolKey: "SUPERIORITY_DICE",
+      usePrice: 1,
     },
     {
       name: "Підбадьорення",
@@ -337,6 +412,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "У свій хід бонусною дією витрачаєте кубик переваги, обираєте союзника, який бачить або чує вас. Він отримує тимчасові хіти, рівні кидку кубика + ваш модифікатор Харизми.",
       displayType: [FeatureDisplayType.BONUSACTION],
+      usesPoolKey: "SUPERIORITY_DICE",
+      usePrice: 1,
     },
     {
       name: "Відплата",
@@ -345,6 +422,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Коли істота промахується по вам рукопашною атакою, ви можете реакцією витратити кубик переваги, зробити атаку рукопашною зброєю по цілі та при влучанні додати кубик до шкоди.",
       displayType: [FeatureDisplayType.REACTION],
+      usesPoolKey: "SUPERIORITY_DICE",
+      usePrice: 1,
     },
     {
       name: "Розмашистий удар",
@@ -354,6 +433,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Коли ви влучаєте рукопашною атакою зброєю, можете витратити кубик переваги, щоб спробувати вдарити іншу істоту в 5 футах від початкової цілі та у вашій досяжності. Якщо початковий кидок атаки достатній, друга істота отримує шкоду, рівну кидку кубика, того ж типу.",
       displayType: [FeatureDisplayType.PASSIVE],
+      usesPoolKey: "SUPERIORITY_DICE",
+      usePrice: 1,
     },
     {
       name: "Тактична оцінка",
@@ -362,6 +443,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Коли робите перевірку Інтелекту (Розслідування або Історія) чи Мудрості (Аналіз Поведінки), можете витратити кубик переваги та додати його кидок до результату.",
       displayType: [FeatureDisplayType.PASSIVE],
+      usesPoolKey: "SUPERIORITY_DICE",
+      usePrice: 1,
     },
     {
       name: "Підніжка",
@@ -371,6 +454,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Коли ви влучаєте атакою зброєю, можете витратити кубик переваги, щоб збити ціль. Додайте кубик до шкоди, а якщо ціль Велика чи менша, вона робить ряткидок Сили. При провалі вона Повалена.",
       displayType: [FeatureDisplayType.PASSIVE],
+      usesPoolKey: "SUPERIORITY_DICE",
+      usePrice: 1,
     },
 
     // ===== Cavalier =====
@@ -577,9 +662,9 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       name: "Легіон один",
       engName: "Legion of One",
       shortDescription:
-        "Можете підтримувати 2 луни; Unleash Incarnation дає 2 атаки; при ініціативі без використань відновлюєте одне.",
+        "Можете підтримувати 2 луни; Виплеск втілення дає 2 атаки; при ініціативі без використань відновлюєте одне.",
       description:
-        "На 18 рівні, коли ви проявляєте луну, можете створити відразу дві, але якщо створюєте нову, попередні зникають. Unleash Incarnation тепер створює дві додаткові атаки замість однієї. Коли кидаєте ініціативу й не маєте використань Unleash Incarnation, відновлюєте одне.",
+        "На 18 рівні, коли ви проявляєте луну, можете створити відразу дві, але якщо створюєте нову, попередні зникають. Виплеск втілення тепер створює дві додаткові атаки замість однієї. Коли кидаєте ініціативу й не маєте використань Виплеск втілення, відновлюєте одне.",
       displayType: [FeatureDisplayType.PASSIVE],
     },
 
@@ -642,6 +727,48 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
         "На 3 рівні ви отримуєте запас псі-енергії: кількість кубиків дорівнює двом вашим Бонусам Майстерності, початково d6. Розмір кубиків зростає до d8 на 5 рівні, d10 на 11, d12 на 17. Ви відновлюєте всі витрачені кубики після тривалого відпочинку і половину (округл. вгору) після короткого. Коли викидаєте 1 на кубику псі-енергії, він не витрачається.\n\nОпції:\n• Захисне поле: реакцією після того, як істота, яку бачите в 30 футах, отримує шкоду, витрачаєте кубик, щоб зменшити шкоду на кидок + ваш модифікатор Інтелекту (мін. 1).\n• Псі-удар: після влучання атакою можете витратити кубик, щоб завдати додаткову психічну шкоду, рівну кидку + модифікатор Інтелекту.\n• Телекінетичний рух: Дією витрачаєте кубик, щоб пересунути предмет чи істоту (до Середньої) на до 30 футів у видиму точку (не більше 30 футів від вас).",
       displayType: [FeatureDisplayType.CLASS_RESOURCE],
       limitedUsesPer: RestType.LONG_REST,
+      usesCountSpecial: {
+        type: 'FORMULA',
+        group: 'PROFICIENCY_BONUS',
+        multiplier: 2,
+        operation: 'MULTIPLY',
+      },
+      usesPoolKey: "PSIONIC_ENERGY",
+    },
+    {
+      name: "Захисне поле",
+      engName: "Protective Field",
+      shortDescription:
+        "Реакцією витрачаєте кубик псі-енергії, щоб зменшити шкоду на кидок + мод. Інтелекту (мін.1) істоті в 30 футах.",
+      description:
+        "Коли ви або інша істота, яку ви бачите в 30 футах, отримує шкоду, ви можете реакцією витратити кубик псі-енергії. Киньте його та зменште отриману шкоду на результат кидка + ваш модифікатор Інтелекту (мінімум 1), створюючи короткочасний телекинетичний щит.",
+      displayType: [FeatureDisplayType.REACTION],
+      usesPoolKey: "PSIONIC_ENERGY",
+      usePrice: 1,
+    },
+    {
+      name: "Псі-удар",
+      engName: "Psionic Strike",
+      shortDescription:
+        "Раз за хід після влучання зброєю витрачаєте кубик псі-енергії, щоб завдати силової шкоди = кидок + мод. Інтелекту.",
+      description:
+        "Раз за свій хід, одразу після того як ви влучили по цілі в 30 футах атакою зброєю і завдали їй шкоди, ви можете витратити кубик псі-енергії. Киньте його й завдайте цілі силової шкоди, рівної результату кидка + ваш модифікатор Інтелекту.",
+      displayType: [FeatureDisplayType.PASSIVE],
+      usesPoolKey: "PSIONIC_ENERGY",
+      usePrice: 1,
+    },
+    {
+      name: "Телекінетичний рух",
+      engName: "Telekinetic Movement",
+      shortDescription:
+        "Дією переміщуєте вільний предмет (Великий або менший) чи готову істоту до 30 фт. 1/КВ або за кубик псі-енергії.",
+      description:
+        "Дією ви можете перемістити один вільний предмет розміру Великий або менший або одну готову істоту (крім себе). Якщо ви бачите ціль у межах 30 футів, ви переміщуєте її на до 30 футів у вільну клітинку, яку бачите. Якщо це Крихітний предмет, ви можете перемістити його у свою руку або з неї. Рух може бути горизонтальним, вертикальним або обома. Після цього ви не можете використати цю дію знову, доки не завершите короткий або тривалий відпочинок, якщо не витратите кубик псі-енергії, щоб використати її знову.",
+      displayType: [FeatureDisplayType.ACTION],
+      limitedUsesPer: RestType.SHORT_REST,
+      usesCount: 1,
+      usesPoolKey: "PSIONIC_ENERGY",
+      usePrice: 1,
     },
     {
       name: "Телкінетичний адепт",
@@ -651,6 +778,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "На 7 рівні ви вдосконалюєте телекинез:\n• Псі-стрибок. Бонусною дією витрачаєте кубик псі-енергії, щоб до кінця цього ходу отримати швидкість польоту, рівну подвійній вашій швидкості ходи.\n• Телкінетичний поштовх. Коли ви завдаєте шкоди Псі-ударом, можете змусити ціль зробити ряткидок Сили. При провалі ви або штовхаєте її на 10 футів, або Повалюєте (на вибір).",
       displayType: [FeatureDisplayType.PASSIVE],
+      usesPoolKey: "PSIONIC_ENERGY",
+      usePrice: 1,
     },
     {
       name: "Захищений розум",
@@ -659,6 +788,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "На 10 рівні ви отримуєте опір психічній шкоді. Крім того, коли ви стаєте налякані або зачаровані, можете реакцією витратити кубик псі-енергії, щоб завершити ефект на собі (не витрачаючи кубик, якщо результат кидка дорівнює 1).",
       displayType: [FeatureDisplayType.REACTION],
+      usesPoolKey: "PSIONIC_ENERGY",
+      usePrice: 1,
     },
     {
       name: "Захисний заслін",
@@ -670,6 +801,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       displayType: [FeatureDisplayType.BONUSACTION],
       limitedUsesPer: RestType.LONG_REST,
       usesCount: 1,
+      usesPoolKey: "PSIONIC_ENERGY",
+      usePrice: 1,
     },
     {
       name: "Майстер телекинезу",
@@ -688,6 +821,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       shortDescription: "Отримуєте Володіння ковалівськими інструментами та мовою велетнів.",
       description: "На 3 рівні ви здобуваєте Володіння ковалівськими інструментами та вивчаєте мову велетнів.",
       displayType: [FeatureDisplayType.PASSIVE],
+      toolProficiencies: ["SMITHS_TOOLS" as ToolCategory],
+      givesLanguages: [Language.GIANT],
     },
     {
       name: "Різьбяр рун",
@@ -800,6 +935,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       displayType: [FeatureDisplayType.BONUSACTION],
       limitedUsesPer: RestType.LONG_REST,
       usesCount: 1,
+      usesPoolKey: "SORCERY_POINTS",
+      usePrice: 5,
     },
     {
       name: "Руна бурі",
@@ -811,6 +948,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       displayType: [FeatureDisplayType.BONUSACTION],
       limitedUsesPer: RestType.LONG_REST,
       usesCount: 1,
+      usesPoolKey: "SORCERY_POINTS",
+      usePrice: 5,
     },
 
     // ===== Samurai =====
@@ -1385,6 +1524,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       displayType: [FeatureDisplayType.BONUSACTION],
       limitedUsesPer: RestType.LONG_REST,
       usesCount: 1,
+      usesPoolKey: "SORCERY_POINTS",
+      usePrice: 5,
     },
 
     // ===== Arcana Domain =====
@@ -1412,6 +1553,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "На 2 рівні ви можете застосувати Виклик божественності, щоб розвіяти нечисту магію. Як Дію обираєте небожителя, фею, елементаля або вилюдка в 30 футах, який вас бачить/чує. Ціль робить ряткидок Мудрості; при провалі вона Вигнана на 1 хвилину або доки не отримає шкоду (як Переляканий, не може наближатись). Якщо КС була перевищена на 5 і більше, а істота має КР ≤1/2 вашого рівня клірика, вона замість того підпадає під ефект Вигнання (banishment) на 1 хвилину без концентрації.",
       displayType: [FeatureDisplayType.ACTION],
+      usesPoolKey: "CHANNEL_DIVINITY",
+      usePrice: 1,
     },
     {
       name: "Ламання заклять",
@@ -1473,6 +1616,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "На 2 рівні, коли ви влучаєте по істоті рукопашною атакою, можете витратити Виклик божественності, щоб додати некротичної шкоди, рівної 5 + подвоєний ваш рівень клірика.",
       displayType: [FeatureDisplayType.PASSIVE],
+      usesPoolKey: "CHANNEL_DIVINITY",
+      usePrice: 1,
     },
     {
       name: "Невідворотна погибель",
@@ -1514,6 +1659,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       shortDescription: "Володіння важкими обладунками й ковалівськими інструментами.",
       description: "На 1 рівні ви отримуєте Володіння важкими обладунками та ковалівськими інструментами.",
       displayType: [FeatureDisplayType.PASSIVE],
+      armorProficiencies: [ArmorType.HEAVY],
+      toolProficiencies: ["SMITHS_TOOLS" as ToolCategory],
     },
     {
       name: "Благословення кузні",
@@ -1532,6 +1679,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "На 2 рівні ви можете витратити Виклик божественності, щоб провести 1-годинний ритуал, створюючи немагічний металевий предмет вартістю до 100 зм (список у PHB: прості/бойові зброї, обладунки, 10 боєприпасів, інструменти). Потрібно мати матеріали вартістю половини предмета, які споживаються під час ритуалу.",
       displayType: [FeatureDisplayType.PASSIVE],
+      usesPoolKey: "CHANNEL_DIVINITY",
+      usePrice: 1,
     },
     {
       name: "Душа ковальства",
@@ -1596,6 +1745,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "На 2 рівні Дією ви позначаєте істоту, яку бачите в 30 футах. До кінця вашого наступного ходу перша атака по цій істоті від вас чи союзника знімає всі спротиви цілі до шкоди, і шкода від цієї атаки подвоюється.",
       displayType: [FeatureDisplayType.ACTION],
+      usesPoolKey: "CHANNEL_DIVINITY",
+      usePrice: 1,
     },
     {
       name: "Вартовий біля смерті",
@@ -1657,6 +1808,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "На 2 рівні ви можете Дією витратити Виклик божественності, щоб отримати Володіння однією навичкою чи набором інструментів на вибір на 10 хвилин.",
       displayType: [FeatureDisplayType.ACTION],
+      usesPoolKey: "CHANNEL_DIVINITY",
+      usePrice: 1,
     },
     {
       name: "Божественність: Читання думок",
@@ -1666,6 +1819,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "На 6 рівні ви можете Дією витратити Виклик божественності, щоб читати поверхневі думки істоти, яку бачите в 60 футах, до 1 хвилини (концентрація). Поки діє ефект, бонусною дією можете накласти на цю істоту <a href=\"/spell/1277\">Навіювання [Suggestion]</a> без витрати осередку; ефект закінчується після цього.",
       displayType: [FeatureDisplayType.ACTION],
+      usesPoolKey: "CHANNEL_DIVINITY",
+      usePrice: 1,
     },
     {
       name: "Потужне заклинання (Знання)",
@@ -1726,6 +1881,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "На 2 рівні Дією ви відновлюєте сумарно хіти, рівні 5 × рівень клірика, між будь-якими істотами на вибір у 30 футах. Не можна підняти істоту вище половини її максимуму хітів.",
       displayType: [FeatureDisplayType.ACTION],
+      usesPoolKey: "CHANNEL_DIVINITY",
+      usePrice: 1,
     },
     {
       name: "Блаженний цілитель",
@@ -1785,6 +1942,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "На 2 рівні Дією ви розганяєте магічну темряву в межах 30 футів і завдаєте променистої шкоди всім ворогам у радіусі: 2к10 + ваш рівень клірика, ряткидок Статури на половину. Істоти за суцільним укриттям не підпадають.",
       displayType: [FeatureDisplayType.ACTION],
+      usesPoolKey: "CHANNEL_DIVINITY",
+      usePrice: 1,
     },
     {
       name: "Покращений спалах",
@@ -1844,6 +2003,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "На 2 рівні Дією ви пред’являєте свій священний символ; кожен звір або рослина, що може вас бачити/чути в 30 футах, робить ряткидок Мудрості. При провалі істота зачарована вами на 1 хвилину або доки не зазнає шкоди.",
       displayType: [FeatureDisplayType.ACTION],
+      usesPoolKey: "CHANNEL_DIVINITY",
+      usePrice: 1,
     },
     {
       name: "Глушення стихій",
@@ -1887,6 +2048,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       shortDescription: "Володіння важкими обладунками та Переконанням.",
       description: "На 1 рівні ви отримуєте Володіння важкими обладунками та навичкою Переконання.",
       displayType: [FeatureDisplayType.PASSIVE],
+      armorProficiencies: [ArmorType.HEAVY],
+      skillProficiencies: [Skills.PERSUASION],
     },
     {
       name: "Голос влади",
@@ -1904,6 +2067,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "На 2 рівні Дією ви пред’являєте символ; кожна істота на вибір у 30 футах робить ряткидок Мудрості. При провалі істота скидає зброю та зачарована вами до кінця вашого наступного ходу.",
       displayType: [FeatureDisplayType.ACTION],
+      usesPoolKey: "CHANNEL_DIVINITY",
+      usePrice: 1,
     },
     {
       name: "Втілення закону",
@@ -1960,6 +2125,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "На 2 рівні ви можете Дією переміститися на свою швидкість, не провокуючи можливих атак. Кожна істота, яку ви торкаєтесь під час цього руху, відновлює хіти, рівні 2к6 + ваш рівень клірика.",
       displayType: [FeatureDisplayType.ACTION],
+      usesPoolKey: "CHANNEL_DIVINITY",
+      usePrice: 1,
     },
     {
       name: "Захисний зв'язок",
@@ -2001,6 +2168,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       shortDescription: "Володіння важкими обладунками та бойовою зброєю.",
       description: "На 1 рівні ви отримуєте Володіння важкими обладунками та бойовою зброєю.",
       displayType: [FeatureDisplayType.PASSIVE],
+      armorProficiencies: [ArmorType.HEAVY],
+      weaponProficiencies: { type: [WeaponType.MARTIAL_WEAPON] },
     },
     {
       name: "Гнів бурі",
@@ -2019,6 +2188,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "На 2 рівні, коли ви завдаєте блискавичної або громової шкоди, можете витратити Виклик божественності, щоб куби цієї шкоди дали максимальні значення.",
       displayType: [FeatureDisplayType.PASSIVE],
+      usesPoolKey: "CHANNEL_DIVINITY",
+      usePrice: 1,
     },
     {
       name: "Удар грому",
@@ -2070,6 +2241,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "На 2 рівні Дією ви створюєте ілюзорного двійника в 30 футах; він триває до 1 хвилини (концентрація). Як бонусну дію можна переміщати його на 30 футів. Коли ви й двійник в межах 5 футів від цілі, ви маєте перевагу на кидки атаки по ній.",
       displayType: [FeatureDisplayType.ACTION],
+      usesPoolKey: "CHANNEL_DIVINITY",
+      usePrice: 1,
     },
     {
       name: "Плащ тіней",
@@ -2111,6 +2284,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       shortDescription: "Володіння бойовою зброєю та важкими обладунками.",
       description: "На 1 рівні ви отримуєте Володіння бойовою зброєю та важкими обладунками.",
       displayType: [FeatureDisplayType.PASSIVE],
+      armorProficiencies: [ArmorType.HEAVY],
+      weaponProficiencies: { type: [WeaponType.MARTIAL_WEAPON] },
     },
     {
       name: "Очі ночі",
@@ -2138,6 +2313,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "На 2 рівні Дією ви створюєте аніму з присмерку радіусом 30 футів, що рухається з вами. Аура триває 1 хвилину. Наприкінці кожного ходу істота на ваш вибір у межах аури отримує тимчасові хіти, рівні 1к6 + ваш рівень клірика, або може зняти стан Приголомшений чи Наляканий.",
       displayType: [FeatureDisplayType.ACTION],
+      usesPoolKey: "CHANNEL_DIVINITY",
+      usePrice: 1,
     },
     {
       name: "Кроки ночі",
@@ -2182,6 +2359,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       shortDescription: "Володіння важкими обладунками та бойовою зброєю.",
       description: "На 1 рівні ви отримуєте Володіння важкими обладунками та бойовою зброєю.",
       displayType: [FeatureDisplayType.PASSIVE],
+      armorProficiencies: [ArmorType.HEAVY],
+      weaponProficiencies: { type: [WeaponType.MARTIAL_WEAPON] },
     },
     {
       name: "Священик війни",
@@ -2200,6 +2379,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "На 2 рівні, коли ви робите кидок атаки, можете витратити Виклик божественності, щоб отримати +10 до кидка.",
       displayType: [FeatureDisplayType.PASSIVE],
+      usesPoolKey: "CHANNEL_DIVINITY",
+      usePrice: 1,
     },
     {
       name: "Божественність: Благословення бога війни",
@@ -2208,6 +2389,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "На 6 рівні, коли союзник в 30 футах робить кидок атаки, ви можете реакцією витратити Виклик божественності, щоб додати +10 до цього кидка.",
       displayType: [FeatureDisplayType.REACTION],
+      usesPoolKey: "CHANNEL_DIVINITY",
+      usePrice: 1,
     },
     {
       name: "Божественний удар (Війна)",
@@ -2725,6 +2908,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "З 6 рівня, коли накладаєте закляття зі списку Псіонічних заклять, можете витратити очки чародійства, рівні рівню закляття, замість використання чарослота. Якщо робите так, закляття не потребує вербальних, соматичних чи матеріальних компонентів (навіть із вартістю).",
       displayType: [FeatureDisplayType.PASSIVE],
+      usesPoolKey: "SORCERY_POINTS",
+      usePrice: 1,
     },
     {
       name: "Психічний захист",
@@ -2742,6 +2927,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "На 14 рівні бонусною дією витрачаєте 1–4 очки чародійства, обираючи стільки ж ефектів, що тривають 10 хвилин: \n- Плавання і дихання під водою зі швидкістю, рівною швидкості ходи.\n- Спектральні крила дають швидкість польоту 30 футів.\n- Ваше тіло видає містичні резонанси: ви отримуєте сліпозір 120 футів і розумієте все мовлення.\n- Аморфна форма дозволяє проходити крізь щілини шириною 1 дюйм без стиснення.",
       displayType: [FeatureDisplayType.BONUSACTION],
+      usesPoolKey: "SORCERY_POINTS",
+      usePrice: 1,
     },
     {
       name: "Викривлювальний імплозія",
@@ -2753,6 +2940,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       displayType: [FeatureDisplayType.ACTION],
       limitedUsesPer: RestType.LONG_REST,
       usesCount: 1,
+      usesPoolKey: "SORCERY_POINTS",
+      usePrice: 5,
     },
 
     // ===== Sorcerer: Clockwork Soul =====
@@ -2783,6 +2972,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "З 6 рівня бонусною дією витрачаєте 1–5 очок чародійства та отримуєте стільки к8 запасу. Протягом 1 години, коли отримуєте шкоду, можете реакцією кинути будь-яку кількість цих к8 і зменшити шкоду на суму. Невикористані к8 зникають після години або після застосування.",
       displayType: [FeatureDisplayType.BONUSACTION],
+      usesPoolKey: "SORCERY_POINTS",
+      usePrice: 1,
     },
     {
       name: "Транс порядку",
@@ -2794,6 +2985,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       displayType: [FeatureDisplayType.BONUSACTION],
       limitedUsesPer: RestType.LONG_REST,
       usesCount: 1,
+      usesPoolKey: "SORCERY_POINTS",
+      usePrice: 5,
     },
     {
       name: "Кавалькада годинника",
@@ -2832,6 +3025,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "На 6 рівні, коли закляття завдає шкоди вашого драконячого типу, додайте модифікатор Харизми до одного кидка шкоди. Також за 1 очко чародійства можете як бонусну дію отримати опір цьому типу шкоди на 1 годину.",
       displayType: [FeatureDisplayType.PASSIVE],
+      usesPoolKey: "SORCERY_POINTS",
+      usePrice: 1,
     },
     {
       name: "Крила дракона",
@@ -2849,6 +3044,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "На 18 рівні Дією витрачаєте 5 очок чародійства, щоб випромінювати ауро дракона на 1 хвилину (концентрація). Істоти на ваш вибір у 60 футах роблять ряткидок Мудрості проти КС заклять; при провалі вони зачаровані або налякані вами (ваш вибір), поки триває аура. Вони можуть повторювати ряткидок наприкінці кожного ходу.",
       displayType: [FeatureDisplayType.ACTION],
+      usesPoolKey: "SORCERY_POINTS",
+      usePrice: 5,
     },
 
     // ===== Sorcerer: Divine Soul =====
@@ -2937,6 +3134,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "На 6 рівні бонусною дією можете витратити 1 очко чародійства, щоб змінити фазу Втілення місяця на іншу.",
       displayType: [FeatureDisplayType.BONUSACTION],
+      usesPoolKey: "SORCERY_POINTS",
+      usePrice: 1,
     },
     {
       name: "Місячне посилення",
@@ -2957,6 +3156,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       displayType: [FeatureDisplayType.BONUSACTION],
       limitedUsesPer: RestType.LONG_REST,
       usesCount: 1,
+      usesPoolKey: "SORCERY_POINTS",
+      usePrice: 5,
     },
 
     // ===== Sorcerer: Shadow Magic =====
@@ -2990,6 +3191,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "На 6 рівні бонусною дією витрачаєте 3 очки чародійства, обираєте істоту, яку бачите, і створюєте тіньового пса. Він має хіти = половина ваших, КБ = вашої, швидкість 40, невидимість для цілі. Кусає з використанням вашого БМ і модифікатора Харизми для кидків атаки/шкоди (шкода 1к8 + модифікатор Харизми). Ціль має перешкоду на ряткидки проти ваших заклять, поки пес поряд. Пес зникає, коли ціль падає до 0 хітів, пес падає або через 5 хвилин.",
       displayType: [FeatureDisplayType.BONUSACTION],
+      usesPoolKey: "SORCERY_POINTS",
+      usePrice: 3,
     },
     {
       name: "Прогулянка тінню",
@@ -3007,6 +3210,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "На 18 рівні бонусною дією витрачаєте 6 очок чародійства, стаючи тіньовим на 1 хвилину. Маєте опір усім видам шкоди, крім силової та світлої, можете проходити крізь істот і предмети як складну місцевість (отримуючи 5 некротичної шкоди, якщо закінчуєте хід всередині предмета).",
       displayType: [FeatureDisplayType.BONUSACTION],
+      usesPoolKey: "SORCERY_POINTS",
+      usePrice: 6,
     },
 
     // ===== Sorcerer: Storm Sorcery =====
@@ -3819,6 +4024,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "На 10 рівні, використовуючи Дику форму, ви можете витратити два використання одночасно, щоб перетворитися на елементаля повітря, землі, вогню чи води. Тривалість і правила Дикої форми застосовуються звичайним чином.",
       displayType: [FeatureDisplayType.PASSIVE],
+      usesPoolKey: "WILD_SHAPE",
+      usePrice: 2,
     },
     {
       name: "Тисячі форм",
@@ -3847,8 +4054,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Також на 2 рівні бонусною дією ви викликаєте духа-тотема в точці, яку бачите в 60 футах. Дух існує 1 хвилину (концентрація не потрібна), займає клітинку, не заважає руху й створює 30-футову ауру. Використань дорівнює вашому Бонусу Майстерності за тривалий відпочинок.\n\nВиберіть, який дух з’являється:\n• Ведмідь: ви та союзники в аурі отримуєте тимчасові хіти, рівні 5 + ваш рівень друїда. Крім того, маєте перевагу на перевірки Сили та ряткидки Сили в межах аури.\n• Яструб: коли істота в аурі, яку ви бачите, робить кидок атаки, ви можете реакцією надати їй перевагу на цей кидок. Союзники в аурі мають перевагу на перевірки Уважності.\n• Єдиноріг: ви та союзники в аурі маєте перевагу на перевірки Інтелекту та Мудрості, спрямовані на виявлення істот. Коли ви відновлюєте хіти закляттям, обрані вами істоти в аурі також відновлюють хіти, рівні вашому рівню друїда.",
       displayType: [FeatureDisplayType.BONUSACTION],
-      limitedUsesPer: RestType.LONG_REST,
-      usesCountDependsOnProficiencyBonus: true,
+      usesPoolKey: "WILD_SHAPE",
+      usePrice: 1,
     },
     {
       name: "Могутній призиватель",
@@ -3897,6 +4104,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Також на 2 рівні дією ви витрачаєте використання Дикої форми, не перетворюючись, щоб пробудити спори. Ви отримуєте тимчасові хіти, рівні 4 × ваш рівень друїда, на 10 хвилин. Поки триває, ваші Аури спор завдають подвійну кількість кісток шкоди, а ваші атаки рукопашною зброєю завдають додатково 1к6 некротичної шкоди. Ефект закінчується, якщо тимчасові хіти вичерпані.",
       displayType: [FeatureDisplayType.ACTION],
+      usesPoolKey: "WILD_SHAPE",
+      usePrice: 1,
     },
     {
       name: "Грибне зараження",
@@ -3948,6 +4157,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Також на 2 рівні бонусною дією ви витрачаєте використання Дикої форми, щоб засяяти сузір’ями на 10 хвилин (без концентрації). Оберіть сузір’я; можете змінювати його кожне застосування:\\n• Стрілець: під час активації та бонусною дією надалі ви робите дальню атаку закляттям у 60 футах, завдаючи 1к8 + модифікатор Мудрості променистої шкоди.\\n• Кубок: коли ви відновлюєте хіти істоті закляттям, ви або інша істота в 30 футах від вас відновлює додатково 1к8 + модифікатор Мудрості хітів.\\n• Дракон: коли ви робите перевірку Інтелекту чи Мудрості або ряткидок Статури для утримання концентрації, значення на кидку d20 менше 10 розглядається як 10.",
       displayType: [FeatureDisplayType.BONUSACTION],
+      usesPoolKey: "WILD_SHAPE",
+      usePrice: 1,
     },
     {
       name: "Космічне знамення",
@@ -3995,6 +4206,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "На 2 рівні, замість перетворення Дикою формою, ви можете дією витратити використання Дикої форми, щоб викликати дух дикого полум’я в порожню клітинку в 30 футах. Дух використовує статблок духа дикого полум’я, ходить по вашій ініціативі, слухає ваші накази, а без них використовує Даш і уникає небезпеки. Коли дух з’являється, істоти на ваш вибір у 10 футах від нього роблять ряткидок Спритності проти СК ваших заклять друїда; при провалі отримують 2к6 + модифікатор Мудрості вогняної шкоди, при успіху — половину. Бонусною дією ви наказуєте духу застосувати Полум’яний снаряд або Вогняну телепортацію (переміщення себе й союзників на 15 футів, завдаючи вогняної шкоди ворогам біля точки прибуття). Дух існує, доки не буде зведений до 0 хітів чи ви не призвете новий.",
       displayType: [FeatureDisplayType.ACTION],
+      usesPoolKey: "WILD_SHAPE",
+      usePrice: 1,
     },
     {
       name: "Посилений зв’язок",
@@ -4042,6 +4255,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Ви можете використати Виклик божественності, щоб наситити зброю світлою енергією. Дією додаєте свій модифікатор Харизми (мінімум +1) до кидків атаки цією зброєю на 1 хвилину. Зброя також випромінює яскраве світло на 20 футів і тьмяне ще на 20, і стає магічною. Ефект закінчується, якщо ви її більше не тримаєте або свідомо вимикаєте (довільна дія).",
       displayType: [FeatureDisplayType.ACTION],
+      usesPoolKey: "CHANNEL_DIVINITY",
+      usePrice: 1,
     },
     {
       name: "Божественність: Вигнання нечестивих",
@@ -4051,6 +4266,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Дією ви піднімаєте святий символ і промовляєте молитву, засуджуючи нежить та вилюдків. Кожна така істота в 30 футах, що вас чує або бачить, робить ряткидок Мудрості. При провалі вона Вигнана на 1 хвилину або до отримання шкоди.",
       displayType: [FeatureDisplayType.ACTION],
+      usesPoolKey: "CHANNEL_DIVINITY",
+      usePrice: 1,
     },
     {
       name: "Аура відданості",
@@ -4097,6 +4314,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Ви можете використати Виклик божественності для фізичної досконалості. Бонусною дією ви отримуєте на 10 хвилин:\n• Перевагу на перевірки Сили (Атлетика) та Спритності (Акробатика).\n• Ваша вантажопідйомність подвоюється.\n• Дистанція ваших довгих та високих стрибків збільшується на 10 футів (це додається до звичайного стрибка).",
       displayType: [FeatureDisplayType.BONUSACTION],
+      usesPoolKey: "CHANNEL_DIVINITY",
+      usePrice: 1,
     },
     {
       name: "Божественність: Надихаючий удар",
@@ -4106,6 +4325,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Ви можете використати Виклик божественності після удару. Одразу після того, як ви завдали шкоди Божественною карою (Divine Smite), ви можете бонусною дією розподілити тимчасові хіти між істотами на ваш вибір у 30 футах (включно з собою). Загальний пул = 2к8 + ваш рівень паладина.",
       displayType: [FeatureDisplayType.BONUSACTION],
+      usesPoolKey: "CHANNEL_DIVINITY",
+      usePrice: 1,
     },
     {
       name: "Аура рвучкості",
@@ -4154,6 +4375,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Ви можете використати Виклик божественності, щоб посилити дипломатію. Бонусною дією ви отримуєте бонус +5 до перевірок Харизми (Переконання) на 10 хвилин.",
       displayType: [FeatureDisplayType.BONUSACTION],
+      usesPoolKey: "CHANNEL_DIVINITY",
+      usePrice: 1,
     },
     {
       name: "Божественність: Відплата насильству",
@@ -4163,6 +4386,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Ви можете використати Виклик божественності, щоб покарати жорстокість. Одразу після того, як нападник у 30 футах від вас завдає шкоди атакою іншій істоті (не вам), ви реакцією змушуєте нападника зробити ряткидок Мудрості. При провалі він отримує радіанту шкоду, рівну завданій ним шкоді; при успіху — половину.",
       displayType: [FeatureDisplayType.REACTION],
+      usesPoolKey: "CHANNEL_DIVINITY",
+      usePrice: 1,
     },
     {
       name: "Аура опікуна",
@@ -4206,6 +4431,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Ви можете використати Виклик божественності, щоб викликати первісно сили. Дією ви змушуєте примарні лози потягнутися до істоти, яку бачите в 10 футах. Ціль робить ряткидок Сили або Спритності (на її вибір). При провалі вона Скована; може повторювати ряткидок наприкінці кожного свого ходу, звільняючись при успіху.",
       displayType: [FeatureDisplayType.ACTION],
+      usesPoolKey: "CHANNEL_DIVINITY",
+      usePrice: 1,
     },
     {
       name: "Божественність: Вигнання невірних",
@@ -4215,6 +4442,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Ви можете використати Виклик божественності, щоби промовити древні слова, які болісні для слуху фей та вилюдків. Дією ви демонструєте свій святий символ: кожна фея чи вилюдок у 30 футах, що вас чує, робить ряткидок Мудрості. При провалі істота Вигнана (turn) на 1 хвилину або поки не отримає шкоди.\n\nВигнана істота має витрачати свої ходи на те, щоб віддалятися від вас якнайдалі, і не може добровільно наблизитися ближче ніж на 30 футів. Вона не може робити реакції, а Дією може робити лише Ривок або намагатися вирватися з ефекту, що заважає руху. Якщо рухатися нікуди, вона використовує Ухиляння.",
       displayType: [FeatureDisplayType.ACTION],
+      usesPoolKey: "CHANNEL_DIVINITY",
+      usePrice: 1,
     },
     {
       name: "Аура оберігання",
@@ -4264,6 +4493,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Ви можете використати Виклик божественності, щоб посіяти жах. Дією ви змушуєте кожну істоту на ваш вибір у 30 футах, яку ви бачите, зробити ряткидок Мудрості. При провалі істота Налякана вами на 1 хвилину. Вона може повторювати ряткидок наприкінці кожного свого ходу, завершуючи ефект при успіху.",
       displayType: [FeatureDisplayType.ACTION],
+      usesPoolKey: "CHANNEL_DIVINITY",
+      usePrice: 1,
     },
     {
       name: "Божественність: Керований удар",
@@ -4272,6 +4503,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Ви можете використати Виклик божественності, щоб вдарити з надприродною точністю. Коли ви робите кидок атаки, можете додати +10 до цього кидка. Ви можете прийняти це рішення після того, як побачили результат кидка d20, але до того, як Майстер оголосить, влучили ви чи ні.",
       displayType: [FeatureDisplayType.PASSIVE],
+      usesPoolKey: "CHANNEL_DIVINITY",
+      usePrice: 1,
     },
     {
       name: "Аура завоювання",
@@ -4319,6 +4552,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Ви можете використати Виклик божественності, щоб змусити ворогів не тікати. Бонусною дією ви кидаєте виклик кожній істоті на ваш вибір у 30 футах, що вас бачить/чує. Ціль робить ряткидок Мудрості. При провалі вона не може добровільно переміститися далі ніж на 30 футів від вас. Ефект закінчується, якщо ви Недієздатні або помираєте, чи якщо ціль більше ніж у 30 футах від вас (наприклад, якщо її відштовхнули).",
       displayType: [FeatureDisplayType.BONUSACTION],
+      usesPoolKey: "CHANNEL_DIVINITY",
+      usePrice: 1,
     },
     {
       name: "Божественність: Обернути хвилю",
@@ -4328,6 +4563,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Ви можете використати Виклик божественності, щоб підтримати поранених. Бонусною дією ви відновлюєте 1к6 + ваш модифікатор Харизми хітів кожній обраній істоті (можна і собі, і ворогам, якщо чомусь хочете) у межах 30 футів, яка вас чує або бачить. Працює лише на тих, у кого не більше половини від максимуму хітів.",
       displayType: [FeatureDisplayType.BONUSACTION],
+      usesPoolKey: "CHANNEL_DIVINITY",
+      usePrice: 1,
     },
     {
       name: "Божественна алегіанція",
@@ -4375,6 +4612,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Божественність: ви промовляєте молитву осуду. Дією обираєте одну істоту в 60 футах, яку бачите. Ціль робить ряткидок Мудрості (вилюдки та нежить мають перешкоду). При провалі вона Налякана на 1 хвилину і її швидкість стає 0 (вона не може рухатись). При успіху її швидкість зменшується вдвічі на 1 хвилину або поки вона не отримає шкоди.",
       displayType: [FeatureDisplayType.ACTION],
+      usesPoolKey: "CHANNEL_DIVINITY",
+      usePrice: 1,
     },
     {
       name: "Божественність: Обітниця ворожнечі",
@@ -4384,6 +4623,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Ви промовляєте обітницю знищення. Бонусною дією обираєте істоту в 10 футах від себе. Ви отримуєте перевагу на кидки атаки проти неї на 1 хвилину, або доки вона не впаде до 0 хітів чи знепритомніє.",
       displayType: [FeatureDisplayType.BONUSACTION],
+      usesPoolKey: "CHANNEL_DIVINITY",
+      usePrice: 1,
     },
     {
       name: "Невтомний месник",
@@ -4432,6 +4673,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Ви можете використати Виклик божественності, щоб захистити розум. Дією ви обираєте кількість істот (можна включати себе) до вашого модифікатора Харизми в межах 30 футів. Протягом 1 хвилини ви та обрані істоти маєте перевагу на ряткидки Інтелекту, Мудрості та Харизми.",
       displayType: [FeatureDisplayType.ACTION],
+      usesPoolKey: "CHANNEL_DIVINITY",
+      usePrice: 1,
     },
     {
       name: "Божественність: Вигнання позавимірних",
@@ -4441,6 +4684,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Ви можете використати Виклик божественності, щоб покарати чужинців. Дією кожна аберація, небожитель, елементаль, фея або вилюдок у 30 футах від вас, що вас чує, має зробити ряткидок Мудрості. При провалі істота Вигнана (turn) на 1 хвилину або до отримання шкоди (тікає, не може наближатися, лише Ривок).",
       displayType: [FeatureDisplayType.ACTION],
+      usesPoolKey: "CHANNEL_DIVINITY",
+      usePrice: 1,
     },
     {
       name: "Аура вартового",
@@ -4487,6 +4732,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Ви можете використати Виклик божественності, щоб підкорити нежить. Дією обираєте одну нежить у 30 футах. Вона робить ряткидок Мудрості. При провалі вона підкоряється вашим командам 24 години (або доки ви не використаєте цю рису знову). Нежить з показником небезпеки (CR), що дорівнює або перевищує ваш рівень паладина, має імунітет.",
       displayType: [FeatureDisplayType.ACTION],
+      usesPoolKey: "CHANNEL_DIVINITY",
+      usePrice: 1,
     },
     {
       name: "Божественність: Жахливий вигляд",
@@ -4495,6 +4742,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Ви можете використати Виклик божественності, щоб вивільнити темряву. Дією кожна істота на ваш вибір у 30 футах робить ряткидок Мудрості. При провалі вона Налякана на 1 хвилину. Якщо вона віддаляється від вас більш ніж на 30 футів, вона може повторити ряткидок.",
       displayType: [FeatureDisplayType.ACTION],
+      usesPoolKey: "CHANNEL_DIVINITY",
+      usePrice: 1,
     },
     {
       name: "Аура ненависті",
@@ -5053,6 +5302,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "На 3 рівні ви можете посіяти сумнів у розумі ворога. Бонусною дією ви витрачаєте одне використання Бардського натхнення і обираєте істоту в 60 футах. Ви кидаєте кістку натхнення: наступний ряткидок цієї істоти до початку вашого наступного ходу зменшується на результат кидка.",
       displayType: [FeatureDisplayType.BONUSACTION],
+      usesPoolKey: "BARDIC_INSPIRATION",
+      usePrice: 1,
     },
     {
       name: "Безвідмовне натхнення",
@@ -5092,6 +5343,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "На 3 рівні ви можете сплести пісню фей. Бонусною дією ви витрачаєте одне використання Бардського натхнення, щоб наділити себе і обраних вами союзників (до модифікатора Харизми) у межах 60 футів тимчасовими хітами (5, зростає до 8 на 5-му, 11 на 10-му, 14 на 15-му рівні). Крім того, кожна з цих істот може негайно використати реакцію, щоб переміститися на свою швидкість, не провокуючи атак.",
       displayType: [FeatureDisplayType.BONUSACTION],
+      usesPoolKey: "BARDIC_INSPIRATION",
+      usePrice: 1,
     },
     {
       name: "Зачаровуючий виступ",
@@ -5135,7 +5388,11 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "На 3 рівні ви отримуєте володіння трьома будь-якими навичками на ваш вибір.",
       displayType: [FeatureDisplayType.PASSIVE],
-      skillProficiencies: { any: 3 },
+      skillProficiencies: {
+        options: Object.values(Skills),
+        choiceCount: 3,
+        chooseAny: true,
+      },
     },
     {
       name: "Ріжучі слова",
@@ -5145,6 +5402,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "На 3 рівні ви можете використати дотепність, щоб збити ворога з пантелику. Коли істота, яку ви бачите в 60 футах, робить кидок атаки, перевірку характеристики або кидок шкоди, ви можете реакцією витратити одне використання Бардського натхнення і відняти результат кидка кістки від результату ворога.",
       displayType: [FeatureDisplayType.REACTION],
+      usesPoolKey: "BARDIC_INSPIRATION",
+      usePrice: 1,
     },
     {
       name: "Додаткові магічні таємниці",
@@ -5162,6 +5421,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "На 14 рівні, коли ви робите перевірку характеристики, ви можете витратити одне використання Бардського натхнення. Ви кидаєте кістку натхнення і додаєте результат до своєї перевірки. Ви можете вирішити це після кидка д20, але до оголошення успіху чи провалу.",
       displayType: [FeatureDisplayType.PASSIVE],
+      usesPoolKey: "BARDIC_INSPIRATION",
+      usePrice: 1,
     },
 
     // ==== College of Spirits ====
@@ -5190,6 +5451,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "На 3 рівні ви можете звернутися до духів, щоб розповісти їхню історію. Бонусною дією ви витрачаєте одне використання Бардського натхнення і кидаєте на таблиці Спіритичних історій, використовуючи вашу кістку натхнення, щоб визначити ефект. Ви зберігаєте цю історію в пам'яті до наступного відпочинку або поки не використаєте іншу.\n\nДією ви обираєте ціль у 30 футах (якщо історія це вимагає) і вивільняєте ефект. Ефекти варіюються від зачарування, шкоди та лікування до телепортації та дихання дракона (детальні ефекти див. у правилах або підказках майстра).",
       displayType: [FeatureDisplayType.BONUSACTION],
+      usesPoolKey: "BARDIC_INSPIRATION",
+      usePrice: 1,
     },
     {
       name: "Спіритичний сеанс",
@@ -5220,6 +5483,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "На 3 рівні ви отримуєте володіння середніми обладунками та скімітаром. Якщо ви володієте простою або воїнською зброєю ближнього бою, ви можете використовувати її як заклинальний фокус для ваших заклинань барда.",
       displayType: [FeatureDisplayType.PASSIVE],
+      armorProficiencies: [ArmorType.MEDIUM],
+      weaponProficienciesSpecial: { specific: [WeaponCategory.SCIMITAR] },
     },
     {
       name: "Бойовий стиль (Swords)",
@@ -5237,6 +5502,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "На 3 рівні ви вчитеся вражаючим прийомам. Кожного разу, коли ви робите дію Атака у свій хід, ваша швидкість збільшується на 10 футів до кінця ходу. Якщо атака зброєю влучає, ви можете використати один з Розчерків (Blade Flourish), витративши кістку натхнення:\n\n**Захисний розчерк**: Додаєте кістку до шкоди і до вашого КД до початку наступного ходу.\n**Ріжучий розчерк**: Додаєте кістку до шкоди і завдаєте таку ж шкоду іншій істоті в 5 футах.\n**Мобільний розчерк**: Додаєте кістку до шкоди і штовхаєте ціль на 5 + кістка натхнення футів, а потім можете переміститися до неї реакцією.",
       displayType: [FeatureDisplayType.PASSIVE],
+      usesPoolKey: "BARDIC_INSPIRATION",
+      usePrice: 1,
     },
     {
       name: "Додаткова атака",
@@ -5263,6 +5530,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "На 3 рівні ви отримуєте володіння середніми обладунками, щитами та військовою зброєю.",
       displayType: [FeatureDisplayType.PASSIVE],
+      armorProficiencies: [ArmorType.MEDIUM, ArmorType.SHIELD],
+      weaponProficiencies: { type: [WeaponType.MARTIAL_WEAPON] },
     },
     {
       name: "Бойове натхнення",
@@ -5293,6 +5562,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "На 3 рівні ви можете використати свою магію, щоб зробити зброю токсичною для розуму. Коли ви влучаєте по істоті атакою зброєю, ви можете витратити одне використання Бардського натхнення, щоб завдати додатково 2к6 психічної шкоди. Шкода зростає до 3к6 на 5-му, 5к6 на 10-му і 8к6 на 15-му рівні.",
       displayType: [FeatureDisplayType.PASSIVE],
+      usesPoolKey: "BARDIC_INSPIRATION",
+      usePrice: 1,
     },
     {
       name: "Слова жаху",
@@ -5620,6 +5891,7 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Коли ви обираєте цей архетип на 3-му рівні, ви отримуєте володіння набором для гриму (disguise kit) та набором для виготовлення отрут (poisoner's kit).",
       displayType: [FeatureDisplayType.PASSIVE],
+      toolProficiencies: [ToolCategory.DISGUISE_KIT, ToolCategory.POISONERS_KIT],
     },
     {
       name: "Вбивство",
@@ -5887,7 +6159,15 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       shortDescription: "Ви маєте запас псіонічної енергії, представлений кубиками псіонічної енергії.",
       description:
         "Починаючи з 3-го рівня, ви маєте джерело псіонічної енергії всередині себе. Ця енергія представлена вашими кубиками Псіонічної Енергії, кожен з яких є к6. Ви маєте кількість цих кубиків, що дорівнює подвоєному вашому бонусу майстерності, і вони живлять ваші різні псіонічні сили, описані нижче.\n\nДеякі з ваших сил витрачають кубик Псіонічної Енергії, як зазначено в описі сили, і ви не можете використовувати силу, якщо вона вимагає використання кубика, коли всі ваші кубики витрачені. Ви відновлюєте всі витрачені кубики Псіонічної Енергії, коли закінчуєте довгий відпочинок. Крім того, бонусною дією ви можете відновити один витрачений кубик Псіонічної Енергії, але ви не можете зробити це знову, поки не закінчите короткий або довгий відпочинок.\n\nКоли ви досягаєте певних рівнів у цьому класі, розмір ваших кубиків Псіонічної Енергії збільшується: на 5-му рівні (к8), 11-му рівні (к10) та 17-му рівні (к12).",
-      displayType: [FeatureDisplayType.PASSIVE],
+      displayType: [FeatureDisplayType.CLASS_RESOURCE],
+      limitedUsesPer: RestType.LONG_REST,
+      usesCountSpecial: {
+        type: 'FORMULA',
+        group: 'PROFICIENCY_BONUS',
+        multiplier: 2,
+        operation: 'MULTIPLY',
+      },
+      usesPoolKey: "PSIONIC_ENERGY",
     },
     {
       name: "Псі-підсилений хист",
@@ -5896,6 +6176,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Коли ваша непсіонічна підготовка підводить вас, ваша псіонічна сила може допомогти: якщо ви провалюєте перевірку характеристики, використовуючи навичку або інструмент, якими ви володієте, ви можете кинути один кубик Псіонічної Енергії та додати випавше число до перевірки, потенційно перетворивши провал на успіх. Ви витрачаєте кубик лише у разі успіху перевірки.",
       displayType: [FeatureDisplayType.PASSIVE],
+      usesPoolKey: "PSIONIC_ENERGY",
+      usePrice: 1,
     },
     {
       name: "Психічні шепоти",
@@ -5904,6 +6186,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Ви можете встановити телепатичний зв'язок між собою та іншими — ідеально для тихого проникнення. Дією виберіть одну або кілька істот, яких ви бачите, у кількості, що не перевищує ваш бонус майстерності, а потім киньте один кубик Псіонічної Енергії. Протягом кількості годин, що дорівнює випавшому числу, вибрані істоти можуть спілкуватися з вами телепатично, а ви можете спілкуватися телепатично з ними. Щоб надіслати або отримати повідомлення (дія не потрібна), ви та інша істота повинні перебувати в межах 1 милі один від одного. Істота не може використовувати цю телепатію, якщо вона не знає жодної мови, і істота може перервати телепатичний зв'язок у будь-який час (дія не потрібна). Ви та істота не обов'язково повинні розмовляти спільною мовою, щоб розуміти один одного.\n\nПерший раз, коли ви використовуєте цю силу після кожного довгого відпочинку, ви не витрачаєте кубик Псіонічної Енергії. Всі інші рази, коли ви використовуєте силу, ви витрачаєте кубик.",
       displayType: [FeatureDisplayType.ACTION],
+      usesPoolKey: "PSIONIC_ENERGY",
+      usePrice: 1,
     },
     {
       name: "Психічні леза",
@@ -5920,6 +6204,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Починаючи з 9-го рівня, ваші Психічні леза тепер є проявом вашої наповненої псі душі, що дає вам ці сили, які використовують ваші кубики Псіонічної Енергії:\n\n**Самонавідні удари.** Якщо ви робите кидок атаки своїми Психічними лезами і промахуєтеся по цілі, ви можете кинути один кубик Псіонічної Енергії та додати випавше число до кидка атаки. Якщо це призводить до влучання, ви витрачаєте кубик Псіонічної Енергії.\n\n**Психічна телепортація.** Бонусною дією ви матеріалізуєте одне зі своїх Психічних лез, витрачаєте один кубик Псіонічної Енергії та кидаєте його, і кидаєте лезо в порожній простір, який ви бачите, на відстань у футах, що дорівнює 10-кратному випавшому числу. Потім ви телепортуєтесь у цей простір, і лезо зникає.",
       displayType: [FeatureDisplayType.PASSIVE],
+      usesPoolKey: "PSIONIC_ENERGY",
+      usePrice: 1,
     },
     {
       name: "Психічна завіса",
@@ -5930,6 +6216,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       displayType: [FeatureDisplayType.ACTION],
       limitedUsesPer: RestType.LONG_REST,
       usesCount: 1,
+      usesPoolKey: "PSIONIC_ENERGY",
+      usePrice: 1,
     },
     {
       name: "Розрив розуму",
@@ -5940,6 +6228,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       displayType: [FeatureDisplayType.PASSIVE],
       limitedUsesPer: RestType.LONG_REST,
       usesCount: 1,
+      usesPoolKey: "PSIONIC_ENERGY",
+      usePrice: 3,
     },
 
     // ==== Swashbuckler ====
@@ -6004,6 +6294,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Ви використовуєте свою кі, щоб завдавати ран. Коли ви влучаєте по істоті ударом без зброї, ви можете витратити 1 очко кі, щоб завдати додаткової некротичної шкоди, що дорівнює одному кидку вашого кубика бойових мистецтв + ваш модифікатор Мудрості.",
       displayType: [FeatureDisplayType.ACTION],
+      usesPoolKey: "KI",
+      usePrice: 1,
     },
     {
       name: "Рука зцілення",
@@ -6012,6 +6304,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Ваш містичний дотик може затягувати рани. Дією ви можете витратити 1 очко кі, щоб торкнутися істоти і відновити їй кількість хітів, що дорівнює кидку вашого кубика бойових мистецтв + ваш модифікатор Мудрості. Коли ви використовуєте Шквал ударів, ви можете замінити один з ударів без зброї на використання цієї особливості без витрати дії.",
       displayType: [FeatureDisplayType.ACTION],
+      usesPoolKey: "KI",
+      usePrice: 1,
     },
     {
       name: "Дотик лікаря",
@@ -6038,6 +6332,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       displayType: [FeatureDisplayType.ACTION],
       limitedUsesPer: RestType.LONG_REST,
       usesCount: 1,
+      usesPoolKey: "KI",
+      usePrice: 5,
     },
 
     // Way of the Ascendant Dragon
@@ -6095,6 +6391,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Бонусною дією ви можете витратити 1 очко кі, щоб викликати руки вашого астрального \"я\". Коли ви це робите, кожна істота на ваш вибір у межах 10 футів від вас повинна зробити ряткидок Спритності або отримати 2к4 силової шкоди. Руки існують 10 хвилин. Поки вони активні:\n\n- Ви можете використовувати модифікатор Мудрості замість Сили для перевірок Сили та ряткидків Сили.\n- Ви можете використовувати руки для ударів без зброї.\n- Коли ви робите удар без зброї руками, ваша досяжність збільшується на 5 футів.\n- Удари без зброї руками завдають силову шкоду, і ви можете використовувати модифікатор Мудрості замість Сили або Спритності для кидків атаки та шкоди.",
       displayType: [FeatureDisplayType.BONUSACTION],
+      usesPoolKey: "KI",
+      usePrice: 1,
     },
     {
       name: "Обличчя астрального \"я\"",
@@ -6103,6 +6401,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Бонусною дією (або як частину дії виклику рук) ви можете витратити 1 очко кі, щоб викликати обличчя вашого астрального \"я\". Воно дає наступні переваги:\n\n**Астральний зір.** Ви можете бачити в звичайній і магічній темряві на відстані 120 футів.\n\n**Мудрість духу.** Ви маєте перевагу на перевірки Мудрості (Проникливість) та Харизми (Залякування).\n\n**Слово духу.** Ви можете говорити так, що ваш голос чути лише тим, кого ви оберете в межах 60 футів.",
       displayType: [FeatureDisplayType.BONUSACTION],
+      usesPoolKey: "KI",
+      usePrice: 1,
     },
     {
       name: "Тіло астрального \"я\"",
@@ -6129,6 +6429,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Ви отримуєте володіння навичкою Виступ та приладдям пивовара.",
       displayType: [FeatureDisplayType.PASSIVE],
+      skillProficiencies: [Skills.PERFORMANCE],
+      toolProficiencies: ["BREWERS_SUPPLIES" as ToolCategory],
     },
     {
       name: "П'яна техніка",
@@ -6145,6 +6447,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Ви рухаєтеся з раптовими, хаотичними ривками. Ви отримуєте наступні переваги:\n\n**Стрибок на ноги.** Коли ви збиті з ніг, ви можете встати, витративши лише 5 футів переміщення.\n\n**Перенаправлення атаки.** Коли істота промахується по вам кидком атаки в ближньому бою, ви можете витратити 1 очко кі реакцією, щоб змусити цю атаку влучити в іншу істоту на ваш вибір (крім нападника), яку ви бачите в межах 5 футів від себе.",
       displayType: [FeatureDisplayType.REACTION],
+      usesPoolKey: "KI",
+      usePrice: 1,
     },
     {
       name: "Удача п'яниці",
@@ -6153,6 +6457,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Коли ви робите кидок атаки, перевірку здібності або ряткидок з недоліком, ви можете витратити 2 очки кі, щоб скасувати недолік для цього кидка.",
       displayType: [FeatureDisplayType.PASSIVE],
+      usesPoolKey: "KI",
+      usePrice: 2,
     },
     {
       name: "Сп'яніла лють",
@@ -6187,6 +6493,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Передумова: 17-й рівень.\n\nВи можете витратити 6 очок кі, щоб накласти <a href=\"/spell/1162\">Конус холоду [Cone of Cold]</a>.",
       displayType: [FeatureDisplayType.PASSIVE],
+      usesPoolKey: "KI",
+      usePrice: 6,
     },
     {
       name: "Хватка північного вітру",
@@ -6195,6 +6503,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Передумова: 6-й рівень.\n\nВи можете витратити 3 очки кі, щоб накласти <a href=\"/spell/1254\">Стримування особи [Hold Person]</a>.",
       displayType: [FeatureDisplayType.PASSIVE],
+      usesPoolKey: "KI",
+      usePrice: 3,
     },
     {
       name: "Захист вічної гори",
@@ -6203,6 +6513,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Передумова: 11-й рівень.\n\nВи можете витратити 5 очок кі, щоб накласти <a href=\"/spell/1192\">Кам'яна шкіра [Stoneskin]</a>, ціллю обравши лише себе.",
       displayType: [FeatureDisplayType.PASSIVE],
+      usesPoolKey: "KI",
+      usePrice: 5,
     },
     {
       name: "Ікла вогняної змії",
@@ -6211,6 +6523,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Коли у свій хід ви використовуєте дію Атака, ви можете витратити 1 очко кі, щоб язики полум’я простягнулися з ваших кулаків і стоп. Ваша досяжність ударів без зброї збільшується на 10 футів для цієї дії, а також до кінця вашого ходу. Влучання такою атакою завдає шкоди вогнем замість дробильної шкоди, і якщо ви витратите 1 очко кі, коли атака влучає, вона також завдає додаткові 1к10 шкоди вогнем.",
       displayType: [FeatureDisplayType.PASSIVE],
+      usesPoolKey: "KI",
+      usePrice: 1,
     },
     {
       name: "Кулак чотирьох громів",
@@ -6219,6 +6533,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Ви можете витратити 2 очки кі, щоб накласти <a href=\"/spell/1043\">Громова хвиля [Thunderwave]</a>.",
       displayType: [FeatureDisplayType.PASSIVE],
+      usesPoolKey: "KI",
+      usePrice: 2,
     },
     {
       name: "Кулак непорушного повітря",
@@ -6227,6 +6543,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Ви можете створити вибух стисненого повітря, що б’є, мов могутній кулак. Дією ви можете витратити 2 очки кі та обрати істоту в межах 30 футів від вас. Вона повинна зробити ряткидок Сили.\n\nПри провалі істота отримує 3к10 дробильної шкоди, а також додаткові 1к10 дробильної шкоди за кожне додаткове очко кі, яке ви витратите, і ви можете відштовхнути істоту від себе на відстань до 20 футів та збити її з ніг.\n\nПри успіху істота отримує половину шкоди, і ви не відштовхуєте її та не збиваєте з ніг.",
       displayType: [FeatureDisplayType.ACTION],
+      usesPoolKey: "KI",
+      usePrice: 2,
     },
     {
       name: "Полум'я фенікса",
@@ -6235,6 +6553,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Передумова: 11-й рівень.\n\nВи можете витратити 4 очки кі, щоб накласти <a href=\"/spell/1246\">Вогнекуля [Fireball]</a>.",
       displayType: [FeatureDisplayType.PASSIVE],
+      usesPoolKey: "KI",
+      usePrice: 4,
     },
     {
       name: "Гонг вершини",
@@ -6243,6 +6563,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Передумова: 6-й рівень.\n\nВи можете витратити 3 очки кі, щоб накласти <a href=\"/spell/1294\">Друзки [Shatter]</a>.",
       displayType: [FeatureDisplayType.PASSIVE],
+      usesPoolKey: "KI",
+      usePrice: 3,
     },
     {
       name: "Стійка туману",
@@ -6251,6 +6573,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Передумова: 11-й рівень.\n\nВи можете витратити 4 очки кі, щоб накласти <a href=\"/spell/1244\">Газоподібна форма [Gaseous Form]</a>, ціллю обравши лише себе.",
       displayType: [FeatureDisplayType.PASSIVE],
+      usesPoolKey: "KI",
+      usePrice: 4,
     },
     {
       name: "Осідлати вітер",
@@ -6259,6 +6583,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Передумова: 11-й рівень.\n\nВи можете витратити 4 очки кі, щоб накласти <a href=\"/spell/1221\">Політ [Fly]</a>, ціллю обравши лише себе.",
       displayType: [FeatureDisplayType.PASSIVE],
+      usesPoolKey: "KI",
+      usePrice: 4,
     },
     {
       name: "Ріка голодного полум'я",
@@ -6267,6 +6593,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Передумова: 17-й рівень.\n\nВи можете витратити 5 очок кі, щоб накласти <a href=\"/spell/1181\">Стіна вогню [Wall of Fire]</a>.",
       displayType: [FeatureDisplayType.PASSIVE],
+      usesPoolKey: "KI",
+      usePrice: 5,
     },
     {
       name: "Натиск духів бурі",
@@ -6275,6 +6603,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Ви можете витратити 2 очки кі, щоб накласти <a href=\"/spell/1267\">Порив вітру [Gust of Wind]</a>.",
       displayType: [FeatureDisplayType.PASSIVE],
+      usesPoolKey: "KI",
+      usePrice: 2,
     },
     {
       name: "Надання форми плинній ріці",
@@ -6283,6 +6613,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Дією ви можете витратити 1 очко кі, щоб обрати ділянку льоду або води розміром не більш як 30 футів з боку в межах 120 футів від вас. Ви можете перетворити воду на лід у межах ділянки і навпаки, а також надати льоду на цій ділянці будь-якої форми на ваш вибір. Ви можете підняти або опустити рівень льоду, створити або засипати рів, звести або зрівняти стіну, або сформувати стовп. Масштаб будь-яких таких змін не може перевищувати половину найбільшого виміру ділянки. Наприклад, якщо ви впливаєте на квадрат 30 футів, ви можете створити стовп заввишки до 15 футів, підняти або опустити рівень квадрата до 15 футів, викопати рів глибиною до 15 футів тощо. Ви не можете надавати льоду форми так, щоб упіймати або поранити істоту в межах ділянки.",
       displayType: [FeatureDisplayType.ACTION],
+      usesPoolKey: "KI",
+      usePrice: 1,
     },
     {
       name: "Розмашистий попелястий удар",
@@ -6291,6 +6623,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Ви можете витратити 2 очки кі, щоб накласти <a href=\"/spell/1321\">Палючі долоні [Burning Hands]</a>.",
       displayType: [FeatureDisplayType.PASSIVE],
+      usesPoolKey: "KI",
+      usePrice: 2,
     },
     {
       name: "Водяний батіг",
@@ -6299,6 +6633,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Дією ви можете витратити 2 очки кі, щоб створити батіг із води, який штовхає та смикає істоту, виводячи її з рівноваги. Істота, яку ви бачите та яка перебуває в межах 30 футів від вас, повинна зробити ряткидок Спритності.\n\nПри провалі істота отримує 3к10 дробильної шкоди, а також додаткові 1к10 дробильної шкоди за кожне додаткове очко кі, яке ви витратите, і ви можете або збити її з ніг, або підтягнути до себе на відстань до 25 футів.\n\nПри успіху істота отримує половину шкоди, і ви не підтягуєте її та не збиваєте з ніг.",
       displayType: [FeatureDisplayType.ACTION],
+      usesPoolKey: "KI",
+      usePrice: 2,
     },
     {
       name: "Хвиля рухомої землі",
@@ -6307,6 +6643,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Передумова: 17-й рівень.\n\nВи можете витратити 6 очок кі, щоб накласти <a href=\"/spell/1141\">Стіна з каменю [Wall of Stone]</a>.",
       displayType: [FeatureDisplayType.PASSIVE],
+      usesPoolKey: "KI",
+      usePrice: 6,
     },
 
     // Way of the Kensei
@@ -6325,6 +6663,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Ваші атаки зброєю кенсея вважаються магічними. Крім того, коли ви влучаєте по цілі зброєю кенсея, ви можете витратити 1 очко кі, щоб завдати додаткову шкоду, рівну вашому кубику бойових мистецтв.",
       displayType: [FeatureDisplayType.PASSIVE],
+      usesPoolKey: "KI",
+      usePrice: 1,
     },
     {
       name: "Загострення клинка",
@@ -6333,6 +6673,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Бонусною дією ви можете витратити до 3 очок кі, щоб надати зброї кенсея, якої ви торкаєтесь, бонус до кидків атаки і шкоди, що дорівнює кількості витрачених очок. Ефект триває 1 хвилину.",
       displayType: [FeatureDisplayType.BONUSACTION],
+      usesPoolKey: "KI",
+      usePrice: 1,
     },
     {
       name: "Безпомилкова точність",
@@ -6367,6 +6709,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Коли ваші хіти опускаються до 0, ви можете витратити 1 очко кі (реакція не потрібна), щоб замість цього ваші хіти стали рівні 1.",
       displayType: [FeatureDisplayType.PASSIVE],
+      usesPoolKey: "KI",
+      usePrice: 1,
     },
     {
       name: "Дотик довгої смерті",
@@ -6375,6 +6719,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Дією ви можете торкнутися істоти в межах 5 футів і витратити від 1 до 10 очок кі. Ціль повинна зробити ряткидок Статури, отримуючи 2к10 некротичної шкоди за кожне витрачене очко кі при провалі, або половину при успіху.",
       displayType: [FeatureDisplayType.ACTION],
+      usesPoolKey: "KI",
+      usePrice: 1,
     },
 
     // Way of the Open Hand
@@ -6411,6 +6757,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Ви отримуєте здатність створювати смертельні вібрації в тілі ворога. Коли ви влучаєте по істоті ударом без зброї, ви можете витратити 3 очки кі, щоб запустити ці вібрації. Вони тривають кількість днів, що дорівнює вашому рівню монаха. Поки вібрації активні, ви можете дією закінчити їх. Істота повинна зробити ряткидок Статури. При провалі вона опускається до 0 хітів. При успіху вона отримує 10к10 некротичної шкоди.",
       displayType: [FeatureDisplayType.ACTION],
+      usesPoolKey: "KI",
+      usePrice: 3,
     },
 
     // Way of Shadow
@@ -6421,6 +6769,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Ви можете використовувати кі для відтворення ефектів певних заклинань. Дією ви можете витратити 2 очки кі, щоб накласти Темряву, Темнозір, Безслідне пересування або Тишу, не витрачаючи матеріальних компонентів. Крім того, ви отримуєте замовляння Мала ілюзія.",
       displayType: [FeatureDisplayType.ACTION],
+      usesPoolKey: "KI",
+      usePrice: 2,
     },
     {
       name: "Тіньовий крок",
@@ -6455,6 +6805,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Ви можете жбурляти пекучі болти магічної енергії. Ви отримуєте нову атаку, яку можете використовувати дією Атака. Це далекобійна атака заклинанням з дальністю 30 футів. Ви володієте нею і додаєте модифікатор Спритності до кидків атаки і шкоди. Шкода є радіантною, а кістка шкоди — ваш кубик бойових мистецтв. Коли ви використовуєте дію Атака у свій хід і використовуєте цю атаку, ви можете витратити 1 очко кі, щоб зробити дві додаткові атаки цією особливістю бонусною дією.",
       displayType: [FeatureDisplayType.ACTION],
+      usesPoolKey: "KI",
+      usePrice: 1,
     },
     {
       name: "Пекучий дуговий удар",
@@ -6463,6 +6815,8 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       description:
         "Одразу після того, як ви робите дію Атака у свій хід, ви можете витратити 2 очки кі, щоб накласти заклинання Палаючі руки бонусною дією. Ви можете витратити додаткові очки кі, щоб підвищити рівень заклинання (максимум половина вашого рівня монаха, округлена вгору).",
       displayType: [FeatureDisplayType.BONUSACTION],
+      usesPoolKey: "KI",
+      usePrice: 2,
     },
     {
       name: "Пекучий сонячний вибух",
@@ -6716,6 +7070,9 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
 
     // Psi Warrior
     { subclass: Subclasses.PSI_WARRIOR, feature: "Psionic Power", level: 3 },
+    { subclass: Subclasses.PSI_WARRIOR, feature: "Protective Field", level: 3 },
+    { subclass: Subclasses.PSI_WARRIOR, feature: "Psionic Strike", level: 3 },
+    { subclass: Subclasses.PSI_WARRIOR, feature: "Telekinetic Movement", level: 3 },
     { subclass: Subclasses.PSI_WARRIOR, feature: "Telekinetic Adept", level: 7 },
     { subclass: Subclasses.PSI_WARRIOR, feature: "Guarded Mind", level: 10 },
     { subclass: Subclasses.PSI_WARRIOR, feature: "Bulwark of Force", level: 15 },

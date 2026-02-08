@@ -27,7 +27,13 @@ import {
   magicItemTypeTranslations,
   rarityTranslations,
 } from "@/lib/refs/translation";
-import { MulticlassReqs, SkillProficiencies, ToolProficiencies, WeaponProficiencies } from "@/lib/types/model-types";
+import {
+  MulticlassReqs,
+  SkillProficiencies,
+  ToolProficiencies,
+  WeaponProficiencies,
+  WeaponProficienciesSpecial,
+} from "@/lib/types/model-types";
 
 const capitalize = (value: string) => value.charAt(0).toUpperCase() + value.slice(1).toLowerCase();
 
@@ -134,7 +140,13 @@ export const formatLanguages = (languages?: Language[] | null, toChoose?: number
 };
 
 export const formatWeaponProficiencies = (
-  profs?: WeaponProficiencies | WeaponType[] | WeaponCategory[] | null
+  profs?:
+    | WeaponProficiencies
+    | WeaponProficienciesSpecial
+    | WeaponType[]
+    | WeaponCategory[]
+    | null,
+  special?: WeaponProficienciesSpecial | null
 ) => {
   if (!profs) return "—";
 
@@ -143,13 +155,23 @@ export const formatWeaponProficiencies = (
   }
 
   const parts: string[] = [];
+  const seen = new Set<string>();
+  const addPart = (value?: string) => {
+    if (!value || value === "—") return;
+    if (seen.has(value)) return;
+    seen.add(value);
+    parts.push(value);
+  };
 
-  if (profs.category?.length) {
-    parts.push(formatList(profs.category));
-  }
-  if (profs.type?.length) {
-    parts.push(formatList(profs.type));
-  }
+  const category = (profs as WeaponProficiencies).category;
+  const type = (profs as WeaponProficiencies).type;
+  const specific = (profs as WeaponProficienciesSpecial).specific;
+
+  if (category?.length) addPart(formatList(category));
+  if (type?.length) addPart(formatList(type));
+  if (specific?.length) addPart(formatList(specific));
+
+  if (special?.specific?.length) addPart(formatList(special.specific));
 
   return parts.length ? parts.join(" • ") : "—";
 };

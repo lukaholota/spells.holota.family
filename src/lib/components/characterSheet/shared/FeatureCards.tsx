@@ -22,6 +22,7 @@ export interface FeatureItemData {
   restType?: string | null;
   usesCount?: number | null;
   usesRemaining?: number | null;
+  usePrice?: number | null;
   source?: string;
   sourceName?: string;
   magicItem?: any;
@@ -43,6 +44,7 @@ export function ResourceCard({
   isReadOnly?: boolean
 }) {
   const hasTracker = (feature.restType || feature.usesCount !== null) && feature.usesCount !== null;
+  const cost = Math.max(1, Number(feature.usePrice ?? 1));
   const normalizedSource = normalizeFeatureSource(feature.source);
   const isClass = isClassRelatedSource(normalizedSource);
 
@@ -114,7 +116,7 @@ export function ResourceCard({
                   size="icon" 
                   className="h-6 w-6 rounded-md hover:bg-white/10 text-purple-300" 
                   onClick={(e) => { e.preventDefault(); e.stopPropagation(); onSpend(); }}
-                  disabled={isPending || (feature.usesRemaining ?? feature.usesCount ?? 0) <= 0}
+                  disabled={isPending || (feature.usesRemaining ?? feature.usesCount ?? 0) < cost}
                 >
                   <Minus className="w-3.5 h-3.5" />
                 </Button>
@@ -143,6 +145,7 @@ export function FeatureCard({
   isReadOnly?: boolean
 }) {
   const hasTracker = feature.restType && feature.usesCount !== null;
+  const cost = Math.max(1, Number(feature.usePrice ?? 1));
   const normalizedSource = normalizeFeatureSource(feature.source);
   const isClass = isClassRelatedSource(normalizedSource);
 
@@ -214,7 +217,7 @@ export function FeatureCard({
                 size="icon" 
                 className="h-7 w-7 rounded-lg hover:bg-white/10 text-white" 
                 onClick={(e) => { e.preventDefault(); e.stopPropagation(); onSpend(); }}
-                disabled={isPending || (feature.usesRemaining ?? feature.usesCount ?? 0) <= 0}
+                disabled={isPending || (feature.usesRemaining ?? feature.usesCount ?? 0) < cost}
               >
                 <Minus className="w-4 h-4" />
               </Button>
