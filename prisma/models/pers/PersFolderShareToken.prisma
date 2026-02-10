@@ -1,0 +1,12 @@
+model PersFolderShareToken {
+  persFolderShareTokenId Int      @id @default(autoincrement()) @map("pers_folder_share_token_id")
+  folderId               Int      @map("folder_id")
+  token                  String   @unique @map("token") @db.VarChar(64)
+  canEdit                Boolean  @default(false) @map("can_edit")
+  createdAt              DateTime @default(now()) @map("created_at")
+
+  folder PersFolder @relation(fields: [folderId], references: [folderId], onDelete: Cascade)
+
+  @@index([folderId])
+  @@map("pers_folder_share_token")
+}

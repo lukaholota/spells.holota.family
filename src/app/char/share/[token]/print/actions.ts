@@ -14,7 +14,7 @@ export async function generateCharacterPdfByTokenAction(token: string, config: P
   const log = createLogger("pdf.action.share").child({ jobId, tokenHash: token ? token.slice(0, 6) : undefined, sections: config?.sections });
   const start = takeUsageSnapshot();
 
-  const pers = await getPersByShareToken(token);
+  const { pers } = await getPersByShareToken(token);
   if (!pers) throw new Error("Not found");
 
   const features = groupCharacterFeaturesForPdf(pers as any);

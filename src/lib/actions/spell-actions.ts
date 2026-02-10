@@ -4,6 +4,7 @@ import { auth } from "@/lib/auth";
 import { prisma } from '@/lib/prisma';
 import { SpellOrigin } from '@prisma/client';
 import { revalidatePath } from 'next/cache';
+import { canEditPers } from "@/lib/actions/pers";
 
 /**
  * Strict: Learn spells during Level-Up
@@ -154,12 +155,8 @@ export async function toggleSpellForPers({
 
   if (!user) return { success: false, error: "Користувача не знайдено" };
 
-  const pers = await prisma.pers.findUnique({
-    where: { persId },
-    select: { persId: true, userId: true },
-  });
-
-  if (!pers || pers.userId !== user.id) {
+  const canEdit = await canEditPers(persId, user.id);
+  if (!canEdit) {
     return { success: false, error: "Немає доступу до персонажа" };
   }
 
@@ -212,12 +209,8 @@ export async function removeSpellFromPers({
 
   if (!user) return { success: false, error: "Користувача не знайдено" };
 
-  const pers = await prisma.pers.findUnique({
-    where: { persId },
-    select: { persId: true, userId: true },
-  });
-
-  if (!pers || pers.userId !== user.id) {
+  const canEdit = await canEditPers(persId, user.id);
+  if (!canEdit) {
     return { success: false, error: "Немає доступу до персонажа" };
   }
 
@@ -247,11 +240,8 @@ export async function setSpellPrepared({
   });
   if (!user) return { success: false, error: "Користувача не знайдено" };
 
-  const pers = await prisma.pers.findUnique({
-    where: { persId },
-    select: { persId: true, userId: true },
-  });
-  if (!pers || pers.userId !== user.id) {
+  const canEdit = await canEditPers(persId, user.id);
+  if (!canEdit) {
     return { success: false, error: "Немає доступу до персонажа" };
   }
 

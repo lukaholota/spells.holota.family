@@ -2,6 +2,7 @@
 
 import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
+import { canEditPers } from "@/lib/actions/pers";
 import { revalidatePath } from "next/cache";
 
 export type UpdateCharacterPayload = {
@@ -39,11 +40,8 @@ export async function updateCharacterAction(payload: UpdateCharacterPayload): Pr
   });
   if (!user) return { success: false, error: "Користувача не знайдено" };
 
-  const pers = await prisma.pers.findUnique({
-    where: { persId: payload.persId },
-    select: { persId: true, userId: true },
-  });
-  if (!pers || pers.userId !== user.id) return { success: false, error: "Немає доступу до персонажа" };
+  const canEdit = await canEditPers(payload.persId, user.id);
+  if (!canEdit) return { success: false, error: "Немає доступу до персонажа" };
 
   const d = payload.data ?? {};
 

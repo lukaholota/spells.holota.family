@@ -3,10 +3,11 @@
 import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
-import { FeatureDisplayType, RestType, MagicItem } from "@prisma/client";
+import { FeatureDisplayType, RestType, MagicItem, Prisma } from "@prisma/client";
 import { featTranslations } from "@/lib/refs/translation";
 import { translateValue } from "@/lib/components/characterCreator/infoUtils";
 import { FeatureSource } from "@/lib/utils/features";
+import { clonePersWithRelations, PERS_DUPLICATION_INCLUDE } from "../logic/pers-duplication";
 
 async function getCurrentUserId() {
     const session = await auth();
@@ -20,33 +21,174 @@ async function getCurrentUserId() {
     return user?.id ?? null;
 }
 
+export async function canEditPers(persId: number, userId: number) {
+    const pers = await prisma.pers.findUnique({
+        where: { persId },
+        select: {
+            userId: true,
+            folderId: true,
+            additionalUsers: { select: { userId: true } },
+        },
+    });
+
+    if (!pers) return false;
+    if (pers.userId === userId) return true;
+    if (pers.additionalUsers.some((u) => u.userId === userId)) return true;
+
+    if (pers.folderId) {
+        const membership = await prisma.persFolderMember.findUnique({
+            where: { folderId_userId: { folderId: pers.folderId, userId } },
+            select: { canEdit: true },
+        });
+        if (membership?.canEdit) return true;
+    }
+
+    return false;
+}
+
+const FOLDER_COLOR_REGEX = /^#(?:[0-9a-fA-F]{3}){1,2}$/;
+
+function normalizeFolderName(name: string) {
+    return name.trim().slice(0, 80);
+}
+
+function normalizeFolderColor(color: string) {
+    const value = color.trim();
+    if (!FOLDER_COLOR_REGEX.test(value)) return "#38bdf8";
+    return value.toLowerCase();
+}
+
+async function assertFolderOwnership(folderId: number, userId: number) {
+    const folder = await prisma.persFolder.findUnique({
+        where: { folderId },
+        select: { folderId: true, userId: true, parentFolderId: true, name: true, color: true, isPinned: true },
+    });
+
+    if (!folder || folder.userId !== userId) {
+        return null;
+    }
+
+    return folder;
+}
+
+async function isFolderDescendant(userId: number, folderId: number, potentialParentId: number | null) {
+    if (!potentialParentId) return false;
+
+    let cursor: number | null = potentialParentId;
+    while (cursor) {
+        if (cursor === folderId) return true;
+        const parent = await prisma.persFolder.findUnique({
+            where: { folderId: cursor },
+            select: { parentFolderId: true, userId: true },
+        });
+        if (!parent || parent.userId !== userId) return false;
+        cursor = parent.parentFolderId ?? null;
+    }
+
+    return false;
+}
+
 export async function getUserPerses() {
-  const session = await auth();
-  if (!session?.user?.email) {
-    return [];
-  }
+    const session = await auth();
+    if (!session?.user?.email) {
+        return [];
+    }
 
-  const user = await prisma.user.findUnique({
-    where: { email: session.user.email },
-  });
+    const user = await prisma.user.findUnique({
+        where: { email: session.user.email },
+    });
 
-  if (!user) return [];
+    if (!user) return [];
 
-  return prisma.pers.findMany({
-    where: { 
-      userId: user.id,
-      OR: [
-        { isSnapshot: false },
-        { isSnapshot: true, isActive: true }
-      ]
-    },
-    include: {
-      race: true,
-      class: true,
-      background: true,
-    },
-    orderBy: { createdAt: 'desc' }
-  });
+    return prisma.pers.findMany({
+        where: {
+            AND: [
+                {
+                    OR: [
+                        { userId: user.id },
+                        { additionalUsers: { some: { userId: user.id } } },
+                    ],
+                },
+                {
+                    OR: [
+                        { isSnapshot: false },
+                        { isSnapshot: true, isActive: true },
+                    ],
+                },
+            ],
+        },
+        include: {
+            race: true,
+            class: true,
+            background: true,
+        },
+        orderBy: { createdAt: "desc" },
+    });
+}
+
+export async function getUserPersHomeData() {
+    const userId = await getCurrentUserId();
+    if (!userId) return { perses: [], folders: [] };
+
+    const [perses, folders] = await Promise.all([
+        prisma.pers.findMany({
+            where: {
+                AND: [
+                    {
+                        OR: [
+                            { userId },
+                            { additionalUsers: { some: { userId } } },
+                        ],
+                    },
+                    {
+                        OR: [
+                            { isSnapshot: false },
+                            { isSnapshot: true, isActive: true },
+                        ],
+                    },
+                ],
+            },
+            include: {
+                race: true,
+                class: true,
+                subclass: true,
+                background: true,
+                multiclasses: {
+                    include: {
+                        class: true,
+                        subclass: true,
+                    },
+                },
+            },
+            orderBy: { createdAt: "desc" },
+        }),
+        prisma.persFolder.findMany({
+            where: {
+                OR: [
+                    { userId },
+                    { members: { some: { userId } } },
+                ],
+            },
+            select: {
+                folderId: true,
+                name: true,
+                color: true,
+                isPinned: true,
+                parentFolderId: true,
+            },
+            orderBy: [{ isPinned: "desc" }, { name: "asc" }],
+        }),
+    ]);
+
+    const folderIds = new Set(folders.map((folder) => folder.folderId));
+    const normalizedFolders = folders.map((folder) => {
+        if (folder.parentFolderId && !folderIds.has(folder.parentFolderId)) {
+            return { ...folder, parentFolderId: null };
+        }
+        return folder;
+    });
+
+    return { perses, folders: normalizedFolders };
 }
 
 export async function renamePers(persId: number, name: string) {
@@ -57,14 +199,8 @@ export async function renamePers(persId: number, name: string) {
     if (!next) return { success: false as const, error: "Ім'я не може бути порожнім" };
     if (next.length > 60) return { success: false as const, error: "Ім'я занадто довге" };
 
-    const pers = await prisma.pers.findUnique({
-        where: { persId },
-        select: { persId: true, userId: true },
-    });
-
-    if (!pers || pers.userId !== userId) {
-        return { success: false as const, error: "Немає доступу до персонажа" };
-    }
+    const canEdit = await canEditPers(persId, userId);
+    if (!canEdit) return { success: false as const, error: "Немає доступу до персонажа" };
 
     await prisma.pers.update({
         where: { persId },
@@ -81,14 +217,8 @@ export async function deletePers(persId: number) {
     const userId = await getCurrentUserId();
     if (!userId) return { success: false as const, error: "Не авторизовано" };
 
-    const pers = await prisma.pers.findUnique({
-        where: { persId },
-        select: { persId: true, userId: true },
-    });
-
-    if (!pers || pers.userId !== userId) {
-        return { success: false as const, error: "Немає доступу до персонажа" };
-    }
+    const canEdit = await canEditPers(persId, userId);
+    if (!canEdit) return { success: false as const, error: "Немає доступу до персонажа" };
 
     await prisma.$transaction([
         prisma.pers.deleteMany({
@@ -113,257 +243,16 @@ export async function duplicatePers(persId: number) {
     try {
         const pers = await prisma.pers.findUnique({
             where: { persId },
-            include: {
-                skills: true,
-                persSpells: true,
-                features: true,
-                feats: {
-                    include: {
-                        choices: true,
-                    }
-                },
-                weapons: true,
-                armors: true,
-                multiclasses: true,
-                magicItems: { include: { magicItem: true } },
-                persInfusions: true,
-                race: true,
-                class: true,
-                background: true,
-                // Implicit M:N relations
-                raceVariants: true,
-                raceChoiceOptions: true,
-                choiceOptions: true,
-                classOptionalFeatures: true,
-                spells: true,
-            }
+            include: PERS_DUPLICATION_INCLUDE,
         });
 
-        if (!pers || pers.userId !== userId) {
+        if (!pers) {
             return { success: false as const, error: "Немає доступу до персонажа" };
         }
+        const canEdit = await canEditPers(persId, userId);
+        if (!canEdit) return { success: false as const, error: "Немає доступу до персонажа" };
 
-        const duplicate = await prisma.$transaction(async (tx) => {
-                const newPers = await tx.pers.create({
-                data: {
-                    userId: pers.userId,
-                    name: `${pers.name} (Копія)`,
-                    level: pers.level,
-                    currentSpellSlots: pers.currentSpellSlots,
-                    currentPactSlots: pers.currentPactSlots,
-                    classId: pers.classId,
-                    subclassId: pers.subclassId,
-                    backgroundId: pers.backgroundId,
-                    raceId: pers.raceId,
-                    subraceId: pers.subraceId,
-                    currentHp: pers.currentHp,
-                    maxHp: pers.maxHp,
-                    tempHp: pers.tempHp,
-                    deathSaveSuccesses: pers.deathSaveSuccesses,
-                    deathSaveFailures: pers.deathSaveFailures,
-                    isDead: pers.isDead,
-                    raceCustom: pers.raceCustom,
-                    classCustom: pers.classCustom,
-                    alignment: pers.alignment,
-                    xp: pers.xp,
-                    customBackground: pers.customBackground,
-                    customProficiencies: pers.customProficiencies,
-                    customFeatures: pers.customFeatures,
-                    customLanguagesKnown: pers.customLanguagesKnown,
-                    customEquipment: pers.customEquipment,
-                    personalityTraits: pers.personalityTraits,
-                    ideals: pers.ideals,
-                    bonds: pers.bonds,
-                    flaws: pers.flaws,
-                    backstory: pers.backstory,
-                    notes: pers.notes,
-                    str: pers.str,
-                    dex: pers.dex,
-                    con: pers.con,
-                    int: pers.int,
-                    wis: pers.wis,
-                    cha: pers.cha,
-                    cp: pers.cp,
-                    ep: pers.ep,
-                    sp: pers.sp,
-                    gp: pers.gp,
-                    pp: pers.pp,
-                    additionalSaveProficiencies: pers.additionalSaveProficiencies,
-                    miscSaveBonuses: pers.miscSaveBonuses || undefined,
-                    wearsShield: pers.wearsShield,
-                    additionalShieldBonus: pers.additionalShieldBonus,
-                    armorBonus: pers.armorBonus,
-                    overrideBaseAC: pers.overrideBaseAC ?? undefined,
-                    raceStaticAcBonus: (pers as any).raceStaticAcBonus ?? undefined,
-                    wearsNaturalArmor: pers.wearsNaturalArmor,
-                    statBonuses: pers.statBonuses || undefined,
-                    statModifierBonuses: pers.statModifierBonuses || undefined,
-                    saveBonuses: pers.saveBonuses || undefined,
-                    skillBonuses: pers.skillBonuses || undefined,
-                    hpBonuses: pers.hpBonuses || undefined,
-                    acBonuses: pers.acBonuses || undefined,
-                    speedBonuses: pers.speedBonuses || undefined,
-                    proficiencyBonuses: pers.proficiencyBonuses || undefined,
-                    initiativeBonuses: pers.initiativeBonuses || undefined,
-                    spellAttackBonuses: pers.spellAttackBonuses || undefined,
-                    spellDCBonuses: pers.spellDCBonuses || undefined,
-                    currentHitDice: pers.currentHitDice || undefined,
-                    usedHitDice: pers.usedHitDice || undefined,
-                    
-                    isActive: true,
-                    isSnapshot: false,
-
-                    raceVariants: { connect: pers.raceVariants.map(rv => ({ raceVariantId: rv.raceVariantId })) },
-                    raceChoiceOptions: { connect: pers.raceChoiceOptions.map(rco => ({ optionId: rco.optionId })) },
-                    choiceOptions: { connect: pers.choiceOptions.map(co => ({ choiceOptionId: co.choiceOptionId })) },
-                    classOptionalFeatures: { connect: pers.classOptionalFeatures.map(cof => ({ optionalFeatureId: cof.optionalFeatureId })) },
-                    spells: { connect: pers.spells.map(s => ({ spellId: s.spellId })) },
-                } as any,
-            });
-
-            const weaponIdMap = new Map<number, number>();
-            const armorIdMap = new Map<number, number>();
-            const magicItemIdMap = new Map<number, number>();
-
-            if (pers.skills.length > 0) {
-                await tx.persSkill.createMany({
-                    data: pers.skills.map(s => ({
-                        persId: newPers.persId,
-                        skillId: s.skillId,
-                        name: s.name,
-                        proficiencyType: s.proficiencyType,
-                        customModifier: s.customModifier,
-                    }))
-                });
-            }
-
-            if (pers.persSpells.length > 0) {
-                await tx.persSpell.createMany({
-                    data: pers.persSpells.map(ps => ({
-                        persId: newPers.persId,
-                        spellId: ps.spellId,
-                        learnedAtLevel: ps.learnedAtLevel,
-                        isPrepared: ps.isPrepared,
-                        origin: ps.origin,
-                        sourceId: ps.sourceId,
-                        sourceName: ps.sourceName,
-                        notes: ps.notes,
-                    }))
-                });
-            }
-
-            if (pers.features.length > 0) {
-                await tx.persFeature.createMany({
-                    data: pers.features.map(f => ({
-                        persId: newPers.persId,
-                        featureId: f.featureId,
-                        usesRemaining: f.usesRemaining,
-                    }))
-                });
-            }
-
-            for (const pf of pers.feats) {
-                const newPersFeat = await tx.persFeat.create({
-                    data: {
-                        persId: newPers.persId,
-                        featId: pf.featId,
-                    }
-                });
-                if (pf.choices.length > 0) {
-                    await tx.persFeatChoice.createMany({
-                        data: pf.choices.map(c => ({
-                            persFeatId: newPersFeat.persFeatId,
-                            choiceOptionId: c.choiceOptionId,
-                        }))
-                    });
-                }
-            }
-
-            if (pers.weapons.length > 0) {
-                for (const w of pers.weapons) {
-                    const created = await tx.persWeapon.create({
-                        data: {
-                            persId: newPers.persId,
-                            weaponId: w.weaponId,
-                            overrideDamage: w.overrideDamage,
-                            attackBonus: w.attackBonus,
-                            overrideName: w.overrideName,
-                            overrideNormalRange: w.overrideNormalRange,
-                            overrideLongRange: w.overrideLongRange,
-                            overrideDamageType: w.overrideDamageType,
-                            overrideAttackAbility: w.overrideAttackAbility,
-                            isProficient: w.isProficient,
-                            customAttackBonus: w.customAttackBonus as any,
-                            customDamageAbility: w.customDamageAbility,
-                            customDamageBonus: w.customDamageBonus as any,
-                            customDamageCount: w.customDamageCount,
-                            customDamageDice: w.customDamageDice,
-                            isMagical: w.isMagical,
-                        }
-                    });
-                    weaponIdMap.set(w.persWeaponId, created.persWeaponId);
-                }
-            }
-
-            if (pers.armors.length > 0) {
-                for (const a of pers.armors) {
-                    const created = await tx.persArmor.create({
-                        data: {
-                            persId: newPers.persId,
-                            armorId: a.armorId,
-                            overrideBaseAC: a.overrideBaseAC,
-                            overrideName: a.overrideName,
-                            abilityBonuses: (a as any).abilityBonuses ?? [],
-                            abilityBonusType: (a as any).abilityBonusType ?? undefined,
-                            isProficient: a.isProficient,
-                            equipped: a.equipped,
-                            miscACBonus: a.miscACBonus,
-                        }
-                    });
-                    armorIdMap.set(a.persArmorId, created.persArmorId);
-                }
-            }
-
-            if (pers.multiclasses.length > 0) {
-                await tx.persMulticlass.createMany({
-                    data: pers.multiclasses.map(m => ({
-                        persId: newPers.persId,
-                        classId: m.classId,
-                        classLevel: m.classLevel,
-                        subclassId: m.subclassId,
-                    }))
-                });
-            }
-
-            if (pers.magicItems.length > 0) {
-                for (const mi of pers.magicItems) {
-                    const created = await tx.persMagicItem.create({
-                        data: {
-                            persId: newPers.persId,
-                            magicItemId: mi.magicItemId,
-                            isEquipped: mi.isEquipped,
-                            isAttuned: mi.isAttuned,
-                        }
-                    });
-                    magicItemIdMap.set(mi.persMagicItemId, created.persMagicItemId);
-                }
-            }
-
-            if (pers.persInfusions.length > 0) {
-                await tx.persInfusion.createMany({
-                    data: pers.persInfusions.map(i => ({
-                        persId: newPers.persId,
-                        infusionId: i.infusionId,
-                        persArmorId: i.persArmorId ? (armorIdMap.get(i.persArmorId) ?? null) : null,
-                        persWeaponId: i.persWeaponId ? (weaponIdMap.get(i.persWeaponId) ?? null) : null,
-                        persMagicItemId: i.persMagicItemId ? (magicItemIdMap.get(i.persMagicItemId) ?? null) : null,
-                        expiresAt: i.expiresAt,
-                    }))
-                });
-            }
-
-            return newPers;
-        });
+        const duplicate = await prisma.$transaction(async (tx) => clonePersWithRelations(tx, pers));
 
         revalidatePath("/char/home");
         
@@ -377,6 +266,20 @@ export async function duplicatePers(persId: number) {
             className: (pers as any).class.name,
             backgroundName: (pers as any).background.name,
             shareToken: duplicate.shareToken,
+            folderId: duplicate.folderId,
+            isPinned: duplicate.isPinned,
+            classNames: [
+                (pers as any).class?.name,
+                ...(((pers as any).multiclasses ?? [])
+                    .map((mc: any) => mc.class?.name)
+                    .filter(Boolean)),
+            ].filter(Boolean),
+            subclassNames: [
+                (pers as any).subclass?.name,
+                ...(((pers as any).multiclasses ?? [])
+                    .map((mc: any) => mc.subclass?.name)
+                    .filter(Boolean)),
+            ].filter(Boolean),
         };
 
         return { success: true as const, pers: persHomeItem };
@@ -384,6 +287,279 @@ export async function duplicatePers(persId: number) {
         console.error("Duplication failed:", error);
         return { success: false as const, error: "Не вдалося скопіювати персонажа" };
     }
+}
+
+export async function createPersFolder(input: { name: string; color?: string; parentFolderId?: number | null }) {
+    const userId = await getCurrentUserId();
+    if (!userId) return { success: false as const, error: "Не авторизовано" };
+
+    const name = normalizeFolderName(input.name);
+    if (!name) return { success: false as const, error: "Назва папки не може бути порожньою" };
+
+    const color = normalizeFolderColor(input.color ?? "#38bdf8");
+    let parentFolderId: number | null = null;
+
+    if (typeof input.parentFolderId === "number") {
+        const parent = await assertFolderOwnership(input.parentFolderId, userId);
+        if (!parent) return { success: false as const, error: "Немає доступу до папки" };
+        parentFolderId = parent.folderId;
+    }
+
+    const folder = await prisma.persFolder.create({
+        data: {
+            userId,
+            name,
+            color,
+            parentFolderId,
+        },
+        select: {
+            folderId: true,
+            name: true,
+            color: true,
+            isPinned: true,
+            parentFolderId: true,
+        },
+    });
+
+    revalidatePath("/char/home");
+    return { success: true as const, folder };
+}
+
+export async function renamePersFolder(folderId: number, nextName: string) {
+    const userId = await getCurrentUserId();
+    if (!userId) return { success: false as const, error: "Не авторизовано" };
+
+    const name = normalizeFolderName(nextName);
+    if (!name) return { success: false as const, error: "Назва папки не може бути порожньою" };
+
+    const folder = await assertFolderOwnership(folderId, userId);
+    if (!folder) return { success: false as const, error: "Немає доступу до папки" };
+
+    await prisma.persFolder.update({
+        where: { folderId },
+        data: { name },
+    });
+
+    revalidatePath("/char/home");
+    return { success: true as const };
+}
+
+export async function setPersFolderColor(folderId: number, nextColor: string) {
+    const userId = await getCurrentUserId();
+    if (!userId) return { success: false as const, error: "Не авторизовано" };
+
+    const folder = await assertFolderOwnership(folderId, userId);
+    if (!folder) return { success: false as const, error: "Немає доступу до папки" };
+
+    const color = normalizeFolderColor(nextColor);
+    await prisma.persFolder.update({
+        where: { folderId },
+        data: { color },
+    });
+
+    revalidatePath("/char/home");
+    return { success: true as const };
+}
+
+export async function setPersFolderPinned(folderId: number, isPinned: boolean) {
+    const userId = await getCurrentUserId();
+    if (!userId) return { success: false as const, error: "Не авторизовано" };
+
+    const folder = await assertFolderOwnership(folderId, userId);
+    if (!folder) return { success: false as const, error: "Немає доступу до папки" };
+
+    await prisma.persFolder.update({
+        where: { folderId },
+        data: { isPinned },
+    });
+
+    revalidatePath("/char/home");
+    return { success: true as const };
+}
+
+export async function deletePersFolder(folderId: number) {
+    const userId = await getCurrentUserId();
+    if (!userId) return { success: false as const, error: "Не авторизовано" };
+
+    const folder = await assertFolderOwnership(folderId, userId);
+    if (!folder) return { success: false as const, error: "Немає доступу до папки" };
+
+    const nextParentId = folder.parentFolderId ?? null;
+
+    await prisma.$transaction([
+        prisma.pers.updateMany({
+            where: { userId, folderId },
+            data: { folderId: nextParentId },
+        }),
+        prisma.persFolder.updateMany({
+            where: { userId, parentFolderId: folderId },
+            data: { parentFolderId: nextParentId },
+        }),
+        prisma.persFolder.delete({
+            where: { folderId },
+        }),
+    ]);
+
+    revalidatePath("/char/home");
+    return { success: true as const };
+}
+
+export async function duplicatePersFolder(folderId: number) {
+    const userId = await getCurrentUserId();
+    if (!userId) return { success: false as const, error: "Не авторизовано" };
+
+    const source = await assertFolderOwnership(folderId, userId);
+    if (!source) return { success: false as const, error: "Немає доступу до папки" };
+
+    const created = await prisma.$transaction(async (tx) => {
+        const root = await tx.persFolder.findUnique({
+            where: { folderId },
+            select: {
+                folderId: true,
+                name: true,
+                color: true,
+                isPinned: true,
+                parentFolderId: true,
+            },
+        });
+
+        if (!root) return null;
+
+        const cloneFolder = async (folder: typeof root, parentId: number | null, addCopySuffix: boolean) => {
+            const createdFolder = await tx.persFolder.create({
+                data: {
+                    userId,
+                    name: addCopySuffix ? `${folder.name} (Копія)` : folder.name,
+                    color: folder.color,
+                    isPinned: folder.isPinned,
+                    parentFolderId: parentId,
+                },
+                select: {
+                    folderId: true,
+                    name: true,
+                    color: true,
+                    isPinned: true,
+                    parentFolderId: true,
+                },
+            });
+
+            const perses = await tx.pers.findMany({
+                where: { userId, folderId: folder.folderId },
+                include: PERS_DUPLICATION_INCLUDE,
+            });
+
+            for (const pers of perses) {
+                await clonePersWithRelations(tx, pers, {
+                    name: `${pers.name} (Копія)`,
+                    folderId: createdFolder.folderId,
+                    isPinned: pers.isPinned ?? false,
+                });
+            }
+
+            const children = await tx.persFolder.findMany({
+                where: { userId, parentFolderId: folder.folderId },
+                select: { folderId: true, name: true, color: true, isPinned: true, parentFolderId: true },
+            });
+
+            for (const child of children) {
+                await cloneFolder(child, createdFolder.folderId, false);
+            }
+
+            return createdFolder;
+        };
+
+        return cloneFolder(root, root.parentFolderId ?? null, true);
+    });
+
+    if (!created) return { success: false as const, error: "Не вдалося скопіювати папку" };
+
+    revalidatePath("/char/home");
+    return { success: true as const, folder: created };
+}
+
+export async function movePersToFolder(persId: number, folderId: number | null) {
+    const userId = await getCurrentUserId();
+    if (!userId) return { success: false as const, error: "Не авторизовано" };
+
+    const canEdit = await canEditPers(persId, userId);
+    if (!canEdit) return { success: false as const, error: "Немає доступу до персонажа" };
+
+    let nextFolderId: number | null = null;
+    if (typeof folderId === "number") {
+        const folder = await assertFolderOwnership(folderId, userId);
+        if (!folder) return { success: false as const, error: "Немає доступу до папки" };
+        nextFolderId = folder.folderId;
+    }
+
+    await prisma.$transaction(async (tx) => {
+        await tx.pers.update({
+            where: { persId },
+            data: { folderId: nextFolderId },
+        });
+
+        if (typeof nextFolderId === "number") {
+            const members = await tx.persFolderMember.findMany({
+                where: { folderId: nextFolderId, canEdit: true },
+                select: { userId: true },
+            });
+
+            if (members.length > 0) {
+                await tx.persAdditionalUser.createMany({
+                    data: members.map((m) => ({ persId, userId: m.userId })),
+                    skipDuplicates: true,
+                });
+            }
+        }
+    });
+
+    revalidatePath("/char/home");
+    return { success: true as const };
+}
+
+export async function movePersFolder(folderId: number, parentFolderId: number | null) {
+    const userId = await getCurrentUserId();
+    if (!userId) return { success: false as const, error: "Не авторизовано" };
+
+    const folder = await assertFolderOwnership(folderId, userId);
+    if (!folder) return { success: false as const, error: "Немає доступу до папки" };
+
+    let nextParentId: number | null = null;
+    if (typeof parentFolderId === "number") {
+        const parent = await assertFolderOwnership(parentFolderId, userId);
+        if (!parent) return { success: false as const, error: "Немає доступу до папки" };
+        if (parent.folderId === folderId) {
+            return { success: false as const, error: "Неможливо перемістити папку в саму себе" };
+        }
+        const isDescendant = await isFolderDescendant(userId, folderId, parent.folderId);
+        if (isDescendant) {
+            return { success: false as const, error: "Неможливо перемістити папку в її підпапку" };
+        }
+        nextParentId = parent.folderId;
+    }
+
+    await prisma.persFolder.update({
+        where: { folderId },
+        data: { parentFolderId: nextParentId },
+    });
+
+    revalidatePath("/char/home");
+    return { success: true as const };
+}
+
+export async function setPersPinned(persId: number, isPinned: boolean) {
+    const userId = await getCurrentUserId();
+    if (!userId) return { success: false as const, error: "Не авторизовано" };
+
+    const canEdit = await canEditPers(persId, userId);
+    if (!canEdit) return { success: false as const, error: "Немає доступу до персонажа" };
+
+    await prisma.pers.update({
+        where: { persId },
+        data: { isPinned },
+    });
+
+    revalidatePath("/char/home");
+    return { success: true as const };
 }
 
 export async function getUserPersesSpellIndex() {
@@ -541,15 +717,24 @@ export async function getPersById(id: number) {
     
     if (!pers) return null;
 
-    // Check ownership
     const user = await prisma.user.findUnique({ where: { email: session.user.email } });
-    if (pers.userId !== user?.id) {
-        // Allow viewing if we decide to share, but for now restrict
-        // return null; 
-        // Actually, for debugging/demo, let's allow it if it's just a fetch, 
-        // but strictly speaking we should restrict.
-        // The user asked for "current user's perses", so let's enforce ownership for the sheet too.
-        if (pers.userId !== user?.id) return null;
+    if (!user) return null;
+
+    const isOwner = pers.userId === user.id;
+    if (!isOwner) {
+        const additional = await prisma.persAdditionalUser.findUnique({
+            where: { persId_userId: { persId: pers.persId, userId: user.id } },
+            select: { persId: true },
+        });
+
+        const folderMember = pers.folderId
+            ? await prisma.persFolderMember.findUnique({
+                where: { folderId_userId: { folderId: pers.folderId, userId: user.id } },
+                select: { canEdit: true },
+            })
+            : null;
+
+        if (!additional && !folderMember?.canEdit) return null;
     }
 
     return pers;
@@ -615,60 +800,46 @@ function toPrimaryGroupKey(primaryType: FeatureDisplayType): CharacterFeatureGro
     }
 }
 
-export async function getCharacterFeaturesGrouped(persId: number): Promise<CharacterFeaturesGroupedResult | null> {
-    const session = await auth();
-    if (!session?.user?.email) return null;
-
-    const user = await prisma.user.findUnique({
-        where: { email: session.user.email },
-    });
-    if (!user) return null;
-
-    const pers = await prisma.pers.findUnique({
-        where: { persId },
+const PERS_FEATURES_INCLUDE = {
+    features: { include: { feature: true }, orderBy: { persFeatureId: "asc" } },
+    race: { include: { traits: { include: { feature: true } } } },
+    subrace: { include: { traits: { include: { feature: true } } } },
+    class: { include: { features: { include: { feature: true } } } },
+    subclass: { include: { features: { include: { feature: true } } } },
+    multiclasses: {
         include: {
-            features: { include: { feature: true }, orderBy: { persFeatureId: "asc" } },
-            race: { include: { traits: { include: { feature: true } } } },
-            subrace: { include: { traits: { include: { feature: true } } } },
             class: { include: { features: { include: { feature: true } } } },
             subclass: { include: { features: { include: { feature: true } } } },
-            multiclasses: {
+        }
+    },
+    raceVariants: { include: { traits: { include: { feature: true } } } },
+    feats: {
+        include: {
+            feat: true,
+            choices: {
                 include: {
-                    class: { include: { features: { include: { feature: true } } } },
-                    subclass: { include: { features: { include: { feature: true } } } },
-                }
-            },
-            raceVariants: { include: { traits: { include: { feature: true } } } },
-            feats: {
-                include: {
-                    feat: true,
-                    choices: {
-                        include: {
-                            choiceOption: true,
-                        },
-                    },
+                    choiceOption: true,
                 },
             },
-            choiceOptions: { include: { features: { include: { feature: true } } } },
-            raceChoiceOptions: { include: { traits: { include: { feature: true } } } },
-            persInfusions: {
-                include: {
-                    infusion: {
-                        include: {
-                            replicatedMagicItem: true,
-                            feature: true
-                        }
-                    }
-                }
-            },
-            resourcePools: true,
-            user: true,
         },
-    });
+    },
+    choiceOptions: { include: { features: { include: { feature: true } } } },
+    raceChoiceOptions: { include: { traits: { include: { feature: true } } } },
+    persInfusions: {
+        include: {
+            infusion: {
+                include: {
+                    replicatedMagicItem: true,
+                    feature: true
+                }
+            }
+        }
+    },
+    resourcePools: true,
+    user: true,
+} satisfies Prisma.PersInclude;
 
-    if (!pers) return null;
-    if (pers.userId !== user.id) return null;
-
+function buildCharacterFeaturesGrouped(pers: any): CharacterFeaturesGroupedResult {
     // Build a map of featureId -> Source
     // Also build a map of featureId -> ClassLevel for determining class-based scaling uses
     const sourceMap = new Map<number, "RACE" | "SUBRACE" | "CLASS" | "SUBCLASS">();
@@ -1034,6 +1205,44 @@ export async function getCharacterFeaturesGrouped(persId: number): Promise<Chara
     }
 
     return buckets;
+}
+
+export async function getCharacterFeaturesGrouped(persId: number): Promise<CharacterFeaturesGroupedResult | null> {
+    const session = await auth();
+    if (!session?.user?.email) return null;
+
+    const user = await prisma.user.findUnique({
+        where: { email: session.user.email },
+    });
+    if (!user) return null;
+
+    const pers = await prisma.pers.findUnique({
+        where: { persId },
+        include: PERS_FEATURES_INCLUDE,
+    });
+
+    if (!pers) return null;
+    const canEdit = await canEditPers(persId, user.id);
+    if (!canEdit) return null;
+    return buildCharacterFeaturesGrouped(pers);
+}
+
+export async function getCharacterFeaturesGroupedByShareToken(token: string): Promise<CharacterFeaturesGroupedResult | null> {
+    if (!token) return null;
+
+    const editToken = await prisma.persShareToken.findUnique({
+        where: { token },
+        select: { persId: true }
+    });
+
+    const pers = await prisma.pers.findUnique({
+        where: editToken ? { persId: editToken.persId } : { shareToken: token },
+        include: PERS_FEATURES_INCLUDE,
+    });
+
+    if (!pers) return null;
+
+    return buildCharacterFeaturesGrouped(pers);
 }
 
 export async function getUserPersesMagicItemIndex() {

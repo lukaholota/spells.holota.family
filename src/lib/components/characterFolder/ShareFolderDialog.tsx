@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Dialog,
   DialogContent,
@@ -10,24 +10,30 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Share2, Copy, Check, Link as LinkIcon, ShieldCheck } from "lucide-react";
-import { generateEditShareToken, generateShareToken } from "@/lib/actions/share-actions";
+import { generateFolderShareToken } from "@/lib/actions/share-actions";
 import { toast } from "sonner";
 import { Switch } from "@/components/ui/switch";
 
-interface ShareDialogProps {
-  persId: number;
-  initialToken?: string | null;
+interface ShareFolderDialogProps {
+  folderId: number;
+  folderName?: string | null;
   open?: boolean;
   onOpenChange?: (open: boolean) => void;
   noButtonTrigger?: boolean;
 }
 
-export function ShareDialog({ persId, initialToken, open: openOverride, onOpenChange: onOpenChangeOverride, noButtonTrigger: hideTrigger }: ShareDialogProps) {
+export function ShareFolderDialog({
+  folderId,
+  folderName,
+  open: openOverride,
+  onOpenChange: onOpenChangeOverride,
+  noButtonTrigger: hideTrigger,
+}: ShareFolderDialogProps) {
   const [internalOpen, setInternalOpen] = useState(false);
   const isOpen = openOverride !== undefined ? openOverride : internalOpen;
   const setIsOpen = onOpenChangeOverride !== undefined ? onOpenChangeOverride : setInternalOpen;
 
-  const [token, setToken] = useState<string | null>(initialToken || null);
+  const [token, setToken] = useState<string | null>(null);
   const [editToken, setEditToken] = useState<string | null>(null);
   const [editEnabled, setEditEnabled] = useState(false);
   const [isGenerating, setIsGenerating] = useState(false);
@@ -35,13 +41,19 @@ export function ShareDialog({ persId, initialToken, open: openOverride, onOpenCh
   const [copied, setCopied] = useState(false);
   const [editCopied, setEditCopied] = useState(false);
 
-  // Use a stable origin to avoid layout shift on open (SSR -> hydration).
-  // Keep consistent with other places in the app (e.g. sitemap/robots).
+  useEffect(() => {
+    setToken(null);
+    setEditToken(null);
+    setEditEnabled(false);
+    setCopied(false);
+    setEditCopied(false);
+  }, [folderId]);
+
   const origin = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://char.holota.family").replace(/\/$/, "");
 
   const handleGenerate = async () => {
     setIsGenerating(true);
-    const result = await generateShareToken(persId);
+    const result = await generateFolderShareToken(folderId, false);
     setIsGenerating(false);
     if (result.success && result.token) {
       setToken(result.token);
@@ -53,7 +65,7 @@ export function ShareDialog({ persId, initialToken, open: openOverride, onOpenCh
 
   const handleGenerateEdit = async () => {
     setIsGeneratingEdit(true);
-    const result = await generateEditShareToken(persId);
+    const result = await generateFolderShareToken(folderId, true);
     setIsGeneratingEdit(false);
     if (result.success && result.token) {
       setEditToken(result.token);
@@ -63,8 +75,8 @@ export function ShareDialog({ persId, initialToken, open: openOverride, onOpenCh
     }
   };
 
-  const shareUrl = token && origin ? `${origin}/char/share/${token}` : "";
-  const editShareUrl = editToken && origin ? `${origin}/char/share/${editToken}` : "";
+  const shareUrl = token && origin ? `${origin}/char/folder/share/${token}` : "";
+  const editShareUrl = editToken && origin ? `${origin}/char/folder/share/${editToken}` : "";
 
   const copyToClipboard = () => {
     if (!shareUrl) return;
@@ -82,6 +94,8 @@ export function ShareDialog({ persId, initialToken, open: openOverride, onOpenCh
     setTimeout(() => setEditCopied(false), 2000);
   };
 
+  const titleSuffix = folderName ? `: ${folderName}` : "";
+
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       {hideTrigger !== true && (
@@ -91,41 +105,41 @@ export function ShareDialog({ persId, initialToken, open: openOverride, onOpenCh
           </Button>
         </DialogTrigger>
       )}
-      <DialogContent 
+      <DialogContent
         className="w-[calc(100%-2rem)] max-w-[425px] overflow-hidden glass-card border-white/10 text-slate-100"
         onClick={(e) => e.stopPropagation()}
       >
         <DialogHeader>
           <DialogTitle className="flex items-center gap-2">
             <LinkIcon className="h-5 w-5" />
-            Поділитися персонажем
+            Поділитися папкою{titleSuffix}
           </DialogTitle>
         </DialogHeader>
-        
+
         <div className="w-full py-4 space-y-4 max-w-full min-w-0">
           <p className="text-sm text-slate-400">
-            Згенеруйте публічне посилання, щоб інші могли переглянути вашого персонажа (тільки для читання).
+            Згенеруйте посилання, щоб інші могли переглянути вашу папку (тільки для читання).
           </p>
-          
+
           {token ? (
             <div className="w-full space-y-3 max-w-full">
               <div className="w-full flex min-w-0 max-w-full items-center gap-2 overflow-hidden p-2 bg-black/30 rounded border border-white/10">
                 <code className="block min-w-0 max-w-full flex-1 truncate text-xs text-indigo-300">
-                  {origin}/char/share/{token.slice(0, 8)}...
+                  {origin}/char/folder/share/{token.slice(0, 8)}...
                 </code>
                 <Button size="icon" variant="ghost" className="h-8 w-8" onClick={copyToClipboard}>
                   {copied ? <Check className="h-4 w-4 text-emerald-400" /> : <Copy className="h-4 w-4" />}
                 </Button>
               </div>
               <p className="text-[10px] text-slate-500 text-center">
-                Будь-хто з цим посиланням зможе бачити вашого персонажа.
+                Будь-хто з цим посиланням зможе бачити цю папку.
               </p>
             </div>
           ) : (
-            <Button 
-                onClick={handleGenerate} 
-                disabled={isGenerating}
-                className="w-full bg-indigo-600 hover:bg-indigo-700 text-slate-200"
+            <Button
+              onClick={handleGenerate}
+              disabled={isGenerating}
+              className="w-full bg-indigo-600 hover:bg-indigo-700 text-slate-200"
             >
               {isGenerating ? "Генерація..." : "Згенерувати посилання"}
             </Button>
@@ -142,7 +156,7 @@ export function ShareDialog({ persId, initialToken, open: openOverride, onOpenCh
 
             <p className="text-xs text-slate-400">
               Увімкніть, щоб створити посилання з доступом до редагування. Будь-хто з цим посиланням зможе
-              редагувати персонажа після входу.
+              редагувати папку після входу.
             </p>
 
             {editEnabled && (
@@ -150,7 +164,7 @@ export function ShareDialog({ persId, initialToken, open: openOverride, onOpenCh
                 {editToken ? (
                   <div className="w-full flex min-w-0 max-w-full items-center gap-2 overflow-hidden p-2 bg-black/30 rounded border border-white/10">
                     <code className="block min-w-0 max-w-full flex-1 truncate text-xs text-emerald-300">
-                      {origin}/char/share/{editToken.slice(0, 8)}...
+                      {origin}/char/folder/share/{editToken.slice(0, 8)}...
                     </code>
                     <Button size="icon" variant="ghost" className="h-8 w-8" onClick={copyEditToClipboard}>
                       {editCopied ? <Check className="h-4 w-4 text-emerald-400" /> : <Copy className="h-4 w-4" />}

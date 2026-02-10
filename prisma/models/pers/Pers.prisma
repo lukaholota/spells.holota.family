@@ -59,6 +59,8 @@ model Pers {
   isActive                    Boolean                @default(true) @map("isactive")
   isSnapshot                  Boolean                @default(false) @map("issnapshot")
   parentPersId                Int?                   @map("parentpersid")
+  folderId                    Int?                   @map("folder_id")
+  isPinned                    Boolean                @default(false) @map("is_pinned")
   proficiencyBonuses          Json?                  @map("proficiencybonuses")
   saveBonuses                 Json?                  @map("savebonuses")
   shareToken                  String?                @unique @map("sharetoken")
@@ -76,9 +78,11 @@ model Pers {
   subclass                    Subclass?              @relation(fields: [subclassId], references: [subclassId], onDelete: Cascade)
   subrace                     Subrace?               @relation(fields: [subraceId], references: [subraceId], onDelete: Cascade)
   user                        User                   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  folder                      PersFolder?            @relation(fields: [folderId], references: [folderId], onDelete: SetNull)
   armors                      PersArmor[]
   feats                       PersFeat[]
   features                    PersFeature[]
+  additionalUsers             PersAdditionalUser[]
   resourcePools               PersResourcePool[]
   persInfusions               PersInfusion[]
   magicItems                  PersMagicItem[]
@@ -86,6 +90,7 @@ model Pers {
   skills                      PersSkill[]
   persSpells                  PersSpell[]
   weapons                     PersWeapon[]
+  shareTokens                 PersShareToken[]
   choiceOptions               ChoiceOption[]         @relation("ChoiceOptionToPers")
   classOptionalFeatures       ClassOptionalFeature[] @relation("ClassOptionalFeatureToPers")
   raceChoiceOptions           RaceChoiceOption[]     @relation("PersToRaceChoiceOption")

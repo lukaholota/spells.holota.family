@@ -4,6 +4,7 @@ import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { Prisma } from "@prisma/client";
 import { revalidatePath } from "next/cache";
+import { canEditPers } from "@/lib/actions/pers";
 
 export async function spendFeatureUse({
   persId,
@@ -44,7 +45,9 @@ export async function spendFeatureUse({
     }
   });
 
-  if (!pers || pers.userId !== user.id) return { success: false, error: "Немає доступу до персонажа" };
+  if (!pers) return { success: false, error: "Немає доступу до персонажа" };
+  const canEdit = await canEditPers(persId, user.id);
+  if (!canEdit) return { success: false, error: "Немає доступу до персонажа" };
 
   const calculateMaxUsesForFeature = (featureInput: {
     usesCount: number | null;
@@ -250,7 +253,9 @@ export async function restoreFeatureUse({
     }
   });
 
-  if (!pers || pers.userId !== user.id) return { success: false, error: "Немає доступу до персонажа" };
+  if (!pers) return { success: false, error: "Немає доступу до персонажа" };
+  const canEdit = await canEditPers(persId, user.id);
+  if (!canEdit) return { success: false, error: "Немає доступу до персонажа" };
 
   const calculateMaxUsesForFeature = (featureInput: {
     usesCount: number | null;

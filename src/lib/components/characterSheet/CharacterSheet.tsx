@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useTransition } from "react";
 import type { PersWithRelations, CharacterFeaturesGroupedResult } from "@/lib/actions/pers";
-import { getCharacterFeaturesGrouped, renamePers } from "@/lib/actions/pers";
+import { getCharacterFeaturesGrouped, getCharacterFeaturesGroupedByShareToken, renamePers } from "@/lib/actions/pers";
 import CharacterCarousel from "./CharacterCarousel";
 import { Button } from "@/components/ui/button";
 import { ArrowUpCircle, Loader2, Pencil } from "lucide-react";
@@ -10,7 +10,7 @@ import RestButton from "./RestButton";
 import { Badge } from "@/components/ui/badge";
 import { ShareDialog } from "./ShareDialog";
 import { useParams, useRouter } from "next/navigation";
-import { copyPersByToken } from "@/lib/actions/share-actions";
+import { acceptPersEditShareToken, copyPersByToken } from "@/lib/actions/share-actions";
 import { Copy } from "lucide-react";
 import { toast } from "sonner";
 import PrintCharacterDialog from "./PrintCharacterDialog";
@@ -27,9 +27,10 @@ interface CharacterSheetProps {
   pers: PersWithRelations;
   groupedFeatures: CharacterFeaturesGroupedResult | null;
   isPublicView?: boolean;
+  editShareToken?: string | null;
 }
 
-export default function CharacterSheet({ pers, groupedFeatures, isPublicView }: CharacterSheetProps) {
+export default function CharacterSheet({ pers, groupedFeatures, isPublicView, editShareToken }: CharacterSheetProps) {
   const [localPers, setLocalPers] = useState<PersWithRelations>(pers);
   const [localGroupedFeatures, setLocalGroupedFeatures] = useState<CharacterFeaturesGroupedResult | null>(groupedFeatures);
   const [isLevelUpPending, setIsLevelUpPending] = useState<boolean>(false);
@@ -37,6 +38,7 @@ export default function CharacterSheet({ pers, groupedFeatures, isPublicView }: 
   const params = useParams();
   const router = useRouter();
   const [isCopyPending, startCopyTransition] = useTransition();
+  const [isAcceptPending, startAcceptTransition] = useTransition();
   const [isRenamePending, startRenameTransition] = useTransition();
   const [, startFeaturesTransition] = useTransition();
   const [renameOpen, setRenameOpen] = useState(false);
@@ -59,14 +61,16 @@ export default function CharacterSheet({ pers, groupedFeatures, isPublicView }: 
 
     startFeaturesTransition(async () => {
       try {
-        const gf = await getCharacterFeaturesGrouped(localPers.persId);
+        const gf = isPublicView && shareToken
+          ? await getCharacterFeaturesGroupedByShareToken(shareToken)
+          : await getCharacterFeaturesGrouped(localPers.persId);
         setLocalGroupedFeatures(gf);
       } catch (e) {
         console.error(e);
       }
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [localPers?.persId]);
+  }, [isPublicView, localPers?.persId, shareToken]);
 
   useEffect(() => {
     setRenameValue(pers.name);
@@ -84,6 +88,20 @@ export default function CharacterSheet({ pers, groupedFeatures, isPublicView }: 
         } else {
             toast.error(result.error || "Не вдалося скопіювати персонажа");
         }
+    });
+  };
+
+  const handleAcceptEditAccess = () => {
+    if (!editShareToken) return;
+
+    startAcceptTransition(async () => {
+      const result = await acceptPersEditShareToken(editShareToken);
+      if (result.success && result.persId) {
+        toast.success("Доступ до редагування надано!");
+        router.push(`/char/${result.persId}`);
+      } else {
+        toast.error(result.error || "Не вдалося отримати доступ");
+      }
     });
   };
 
@@ -199,6 +217,18 @@ export default function CharacterSheet({ pers, groupedFeatures, isPublicView }: 
                        <span className="hidden sm:inline">Копіювати до себе</span>
                    </Button>
                )}
+              {isPublicView && editShareToken && (
+                <Button
+                  size="sm"
+                  variant="secondary"
+                  className="h-8 gap-2 bg-sky-600/20 hover:bg-sky-600/30 border-sky-500/30 text-sky-200"
+                  onClick={handleAcceptEditAccess}
+                  disabled={isAcceptPending}
+                >
+                  <Pencil className="w-4 h-4" />
+                  <span className="hidden sm:inline">Отримати доступ до редагування</span>
+                </Button>
+              )}
               <PrintCharacterDialog
                 persId={localPers.persId}
                 characterName={localPers.name ?? "character"}

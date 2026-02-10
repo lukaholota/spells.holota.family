@@ -1,0 +1,20 @@
+model PersFolder {
+  folderId       Int          @id @default(autoincrement()) @map("folder_id")
+  userId         Int          @map("user_id")
+  name           String       @db.VarChar(80)
+  color          String       @default("#38bdf8") @db.VarChar(16)
+  isPinned       Boolean      @default(false) @map("is_pinned")
+  parentFolderId Int?         @map("parent_folder_id")
+  createdAt      DateTime     @default(now()) @map("created_at")
+  updatedAt      DateTime     @updatedAt @map("updated_at")
+  user           User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  parent         PersFolder?  @relation("PersFolderParent", fields: [parentFolderId], references: [folderId], onDelete: SetNull)
+  children       PersFolder[] @relation("PersFolderParent")
+  perses         Pers[]
+  members        PersFolderMember[]
+  shareTokens    PersFolderShareToken[]
+
+  @@index([userId])
+  @@index([parentFolderId])
+  @@map("pers_folder")
+}

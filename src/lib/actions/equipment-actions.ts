@@ -2,6 +2,7 @@
 
 import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
+import { canEditPers } from "@/lib/actions/pers";
 import { revalidatePath } from "next/cache";
 import { Ability, AbilityBonusType, Prisma } from "@prisma/client";
 
@@ -29,9 +30,9 @@ async function assertOwnsPers(persId: number) {
     },
   });
 
-  if (!pers || pers.userId !== user.id) {
-    return { ok: false as const, error: "Немає доступу до персонажа" };
-  }
+  if (!pers) return { ok: false as const, error: "Немає доступу до персонажа" };
+  const canEdit = await canEditPers(persId, user.id);
+  if (!canEdit) return { ok: false as const, error: "Немає доступу до персонажа" };
 
   return { ok: true as const, pers };
 }

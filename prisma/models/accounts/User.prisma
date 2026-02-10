@@ -6,6 +6,9 @@ model User {
   image         String?
   accounts      Account[]
   perses        Pers[]
+  persFolders   PersFolder[]
+  additionalPerses PersAdditionalUser[]
+  folderMemberships PersFolderMember[]
 
   @@map("user")
 }

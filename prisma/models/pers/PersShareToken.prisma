@@ -1,0 +1,12 @@
+model PersShareToken {
+  persShareTokenId Int      @id @default(autoincrement()) @map("pers_share_token_id")
+  persId           Int      @map("pers_id")
+  token            String   @unique @map("token") @db.VarChar(64)
+  canEdit          Boolean  @default(false) @map("can_edit")
+  createdAt        DateTime @default(now()) @map("created_at")
+
+  pers Pers @relation(fields: [persId], references: [persId], onDelete: Cascade)
+
+  @@index([persId])
+  @@map("pers_share_token")
+}
