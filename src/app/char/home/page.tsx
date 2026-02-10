@@ -18,12 +18,16 @@ export default async function Page() {
     isPinned: pers.isPinned,
     classNames: [
       pers.class?.name,
-      ...(pers.multiclasses ?? []).map((mc) => mc.class?.name).filter(Boolean),
-    ].filter(Boolean),
+      ...(pers.multiclasses ?? []).map((mc) => mc.class?.name),
+    ]
+      .filter(Boolean)
+      .map((name) => String(name)),
     subclassNames: [
       pers.subclass?.name,
-      ...(pers.multiclasses ?? []).map((mc) => mc.subclass?.name).filter(Boolean),
-    ].filter(Boolean),
+      ...(pers.multiclasses ?? []).map((mc) => mc.subclass?.name),
+    ]
+      .filter(Boolean)
+      .map((name) => String(name)),
   }));
 
   return <CharHomeClient perses={items} folders={folders} />;
