@@ -789,6 +789,36 @@ export async function levelUpCharacter(persId: number, data: any) {
     });
     if (subclassValidation) return subclassValidation;
 
+    const classAndSubclassChoiceIds = Array.from(
+      new Set([
+        ...flattenSelections(classChoiceSelections),
+        ...flattenSelections(subclassChoiceSelections),
+      ])
+    );
+    if (classAndSubclassChoiceIds.length) {
+      const selectedChoiceOptions = await prisma.choiceOption.findMany({
+        where: { choiceOptionId: { in: classAndSubclassChoiceIds } },
+        select: {
+          effectKind: true,
+          effectSkill: true,
+        },
+      });
+
+      for (const opt of selectedChoiceOptions) {
+        const effectKind = String(opt.effectKind ?? "").trim();
+        const skillCode = String(opt.effectSkill ?? "").trim();
+        if (!Object.values(Skills).includes(skillCode as Skills)) continue;
+        const skill = skillCode as Skills;
+
+        if (effectKind === "SKILL_PROFICIENCY") {
+          skillsToAdd.add(skill);
+        } else if (effectKind === "SKILL_EXPERTISE") {
+          skillsToAdd.add(skill);
+          skillsToExpertise.add(skill);
+        }
+      }
+    }
+
     // ===== 5) Features + choices =====
     const featuresToAdd = new Set<number>();
     const choiceOptionIds: number[] = [];
@@ -905,6 +935,11 @@ export async function levelUpCharacter(persId: number, data: any) {
         },
       });
 
+      const isFightingStyleGroupName = (name: string) => {
+        const normalized = String(name || "").trim().toLowerCase();
+        return normalized === "бойовий стиль" || normalized.includes("бойовий стиль") || normalized.includes("fighting style");
+      };
+
       for (const opt of optionalRecords) {
         if (opt.featureId) optionalGrantedFeatureIds.add(opt.featureId);
         for (const rep of opt.replacesFeatures) {
@@ -946,7 +981,11 @@ export async function levelUpCharacter(persId: number, data: any) {
         }
 
         const ownedGroup = (pers.choiceOptions || []).find((co: any) => Number(co?.choiceOptionId) === removeChoiceOptionId)?.groupName;
-        if (String(ownedGroup || "") !== groupName) {
+        if (groupName === "Бойовий стиль") {
+          if (!isFightingStyleGroupName(String(ownedGroup || ""))) {
+            return { error: "Обрана опція для заміни не з тієї групи" };
+          }
+        } else if (String(ownedGroup || "") !== groupName) {
           return { error: "Обрана опція для заміни не з тієї групи" };
         }
 
@@ -958,7 +997,11 @@ export async function levelUpCharacter(persId: number, data: any) {
         if (!addChoiceOption) {
           return { error: "Нова опція не знайдена" };
         }
-        if (String(addChoiceOption.groupName || "") !== groupName) {
+        if (groupName === "Бойовий стиль") {
+          if (!isFightingStyleGroupName(String(addChoiceOption.groupName || ""))) {
+            return { error: "Нова опція не з тієї групи" };
+          }
+        } else if (String(addChoiceOption.groupName || "") !== groupName) {
           return { error: "Нова опція не з тієї групи" };
         }
 

@@ -480,7 +480,21 @@ export default function LevelUpWizard({ info }: Props) {
   }, [currentLevelFeatures]);
 
   const needsExpertise = useMemo(() => {
+    const hasKnowledgeChoicesAtThisLevel = (effectiveSubclass?.subclassChoiceOptions || []).some((opt: any) => {
+      if (!(opt?.levelsGranted || []).includes(classLevelAfter)) return false;
+      const groupName = String(opt?.choiceOption?.groupName || "").toLowerCase();
+      const effectKind = String(opt?.choiceOption?.effectKind || "").toUpperCase();
+      return (
+        groupName.includes("благословення знань") ||
+        groupName.includes("blessings of knowledge") ||
+        effectKind === "SKILL_EXPERTISE"
+      );
+    });
+
     return currentLevelFeatures.some((f) => {
+      if (String((f as any)?.engName || "") === "Blessings of Knowledge" && hasKnowledgeChoicesAtThisLevel) {
+        return false;
+      }
       const se = f.skillExpertises as any;
       return (
         (se?.count || 0) > 0 ||
@@ -488,7 +502,7 @@ export default function LevelUpWizard({ info }: Props) {
         se?.options?.length > 0
       );
     });
-  }, [currentLevelFeatures]);
+  }, [classLevelAfter, currentLevelFeatures, effectiveSubclass]);
 
   const needsLanguages = useMemo(() => {
     let count = 0;

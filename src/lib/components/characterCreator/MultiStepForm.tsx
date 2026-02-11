@@ -486,11 +486,25 @@ export const MultiStepForm = (
   }, [cls, subclass, race, subrace, raceVariant, formData]);
 
   const hasExpertiseChoice = useMemo(() => {
+    const hasKnowledgeChoicesAtLevelOne = (subclass?.subclassChoiceOptions || []).some((opt: any) => {
+      if (!(opt?.levelsGranted || []).includes(1)) return false;
+      const groupName = String(opt?.choiceOption?.groupName || "").toLowerCase();
+      const effectKind = String(opt?.choiceOption?.effectKind || "").toUpperCase();
+      return (
+        groupName.includes("благословення знань") ||
+        groupName.includes("blessings of knowledge") ||
+        effectKind === "SKILL_EXPERTISE"
+      );
+    });
+
     return activeFeatures.some(f => {
+      if (String((f as any)?.engName || "") === "Blessings of Knowledge" && hasKnowledgeChoicesAtLevelOne) {
+        return false;
+      }
       const se = f.skillExpertises as any;
       return (se?.count || 0) > 0 || se?.chooseFromCurrentProficiencies || (se?.options?.length > 0);
     });
-  }, [activeFeatures]);
+  }, [activeFeatures, subclass]);
 
   const hasLanguageChoice = useMemo(() => {
     if (!race || !cls) return false;

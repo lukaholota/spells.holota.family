@@ -371,8 +371,10 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange, per
     const name = (groupName || "").trim();
     return (
       name === "Бойовий стиль" ||
+      name === "Бойовий стиль (Swords)" ||
       name.startsWith("Бойовий стиль #") ||
       name === "Fighting Style" ||
+      name === "Fighting Style (Swords)" ||
       name.startsWith("Fighting Style #") ||
       name === "Fighting Styles" ||
       name.startsWith("Fighting Styles #")

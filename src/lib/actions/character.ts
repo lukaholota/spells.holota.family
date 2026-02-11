@@ -652,6 +652,28 @@ export async function createCharacter(data: PersFormData) {
     new Map(choiceOptionsToConnect.map((c) => [c.choiceOptionId, c])).values()
   ).filter((c) => Number.isFinite(c.choiceOptionId) && c.choiceOptionId > 0);
 
+  const expertiseFromClassSubclassChoices = new Set<string>();
+  if (uniqueChoiceOptionsToConnect.length) {
+    const selectedChoiceOptions = await prisma.choiceOption.findMany({
+      where: { choiceOptionId: { in: uniqueChoiceOptionsToConnect.map((c) => c.choiceOptionId) } },
+      select: { effectKind: true, effectSkill: true },
+    });
+
+    for (const opt of selectedChoiceOptions) {
+      const effectKind = String(opt.effectKind ?? "").trim();
+      const skillCode = String(opt.effectSkill ?? "").trim();
+      if (!Object.values(Skills).includes(skillCode as Skills)) continue;
+      const skill = skillCode as Skills;
+
+      if (effectKind === "SKILL_PROFICIENCY") {
+        allSkills.add(skill);
+      } else if (effectKind === "SKILL_EXPERTISE") {
+        allSkills.add(skill);
+        expertiseFromClassSubclassChoices.add(skill);
+      }
+    }
+  }
+
   const choiceOptionFeatureRows = uniqueChoiceOptionsToConnect.length
     ? await prisma.choiceOptionFeature.findMany({
         where: { choiceOptionId: { in: uniqueChoiceOptionsToConnect.map((c) => c.choiceOptionId) } },
@@ -1047,7 +1069,8 @@ export async function createCharacter(data: PersFormData) {
       // Update expertise skills (upsert so it's safe even if missing)
       const expertiseSkills = new Set<string>([
         ...(validData.expertiseSchema?.expertises ?? []),
-        ...expertiseFromFeat
+        ...expertiseFromFeat,
+        ...expertiseFromClassSubclassChoices,
       ]);
 
       for (const skillName of expertiseSkills) {

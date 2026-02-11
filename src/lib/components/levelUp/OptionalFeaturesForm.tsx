@@ -124,6 +124,11 @@ export default function OptionalFeaturesForm({
     return fromPers?.optionNameEng ? String(fromPers.optionNameEng) : undefined;
   }, [persChoiceOptions]);
 
+  const isFightingStyleGroupName = (name: string) => {
+    const normalized = String(name || "").trim().toLowerCase();
+    return normalized === "бойовий стиль" || normalized.includes("бойовий стиль") || normalized.includes("fighting style");
+  };
+
   useEffect(() => {
     if (!selectedClass) {
       onNextDisabledChange?.(true);
@@ -220,7 +225,12 @@ export default function OptionalFeaturesForm({
                 ? "Маневри майстра бою"
                 : undefined;
 
-          const currentChoices = (persChoiceOptions || []).filter((co: any) => String(co?.groupName || "") === groupName);
+          const currentChoices = (persChoiceOptions || []).filter((co: any) => {
+            const name = String(co?.groupName || "");
+            if (!groupName) return false;
+            if (groupName === "Бойовий стиль") return isFightingStyleGroupName(name);
+            return name === groupName;
+          });
           const availableClassOptions = Object.values((selectedClass as any)?.classChoiceOptions || {});
           const availableSubclassOptions = Object.values((effectiveSubclass as any)?.subclassChoiceOptions || {});
           const availableOptions = [...availableClassOptions, ...availableSubclassOptions];

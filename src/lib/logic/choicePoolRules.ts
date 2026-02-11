@@ -21,7 +21,12 @@ export type ChoicePoolRule = {
 };
 
 export function baseChoiceGroupName(groupName: string): string {
-  return String(groupName || "").replace(/\s+#\d+$/, "");
+  const trimmed = String(groupName || "").replace(/\s+#\d+$/, "");
+  const normalized = trimmed.toLowerCase();
+  if (normalized.includes("бойовий стиль") || normalized.includes("fighting style")) {
+    return "Бойовий стиль";
+  }
+  return trimmed;
 }
 
 export function getChoicePoolRule(args: {
