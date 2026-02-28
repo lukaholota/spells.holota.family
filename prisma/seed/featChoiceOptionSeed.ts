@@ -171,34 +171,7 @@ export const seedFeatChoiceOptions = async (prisma: PrismaClient) => {
     console.log(`✅ Skilled: ${Object.values(Skills).length} skill choices`);
   }
 
-  // ========================================================================
-  // MAGIC INITIATE (Посвячений у магію)
-  // Choose a class: Bard, Cleric, Druid, Sorcerer, Warlock, or Wizard
-  // ========================================================================
-  const magicInitiate = await findFeat(Feats.MAGIC_INITIATE);
-  if (magicInitiate) {
-    const casterClasses = [
-      Classes.BARD_2014,
-      Classes.CLERIC_2014,
-      Classes.DRUID_2014,
-      Classes.SORCERER_2014,
-      Classes.WARLOCK_2014,
-      Classes.WIZARD_2014,
-    ];
-    
-    for (const cls of casterClasses) {
-      const classNameUkr = classTranslations[cls];
-      
-      const option = await createChoiceOption(
-        "Magic Initiate (клас)",
-        classNameUkr,
-        `Magic Initiate (${cls})`,
-        []
-      );
-      await linkFeatChoice(magicInitiate.featId, option.choiceOptionId);
-    }
-    console.log(`✅ Magic Initiate: ${casterClasses.length} class choices`);
-  }
+  
 
   // ========================================================================
   // ELEMENTAL ADEPT (Адепт стихій)
@@ -464,35 +437,6 @@ export const seedFeatChoiceOptions = async (prisma: PrismaClient) => {
     halfFeatCount++;
   }
   console.log(`✅ Half-feats: ${halfFeatCount} feats with ability choices`);
-
-  // ========================================================================
-  // RITUAL CASTER (Ритуальний заклинатель)
-  // Choose a class: Bard, Cleric, Druid, Sorcerer, Warlock, or Wizard
-  // ========================================================================
-  const ritualCaster = await findFeat(Feats.RITUAL_CASTER);
-  if (ritualCaster) {
-    const casterClasses = [
-      Classes.BARD_2014,
-      Classes.CLERIC_2014,
-      Classes.DRUID_2014,
-      Classes.SORCERER_2014,
-      Classes.WARLOCK_2014,
-      Classes.WIZARD_2014,
-    ];
-    
-    for (const cls of casterClasses) {
-      const classNameUkr = classTranslations[cls];
-      
-      const option = await createChoiceOption(
-        "Ritual Caster (клас)",
-        classNameUkr,
-        `Ritual Caster (${cls})`,
-        []
-      );
-      await linkFeatChoice(ritualCaster.featId, option.choiceOptionId);
-    }
-    console.log(`✅ Ritual Caster: ${casterClasses.length} class choices`);
-  }
 
   console.log('✅ Опції вибору для рис додано!');
 };

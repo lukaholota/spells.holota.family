@@ -1,8 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
-import { useRouter } from "next/navigation";
-import { motion } from "framer-motion";
+import { useEffect, useMemo, useRef, useState, type ComponentType } from "react";
 import {
   Filter,
   Printer,
@@ -11,6 +9,18 @@ import {
   Check,
   Loader2,
   X,
+  Sparkles,
+  WandSparkles,
+  Clock3,
+  BookOpen,
+  Flame,
+  Skull,
+  Shield,
+  Eye,
+  Heart,
+  Ghost,
+  Atom,
+  CircleDashed,
 } from "lucide-react";
 import { Virtuoso } from "react-virtuoso";
 
@@ -96,6 +106,9 @@ type EmbedParams = {
   persId: number | null;
   persName: string | null;
   maxSpellLevel: number | null;
+  knownTarget: number | null;
+  cantripTarget: number | null;
+  knownExcluded: Set<number>;
 };
 
 function parseEmbedParams(params: URLSearchParams): EmbedParams {
@@ -104,11 +117,23 @@ function parseEmbedParams(params: URLSearchParams): EmbedParams {
   const persId = persIdRaw ? parseInt(persIdRaw, 10) : null;
   const persName = params.get("persName");
   const maxSpellLevel = params.get("maxSpellLevel") ? parseInt(params.get("maxSpellLevel")!, 10) : null;
+  const knownTarget = params.get("knownTarget") ? parseInt(params.get("knownTarget")!, 10) : null;
+  const cantripTarget = params.get("cantripTarget") ? parseInt(params.get("cantripTarget")!, 10) : null;
+  const knownExcludedRaw = params.get("knownExcluded") || "";
+  const knownExcluded = new Set(
+    knownExcludedRaw
+      .split(",")
+      .map((v) => Number(v.trim()))
+      .filter((v) => Number.isFinite(v) && v > 0)
+  );
   return {
     origin,
     persId: Number.isFinite(persId) ? persId : null,
     persName,
     maxSpellLevel: Number.isFinite(maxSpellLevel) ? maxSpellLevel : null,
+    knownTarget: Number.isFinite(knownTarget) ? knownTarget : null,
+    cantripTarget: Number.isFinite(cantripTarget) ? cantripTarget : null,
+    knownExcluded,
   };
 }
 
@@ -273,13 +298,6 @@ function normalizeFlag(value: string | null | undefined): boolean {
   return v === "так" || v === "yes" || v === "true" || v === "1";
 }
 
-function flagsLabel(spell: Pick<SpellListItem, "hasRitual" | "hasConcentration">): string {
-  const flags: string[] = [];
-  if (normalizeFlag(spell.hasRitual)) flags.push("Ритуал");
-  if (normalizeFlag(spell.hasConcentration)) flags.push("Концентрація");
-  return flags.length ? flags.join(" • ") : "";
-}
-
 function normalizeCastingTimeValue(raw: string): string {
   const v = (raw || "").trim();
   if (!v) return "";
@@ -287,6 +305,95 @@ function normalizeCastingTimeValue(raw: string): string {
   // Collapse all reaction variants into one filter option.
   if (lower.startsWith("1 реакц")) return "1 реакція";
   return v;
+}
+
+type SchoolVisual = {
+  icon: ComponentType<{ className?: string }>;
+  iconWrap: string;
+  iconColor: string;
+  badgeClass: string;
+};
+
+const DEFAULT_SCHOOL_VISUAL: SchoolVisual = {
+  icon: CircleDashed,
+  iconWrap: "bg-slate-900/65 border-slate-600/60",
+  iconColor: "text-slate-300",
+  badgeClass: "border-slate-600/60 bg-slate-900/55",
+};
+
+function schoolVisualByValue(school: string | null | undefined): SchoolVisual {
+  const key = String(school ?? "").toLowerCase();
+
+  if (key.includes("evocation") || key.includes("втілен")) {
+    return {
+      icon: Flame,
+      iconWrap: "bg-rose-950/55 border-rose-800/50",
+      iconColor: "text-rose-300",
+      badgeClass: "border-rose-800/50 bg-rose-950/40",
+    };
+  }
+  if (key.includes("necromancy") || key.includes("некром")) {
+    return {
+      icon: Skull,
+      iconWrap: "bg-emerald-950/55 border-emerald-800/45",
+      iconColor: "text-emerald-300",
+      badgeClass: "border-emerald-800/45 bg-emerald-950/35",
+    };
+  }
+  if (key.includes("abjuration") || key.includes("огородж") || key.includes("захист")) {
+    return {
+      icon: Shield,
+      iconWrap: "bg-sky-950/55 border-sky-800/45",
+      iconColor: "text-sky-300",
+      badgeClass: "border-sky-800/45 bg-sky-950/35",
+    };
+  }
+  if (key.includes("conjuration") || key.includes("виклик")) {
+    return {
+      icon: WandSparkles,
+      iconWrap: "bg-teal-950/55 border-teal-800/45",
+      iconColor: "text-teal-300",
+      badgeClass: "border-teal-800/45 bg-teal-950/35",
+    };
+  }
+  if (key.includes("divination") || key.includes("віщ") || key.includes("ворож")) {
+    return {
+      icon: Eye,
+      iconWrap: "bg-amber-950/55 border-amber-800/50",
+      iconColor: "text-amber-300",
+      badgeClass: "border-amber-800/50 bg-amber-950/35",
+    };
+  }
+  if (key.includes("enchantment") || key.includes("зачар") || key.includes("причар")) {
+    return {
+      icon: Heart,
+      iconWrap: "bg-pink-950/55 border-pink-800/50",
+      iconColor: "text-pink-300",
+      badgeClass: "border-pink-800/50 bg-pink-950/35",
+    };
+  }
+  if (key.includes("illusion") || key.includes("ілюз")) {
+    return {
+      icon: Ghost,
+      iconWrap: "bg-cyan-950/55 border-cyan-800/45",
+      iconColor: "text-cyan-100",
+      badgeClass: "border-cyan-800/45 bg-cyan-950/35",
+    };
+  }
+  if (key.includes("transmutation") || key.includes("перетвор")) {
+    return {
+      icon: Atom,
+      iconWrap: "bg-purple-950/60 border-purple-800/50",
+      iconColor: "text-purple-300",
+      badgeClass: "border-purple-800/50 bg-purple-950/40",
+    };
+  }
+
+  return DEFAULT_SCHOOL_VISUAL;
+}
+
+function levelShortLabel(level: number): string {
+  return level === 0 ? "Замовляння" : `${level} рівень`;
 }
 
 type PersIndexItem = {
@@ -365,11 +472,13 @@ function SpellDetailPane({ spell }: { spell: SpellListItem }) {
 // Embed mode: simple add button for a specific character
 function EmbedAddButton({
   spellId,
+  spellLevel,
   persId,
   persSpellIds,
   setPersSpellIds,
 }: {
   spellId: number;
+  spellLevel: number;
   persId: number;
   persSpellIds: Set<number>;
   setPersSpellIds: React.Dispatch<React.SetStateAction<Set<number>>>;
@@ -390,7 +499,7 @@ function EmbedAddButton({
         });
         // Notify parent if embedded
         if (window.parent !== window) {
-          window.parent.postMessage({ type: "SPELL_TOGGLED" }, "*");
+          window.parent.postMessage({ type: "SPELL_TOGGLED", persId, spellId, spellLevel, added: res.added }, "*");
         }
       }
     } finally {
@@ -501,7 +610,7 @@ function SpellbookDropdown({
                   );
                   // Notify parent if embedded
                   if (window.parent !== window) {
-                    window.parent.postMessage({ type: "SPELL_TOGGLED" }, "*");
+                    window.parent.postMessage({ type: "SPELL_TOGGLED", persId: p.persId, spellId, added: res.added }, "*");
                   }
                 }}
               >
@@ -877,21 +986,18 @@ export function SpellsClient({
     selection.ritual !== null ||
     selection.conc !== null;
 
-  // Use Next.js router for spell navigation (enables intercepting routes)
-  const router = useRouter();
-
   const isLg = useMediaQuery("(min-width: 1024px)");
   
   const onSelectSpell = (spell: SpellListItem) => {
-    if (isLg) {
-      pushParams((next) => {
-        next.set("spell", String(spell.spellId));
-      });
-      return;
+    pushParams((next) => {
+      next.set("spell", String(spell.spellId));
+    });
+
+    if (typeof window !== "undefined") {
+      window.dispatchEvent(new CustomEvent("spell:open", { detail: { spellId: String(spell.spellId), spell } }));
     }
 
-    // Navigate to /spells/[id] — intercepting route will show modal (mobile)
-    router.push(`/spells/${spell.spellId}`);
+    if (isLg) return;
   };
 
   const baseTitleRef = useRef<string>("");
@@ -936,7 +1042,7 @@ export function SpellsClient({
       {isEmbedMode && (
         <div className="sticky top-0 z-30 border-b border-teal-500/30 bg-teal-500/10 backdrop-blur-xl">
           <div className="mx-auto w-full max-w-6xl px-3 py-2 sm:px-4">
-            <div className="flex items-center justify-between gap-2 text-sm">
+            <div className="flex flex-wrap items-center justify-between gap-2 text-sm">
               <div className="flex items-center gap-2 text-teal-200">
                 <UserPlus className="h-4 w-4" />
                 <span>
@@ -948,6 +1054,8 @@ export function SpellsClient({
               </div>
               <span className="text-xs text-teal-300/60">Натисни + щоб додати</span>
             </div>
+
+            
           </div>
         </div>
       )}
@@ -1010,7 +1118,7 @@ export function SpellsClient({
 
       <div className="mx-auto grid h-[calc(100vh-140px)] w-full max-w-6xl grid-cols-1 gap-4 px-3 py-4 sm:px-4 lg:grid-cols-5">
         <div className="lg:col-span-2 h-full">
-          <div className="custom-scrollbar h-full">
+          <div className="custom-scrollbar relative h-full">
             {finalGrouped.length === 0 ? (
               <div className="glass-panel rounded-2xl border border-white/10 p-4 text-sm text-slate-400">
                 Нічого не знайдено
@@ -1037,33 +1145,59 @@ export function SpellsClient({
 
                   return (
                     <div className="pt-1.5 px-1">
-                      <motion.div
-                        layout
-                        initial={{ opacity: 0, scale: 0.98 }}
-                        animate={{ opacity: 1, scale: active ? 1.005 : 1 }}
-                        whileHover={{ scale: active ? 1.005 : 1.003 }}
-                        transition={{ type: "spring", stiffness: 380, damping: 32, mass: 0.7 }}
+                      <div
                         className={
-                          "glass-panel group relative overflow-hidden rounded-xl border p-2 transition-all duration-300 " +
+                          "glass-panel group relative overflow-hidden rounded-lg border p-3 transition-all duration-300 " +
                           (active
                             ? "border-gradient-rpg border-gradient-rpg-active glass-active bg-white/5 text-white"
-                            : "border-white/10 bg-white/5 text-slate-300 hover:bg-white/7")
+                            : "border-white/10 bg-slate-950/40 text-slate-300 hover:border-white/20 hover:bg-white/5")
                         }
                       >
+                        {(() => {
+                          const schoolVisual = schoolVisualByValue(spell.school);
+                          const SchoolIcon = schoolVisual.icon;
+                          const hasRitual = normalizeFlag(spell.hasRitual);
+
+                          return (
                         <div className="flex items-start justify-between gap-3">
                           <button
                             type="button"
                             className="min-w-0 flex-1 text-left"
                             onClick={() => onSelectSpell(spell)}
                           >
-                            <div className="flex items-baseline gap-2">
-                              <span className="text-base font-bold tabular-nums text-violet-300">{spell.level}</span>
-                              <span className="truncate text-sm font-semibold font-sans text-slate-100">
-                                {spell.name}
-                              </span>
-                            </div>
-                            <div className="mt-1 truncate text-xs text-slate-400">
-                              {schoolLabel(spell.school)} • {spell.castingTime} {flagsLabel(spell) ? "• " : ""}{flagsLabel(spell)}
+                            <div className="flex min-w-0 items-start gap-3">
+                              <div className={`mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-md border ${schoolVisual.iconWrap}`}>
+                                <SchoolIcon className={`h-5 w-5 ${schoolVisual.iconColor}`} />
+                              </div>
+
+                              <div className="min-w-0 flex-1">
+                                <div className="truncate font-serif text-lg leading-tight text-slate-100 transition-colors group-hover:text-white">
+                                  {spell.name}
+                                </div>
+
+                                <div className="mt-1.5 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-slate-400">
+                                  <span className="inline-flex items-center gap-1">
+                                    <Sparkles className="h-3 w-3 text-slate-500" />
+                                    {levelShortLabel(spell.level)}
+                                  </span>
+                                  <span className="inline-flex items-center gap-1">
+                                    <Clock3 className="h-3 w-3 text-slate-500" />
+                                    {spell.castingTime}
+                                  </span>
+
+                                  <span className={`inline-flex items-center rounded-sm border bg-gradient-to-br from-white/10 to-transparent px-1.5 py-[2px] font-mono text-[9px] tracking-wide text-slate-50 ${schoolVisual.badgeClass}`}>
+                                    {schoolLabel(spell.school)}
+                                  </span>
+
+                                  {hasRitual ? (
+                                    <span className="inline-flex items-center rounded-sm border border-amber-800/50 bg-amber-950/40 px-1.5 py-0.5 font-mono text-[10px] tracking-wide text-amber-400">
+                                      <BookOpen className="mr-1 h-3 w-3" />
+                                      РИТУАЛ
+                                    </span>
+                                  ) : null}
+
+                                </div>
+                              </div>
                             </div>
                           </button>
 
@@ -1089,6 +1223,7 @@ export function SpellsClient({
                             {isEmbedMode && embedParams.persId ? (
                               <EmbedAddButton
                                 spellId={spell.spellId}
+                                spellLevel={spell.level}
                                 persId={embedParams.persId}
                                 persSpellIds={persSpellIds}
                                 setPersSpellIds={setPersSpellIds}
@@ -1102,12 +1237,16 @@ export function SpellsClient({
                             )}
                           </div>
                         </div>
-                      </motion.div>
+                          );
+                        })()}
+                      </div>
                     </div>
                   );
                 }}
               />
             )}
+
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-14 bg-gradient-to-t from-slate-950 via-slate-950/70 to-transparent" />
           </div>
         </div>
 

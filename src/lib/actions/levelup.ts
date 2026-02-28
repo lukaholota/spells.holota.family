@@ -372,8 +372,9 @@ export async function levelUpCharacter(persId: number, data: any) {
 
     // ===== 2) Feat + feat choices =====
     const featId = data?.featId ? Number(data.featId) : undefined;
-    const featChoiceSelections = (data?.featChoiceSelections || {}) as Record<string, number>;
+    const featChoiceSelections = (data?.featChoiceSelections || {}) as Record<string, number | number[]>;
     const featChoiceOptionIds = Object.values(featChoiceSelections)
+      .flatMap((v) => (Array.isArray(v) ? v : [v]))
       .map((v) => Number(v))
       .filter((v) => Number.isFinite(v));
 

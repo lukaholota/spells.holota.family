@@ -2,6 +2,33 @@ import { useEffect, useRef } from "react";
 
 const MODAL_HISTORY_STATE_KEY = "__modalBackButtonToken";
 
+type ModalWindow = Window & {
+  __modalBackButtonStack__?: string[];
+};
+
+function getModalStack(): string[] {
+  if (typeof window === "undefined") return [];
+  const w = window as ModalWindow;
+  if (!Array.isArray(w.__modalBackButtonStack__)) w.__modalBackButtonStack__ = [];
+  return w.__modalBackButtonStack__;
+}
+
+function pushModalToken(token: string) {
+  const stack = getModalStack();
+  if (!stack.includes(token)) stack.push(token);
+}
+
+function removeModalToken(token: string) {
+  const stack = getModalStack();
+  const index = stack.lastIndexOf(token);
+  if (index >= 0) stack.splice(index, 1);
+}
+
+function peekModalToken(): string | null {
+  const stack = getModalStack();
+  return stack.length ? stack[stack.length - 1] : null;
+}
+
 export function useModalBackButton(isOpen: boolean, onClose: () => void) {
   const onCloseRef = useRef(onClose);
   const pushedRef = useRef(false);
@@ -28,6 +55,7 @@ export function useModalBackButton(isOpen: boolean, onClose: () => void) {
     if (typeof window === "undefined") return;
 
     const token = getToken();
+    pushModalToken(token);
 
     // React StrictMode runs effects twice in dev. Avoid double push.
     if (!pushedRef.current) {
@@ -36,12 +64,15 @@ export function useModalBackButton(isOpen: boolean, onClose: () => void) {
     }
 
     const handlePopState = () => {
+      if (peekModalToken() !== token) return;
+
       // Close ONLY if we navigated away from this modal's injected entry.
       // This makes nested modals safe: only the top one closes on back.
       const currentToken = (window.history.state as Record<string, unknown> | null)?.[MODAL_HISTORY_STATE_KEY];
       if (currentToken === token) return;
 
       closedByPopRef.current = true;
+      removeModalToken(token);
       onCloseRef.current();
     };
 
@@ -55,9 +86,14 @@ export function useModalBackButton(isOpen: boolean, onClose: () => void) {
   useEffect(() => {
     if (isOpen) return;
     if (typeof window === "undefined") return;
-    if (!pushedRef.current) return;
-
     const token = getToken();
+
+    if (!pushedRef.current) {
+      removeModalToken(token);
+      return;
+    }
+
+    removeModalToken(token);
 
     // If user closed via browser back, we already consumed the history entry.
     if (closedByPopRef.current) {

@@ -49,7 +49,19 @@ export async function canEditPers(persId: number, userId: number) {
 const FOLDER_COLOR_REGEX = /^#(?:[0-9a-fA-F]{3}){1,2}$/;
 
 function normalizeFolderName(name: string) {
-    return name.trim().slice(0, 80);
+    return String(name || "")
+        .normalize("NFKC")
+        .replace(/[\u0000-\u001F\u007F]/g, "")
+        .trim()
+        .slice(0, 80);
+}
+
+function normalizePersName(name: string) {
+    return String(name || "")
+        .normalize("NFKC")
+        .replace(/[\u0000-\u001F\u007F]/g, "")
+        .trim()
+        .slice(0, 60);
 }
 
 function normalizeFolderColor(color: string) {
@@ -195,7 +207,7 @@ export async function renamePers(persId: number, name: string) {
     const userId = await getCurrentUserId();
     if (!userId) return { success: false as const, error: "Не авторизовано" };
 
-    const next = name.trim();
+    const next = normalizePersName(name);
     if (!next) return { success: false as const, error: "Ім'я не може бути порожнім" };
     if (next.length > 60) return { success: false as const, error: "Ім'я занадто довге" };
 

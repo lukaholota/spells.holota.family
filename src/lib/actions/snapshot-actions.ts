@@ -146,6 +146,8 @@ export async function createCharacterSnapshot(persId: number) {
             spellId: ps.spellId,
             learnedAtLevel: ps.learnedAtLevel,
             isPrepared: ps.isPrepared,
+            badgeText: ps.badgeText,
+            badgeColor: ps.badgeColor,
             origin: ps.origin,
             sourceId: ps.sourceId,
             sourceName: ps.sourceName,

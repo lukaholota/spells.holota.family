@@ -1476,6 +1476,7 @@ function SummaryStep({
             {selectedClass && (
               <ClassInfoModal
                 cls={selectedClass}
+                asyncFetchSubclasses={false}
                 trigger={
                   <button className="w-full text-left group">
                     <div className="glass-panel border-gradient-rpg rounded-xl p-4 bg-white/5 border-white/10 group-hover:bg-white/10 transition-all duration-300 group-hover:scale-[1.01] active:scale-[0.99] relative overflow-hidden">

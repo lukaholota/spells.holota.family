@@ -775,6 +775,8 @@ export async function copyPersByToken(token: string) {
             spellId: ps.spellId,
             learnedAtLevel: ps.learnedAtLevel,
             isPrepared: ps.isPrepared,
+            badgeText: ps.badgeText,
+            badgeColor: ps.badgeColor,
             origin: ps.origin,
             sourceId: ps.sourceId,
             sourceName: ps.sourceName,

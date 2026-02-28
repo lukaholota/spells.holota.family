@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState, useTransition } from "react";
 import { CharacterFeatureItem, CharacterFeaturesGroupedResult, PersWithRelations } from "@/lib/actions/pers";
-import { FeatureDisplayType, SpellcastingType } from "@prisma/client";
+import { FeatureDisplayType } from "@prisma/client";
 import { ChevronRight } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { spendFeatureUse, restoreFeatureUse } from "@/lib/actions/feature-uses";
@@ -16,9 +16,10 @@ import {
 import { FormattedDescription } from "@/components/ui/FormattedDescription";
 import { FeatureCard } from "@/lib/components/characterSheet/shared/FeatureCards";
 import { MagicItemInfoModal } from "@/lib/components/levelUp/MagicItemInfoModal";
+import { ClassInfoModal } from "@/lib/components/characterCreator/modals/ClassInfoModal";
+import { SubclassInfoModal } from "@/lib/components/characterCreator/modals/SubclassInfoModal";
 import { toast } from "sonner";
 
-import { Badge } from "@/components/ui/badge";
 import {
   ControlledInfoDialog,
   InfoGrid,
@@ -27,11 +28,9 @@ import {
 } from "@/lib/components/characterCreator/EntityInfoDialog";
 import {
   formatASI,
-  formatAbilityList,
   formatArmorProficiencies,
   formatLanguages,
   formatList,
-  formatMulticlassReqs,
   formatRaceAC,
   formatSkillProficiencies,
   formatSpeeds,
@@ -71,15 +70,7 @@ interface FeaturesSlideProps {
 type CategoryKind = "passive" | "action" | "bonus" | "reaction" | "resource";
 type Category = { title: string; items: CharacterFeatureItem[]; kind: CategoryKind };
 
-type EntityDialogKind = "race" | "raceVariant" | "subrace" | "class" | "subclass" | "background";
-
-const SPELLCASTING_LABELS: Record<SpellcastingType, string> = {
-  NONE: "Без чаклунства",
-  FULL: "Повний кастер",
-  HALF: "Половинний кастер",
-  THIRD: "Третинний кастер",
-  PACT: "Магія пакту",
-};
+type EntityDialogKind = "race" | "raceVariant" | "subrace" | "background";
 
 // safeText removed - no longer used
 
@@ -581,175 +572,6 @@ export default function FeaturesSlide({ pers, groupedFeatures, isReadOnly }: Fea
       };
     }
 
-    if (entityKind === "class") {
-      const entry = classEntries[entityVariantIndex] ?? classEntries[0];
-      const cls = (entry?.cls ?? pers.class) as any;
-      const rawFeatures = (cls.features || []) as any[];
-      
-      // Dedup by featureId
-      const seenFids = new Set<number>();
-      const deduped = rawFeatures.filter(f => {
-        const fid = f.feature?.featureId;
-        if (!fid || seenFids.has(fid)) return false;
-        seenFids.add(fid);
-        return true;
-      });
-
-      const features = [...deduped].sort((a, b) => {
-        const lvlA = a.levelUnlock ?? a.levelGranted ?? 0;
-        const lvlB = b.levelUnlock ?? b.levelGranted ?? 0;
-        if (lvlA !== lvlB) return lvlA - lvlB;
-        return (a.classFeatureId || 0) - (b.classFeatureId || 0);
-      });
-
-      const title = classTranslations[cls.name as keyof typeof classTranslations] || cls.name;
-
-      return {
-        title,
-        subtitle: undefined,
-        content: (
-          <>
-            <InfoGrid>
-              <InfoPill label="Кістка хітів" value={`d${cls.hitDie}`} />
-              <InfoPill label="Чаклунство" value={SPELLCASTING_LABELS[cls.spellcastingType as SpellcastingType] ?? "—"} />
-              <InfoPill label="Підклас з рівня" value={`Рівень ${cls.subclassLevel}`} />
-              <InfoPill label="Рятунки" value={formatAbilityList(cls.savingThrows)} />
-              <InfoPill label="Навички" value={formatSkillProficiencies(cls.skillProficiencies)} />
-              <InfoPill label="Інструменти" value={formatToolProficiencies(cls.toolProficiencies, cls.toolToChooseCount)} />
-              <InfoPill
-                label="Зброя"
-                value={formatWeaponProficiencies(
-                  cls.weaponProficiencies,
-                  cls.weaponProficienciesSpecial
-                )}
-              />
-              <InfoPill label="Броня" value={formatArmorProficiencies(cls.armorProficiencies)} />
-              <InfoPill label="Мови" value={formatLanguages(cls.languages, cls.languagesToChooseCount)} />
-              <InfoPill label="Мультиклас" value={formatMulticlassReqs(cls.multiclassReqs)} />
-              {cls.primaryCastingStat ? (
-                <InfoPill label="Ключова характеристика" value={translateValue(cls.primaryCastingStat)} />
-              ) : null}
-            </InfoGrid>
-
-            <div className="space-y-2">
-              <InfoSectionTitle>Особливості</InfoSectionTitle>
-              {features.length ? (
-                features.map((feature) => (
-                  <div
-                    key={feature.classFeatureId || feature.feature?.featureId}
-                    className="rounded-lg border border-slate-800/80 bg-slate-900/60 px-3 py-2.5 shadow-inner"
-                  >
-                    <div className="mb-1 flex items-center justify-between gap-2">
-                      <p className="text-sm font-semibold text-white">{feature.feature?.name}</p>
-                      <Badge
-                        variant="outline"
-                        className="border-slate-700 bg-slate-800/70 text-[11px] text-slate-200"
-                      >
-                        Рів. {feature.levelGranted}
-                      </Badge>
-                    </div>
-                    {feature.feature?.description ? (
-                      <div className="mt-1">
-                        <FormattedDescription content={feature.feature.description} className="text-slate-200/90" />
-                      </div>
-                    ) : null}
-                  </div>
-                ))
-              ) : (
-                <p className="text-sm text-slate-400">Наразі немає описаних умінь.</p>
-              )}
-            </div>
-          </>
-        ),
-      };
-    }
-
-    if (entityKind === "subclass") {
-      const entry = subclassEntries[entityVariantIndex] ?? subclassEntries[0];
-
-      if (!entry?.subclass) {
-        return {
-          title: "Підклас",
-          subtitle: undefined,
-          content: <div className="text-sm text-slate-400">Підклас не обраний.</div>,
-        };
-      }
-
-      const subcls = entry.subclass as any;
-      const rawFeatures = (subcls.features || []) as any[];
-      
-      // Dedup by featureId
-      const seenFids = new Set<number>();
-      const deduped = rawFeatures.filter(f => {
-        const fid = f.feature?.featureId;
-        if (!fid || seenFids.has(fid)) return false;
-        seenFids.add(fid);
-        return true;
-      });
-
-      const featureList = [...deduped].sort((a, b) => {
-        const lvlA = a.levelUnlock ?? a.levelGranted ?? 0;
-        const lvlB = b.levelUnlock ?? b.levelGranted ?? 0;
-        if (lvlA !== lvlB) return lvlA - lvlB;
-        return (a.subclassFeatureId || 0) - (b.subclassFeatureId || 0);
-      });
-
-      const title =
-        subclassTranslations[subcls.name as keyof typeof subclassTranslations] ||
-        subcls.name ||
-        "Підклас";
-
-      return {
-        title,
-        subtitle: undefined,
-        content: (
-          <>
-            <InfoGrid>
-              <InfoPill label="Джерело" value={sourceTranslations[subcls.source] ?? subcls.source} />
-              <InfoPill label="Основна характеристика" value={translateValue(subcls.primaryCastingStat)} />
-              <InfoPill label="Тип заклинань" value={translateValue(subcls.spellcastingType)} />
-              <InfoPill label="Мови" value={formatLanguages(subcls.languages, subcls.languagesToChooseCount)} />
-              <InfoPill label="Інструменти" value={formatToolProficiencies(subcls.toolProficiencies, subcls.toolToChooseCount)} />
-              <div className="col-span-full">
-                {subcls.description ? (
-                  <FormattedDescription content={subcls.description} className="text-slate-200/90" />
-                ) : null}
-              </div>
-            </InfoGrid>
-
-            <div className="space-y-2">
-              <InfoSectionTitle>Риси підкласу</InfoSectionTitle>
-              {featureList.length ? (
-                featureList.map((f) => (
-                  <div
-                    key={f.subclassFeatureId || f.feature?.featureId}
-                    className="rounded-lg border border-slate-800/80 bg-slate-900/60 px-3 py-2.5 shadow-inner"
-                  >
-                    <div className="flex items-center justify-between mb-1">
-                      <p className="text-sm font-semibold text-white">{f.feature?.name}</p>
-                      <Badge variant="outline" className="text-[10px] border-slate-700 text-slate-400">
-                        {(() => {
-                          const lvl = (f as any).levelUnlock ?? (f as any).levelGranted;
-                          return `Рів. ${lvl ?? "—"}`;
-                        })()}
-                      </Badge>
-                    </div>
-                    {f.feature?.description ? (
-                      <div className="mt-1">
-                        <FormattedDescription content={f.feature.description} className="text-slate-200/90" />
-                      </div>
-                    ) : null}
-                  </div>
-                ))
-              ) : (
-                <p className="text-sm text-slate-400">Для цього підкласу ще немає опису рис.</p>
-              )}
-            </div>
-          </>
-        ),
-      };
-    }
-
     const background = pers.background as any;
     const items = parseItems(background.items);
     const resolvedSource = background.source ? translateValue(background.source) : "—";
@@ -795,7 +617,7 @@ export default function FeaturesSlide({ pers, groupedFeatures, isReadOnly }: Fea
         </>
       ),
     };
-  }, [backgroundName, classEntries, entityKind, entityVariantIndex, pers, raceName, subclassEntries, subraceName]);
+  }, [backgroundName, entityKind, entityVariantIndex, pers, raceName, subraceName]);
 
   return (
     <div className="flex h-full min-h-0 flex-col">
@@ -844,38 +666,34 @@ export default function FeaturesSlide({ pers, groupedFeatures, isReadOnly }: Fea
           </button>
         ) : null}
 
-        <button
-          type="button"
-          onClick={() => openEntity("class")}
-          disabled={isReadOnly}
-          className="hidden"
-        >
-          <div />
-        </button>
-
-        {classEntries.map((entry, idx) => {
+        {classEntries.map((entry) => {
           const name =
             classTranslations[entry.cls?.name as keyof typeof classTranslations] ||
             entry.cls?.name ||
             "Клас";
 
           return (
-            <button
+            <ClassInfoModal
               key={entry.key}
-              type="button"
-              onClick={() => openEntity("class", idx)}
-                className="rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition px-1.5 py-1 text-center flex flex-col items-center justify-center min-h-[3rem] h-auto"
-            >
+              cls={entry.cls}
+              asyncFetchSubclasses={true}
+              trigger={
+                <button
+                  type="button"
+                  className="w-full rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition px-1.5 py-1 text-center flex flex-col items-center justify-center min-h-[3rem] h-auto"
+                >
                   <div className="text-[8px] uppercase tracking-[0.1em] text-slate-400 leading-none mb-0.5">
-                {entry.kind === "main" ? "Клас" : "Мультиклас"}
-              </div>
+                    {entry.kind === "main" ? "Клас" : "Мультиклас"}
+                  </div>
                   <div className="text-[12px] font-semibold text-slate-50 leading-tight whitespace-normal break-words w-full">{name}</div>
                   <div className="text-[9px] text-slate-300/70 leading-none mt-0.5">Рівень {entry.classLevel}</div>
-            </button>
+                </button>
+              }
+            />
           );
         })}
 
-        {subclassEntries.map((entry, idx) => {
+        {subclassEntries.map((entry) => {
           const clsName =
             classTranslations[entry.cls?.name as keyof typeof classTranslations] ||
             entry.cls?.name ||
@@ -886,18 +704,22 @@ export default function FeaturesSlide({ pers, groupedFeatures, isReadOnly }: Fea
             "Підклас";
 
           return (
-            <button
+            <SubclassInfoModal
               key={entry.key}
-              type="button"
-              onClick={() => openEntity("subclass", idx)}
-              className="rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition px-1.5 py-1 text-center flex flex-col items-center justify-center min-h-[3rem] h-auto"
-            >
-                <div className="text-[8px] uppercase tracking-[0.1em] text-slate-400 leading-none mb-0.5">
-                {entry.kind === "main" ? "Підклас" : "Підклас (м)"}
-              </div>
-                <div className="text-[12px] font-semibold text-slate-50 leading-tight whitespace-normal break-words w-full">{scName}</div>
-                <div className="text-[9px] text-slate-300/70  leading-none mt-0.5">{clsName}</div>
-            </button>
+              subclass={entry.subclass}
+              trigger={
+                <button
+                  type="button"
+                  className="w-full rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition px-1.5 py-1 text-center flex flex-col items-center justify-center min-h-[3rem] h-auto"
+                >
+                  <div className="text-[8px] uppercase tracking-[0.1em] text-slate-400 leading-none mb-0.5">
+                    {entry.kind === "main" ? "Підклас" : "Підклас (м)"}
+                  </div>
+                  <div className="text-[12px] font-semibold text-slate-50 leading-tight whitespace-normal break-words w-full">{scName}</div>
+                  <div className="text-[9px] text-slate-300/70  leading-none mt-0.5">{clsName}</div>
+                </button>
+              }
+            />
           );
         })}
 

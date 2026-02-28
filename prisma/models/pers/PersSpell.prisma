@@ -9,7 +9,9 @@ model PersSpell {
   notes          String?
   createdAt      DateTime    @default(now()) @map("created_at")
   updatedAt      DateTime    @updatedAt @map("updated_at")
-  isPrepared     Boolean     @default(false) @map("is_prepared")
+  isPrepared     Boolean     @default(true) @map("is_prepared")
+  badgeText      String?     @map("badge_text")
+  badgeColor     String?     @map("badge_color")
   pers           Pers        @relation(fields: [persId], references: [persId], onDelete: Cascade)
   spell          Spell       @relation(fields: [spellId], references: [spellId], onDelete: Cascade)
 

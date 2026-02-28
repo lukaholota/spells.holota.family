@@ -15,6 +15,40 @@ export interface PrerequisiteResult {
   reasons?: string[];
 }
 
+const abilityNames: Record<string, string> = {
+  STR: 'Сила',
+  DEX: 'Спритність',
+  CON: 'Статура',
+  INT: 'Інтелект',
+  WIS: 'Мудрість',
+  CHA: 'Харизма',
+};
+
+const abilityKeys = new Set<Ability>(['STR', 'DEX', 'CON', 'INT', 'WIS', 'CHA']);
+
+function parseAbilityRequirements(input: unknown): {
+  requirements: Array<{ ability: Ability; minScore: number }>;
+  useOr: boolean;
+} {
+  if (!input || typeof input !== 'object') {
+    return { requirements: [], useOr: false };
+  }
+
+  const raw = input as Record<string, unknown>;
+  const useOr = raw.or === true || raw.OR === true;
+  const requirements: Array<{ ability: Ability; minScore: number }> = [];
+
+  for (const [key, value] of Object.entries(raw)) {
+    const ability = key as Ability;
+    if (!abilityKeys.has(ability)) continue;
+    const minScore = Number(value);
+    if (!Number.isFinite(minScore)) continue;
+    requirements.push({ ability, minScore });
+  }
+
+  return { requirements, useOr };
+}
+
 export function checkPrerequisite(
   prereq: any,
   charData: {
@@ -57,13 +91,25 @@ export function checkPrerequisite(
 
   // 3. Ability Score Check
   if (prereq.abilityScore && charData.stats) {
-    for (const [ability, minScore] of Object.entries(prereq.abilityScore)) {
-      if ((charData.stats[ability as Ability] || 0) < (minScore as number)) {
-        const abilityNames: Record<string, string> = {
-          STR: 'Сила', DEX: 'Спритність', CON: 'Статура',
-          INT: 'Інтелект', WIS: 'Мудрість', CHA: 'Харизма'
-        };
-        failedReasons.push(`Потрібен показник ${abilityNames[ability] || ability} не менше ${minScore}`);
+    const { requirements, useOr } = parseAbilityRequirements(prereq.abilityScore);
+
+    if (requirements.length > 0) {
+      if (useOr) {
+        const metAtLeastOne = requirements.some(
+          ({ ability, minScore }) => (charData.stats?.[ability] || 0) >= minScore
+        );
+        if (!metAtLeastOne) {
+          const label = requirements
+            .map(({ ability, minScore }) => `${abilityNames[ability] || ability} ${minScore}`)
+            .join(' або ');
+          failedReasons.push(`Потрібен показник: ${label}`);
+        }
+      } else {
+        for (const { ability, minScore } of requirements) {
+          if ((charData.stats[ability] || 0) < minScore) {
+            failedReasons.push(`Потрібен показник ${abilityNames[ability] || ability} не менше ${minScore}`);
+          }
+        }
       }
     }
   }
@@ -129,17 +175,32 @@ export function checkFeatPrerequisites(
     const scores = typeof feat.prerequisiteAbilityScore === 'string' 
       ? JSON.parse(feat.prerequisiteAbilityScore) 
       : feat.prerequisiteAbilityScore;
-    
-    for (const [ability, minScore] of Object.entries(scores)) {
-      if ((charData.stats[ability as Ability] || 0) < (minScore as number)) {
-        const abilityNames: Record<string, string> = {
-          STR: 'Сила', DEX: 'Спритність', CON: 'Статура',
-          INT: 'Інтелект', WIS: 'Мудрість', CHA: 'Харизма'
-        };
-        return {
-          met: false,
-          reason: `Потрібен показник ${abilityNames[ability] || ability} не менше ${minScore}`
-        };
+
+    const { requirements, useOr } = parseAbilityRequirements(scores);
+
+    if (requirements.length > 0) {
+      if (useOr) {
+        const metAtLeastOne = requirements.some(
+          ({ ability, minScore }) => (charData.stats[ability] || 0) >= minScore
+        );
+
+        if (!metAtLeastOne) {
+          return {
+            met: false,
+            reason: `Потрібен показник: ${requirements
+              .map(({ ability, minScore }) => `${abilityNames[ability] || ability} ${minScore}`)
+              .join(' або ')}`
+          };
+        }
+      } else {
+        for (const { ability, minScore } of requirements) {
+          if ((charData.stats[ability] || 0) < minScore) {
+            return {
+              met: false,
+              reason: `Потрібен показник ${abilityNames[ability] || ability} не менше ${minScore}`
+            };
+          }
+        }
       }
     }
   }

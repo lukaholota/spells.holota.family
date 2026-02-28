@@ -549,7 +549,7 @@ export const NameForm = ({
               <RaceVariantInfoModal variant={raceVariant} trigger={<SummaryCard label="Варіант раси" value={raceVariantName} hasModal />} />
             )}
             {selectedClass && (
-              <ClassInfoModal cls={selectedClass} trigger={<SummaryCard label="Клас" value={className} hasModal />} />
+              <ClassInfoModal cls={selectedClass} asyncFetchSubclasses={false} trigger={<SummaryCard label="Клас" value={className} hasModal />} />
             )}
             {subclass && (
               <SubclassInfoModal subclass={subclass} trigger={<SummaryCard label="Підклас" value={subclassName} hasModal />} />

@@ -47,3 +47,5 @@ next-env.d.ts
 .venv
 repomix-output.xml
 src/lib/generated/spells.json
+
+/spell-list

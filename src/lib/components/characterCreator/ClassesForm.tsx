@@ -116,7 +116,7 @@ export const ClassesForm = (
               }}
             >
                 <CardContent className="relative flex items-center justify-between p-4">
-                  <ClassInfoModal cls={c} />
+                  <ClassInfoModal cls={c} asyncFetchSubclasses={false} />
                   <div>
                   <div className="text-lg font-semibold text-white">{classTranslations[c.name]}</div>
                   <div className="text-xs text-slate-400">{classTranslationsEng[c.name]}</div>

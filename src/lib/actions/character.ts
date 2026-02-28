@@ -290,7 +290,9 @@ export async function createCharacter(data: PersFormData) {
     addBonuses(scores, getPlainBonuses(feat.grantedASI));
     addBonuses(scores, getSimpleBonuses(feat.grantedASI));
 
-    const entries = Object.values(validData.featChoiceSelections ?? {});
+    const entries = Object.values(validData.featChoiceSelections ?? {}).flatMap((value) =>
+      Array.isArray(value) ? value : [value]
+    );
     for (const choiceOptionId of entries) {
       const option = feat.featChoiceOptions?.find((fco) => fco.choiceOptionId === Number(choiceOptionId));
       const co: any = option?.choiceOption;
@@ -342,7 +344,9 @@ export async function createCharacter(data: PersFormData) {
     addBonuses(scores, getPlainBonuses(backgroundFeat.grantedASI));
     addBonuses(scores, getSimpleBonuses(backgroundFeat.grantedASI));
 
-    const entries = Object.values(validData.backgroundFeatChoiceSelections ?? {});
+    const entries = Object.values(validData.backgroundFeatChoiceSelections ?? {}).flatMap((value) =>
+      Array.isArray(value) ? value : [value]
+    );
     for (const choiceOptionId of entries) {
       const option = backgroundFeat.featChoiceOptions?.find((fco) => fco.choiceOptionId === Number(choiceOptionId));
       const co: any = option?.choiceOption;

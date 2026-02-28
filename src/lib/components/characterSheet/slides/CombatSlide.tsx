@@ -23,7 +23,7 @@ import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 import { calculateWeaponAttackBonus, calculateWeaponDamageBonus } from "@/lib/logic/bonus-calculator";
-import { Trash2, Sparkles, Zap } from "lucide-react";
+import { Trash2, Sparkles, Zap, Dices } from "lucide-react";
 import { useRouter } from "next/navigation";
 import AddMagicItemDialog from "../AddMagicItemDialog";
 import { updateMagicItem, deleteMagicItem } from "@/lib/actions/magic-item-actions";
@@ -31,6 +31,7 @@ import { MagicItemInfoModal } from "@/lib/components/levelUp/MagicItemInfoModal"
 import { magicItemTypeTranslations, itemRarityTranslations } from "@/lib/refs/translation";
 import { Ability, AbilityBonusType } from "@prisma/client";
 import { calculateFinalModifier } from "@/lib/logic/bonus-calculator";
+import { useDiceUIStore } from "@/lib/stores/diceUIStore";
 
 
 function MagicItemRow({ 
@@ -134,6 +135,7 @@ type CombatSlideProps = {
 
 export default function CombatSlide({ pers, onPersUpdate: _onPersUpdate, isReadOnly }: CombatSlideProps) {
 // Redundant stats removed
+  const { openWeapon } = useDiceUIStore();
 
   const [selectedWeapon, setSelectedWeapon] = useState<PersWeaponWithWeapon | null>(null);
   const [selectedArmor, setSelectedArmor] = useState<PersArmorWithArmor | null>(null);
@@ -264,6 +266,35 @@ export default function CombatSlide({ pers, onPersUpdate: _onPersUpdate, isReadO
 
   const getDamageBonus = (pw: PersWeaponWithWeapon) => calculateWeaponDamageBonus(pers, pw);
 
+  const getDamageDiceNotation = (pw: PersWeaponWithWeapon): string => {
+    const raw = String((pw.customDamageDice || pw.weapon?.damage || "1d4")).toLowerCase();
+    const normalized = raw
+      .replace(/[×х]/g, "x")
+      .replace(/к/g, "d")
+      .replace(/k/g, "d")
+      .replace(/\s+/g, "");
+    const match = normalized.match(/(\d*)d(\d+)/);
+    if (!match) return "1d4";
+    const count = Math.max(1, Math.trunc(Number(match[1] || "1")));
+    const sides = Math.max(2, Math.trunc(Number(match[2] || "4")));
+    return `${count}d${sides}`;
+  };
+
+  const triggerWeaponRollMode = (pw: PersWeaponWithWeapon) => {
+    const weaponName =
+      pw.overrideName ||
+      (weaponTranslations[pw.weapon?.name as keyof typeof weaponTranslations] || pw.weapon?.name) ||
+      "Зброя";
+
+    openWeapon({
+      persWeaponId: pw.persWeaponId,
+      weaponName,
+      attackBonus: getAttackBonus(pw),
+      damageBonus: getDamageBonus(pw),
+      damageDice: getDamageDiceNotation(pw),
+    });
+  };
+
   const getDisplayedArmorBaseAC = (pa: PersArmorWithArmor): number => {
     const armorBase = pa.overrideBaseAC ?? pa.armor?.baseAC ?? 10;
     const misc = pa.miscACBonus ?? 0;
@@ -382,6 +413,23 @@ export default function CombatSlide({ pers, onPersUpdate: _onPersUpdate, isReadO
                 </div>
 
                 <div className="flex items-center gap-3 sm:gap-4 ml-2">
+                  {!isReadOnly && (
+                    <div className="flex items-center gap-1.5">
+                      <Button
+                        variant="ghost"
+                        size="icon"
+                        className="h-8 w-8 text-amber-300 hover:bg-amber-500/15 hover:text-amber-200"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          triggerWeaponRollMode(pw);
+                        }}
+                        title="Кинути кубики зброї"
+                      >
+                        <Dices className="h-4 w-4" />
+                      </Button>
+                    </div>
+                  )}
+
                   <div className="text-center">
                     <div className="text-xl font-black text-slate-50 leading-none">{formatModifier(getAttackBonus(pw))}</div>
                     <div className="text-[9px] uppercase font-bold text-slate-500 mt-0.5">влучання</div>

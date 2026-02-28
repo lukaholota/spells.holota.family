@@ -6,7 +6,7 @@ import type DiceBox from "@3d-dice/dice-box";
 type RollResult = {
   notation: string;
   total: number;
-  rolls: Array<{ sides: number; value: number }>;
+  rolls: Array<{ sides: number; value: number; rollId?: number | string }>;
 };
 
 type RollCallback = (result: RollResult) => void;
@@ -60,14 +60,14 @@ class DiceService {
         if (this.onRollCompleteCallback && Array.isArray(results)) {
           // Parse results from dice-box format
           let total = 0;
-          const rolls: Array<{ sides: number; value: number }> = [];
+          const rolls: Array<{ sides: number; value: number; rollId?: number | string }> = [];
 
           for (const group of results) {
             if (group && typeof group === "object" && "rolls" in group) {
-              const groupRolls = (group as { rolls: Array<{ sides: number; value: number }> }).rolls;
+              const groupRolls = (group as { rolls: Array<{ sides: number; value: number; rollId?: number | string }> }).rolls;
               for (const roll of groupRolls) {
                 total += roll.value;
-                rolls.push({ sides: roll.sides, value: roll.value });
+                rolls.push({ sides: roll.sides, value: roll.value, rollId: roll.rollId });
               }
             }
           }
@@ -88,7 +88,7 @@ class DiceService {
     }
   }
 
-  async roll(count: number, sides: number): Promise<void> {
+  async roll(count: number, sides: number, options?: { append?: boolean }): Promise<void> {
     if (!this.box) {
       console.warn("DiceBox not initialized");
       return;
@@ -97,9 +97,54 @@ class DiceService {
     const notation = `${count}d${sides}`;
     try {
       // Use newStartPoint: true to get random spawn points along box edges
-      await this.box.roll(notation, { newStartPoint: true });
+      if (options?.append) {
+        await (this.box as any).add(notation, { newStartPoint: true });
+      } else {
+        await this.box.roll(notation, { newStartPoint: true });
+      }
     } catch (error) {
       console.error("Roll failed:", error);
+    }
+  }
+
+  async rollMany(notations: string[]): Promise<void> {
+    if (!this.box) {
+      console.warn("DiceBox not initialized");
+      return;
+    }
+
+    const clean = notations
+      .map((n) => String(n || "").trim())
+      .filter((n) => /^\d+d\d+$/i.test(n));
+
+    if (!clean.length) return;
+
+    try {
+      await this.box.roll(clean as any, { newStartPoint: true });
+    } catch (error) {
+      console.error("Roll many failed:", error);
+    }
+  }
+
+  setVisualPreset(preset: "general" | "weapon"): void {
+    if (!this.box) return;
+
+    const scale = preset === "weapon" ? 8 : 6;
+
+    try {
+      (this.box as any).updateConfig?.({ scale });
+    } catch (error) {
+      console.warn("Failed to update dice visual preset:", error);
+    }
+  }
+
+  async removeByRollId(rollId: number | string): Promise<void> {
+    if (!this.box) return;
+
+    try {
+      await (this.box as any).remove([{ rollId }], { hide: false });
+    } catch (error) {
+      console.error("Remove die failed:", error);
     }
   }
 

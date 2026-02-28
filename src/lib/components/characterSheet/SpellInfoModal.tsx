@@ -36,7 +36,7 @@ function clearSpellParamInUrl() {
   if (typeof window === "undefined") return;
   const url = new URL(window.location.href);
   url.searchParams.delete("spell");
-  window.history.pushState({}, "", url);
+  window.history.replaceState({}, "", url);
   dispatchLocationChangeAsync();
 }
 
@@ -90,7 +90,7 @@ type PersIndexItem = {
   spellIds: number[];
 };
 
-function AddToPersDropdown({ spellId }: { spellId: number }) {
+function AddToPersDropdown({ spellId, spellLevel }: { spellId: number; spellLevel?: number }) {
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
   const [persIndex, setPersIndex] = useState<PersIndexItem[] | null>(null);
@@ -162,7 +162,7 @@ function AddToPersDropdown({ spellId }: { spellId: number }) {
                   );
                   // Notify parent if embedded
                   if (window.parent !== window) {
-                    window.parent.postMessage({ type: "SPELL_TOGGLED" }, "*");
+                    window.parent.postMessage({ type: "SPELL_TOGGLED", persId: p.persId, spellId, spellLevel, added: res.added }, "*");
                   }
                 }}
               >
@@ -177,7 +177,7 @@ function AddToPersDropdown({ spellId }: { spellId: number }) {
   );
 }
 
-function AddToSinglePersButton({ spellId, persId }: { spellId: number; persId: number }) {
+function AddToSinglePersButton({ spellId, persId, spellLevel }: { spellId: number; persId: number; spellLevel?: number }) {
   const [loading, setLoading] = useState(false);
   const [has, setHas] = useState<boolean | null>(null);
 
@@ -203,7 +203,7 @@ function AddToSinglePersButton({ spellId, persId }: { spellId: number; persId: n
       if (res.success) {
         setHas(res.added);
         if (window.parent !== window) {
-          window.parent.postMessage({ type: "SPELL_TOGGLED" }, "*");
+          window.parent.postMessage({ type: "SPELL_TOGGLED", persId, spellId, spellLevel, added: res.added }, "*");
         }
       }
     } finally {
@@ -374,7 +374,6 @@ export function SpellInfoModal() {
 
   return (
     <Dialog
-      enableBackButtonClose={false}
       open={open}
       onOpenChange={(nextOpen) => {
         if (!nextOpen) onClose();
@@ -390,8 +389,8 @@ export function SpellInfoModal() {
             </DialogTitle>
             {spell && (
               isIdValid 
-                ? <AddToSinglePersButton spellId={spell.spellId} persId={currentPersId as number} />
-                : <AddToPersDropdown spellId={spell.spellId} />
+                ? <AddToSinglePersButton spellId={spell.spellId} persId={currentPersId as number} spellLevel={spell.level} />
+                : <AddToPersDropdown spellId={spell.spellId} spellLevel={spell.level} />
             )}
           </div>
 

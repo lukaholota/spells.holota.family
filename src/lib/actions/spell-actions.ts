@@ -6,6 +6,37 @@ import { SpellOrigin } from '@prisma/client';
 import { revalidatePath } from 'next/cache';
 import { canEditPers } from "@/lib/actions/pers";
 
+const SPELL_BADGE_COLORS = new Set([
+  "#38bdf8",
+  "#34d399",
+  "#fbbf24",
+  "#fb7185",
+  "#a78bfa",
+  "#94a3b8",
+  "#a3e635",
+  "#2dd4bf",
+]);
+
+const normalizeSpellBadgeColor = (value?: string | null): string | null => {
+  const raw = String(value || "").trim().toLowerCase();
+  if (!raw) return null;
+  return SPELL_BADGE_COLORS.has(raw) ? raw : null;
+};
+
+const normalizeSpellBadgeText = (value?: string | null): string | null => {
+  const text = String(value || "")
+    .normalize("NFKC")
+    .replace(/[\u0000-\u001F\u007F]/g, "")
+    .trim();
+  if (!text) return null;
+  return text.slice(0, 24);
+};
+
+const revalidatePersSpellViews = (persId: number) => {
+  revalidatePath(`/char/${persId}`);
+  revalidatePath(`/character/${persId}`);
+};
+
 /**
  * Strict: Learn spells during Level-Up
  * Використовується системою Level-Up для збереження обраних заклинань.
@@ -32,10 +63,13 @@ export async function learnClassSpells({
             spellId,
             learnedAtLevel: level,
             origin: SpellOrigin.CLASS,
+            isPrepared: true,
           },
         })
       )
     );
+
+    revalidatePersSpellViews(persId);
     
     return { success: true };
   } catch (error) {
@@ -66,11 +100,12 @@ export async function addManualSpell({
         spellId,
         learnedAtLevel: 0, // Manual doesn't really have a level requirement
         origin: SpellOrigin.MANUAL,
+        isPrepared: true,
         notes,
       },
     });
 
-    revalidatePath(`/character/${persId}`);
+    revalidatePersSpellViews(persId);
     return { success: true };
   } catch (error) {
     console.error('Failed to add manual spell:', error);
@@ -167,15 +202,25 @@ export async function toggleSpellForPers({
         spellId,
       },
     },
-    select: { persSpellId: true },
+    select: { persSpellId: true, isPrepared: true },
   });
 
   if (existing) {
+    if (!existing.isPrepared) {
+      await prisma.persSpell.update({
+        where: { persSpellId: existing.persSpellId },
+        data: { isPrepared: true },
+      });
+
+      revalidatePersSpellViews(persId);
+      return { success: true, added: true };
+    }
+
     await prisma.persSpell.delete({
       where: { persSpellId: existing.persSpellId },
     });
 
-    revalidatePath(`/char/${persId}`);
+    revalidatePersSpellViews(persId);
     return { success: true, added: false };
   }
 
@@ -185,10 +230,11 @@ export async function toggleSpellForPers({
       spellId,
       learnedAtLevel: 0,
       origin: SpellOrigin.MANUAL,
+      isPrepared: true,
     },
   });
 
-  revalidatePath(`/char/${persId}`);
+  revalidatePersSpellViews(persId);
   return { success: true, added: true };
 }
 
@@ -218,7 +264,7 @@ export async function removeSpellFromPers({
     where: { persId, spellId },
   });
 
-  revalidatePath(`/char/${persId}`);
+  revalidatePersSpellViews(persId);
   return { success: true };
 }
 
@@ -258,8 +304,112 @@ export async function setSpellPrepared({
     select: { isPrepared: true },
   });
 
-  revalidatePath(`/character/${persId}`);
+  revalidatePersSpellViews(persId);
   return { success: true, isPrepared: updated.isPrepared };
+}
+
+export async function setPreparedSpellsForPers({
+  persId,
+  spellIds,
+}: {
+  persId: number;
+  spellIds: number[];
+}): Promise<{ success: true } | { success: false; error: string }> {
+  const session = await auth();
+  if (!session?.user?.email) return { success: false, error: "Не авторизовано" };
+
+  const user = await prisma.user.findUnique({
+    where: { email: session.user.email },
+    select: { id: true },
+  });
+  if (!user) return { success: false, error: "Користувача не знайдено" };
+
+  const canEdit = await canEditPers(persId, user.id);
+  if (!canEdit) {
+    return { success: false, error: "Немає доступу до персонажа" };
+  }
+
+  const selected = Array.from(
+    new Set(
+      (Array.isArray(spellIds) ? spellIds : [])
+        .map((id) => Number(id))
+        .filter((id) => Number.isFinite(id) && id > 0)
+    )
+  );
+
+  await prisma.$transaction(async (tx) => {
+    await tx.persSpell.updateMany({
+      where: { persId },
+      data: { isPrepared: false },
+    });
+
+    if (selected.length > 0) {
+      await tx.persSpell.updateMany({
+        where: {
+          persId,
+          spellId: { in: selected },
+        },
+        data: { isPrepared: true },
+      });
+    }
+  });
+
+  revalidatePersSpellViews(persId);
+  return { success: true };
+}
+
+export async function updateSpellBadgeForPers({
+  persId,
+  spellId,
+  badgeText,
+  badgeColor,
+}: {
+  persId: number;
+  spellId: number;
+  badgeText?: string | null;
+  badgeColor?: string | null;
+}): Promise<{ success: true; badgeText: string | null; badgeColor: string | null } | { success: false; error: string }> {
+  const session = await auth();
+  if (!session?.user?.email) return { success: false, error: "Не авторизовано" };
+
+  const user = await prisma.user.findUnique({
+    where: { email: session.user.email },
+    select: { id: true },
+  });
+  if (!user) return { success: false, error: "Користувача не знайдено" };
+
+  const canEdit = await canEditPers(persId, user.id);
+  if (!canEdit) {
+    return { success: false, error: "Немає доступу до персонажа" };
+  }
+
+  const nextText = normalizeSpellBadgeText(badgeText);
+  const nextColor = normalizeSpellBadgeColor(badgeColor);
+
+  const updated = await prisma.persSpell.update({
+    where: {
+      persId_spellId: {
+        persId,
+        spellId,
+      },
+    },
+    data: {
+      badgeText: nextText,
+      badgeColor: nextText ? nextColor : null,
+    },
+    select: {
+      badgeText: true,
+      badgeColor: true,
+    },
+  });
+
+  revalidatePersSpellViews(persId);
+
+  return {
+    success: true,
+    badgeText: updated.badgeText,
+    badgeColor: updated.badgeColor,
+  };
 }
 
 export async function getSpellsList() {
