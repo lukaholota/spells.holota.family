@@ -104,8 +104,8 @@ function extractFlexibleGroups(asi: unknown, mode: "basic" | "tasha") {
   return Array.isArray(groups) ? (groups as any[]) : [];
 }
 
-function subraceTashaGroups(additionalASI: unknown) {
-  const bonuses = getPlainBonuses(additionalASI);
+function plainAsiChoiceGroups(asi: unknown) {
+  const bonuses = getPlainBonuses(asi);
   const byValue = new Map<number, number>();
   for (const raw of Object.values(bonuses)) {
     const value = Number(raw);
@@ -270,6 +270,7 @@ export async function createCharacter(data: PersFormData) {
 
   if (validData.isDefaultASI) {
     addBonuses(scores, getSimpleBonuses(normalizeASI(effectiveASI)));
+    addBonuses(scores, getPlainBonuses(effectiveASI));
     if (subrace && !subraceReplacesAsi) addBonuses(scores, getPlainBonuses(subrace.additionalASI));
   }
 
@@ -279,8 +280,9 @@ export async function createCharacter(data: PersFormData) {
       : validData.racialBonusChoiceSchema.tashaChoices;
 
     const raceGroups = extractFlexibleGroups(effectiveASI, validData.isDefaultASI ? "basic" : "tasha");
-    const extraGroups = !validData.isDefaultASI && subrace && !subraceReplacesAsi ? subraceTashaGroups(subrace.additionalASI) : [];
-    applyRacialChoices(scores, choices, [...raceGroups, ...extraGroups]);
+    const raceFallbackGroups = raceGroups.length === 0 ? plainAsiChoiceGroups(effectiveASI) : [];
+    const extraGroups = !validData.isDefaultASI && subrace && !subraceReplacesAsi ? plainAsiChoiceGroups(subrace.additionalASI) : [];
+    applyRacialChoices(scores, choices, [...raceGroups, ...raceFallbackGroups, ...extraGroups]);
   }
 
   if (feat) {

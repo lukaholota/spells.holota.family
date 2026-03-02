@@ -1812,6 +1812,32 @@ function PathStep({
     onNextDisabledChange?.(disabled);
   }, [levelUpPath, chosenClassId, onNextDisabledChange]);
 
+  useEffect(() => {
+    const topExistingClassId = [...existingEntries]
+      .sort((a, b) => {
+        if (a.classLevel !== b.classLevel) return b.classLevel - a.classLevel;
+        if (a.isMain !== b.isMain) return a.isMain ? -1 : 1;
+        return a.classId - b.classId;
+      })[0]?.classId;
+
+    if (!Number.isFinite(topExistingClassId)) return;
+
+    if (!levelUpPath) {
+      updateFormData({
+        levelUpPath: "EXISTING",
+        classId: Number(topExistingClassId),
+      });
+      return;
+    }
+
+    if (levelUpPath === "EXISTING") {
+      const hasChosenExisting = existingEntries.some((entry) => entry.classId === chosenClassId);
+      if (!hasChosenExisting) {
+        updateFormData({ classId: Number(topExistingClassId) });
+      }
+    }
+  }, [existingEntries, levelUpPath, chosenClassId, updateFormData]);
+
   const resetLevelUpChoices = () => {
     updateFormData({
       subclassId: undefined,
@@ -1826,9 +1852,26 @@ function PathStep({
     });
   };
 
+  const getTopExistingClassId = () => {
+    return [...existingEntries]
+      .sort((a, b) => {
+        if (a.classLevel !== b.classLevel) return b.classLevel - a.classLevel;
+        if (a.isMain !== b.isMain) return a.isMain ? -1 : 1;
+        return a.classId - b.classId;
+      })[0]?.classId;
+  };
+
   const selectPath = (path: "EXISTING" | "MULTICLASS") => {
     if (levelUpPath === path) return;
-    updateFormData({ levelUpPath: path, classId: undefined });
+    if (path === "EXISTING") {
+      const topExistingClassId = getTopExistingClassId();
+      updateFormData({
+        levelUpPath: path,
+        classId: Number.isFinite(topExistingClassId) ? Number(topExistingClassId) : undefined,
+      });
+    } else {
+      updateFormData({ levelUpPath: path, classId: undefined });
+    }
     resetLevelUpChoices();
   };
 

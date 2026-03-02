@@ -63,7 +63,7 @@ export async function learnClassSpells({
             spellId,
             learnedAtLevel: level,
             origin: SpellOrigin.CLASS,
-            isPrepared: true,
+            isPrepared: false,
           },
         })
       )
@@ -100,7 +100,7 @@ export async function addManualSpell({
         spellId,
         learnedAtLevel: 0, // Manual doesn't really have a level requirement
         origin: SpellOrigin.MANUAL,
-        isPrepared: true,
+        isPrepared: false,
         notes,
       },
     });
@@ -230,7 +230,7 @@ export async function toggleSpellForPers({
       spellId,
       learnedAtLevel: 0,
       origin: SpellOrigin.MANUAL,
-      isPrepared: true,
+      isPrepared: false,
     },
   });
 
@@ -338,16 +338,39 @@ export async function setPreparedSpellsForPers({
   );
 
   await prisma.$transaction(async (tx) => {
-    await tx.persSpell.updateMany({
+    const persSpellLevels = await tx.persSpell.findMany({
       where: { persId },
+      select: {
+        spellId: true,
+        spell: { select: { level: true } },
+      },
+    });
+
+    const editableSpellIds = persSpellLevels
+      .filter((item) => {
+        const level = Number(item?.spell?.level ?? 0);
+        return Number.isFinite(level) && level > 0;
+      })
+      .map((item) => item.spellId);
+
+    if (editableSpellIds.length === 0) return;
+
+    const editableSpellSet = new Set<number>(editableSpellIds);
+    const selectedEditable = selected.filter((id) => editableSpellSet.has(id));
+
+    await tx.persSpell.updateMany({
+      where: {
+        persId,
+        spellId: { in: editableSpellIds },
+      },
       data: { isPrepared: false },
     });
 
-    if (selected.length > 0) {
+    if (selectedEditable.length > 0) {
       await tx.persSpell.updateMany({
         where: {
           persId,
-          spellId: { in: selected },
+          spellId: { in: selectedEditable },
         },
         data: { isPrepared: true },
       });
@@ -363,12 +386,17 @@ export async function updateSpellBadgeForPers({
   spellId,
   badgeText,
   badgeColor,
+  excludeFromPreparedCount,
 }: {
   persId: number;
   spellId: number;
   badgeText?: string | null;
   badgeColor?: string | null;
-}): Promise<{ success: true; badgeText: string | null; badgeColor: string | null } | { success: false; error: string }> {
+  excludeFromPreparedCount?: boolean;
+}): Promise<
+  | { success: true; badgeText: string | null; badgeColor: string | null; excludeFromPreparedCount: boolean }
+  | { success: false; error: string }
+> {
   const session = await auth();
   if (!session?.user?.email) return { success: false, error: "Не авторизовано" };
 
@@ -396,6 +424,9 @@ export async function updateSpellBadgeForPers({
     data: {
       badgeText: nextText,
       badgeColor: nextText ? nextColor : null,
+      ...(typeof excludeFromPreparedCount === "boolean"
+        ? { excludeFromPreparedCount: Boolean(excludeFromPreparedCount) }
+        : {}),
     },
     select: {
       badgeText: true,
@@ -409,6 +440,7 @@ export async function updateSpellBadgeForPers({
     success: true,
     badgeText: updated.badgeText,
     badgeColor: updated.badgeColor,
+    excludeFromPreparedCount: Boolean(excludeFromPreparedCount),
   };
 }
 

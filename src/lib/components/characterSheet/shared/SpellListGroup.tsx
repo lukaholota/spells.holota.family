@@ -8,6 +8,7 @@ import {
   Sparkles,
   WandSparkles,
   Clock3,
+  ArrowRight,
   BookOpen,
   Flame,
   Skull,
@@ -18,7 +19,6 @@ import {
   Atom,
   CircleDashed,
 } from "lucide-react";
-import { spellSchoolTranslations } from "@/lib/refs/translation";
 
 type SchoolVisual = {
   icon: ComponentType<{ className?: string }>;
@@ -114,6 +114,18 @@ function isPositiveFlag(value: unknown): boolean {
   return flag === "так" || flag === "yes" || flag === "true" || flag === "1";
 }
 
+function normalizeCastingTimeShort(value: unknown): string {
+  const text = String(value ?? "").trim();
+  if (!text) return "—";
+
+  const normalized = text.toLocaleLowerCase("uk");
+  if (normalized.includes("реакц") || normalized.includes("reaction")) return "реакція";
+  if (normalized.includes("бонус") || normalized.includes("bonus action")) return "бонусна дія";
+  if (normalized.startsWith("1 дія") || normalized === "дія" || normalized.includes("1 action") || normalized === "action") return "дія";
+
+  return text;
+}
+
 function hexToRgbTuple(color: string): [number, number, number] | null {
   const raw = String(color || "").trim().replace("#", "");
   const hex = raw.length === 3 ? raw.split("").map((c) => c + c).join("") : raw;
@@ -178,142 +190,197 @@ export default function SpellListGroup({
           const badgeText = String(ps?.badgeText ?? "").trim();
           const badgeColor = String(ps?.badgeColor ?? "").trim() || "#94a3b8";
           const hasBadge = badgeText.length > 0;
-          const schoolText = (spellSchoolTranslations as any)[spell?.school] || spell?.school || "—";
+          const isLongBadge = badgeText.length > 13;
+          const showLevelMeta = _subtitleVariant === "with-level";
           const schoolVisual = schoolVisualByValue(spell?.school);
           const SchoolIcon = schoolVisual.icon;
           const hasRitual = isPositiveFlag(spell?.hasRitual);
+          const castingTimeShort = normalizeCastingTimeShort(spell?.castingTime);
 
           return (
             <div
               key={ps?.persSpellId ?? `${spellId}-${i}`}
               className={
                 "group w-full overflow-hidden rounded-lg border border-white/10 bg-slate-950/40 transition-all duration-300 hover:border-white/20 hover:bg-white/5 " +
-                (compact ? "p-2.5" : "p-3")
+                (compact ? "p-2" : "p-2 sm:p-3")
               }
             >
-              <div className="flex items-start justify-between gap-3">
-                <div className="flex-1 min-w-0">
+              {rightActionPlacement === "belowMeta" ? (
+                <div className="grid grid-cols-[auto_minmax(0,1fr)_auto] grid-rows-[auto_auto] items-start gap-x-2 gap-y-1.5 sm:gap-x-3">
+                  <div className={`row-start-1 col-start-1 flex items-center justify-center rounded-md border ${schoolVisual.iconWrap} ${compact ? "h-7 w-7 sm:h-8 sm:w-8" : "h-7 w-7 sm:h-9 sm:w-9"}`}>
+                    <SchoolIcon className={`${compact ? "h-3 w-3 sm:h-3.5 sm:w-3.5" : "h-3 w-3 sm:h-4 sm:w-4"} ${schoolVisual.iconColor}`} />
+                  </div>
+
                   <button
                     type="button"
-                    className="w-full text-left"
+                    className="row-start-1 col-start-2 w-full min-w-0 self-start text-left"
                     onClick={() => {
                       if (Number.isFinite(spellId)) onOpenSpell(spellId);
                     }}
                   >
-                    <div className="flex min-w-0 items-start gap-3">
-                      <div className={`mt-0.5 flex shrink-0 items-center justify-center rounded-md border ${schoolVisual.iconWrap} ${compact ? "h-8 w-8" : "h-9 w-9"}`}>
-                        <SchoolIcon className={`${compact ? "h-3.5 w-3.5" : "h-4 w-4"} ${schoolVisual.iconColor}`} />
-                      </div>
+                    <div className={`font-serif leading-tight text-slate-100 transition-colors group-hover:text-white overflow-hidden [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:2] ${compact ? "text-[12px] sm:text-[15px]" : "text-[12px] sm:text-base"}`}>
+                      {spell?.name ?? "—"}
+                    </div>
+                  </button>
 
+                  <div className="row-start-1 col-start-3 flex items-start justify-end self-start">
+                    {rightAction ? (
+                      <div className="[&>button]:h-7 sm:[&>button]:h-9 [&>button]:w-[62px] sm:[&>button]:w-[76px] [&>button]:text-[10px] [&>button_span]:text-[10px]">
+                        {rightAction(ps)}
+                      </div>
+                    ) : null}
+                  </div>
+
+                  <div className="row-start-2 col-start-1 self-start">
+                    {!hideSettings ? (
+                      <Button
+                        type="button"
+                        size="sm"
+                        variant="ghost"
+                        aria-label="Налаштувати бейдж заклинання"
+                        disabled={isPending || !Number.isFinite(spellId) || isReadOnly}
+                        title={isReadOnly ? "Режим перегляду" : "Налаштувати бейдж або видалити заклинання"}
+                        className={
+                          "flex items-center justify-center rounded-md border border-white/10 bg-white/5 p-0 text-slate-200 hover:bg-white/10 " +
+                          (compact ? "h-7 w-7 sm:h-8 sm:w-8" : "h-7 w-7 sm:h-9 sm:w-9")
+                        }
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          if (!Number.isFinite(spellId) || isReadOnly) return;
+                          onOpenSettings(ps);
+                        }}
+                      >
+                        <Settings2 className="h-3.5 w-3.5" />
+                      </Button>
+                    ) : null}
+                  </div>
+
+                  <button
+                    type="button"
+                    className="row-start-2 col-start-2 w-full min-w-0 text-left"
+                    onClick={() => {
+                      if (Number.isFinite(spellId)) onOpenSpell(spellId);
+                    }}
+                  >
+                    <div className={`flex flex-wrap items-center text-slate-400 ${compact ? "gap-x-2 gap-y-0.5 text-[11px]" : "gap-x-3 gap-y-1 text-xs"}`}>
+                      {showLevelMeta ? (
+                        <span className="inline-flex items-center gap-1">
+                          <Sparkles className={`${compact ? "h-2.5 w-2.5" : "h-3 w-3"} text-slate-500`} />
+                          {levelShortLabel(Number(spell?.level ?? 0))}
+                        </span>
+                      ) : null}
+
+                      <span className="inline-flex items-center gap-1">
+                        <Clock3 className={`${compact ? "h-2.5 w-2.5" : "h-3 w-3"} text-slate-500`} />
+                        {castingTimeShort}
+                      </span>
+
+                      <span className="inline-flex items-center gap-1">
+                        <ArrowRight className={`${compact ? "h-2.5 w-2.5" : "h-3 w-3"} text-slate-500`} />
+                        {spell?.range ?? "—"}
+                      </span>
+
+                      {hasRitual ? (
+                        <span className="inline-flex items-center gap-1">
+                          <BookOpen className={`${compact ? "h-2.5 w-2.5" : "h-3 w-3"} text-amber-500`} />
+                          Ритуал
+                        </span>
+                      ) : null}
+                    </div>
+                  </button>
+
+                  <div className="row-start-2 col-start-3 flex items-start justify-end self-start">
+                    {hasBadge ? (
+                      <span
+                        title={badgeText}
+                        className={
+                          "flex h-7 w-[62px] sm:h-9 sm:w-[76px] items-center overflow-hidden whitespace-nowrap rounded-md border text-[10px] font-semibold " +
+                          (isLongBadge ? "justify-start px-2 text-left" : "justify-center px-1.5 text-center")
+                        }
+                        style={userBadgeStyle(badgeColor)}
+                      >
+                        {badgeText}
+                      </span>
+                    ) : null}
+                  </div>
+                </div>
+              ) : (
+                <div className="flex items-start gap-2 sm:gap-3">
+                  <div className="shrink-0 flex flex-col items-center gap-1.5">
+                    <div className={`mt-0.5 flex shrink-0 items-center justify-center rounded-md border ${schoolVisual.iconWrap} ${compact ? "h-7 w-7 sm:h-8 sm:w-8" : "h-7 w-7 sm:h-9 sm:w-9"}`}>
+                      <SchoolIcon className={`${compact ? "h-3 w-3 sm:h-3.5 sm:w-3.5" : "h-3 w-3 sm:h-4 sm:w-4"} ${schoolVisual.iconColor}`} />
+                    </div>
+
+                    {!hideSettings ? (
+                      <Button
+                        type="button"
+                        size="sm"
+                        variant="ghost"
+                        aria-label="Налаштувати бейдж заклинання"
+                        disabled={isPending || !Number.isFinite(spellId) || isReadOnly}
+                        title={isReadOnly ? "Режим перегляду" : "Налаштувати бейдж або видалити заклинання"}
+                        className={
+                          "shrink-0 rounded-md border border-white/10 bg-white/5 p-0 text-slate-200 hover:bg-white/10 " +
+                          (compact ? "h-7 w-7 sm:h-8 sm:w-8" : "h-7 w-7 sm:h-9 sm:w-9")
+                        }
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          if (!Number.isFinite(spellId) || isReadOnly) return;
+                          onOpenSettings(ps);
+                        }}
+                      >
+                        <Settings2 className="h-3.5 w-3.5" />
+                      </Button>
+                    ) : null}
+                  </div>
+
+                  <div className="flex-1 min-w-0">
+                    <button
+                      type="button"
+                      className="w-full text-left"
+                      onClick={() => {
+                        if (Number.isFinite(spellId)) onOpenSpell(spellId);
+                      }}
+                    >
                       <div className="min-w-0 flex-1">
-                        <div className={`truncate font-serif leading-tight text-slate-100 transition-colors group-hover:text-white ${compact ? "text-[15px]" : "text-base"}`}>
+                        <div className={`font-serif leading-tight text-slate-100 transition-colors group-hover:text-white overflow-hidden [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:2] ${compact ? "text-[12px] sm:text-[15px]" : "text-[12px] sm:text-base"}`}>
                           {spell?.name ?? "—"}
                         </div>
 
-                        {rightActionPlacement === "belowMeta" ? (
-                          <>
-                            <div className={`mt-1.5 flex flex-wrap items-center text-slate-400 ${compact ? "gap-x-2 gap-y-0.5 text-[11px]" : "gap-x-3 gap-y-1 text-xs"}`}>
-                              <span className="inline-flex items-center gap-1">
-                                <Sparkles className={`${compact ? "h-2.5 w-2.5" : "h-3 w-3"} text-slate-500`} />
-                                {levelShortLabel(Number(spell?.level ?? 0))}
-                              </span>
-
-                              <span className="inline-flex items-center gap-1">
-                                <Clock3 className={`${compact ? "h-2.5 w-2.5" : "h-3 w-3"} text-slate-500`} />
-                                {spell?.castingTime ?? "—"}
-                              </span>
-                            </div>
-
-                            <div className={`mt-1.5 flex flex-wrap items-center text-slate-400 ${compact ? "gap-x-2 gap-y-0.5 text-[11px]" : "gap-x-3 gap-y-1 text-xs"}`}>
-                              <span className={`inline-flex items-center rounded-sm border bg-gradient-to-br from-white/10 to-transparent px-1.5 py-[2px] font-mono tracking-wide text-slate-50 ${compact ? "text-[8px]" : "text-[9px]"} ${schoolVisual.badgeClass}`}>
-                                {schoolText}
-                              </span>
-
-                              {hasRitual ? (
-                                <span className={`inline-flex items-center rounded-sm border border-amber-800/50 bg-amber-950/40 px-1.5 py-0.5 font-mono tracking-wide text-amber-400 ${compact ? "text-[9px]" : "text-[10px]"}`}>
-                                  <BookOpen className={`mr-1 ${compact ? "h-2.5 w-2.5" : "h-3 w-3"}`} />
-                                  РИТУАЛ
-                                </span>
-                              ) : null}
-                            </div>
-                          </>
-                        ) : (
-                          <div className={`mt-1.5 flex flex-wrap items-center text-slate-400 ${compact ? "gap-x-2 gap-y-0.5 text-[11px]" : "gap-x-3 gap-y-1 text-xs"}`}>
+                        <div className={`mt-1.5 flex flex-wrap items-center text-slate-400 ${compact ? "gap-x-2 gap-y-0.5 text-[11px]" : "gap-x-3 gap-y-1 text-xs"}`}>
+                          {showLevelMeta ? (
                             <span className="inline-flex items-center gap-1">
                               <Sparkles className={`${compact ? "h-2.5 w-2.5" : "h-3 w-3"} text-slate-500`} />
                               {levelShortLabel(Number(spell?.level ?? 0))}
                             </span>
+                          ) : null}
 
+                          <span className="inline-flex items-center gap-1">
+                            <Clock3 className={`${compact ? "h-2.5 w-2.5" : "h-3 w-3"} text-slate-500`} />
+                            {castingTimeShort}
+                          </span>
+
+                          <span className="inline-flex items-center gap-1">
+                            <ArrowRight className={`${compact ? "h-2.5 w-2.5" : "h-3 w-3"} text-slate-500`} />
+                            {spell?.range ?? "—"}
+                          </span>
+
+                          {hasRitual ? (
                             <span className="inline-flex items-center gap-1">
-                              <Clock3 className={`${compact ? "h-2.5 w-2.5" : "h-3 w-3"} text-slate-500`} />
-                              {spell?.castingTime ?? "—"}
+                              <BookOpen className={`${compact ? "h-2.5 w-2.5" : "h-3 w-3"} text-amber-500`} />
+                              Ритуал
                             </span>
-
-                            <span className={`inline-flex items-center rounded-sm border bg-gradient-to-br from-white/10 to-transparent px-1.5 py-[2px] font-mono tracking-wide text-slate-50 ${compact ? "text-[8px]" : "text-[9px]"} ${schoolVisual.badgeClass}`}>
-                              {schoolText}
-                            </span>
-
-                            {hasRitual ? (
-                              <span className={`inline-flex items-center rounded-sm border border-amber-800/50 bg-amber-950/40 px-1.5 py-0.5 font-mono tracking-wide text-amber-400 ${compact ? "text-[9px]" : "text-[10px]"}`}>
-                                <BookOpen className={`mr-1 ${compact ? "h-2.5 w-2.5" : "h-3 w-3"}`} />
-                                РИТУАЛ
-                              </span>
-                            ) : null}
-
-                          </div>
-                        )}
+                          ) : null}
+                        </div>
                       </div>
-                    </div>
-                  </button>
+                    </button>
+                  </div>
 
+                  <div className="shrink-0 flex items-center gap-1.5">
+                    {rightAction ? rightAction(ps) : null}
+                  </div>
                 </div>
-
-                <div
-                  className={
-                    "shrink-0 " +
-                    (rightActionPlacement === "belowMeta"
-                      ? "flex flex-col items-end gap-2"
-                      : "flex items-center gap-1.5")
-                  }
-                >
-                  {rightAction && rightActionPlacement === "side" ? rightAction(ps) : null}
-
-                  {!hideSettings ? (
-                    <Button
-                      type="button"
-                      size="sm"
-                      variant="ghost"
-                      aria-label="Налаштувати бейдж заклинання"
-                      disabled={isPending || !Number.isFinite(spellId) || isReadOnly}
-                      title={isReadOnly ? "Режим перегляду" : "Налаштувати бейдж або видалити заклинання"}
-                      className={
-                        "h-8 w-[82px] shrink-0 overflow-hidden rounded-lg p-0 text-slate-200 " +
-                        (hasBadge
-                          ? "border border-transparent bg-transparent hover:bg-transparent"
-                          : "border border-white/10 bg-white/5 hover:bg-white/10")
-                      }
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        if (!Number.isFinite(spellId) || isReadOnly) return;
-                        onOpenSettings(ps);
-                      }}
-                    >
-                      {hasBadge ? (
-                        <span
-                          className="flex h-full w-full items-center justify-center overflow-hidden whitespace-nowrap rounded-[10px] border px-1.5 text-center text-[10px] font-semibold"
-                          style={userBadgeStyle(badgeColor)}
-                        >
-                          {badgeText}
-                        </span>
-                      ) : (
-                        <Settings2 className="h-4 w-4" />
-                      )}
-                    </Button>
-                  ) : null}
-
-                  {rightAction && rightActionPlacement === "belowMeta" ? rightAction(ps) : null}
-                </div>
-              </div>
+              )}
             </div>
           );
         })}

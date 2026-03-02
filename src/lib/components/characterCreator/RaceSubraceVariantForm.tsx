@@ -96,6 +96,7 @@ export const RaceSubraceVariantForm = ({ race, formId, onNextDisabledChange }: P
 
   const chosenSubraceId = form.watch("subraceId");
   const chosenVariantId = form.watch("raceVariantId");
+  const standardSelected = !hasSubraces && hasRaceVariants && (chosenVariantId == null);
 
   const isRequired = hasSubraces;
   const selectionMade = Boolean(chosenSubraceId != null || chosenVariantId != null);
@@ -108,6 +109,14 @@ export const RaceSubraceVariantForm = ({ race, formId, onNextDisabledChange }: P
 
     onNextDisabledChange?.(!selectionMade);
   }, [isRequired, selectionMade, onNextDisabledChange]);
+
+  useEffect(() => {
+    if (hasSubraces || !hasRaceVariants) return;
+    if (chosenVariantId === undefined) {
+      form.setValue("raceVariantId", null);
+      updateFormData({ raceVariantId: null, subraceId: undefined });
+    }
+  }, [hasSubraces, hasRaceVariants, chosenVariantId, form, updateFormData]);
 
   return (
     <form id={formId} onSubmit={onSubmit} className="w-full space-y-6">
@@ -184,6 +193,29 @@ export const RaceSubraceVariantForm = ({ race, formId, onNextDisabledChange }: P
             Варіанти раси
           </p>
           <div className="grid gap-3 sm:grid-cols-2">
+            {!hasSubraces ? (
+              <Card
+                className={clsx(
+                  "glass-card cursor-pointer transition-all duration-200",
+                  standardSelected && "glass-active"
+                )}
+                onClick={(e) => {
+                  if ((e.target as HTMLElement | null)?.closest?.('[data-stop-card-click]')) return;
+                  form.setValue("raceVariantId", null);
+                  form.setValue("subraceId", undefined);
+                  updateFormData({ raceVariantId: null, subraceId: undefined });
+                }}
+              >
+                <CardContent className="relative flex items-center justify-between p-4">
+                  <div>
+                    <div className="text-lg font-semibold text-white">Стандарт</div>
+                    <div className="text-xs text-slate-400">Без варіанту раси</div>
+                  </div>
+                  <SourceBadge code={"PHB" as any} active={standardSelected} />
+                </CardContent>
+              </Card>
+            ) : null}
+
             {variants.map((rv) => {
               const name = variantTranslations[rv.name] ?? rv.name;
               const engName = variantTranslationsEng[rv.name] ?? rv.name;
@@ -226,24 +258,6 @@ export const RaceSubraceVariantForm = ({ race, formId, onNextDisabledChange }: P
               );
             })}
           </div>
-        </div>
-      ) : null}
-
-      {!hasSubraces && hasRaceVariants ? (
-        <div className="flex justify-center">
-          <Button
-            type="button"
-            variant="outline"
-            className="border-white/15 bg-white/5 text-slate-200 hover:bg-white/7"
-            onClick={() => {
-              form.setValue("raceVariantId", null);
-              form.setValue("subraceId", undefined);
-              updateFormData({ raceVariantId: null, subraceId: undefined });
-              nextStep();
-            }}
-          >
-            Пропустити
-          </Button>
         </div>
       ) : null}
 

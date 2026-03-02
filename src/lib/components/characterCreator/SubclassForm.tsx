@@ -1,11 +1,10 @@
 "use client";
 
 import { useStepForm } from "@/hooks/useStepForm";
-import { subclassSchema } from "@/lib/zod/schemas/persCreateSchema";
 import { ClassI } from "@/lib/types/model-types";
 import { Card, CardContent } from "@/components/ui/card";
 import clsx from "clsx";
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import { Badge } from "@/components/ui/badge";
 import { usePersFormStore } from "@/lib/stores/persFormStore";
 import { SubclassInfoModal } from "@/lib/components/characterCreator/modals/SubclassInfoModal";
@@ -16,6 +15,7 @@ import {
   translateValue,
 } from "@/lib/components/characterCreator/infoUtils";
 import { FormattedDescription } from "@/components/ui/FormattedDescription";
+import { z } from "zod";
 
 interface Props {
   cls: ClassI;
@@ -25,8 +25,17 @@ interface Props {
 
 export const SubclassForm = ({ cls, formId, onNextDisabledChange }: Props) => {
   const { updateFormData, nextStep } = usePersFormStore();
+
+  const requiredSubclassSchema = useMemo(
+    () =>
+      z.object({
+        subclassId: z.number().min(1, "Оберіть підклас"),
+        subclassChoiceSelections: z.record(z.string(), z.union([z.number().int(), z.array(z.number().int())])).default({}),
+      }),
+    []
+  );
   
-  const { form, onSubmit } = useStepForm(subclassSchema, (data) => {
+  const { form, onSubmit } = useStepForm(requiredSubclassSchema, (data) => {
     updateFormData({ 
       subclassId: data.subclassId,
       subclassChoiceSelections: data.subclassChoiceSelections 
@@ -44,7 +53,23 @@ export const SubclassForm = ({ cls, formId, onNextDisabledChange }: Props) => {
     onNextDisabledChange?.(false);
   }, [onNextDisabledChange, chosenSubclassId]);
 
-  const subclasses = cls.subclasses || [];
+  const sourcePriority = (source: unknown): number => {
+    const key = String(source ?? "").toUpperCase();
+    if (key === "PHB" || key === "PHB_2024") return 0;
+    if (key === "XGTE") return 1;
+    if (key === "TCOE") return 2;
+    return 3;
+  };
+
+  const subclasses = useMemo(() => {
+    return [...(cls.subclasses || [])].sort((a: any, b: any) => {
+      const bySource = sourcePriority(a?.source) - sourcePriority(b?.source);
+      if (bySource !== 0) return bySource;
+      const aName = subclassTranslations[a?.name as keyof typeof subclassTranslations] || a?.name || "";
+      const bName = subclassTranslations[b?.name as keyof typeof subclassTranslations] || b?.name || "";
+      return String(aName).localeCompare(String(bName), "uk", { sensitivity: "base" });
+    });
+  }, [cls.subclasses]);
 
   return (
     <form id={formId} onSubmit={onSubmit} className="w-full space-y-4">

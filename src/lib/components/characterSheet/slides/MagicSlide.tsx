@@ -5,14 +5,15 @@ import { motion, AnimatePresence } from "framer-motion";
 import { PersWithRelations } from "@/lib/actions/pers";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { formatModifier } from "@/lib/logic/utils";
-import { ArrowUpDown, Check, ChevronDown, Plus, Wand2, WandSparkles } from "lucide-react";
+import { ArrowUpDown, Check, ChevronDown, Plus, SlidersHorizontal, Wand2 } from "lucide-react";
 import { useEffect, useMemo, useState, useTransition } from "react";
 import { SPELL_SLOT_PROGRESSION } from "@/lib/refs/static";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { removeSpellFromPers, setPreparedSpellsForPers, updateSpellBadgeForPers } from "@/lib/actions/spell-actions";
+import { removeSpellFromPers, setSpellPrepared, updateSpellBadgeForPers } from "@/lib/actions/spell-actions";
 import { spendPactSlot, spendSpellSlot, restorePactSlot, restoreSpellSlot } from "@/lib/actions/spell-slots";
 import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 
 import { calculateSpellAttack, calculateSpellDC } from "@/lib/logic/bonus-calculator";
 import ModifyStatModal, { ModifyConfig } from "../ModifyStatModal";
@@ -24,6 +25,7 @@ import { formatSpellCountValue, getSpellcastingCountsLines } from "@/lib/logic/s
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import SpellListGroup from "@/lib/components/characterSheet/shared/SpellListGroup";
 import { classTranslations, subclassTranslations } from "@/lib/refs/translation";
+import { Checkbox } from "@/components/ui/checkbox";
 
 const SPELL_BADGE_COLORS = [
   { name: "Sky", value: "#38bdf8" },
@@ -106,16 +108,14 @@ export default function MagicSlide({ pers, onPersUpdate, isReadOnly }: MagicSlid
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
 
-  const [prepareOpen, setPrepareOpen] = useState(false);
-  const [prepareSelection, setPrepareSelection] = useState<Set<number>>(() => new Set());
-  const [prepareQuery, setPrepareQuery] = useState("");
-  const [prepareSortMode, setPrepareSortMode] = useState<"level" | "badge">("level");
   const [sortMode, setSortMode] = useState<"level" | "badge">("level");
+  const [filterMode, setFilterMode] = useState<"all" | "prepared" | "unprepared">("all");
   const [badgeEditorOpen, setBadgeEditorOpen] = useState(false);
   const [badgeEditorSpellId, setBadgeEditorSpellId] = useState<number | null>(null);
   const [badgeEditorSpellName, setBadgeEditorSpellName] = useState<string>("");
   const [badgeEditorText, setBadgeEditorText] = useState<string>("");
   const [badgeEditorColor, setBadgeEditorColor] = useState<string>(SPELL_BADGE_COLORS[0].value);
+  const [badgeEditorExcludeFromPreparedCount, setBadgeEditorExcludeFromPreparedCount] = useState(false);
   const [confirmDeleteInBadgeEditor, setConfirmDeleteInBadgeEditor] = useState(false);
 
   const [localPers, setLocalPers] = useState<PersWithRelations>(pers);
@@ -198,6 +198,24 @@ export default function MagicSlide({ pers, onPersUpdate, isReadOnly }: MagicSlid
 
   const autoExcludedCount = useMemo(() => autoExcludedSpellIds.size, [autoExcludedSpellIds]);
 
+  const manuallyExcludedSpellIds = useMemo(() => {
+    const ids = new Set<number>();
+    for (const ps of localPersSpells as any[]) {
+      const spellId = Number(ps?.spellId ?? ps?.spell?.spellId);
+      if (!Number.isFinite(spellId)) continue;
+      if (Boolean(ps?.excludeFromPreparedCount)) ids.add(spellId);
+    }
+    return ids;
+  }, [localPersSpells]);
+
+  const manuallyExcludedCount = useMemo(() => manuallyExcludedSpellIds.size, [manuallyExcludedSpellIds]);
+
+  const preparedCountExcludedSpellIds = useMemo(() => {
+    const ids = new Set<number>(autoExcludedSpellIds);
+    for (const id of manuallyExcludedSpellIds) ids.add(id);
+    return ids;
+  }, [autoExcludedSpellIds, manuallyExcludedSpellIds]);
+
   const knownSpellsCount = useMemo(() => {
     const ids = new Set<number>();
     for (const ps of localPersSpells as any[]) {
@@ -214,13 +232,40 @@ export default function MagicSlide({ pers, onPersUpdate, isReadOnly }: MagicSlid
     for (const ps of localPersSpells as any[]) {
       const spellId = Number(ps?.spellId ?? ps?.spell?.spellId);
       if (!Number.isFinite(spellId)) continue;
-      if (autoExcludedSpellIds.has(spellId)) continue;
+      if (preparedCountExcludedSpellIds.has(spellId)) continue;
       const level = Number(ps?.spell?.level ?? 0);
       if (Number.isFinite(level) && level === 0) continue;
       if (Boolean(ps?.isPrepared)) ids.add(spellId);
     }
     return ids.size;
-  }, [localPersSpells, autoExcludedSpellIds]);
+  }, [localPersSpells, preparedCountExcludedSpellIds]);
+
+  const preparedSpellsLimit = useMemo(() => {
+    let total = 0;
+    let hasPreparedLimit = false;
+
+    for (const line of spellcastingCounts) {
+      if (!String(line?.spellsLabel ?? "").toLocaleLowerCase("uk").includes("можна підготувати")) {
+        continue;
+      }
+
+      const value =
+        line.spells.kind === "fixed"
+          ? line.spells.value
+          : (typeof line.spells.value === "number" ? line.spells.value : NaN);
+      if (!Number.isFinite(value)) continue;
+
+      total += Math.max(0, Math.trunc(value));
+      hasPreparedLimit = true;
+    }
+
+    return hasPreparedLimit ? total : null;
+  }, [spellcastingCounts]);
+
+  const preparedRemaining = useMemo(() => {
+    if (!Number.isFinite(preparedSpellsLimit)) return null;
+    return Number(preparedSpellsLimit) - preparedSpellsCount;
+  }, [preparedSpellsLimit, preparedSpellsCount]);
 
   const maxSlots = useMemo(() => {
     const level = Math.max(0, Math.min(20, Math.trunc(caster.casterLevel || 0)));
@@ -246,7 +291,9 @@ export default function MagicSlide({ pers, onPersUpdate, isReadOnly }: MagicSlid
   const spellsByLevel = useMemo(() => {
     const query = spellQuery.trim().toLowerCase();
     const source = (localPersSpells as any[]).filter((ps) => {
-      if (!Boolean(ps?.isPrepared)) return false;
+      const isPrepared = Boolean(ps?.isPrepared);
+      if (filterMode === "prepared" && !isPrepared) return false;
+      if (filterMode === "unprepared" && isPrepared) return false;
       if (!query) return true;
       const name = String(ps?.spell?.name ?? "").toLowerCase();
       return name.includes(query);
@@ -272,12 +319,14 @@ export default function MagicSlide({ pers, onPersUpdate, isReadOnly }: MagicSlid
     }
 
     return byLevel;
-  }, [localPersSpells, spellQuery]);
+  }, [localPersSpells, spellQuery, filterMode]);
 
   const spellsByBadge = useMemo(() => {
     const query = spellQuery.trim().toLowerCase();
     const source = (localPersSpells as any[]).filter((ps) => {
-      if (!Boolean(ps?.isPrepared)) return false;
+      const isPrepared = Boolean(ps?.isPrepared);
+      if (filterMode === "prepared" && !isPrepared) return false;
+      if (filterMode === "unprepared" && isPrepared) return false;
       if (!query) return true;
       const name = String(ps?.spell?.name ?? "").toLowerCase();
       return name.includes(query);
@@ -302,7 +351,7 @@ export default function MagicSlide({ pers, onPersUpdate, isReadOnly }: MagicSlid
     }
 
     return byBadge;
-  }, [localPersSpells, spellQuery]);
+  }, [localPersSpells, spellQuery, filterMode]);
 
   const badgeGroups = useMemo(() => {
     return Object.keys(spellsByBadge).sort((a, b) => {
@@ -335,121 +384,76 @@ export default function MagicSlide({ pers, onPersUpdate, isReadOnly }: MagicSlid
     setBadgeEditorSpellName(String(ps?.spell?.name ?? "Заклинання"));
     setBadgeEditorText(String(ps?.badgeText ?? ""));
     setBadgeEditorColor(String(ps?.badgeColor ?? "").trim() || SPELL_BADGE_COLORS[0].value);
+    setBadgeEditorExcludeFromPreparedCount(Boolean(ps?.excludeFromPreparedCount));
     setConfirmDeleteInBadgeEditor(false);
     setBadgeEditorOpen(true);
   };
 
-  useEffect(() => {
-    if (!prepareOpen) return;
-    const preparedIds = new Set<number>();
-    for (const ps of localPersSpells as any[]) {
-      const spellId = Number(ps?.spellId ?? ps?.spell?.spellId);
-      if (!Number.isFinite(spellId)) continue;
-      if (Boolean(ps?.isPrepared)) preparedIds.add(spellId);
-    }
-    setPrepareSelection(preparedIds);
-  }, [prepareOpen, localPersSpells]);
+  const filterLabel =
+    filterMode === "all"
+      ? "Фільтр: всі заклинання"
+      : filterMode === "prepared"
+        ? "Фільтр: підготовлені"
+        : "Фільтр: непідготовлені";
 
-  const allCharacterSpells = useMemo(() => {
-    const source = (localPersSpells as any[]).slice();
-    return source.sort((a, b) => {
-      const levelA = Number(a?.spell?.level ?? 0);
-      const levelB = Number(b?.spell?.level ?? 0);
-      if (levelA !== levelB) return levelA - levelB;
-      const aName = String(a?.spell?.name ?? "");
-      const bName = String(b?.spell?.name ?? "");
-      return aName.localeCompare(bName, "uk", { sensitivity: "base" });
+  const cycleFilterMode = () => {
+    setFilterMode((prev) => {
+      if (prev === "all") return "prepared";
+      if (prev === "prepared") return "unprepared";
+      return "all";
     });
-  }, [localPersSpells]);
+  };
 
-  const prepareSpellsByLevel = useMemo(() => {
-    const query = prepareQuery.trim().toLowerCase();
-    const source = allCharacterSpells.filter((ps) => {
-      if (!query) return true;
-      const name = String(ps?.spell?.name ?? "").toLowerCase();
-      return name.includes(query);
-    });
+  const setSpellPreparedInline = (ps: any, nextPrepared: boolean) => {
+    const spellId = Number(ps?.spellId ?? ps?.spell?.spellId);
+    if (!Number.isFinite(spellId) || isReadOnly) return;
 
-    const byLevel: Record<number, any[]> = {};
-    for (const ps of source) {
-      const level = Number(ps?.spell?.level ?? 0);
-      if (!byLevel[level]) byLevel[level] = [];
-      byLevel[level].push(ps);
-    }
+    const level = Number(ps?.spell?.level ?? 0);
+    if (!Number.isFinite(level) || level <= 0) return;
 
-    for (const [k, list] of Object.entries(byLevel)) {
-      byLevel[Number(k)] = list.sort((a, b) => {
-        const aName = String(a?.spell?.name ?? "");
-        const bName = String(b?.spell?.name ?? "");
-        return aName.localeCompare(bName, "uk", { sensitivity: "base" });
+    setLocalPersSpells((prev: any[]) =>
+      prev.map((item) => {
+        const itemSpellId = Number(item?.spellId ?? item?.spell?.spellId);
+        if (itemSpellId !== spellId) return item;
+        return { ...item, isPrepared: nextPrepared };
+      })
+    );
+
+    startTransition(async () => {
+      const res = await setSpellPrepared({
+        persId: localPers.persId,
+        spellId,
+        isPrepared: nextPrepared,
       });
-    }
 
-    return byLevel;
-  }, [allCharacterSpells, prepareQuery]);
+      if (!res.success) {
+        router.refresh();
+        return;
+      }
 
-  const prepareLevels = useMemo(() => {
-    return Object.keys(prepareSpellsByLevel)
-      .map((k) => Number(k))
-      .filter((n) => Number.isFinite(n))
-      .sort((a, b) => a - b);
-  }, [prepareSpellsByLevel]);
+      setLocalPersSpells((prev: any[]) =>
+        prev.map((item) => {
+          const itemSpellId = Number(item?.spellId ?? item?.spell?.spellId);
+          if (itemSpellId !== spellId) return item;
+          return { ...item, isPrepared: res.isPrepared };
+        })
+      );
 
-  const prepareSpellsByBadge = useMemo(() => {
-    const query = prepareQuery.trim().toLowerCase();
-    const source = allCharacterSpells.filter((ps) => {
-      if (!query) return true;
-      const name = String(ps?.spell?.name ?? "").toLowerCase();
-      return name.includes(query);
+      if (res.isPrepared) {
+        if (Number.isFinite(preparedRemaining)) {
+          const left = Math.max(0, Number(preparedRemaining) - 1);
+          toast.info(`Залишилось підготувати: ${left}`);
+        } else {
+          toast.info("Заклинання підготовлено");
+        }
+      }
+
+      router.refresh();
     });
+  };
 
-    const byBadge: Record<string, any[]> = {};
-    for (const ps of source) {
-      const badge = String(ps?.badgeText ?? "").trim() || "Без бейджа";
-      if (!byBadge[badge]) byBadge[badge] = [];
-      byBadge[badge].push(ps);
-    }
-
-    for (const [key, list] of Object.entries(byBadge)) {
-      byBadge[key] = list.sort((a, b) => {
-        const levelA = Number(a?.spell?.level ?? 0);
-        const levelB = Number(b?.spell?.level ?? 0);
-        if (levelA !== levelB) return levelA - levelB;
-        const aName = String(a?.spell?.name ?? "");
-        const bName = String(b?.spell?.name ?? "");
-        return aName.localeCompare(bName, "uk", { sensitivity: "base" });
-      });
-    }
-
-    return byBadge;
-  }, [allCharacterSpells, prepareQuery]);
-
-  const prepareBadgeGroups = useMemo(() => {
-    return Object.keys(prepareSpellsByBadge).sort((a, b) => {
-      if (a === "Без бейджа") return 1;
-      if (b === "Без бейджа") return -1;
-      return a.localeCompare(b, "uk", { sensitivity: "base" });
-    });
-  }, [prepareSpellsByBadge]);
-
-  const prepareSelectionEffectiveCount = useMemo(() => {
-    let count = 0;
-    for (const spellId of prepareSelection) {
-      if (autoExcludedSpellIds.has(spellId)) continue;
-      const ps = (localPersSpells as any[]).find((item) => Number(item?.spellId ?? item?.spell?.spellId) === spellId);
-      const level = Number(ps?.spell?.level ?? 0);
-      if (Number.isFinite(level) && level === 0) continue;
-      count += 1;
-    }
-    return count;
-  }, [prepareSelection, autoExcludedSpellIds, localPersSpells]);
-
-  const renderSpellcastingCountsBlock = (options?: { preparedCountOverride?: number }) => {
+  const renderSpellcastingCountsBlock = () => {
     if (spellcastingCounts.length === 0) return null;
-
-    const preparedCount = Number.isFinite(options?.preparedCountOverride)
-      ? Number(options?.preparedCountOverride)
-      : preparedSpellsCount;
 
     return (
       <Collapsible defaultOpen={false} className="rounded-lg border border-white/10 bg-white/5">
@@ -466,12 +470,24 @@ export default function MagicSlide({ pers, onPersUpdate, isReadOnly }: MagicSlid
           <div className="mb-2 rounded-md border border-emerald-500/20 bg-emerald-500/10 px-3 py-2 text-xs text-emerald-100">
             Відомих: <span className="font-semibold">{knownSpellsCount}</span>
             {" · "}
-            Підготовлено: <span className="font-semibold">{preparedCount}</span>
+            Підготовлено: <span className="font-semibold">{preparedSpellsCount}</span>
+            {Number.isFinite(preparedSpellsLimit) ? (
+              <>
+                {" / "}
+                <span className="font-semibold">{preparedSpellsLimit}</span>
+              </>
+            ) : null}
           </div>
 
           {autoExcludedCount > 0 ? (
             <div className="mb-2 rounded-md border border-violet-500/20 bg-violet-500/10 px-3 py-2 text-xs text-violet-100/90">
               Заклинання підкласу не рахуємо: {autoExcludedCount}.
+            </div>
+          ) : null}
+
+          {manuallyExcludedCount > 0 ? (
+            <div className="mb-2 rounded-md border border-sky-500/20 bg-sky-500/10 px-3 py-2 text-xs text-sky-100/90">
+              Вручну виключено з підрахунку підготовлених: {manuallyExcludedCount}.
             </div>
           ) : null}
 
@@ -493,64 +509,6 @@ export default function MagicSlide({ pers, onPersUpdate, isReadOnly }: MagicSlid
         </CollapsibleContent>
       </Collapsible>
     );
-  };
-
-  const preparedIdsSnapshot = useMemo(() => {
-    const ids = new Set<number>();
-    for (const ps of localPersSpells as any[]) {
-      const spellId = Number(ps?.spellId ?? ps?.spell?.spellId);
-      if (!Number.isFinite(spellId)) continue;
-      if (Boolean(ps?.isPrepared)) ids.add(spellId);
-    }
-    return ids;
-  }, [localPersSpells]);
-
-  const hasPrepareSelectionChanges = useMemo(() => {
-    if (!prepareOpen) return false;
-    if (prepareSelection.size !== preparedIdsSnapshot.size) return true;
-    for (const id of prepareSelection) {
-      if (!preparedIdsSnapshot.has(id)) return true;
-    }
-    return false;
-  }, [prepareOpen, prepareSelection, preparedIdsSnapshot]);
-
-  const commitPrepareSelection = () => {
-    const selectedIds = Array.from(prepareSelection);
-
-    setLocalPersSpells((prev: any[]) =>
-      prev.map((item) => {
-        const itemSpellId = Number(item?.spellId ?? item?.spell?.spellId);
-        if (!Number.isFinite(itemSpellId)) return item;
-        return { ...item, isPrepared: prepareSelection.has(itemSpellId) };
-      })
-    );
-
-    startTransition(async () => {
-      const res = await setPreparedSpellsForPers({
-        persId: localPers.persId,
-        spellIds: selectedIds,
-      });
-
-      if (!res.success) {
-        router.refresh();
-        return;
-      }
-
-      router.refresh();
-    });
-  };
-
-  const handlePrepareOpenChange = (nextOpen: boolean) => {
-    if (nextOpen) {
-      setPrepareOpen(true);
-      return;
-    }
-
-    if (hasPrepareSelectionChanges && !isReadOnly) {
-      commitPrepareSelection();
-    }
-
-    setPrepareOpen(false);
   };
 
   const badgeClassHints = useMemo(() => {
@@ -613,7 +571,7 @@ export default function MagicSlide({ pers, onPersUpdate, isReadOnly }: MagicSlid
 
   return (
     <div
-      className="h-full overflow-y-auto p-4 space-y-4"
+      className="h-full overflow-y-auto p-2.5 sm:p-4 space-y-4"
     >
 
       {/* Spell Stats */}
@@ -852,17 +810,7 @@ export default function MagicSlide({ pers, onPersUpdate, isReadOnly }: MagicSlid
           </CardTitle>
           <div className="w-full">
             {!isReadOnly && (
-              <div className="grid w-full grid-cols-2 gap-2">
-                <Button
-                  variant="outline"
-                  size="sm"
-                  disabled={isPending}
-                  onClick={() => setPrepareOpen(true)}
-                  className="h-9 w-full justify-center gap-1.5 border-emerald-500/30 bg-emerald-500/10 text-emerald-200 hover:bg-emerald-500/20"
-                >
-                  <WandSparkles className="h-3.5 w-3.5" />
-                  Підготувати
-                </Button>
+              <div className="grid w-full grid-cols-1 gap-2">
                 <AddSpellDialog 
                   pers={localPers} 
                   triggerClassName="h-9 w-full justify-center"
@@ -881,7 +829,7 @@ export default function MagicSlide({ pers, onPersUpdate, isReadOnly }: MagicSlid
             className="bg-white/5 border-white/10 text-slate-100 placeholder:text-slate-400"
           />
 
-          <div className="w-full">
+          <div className="grid w-full grid-cols-1 gap-2 sm:grid-cols-2">
             <Button
               type="button"
               size="sm"
@@ -892,221 +840,145 @@ export default function MagicSlide({ pers, onPersUpdate, isReadOnly }: MagicSlid
               <ArrowUpDown className="h-3.5 w-3.5" />
               {sortMode === "level" ? "Сортування: за рівнем" : "Сортування: за бейджем"}
             </Button>
+
+            <Button
+              type="button"
+              size="sm"
+              variant="outline"
+              onClick={cycleFilterMode}
+              className="h-9 w-full justify-between gap-2 border-white/10 bg-white/5 px-3 text-slate-200 hover:bg-white/10"
+            >
+              <SlidersHorizontal className="h-3.5 w-3.5" />
+              {filterLabel}
+            </Button>
           </div>
 
-          {sortMode === "level" && levels.map((level) => {
-            const list = spellsByLevel[level] ?? [];
-            if (!list.length) return null;
+          <AnimatePresence mode="wait" initial={false}>
+            <motion.div
+              key={`${sortMode}:${filterMode}:${spellQuery.trim().toLocaleLowerCase("uk")}`}
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
+              className="space-y-3"
+            >
+              {sortMode === "level" && levels.map((level) => {
+                const list = spellsByLevel[level] ?? [];
+                if (!list.length) return null;
 
-            return (
-              <SpellListGroup
-                key={level}
-                title={level === 0 ? "Замовляння" : "Рівень " + level}
-                spells={list}
-                isPending={isPending}
-                isReadOnly={isReadOnly}
-                onOpenSpell={openSpell}
-                onOpenSettings={openBadgeEditor}
-              />
-            );
-          })}
+                return (
+                  <SpellListGroup
+                    key={level}
+                    title={level === 0 ? "Замовляння" : "Рівень " + level}
+                    spells={list}
+                    isPending={isPending}
+                    isReadOnly={isReadOnly}
+                    onOpenSpell={openSpell}
+                    onOpenSettings={openBadgeEditor}
+                    rightActionPlacement="belowMeta"
+                    rightAction={(ps: any) => {
+                      const spellId = Number(ps?.spellId ?? ps?.spell?.spellId);
+                      const checked = Boolean(ps?.isPrepared);
+                      const levelValue = Number(ps?.spell?.level ?? 0);
+                      const isSpellWithPreparation = Number.isFinite(levelValue) && levelValue > 0;
 
-          {sortMode === "badge" && badgeGroups.map((badge) => {
-            const list = spellsByBadge[badge] ?? [];
-            if (!list.length) return null;
+                      return (
+                        <Button
+                          type="button"
+                          size="sm"
+                          variant="ghost"
+                          aria-label={checked ? "Зняти підготовку" : "Підготувати заклинання"}
+                          disabled={!Number.isFinite(spellId) || isPending || isReadOnly || !isSpellWithPreparation}
+                          className={
+                            "h-8 w-[68px] sm:w-[82px] shrink-0 rounded-md border transition-colors " +
+                            (checked
+                              ? "border-emerald-400/40 bg-emerald-500/20 text-emerald-200 hover:bg-emerald-500/30"
+                              : "border-white/10 bg-white/5 text-slate-200 hover:bg-white/10")
+                          }
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            if (!Number.isFinite(spellId) || !isSpellWithPreparation || isReadOnly) return;
+                            setSpellPreparedInline(ps, !checked);
+                          }}
+                        >
+                          <span className="inline-flex items-center gap-1 text-[11px] font-medium">
+                            {checked ? <Check className="h-3.5 w-3.5" /> : <Plus className="h-3.5 w-3.5" />}
+                            підгот.
+                          </span>
+                        </Button>
+                      );
+                    }}
+                  />
+                );
+              })}
 
-            return (
-              <SpellListGroup
-                key={badge}
-                title={badge}
-                spells={list}
-                isPending={isPending}
-                isReadOnly={isReadOnly}
-                onOpenSpell={openSpell}
-                onOpenSettings={openBadgeEditor}
-                subtitleVariant="with-level"
-              />
-            );
-          })}
+              {sortMode === "badge" && badgeGroups.map((badge) => {
+                const list = spellsByBadge[badge] ?? [];
+                if (!list.length) return null;
+
+                return (
+                  <SpellListGroup
+                    key={badge}
+                    title={badge}
+                    spells={list}
+                    isPending={isPending}
+                    isReadOnly={isReadOnly}
+                    onOpenSpell={openSpell}
+                    onOpenSettings={openBadgeEditor}
+                    subtitleVariant="with-level"
+                    rightActionPlacement="belowMeta"
+                    rightAction={(ps: any) => {
+                      const spellId = Number(ps?.spellId ?? ps?.spell?.spellId);
+                      const checked = Boolean(ps?.isPrepared);
+                      const levelValue = Number(ps?.spell?.level ?? 0);
+                      const isSpellWithPreparation = Number.isFinite(levelValue) && levelValue > 0;
+
+                      return (
+                        <Button
+                          type="button"
+                          size="sm"
+                          variant="ghost"
+                          aria-label={checked ? "Зняти підготовку" : "Підготувати заклинання"}
+                          disabled={!Number.isFinite(spellId) || isPending || isReadOnly || !isSpellWithPreparation}
+                          className={
+                            "h-8 w-[68px] sm:w-[82px] shrink-0 rounded-md border transition-colors " +
+                            (checked
+                              ? "border-emerald-400/40 bg-emerald-500/20 text-emerald-200 hover:bg-emerald-500/30"
+                              : "border-white/10 bg-white/5 text-slate-200 hover:bg-white/10")
+                          }
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            if (!Number.isFinite(spellId) || !isSpellWithPreparation || isReadOnly) return;
+                            setSpellPreparedInline(ps, !checked);
+                          }}
+                        >
+                          <span className="inline-flex items-center gap-1 text-[11px] font-medium">
+                            {checked ? <Check className="h-3.5 w-3.5" /> : <Plus className="h-3.5 w-3.5" />}
+                            підгот.
+                          </span>
+                        </Button>
+                      );
+                    }}
+                  />
+                );
+              })}
+            </motion.div>
+          </AnimatePresence>
 
           {((sortMode === "level" && levels.length === 0) || (sortMode === "badge" && badgeGroups.length === 0)) && (
             <div className="text-purple-300/60 text-sm text-center py-8">
-              {spellQuery.trim() ? "Нічого не знайдено" : "Підготовлені заклинання відсутні"}
+              {spellQuery.trim()
+                ? "Нічого не знайдено"
+                : filterMode === "all"
+                  ? "Заклинання відсутні"
+                  : filterMode === "prepared"
+                    ? "Підготовлені заклинання відсутні"
+                    : "Непідготовлені заклинання відсутні"}
             </div>
           )}
 
         </CardContent>
       </Card>
-
-      <Dialog open={prepareOpen} onOpenChange={handlePrepareOpenChange}>
-        <DialogContent className="w-[calc(100vw-1.5rem)] max-h-[88dvh] overflow-hidden overflow-x-hidden gap-0 border-white/15 bg-gradient-to-b from-slate-900/82 to-slate-900/70 p-4 text-slate-100 grid-rows-[auto,minmax(0,1fr)] shadow-[0_24px_70px_rgba(2,6,23,0.55)] backdrop-blur-xl sm:max-w-[620px] sm:p-6">
-          <DialogHeader className="shrink-0 pr-8">
-            <DialogTitle className="font-serif text-2xl text-slate-100">Підготувати заклинання</DialogTitle>
-          </DialogHeader>
-          <div className="mt-4 flex min-h-0 flex-1 flex-col space-y-4 overflow-hidden">
-            <p className="text-sm text-slate-400">
-              Оберіть заклинання, які мають відображатися у списку заклинань персонажа.
-            </p>
-
-            <Input
-              value={prepareQuery}
-              onChange={(e) => setPrepareQuery(e.target.value)}
-              placeholder="Пошук заклинань…"
-              className="h-10 rounded-lg border-white/10 bg-slate-900/50 text-slate-100 placeholder:text-slate-500"
-            />
-
-            {renderSpellcastingCountsBlock({ preparedCountOverride: prepareSelectionEffectiveCount })}
-
-            <div className="w-full">
-              <Button
-                type="button"
-                size="sm"
-                variant="outline"
-                onClick={() => setPrepareSortMode((prev) => (prev === "level" ? "badge" : "level"))}
-                className="h-9 w-full justify-between gap-2 border-white/10 bg-white/5 px-3 text-slate-200 hover:bg-white/10"
-              >
-                <ArrowUpDown className="h-3.5 w-3.5" />
-                {prepareSortMode === "level" ? "Сортування: за рівнем" : "Сортування: за бейджем"}
-              </Button>
-            </div>
-
-            <div className="min-h-0 flex-1 overflow-hidden rounded-xl border border-white/15 bg-white/8 p-2 shadow-[inset_0_1px_0_rgba(255,255,255,0.1)] backdrop-blur-xl">
-              <div className="h-full overflow-y-auto overflow-x-hidden overscroll-contain pr-0.5">
-                {prepareSortMode === "level" && prepareLevels.length === 0 ? (
-                  <p className="p-3 text-sm text-slate-400">У персонажа ще немає заклинань.</p>
-                ) : prepareSortMode === "badge" && prepareBadgeGroups.length === 0 ? (
-                  <p className="p-3 text-sm text-slate-400">У персонажа ще немає заклинань.</p>
-                ) : (
-                  <div className="space-y-3">
-                    {prepareSortMode === "level" && prepareLevels.map((level) => {
-                      const list = prepareSpellsByLevel[level] ?? [];
-                      if (!list.length) return null;
-
-                      return (
-                        <SpellListGroup
-                          key={`prepare-${level}`}
-                          title={level === 0 ? "Замовляння" : "Рівень " + level}
-                          spells={list}
-                          isPending={isPending}
-                          isReadOnly={isReadOnly}
-                          onOpenSpell={openSpell}
-                          onOpenSettings={openBadgeEditor}
-                          rightActionPlacement="belowMeta"
-                          rightAction={(ps: any) => {
-                            const spellId = Number(ps?.spellId ?? ps?.spell?.spellId);
-                            const checked = prepareSelection.has(spellId);
-
-                            return (
-                              <Button
-                                type="button"
-                                size="sm"
-                                variant="ghost"
-                                aria-label={checked ? "Зняти підготовку" : "Підготувати заклинання"}
-                                disabled={!Number.isFinite(spellId) || isPending || isReadOnly}
-                                className={
-                                  "h-8 w-[82px] shrink-0 border transition-colors " +
-                                  (checked
-                                    ? "border-emerald-400/40 bg-emerald-500/20 text-emerald-200 hover:bg-emerald-500/30"
-                                    : "border-white/10 bg-white/5 text-slate-200 hover:bg-white/10")
-                                }
-                                onClick={(e) => {
-                                  e.stopPropagation();
-                                  if (!Number.isFinite(spellId) || isReadOnly) return;
-                                  setPrepareSelection((prev) => {
-                                    const next = new Set(prev);
-                                    if (next.has(spellId)) next.delete(spellId);
-                                    else next.add(spellId);
-                                    return next;
-                                  });
-                                }}
-                              >
-                                <span className="inline-flex items-center gap-1 text-[11px] font-medium">
-                                  {checked ? <Check className="h-3.5 w-3.5" /> : <Plus className="h-3.5 w-3.5" />}
-                                  підгот.
-                                </span>
-                              </Button>
-                            );
-                          }}
-                        />
-                      );
-                    })}
-
-                    {prepareSortMode === "badge" && prepareBadgeGroups.map((badge) => {
-                      const list = prepareSpellsByBadge[badge] ?? [];
-                      if (!list.length) return null;
-
-                      return (
-                        <SpellListGroup
-                          key={`prepare-badge-${badge}`}
-                          title={badge}
-                          spells={list}
-                          isPending={isPending}
-                          isReadOnly={isReadOnly}
-                          onOpenSpell={openSpell}
-                          onOpenSettings={openBadgeEditor}
-                          subtitleVariant="with-level"
-                          rightActionPlacement="belowMeta"
-                          rightAction={(ps: any) => {
-                            const spellId = Number(ps?.spellId ?? ps?.spell?.spellId);
-                            const checked = prepareSelection.has(spellId);
-
-                            return (
-                              <Button
-                                type="button"
-                                size="sm"
-                                variant="ghost"
-                                aria-label={checked ? "Зняти підготовку" : "Підготувати заклинання"}
-                                disabled={!Number.isFinite(spellId) || isPending || isReadOnly}
-                                className={
-                                  "h-8 w-[82px] shrink-0 border transition-colors " +
-                                  (checked
-                                    ? "border-emerald-400/40 bg-emerald-500/20 text-emerald-200 hover:bg-emerald-500/30"
-                                    : "border-white/10 bg-white/5 text-slate-200 hover:bg-white/10")
-                                }
-                                onClick={(e) => {
-                                  e.stopPropagation();
-                                  if (!Number.isFinite(spellId) || isReadOnly) return;
-                                  setPrepareSelection((prev) => {
-                                    const next = new Set(prev);
-                                    if (next.has(spellId)) next.delete(spellId);
-                                    else next.add(spellId);
-                                    return next;
-                                  });
-                                }}
-                              >
-                                <span className="inline-flex items-center gap-1 text-[11px] font-medium">
-                                  {checked ? <Check className="h-3.5 w-3.5" /> : <Plus className="h-3.5 w-3.5" />}
-                                  підгот.
-                                </span>
-                              </Button>
-                            );
-                          }}
-                        />
-                      );
-                    })}
-                  </div>
-                )}
-              </div>
-            </div>
-
-            <div className="flex justify-end gap-2">
-              <Button variant="ghost" className="text-slate-300 hover:bg-white/5" onClick={() => setPrepareOpen(false)} disabled={isPending}>
-                Скасувати
-              </Button>
-              <Button
-                className="border border-violet-400/30 bg-violet-500/20 text-violet-100 hover:bg-violet-500/30"
-                disabled={isPending}
-                onClick={() => {
-                  commitPrepareSelection();
-                  setPrepareOpen(false);
-                }}
-              >
-                Застосувати
-              </Button>
-            </div>
-          </div>
-        </DialogContent>
-      </Dialog>
 
       <Dialog
         open={badgeEditorOpen}
@@ -1117,7 +989,7 @@ export default function MagicSlide({ pers, onPersUpdate, isReadOnly }: MagicSlid
           }
         }}
       >
-        <DialogContent className="sm:max-w-[520px] glass-card border-white/10 text-slate-100">
+        <DialogContent className="w-[calc(100vw-1rem)] max-h-[92dvh] overflow-y-auto sm:max-w-[520px] glass-card border-white/10 bg-slate-900/45 text-slate-100">
           <DialogHeader>
             <DialogTitle>Налаштування заклинання: {badgeEditorSpellName}</DialogTitle>
           </DialogHeader>
@@ -1206,10 +1078,22 @@ export default function MagicSlide({ pers, onPersUpdate, isReadOnly }: MagicSlid
               </div>
             </div>
 
-            <div className="flex justify-between gap-2">
+            <label className="flex items-start gap-2 rounded-lg border border-white/10 bg-white/5 px-3 py-2 cursor-pointer">
+              <Checkbox
+                checked={badgeEditorExcludeFromPreparedCount}
+                onCheckedChange={(checked) => setBadgeEditorExcludeFromPreparedCount(Boolean(checked))}
+                disabled={isPending || isReadOnly}
+                className="mt-0.5 border-white/30 data-[state=checked]:bg-sky-500 data-[state=checked]:text-white"
+              />
+              <span className="text-xs text-slate-200">
+                Не враховувати це заклинання у кількості підготовлених (зручно для ритуалів, що завжди доступні).
+              </span>
+            </label>
+
+            <div className="flex flex-col gap-2 sm:flex-row sm:justify-between">
               <Button
                 variant={confirmDeleteInBadgeEditor ? "destructive" : "outline"}
-                className={confirmDeleteInBadgeEditor ? "" : "border-red-500/30 bg-red-500/10 text-red-200 hover:bg-red-500/20"}
+                className={(confirmDeleteInBadgeEditor ? "" : "border-red-500/30 bg-red-500/10 text-red-200 hover:bg-red-500/20") + " w-full sm:w-auto"}
                 disabled={isPending || isReadOnly || !Number.isFinite(badgeEditorSpellId)}
                 onClick={() => {
                   if (!Number.isFinite(badgeEditorSpellId) || isReadOnly) return;
@@ -1236,11 +1120,12 @@ export default function MagicSlide({ pers, onPersUpdate, isReadOnly }: MagicSlid
                 {confirmDeleteInBadgeEditor ? "Підтвердити видалення" : "Видалити заклинання"}
               </Button>
 
-              <div className="flex gap-2">
-                <Button variant="ghost" onClick={() => setBadgeEditorOpen(false)} disabled={isPending}>
+              <div className="flex w-full gap-2 sm:w-auto">
+                <Button variant="ghost" className="flex-1 sm:flex-none" onClick={() => setBadgeEditorOpen(false)} disabled={isPending}>
                   Скасувати
                 </Button>
                 <Button
+                  className="flex-1 sm:flex-none"
                   disabled={isPending || !Number.isFinite(badgeEditorSpellId)}
                   onClick={() => {
                     if (!Number.isFinite(badgeEditorSpellId)) return;
@@ -1255,6 +1140,7 @@ export default function MagicSlide({ pers, onPersUpdate, isReadOnly }: MagicSlid
                           ...item,
                           badgeText: nextText || null,
                           badgeColor: nextText ? badgeEditorColor : null,
+                          excludeFromPreparedCount: badgeEditorExcludeFromPreparedCount,
                         };
                       })
                     );
@@ -1265,6 +1151,7 @@ export default function MagicSlide({ pers, onPersUpdate, isReadOnly }: MagicSlid
                         spellId,
                         badgeText: nextText,
                         badgeColor: badgeEditorColor,
+                        excludeFromPreparedCount: badgeEditorExcludeFromPreparedCount,
                       });
                       if (!res.success) {
                         router.refresh();
@@ -1279,6 +1166,7 @@ export default function MagicSlide({ pers, onPersUpdate, isReadOnly }: MagicSlid
                             ...item,
                             badgeText: res.badgeText,
                             badgeColor: res.badgeColor,
+                            excludeFromPreparedCount: res.excludeFromPreparedCount,
                           };
                         })
                       );
