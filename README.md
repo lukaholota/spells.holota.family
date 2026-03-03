@@ -2,16 +2,10 @@ site: https://char.holota.family/
 
 ## Getting Started
 
-npm ci
-npx prisma generate
+bun i
+bunx prisma generate
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
 bun dev
 ```
 

@@ -206,14 +206,14 @@ export default function SpellListGroup({
               }
             >
               {rightActionPlacement === "belowMeta" ? (
-                <div className="grid grid-cols-[auto_minmax(0,1fr)_auto] grid-rows-[auto_auto] items-start gap-x-2 gap-y-1.5 sm:gap-x-3">
-                  <div className={`row-start-1 col-start-1 flex items-center justify-center rounded-md border ${schoolVisual.iconWrap} ${compact ? "h-7 w-7 sm:h-8 sm:w-8" : "h-7 w-7 sm:h-9 sm:w-9"}`}>
+                <div className="grid grid-cols-[auto_minmax(0,1fr)_auto] grid-rows-[auto_auto] items-stretch gap-x-2 gap-y-1.5 sm:gap-x-3">
+                  <div className={`row-start-1 col-start-1 flex items-center justify-center rounded-md border m-auto ${schoolVisual.iconWrap} ${compact ? "h-7 w-7 sm:h-8 sm:w-8" : "h-7 w-7 sm:h-9 sm:w-9"}`}>
                     <SchoolIcon className={`${compact ? "h-3 w-3 sm:h-3.5 sm:w-3.5" : "h-3 w-3 sm:h-4 sm:w-4"} ${schoolVisual.iconColor}`} />
                   </div>
 
                   <button
                     type="button"
-                    className="row-start-1 col-start-2 w-full min-w-0 self-start text-left"
+                    className="row-start-1 col-start-2 w-full min-w-0 text-left"
                     onClick={() => {
                       if (Number.isFinite(spellId)) onOpenSpell(spellId);
                     }}
@@ -223,7 +223,7 @@ export default function SpellListGroup({
                     </div>
                   </button>
 
-                  <div className="row-start-1 col-start-3 flex items-start justify-end self-start">
+                  <div className="row-start-1 col-start-3 flex items-center justify-end self-start">
                     {rightAction ? (
                       <div className="[&>button]:h-7 sm:[&>button]:h-9 [&>button]:w-[62px] sm:[&>button]:w-[76px] [&>button]:text-[10px] [&>button_span]:text-[10px]">
                         {rightAction(ps)}
