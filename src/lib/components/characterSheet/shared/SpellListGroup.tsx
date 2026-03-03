@@ -231,7 +231,7 @@ export default function SpellListGroup({
                     ) : null}
                   </div>
 
-                  <div className="row-start-2 col-start-1 self-start">
+                  <div className="row-start-2 col-start-1 self-start m-auto">
                     {!hideSettings ? (
                       <Button
                         type="button"
