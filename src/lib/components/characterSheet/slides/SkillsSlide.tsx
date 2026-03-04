@@ -63,7 +63,7 @@ const SkillsSlide = memo(function SkillsSlide({ pers, onPersUpdate, isReadOnly }
   let lastAbility = "";
 
   return (
-    <div className="h-full p-4">
+    <div className="p-4">
       <div className="space-y-0">
         {allSkills.map((skillInfo) => {
           const { total, proficiency } = calculateFinalSkill(pers, skillInfo.skill);
