@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, memo } from "react";
 import { PersWithRelations, PersWeaponWithWeapon, PersArmorWithArmor } from "@/lib/actions/pers";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { formatModifier } from "@/lib/logic/utils";
@@ -133,7 +133,7 @@ type CombatSlideProps = {
   isReadOnly?: boolean;
 };
 
-export default function CombatSlide({ pers, onPersUpdate: _onPersUpdate, isReadOnly }: CombatSlideProps) {
+const CombatSlide = memo(function CombatSlide({ pers, onPersUpdate: _onPersUpdate, isReadOnly }: CombatSlideProps) {
 // Redundant stats removed
   const { openWeapon } = useDiceUIStore();
 
@@ -369,7 +369,7 @@ export default function CombatSlide({ pers, onPersUpdate: _onPersUpdate, isReadO
   }, [pers.weapons]);
 
   return (
-    <div className="space-y-4 pb-8">
+    <div className="space-y-4">
       {/* Redundant stats grid removed - they are already visible in global stats and header */}
 
       {/* Weapons Section */}
@@ -714,5 +714,7 @@ export default function CombatSlide({ pers, onPersUpdate: _onPersUpdate, isReadO
       )}
     </div>
   );
-}
+});
+
+export default CombatSlide;
 

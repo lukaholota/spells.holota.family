@@ -6,7 +6,7 @@ import { PersWithRelations } from "@/lib/actions/pers";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { formatModifier } from "@/lib/logic/utils";
 import { ArrowUpDown, Check, ChevronDown, Plus, SlidersHorizontal, Wand2 } from "lucide-react";
-import { useEffect, useMemo, useState, useTransition } from "react";
+import { memo, useEffect, useMemo, useState, useTransition } from "react";
 import { SPELL_SLOT_PROGRESSION } from "@/lib/refs/static";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -104,7 +104,7 @@ interface MagicSlideProps {
   isReadOnly?: boolean;
 }
 
-export default function MagicSlide({ pers, onPersUpdate, isReadOnly }: MagicSlideProps) {
+const MagicSlide = memo(function MagicSlide({ pers, onPersUpdate, isReadOnly }: MagicSlideProps) {
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
 
@@ -571,7 +571,7 @@ export default function MagicSlide({ pers, onPersUpdate, isReadOnly }: MagicSlid
 
   return (
     <div
-      className="h-full overflow-y-auto p-2.5 sm:p-4 space-y-4"
+      className="overflow-y-auto p-2.5 sm:p-4 space-y-4"
     >
 
       {/* Spell Stats */}
@@ -1195,4 +1195,6 @@ export default function MagicSlide({ pers, onPersUpdate, isReadOnly }: MagicSlid
       />
     </div>
   );
-}
+});
+
+export default MagicSlide;

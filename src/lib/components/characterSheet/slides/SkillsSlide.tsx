@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, memo } from "react";
 import { PersWithRelations } from "@/lib/actions/pers";
 import { formatModifier } from "@/lib/logic/utils";
 import { Skills } from "@prisma/client";
@@ -18,7 +18,7 @@ interface SkillsSlideProps {
   isReadOnly?: boolean;
 }
 
-export default function SkillsSlide({ pers, onPersUpdate, isReadOnly }: SkillsSlideProps) {
+const SkillsSlide = memo(function SkillsSlide({ pers, onPersUpdate, isReadOnly }: SkillsSlideProps) {
   // Bonus modification modal state
   const [modifyOpen, setModifyOpen] = useState(false);
   const [modifyConfig, setModifyConfig] = useState<ModifyConfig | null>(null);
@@ -134,4 +134,6 @@ export default function SkillsSlide({ pers, onPersUpdate, isReadOnly }: SkillsSl
       />
     </div>
   );
-}
+});
+
+export default SkillsSlide;

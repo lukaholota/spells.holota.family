@@ -10,7 +10,11 @@ import FeaturesSlide from "./slides/FeaturesSlide";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CharacterFeaturesGroupedResult } from "@/lib/actions/pers";
-import { useMediaQuery } from "@/lib/hooks/useMediaQuery";
+import { Swiper, SwiperSlide } from "swiper/react";
+import type { Swiper as SwiperType } from "swiper";
+import { Navigation } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
 
 interface CharacterCarouselProps {
   pers: PersWithRelations;
@@ -20,8 +24,7 @@ interface CharacterCarouselProps {
 }
 
 export default function CharacterCarousel({ pers, onPersUpdate, groupedFeatures, isReadOnly }: CharacterCarouselProps) {
-  const isLg = useMediaQuery("(min-width: 1024px)");
-  const isMd = useMediaQuery("(min-width: 768px)");
+  const swiperRef = useRef<SwiperType | null>(null);
 
   type SlideId = "stats" | "skills" | "equipment" | "magic" | "features";
   type SlideDef = { id: SlideId; label: string };
@@ -37,39 +40,23 @@ export default function CharacterCarousel({ pers, onPersUpdate, groupedFeatures,
     []
   );
 
-  const totalSlides = allSlides.length;
-  const visibleCount = isLg ? 3 : isMd ? 2 : 1;
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-  const getStartIndex = () => (isLg ? 4 : 0);
-
-  const [currentIndex, setCurrentIndex] = useState(getStartIndex);
-
-  // On breakpoint change, set initial index per spec.
   useEffect(() => {
-    setCurrentIndex(getStartIndex());
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isLg, isMd]);
-
-  const swipeStart = useRef<{ x: number; y: number } | null>(null);
-
-  const handlePrevious = () => {
-    setCurrentIndex((prev) => (prev - 1 + totalSlides) % totalSlides);
-  };
-
-  const handleNext = () => {
-    setCurrentIndex((prev) => (prev + 1) % totalSlides);
-  };
-
-  const getVisibleSlides = () => {
-    const visible: Array<SlideDef & { index: number }> = [];
-    for (let i = 0; i < visibleCount; i++) {
-      const index = (currentIndex + i) % totalSlides;
-      visible.push({ ...allSlides[index], index });
+    if (swiperRef.current) {
+      const isLg = window.matchMedia("(min-width: 1024px)").matches;
+      if (isLg) {
+        swiperRef.current.slideToLoop(4, 0);
+        setCurrentIndex(4);
+      } else {
+        const isMd = window.matchMedia("(min-width: 768px)").matches;
+        if (isMd) {
+          swiperRef.current.slideToLoop(0, 0);
+          setCurrentIndex(0);
+        }
+      }
     }
-    return visible;
-  };
-
-  const visibleSlides = getVisibleSlides();
+  }, []);
 
   const renderSlide = (id: SlideId) => {
     if (id === "stats") return <MainStatsSlide pers={pers} onPersUpdate={onPersUpdate} isReadOnly={isReadOnly} />;
@@ -80,65 +67,65 @@ export default function CharacterCarousel({ pers, onPersUpdate, groupedFeatures,
     return null;
   };
 
-  const onTouchStart = (e: React.TouchEvent) => {
-    const t = e.touches[0];
-    if (!t) return;
-    swipeStart.current = { x: t.clientX, y: t.clientY };
-  };
-
-  const onTouchEnd = (e: React.TouchEvent) => {
-    const start = swipeStart.current;
-    swipeStart.current = null;
-    if (!start) return;
-
-    const t = e.changedTouches[0];
-    if (!t) return;
-
-    const dx = t.clientX - start.x;
-    const dy = t.clientY - start.y;
-
-    // Horizontal swipe only; keep vertical scroll intact.
-    if (Math.abs(dx) < 60) return;
-    if (Math.abs(dy) > 40) return;
-
-    if (dx < 0) handleNext();
-    else handlePrevious();
-  };
-
   return (
     <div className="flex h-full min-h-0 flex-col overflow-hidden">
       {/* Content */}
       <div className="relative flex-1 min-h-0 overflow-hidden">
-        <div
-          className="h-full min-h-0 px-3 pt-3 pb-2 md:px-4 md:pt-4 md:absolute md:inset-0"
-          onTouchStart={onTouchStart}
-          onTouchEnd={onTouchEnd}
-        >
-          <div className="grid h-full min-h-0 gap-3 md:gap-4" style={{ gridTemplateColumns: `repeat(${visibleCount}, 1fr)` }}>
-            {visibleSlides.map((slide) => (
-              <div
-                key={`${slide.id}-${slide.index}`}
-                className="bg-slate-900/90 backdrop-blur-sm border border-white/10 rounded-xl shadow-2xl shadow-black/30 h-full min-h-0 overflow-hidden"
-              >
-                <div className="h-full min-h-0 overflow-y-auto" style={{ scrollBehavior: "smooth" }}>
-                  {renderSlide(slide.id)}
+        <div className="h-full min-h-0 px-3 pt-3 pb-2 md:px-4 md:pt-4 md:absolute md:inset-0">
+          <Swiper
+            onSwiper={(swiper) => {
+              swiperRef.current = swiper;
+            }}
+            modules={[Navigation]}
+            navigation={{
+              prevEl: ".swiper-button-prev-custom",
+              nextEl: ".swiper-button-next-custom",
+            }}
+            onSlideChange={(swiper) => {
+              if (currentIndex !== swiper.realIndex) {
+                setCurrentIndex(swiper.realIndex);
+              }
+            }}
+            loop={true}
+            speed={400}
+            touchRatio={1.2}
+            grabCursor={true}
+            watchSlidesProgress={true}
+            slidesPerView={1}
+            spaceBetween={12}
+            breakpoints={{
+              768: {
+                slidesPerView: 2,
+                spaceBetween: 16,
+              },
+              1024: {
+                slidesPerView: 3,
+                spaceBetween: 16,
+              },
+            }}
+            className="h-full w-full"
+          >
+            {allSlides.map((slide) => (
+              <SwiperSlide key={slide.id} className="h-full">
+                <div className="bg-slate-900/90 backdrop-blur-sm border border-white/10 rounded-xl shadow-2xl shadow-black/30 h-full min-h-0 overflow-hidden">
+                  <div className="h-full md:pb-0 pb-24 min-h-0 overflow-y-auto" style={{ scrollBehavior: "smooth" }}>
+                    {renderSlide(slide.id)}
+                  </div>
                 </div>
-              </div>
+              </SwiperSlide>
             ))}
-          </div>
+          </Swiper>
 
-          {/* Side navigation arrows (all breakpoints) */}
+          {/* Side navigation arrows (all breakpoints) using Swiper Navigation */}
           <Button
-            onClick={handlePrevious}
-            className="fixed left-2 md:left-28 top-1/2 -translate-y-1/2 bg-slate-900/90 hover:bg-slate-800/95 backdrop-blur-sm border border-white/20 text-white rounded-full w-10 h-10 md:w-12 md:h-12 p-0 shadow-xl z-10"
+            className="swiper-button-prev-custom fixed left-2 md:left-28 top-1/2 -translate-y-1/2 bg-slate-900/90 hover:bg-slate-800/95 backdrop-blur-sm border border-white/20 text-white rounded-full w-10 h-10 md:w-12 md:h-12 p-0 shadow-xl z-10 disabled:opacity-0"
             size="icon"
             aria-label="Previous slide"
           >
             <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" />
           </Button>
           <Button
-            onClick={handleNext}
-            className="fixed right-2 md:right-6 top-1/2 -translate-y-1/2 bg-slate-900/90 hover:bg-slate-800/95 backdrop-blur-sm border border-white/20 text-white rounded-full w-10 h-10 md:w-12 md:h-12 p-0 shadow-xl z-10"
+            className="swiper-button-next-custom fixed right-2 md:right-6 top-1/2 -translate-y-1/2 bg-slate-900/90 hover:bg-slate-800/95 backdrop-blur-sm border border-white/20 text-white rounded-full w-10 h-10 md:w-12 md:h-12 p-0 shadow-xl z-10 disabled:opacity-0"
             size="icon"
             aria-label="Next slide"
           >
@@ -157,7 +144,7 @@ export default function CharacterCarousel({ pers, onPersUpdate, groupedFeatures,
                 key={s.id}
                 type="button"
                 onClick={() => {
-                  setCurrentIndex(idx);
+                  swiperRef.current?.slideToLoop(idx);
                 }}
                 className={
                   "px-2 py-1 rounded-md text-[10px] sm:text-xs transition border " +

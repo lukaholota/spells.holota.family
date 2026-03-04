@@ -149,7 +149,7 @@ export default function CharacterSheet({ pers, groupedFeatures, isPublicView, ed
   };
 
   return (
-    <div className="md:h-screen min-h-screen w-full bg-slate-900 flex flex-col">
+    <div className="h-screen min-h-screen w-full bg-slate-900 flex flex-col">
       <div className="p-3 px-4 border-b border-white/10 flex justify-between items-center bg-slate-900/70 backdrop-blur sticky top-0 z-20">
            <div className="flex items-center gap-3">
              <div>

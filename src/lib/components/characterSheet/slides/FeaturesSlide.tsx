@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState, useTransition } from "react";
+import { memo, useEffect, useMemo, useState, useTransition } from "react";
 import { CharacterFeatureItem, CharacterFeaturesGroupedResult, PersWithRelations } from "@/lib/actions/pers";
 import { FeatureDisplayType } from "@prisma/client";
 import { ChevronRight } from "lucide-react";
@@ -129,7 +129,7 @@ function categoryVariant(kind: CategoryKind) {
 
 // Redundant local FeatureCard removed - using shared/FeatureCards.tsx
 
-export default function FeaturesSlide({ pers, groupedFeatures, isReadOnly }: FeaturesSlideProps) {
+const FeaturesSlide = memo(function FeaturesSlide({ pers, groupedFeatures, isReadOnly }: FeaturesSlideProps) {
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
 
@@ -620,7 +620,7 @@ export default function FeaturesSlide({ pers, groupedFeatures, isReadOnly }: Fea
   }, [backgroundName, entityKind, entityVariantIndex, pers, raceName, subraceName]);
 
   return (
-    <div className="flex h-full min-h-0 flex-col">
+    <div className="flex min-h-0 flex-col">
       <div
         className="flex-1 min-h-0 overflow-y-auto p-3 sm:p-4 space-y-3 touch-pan-y"
         style={{ WebkitOverflowScrolling: "touch" }}
@@ -829,4 +829,6 @@ export default function FeaturesSlide({ pers, groupedFeatures, isReadOnly }: Fea
       </div>
     </div>
   );
-}
+});
+
+export default FeaturesSlide;

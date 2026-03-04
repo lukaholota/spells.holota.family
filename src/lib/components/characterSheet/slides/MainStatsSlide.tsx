@@ -9,7 +9,7 @@ import { Heart, Shield, Sword } from "lucide-react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { useEffect, useMemo, useState, useTransition, useCallback, useRef } from "react";
+import { memo, useEffect, useMemo, useState, useTransition, useCallback, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { applyHpChange, reviveCharacter, setDeathSaves } from "@/lib/actions/combat-actions";
 import { updateCharacterAction } from "@/lib/actions/update-character";
@@ -34,7 +34,7 @@ interface MainStatsSlideProps {
   isReadOnly?: boolean;
 }
 
-export default function MainStatsSlide({ pers, onPersUpdate, isReadOnly }: MainStatsSlideProps) {
+const MainStatsSlide = memo(function MainStatsSlide({ pers, onPersUpdate, isReadOnly }: MainStatsSlideProps) {
   const router = useRouter();
   const persId = pers.persId;
   const [isHpPending, startHpTransition] = useTransition();
@@ -554,7 +554,7 @@ export default function MainStatsSlide({ pers, onPersUpdate, isReadOnly }: MainS
   };
 
   return (
-    <div className="h-full flex flex-col gap-4 p-4">
+    <div className="flex flex-col gap-4 p-4">
       {/* HERO SECTION: Combat Stats (HP, AC, Initiative) */}
       <div className="grid grid-cols-3 gap-2">
         <button 
@@ -1078,4 +1078,6 @@ export default function MainStatsSlide({ pers, onPersUpdate, isReadOnly }: MainS
       />
     </div>
   );
-}
+});
+
+export default MainStatsSlide;
