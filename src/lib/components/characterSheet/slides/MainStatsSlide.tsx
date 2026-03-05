@@ -941,7 +941,7 @@ const MainStatsSlide = memo(function MainStatsSlide({ pers, onPersUpdate, isRead
                 value={draftProficiencies}
                 onChange={(e) => setDraftProficiencies(e.target.value)}
                 disabled={isReadOnly}
-                className="w-full min-h-[64px] rounded-md border border-white/10 bg-slate-950/40 px-3 py-2 text-sm text-slate-100 outline-none focus:ring-1 focus:ring-white/20"
+                className="w-full min-h-32 rounded-md border border-white/10 bg-slate-950/40 px-3 py-2 text-sm text-slate-100 outline-none focus:ring-1 focus:ring-white/20"
                 placeholder={isReadOnly ? "" : "Напр.: Легка/середня броня, прості мечі, інструменти злодія"}
               />
             </div>
@@ -952,7 +952,7 @@ const MainStatsSlide = memo(function MainStatsSlide({ pers, onPersUpdate, isRead
                 value={draftEquipment}
                 onChange={(e) => setDraftEquipment(e.target.value)}
                 disabled={isReadOnly}
-                className="w-full min-h-[96px] rounded-md border border-white/10 bg-slate-950/40 px-3 py-2 text-sm text-slate-100 outline-none focus:ring-1 focus:ring-white/20"
+                className="w-full min-h-96 rounded-md border border-white/10 bg-slate-950/40 px-3 py-2 text-sm text-slate-100 outline-none focus:ring-1 focus:ring-white/20"
                 placeholder={isReadOnly ? "" : "Тут автоматично зібране стартове спорядження; можна доповнювати вручну"}
               />
             </div>
@@ -968,7 +968,7 @@ const MainStatsSlide = memo(function MainStatsSlide({ pers, onPersUpdate, isRead
                 value={draftLanguages}
                 onChange={(e) => setDraftLanguages(e.target.value)}
                 disabled={isReadOnly}
-                className="w-full min-h-[56px] rounded-md border border-white/10 bg-slate-950/40 px-3 py-2 text-sm text-slate-100 outline-none focus:ring-1 focus:ring-white/20"
+                className="w-full min-h-32 rounded-md border border-white/10 bg-slate-950/40 px-3 py-2 text-sm text-slate-100 outline-none focus:ring-1 focus:ring-white/20"
                 placeholder={isReadOnly ? "" : "Напр.: Загальна, Ельфійська"}
               />
             </div>
