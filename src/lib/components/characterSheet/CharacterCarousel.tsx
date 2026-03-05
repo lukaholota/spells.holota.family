@@ -12,9 +12,7 @@ import { Button } from "@/components/ui/button";
 import { CharacterFeaturesGroupedResult } from "@/lib/actions/pers";
 import { Swiper, SwiperSlide } from "swiper/react";
 import type { Swiper as SwiperType } from "swiper";
-import { Navigation } from "swiper/modules";
 import "swiper/css";
-import "swiper/css/navigation";
 
 interface CharacterCarouselProps {
   pers: PersWithRelations;
@@ -76,11 +74,6 @@ export default function CharacterCarousel({ pers, onPersUpdate, groupedFeatures,
             onSwiper={(swiper) => {
               swiperRef.current = swiper;
             }}
-            modules={[Navigation]}
-            navigation={{
-              prevEl: ".swiper-button-prev-custom",
-              nextEl: ".swiper-button-next-custom",
-            }}
             onSlideChange={(swiper) => {
               if (currentIndex !== swiper.realIndex) {
                 setCurrentIndex(swiper.realIndex);
@@ -103,7 +96,7 @@ export default function CharacterCarousel({ pers, onPersUpdate, groupedFeatures,
                 spaceBetween: 16,
               },
             }}
-            className="h-full w-full"
+            className="h-full w-full select-none"
           >
             {allSlides.map((slide) => (
               <SwiperSlide key={slide.id} className="h-full">
@@ -116,18 +109,24 @@ export default function CharacterCarousel({ pers, onPersUpdate, groupedFeatures,
             ))}
           </Swiper>
 
-          {/* Side navigation arrows (all breakpoints) using Swiper Navigation */}
+          {/* Side navigation arrows (all breakpoints) */}
           <Button
-            className="swiper-button-prev-custom fixed left-2 md:left-28 top-1/2 -translate-y-1/2 bg-slate-900/90 hover:bg-slate-800/95 backdrop-blur-sm border border-white/20 text-white rounded-full w-10 h-10 md:w-12 md:h-12 p-0 shadow-xl z-10 disabled:opacity-0"
+            className="fixed left-2 md:left-28 top-1/2 -translate-y-1/2 bg-slate-900/90 hover:bg-slate-800/95 backdrop-blur-sm border border-white/20 text-white rounded-full w-10 h-10 md:w-12 md:h-12 p-0 shadow-xl z-10"
             size="icon"
             aria-label="Previous slide"
+            onClick={() => {
+              swiperRef.current?.slidePrev(100);
+            }}
           >
             <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" />
           </Button>
           <Button
-            className="swiper-button-next-custom fixed right-2 md:right-6 top-1/2 -translate-y-1/2 bg-slate-900/90 hover:bg-slate-800/95 backdrop-blur-sm border border-white/20 text-white rounded-full w-10 h-10 md:w-12 md:h-12 p-0 shadow-xl z-10 disabled:opacity-0"
+            className="fixed right-2 md:right-6 top-1/2 -translate-y-1/2 bg-slate-900/90 hover:bg-slate-800/95 backdrop-blur-sm border border-white/20 text-white rounded-full w-10 h-10 md:w-12 md:h-12 p-0 shadow-xl z-10"
             size="icon"
             aria-label="Next slide"
+            onClick={() => {
+              swiperRef.current?.slideNext(100);
+            }}
           >
             <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
           </Button>
