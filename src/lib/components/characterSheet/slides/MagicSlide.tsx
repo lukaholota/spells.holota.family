@@ -584,7 +584,7 @@ const MagicSlide = memo(function MagicSlide({ pers, onPersUpdate, isReadOnly }: 
             }}
         >
           <CardContent className="p-3 text-center">
-            <div className="text-[10px] font-bold uppercase tracking-wide text-fuchsia-300">Бонус атаки Заклинаннями</div>
+            <div className="text-[10px] h-8 font-bold uppercase tracking-wide text-fuchsia-300">Бонус атаки Заклинаннями</div>
             <div className="text-2xl font-bold text-fuchsia-50 drop-shadow-[0_0_8px_rgba(217,70,239,0.4)]">{formatModifier(spellAttackBonus)}</div>
           </CardContent>
         </Card>
@@ -596,7 +596,7 @@ const MagicSlide = memo(function MagicSlide({ pers, onPersUpdate, isReadOnly }: 
             }}
         >
           <CardContent className="p-3 text-center">
-            <div className="text-[10px] font-bold uppercase tracking-wide text-fuchsia-300">СК (Складість Ряткидка)</div>
+            <div className="text-[10px] h-8 font-bold uppercase tracking-wide text-fuchsia-300">СК (Складість Ряткидка)</div>
             <div className="text-2xl font-bold text-fuchsia-50 drop-shadow-[0_0_8px_rgba(217,70,239,0.4)]">{spellSaveDC}</div>
           </CardContent>
         </Card>
