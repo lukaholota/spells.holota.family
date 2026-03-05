@@ -12,7 +12,7 @@ export const App = ({ children }: { children: React.ReactNode }) => {
   return (
     <main
       className={
-        "col-start-1 h-screen row-start-1 flex w-screen md:w-full flex-col items-center pb-32 md:pb-0 " +
+        "col-start-1 h-dvh row-start-1 flex w-screen md:w-full flex-col items-center pb-32 md:pb-0 " +
         (isEmbed ? "md:col-start-1 md:col-span-2" : "md:col-start-2")
       }
     >

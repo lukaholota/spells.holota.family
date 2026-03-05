@@ -19,7 +19,7 @@ export function RootGrid({ children }: { children: React.ReactNode }) {
   }
 
   return (
-    <div className="grid h-screen min-h-screen w-full grid-rows-[1fr_auto] md:grid-rows-1 md:grid-cols-[88px_1fr]">
+    <div className="grid h-dvh w-full grid-rows-[1fr_auto] md:grid-rows-1 md:grid-cols-[88px_1fr]">
       {children}
     </div>
   );
