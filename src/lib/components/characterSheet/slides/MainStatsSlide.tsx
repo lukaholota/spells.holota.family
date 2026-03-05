@@ -837,7 +837,7 @@ const MainStatsSlide = memo(function MainStatsSlide({ pers, onPersUpdate, isRead
                 value={draftNotes}
                 onChange={(e) => setDraftNotes(e.target.value)}
                 style={{ fieldSizing: "content" }}
-                className="w-full min-h-[400px] rounded-md border border-white/10 bg-slate-950/40 px-3 py-2 text-sm text-slate-100 outline-none focus:ring-1 focus:ring-white/20"
+                className="w-full min-h-28 rounded-md border border-white/10 bg-slate-950/40 px-3 py-2 text-sm text-slate-100 outline-none focus:ring-1 focus:ring-white/20"
               />
             </div>
 
