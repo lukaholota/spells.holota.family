@@ -135,6 +135,12 @@ function sortByPinnedThenName<T extends { name: string; isPinned?: boolean }>(a:
   return a.name.localeCompare(b.name, "uk");
 }
 
+function sortByPinnedThenPersId<T extends { persId: number; isPinned?: boolean }>(a: T, b: T) {
+  const pinDiff = Number(Boolean(b.isPinned)) - Number(Boolean(a.isPinned));
+  if (pinDiff !== 0) return pinDiff;
+  return b.persId - a.persId;
+}
+
 function getFolderParamValue(value: string | null): number | null {
   if (!value) return null;
   const parsed = Number(value);
@@ -1078,10 +1084,10 @@ export function CharHomeClient({
 
   const visiblePerses = useMemo(() => {
     const list = filteredPerses.filter((p) => (p.folderId ?? null) === currentFolderId);
-    if (!searchValue) return list.sort(sortByPinnedThenName);
+    if (!searchValue) return list.sort(sortByPinnedThenPersId);
     return list
       .filter((p) => p.name.toLowerCase().includes(searchValue))
-      .sort(sortByPinnedThenName);
+      .sort(sortByPinnedThenPersId);
   }, [filteredPerses, currentFolderId, searchValue]);
 
   const globalSearchPerses = useMemo(() => {
@@ -1089,7 +1095,7 @@ export function CharHomeClient({
     if (visibleFolders.length + visiblePerses.length > 0) return [] as PersHomeItem[];
     return filteredPerses
       .filter((p) => p.name.toLowerCase().includes(searchValue))
-      .sort(sortByPinnedThenName);
+      .sort(sortByPinnedThenPersId);
   }, [filteredPerses, searchValue, visibleFolders.length, visiblePerses.length]);
 
   const handleCreate = useCallback(() => {
