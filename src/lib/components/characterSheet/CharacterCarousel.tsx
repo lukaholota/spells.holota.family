@@ -108,7 +108,7 @@ export default function CharacterCarousel({ pers, onPersUpdate, groupedFeatures,
             {allSlides.map((slide) => (
               <SwiperSlide key={slide.id} className="h-full">
                 <div className="bg-slate-900/90 backdrop-blur-sm border border-white/10 rounded-xl shadow-2xl shadow-black/30 h-full min-h-0 overflow-hidden">
-                  <div className="h-full md:pb-0 pb-24 min-h-0 overflow-y-auto" style={{ scrollBehavior: "smooth" }}>
+                  <div className="h-full min-h-0 overflow-y-auto" style={{ scrollBehavior: "smooth" }}>
                     {renderSlide(slide.id)}
                   </div>
                 </div>
