@@ -632,7 +632,7 @@ export function MagicItemsClient({
       </div>
 
       {/* CORE GRID LAYOUT */}
-      <div className="mx-auto grid h-[calc(100vh-140px)] w-full max-w-6xl grid-cols-1 gap-4 px-3 py-4 sm:px-4 lg:grid-cols-5">
+      <div className="mx-auto grid h-[calc(100dvh-9rem)] w-full max-w-6xl grid-cols-1 gap-4 px-3 py-4 sm:px-4 lg:grid-cols-5">
         {/* LEFT COLUMN: LIST */}
         <div className="lg:col-span-2 h-full">
            <div className="custom-scrollbar h-full">
