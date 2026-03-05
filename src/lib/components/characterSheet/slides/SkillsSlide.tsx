@@ -63,7 +63,7 @@ const SkillsSlide = memo(function SkillsSlide({ pers, onPersUpdate, isReadOnly }
     { ability: "CHA", skill: Skills.PERSUASION },
   ];
 
-  const renderSkillGroup = (skills: typeof column1Skills) => {
+  const renderSkillGroup = (skills: { ability: string; skill: Skills }[]) => {
     let lastAbility = "";
     return skills.map((skillInfo) => {
       const { total, proficiency } = calculateFinalSkill(pers, skillInfo.skill);
