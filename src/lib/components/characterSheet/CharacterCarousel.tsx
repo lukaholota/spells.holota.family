@@ -111,7 +111,7 @@ export default function CharacterCarousel({ pers, onPersUpdate, groupedFeatures,
 
           {/* Side navigation arrows (all breakpoints) */}
           <Button
-            className="fixed left-2 md:left-28 top-1/2 -translate-y-1/2 bg-slate-900/90 hover:bg-slate-800/95 backdrop-blur-sm border border-white/20 text-white rounded-full w-10 h-10 md:w-12 md:h-12 p-0 shadow-xl z-10"
+            className="fixed left-2 md:left-28 top-1/2 -translate-y-1/2 bg-slate-900/50 hover:bg-slate-800/60 border border-white/20 text-white rounded-full w-10 h-10 md:w-12 md:h-12 p-0 shadow-xl z-10"
             size="icon"
             aria-label="Previous slide"
             onClick={() => {
@@ -121,7 +121,7 @@ export default function CharacterCarousel({ pers, onPersUpdate, groupedFeatures,
             <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" />
           </Button>
           <Button
-            className="fixed right-2 md:right-6 top-1/2 -translate-y-1/2 bg-slate-900/90 hover:bg-slate-800/95 backdrop-blur-sm border border-white/20 text-white rounded-full w-10 h-10 md:w-12 md:h-12 p-0 shadow-xl z-10"
+            className="fixed right-2 md:right-6 top-1/2 -translate-y-1/2 bg-slate-900/50 hover:bg-slate-800/60 border border-white/20 text-white rounded-full w-10 h-10 md:w-12 md:h-12 p-0 shadow-xl z-10"
             size="icon"
             aria-label="Next slide"
             onClick={() => {
