@@ -28,9 +28,19 @@ interface RestButtonProps {
   pers: PersWithRelations;
   onPersUpdate?: (next: PersWithRelations) => void;
   onGroupedFeaturesRefresh?: () => void;
+  triggerClassName?: string;
+  triggerLabel?: string;
+  triggerLabelClassName?: string;
 }
 
-export default function RestButton({ pers, onPersUpdate, onGroupedFeaturesRefresh }: RestButtonProps) {
+export default function RestButton({
+  pers,
+  onPersUpdate,
+  onGroupedFeaturesRefresh,
+  triggerClassName,
+  triggerLabel,
+  triggerLabelClassName,
+}: RestButtonProps) {
   const router = useRouter();
   const [isRefreshing, startRefreshTransition] = useTransition();
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -84,11 +94,14 @@ export default function RestButton({ pers, onPersUpdate, onGroupedFeaturesRefres
           <Button
             size="sm"
             variant="secondary"
-            className="h-8 gap-2 bg-amber-600/20 hover:bg-amber-600/30 border-amber-500/30"
+            className={[
+              "h-8 gap-2 bg-amber-600/20 hover:bg-amber-600/30 border-amber-500/30",
+              triggerClassName,
+            ].filter(Boolean).join(" ")}
             disabled={isSubmitting}
           >
             <Moon className="w-4 h-4" />
-            <span className="hidden sm:inline">{restTranslations.rest}</span>
+            <span className={triggerLabelClassName ?? "hidden sm:inline"}>{triggerLabel ?? restTranslations.rest}</span>
             <ChevronDown className="w-3 h-3" />
           </Button>
         </DropdownMenuTrigger>

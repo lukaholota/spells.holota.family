@@ -5,16 +5,10 @@ import { ClassI } from "@/lib/types/model-types";
 import { Card, CardContent } from "@/components/ui/card";
 import clsx from "clsx";
 import { useEffect, useMemo } from "react";
-import { Badge } from "@/components/ui/badge";
 import { usePersFormStore } from "@/lib/stores/persFormStore";
 import { SubclassInfoModal } from "@/lib/components/characterCreator/modals/SubclassInfoModal";
-import { sourceTranslations, subclassTranslations, subclassTranslationsEng } from "@/lib/refs/translation";
-import {
-  formatLanguages,
-  formatToolProficiencies,
-  translateValue,
-} from "@/lib/components/characterCreator/infoUtils";
-import { FormattedDescription } from "@/components/ui/FormattedDescription";
+import { subclassTranslations, subclassTranslationsEng } from "@/lib/refs/translation";
+import { translateValue } from "@/lib/components/characterCreator/infoUtils";
 import { z } from "zod";
 
 interface Props {
@@ -29,7 +23,14 @@ export const SubclassForm = ({ cls, formId, onNextDisabledChange }: Props) => {
   const requiredSubclassSchema = useMemo(
     () =>
       z.object({
-        subclassId: z.number().min(1, "Оберіть підклас"),
+        subclassId: z.preprocess(
+          (value) => {
+            if (value === "" || value === undefined || value === null) return 0;
+            const parsed = typeof value === "number" ? value : Number(value);
+            return Number.isFinite(parsed) ? parsed : 0;
+          },
+          z.number().min(1, "Оберіть підклас")
+        ),
         subclassChoiceSelections: z.record(z.string(), z.union([z.number().int(), z.array(z.number().int())])).default({}),
       }),
     []

@@ -1,5 +1,6 @@
 "use client";
 
+import type { ComponentProps } from "react";
 import { useEffect, useMemo, useState, useTransition } from "react";
 import { toast } from "sonner";
 
@@ -31,6 +32,10 @@ export interface PrintCharacterDialogProps {
   onOpenChange?: (open: boolean) => void;
   noButtonTrigger?: boolean;
   initialSections?: PrintSection[];
+  triggerClassName?: string;
+  triggerLabel?: string;
+  triggerLabelClassName?: string;
+  triggerVariant?: ComponentProps<typeof Button>["variant"];
 }
 
 export default function PrintCharacterDialog({ 
@@ -41,7 +46,11 @@ export default function PrintCharacterDialog({
   open: openOverride,
   onOpenChange: onOpenChangeOverride,
   noButtonTrigger: hideTrigger,
-  initialSections
+  initialSections,
+  triggerClassName,
+  triggerLabel,
+  triggerLabelClassName,
+  triggerVariant = "secondary",
 }: PrintCharacterDialogProps) {
   const [internalOpen, setInternalOpen] = useState(false);
   const open = openOverride !== undefined ? openOverride : internalOpen;
@@ -110,13 +119,13 @@ export default function PrintCharacterDialog({
       {hideTrigger !== true && (
         <Button
           size="sm"
-          variant="secondary"
-          className="h-8 gap-2"
+          variant={triggerVariant}
+          className={triggerClassName ?? "h-8 gap-2"}
           onClick={() => setOpen(true)}
           disabled={disabled || isPending}
         >
           <Printer className="h-4 w-4" />
-          <span className="hidden sm:inline">Друк</span>
+          <span className={triggerLabelClassName ?? "hidden sm:inline"}>{triggerLabel ?? "Друк"}</span>
         </Button>
       )}
 

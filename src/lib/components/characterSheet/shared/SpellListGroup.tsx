@@ -176,6 +176,11 @@ export default function SpellListGroup({
 }: SpellListGroupProps) {
   if (!spells.length) return null;
 
+  const handleOpenSettings = (spellId: number, persSpell: any) => {
+    if (!Number.isFinite(spellId) || isReadOnly) return;
+    onOpenSettings(persSpell);
+  };
+
   return (
     <Card className="border-white/10 bg-transparent">
       <CardHeader className="pb-2 py-3">
@@ -246,8 +251,7 @@ export default function SpellListGroup({
                         }
                         onClick={(e) => {
                           e.stopPropagation();
-                          if (!Number.isFinite(spellId) || isReadOnly) return;
-                          onOpenSettings(ps);
+                          handleOpenSettings(spellId, ps);
                         }}
                       >
                         <Settings2 className="h-3.5 w-3.5" />
@@ -291,16 +295,23 @@ export default function SpellListGroup({
 
                   <div className="row-start-2 col-start-3 flex items-start justify-end self-start">
                     {hasBadge ? (
-                      <span
+                      <button
+                        type="button"
                         title={badgeText}
+                        aria-label={`Налаштувати бейдж заклинання ${spell?.name ?? ""}`.trim()}
+                        disabled={isPending || !Number.isFinite(spellId) || isReadOnly}
                         className={
-                          "flex h-7 w-[62px] sm:h-9 sm:w-[76px] items-center overflow-hidden whitespace-nowrap rounded-md border text-[10px] font-semibold " +
+                          "flex h-7 w-[62px] sm:h-9 sm:w-[76px] items-center overflow-hidden whitespace-nowrap rounded-md border text-[10px] font-semibold transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-60 " +
                           (isLongBadge ? "justify-start px-2 text-left" : "justify-center px-1.5 text-center")
                         }
                         style={userBadgeStyle(badgeColor)}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleOpenSettings(spellId, ps);
+                        }}
                       >
                         {badgeText}
-                      </span>
+                      </button>
                     ) : null}
                   </div>
                 </div>
@@ -325,8 +336,7 @@ export default function SpellListGroup({
                         }
                         onClick={(e) => {
                           e.stopPropagation();
-                          if (!Number.isFinite(spellId) || isReadOnly) return;
-                          onOpenSettings(ps);
+                          handleOpenSettings(spellId, ps);
                         }}
                       >
                         <Settings2 className="h-3.5 w-3.5" />

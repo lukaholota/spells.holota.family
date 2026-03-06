@@ -14,7 +14,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { FormattedDescription } from "@/components/ui/FormattedDescription";
 import { useParams } from "next/navigation";
-import { toggleSpellForPers, getSpellForModal, type SpellForModal } from "@/lib/actions/spell-actions";
+import { setSpellPresenceForPers, getSpellForModal, type SpellForModal } from "@/lib/actions/spell-actions";
 import { getUserPersesSpellIndex } from "@/lib/actions/pers";
 import { sourceTranslations, spellSchoolTranslations } from "@/lib/refs/translation";
 import { useMediaQuery } from "@/lib/hooks/useMediaQuery";
@@ -145,7 +145,7 @@ function AddToPersDropdown({ spellId, spellLevel }: { spellId: number; spellLeve
                 className="flex items-center justify-between gap-2"
                 onSelect={async (e) => {
                   e.preventDefault();
-                  const res = await toggleSpellForPers({ persId: p.persId, spellId });
+                  const res = await setSpellPresenceForPers({ persId: p.persId, spellId, present: !has });
                   if (!res.success) return;
 
                   setPersIndex(
@@ -154,7 +154,7 @@ function AddToPersDropdown({ spellId, spellLevel }: { spellId: number; spellLeve
                         ? item
                         : {
                             ...item,
-                            spellIds: res.added
+                            spellIds: res.present
                               ? Array.from(new Set([...item.spellIds, spellId]))
                               : item.spellIds.filter((id) => id !== spellId),
                           }
@@ -162,7 +162,7 @@ function AddToPersDropdown({ spellId, spellLevel }: { spellId: number; spellLeve
                   );
                   // Notify parent if embedded
                   if (window.parent !== window) {
-                    window.parent.postMessage({ type: "SPELL_TOGGLED", persId: p.persId, spellId, spellLevel, added: res.added }, "*");
+                    window.parent.postMessage({ type: "SPELL_TOGGLED", persId: p.persId, spellId, spellLevel, added: res.present }, "*");
                   }
                 }}
               >
@@ -197,13 +197,14 @@ function AddToSinglePersButton({ spellId, persId, spellLevel }: { spellId: numbe
 
   const handleToggle = async () => {
     if (loading) return;
+    const nextHas = !has;
     setLoading(true);
     try {
-      const res = await toggleSpellForPers({ persId, spellId });
+      const res = await setSpellPresenceForPers({ persId, spellId, present: nextHas });
       if (res.success) {
-        setHas(res.added);
+        setHas(res.present);
         if (window.parent !== window) {
-          window.parent.postMessage({ type: "SPELL_TOGGLED", persId, spellId, spellLevel, added: res.added }, "*");
+          window.parent.postMessage({ type: "SPELL_TOGGLED", persId, spellId, spellLevel, added: res.present }, "*");
         }
       }
     } finally {

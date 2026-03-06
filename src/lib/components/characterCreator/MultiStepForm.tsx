@@ -897,6 +897,7 @@ export const MultiStepForm = (
             activeFeatures={activeFeatures}
             feat={feat}
             backgroundFeat={backgroundFeat}
+            isOptional
             formId={activeFormId}
             onNextDisabledChange={handleNextDisabledChange}
           />

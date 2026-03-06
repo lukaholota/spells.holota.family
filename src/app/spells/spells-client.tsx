@@ -41,7 +41,7 @@ import { FormattedDescription } from "@/components/ui/FormattedDescription";
 import { classTranslations, classTranslationsEng, sourceTranslations, spellSchoolTranslations, subclassTranslations } from "@/lib/refs/translation";
 import { subclassParentClass } from "@/lib/refs/subclassMapping";
 import { getUserPersesSpellIndex } from "@/lib/actions/pers";
-import { toggleSpellForPers } from "@/lib/actions/spell-actions";
+import { setSpellPresenceForPers } from "@/lib/actions/spell-actions";
 import { useModalBackButton } from "@/hooks/useModalBackButton";
 import { useMediaQuery } from "@/lib/hooks/useMediaQuery";
 
@@ -476,30 +476,35 @@ function EmbedAddButton({
   persId,
   persSpellIds,
   setPersSpellIds,
+  markPersSpellIdsMutated,
 }: {
   spellId: number;
   spellLevel: number;
   persId: number;
   persSpellIds: Set<number>;
   setPersSpellIds: React.Dispatch<React.SetStateAction<Set<number>>>;
+  markPersSpellIdsMutated: () => void;
 }) {
   const [isPending, setIsPending] = useState(false);
   const has = persSpellIds.has(spellId);
 
   const handleToggle = async () => {
+    if (isPending) return;
+    const nextHas = !has;
+    markPersSpellIdsMutated();
     setIsPending(true);
     try {
-      const res = await toggleSpellForPers({ persId, spellId });
+      const res = await setSpellPresenceForPers({ persId, spellId, present: nextHas });
       if (res.success) {
         setPersSpellIds((prev) => {
           const next = new Set(prev);
-          if (res.added) next.add(spellId);
+          if (res.present) next.add(spellId);
           else next.delete(spellId);
           return next;
         });
         // Notify parent if embedded
         if (window.parent !== window) {
-          window.parent.postMessage({ type: "SPELL_TOGGLED", persId, spellId, spellLevel, added: res.added }, "*");
+          window.parent.postMessage({ type: "SPELL_TOGGLED", persId, spellId, spellLevel, added: res.present }, "*");
         }
       }
     } finally {
@@ -511,7 +516,11 @@ function EmbedAddButton({
     <button
       type="button"
       disabled={isPending}
-      onClick={handleToggle}
+      onClick={(event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        void handleToggle();
+      }}
       className={
         "inline-flex h-9 w-9 items-center justify-center rounded-xl transition " +
         (has
@@ -593,7 +602,7 @@ function SpellbookDropdown({
                 className="flex items-center justify-between gap-2"
                 onSelect={async (e) => {
                   e.preventDefault();
-                  const res = await toggleSpellForPers({ persId: p.persId, spellId });
+                  const res = await setSpellPresenceForPers({ persId: p.persId, spellId, present: !has });
                   if (!res.success) return;
 
                   setPersIndex(
@@ -602,7 +611,7 @@ function SpellbookDropdown({
                         ? item
                         : {
                             ...item,
-                            spellIds: res.added
+                            spellIds: res.present
                               ? Array.from(new Set([...item.spellIds, spellId]))
                               : item.spellIds.filter((id) => id !== spellId),
                           }
@@ -610,7 +619,7 @@ function SpellbookDropdown({
                   );
                   // Notify parent if embedded
                   if (window.parent !== window) {
-                    window.parent.postMessage({ type: "SPELL_TOGGLED", persId: p.persId, spellId, added: res.added }, "*");
+                    window.parent.postMessage({ type: "SPELL_TOGGLED", persId: p.persId, spellId, added: res.present }, "*");
                   }
                 }}
               >
@@ -644,14 +653,24 @@ export function SpellsClient({
   );
   const isEmbedMode = embedParams.origin === "character" && embedParams.persId !== null;
   const [persSpellIds, setPersSpellIds] = useState<Set<number>>(() => new Set());
+  const persSpellIdsVersionRef = useRef(0);
 
   // Load persSpellIds when in embed mode
   useEffect(() => {
     if (!isEmbedMode || !embedParams.persId) return;
+    let cancelled = false;
+    const requestVersion = persSpellIdsVersionRef.current;
+
     getUserPersesSpellIndex().then((data) => {
+      if (cancelled) return;
+      if (requestVersion !== persSpellIdsVersionRef.current) return;
       const found = data.find((p) => p.persId === embedParams.persId);
       if (found) setPersSpellIds(new Set(found.spellIds));
     });
+
+    return () => {
+      cancelled = true;
+    };
   }, [isEmbedMode, embedParams.persId]);
 
   const [printIds, setPrintIds] = useState<number[]>([]);
@@ -1037,48 +1056,26 @@ export function SpellsClient({
   const finalFlatRows = flatRows;
 
   return (
-    <div className="h-full w-full bg-[radial-gradient(circle_at_50%_0%,rgba(45,212,191,0.05),transparent_50%)]">
-      {/* Embed mode banner */}
-      {isEmbedMode && (
-        <div className="sticky top-0 z-30 border-b border-teal-500/30 bg-teal-500/10 backdrop-blur-xl">
-          <div className="mx-auto w-full max-w-6xl px-3 py-2 sm:px-4">
-            <div className="flex flex-wrap items-center justify-between gap-2 text-sm">
-              <div className="flex items-center gap-2 text-teal-200">
-                <UserPlus className="h-4 w-4" />
-                <span>
-                  Додавання заклять для <strong>{embedParams.persName || `персонажа #${embedParams.persId}`}</strong>
-                  {embedParams.maxSpellLevel !== null && (
-                    <span className="ml-1 text-teal-300/70">(рекоменд. макс. рівень: {embedParams.maxSpellLevel})</span>
-                  )}
-                </span>
-              </div>
-              <span className="text-xs text-teal-300/60">Натисни + щоб додати</span>
-            </div>
-
-            
-          </div>
-        </div>
-      )}
-
-      <div className="sticky top-0 z-20 border-b border-white/10 bg-slate-950/40 backdrop-blur-xl" style={isEmbedMode ? { top: '40px' } : {}}>
-        <div className="mx-auto w-full max-w-6xl px-3 py-3 sm:px-4">
-          <div className="flex items-center gap-2 rounded-2xl border border-white/10 bg-white/5 p-2 backdrop-blur-xl">
-            <div className="flex items-center gap-2 px-2 text-slate-400">
+    <div className="flex h-full min-h-0 w-full flex-col bg-[radial-gradient(circle_at_50%_0%,rgba(45,212,191,0.05),transparent_50%)]">
+      <div className="sticky top-0 z-20 border-b border-white/10 bg-slate-950/40 backdrop-blur-xl">
+        <div className="mx-auto w-full max-w-6xl px-2 py-2 sm:px-4 sm:py-3">
+          <div className="flex items-center gap-1.5 rounded-xl border border-white/10 bg-white/5 p-1.5 backdrop-blur-xl sm:gap-2 sm:rounded-2xl sm:p-2">
+            <div className="flex items-center gap-2 px-1.5 text-slate-400 sm:px-2">
               <Search className="h-4 w-4" />
             </div>
             <Input
               value={qInput}
               onChange={(e) => setQInput(e.target.value)}
               placeholder="Пошук заклинань…"
-              className="border-0 bg-transparent text-slate-200 placeholder:text-slate-500 focus-visible:ring-0"
+              className="h-8 border-0 bg-transparent px-0 text-sm text-slate-200 placeholder:text-slate-500 focus-visible:ring-0 sm:h-9 sm:text-base"
             />
 
-            <div className="flex items-center gap-1 rounded-xl border border-white/10 bg-white/5 p-1">
+            <div className="flex items-center gap-1 rounded-lg border border-white/10 bg-white/5 p-1 sm:rounded-xl">
               <Button
                 type="button"
                 variant="secondary"
                 className={
-                  "h-9 gap-2 border-0 bg-transparent hover:bg-white/5 " +
+                  "h-8 gap-1.5 border-0 bg-transparent px-2 hover:bg-white/5 sm:h-9 sm:gap-2 sm:px-3 " +
                   (hasActiveFilters ? "text-teal-200 bg-teal-500/10" : "")
                 }
                 onClick={() => setFiltersOpen(true)}
@@ -1091,7 +1088,7 @@ export function SpellsClient({
                 <Button
                   type="button"
                   variant="secondary"
-                  className="h-9 gap-2 border-0 bg-transparent hover:bg-white/5 text-slate-200"
+                  className="h-8 gap-1.5 border-0 bg-transparent px-2 hover:bg-white/5 text-slate-200 sm:h-9 sm:gap-2 sm:px-3"
                   onClick={clearFilters}
                   aria-label="Очистити фільтри"
                 >
@@ -1103,7 +1100,7 @@ export function SpellsClient({
               <Button
                 type="button"
                 variant="secondary"
-                className="h-9 gap-2 border-0 bg-transparent hover:bg-white/5"
+                className="h-8 gap-1.5 border-0 bg-transparent px-2 hover:bg-white/5 sm:h-9 sm:gap-2 sm:px-3"
                 onClick={doPrint}
                 disabled={printIds.length === 0}
               >
@@ -1116,7 +1113,7 @@ export function SpellsClient({
         </div>
       </div>
 
-      <div className="mx-auto grid h-[calc(100dvh-9rem)] w-full max-w-6xl grid-cols-1 gap-4 px-3 py-4 sm:px-4 lg:grid-cols-5">
+      <div className="mx-auto grid min-h-0 flex-1 w-full max-w-6xl grid-cols-1 gap-3 px-2 py-3 sm:gap-4 sm:px-4 sm:py-4 lg:grid-cols-5">
         <div className="lg:col-span-2 h-full">
           <div className="custom-scrollbar relative h-full">
             {finalGrouped.length === 0 ? (
@@ -1227,6 +1224,9 @@ export function SpellsClient({
                                 persId={embedParams.persId}
                                 persSpellIds={persSpellIds}
                                 setPersSpellIds={setPersSpellIds}
+                                markPersSpellIdsMutated={() => {
+                                  persSpellIdsVersionRef.current += 1;
+                                }}
                               />
                             ) : (
                               <SpellbookDropdown
@@ -1245,8 +1245,6 @@ export function SpellsClient({
                 }}
               />
             )}
-
-            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-14 bg-gradient-to-t from-slate-950 via-slate-950/70 to-transparent" />
           </div>
         </div>
 

@@ -6,8 +6,11 @@ import { canEditPers } from "@/lib/actions/pers";
 import { revalidatePath } from "next/cache";
 import { Prisma, RestType } from "@prisma/client";
 import { getAbilityMod } from "@/lib/logic/utils";
-import { calculateCasterLevel } from "@/lib/logic/spell-logic";
+import { calculateCasterLevel, type SpellcastingPersLike } from "@/lib/logic/spell-logic";
 import { SPELL_SLOT_PROGRESSION } from "@/lib/refs/static";
+import { calculateMaxUsesForFeature } from "@/lib/logic/feature-resources";
+
+const pactSpellSlotProgression = (SPELL_SLOT_PROGRESSION as { PACT?: Record<number, { slots: number; level: number }> }).PACT;
 
 /**
  * Helper to assert the user owns the pers and return pers data
@@ -168,9 +171,7 @@ export async function shortRest(
     }
     
     // Calculate HP: roll hit dice + CON modifier per die
-    // For simplicity, use average roll (half of die max, rounded up)
     const hitDie = maxByClass[dice.classId].hitDie;
-    const avgRoll = Math.ceil(hitDie / 2);
     
     for (let i = 0; i < dice.count; i++) {
       // Random roll between 1 and hitDie, or use average
@@ -198,8 +199,8 @@ export async function shortRest(
     },
   });
 
-  const caster = persForSlots ? calculateCasterLevel(persForSlots as any) : { pactLevel: 0, casterLevel: 0 };
-  const pactRow = (SPELL_SLOT_PROGRESSION as any).PACT?.[caster.pactLevel] as { slots: number; level: number } | undefined;
+  const caster = persForSlots ? calculateCasterLevel(persForSlots as SpellcastingPersLike) : { pactLevel: 0, casterLevel: 0 };
+  const pactRow = pactSpellSlotProgression?.[caster.pactLevel];
   const maxPactSlots = pactRow?.slots ? Math.max(0, Math.trunc(pactRow.slots)) : 0;
   const newCurrentPactSlots = maxPactSlots > 0 ? maxPactSlots : (Number.isFinite(pers.currentPactSlots) ? Math.max(0, Math.trunc(pers.currentPactSlots)) : 0);
   
@@ -216,18 +217,18 @@ export async function shortRest(
         select: {
           usesCount: true,
           usesCountDependsOnProficiencyBonus: true,
+          usesCountSpecial: true,
+          classFeatures: { select: { classId: true } },
+          subclassFeatures: { select: { subclass: { select: { classId: true } } } },
         },
       },
     },
   });
   
-  const proficiencyBonus = 2 + Math.floor((pers.level - 1) / 4);
   let featuresRestored = 0;
   
   for (const pf of featuresWithShortRest) {
-    const maxUses = pf.feature.usesCountDependsOnProficiencyBonus
-      ? proficiencyBonus
-      : pf.feature.usesCount ?? 0;
+    const maxUses = calculateMaxUsesForFeature(pers, pf.feature) ?? 0;
     
     if (maxUses > 0) {
       await prisma.persFeature.update({
@@ -264,30 +265,13 @@ export async function shortRest(
         usesCountDependsOnProficiencyBonus: true,
         usesCountSpecial: true,
         classFeatures: { select: { classId: true } },
+        subclassFeatures: { select: { subclass: { select: { classId: true } } } },
       },
     });
 
     if (!provider) continue;
 
-    const special = provider.usesCountSpecial as any;
-    const classIdsWithFeature = new Set(provider.classFeatures.map((cf) => cf.classId));
-
-    const maxUses = (() => {
-      if (special && typeof special === "object" && special.equalsToClassLevel === true) {
-        if (classIdsWithFeature.has(pers.class.classId)) {
-          const multiclassSum = pers.multiclasses.reduce((acc, current) => acc + (Number(current.classLevel) || 0), 0);
-          return Math.max(1, (Number(pers.level) || 1) - multiclassSum);
-        }
-
-        const mc = pers.multiclasses.find((m) => classIdsWithFeature.has(m.classId));
-        if (mc) return Number(mc.classLevel) || 1;
-
-        return pers.level;
-      }
-
-      if (provider.usesCountDependsOnProficiencyBonus) return proficiencyBonus;
-      return provider.usesCount ?? 0;
-    })();
+    const maxUses = calculateMaxUsesForFeature(pers, provider) ?? 0;
 
     if (maxUses > 0) {
       await prisma.persResourcePool.update({
@@ -372,18 +356,18 @@ export async function longRest(persId: number): Promise<LongRestResult | LongRes
         select: {
           usesCount: true,
           usesCountDependsOnProficiencyBonus: true,
+          usesCountSpecial: true,
+          classFeatures: { select: { classId: true } },
+          subclassFeatures: { select: { subclass: { select: { classId: true } } } },
         },
       },
     },
   });
   
-  const proficiencyBonus = 2 + Math.floor((pers.level - 1) / 4);
   let featuresRestored = 0;
   
   for (const pf of featuresWithRest) {
-    const maxUses = pf.feature.usesCountDependsOnProficiencyBonus
-      ? proficiencyBonus
-      : pf.feature.usesCount ?? 0;
+    const maxUses = calculateMaxUsesForFeature(pers, pf.feature) ?? 0;
     
     if (maxUses > 0) {
       await prisma.persFeature.update({
@@ -420,30 +404,13 @@ export async function longRest(persId: number): Promise<LongRestResult | LongRes
         usesCountDependsOnProficiencyBonus: true,
         usesCountSpecial: true,
         classFeatures: { select: { classId: true } },
+        subclassFeatures: { select: { subclass: { select: { classId: true } } } },
       },
     });
 
     if (!provider) continue;
 
-    const special = provider.usesCountSpecial as any;
-    const classIdsWithFeature = new Set(provider.classFeatures.map((cf) => cf.classId));
-
-    const maxUses = (() => {
-      if (special && typeof special === "object" && special.equalsToClassLevel === true) {
-        if (classIdsWithFeature.has(pers.class.classId)) {
-          const multiclassSum = pers.multiclasses.reduce((acc, current) => acc + (Number(current.classLevel) || 0), 0);
-          return Math.max(1, (Number(pers.level) || 1) - multiclassSum);
-        }
-
-        const mc = pers.multiclasses.find((m) => classIdsWithFeature.has(m.classId));
-        if (mc) return Number(mc.classLevel) || 1;
-
-        return pers.level;
-      }
-
-      if (provider.usesCountDependsOnProficiencyBonus) return proficiencyBonus;
-      return provider.usesCount ?? 0;
-    })();
+    const maxUses = calculateMaxUsesForFeature(pers, provider) ?? 0;
 
     if (maxUses > 0) {
       await prisma.persResourcePool.update({
@@ -472,8 +439,8 @@ export async function longRest(persId: number): Promise<LongRestResult | LongRes
     },
   });
 
-  const caster = persForSlots ? calculateCasterLevel(persForSlots as any) : { pactLevel: 0, casterLevel: 0 };
-  const pactRow = (SPELL_SLOT_PROGRESSION as any).PACT?.[caster.pactLevel] as { slots: number; level: number } | undefined;
+  const caster = persForSlots ? calculateCasterLevel(persForSlots as SpellcastingPersLike) : { pactLevel: 0, casterLevel: 0 };
+  const pactRow = pactSpellSlotProgression?.[caster.pactLevel];
   const maxPactSlots = pactRow?.slots ? Math.max(0, Math.trunc(pactRow.slots)) : 0;
   
   // Update database
@@ -536,17 +503,6 @@ function getMaxSpellSlots(level: number): number[] {
   
   const clampedLevel = Math.max(1, Math.min(20, level));
   return slotProgression[clampedLevel] ?? [0, 0, 0, 0, 0, 0, 0, 0, 0];
-}
-
-/**
- * Get max pact slots for Warlocks
- */
-function getMaxPactSlots(level: number): number {
-  if (level < 1) return 0;
-  if (level === 1) return 1;
-  if (level <= 10) return 2;
-  if (level <= 16) return 3;
-  return 4;
 }
 
 /**

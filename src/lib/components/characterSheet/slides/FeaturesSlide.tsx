@@ -1,6 +1,6 @@
 "use client";
 
-import { memo, useEffect, useMemo, useState, useTransition } from "react";
+import { memo, useEffect, useMemo, useRef, useState } from "react";
 import { CharacterFeatureItem, CharacterFeaturesGroupedResult, PersWithRelations } from "@/lib/actions/pers";
 import { FeatureDisplayType } from "@prisma/client";
 import { ChevronRight } from "lucide-react";
@@ -131,7 +131,6 @@ function categoryVariant(kind: CategoryKind) {
 
 const FeaturesSlide = memo(function FeaturesSlide({ pers, groupedFeatures, isReadOnly }: FeaturesSlideProps) {
   const router = useRouter();
-  const [isPending, startTransition] = useTransition();
 
   const [selected, setSelected] = useState<CharacterFeatureItem | null>(null);
   const [entityOpen, setEntityOpen] = useState(false);
@@ -141,6 +140,7 @@ const FeaturesSlide = memo(function FeaturesSlide({ pers, groupedFeatures, isRea
 
   const [usesOverrideByKey, setUsesOverrideByKey] = useState<Record<string, number | null>>({});
   const [usesOverrideByPoolKey, setUsesOverrideByPoolKey] = useState<Record<string, number | null>>({});
+  const mutationVersionRef = useRef<Record<string, number>>({});
 
   useEffect(() => {
     setUsesOverrideByKey({});
@@ -302,31 +302,82 @@ const FeaturesSlide = memo(function FeaturesSlide({ pers, groupedFeatures, isRea
     return item.usesRemaining ?? item.usesPer ?? 0;
   };
 
+  const getMutationKey = (item: CharacterFeatureItem) => item.usesPoolKey ? `pool:${item.usesPoolKey}` : `feature:${item.key}`;
+
+  const bumpMutationVersion = (item: CharacterFeatureItem) => {
+    const mutationKey = getMutationKey(item);
+    const nextVersion = (mutationVersionRef.current[mutationKey] ?? 0) + 1;
+    mutationVersionRef.current[mutationKey] = nextVersion;
+    return { mutationKey, version: nextVersion };
+  };
+
+  const isLatestMutation = (mutationKey: string, version: number) => mutationVersionRef.current[mutationKey] === version;
+
+  const applyOptimisticRemaining = (
+    item: CharacterFeatureItem,
+    updater: (current: number, max: number) => number
+  ) => {
+    const max = Math.max(0, Number(item.usesPer ?? 0));
+
+    if (item.usesPoolKey) {
+      setUsesOverrideByPoolKey((prev) => {
+        const current = typeof prev[item.usesPoolKey as string] === "number"
+          ? (prev[item.usesPoolKey as string] as number)
+          : (item.usesRemaining ?? item.usesPer ?? 0);
+
+        return {
+          ...prev,
+          [item.usesPoolKey as string]: Math.max(0, Math.min(max, updater(current, max))),
+        };
+      });
+      return;
+    }
+
+    setUsesOverrideByKey((prev) => {
+      const current = typeof prev[item.key] === "number"
+        ? (prev[item.key] as number)
+        : (item.usesRemaining ?? item.usesPer ?? 0);
+
+      return {
+        ...prev,
+        [item.key]: Math.max(0, Math.min(max, updater(current, max))),
+      };
+    });
+  };
+
+  const applyServerRemaining = (item: CharacterFeatureItem, usesRemaining: number | null) => {
+    if (item.usesPoolKey) {
+      setUsesOverrideByPoolKey((prev) => ({ ...prev, [item.usesPoolKey as string]: usesRemaining }));
+      return;
+    }
+
+    setUsesOverrideByKey((prev) => ({ ...prev, [item.key]: usesRemaining }));
+  };
+
   const spendOneUse = (item: CharacterFeatureItem) => {
     if (isReadOnly || !item.featureId) return;
     const cur = getUsesRemaining(item);
     const cost = Math.max(1, Number(item.usePrice ?? 1));
     if (typeof cur !== "number" || cur < cost) return;
 
-    if (item.usesPoolKey) {
-      setUsesOverrideByPoolKey((prev) => ({ ...prev, [item.usesPoolKey as string]: Math.max(0, cur - cost) }));
-    } else {
-      setUsesOverrideByKey((prev) => ({ ...prev, [item.key]: Math.max(0, cur - cost) }));
-    }
-    startTransition(async () => {
+    applyOptimisticRemaining(item, (current) => current - cost);
+    const { mutationKey, version } = bumpMutationVersion(item);
+
+    void (async () => {
       const res = await spendFeatureUse({ persId: pers.persId, featureId: item.featureId! });
       if (!res.success) {
-        toast.error(res.error);
-        router.refresh();
+        if (isLatestMutation(mutationKey, version)) {
+          toast.error(res.error);
+          router.refresh();
+        }
         return;
       }
-      if (item.usesPoolKey) {
-        setUsesOverrideByPoolKey((prev) => ({ ...prev, [item.usesPoolKey as string]: res.usesRemaining }));
-      } else {
-        setUsesOverrideByKey((prev) => ({ ...prev, [item.key]: res.usesRemaining }));
+
+      if (isLatestMutation(mutationKey, version)) {
+        applyServerRemaining(item, res.usesRemaining);
+        router.refresh();
       }
-      router.refresh();
-    });
+    })();
   };
 
   const restoreOneUse = (item: CharacterFeatureItem) => {
@@ -336,25 +387,24 @@ const FeaturesSlide = memo(function FeaturesSlide({ pers, groupedFeatures, isRea
     const max = item.usesPer ?? 0;
     if (typeof cur !== "number" || cur >= max) return;
 
-    if (item.usesPoolKey) {
-      setUsesOverrideByPoolKey((prev) => ({ ...prev, [item.usesPoolKey as string]: Math.min(max, cur + cost) }));
-    } else {
-      setUsesOverrideByKey((prev) => ({ ...prev, [item.key]: Math.min(max, cur + cost) }));
-    }
-    startTransition(async () => {
+    applyOptimisticRemaining(item, (current, currentMax) => Math.min(currentMax, current + cost));
+    const { mutationKey, version } = bumpMutationVersion(item);
+
+    void (async () => {
       const res = await restoreFeatureUse({ persId: pers.persId, featureId: item.featureId! });
       if (!res.success) {
+        if (isLatestMutation(mutationKey, version)) {
           toast.error(res.error);
           router.refresh();
-          return;
+        }
+        return;
       }
-      if (item.usesPoolKey) {
-        setUsesOverrideByPoolKey((prev) => ({ ...prev, [item.usesPoolKey as string]: res.usesRemaining }));
-      } else {
-        setUsesOverrideByKey((prev) => ({ ...prev, [item.key]: res.usesRemaining }));
+
+      if (isLatestMutation(mutationKey, version)) {
+        applyServerRemaining(item, res.usesRemaining);
+        router.refresh();
       }
-      router.refresh();
-    });
+    })();
   };
 
   const raceName = useMemo(
@@ -371,7 +421,6 @@ const FeaturesSlide = memo(function FeaturesSlide({ pers, groupedFeatures, isRea
   );
 
   const openEntity = (kind: EntityDialogKind, variantIndex?: number) => {
-    if (isReadOnly) return;
     setEntityKind(kind);
     if (typeof variantIndex === "number") setEntityVariantIndex(variantIndex);
     setEntityOpen(true);
@@ -631,7 +680,6 @@ const FeaturesSlide = memo(function FeaturesSlide({ pers, groupedFeatures, isRea
         <button
           type="button"
           onClick={() => openEntity("race")}
-          disabled={isReadOnly}
           className="rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition px-1.5 py-1 text-center flex flex-col items-center justify-center min-h-[3rem] h-auto"
         >
           <div className="text-[8px] uppercase tracking-[0.1em] text-slate-400 leading-none mb-0.5">Раса</div>
@@ -645,7 +693,6 @@ const FeaturesSlide = memo(function FeaturesSlide({ pers, groupedFeatures, isRea
               key={rv.raceVariantId ?? idx}
               type="button"
               onClick={() => openEntity("raceVariant", idx)}
-              disabled={isReadOnly}
               className="rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition px-1.5 py-1 text-center flex flex-col items-center justify-center min-h-[3rem] h-auto"
             >
               <div className="text-[8px] uppercase tracking-[0.1em] text-slate-400 leading-none mb-0.5">Варіант раси</div>
@@ -658,7 +705,6 @@ const FeaturesSlide = memo(function FeaturesSlide({ pers, groupedFeatures, isRea
           <button
             type="button"
             onClick={() => openEntity("subrace")}
-            disabled={isReadOnly}
             className="rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition px-1.5 py-0.5 text-center flex flex-col items-center justify-center h-12"
           >
             <div className="text-[8px] uppercase tracking-[0.1em] text-slate-400 leading-none mb-0.5">Підраса</div>
@@ -781,7 +827,6 @@ const FeaturesSlide = memo(function FeaturesSlide({ pers, groupedFeatures, isRea
                                   if (item.magicItem) setMagicItemToShow(item.magicItem);
                                   else setSelected(item);
                               }}
-                              isPending={isPending}
                               isReadOnly={isReadOnly}
                               onSpend={() => spendOneUse(item)}
                               onRestore={() => restoreOneUse(item)}

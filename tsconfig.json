@@ -41,6 +41,7 @@
     "node_modules",
     "prisma/seed/toFuture",
     "prisma/seed/**",
-    "node_modules/.prisma/**"
+    "node_modules/.prisma/**",
+    "spell-list/**"
   ]
 }

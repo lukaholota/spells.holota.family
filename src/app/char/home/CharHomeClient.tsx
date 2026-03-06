@@ -115,6 +115,10 @@ function stopCardClick(e: React.MouseEvent) {
   e.stopPropagation();
 }
 
+function stopCardKeyDown(e: React.KeyboardEvent) {
+  e.stopPropagation();
+}
+
 const FOLDER_COLORS = [
   { name: "Sky", value: "#38bdf8" },
   { name: "Mint", value: "#34d399" },
@@ -580,6 +584,7 @@ function PersCard({
           <DialogContent 
             className="sm:max-w-[520px] glass-card border-white/10 text-slate-100"
             onClick={(e) => e.stopPropagation()}
+            onKeyDownCapture={stopCardKeyDown}
           >
             <DialogHeader>
               <DialogTitle>Перейменувати персонажа</DialogTitle>
@@ -591,6 +596,7 @@ function PersCard({
                 maxLength={60}
                 autoFocus
                 onClick={(e) => e.stopPropagation()}
+                onKeyDown={stopCardKeyDown}
               />
               <div className="flex justify-end gap-2">
                 <Button variant="ghost" onClick={() => setRenameOpen(false)} disabled={isRenaming}>
@@ -865,17 +871,19 @@ export function CharHomeClient({
   }, [items]);
 
   const allSubclassOptions = useMemo(() => {
-    const values = new Set<string>();
-    Object.values(subclassTranslations).forEach((name) => {
-      if (name) values.add(name);
+    const values = new Set<string>(Object.keys(subclassTranslations));
+    items.forEach((p) => {
+      (p.subclassNames ?? []).forEach((name) => {
+        if (name) values.add(name);
+      });
     });
-    return Array.from(values).sort((a, b) => a.localeCompare(b, "uk"));
-  }, []);
+    return Array.from(values).sort((a, b) => translateValue(a).localeCompare(translateValue(b), "uk"));
+  }, [items]);
 
   const subclassesByClass = useMemo(() => {
     const record: Record<string, string[]> = {};
     allSubclassOptions.forEach((sub) => {
-      const parent = subclassParentClass[sub] || "Інше";
+      const parent = subclassParentClass[translateValue(sub)] || "Інше";
       if (!record[parent]) record[parent] = [];
       record[parent].push(sub);
     });
@@ -894,16 +902,6 @@ export function CharHomeClient({
         return a.className.localeCompare(b.className, "uk");
       });
   }, [allSubclassOptions]);
-
-  const subclassOptions = useMemo(() => {
-    const values = new Set<string>();
-    items.forEach((p) => {
-      (p.subclassNames ?? []).forEach((name) => {
-        if (name) values.add(name);
-      });
-    });
-    return Array.from(values).sort((a, b) => translateValue(a).localeCompare(translateValue(b), "uk"));
-  }, [items]);
 
   const totalSelected = selectedPersIds.size + selectedFolderIds.size;
   const filtersActiveCount = classFilters.size + subclassFilters.size + levelFilters.size;
@@ -2219,7 +2217,7 @@ export function CharHomeClient({
                         const q = subclassFilterQuery.trim().toLowerCase();
                         const visible = !q
                           ? subclasses
-                          : subclasses.filter((sub) => sub.toLowerCase().includes(q));
+                          : subclasses.filter((sub) => `${sub} ${translateValue(sub)}`.toLowerCase().includes(q));
                         if (visible.length === 0) return null;
 
                         return (

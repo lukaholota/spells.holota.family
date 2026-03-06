@@ -5,6 +5,25 @@ import { prisma } from "@/lib/prisma";
 import { Prisma } from "@prisma/client";
 import { revalidatePath } from "next/cache";
 import { canEditPers } from "@/lib/actions/pers";
+import { calculateMaxUsesForFeature } from "@/lib/logic/feature-resources";
+
+async function withSerializableRetry<T>(work: (tx: Prisma.TransactionClient) => Promise<T>, attempt = 0): Promise<T> {
+  try {
+    return await prisma.$transaction((tx) => work(tx), {
+      isolationLevel: Prisma.TransactionIsolationLevel.Serializable,
+    });
+  } catch (error) {
+    if (
+      attempt < 2 &&
+      error instanceof Prisma.PrismaClientKnownRequestError &&
+      error.code === "P2034"
+    ) {
+      return withSerializableRetry(work, attempt + 1);
+    }
+
+    throw error;
+  }
+}
 
 export async function spendFeatureUse({
   persId,
@@ -31,7 +50,8 @@ export async function spendFeatureUse({
       usesCountSpecial: true,
       usesPoolKey: true,
       usePrice: true,
-      classFeatures: { select: { classId: true } }
+      classFeatures: { select: { classId: true } },
+      subclassFeatures: { select: { subclass: { select: { classId: true } } } },
     },
   });
   if (!feature) return { success: false, error: "Вміння не знайдено" };
@@ -48,80 +68,6 @@ export async function spendFeatureUse({
   if (!pers) return { success: false, error: "Немає доступу до персонажа" };
   const canEdit = await canEditPers(persId, user.id);
   if (!canEdit) return { success: false, error: "Немає доступу до персонажа" };
-
-  const calculateMaxUsesForFeature = (featureInput: {
-    usesCount: number | null;
-    usesCountDependsOnProficiencyBonus: boolean;
-    usesCountSpecial: unknown;
-    classFeatures: Array<{ classId: number }>;
-  }) => {
-      const getClassLevelForFeature = () => {
-        const classIdsWithFeature = new Set(featureInput.classFeatures.map(cf => cf.classId));
-        if (classIdsWithFeature.has(pers.classId)) {
-          const multiclassSum = pers.multiclasses.reduce((acc, current) => acc + (Number(current.classLevel) || 0), 0);
-          return Math.max(1, (Number(pers.level) || 1) - multiclassSum);
-        }
-        const mc = pers.multiclasses.find(m => classIdsWithFeature.has(m.classId));
-        if (mc) return Number(mc.classLevel) || 1;
-        return pers.level;
-      };
-
-      const getAbilityMod = (stat: string) => {
-        const key = String(stat || "").toLowerCase();
-        const score = (pers as any)[key];
-        if (typeof score !== "number") return 0;
-        return Math.floor((score - 10) / 2);
-      };
-
-      const special = featureInput.usesCountSpecial as any;
-
-      if (Array.isArray(special)) {
-        const classLevel = getClassLevelForFeature();
-        const match = [...special]
-        .filter((entry) => typeof entry?.lvl === "number" && classLevel >= entry.lvl)
-        .sort((a, b) => b.lvl - a.lvl)[0];
-        if (match && typeof match.uses === "number") return match.uses;
-      }
-      
-      // Handle equalsToClassLevel
-      if (special && typeof special === 'object' && special.equalsToClassLevel === true) {
-        return getClassLevelForFeature();
-      }
-
-      if (special && typeof special === "object" && special.type === "FORMULA") {
-        const operation = String(special.operation || "ADD").toUpperCase();
-        const minimum = typeof special.minimum === "number" ? special.minimum : null;
-
-        if (special.group === "STAT_BASED") {
-          const base = Number(special.base ?? 0);
-          const mod = getAbilityMod(special.stat);
-          const value = operation === "MULTIPLY" ? base * mod : base + mod;
-          return minimum !== null ? Math.max(minimum, value) : value;
-        }
-
-        if (special.group === "LEVEL_BASED") {
-          const classLevel = getClassLevelForFeature();
-          const multiplier = Number(special.multiplier ?? 1);
-          const base = Number(special.base ?? 0);
-          const value = operation === "MULTIPLY" ? classLevel * multiplier : base + classLevel;
-          return minimum !== null ? Math.max(minimum, value) : value;
-        }
-
-        if (special.group === "PROFICIENCY_BONUS") {
-          const pb = Math.ceil(pers.level / 4) + 1;
-          const multiplier = Number(special.multiplier ?? 1);
-          const base = Number(special.base ?? 0);
-          const value = operation === "MULTIPLY" ? pb * multiplier : base + pb;
-          return minimum !== null ? Math.max(minimum, value) : value;
-        }
-      }
-
-      if (featureInput.usesCountDependsOnProficiencyBonus) {
-          return Math.ceil(pers.level / 4) + 1;
-      }
-      
-      return featureInput.usesCount;
-  };
 
   const poolKey = feature.usesPoolKey;
   if (poolKey) {
@@ -142,72 +88,92 @@ export async function spendFeatureUse({
               usesCount: true,
               usesCountDependsOnProficiencyBonus: true,
               usesCountSpecial: true,
-              classFeatures: { select: { classId: true } }
+              classFeatures: { select: { classId: true } },
+              subclassFeatures: { select: { subclass: { select: { classId: true } } } },
             }
           }) ?? feature;
 
-      const max = calculateMaxUsesForFeature(provider);
-      const pool = await prisma.persResourcePool.findUnique({
+      const max = calculateMaxUsesForFeature(pers, provider);
+      const cur = await withSerializableRetry(async (tx) => {
+        const pool = await tx.persResourcePool.upsert({
           where: { persId_poolKey: { persId, poolKey } },
+          create: { persId, poolKey, usesRemaining: max },
+          update: {},
           select: { usesRemaining: true },
+        });
+
+        const current = pool.usesRemaining ?? max;
+        if (typeof current !== "number" || typeof max !== "number") {
+          return { usesRemaining: null as number | null };
+        }
+
+        if (current < cost) {
+          return { usesRemaining: current };
+        }
+
+        return tx.persResourcePool.update({
+          where: { persId_poolKey: { persId, poolKey } },
+          data: { usesRemaining: Math.max(0, Math.trunc(current) - cost) },
+          select: { usesRemaining: true },
+        });
       });
 
-      const cur = pool?.usesRemaining ?? max;
-      if (typeof cur !== "number" || typeof max !== "number") {
+      const next = cur.usesRemaining;
+      if (typeof next !== "number" || typeof max !== "number") {
         return { success: true, usesRemaining: null };
       }
-
-      const next = Math.max(0, Math.trunc(cur) - cost);
-      const updatedPool = await prisma.persResourcePool.upsert({
-        where: { persId_poolKey: { persId, poolKey } },
-        create: { persId, poolKey, usesRemaining: next },
-        update: { usesRemaining: next },
-        select: { usesRemaining: true },
-      });
 
       revalidatePath(`/char/${persId}`);
       revalidatePath(`/character/${persId}`);
 
-      return { success: true, usesRemaining: updatedPool.usesRemaining };
+      return { success: true, usesRemaining: next };
   }
 
-  const pf = await prisma.persFeature.findUnique({
-    where: {
-      persId_featureId: {
+  const max = calculateMaxUsesForFeature(pers, feature);
+  const updated = await withSerializableRetry(async (tx) => {
+    const pf = await tx.persFeature.upsert({
+      where: {
+        persId_featureId: {
+          persId,
+          featureId,
+        },
+      },
+      create: {
         persId,
         featureId,
+        usesRemaining: max,
       },
-    },
-    select: { usesRemaining: true },
-  });
+      update: {},
+      select: { usesRemaining: true },
+    });
 
-  const max = calculateMaxUsesForFeature(feature);
-  const cur = pf?.usesRemaining ?? max;
+    const cur = pf.usesRemaining ?? max;
+    if (typeof cur !== "number" || typeof max !== "number") {
+      return { usesRemaining: null as number | null };
+    }
+
+    const cost = Math.max(1, Number(feature.usePrice ?? 1));
+    if (cur < cost) {
+      return { usesRemaining: cur };
+    }
+
+    return tx.persFeature.update({
+      where: {
+        persId_featureId: {
+          persId,
+          featureId,
+        },
+      },
+      data: {
+        usesRemaining: Math.max(0, Math.trunc(cur) - cost),
+      },
+      select: { usesRemaining: true },
+    });
+  });
   
-  if (typeof cur !== "number" || typeof max !== "number") {
+  if (typeof updated.usesRemaining !== "number" || typeof max !== "number") {
     return { success: true, usesRemaining: null };
   }
-
-  const cost = Math.max(1, Number(feature.usePrice ?? 1));
-  const next = Math.max(0, Math.trunc(cur) - cost);
-
-  const updated = await prisma.persFeature.upsert({
-    where: {
-      persId_featureId: {
-        persId,
-        featureId,
-      },
-    },
-    create: {
-      persId,
-      featureId,
-      usesRemaining: next
-    },
-    update: { 
-      usesRemaining: next 
-    },
-    select: { usesRemaining: true },
-  });
 
   revalidatePath(`/char/${persId}`);
   revalidatePath(`/character/${persId}`);
@@ -240,7 +206,8 @@ export async function restoreFeatureUse({
       usesCountSpecial: true,
       usesPoolKey: true,
       usePrice: true,
-      classFeatures: { select: { classId: true } }
+      classFeatures: { select: { classId: true } },
+      subclassFeatures: { select: { subclass: { select: { classId: true } } } },
     },
   });
   if (!feature) return { success: false, error: "Вміння не знайдено" };
@@ -256,37 +223,6 @@ export async function restoreFeatureUse({
   if (!pers) return { success: false, error: "Немає доступу до персонажа" };
   const canEdit = await canEditPers(persId, user.id);
   if (!canEdit) return { success: false, error: "Немає доступу до персонажа" };
-
-  const calculateMaxUsesForFeature = (featureInput: {
-    usesCount: number | null;
-    usesCountDependsOnProficiencyBonus: boolean;
-    usesCountSpecial: unknown;
-    classFeatures: Array<{ classId: number }>;
-  }) => {
-      const special = featureInput.usesCountSpecial as any;
-      
-      if (special && typeof special === 'object' && special.equalsToClassLevel === true) {
-          const classIdsWithFeature = new Set(featureInput.classFeatures.map(cf => cf.classId));
-          
-          if (classIdsWithFeature.has(pers.classId)) {
-               const multiclassSum = pers.multiclasses.reduce((acc, current) => acc + (Number(current.classLevel) || 0), 0);
-               return Math.max(1, (Number(pers.level) || 1) - multiclassSum);
-          }
-          
-          const mc = pers.multiclasses.find(m => classIdsWithFeature.has(m.classId));
-          if (mc) {
-              return Number(mc.classLevel) || 1;
-          }
-          
-          return pers.level;
-      }
-
-      if (featureInput.usesCountDependsOnProficiencyBonus) {
-          return Math.ceil(pers.level / 4) + 1;
-      }
-      
-      return featureInput.usesCount;
-  };
 
   const poolKey = feature.usesPoolKey;
   if (poolKey) {
@@ -307,28 +243,36 @@ export async function restoreFeatureUse({
               usesCount: true,
               usesCountDependsOnProficiencyBonus: true,
               usesCountSpecial: true,
-              classFeatures: { select: { classId: true } }
+              classFeatures: { select: { classId: true } },
+              subclassFeatures: { select: { subclass: { select: { classId: true } } } },
             }
           }) ?? feature;
 
-      const max = calculateMaxUsesForFeature(provider);
-      const pool = await prisma.persResourcePool.findUnique({
+      const max = calculateMaxUsesForFeature(pers, provider);
+      const updatedPool = await withSerializableRetry(async (tx) => {
+        const pool = await tx.persResourcePool.upsert({
           where: { persId_poolKey: { persId, poolKey } },
+          create: { persId, poolKey, usesRemaining: max },
+          update: {},
           select: { usesRemaining: true },
+        });
+
+        const cur = pool.usesRemaining ?? max;
+        if (typeof cur !== "number" || typeof max !== "number") {
+          return { usesRemaining: null as number | null };
+        }
+
+        return tx.persResourcePool.update({
+          where: { persId_poolKey: { persId, poolKey } },
+          data: { usesRemaining: Math.min(max, Math.trunc(cur) + cost) },
+          select: { usesRemaining: true },
+        });
       });
 
-      const cur = pool?.usesRemaining ?? max;
+      const cur = updatedPool.usesRemaining;
       if (typeof cur !== "number" || typeof max !== "number") {
         return { success: true, usesRemaining: null };
       }
-
-      const next = Math.min(max, Math.trunc(cur) + cost);
-      const updatedPool = await prisma.persResourcePool.upsert({
-        where: { persId_poolKey: { persId, poolKey } },
-        create: { persId, poolKey, usesRemaining: next },
-        update: { usesRemaining: next },
-        select: { usesRemaining: true },
-      });
 
       revalidatePath(`/char/${persId}`);
       revalidatePath(`/character/${persId}`);
@@ -336,43 +280,48 @@ export async function restoreFeatureUse({
       return { success: true, usesRemaining: updatedPool.usesRemaining };
   }
 
-  const pf = await prisma.persFeature.findUnique({
-    where: {
-      persId_featureId: {
+  const max = calculateMaxUsesForFeature(pers, feature);
+  const updated = await withSerializableRetry(async (tx) => {
+    const pf = await tx.persFeature.upsert({
+      where: {
+        persId_featureId: {
+          persId,
+          featureId,
+        },
+      },
+      create: {
         persId,
         featureId,
+        usesRemaining: max,
       },
-    },
-    select: { usesRemaining: true },
+      update: {},
+      select: { usesRemaining: true },
+    });
+
+    const cur = pf.usesRemaining ?? max;
+    if (typeof cur !== "number" || typeof max !== "number") {
+      return { usesRemaining: null as number | null };
+    }
+
+    const cost = Math.max(1, Number(feature.usePrice ?? 1));
+
+    return tx.persFeature.update({
+      where: {
+        persId_featureId: {
+          persId,
+          featureId,
+        },
+      },
+      data: {
+        usesRemaining: Math.min(max, Math.trunc(cur) + cost),
+      },
+      select: { usesRemaining: true },
+    });
   });
 
-  const max = calculateMaxUsesForFeature(feature);
-  const cur = pf?.usesRemaining ?? max;
-
-  if (typeof cur !== "number" || typeof max !== "number") {
+  if (typeof updated.usesRemaining !== "number" || typeof max !== "number") {
     return { success: true, usesRemaining: null };
   }
-
-  const cost = Math.max(1, Number(feature.usePrice ?? 1));
-  const next = Math.min(max, Math.trunc(cur) + cost);
-
-  const updated = await prisma.persFeature.upsert({
-    where: {
-      persId_featureId: {
-        persId,
-        featureId,
-      },
-    },
-    create: {
-      persId,
-      featureId,
-      usesRemaining: next
-    },
-    update: { 
-      usesRemaining: next 
-    },
-    select: { usesRemaining: true },
-  });
 
   revalidatePath(`/char/${persId}`);
   revalidatePath(`/character/${persId}`);

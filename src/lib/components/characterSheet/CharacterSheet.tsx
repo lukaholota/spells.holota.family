@@ -23,6 +23,10 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 
+const mobileIconButtonClassName = "h-9 w-9 gap-0 p-0 sm:h-8 sm:w-8";
+const mobileTextButtonClassName = "h-9 min-w-[5.5rem] justify-start gap-1.5 px-2 text-left sm:h-8 sm:min-w-0 sm:justify-center sm:gap-2 sm:px-3";
+const mobileTextLabelClassName = "block text-[10px] leading-none sm:text-sm";
+
 interface CharacterSheetProps {
   pers: PersWithRelations;
   groupedFeatures: CharacterFeaturesGroupedResult | null;
@@ -150,83 +154,84 @@ export default function CharacterSheet({ pers, groupedFeatures, isPublicView, ed
 
   return (
     <div className="h-full overflow-hidden w-full bg-slate-900 flex flex-col">
-      <div className="p-3 px-4 border-b border-white/10 flex justify-between items-center bg-slate-900/70 backdrop-blur sticky top-0 z-20">
-           <div className="flex items-center gap-3">
-             <div>
-               <div className="font-bold text-base md:text-lg text-slate-50 flex items-center gap-2">
-                 <span>{localPers.name}</span>
-                 {!isReadOnly && (
-                   <Dialog open={renameOpen} onOpenChange={setRenameOpen}>
-                     <DialogTrigger asChild>
-                       <Button
-                         variant="ghost"
-                         size="icon"
-                         className="h-8 w-8"
-                         onClick={() => {
-                           setRenameValue(localPers.name);
-                         }}
-                         title="Перейменувати"
-                       >
-                         <Pencil className="h-4 w-4" />
-                       </Button>
-                     </DialogTrigger>
-                     <DialogContent className="sm:max-w-[520px] glass-card border-white/10 text-slate-100">
-                       <DialogHeader>
-                         <DialogTitle>Перейменувати персонажа</DialogTitle>
-                       </DialogHeader>
+      <div className="sticky top-0 z-20 border-b border-white/10 bg-slate-900/70 p-3 px-4 backdrop-blur">
+           <div className="flex items-start justify-between gap-2 sm:items-center">
+             <div className="min-w-0 flex-1 pr-1">
+               {!isReadOnly ? (
+                 <Dialog open={renameOpen} onOpenChange={setRenameOpen}>
+                   <DialogTrigger asChild>
+                     <button
+                       type="button"
+                       className="block max-w-full text-left"
+                       onClick={() => {
+                         setRenameValue(localPers.name);
+                       }}
+                       title="Перейменувати персонажа"
+                     >
+                       <span className="max-w-full overflow-hidden text-base font-bold leading-tight text-slate-50 transition hover:text-white md:text-lg [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:2] break-words">
+                         {localPers.name}
+                       </span>
+                     </button>
+                   </DialogTrigger>
+                   <DialogContent className="sm:max-w-[520px] glass-card border-white/10 text-slate-100">
+                     <DialogHeader>
+                       <DialogTitle>Перейменувати персонажа</DialogTitle>
+                     </DialogHeader>
 
-                       <div className="space-y-3">
-                         <Input
-                           value={renameValue}
-                           onChange={(e) => setRenameValue(e.target.value)}
-                           maxLength={60}
-                           autoFocus
-                         />
-                         <div className="flex justify-end gap-2">
-                           <Button variant="ghost" onClick={() => setRenameOpen(false)} disabled={isRenamePending}>
-                             Скасувати
-                           </Button>
-                           <Button onClick={handleRename} disabled={isRenamePending}>
-                             {isRenamePending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-                             Зберегти
-                           </Button>
-                         </div>
+                     <div className="space-y-3">
+                       <Input
+                         value={renameValue}
+                         onChange={(e) => setRenameValue(e.target.value)}
+                         maxLength={60}
+                         autoFocus
+                       />
+                       <div className="flex justify-end gap-2">
+                         <Button variant="ghost" onClick={() => setRenameOpen(false)} disabled={isRenamePending}>
+                           Скасувати
+                         </Button>
+                         <Button onClick={handleRename} disabled={isRenamePending}>
+                           {isRenamePending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+                           Зберегти
+                         </Button>
                        </div>
-                     </DialogContent>
-                   </Dialog>
-                 )}
-               </div>
-               <div className="text-xs text-slate-300/80">Рівень {localPers.level}</div>
+                     </div>
+                   </DialogContent>
+                 </Dialog>
+               ) : (
+                 <div className="overflow-hidden text-base font-bold leading-tight text-slate-50 md:text-lg [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:2] break-words">
+                   {localPers.name}
+                 </div>
+               )}
+               <div className="mt-1 text-xs text-slate-300/80">Рівень {localPers.level}</div>
+               {isReadOnly && (
+                 <Badge variant="outline" className="mt-2 bg-amber-500/10 text-amber-500 border-amber-500/20">
+                   {isPublicView ? "Тільки для читання" : `Знімок: Рівень ${pers.snapshotLevel || pers.level}`}
+                 </Badge>
+               )}
              </div>
-             {isReadOnly && (
-               <Badge variant="outline" className="bg-amber-500/10 text-amber-500 border-amber-500/20">
-                 {isPublicView ? "Тільки для читання" : `Знімок: Рівень ${pers.snapshotLevel || pers.level}`}
-               </Badge>
-             )}
-           </div>
-           <div className="flex items-center gap-2">
+             <div className="grid shrink-0 grid-cols-[2.25rem_auto] gap-1.5 sm:flex sm:w-auto sm:flex-wrap sm:justify-end sm:gap-2">
                {isPublicView && (
                    <Button 
                        size="sm" 
                        variant="secondary" 
-                       className="h-8 gap-2 bg-emerald-600/20 hover:bg-emerald-600/30 border-emerald-500/30 text-emerald-400"
+                       className={`${mobileTextButtonClassName} bg-emerald-600/20 text-emerald-400 hover:bg-emerald-600/30 border-emerald-500/30`}
                        onClick={handleCopyToProfile}
                        disabled={isCopyPending}
                    >
                        <Copy className="w-4 h-4" />
-                       <span className="hidden sm:inline">Копіювати до себе</span>
+                       <span className={mobileTextLabelClassName}>Копіювати</span>
                    </Button>
                )}
               {isPublicView && editShareToken && (
                 <Button
                   size="sm"
                   variant="secondary"
-                  className="h-8 gap-2 bg-sky-600/20 hover:bg-sky-600/30 border-sky-500/30 text-sky-200"
+                  className={`${mobileTextButtonClassName} bg-sky-600/20 text-sky-200 hover:bg-sky-600/30 border-sky-500/30`}
                   onClick={handleAcceptEditAccess}
                   disabled={isAcceptPending}
                 >
                   <Pencil className="w-4 h-4" />
-                  <span className="hidden sm:inline">Отримати доступ до редагування</span>
+                  <span className={mobileTextLabelClassName}>Редагувати</span>
                 </Button>
               )}
               <PrintCharacterDialog
@@ -234,20 +239,35 @@ export default function CharacterSheet({ pers, groupedFeatures, isPublicView, ed
                 characterName={localPers.name ?? "character"}
                 disabled={isCopyPending}
                 shareToken={isPublicView ? shareToken : undefined}
+                triggerClassName={mobileIconButtonClassName}
+                triggerLabel="Друк"
+                triggerLabelClassName="sr-only"
               />
-               {!isReadOnly && <ShareDialog persId={localPers.persId} initialToken={localPers.shareToken} />}
                {!isReadOnly && (
                  <RestButton
                    pers={localPers}
                    onPersUpdate={setLocalPers}
                    onGroupedFeaturesRefresh={() => refreshGroupedFeatures()}
+                   triggerClassName={mobileTextButtonClassName}
+                   triggerLabel="Відпочинок"
+                   triggerLabelClassName={mobileTextLabelClassName}
+                 />
+               )}
+               {!isReadOnly && (
+                 <ShareDialog
+                   persId={localPers.persId}
+                   initialToken={localPers.shareToken}
+                   triggerVariant="secondary"
+                   triggerClassName={`${mobileIconButtonClassName} text-slate-200`}
+                   triggerLabel="Поділитися"
+                   triggerLabelClassName="sr-only"
                  />
                )}
                {!isReadOnly && (
                  <Button
                    size="sm"
                    variant="secondary"
-                   className="h-8 gap-2 bg-indigo-600/20 hover:bg-indigo-600/30 border-indigo-500/30"
+                   className={`${mobileTextButtonClassName} bg-indigo-600/20 hover:bg-indigo-600/30 border-indigo-500/30`}
                    onClick={handleLevelUp}
                    disabled={isLevelUpPending || isCopyPending || isRenamePending}
                  >
@@ -256,9 +276,10 @@ export default function CharacterSheet({ pers, groupedFeatures, isPublicView, ed
                    ) : (
                      <ArrowUpCircle className="w-4 h-4" />
                    )}
-                   <span className="hidden sm:inline">Підняти рівень</span>
+                   <span className={mobileTextLabelClassName}>Підняти рівень</span>
                  </Button>
                )}
+             </div>
            </div>
        </div>
       

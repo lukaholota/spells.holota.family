@@ -1,7 +1,7 @@
 import {z, ZodObject, ZodRawShape} from "zod";
 import { usePersFormStore } from "@/lib/stores/persFormStore";
 import { zodResolver } from "@hookform/resolvers/zod";
-import {DefaultValues, useForm} from "react-hook-form";
+import {DefaultValues, Path, PathValue, useForm} from "react-hook-form";
 import { useEffect, useMemo, useRef } from "react";
 import { toast } from "sonner";
 
@@ -46,7 +46,7 @@ export function useStepForm<TShape extends ZodRawShape>(
           .filter(key => schemaKeys.includes(key)).reduce((acc, key) => {
               acc[key] = formData[key]
               return acc;
-          }, {} as Record<string, any>)
+          }, {} as Record<string, unknown>)
     }, [formData, schema])
 
     const mergedDefaults = useMemo(() => ({
@@ -73,6 +73,7 @@ export function useStepForm<TShape extends ZodRawShape>(
 
     // Save data when unmounting (navigating away without submitting)
     useEffect(() => {
+        const resetNonceAtMount = resetNonceAtMountRef.current;
         return () => {
             if (!isHydrated) return;
 
@@ -80,7 +81,7 @@ export function useStepForm<TShape extends ZodRawShape>(
             // do NOT write the old values back into the store during unmount.
             // This was causing "name" (and other fields) to survive reset.
             const currentResetNonce = usePersFormStore.getState().resetNonce;
-            if (currentResetNonce !== resetNonceAtMountRef.current) return;
+            if (currentResetNonce !== resetNonceAtMount) return;
 
             const values = form.getValues();
             updateFormData(values);
@@ -99,12 +100,12 @@ export function useStepForm<TShape extends ZodRawShape>(
     // Sync store changes back to form (important for multiple forms on same page)
     useEffect(() => {
         if (!isHydrated) return;
-        const currentValues = form.getValues();
         Object.keys(relevantFormData).forEach(key => {
-            const storeVal = relevantFormData[key];
-            const formVal = currentValues[key as keyof Input];
+            const typedKey = key as Path<Input>;
+            const storeVal = relevantFormData[key] as PathValue<Input, Path<Input>>;
+            const formVal = form.getValues(typedKey);
             if (JSON.stringify(storeVal) !== JSON.stringify(formVal)) {
-                form.setValue(key as any, storeVal, { shouldValidate: true });
+                form.setValue(typedKey, storeVal, { shouldValidate: true });
             }
         });
     }, [relevantFormData, isHydrated, form]);
@@ -112,6 +113,7 @@ export function useStepForm<TShape extends ZodRawShape>(
     const friendlyMessages: Record<string, string> = {
         raceId: "Оберіть, будь ласка, расу",
         classId: "Оберіть, будь ласка, клас",
+        subclassId: "Оберіть, будь ласка, підклас",
         backgroundId: "Оберіть, будь ласка, передісторію",
         classChoiceSelections: "Зробіть вибір серед опцій класу",
         classOptionalFeatureSelections: "Вкажіть, чи берете додаткову рису класу",

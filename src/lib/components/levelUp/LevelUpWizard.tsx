@@ -1278,8 +1278,7 @@ export default function LevelUpWizard({ info }: Props) {
     : null;
 
   return (
-    <div className="container mx-auto py-8 px-4 max-w-6xl">
-      <div className="space-y-4">
+    <div className="mx-auto flex w-full max-w-6xl flex-col gap-3 px-3 py-4 pb-[calc(8.5rem+env(safe-area-inset-bottom))] sm:gap-4 sm:px-4 md:gap-6 md:px-0 md:py-6 md:pb-6">
         <div className="glass-panel border-gradient-rpg w-full rounded-2xl px-3 py-4 sm:px-4 sm:py-4 md:px-6 md:py-5">
           <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between md:gap-4">
             <div className="space-y-1">
@@ -1293,13 +1292,13 @@ export default function LevelUpWizard({ info }: Props) {
           </div>
         </div>
 
-        <Card className="shadow-2xl">
-          <CardContent className="grid gap-3 p-3 sm:gap-4 sm:p-4 md:grid-cols-[1fr,300px] md:p-6">
-            <div className="glass-panel border-gradient-rpg space-y-3 rounded-xl p-3 sm:space-y-4 sm:p-4 md:p-5">
+        <Card className="border-0 bg-transparent shadow-none md:border md:border-white/10 md:bg-slate-950/30 md:shadow-2xl">
+          <CardContent className="grid gap-2 p-0 sm:gap-3 md:grid-cols-[1fr,300px] md:gap-6 md:p-6">
+            <div className="space-y-2 p-0 sm:space-y-3 md:glass-panel md:border-gradient-rpg md:space-y-4 md:rounded-xl md:p-5">
               {CurrentComponent}
             </div>
 
-            <aside className="hidden glass-panel border-gradient-rpg rounded-xl p-3 sm:p-4 md:block">
+            <aside className="hidden md:block md:glass-panel md:border-gradient-rpg md:rounded-xl md:p-4">
               <div className="sticky top-14 sm:top-16">
                 <div className="flex items-center justify-between text-xs text-slate-400 sm:text-sm">
                   <span className="font-medium text-slate-200">
@@ -1345,7 +1344,7 @@ export default function LevelUpWizard({ info }: Props) {
           </CardContent>
         </Card>
 
-        <div className="fixed bottom-[calc(70px+env(safe-area-inset-bottom))] inset-x-0 z-[60] w-full px-2 pb-3 sm:px-3 md:sticky md:bottom-0 md:px-0">
+        <div className="fixed bottom-[calc(64px+env(safe-area-inset-bottom))] inset-x-0 z-[60] w-full px-2 pb-3 sm:px-3 md:sticky md:bottom-0 md:px-0">
           <div className="border-gradient-rpg mx-auto flex w-full max-w-6xl items-center justify-between rounded-xl border-t border-white/10 bg-slate-900/95 px-2.5 py-2.5 backdrop-blur-xl shadow-xl shadow-black/30 sm:rounded-2xl sm:px-3 sm:py-3">
             <div className="flex items-center gap-2 text-xs text-slate-300 sm:gap-3 sm:text-sm">
               <Badge
@@ -1390,7 +1389,6 @@ export default function LevelUpWizard({ info }: Props) {
             </div>
           </div>
         </div>
-      </div>
     </div>
   );
 }
@@ -1461,34 +1459,34 @@ function SummaryStep({
   };
 
   return (
-    <Card className="glass-card backdrop-blur-xl border-white/10 bg-white/5 shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-500">
-      <CardHeader className="pb-2">
-        <CardTitle className="text-xl font-light tracking-wide text-slate-100 font-rpg-display uppercase">
+    <Card className="glass-card overflow-hidden border-white/10 bg-white/5 shadow-2xl backdrop-blur-xl animate-in fade-in zoom-in-95 duration-500">
+      <CardHeader className="px-4 pb-1 pt-4 sm:px-6 sm:pb-2 sm:pt-6">
+        <CardTitle className="font-rpg-display text-lg font-light uppercase tracking-wide text-slate-100 sm:text-xl">
           Вітаємо з {totalLevel}-м рівнем!
         </CardTitle>
       </CardHeader>
-      <CardContent className="space-y-6 pt-2">
-        <div className="space-y-3">
+      <CardContent className="space-y-4 px-4 pb-4 pt-1 sm:space-y-6 sm:px-6 sm:pb-6 sm:pt-2">
+        <div className="space-y-2.5 sm:space-y-3">
           <p className="text-[10px] uppercase font-bold tracking-[0.2em] text-indigo-400 px-1">
             Ви підвищуєте:
           </p>
-          <div className="grid grid-cols-1 gap-3">
+          <div className="grid grid-cols-1 gap-2.5 sm:gap-3">
             {selectedClass && (
               <ClassInfoModal
                 cls={selectedClass}
                 asyncFetchSubclasses={false}
                 trigger={
                   <button className="w-full text-left group">
-                    <div className="glass-panel border-gradient-rpg rounded-xl p-4 bg-white/5 border-white/10 group-hover:bg-white/10 transition-all duration-300 group-hover:scale-[1.01] active:scale-[0.99] relative overflow-hidden">
-                      <div className="absolute top-0 right-0 p-3 opacity-20 group-hover:opacity-40 transition-opacity">
-                        <ChevronRight className="w-5 h-5 text-indigo-300" />
+                    <div className="glass-panel border-gradient-rpg relative overflow-hidden rounded-xl border-white/10 bg-white/5 p-3 transition-all duration-300 group-hover:scale-[1.01] group-hover:bg-white/10 active:scale-[0.99] sm:p-4">
+                      <div className="absolute right-0 top-0 p-2.5 opacity-20 transition-opacity group-hover:opacity-40 sm:p-3">
+                        <ChevronRight className="h-5 w-5 text-indigo-300" />
                       </div>
-                      <p className="text-[10px] uppercase tracking-widest text-slate-400 mb-1">
+                      <p className="mb-1 text-[10px] uppercase tracking-widest text-slate-400">
                         Клас
                       </p>
-                      <p className="text-lg font-bold text-white group-hover:text-indigo-200 transition-colors">
+                      <p className="text-base font-bold text-white transition-colors group-hover:text-indigo-200 sm:text-lg">
                         {className}{" "}
-                        <span className="text-slate-400 font-light ml-1">
+                        <span className="ml-1 font-light text-slate-400">
                           (рівень {classLevelAfter})
                         </span>
                       </p>
@@ -1503,14 +1501,14 @@ function SummaryStep({
                 subclass={effectiveSubclass}
                 trigger={
                   <button className="w-full text-left group">
-                    <div className="glass-panel border-gradient-rpg rounded-xl p-4 bg-white/5 border-white/10 group-hover:bg-white/10 transition-all duration-300 group-hover:scale-[1.01] active:scale-[0.99] relative overflow-hidden">
-                      <div className="absolute top-0 right-0 p-3 opacity-20 group-hover:opacity-40 transition-opacity">
-                        <ChevronRight className="w-5 h-5 text-violet-300" />
+                    <div className="glass-panel border-gradient-rpg relative overflow-hidden rounded-xl border-white/10 bg-white/5 p-3 transition-all duration-300 group-hover:scale-[1.01] group-hover:bg-white/10 active:scale-[0.99] sm:p-4">
+                      <div className="absolute right-0 top-0 p-2.5 opacity-20 transition-opacity group-hover:opacity-40 sm:p-3">
+                        <ChevronRight className="h-5 w-5 text-violet-300" />
                       </div>
-                      <p className="text-[10px] uppercase tracking-widest text-slate-400 mb-1">
+                      <p className="mb-1 text-[10px] uppercase tracking-widest text-slate-400">
                         Підклас
                       </p>
-                      <p className="text-lg font-bold text-white group-hover:text-violet-200 transition-colors">
+                      <p className="text-base font-bold text-white transition-colors group-hover:text-violet-200 sm:text-lg">
                         {subclassTranslations[
                           effectiveSubclass.name as keyof typeof subclassTranslations
                         ] || effectiveSubclass.name}
@@ -1524,22 +1522,22 @@ function SummaryStep({
         </div>
 
         {newClassFeatures.length > 0 ? (
-          <div className="space-y-4">
+          <div className="space-y-3 sm:space-y-4">
             <h3 className="text-[10px] font-bold uppercase tracking-[0.2em] text-cyan-400 px-1">
               Нові класові вміння:
             </h3>
-            <div className="grid grid-cols-1 gap-3">
+            <div className="grid grid-cols-1 gap-2.5 sm:gap-3">
               {newClassFeatures.map((f: any) => renderFeature(f, "class"))}
             </div>
           </div>
         ) : null}
 
         {newSubclassFeatures.length > 0 ? (
-          <div className="space-y-4">
+          <div className="space-y-3 sm:space-y-4">
             <h3 className="text-[10px] font-bold uppercase tracking-[0.2em] text-violet-400 px-1">
               Нові вміння підкласу:
             </h3>
-            <div className="grid grid-cols-1 gap-3">
+            <div className="grid grid-cols-1 gap-2.5 sm:gap-3">
               {newSubclassFeatures.map((f: any) =>
                 renderFeature(f, "subclass")
               )}

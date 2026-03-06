@@ -1,5 +1,6 @@
 "use client";
 
+import type { ComponentProps } from "react";
 import React, { useState } from "react";
 import {
   Dialog,
@@ -20,9 +21,23 @@ interface ShareDialogProps {
   open?: boolean;
   onOpenChange?: (open: boolean) => void;
   noButtonTrigger?: boolean;
+  triggerClassName?: string;
+  triggerLabel?: string;
+  triggerLabelClassName?: string;
+  triggerVariant?: ComponentProps<typeof Button>["variant"];
 }
 
-export function ShareDialog({ persId, initialToken, open: openOverride, onOpenChange: onOpenChangeOverride, noButtonTrigger: hideTrigger }: ShareDialogProps) {
+export function ShareDialog({
+  persId,
+  initialToken,
+  open: openOverride,
+  onOpenChange: onOpenChangeOverride,
+  noButtonTrigger: hideTrigger,
+  triggerClassName,
+  triggerLabel,
+  triggerLabelClassName,
+  triggerVariant = "ghost",
+}: ShareDialogProps) {
   const [internalOpen, setInternalOpen] = useState(false);
   const isOpen = openOverride !== undefined ? openOverride : internalOpen;
   const setIsOpen = onOpenChangeOverride !== undefined ? onOpenChangeOverride : setInternalOpen;
@@ -86,8 +101,13 @@ export function ShareDialog({ persId, initialToken, open: openOverride, onOpenCh
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       {hideTrigger !== true && (
         <DialogTrigger asChild>
-          <Button variant="ghost" size="icon" className="h-8 w-8 text-slate-300 hover:text-white">
+          <Button
+            variant={triggerVariant}
+            size="sm"
+            className={triggerClassName ?? "h-8 w-8 text-slate-300 hover:text-white"}
+          >
             <Share2 className="h-4 w-4" />
+            <span className={triggerLabelClassName ?? "hidden sm:inline"}>{triggerLabel ?? "Поділитися"}</span>
           </Button>
         </DialogTrigger>
       )}

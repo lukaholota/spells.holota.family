@@ -268,6 +268,62 @@ export async function removeSpellFromPers({
   return { success: true };
 }
 
+export async function setSpellPresenceForPers({
+  persId,
+  spellId,
+  present,
+}: {
+  persId: number;
+  spellId: number;
+  present: boolean;
+}): Promise<{ success: true; present: boolean } | { success: false; error: string }> {
+  const session = await auth();
+  if (!session?.user?.email) return { success: false, error: "Не авторизовано" };
+
+  const user = await prisma.user.findUnique({
+    where: { email: session.user.email },
+    select: { id: true },
+  });
+
+  if (!user) return { success: false, error: "Користувача не знайдено" };
+
+  const canEdit = await canEditPers(persId, user.id);
+  if (!canEdit) {
+    return { success: false, error: "Немає доступу до персонажа" };
+  }
+
+  const existing = await prisma.persSpell.findUnique({
+    where: {
+      persId_spellId: {
+        persId,
+        spellId,
+      },
+    },
+    select: { persSpellId: true },
+  });
+
+  if (present) {
+    if (!existing) {
+      await prisma.persSpell.create({
+        data: {
+          persId,
+          spellId,
+          learnedAtLevel: 0,
+          origin: SpellOrigin.MANUAL,
+          isPrepared: false,
+        },
+      });
+    }
+  } else if (existing) {
+    await prisma.persSpell.delete({
+      where: { persSpellId: existing.persSpellId },
+    });
+  }
+
+  revalidatePersSpellViews(persId);
+  return { success: true, present };
+}
+
 export async function setSpellPrepared({
   persId,
   spellId,
@@ -387,14 +443,22 @@ export async function updateSpellBadgeForPers({
   badgeText,
   badgeColor,
   excludeFromPreparedCount,
+  excludeFromKnownCount,
 }: {
   persId: number;
   spellId: number;
   badgeText?: string | null;
   badgeColor?: string | null;
   excludeFromPreparedCount?: boolean;
+  excludeFromKnownCount?: boolean;
 }): Promise<
-  | { success: true; badgeText: string | null; badgeColor: string | null; excludeFromPreparedCount: boolean }
+  | {
+      success: true;
+      badgeText: string | null;
+      badgeColor: string | null;
+      excludeFromPreparedCount: boolean;
+      excludeFromKnownCount: boolean;
+    }
   | { success: false; error: string }
 > {
   const session = await auth();
@@ -427,10 +491,15 @@ export async function updateSpellBadgeForPers({
       ...(typeof excludeFromPreparedCount === "boolean"
         ? { excludeFromPreparedCount: Boolean(excludeFromPreparedCount) }
         : {}),
+      ...(typeof excludeFromKnownCount === "boolean"
+        ? { excludeFromKnownCount: Boolean(excludeFromKnownCount) }
+        : {}),
     },
     select: {
       badgeText: true,
       badgeColor: true,
+      excludeFromPreparedCount: true,
+      excludeFromKnownCount: true,
     },
   });
 
@@ -440,7 +509,8 @@ export async function updateSpellBadgeForPers({
     success: true,
     badgeText: updated.badgeText,
     badgeColor: updated.badgeColor,
-    excludeFromPreparedCount: Boolean(excludeFromPreparedCount),
+    excludeFromPreparedCount: updated.excludeFromPreparedCount,
+    excludeFromKnownCount: updated.excludeFromKnownCount,
   };
 }
 

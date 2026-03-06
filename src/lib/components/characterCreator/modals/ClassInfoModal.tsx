@@ -176,6 +176,8 @@ const normalizeSlots = (value: unknown): number[] | null => {
   return normalized;
 };
 
+const ARTIFICER_LEVEL_ONE_SLOTS = [2, 0, 0, 0, 0, 0, 0, 0, 0] as const;
+
 const getSpellSlotsByLevel = (cls: ClassI, level: number): number[] | null => {
   const special = cls.specialSpellSlotProgression as any;
   if (special && typeof special === "object" && !Array.isArray(special)) {
@@ -189,6 +191,9 @@ const getSpellSlotsByLevel = (cls: ClassI, level: number): number[] | null => {
     return normalizeSlots((SPELL_SLOT_PROGRESSION as any).FULL?.[level]);
   }
   if (cls.spellcastingType === "HALF") {
+    if (String(cls.name) === "ARTIFICER_2014" && level === 1) {
+      return [...ARTIFICER_LEVEL_ONE_SLOTS];
+    }
     return normalizeSlots((SPELL_SLOT_PROGRESSION as any).HALF?.[level]);
   }
   if (cls.spellcastingType === "THIRD") {

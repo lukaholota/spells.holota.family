@@ -11,6 +11,7 @@ model PersSpell {
   updatedAt      DateTime    @updatedAt @map("updated_at")
   isPrepared     Boolean     @default(false) @map("is_prepared")
   excludeFromPreparedCount Boolean @default(false) @map("exclude_from_prepared_count")
+  excludeFromKnownCount Boolean @default(false) @map("exclude_from_known_count")
   badgeText      String?     @map("badge_text")
   badgeColor     String?     @map("badge_color")
   pers           Pers        @relation(fields: [persId], references: [persId], onDelete: Cascade)

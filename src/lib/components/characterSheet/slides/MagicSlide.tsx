@@ -24,8 +24,13 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/component
 import { formatSpellCountValue, getSpellcastingCountsLines } from "@/lib/logic/spellcasting-progression";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import SpellListGroup from "@/lib/components/characterSheet/shared/SpellListGroup";
-import { classTranslations, subclassTranslations } from "@/lib/refs/translation";
+import { classTranslations, raceTranslations, subclassTranslations, subraceTranslations, variantTranslations } from "@/lib/refs/translation";
 import { Checkbox } from "@/components/ui/checkbox";
+import {
+  collectPreparedCountAutoExcludeMatchers,
+  getEffectiveExcludeFromKnownCount,
+  getEffectiveExcludeFromPreparedCount,
+} from "@/lib/logic/spell-prepared-exclusions";
 
 const SPELL_BADGE_COLORS = [
   { name: "Sky", value: "#38bdf8" },
@@ -40,68 +45,70 @@ const SPELL_BADGE_COLORS = [
 
 const BADGE_COLOR_CLASS = "#fb7185";
 const BADGE_COLOR_SUBCLASS = "#fbbf24";
+const BADGE_COLOR_RACE = "#38bdf8";
 const BADGE_COLOR_BASE = "#a78bfa";
-const AUTO_BADGE_STATIC_TOKENS = ["архетип", "підклас"] as const;
-
-function normalizeAutoBadgeToken(value: unknown): string {
-  return String(value ?? "")
-    .normalize("NFKC")
-    .trim()
-    .toLocaleLowerCase("uk")
-    .replace(/\s+/g, " ");
-}
-
-function collectCharacterBadgeMatchers(pers: PersWithRelations): string[] {
-  const rawValues: string[] = [];
-
-  const pushSubclass = (raw: unknown) => {
-    const value = String(raw ?? "").trim();
-    if (!value) return;
-    rawValues.push(value);
-    const translated = subclassTranslations[value as keyof typeof subclassTranslations] || value;
-    rawValues.push(translated);
-  };
-
-  pushSubclass((pers as any).subclass?.name);
-
-  for (const mc of (pers.multiclasses ?? []) as any[]) {
-    pushSubclass(mc?.subclass?.name);
-  }
-
-  const seen = new Set<string>();
-  const normalized = rawValues
-    .map((item) => normalizeAutoBadgeToken(item))
-    .filter((item) => item.length > 0)
-    .filter((item) => {
-      if (seen.has(item)) return false;
-      seen.add(item);
-      return true;
-    });
-
-  return normalized;
-}
-
-function isAutoCalculatedByBadgeText(badgeText: unknown, matchers: string[]): boolean {
-  const normalized = normalizeAutoBadgeToken(badgeText);
-  if (!normalized) return false;
-
-  for (const token of AUTO_BADGE_STATIC_TOKENS) {
-    const staticToken = normalizeAutoBadgeToken(token);
-    if (normalized.includes(staticToken) || staticToken.includes(normalized)) return true;
-  }
-
-  for (const matcher of matchers) {
-    if (!matcher) continue;
-    if (normalized.includes(matcher) || matcher.includes(normalized)) return true;
-  }
-
-  return false;
-}
 
 interface MagicSlideProps {
   pers: PersWithRelations;
   onPersUpdate: (next: PersWithRelations) => void;
   isReadOnly?: boolean;
+}
+
+function getPersSpellId(persSpell: any): number | null {
+  const spellId = Number(persSpell?.spellId ?? persSpell?.spell?.spellId);
+  return Number.isFinite(spellId) ? spellId : null;
+}
+
+function getPersSpellLevel(persSpell: any): number | null {
+  const level = Number(persSpell?.spell?.level ?? 0);
+  return Number.isFinite(level) ? level : null;
+}
+
+function collectExcludedPreparedSpellIds(spells: any[], matchers: string[]): Set<number> {
+  const ids = new Set<number>();
+
+  for (const ps of spells) {
+    const spellId = getPersSpellId(ps);
+    if (spellId === null) continue;
+    if (getEffectiveExcludeFromPreparedCount(ps, matchers)) ids.add(spellId);
+  }
+
+  return ids;
+}
+
+function collectExcludedKnownSpellIds(spells: any[]): Set<number> {
+  const ids = new Set<number>();
+
+  for (const ps of spells) {
+    const spellId = getPersSpellId(ps);
+    if (spellId === null) continue;
+    if (getEffectiveExcludeFromKnownCount(ps)) ids.add(spellId);
+  }
+
+  return ids;
+}
+
+function countPreparedSpells(spells: any[], excludedSpellIds: Set<number>): number {
+  const ids = new Set<number>();
+
+  for (const ps of spells) {
+    const spellId = getPersSpellId(ps);
+    if (spellId === null) continue;
+    if (excludedSpellIds.has(spellId)) continue;
+
+    const level = getPersSpellLevel(ps);
+    if (level === 0) continue;
+    if (Boolean(ps?.isPrepared)) ids.add(spellId);
+  }
+
+  return ids.size;
+}
+
+function getPreparedRemainingForSpells(spells: any[], preparedLimit: number | null, matchers: string[]): number | null {
+  if (!Number.isFinite(preparedLimit)) return null;
+  const excludedSpellIds = collectExcludedPreparedSpellIds(spells, matchers);
+  const preparedCount = countPreparedSpells(spells, excludedSpellIds);
+  return Number(preparedLimit) - preparedCount;
 }
 
 const MagicSlide = memo(function MagicSlide({ pers, onPersUpdate, isReadOnly }: MagicSlideProps) {
@@ -116,6 +123,7 @@ const MagicSlide = memo(function MagicSlide({ pers, onPersUpdate, isReadOnly }: 
   const [badgeEditorText, setBadgeEditorText] = useState<string>("");
   const [badgeEditorColor, setBadgeEditorColor] = useState<string>(SPELL_BADGE_COLORS[0].value);
   const [badgeEditorExcludeFromPreparedCount, setBadgeEditorExcludeFromPreparedCount] = useState(false);
+  const [badgeEditorExcludeFromKnownCount, setBadgeEditorExcludeFromKnownCount] = useState(false);
   const [confirmDeleteInBadgeEditor, setConfirmDeleteInBadgeEditor] = useState(false);
 
   const [localPers, setLocalPers] = useState<PersWithRelations>(pers);
@@ -184,61 +192,58 @@ const MagicSlide = memo(function MagicSlide({ pers, onPersUpdate, isReadOnly }: 
 	return getSpellcastingCountsLines(localPers);
   }, [localPers]);
 
-  const autoBadgeMatchers = useMemo(() => collectCharacterBadgeMatchers(localPers), [localPers]);
+  const preparedCountAutoExcludeMatchers = useMemo(
+    () => collectPreparedCountAutoExcludeMatchers(localPers),
+    [localPers]
+  );
 
-  const autoExcludedSpellIds = useMemo(() => {
-    const ids = new Set<number>();
-    for (const ps of localPersSpells as any[]) {
-      const spellId = Number(ps?.spellId ?? ps?.spell?.spellId);
-      if (!Number.isFinite(spellId)) continue;
-      if (isAutoCalculatedByBadgeText(ps?.badgeText, autoBadgeMatchers)) ids.add(spellId);
-    }
-    return ids;
-  }, [localPersSpells, autoBadgeMatchers]);
+  const excludedFromPreparedCountSpellIds = useMemo(() => {
+    return collectExcludedPreparedSpellIds(localPersSpells as any[], preparedCountAutoExcludeMatchers);
+  }, [localPersSpells, preparedCountAutoExcludeMatchers]);
 
-  const autoExcludedCount = useMemo(() => autoExcludedSpellIds.size, [autoExcludedSpellIds]);
-
-  const manuallyExcludedSpellIds = useMemo(() => {
-    const ids = new Set<number>();
-    for (const ps of localPersSpells as any[]) {
-      const spellId = Number(ps?.spellId ?? ps?.spell?.spellId);
-      if (!Number.isFinite(spellId)) continue;
-      if (Boolean(ps?.excludeFromPreparedCount)) ids.add(spellId);
-    }
-    return ids;
+  const excludedFromKnownCountSpellIds = useMemo(() => {
+    return collectExcludedKnownSpellIds(localPersSpells as any[]);
   }, [localPersSpells]);
 
-  const manuallyExcludedCount = useMemo(() => manuallyExcludedSpellIds.size, [manuallyExcludedSpellIds]);
+  const excludedFromPreparedCountCount = useMemo(
+    () => excludedFromPreparedCountSpellIds.size,
+    [excludedFromPreparedCountSpellIds]
+  );
 
-  const preparedCountExcludedSpellIds = useMemo(() => {
-    const ids = new Set<number>(autoExcludedSpellIds);
-    for (const id of manuallyExcludedSpellIds) ids.add(id);
-    return ids;
-  }, [autoExcludedSpellIds, manuallyExcludedSpellIds]);
+  const excludedFromKnownCountCount = useMemo(
+    () => excludedFromKnownCountSpellIds.size,
+    [excludedFromKnownCountSpellIds]
+  );
 
   const knownSpellsCount = useMemo(() => {
     const ids = new Set<number>();
     for (const ps of localPersSpells as any[]) {
       const spellId = Number(ps?.spellId ?? ps?.spell?.spellId);
       if (!Number.isFinite(spellId)) continue;
-      if (autoExcludedSpellIds.has(spellId)) continue;
+      if (excludedFromKnownCountSpellIds.has(spellId)) continue;
+      const level = Number(ps?.spell?.level ?? 0);
+      if (!Number.isFinite(level) || level <= 0) continue;
       ids.add(spellId);
     }
     return ids.size;
-  }, [localPersSpells, autoExcludedSpellIds]);
+  }, [localPersSpells, excludedFromKnownCountSpellIds]);
 
-  const preparedSpellsCount = useMemo(() => {
+  const knownCantripsCount = useMemo(() => {
     const ids = new Set<number>();
     for (const ps of localPersSpells as any[]) {
       const spellId = Number(ps?.spellId ?? ps?.spell?.spellId);
       if (!Number.isFinite(spellId)) continue;
-      if (preparedCountExcludedSpellIds.has(spellId)) continue;
+      if (excludedFromKnownCountSpellIds.has(spellId)) continue;
       const level = Number(ps?.spell?.level ?? 0);
-      if (Number.isFinite(level) && level === 0) continue;
-      if (Boolean(ps?.isPrepared)) ids.add(spellId);
+      if (!Number.isFinite(level) || level !== 0) continue;
+      ids.add(spellId);
     }
     return ids.size;
-  }, [localPersSpells, preparedCountExcludedSpellIds]);
+  }, [localPersSpells, excludedFromKnownCountSpellIds]);
+
+  const preparedSpellsCount = useMemo(() => {
+    return countPreparedSpells(localPersSpells as any[], excludedFromPreparedCountSpellIds);
+  }, [localPersSpells, excludedFromPreparedCountSpellIds]);
 
   const preparedSpellsLimit = useMemo(() => {
     let total = 0;
@@ -261,11 +266,6 @@ const MagicSlide = memo(function MagicSlide({ pers, onPersUpdate, isReadOnly }: 
 
     return hasPreparedLimit ? total : null;
   }, [spellcastingCounts]);
-
-  const preparedRemaining = useMemo(() => {
-    if (!Number.isFinite(preparedSpellsLimit)) return null;
-    return Number(preparedSpellsLimit) - preparedSpellsCount;
-  }, [preparedSpellsLimit, preparedSpellsCount]);
 
   const maxSlots = useMemo(() => {
     const level = Math.max(0, Math.min(20, Math.trunc(caster.casterLevel || 0)));
@@ -384,7 +384,8 @@ const MagicSlide = memo(function MagicSlide({ pers, onPersUpdate, isReadOnly }: 
     setBadgeEditorSpellName(String(ps?.spell?.name ?? "Заклинання"));
     setBadgeEditorText(String(ps?.badgeText ?? ""));
     setBadgeEditorColor(String(ps?.badgeColor ?? "").trim() || SPELL_BADGE_COLORS[0].value);
-    setBadgeEditorExcludeFromPreparedCount(Boolean(ps?.excludeFromPreparedCount));
+    setBadgeEditorExcludeFromPreparedCount(getEffectiveExcludeFromPreparedCount(ps, preparedCountAutoExcludeMatchers));
+    setBadgeEditorExcludeFromKnownCount(getEffectiveExcludeFromKnownCount(ps));
     setConfirmDeleteInBadgeEditor(false);
     setBadgeEditorOpen(true);
   };
@@ -411,13 +412,14 @@ const MagicSlide = memo(function MagicSlide({ pers, onPersUpdate, isReadOnly }: 
     const level = Number(ps?.spell?.level ?? 0);
     if (!Number.isFinite(level) || level <= 0) return;
 
-    setLocalPersSpells((prev: any[]) =>
-      prev.map((item) => {
+    const applyPreparedState = (spells: any[], isPrepared: boolean) =>
+      spells.map((item) => {
         const itemSpellId = Number(item?.spellId ?? item?.spell?.spellId);
         if (itemSpellId !== spellId) return item;
-        return { ...item, isPrepared: nextPrepared };
-      })
-    );
+        return { ...item, isPrepared };
+      });
+
+    setLocalPersSpells(applyPreparedState(localPersSpells as any[], nextPrepared));
 
     startTransition(async () => {
       const res = await setSpellPrepared({
@@ -431,21 +433,22 @@ const MagicSlide = memo(function MagicSlide({ pers, onPersUpdate, isReadOnly }: 
         return;
       }
 
-      setLocalPersSpells((prev: any[]) =>
-        prev.map((item) => {
-          const itemSpellId = Number(item?.spellId ?? item?.spell?.spellId);
-          if (itemSpellId !== spellId) return item;
-          return { ...item, isPrepared: res.isPrepared };
-        })
+      const nextSpells = applyPreparedState(localPersSpells as any[], res.isPrepared);
+      const nextRemaining = getPreparedRemainingForSpells(
+        nextSpells,
+        preparedSpellsLimit,
+        preparedCountAutoExcludeMatchers
       );
 
-      if (res.isPrepared) {
-        if (Number.isFinite(preparedRemaining)) {
-          const left = Math.max(0, Number(preparedRemaining) - 1);
-          toast.info(`Залишилось підготувати: ${left}`);
-        } else {
-          toast.info("Заклинання підготовлено");
-        }
+      setLocalPersSpells(nextSpells);
+
+      if (Number.isFinite(nextRemaining)) {
+        const left = Math.max(0, Number(nextRemaining));
+        toast.info(`Залишилось підготувати: ${left}`);
+      } else if (res.isPrepared) {
+        toast.info("Заклинання підготовлено");
+      } else {
+        toast.info("Підготовку знято");
       }
 
       router.refresh();
@@ -468,7 +471,9 @@ const MagicSlide = memo(function MagicSlide({ pers, onPersUpdate, isReadOnly }: 
         </CollapsibleTrigger>
         <CollapsibleContent className="px-3 pb-3">
           <div className="mb-2 rounded-md border border-emerald-500/20 bg-emerald-500/10 px-3 py-2 text-xs text-emerald-100">
-            Відомих: <span className="font-semibold">{knownSpellsCount}</span>
+            Заклинань: <span className="font-semibold">{knownSpellsCount}</span>
+            {" · "}
+            Замовлянь: <span className="font-semibold">{knownCantripsCount}</span>
             {" · "}
             Підготовлено: <span className="font-semibold">{preparedSpellsCount}</span>
             {Number.isFinite(preparedSpellsLimit) ? (
@@ -479,15 +484,15 @@ const MagicSlide = memo(function MagicSlide({ pers, onPersUpdate, isReadOnly }: 
             ) : null}
           </div>
 
-          {autoExcludedCount > 0 ? (
-            <div className="mb-2 rounded-md border border-violet-500/20 bg-violet-500/10 px-3 py-2 text-xs text-violet-100/90">
-              Заклинання підкласу не рахуємо: {autoExcludedCount}.
+          {excludedFromPreparedCountCount > 0 ? (
+            <div className="mb-2 rounded-md border border-sky-500/20 bg-sky-500/10 px-3 py-2 text-xs text-sky-100/90">
+              Не рахуємо у підготовлених: {excludedFromPreparedCountCount}.
             </div>
           ) : null}
 
-          {manuallyExcludedCount > 0 ? (
-            <div className="mb-2 rounded-md border border-sky-500/20 bg-sky-500/10 px-3 py-2 text-xs text-sky-100/90">
-              Вручну виключено з підрахунку підготовлених: {manuallyExcludedCount}.
+          {excludedFromKnownCountCount > 0 ? (
+            <div className="mb-2 rounded-md border border-violet-500/20 bg-violet-500/10 px-3 py-2 text-xs text-violet-100/90">
+              Не рахуємо у відомих: {excludedFromKnownCountCount}.
             </div>
           ) : null}
 
@@ -559,14 +564,72 @@ const MagicSlide = memo(function MagicSlide({ pers, onPersUpdate, isReadOnly }: 
     });
   }, [localPers]);
 
+  const badgeRaceHints = useMemo(() => {
+    const values: string[] = [];
+
+    const pushRace = (raw: unknown) => {
+      const value = String(raw ?? "").trim();
+      if (!value) return;
+      const translated = raceTranslations[value as keyof typeof raceTranslations] || value;
+      values.push(translated);
+    };
+
+    const pushSubrace = (raw: unknown) => {
+      const value = String(raw ?? "").trim();
+      if (!value) return;
+      const translated = subraceTranslations[value as keyof typeof subraceTranslations] || value;
+      values.push(translated);
+    };
+
+    const pushVariant = (raw: unknown) => {
+      const value = String(raw ?? "").trim();
+      if (!value) return;
+      const translated = variantTranslations[value as keyof typeof variantTranslations] || value;
+      values.push(translated);
+    };
+
+    const pushRaceChoiceOption = (raw: unknown) => {
+      const value = String(raw ?? "").trim();
+      if (!value) return;
+      values.push(value);
+    };
+
+    pushRace(localPers.race?.name);
+    pushSubrace((localPers as any).subrace?.name);
+    for (const rv of ((localPers as any).raceVariants ?? []) as any[]) {
+      pushVariant(rv?.name);
+    }
+    for (const option of ((localPers as any).raceChoiceOptions ?? []) as any[]) {
+      pushRaceChoiceOption(option?.optionName);
+    }
+
+    const seen = new Set<string>();
+    return values.filter((value) => {
+      const key = value.toLocaleLowerCase("uk");
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    });
+  }, [localPers]);
+
   const badgeBaseHints = useMemo(() => {
-    return ["архетип", "підклас", "клас", "раса", "підраса"];
+    return [
+      { label: "архетип", color: BADGE_COLOR_SUBCLASS, autoExclude: true },
+      { label: "підклас", color: BADGE_COLOR_SUBCLASS, autoExclude: true },
+      { label: "клас", color: BADGE_COLOR_CLASS, autoExclude: false },
+      { label: "раса", color: BADGE_COLOR_RACE, autoExclude: true },
+      { label: "підраса", color: BADGE_COLOR_RACE, autoExclude: true },
+    ];
   }, []);
 
-  const applyBadgeHint = (value: string, color: string) => {
+  const applyBadgeHint = (value: string, color: string, autoExclude = false) => {
     const next = String(value || "").trim().slice(0, 24);
     setBadgeEditorText(next);
     setBadgeEditorColor(color);
+    if (autoExclude) {
+      setBadgeEditorExcludeFromPreparedCount(true);
+      setBadgeEditorExcludeFromKnownCount(true);
+    }
   };
 
   return (
@@ -1024,8 +1087,26 @@ const MagicSlide = memo(function MagicSlide({ pers, onPersUpdate, isReadOnly }: 
                       <button
                         key={`subclass-${hint}`}
                         type="button"
-                        onClick={() => applyBadgeHint(hint, BADGE_COLOR_SUBCLASS)}
+                        onClick={() => applyBadgeHint(hint, BADGE_COLOR_SUBCLASS, true)}
                         className="rounded-md border border-amber-400/30 bg-amber-500/20 px-2 py-1 text-xs font-medium text-amber-100 hover:bg-amber-500/30"
+                      >
+                        {hint}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              ) : null}
+
+              {badgeRaceHints.length > 0 ? (
+                <div className="space-y-1.5">
+                  <p className="text-[11px] text-slate-400">Раса / підраса / варіант / опції</p>
+                  <div className="flex flex-wrap gap-1.5">
+                    {badgeRaceHints.map((hint) => (
+                      <button
+                        key={`race-${hint}`}
+                        type="button"
+                        onClick={() => applyBadgeHint(hint, BADGE_COLOR_RACE, true)}
+                        className="rounded-md border border-sky-400/30 bg-sky-500/20 px-2 py-1 text-xs font-medium text-sky-100 hover:bg-sky-500/30"
                       >
                         {hint}
                       </button>
@@ -1039,12 +1120,12 @@ const MagicSlide = memo(function MagicSlide({ pers, onPersUpdate, isReadOnly }: 
                 <div className="flex flex-wrap gap-1.5">
                   {badgeBaseHints.map((hint) => (
                     <button
-                      key={`base-${hint}`}
+                      key={`base-${hint.label}`}
                       type="button"
-                      onClick={() => applyBadgeHint(hint, BADGE_COLOR_BASE)}
+                      onClick={() => applyBadgeHint(hint.label, hint.color || BADGE_COLOR_BASE, hint.autoExclude)}
                       className="rounded-md border border-violet-400/30 bg-violet-500/20 px-2 py-1 text-xs font-medium text-violet-100 hover:bg-violet-500/30"
                     >
-                      {hint}
+                      {hint.label}
                     </button>
                   ))}
                 </div>
@@ -1087,6 +1168,18 @@ const MagicSlide = memo(function MagicSlide({ pers, onPersUpdate, isReadOnly }: 
               />
               <span className="text-xs text-slate-200">
                 Не враховувати це заклинання у кількості підготовлених (зручно для ритуалів, що завжди доступні).
+              </span>
+            </label>
+
+            <label className="flex items-start gap-2 rounded-lg border border-white/10 bg-white/5 px-3 py-2 cursor-pointer">
+              <Checkbox
+                checked={badgeEditorExcludeFromKnownCount}
+                onCheckedChange={(checked) => setBadgeEditorExcludeFromKnownCount(Boolean(checked))}
+                disabled={isPending || isReadOnly}
+                className="mt-0.5 border-white/30 data-[state=checked]:bg-violet-500 data-[state=checked]:text-white"
+              />
+              <span className="text-xs text-slate-200">
+                Не враховувати це заклинання у кількості відомих заклинань і замовлянь.
               </span>
             </label>
 
@@ -1141,6 +1234,7 @@ const MagicSlide = memo(function MagicSlide({ pers, onPersUpdate, isReadOnly }: 
                           badgeText: nextText || null,
                           badgeColor: nextText ? badgeEditorColor : null,
                           excludeFromPreparedCount: badgeEditorExcludeFromPreparedCount,
+                          excludeFromKnownCount: badgeEditorExcludeFromKnownCount,
                         };
                       })
                     );
@@ -1152,6 +1246,7 @@ const MagicSlide = memo(function MagicSlide({ pers, onPersUpdate, isReadOnly }: 
                         badgeText: nextText,
                         badgeColor: badgeEditorColor,
                         excludeFromPreparedCount: badgeEditorExcludeFromPreparedCount,
+                        excludeFromKnownCount: badgeEditorExcludeFromKnownCount,
                       });
                       if (!res.success) {
                         router.refresh();
@@ -1167,6 +1262,7 @@ const MagicSlide = memo(function MagicSlide({ pers, onPersUpdate, isReadOnly }: 
                             badgeText: res.badgeText,
                             badgeColor: res.badgeColor,
                             excludeFromPreparedCount: res.excludeFromPreparedCount,
+                            excludeFromKnownCount: res.excludeFromKnownCount,
                           };
                         })
                       );

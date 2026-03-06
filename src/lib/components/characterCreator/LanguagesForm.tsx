@@ -24,6 +24,7 @@ interface Props {
   backgroundFeat?: Feat | undefined;
   existingLanguages?: string[];
   forcedLanguagesToChooseCount?: number;
+  isOptional?: boolean;
   formId: string;
   onNextDisabledChange?: (disabled: boolean) => void;
 }
@@ -39,6 +40,7 @@ export const LanguagesForm = ({
   backgroundFeat,
   existingLanguages,
   forcedLanguagesToChooseCount,
+  isOptional = false,
   formId,
   onNextDisabledChange,
 }: Props) => {
@@ -97,8 +99,13 @@ export const LanguagesForm = ({
   const selectedLanguages = form.watch("languages") ?? EMPTY_LANGUAGES;
 
   useEffect(() => {
+    if (isOptional) {
+      onNextDisabledChange?.(false);
+      return;
+    }
+
     onNextDisabledChange?.(selectedLanguages.length !== languagesToChooseCount);
-  }, [selectedLanguages, languagesToChooseCount, onNextDisabledChange]);
+  }, [isOptional, selectedLanguages.length, languagesToChooseCount, onNextDisabledChange]);
 
   useEffect(() => {
     updateFormData({ languagesSchema: { languages: selectedLanguages } });
@@ -133,6 +140,9 @@ export const LanguagesForm = ({
         <p className="text-slate-400">
           Ви можете обрати ще {languagesToChooseCount - selectedLanguages.length} з {languagesToChooseCount} мов.
         </p>
+        {isOptional ? (
+          <p className="mt-2 text-sm text-slate-500">Цей крок можна пропустити.</p>
+        ) : null}
       </Card>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
