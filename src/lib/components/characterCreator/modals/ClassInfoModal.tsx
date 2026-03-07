@@ -333,7 +333,10 @@ export const ClassInfoModal = ({
       .filter((f) => {
         const displayType = ((f as any)?.feature?.displayType ||
           []) as string[];
-        if (!Array.isArray(displayType) || !displayType.includes("CLASS_RESOURCE")) {
+        if (
+          !Array.isArray(displayType) ||
+          !displayType.includes("CLASS_RESOURCE")
+        ) {
           return false;
         }
 
@@ -816,7 +819,7 @@ export const ClassInfoModal = ({
         open={subclassesOpen}
         onOpenChange={setSubclassesOpen}
         title={`Підкласи: ${title}`}
-        contentClassName="w-[95vw] max-w-[95vw] sm:max-w-2xl overflow-hidden"
+        contentClassName="w-[95vw] max-w-[95vw] sm:max-w-2xl overflow-x-hidden"
       >
         <div className="space-y-3">
           {isLoadingSubclasses && !sortedSubclasses.length ? (

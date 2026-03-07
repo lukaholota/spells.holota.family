@@ -30,7 +30,7 @@ export const InfoDialogContent = ({
       className={clsx(
         "max-h-[90vh] w-[95vw] max-w-lg overflow-y-auto px-4 py-5 sm:p-6",
         "shadow-2xl ring-1 ring-white/20",
-        className
+        className,
       )}
     >
       <div className="absolute left-1/2 top-0 h-[2px] w-1/3 -translate-x-1/2 bg-gradient-to-r from-transparent via-cyan-400/60 to-transparent" />
@@ -46,7 +46,9 @@ export const InfoDialogContent = ({
         )}
       </DialogHeader>
 
-      <div className="space-y-3 pt-4 text-sm leading-relaxed text-slate-200/90 sm:text-base">{children}</div>
+      <div className="space-y-3 pt-4 text-sm leading-relaxed text-slate-200/90 sm:text-base">
+        {children}
+      </div>
     </DialogContent>
   );
 };
@@ -78,7 +80,7 @@ export const InfoDialog = ({
     return (
       <Dialog>
         <DialogTrigger asChild>
-          <div 
+          <div
             data-stop-card-click
             onPointerDown={(e) => e.stopPropagation()}
             onClick={(e) => e.stopPropagation()}
@@ -93,7 +95,7 @@ export const InfoDialog = ({
 
   return (
     <Dialog>
-      <div 
+      <div
         data-stop-card-click
         onPointerDown={(e) => {
           // Prevent the underlying Card onClick when the trigger overlaps the card.
@@ -105,7 +107,7 @@ export const InfoDialog = ({
         }}
         className={clsx(
           "absolute -right-2.5 -top-2.5 z-[50] sm:-right-3 sm:-top-3",
-          triggerClassName
+          triggerClassName,
         )}
       >
         <DialogTrigger asChild>
@@ -121,7 +123,7 @@ export const InfoDialog = ({
           </Button>
         </DialogTrigger>
       </div>
-      
+
       {content}
     </Dialog>
   );
@@ -144,7 +146,11 @@ export const ControlledInfoDialog = ({
 }) => {
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <InfoDialogContent title={title} subtitle={subtitle} className={contentClassName}>
+      <InfoDialogContent
+        title={title}
+        subtitle={subtitle}
+        className={contentClassName}
+      >
         {children}
       </InfoDialogContent>
     </Dialog>
@@ -163,7 +169,7 @@ export const InfoPill = ({
   value: ReactNode;
 }) => {
   if (!value || value === "—") return null;
-  
+
   return (
     <div className="rounded-lg border border-white/10 bg-white/5 px-3 py-2">
       <p className="text-[11px] uppercase tracking-[0.14em] text-slate-400">
