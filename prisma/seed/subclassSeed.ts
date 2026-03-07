@@ -1,39 +1,52 @@
-import { Ability, ArmorType, Classes, Prisma, PrismaClient, SpellcastingType, Subclasses, WeaponType } from "@prisma/client"
+import {
+  Ability,
+  ArmorType,
+  Classes,
+  Prisma,
+  PrismaClient,
+  SpellcastingType,
+  Subclasses,
+  WeaponType,
+} from "@prisma/client";
 
 type SubclassSeed = Omit<Prisma.SubclassCreateInput, "class" | "name"> & {
-  name: Subclasses
-  classConnect: Classes
-}
+  name: Subclasses;
+  classConnect: Classes;
+};
 
 export const seedSubclasses = async (prisma: PrismaClient) => {
-  console.log("Створюємо підкласи...")
+  console.log("Створюємо підкласи...");
 
   const subclasses: SubclassSeed[] = [
     // ==== Artificer ====
     {
       name: Subclasses.ALCHEMIST,
-      description: "Алхімік є експертом у поєднанні реагентів для створення містичних ефектів. Алхіміки використовують свої витвори, щоб дарувати життя і висмоктувати його.",
+      description:
+        "Алхімік є експертом у поєднанні реагентів для створення містичних ефектів. Алхіміки використовують свої витвори, щоб дарувати життя і висмоктувати його.",
       spellcastingType: SpellcastingType.HALF,
       classConnect: Classes.ARTIFICER_2014,
       expandedSpells: { connect: [] },
     },
     {
       name: Subclasses.ARMORER,
-      description: "Зброяр модифікує броню, щоб вона діяла майже як друга шкіра. Броня розкриває потужні атаки та захист.",
+      description:
+        "Зброяр модифікує броню, щоб вона діяла майже як друга шкіра. Броня розкриває потужні атаки та захист.",
       spellcastingType: SpellcastingType.HALF,
       classConnect: Classes.ARTIFICER_2014,
       expandedSpells: { connect: [] },
     },
     {
       name: Subclasses.ARTILLERIST,
-      description: "Артилерист спеціалізується на вивільненні енергії, створюючи вибухи та захисні позиції за допомогою магічних гармат.",
+      description:
+        "Артилерист спеціалізується на вивільненні енергії, створюючи вибухи та захисні позиції за допомогою магічних гармат.",
       spellcastingType: SpellcastingType.HALF,
       classConnect: Classes.ARTIFICER_2014,
       expandedSpells: { connect: [] },
     },
     {
       name: Subclasses.BATTLE_SMITH,
-      description: "Бойовий коваль поєднує магію та інженерію для створення захисників та ремонту матеріалів. Вони супроводжуються сталевим захисником.",
+      description:
+        "Бойовий коваль поєднує магію та інженерію для створення захисників та ремонту матеріалів. Вони супроводжуються сталевим захисником.",
       spellcastingType: SpellcastingType.HALF,
       classConnect: Classes.ARTIFICER_2014,
       expandedSpells: { connect: [] },
@@ -73,21 +86,24 @@ export const seedSubclasses = async (prisma: PrismaClient) => {
     },
     {
       name: Subclasses.CHAMPION,
-      description: "Чемпіон покладається на природну силу та витривалість, зосереджуючись на чистій бойовій майстерності.",
+      description:
+        "Чемпіон покладається на природну силу та витривалість, зосереджуючись на чистій бойовій майстерності.",
       spellcastingType: SpellcastingType.NONE,
       classConnect: Classes.FIGHTER_2014,
       expandedSpells: { connect: [] },
     },
     {
       name: Subclasses.ECHO_KNIGHT,
-      description: "Лицар луни викликає магічну копію себе, атакуючи та захищаючись через цей відбиток на полі бою.",
+      description:
+        "Лицар луни викликає магічну копію себе, атакуючи та захищаючись через цей відбиток на полі бою.",
       spellcastingType: SpellcastingType.NONE,
       classConnect: Classes.FIGHTER_2014,
       expandedSpells: { connect: [] },
     },
     {
       name: Subclasses.ELDRITCH_KNIGHT,
-      description: "Містичний лицар поєднує магію чарівника зі збройною майстерністю, накладаючи заклинання поряд із ударами.",
+      description:
+        "Містичний лицар поєднує магію чарівника зі збройною майстерністю, накладаючи заклинання поряд із ударами.",
       primaryCastingStat: Ability.INT,
       spellcastingType: SpellcastingType.THIRD,
       grantsSpells: true,
@@ -96,21 +112,24 @@ export const seedSubclasses = async (prisma: PrismaClient) => {
     },
     {
       name: Subclasses.PSI_WARRIOR,
-      description: "Псі-воїн спрямовує телекінетичну й психічну енергію, щоб захищати союзників та посилювати власні удари.",
+      description:
+        "Псі-воїн спрямовує телекінетичну й психічну енергію, щоб захищати союзників та посилювати власні удари.",
       spellcastingType: SpellcastingType.NONE,
       classConnect: Classes.FIGHTER_2014,
       expandedSpells: { connect: [] },
     },
     {
       name: Subclasses.RUNE_KNIGHT,
-      description: "Рунний лицар черпає силу у магії велетнів, наносячи руни на спорядження та посилюючи власну міць.",
+      description:
+        "Рунний лицар черпає силу у магії велетнів, наносячи руни на спорядження та посилюючи власну міць.",
       spellcastingType: SpellcastingType.NONE,
       classConnect: Classes.FIGHTER_2014,
       expandedSpells: { connect: [] },
     },
     {
       name: Subclasses.SAMURAI,
-      description: "Самурай спирається на дисципліну та незламний дух, щоб витримувати натиск і завдавати вирішальних ударів.",
+      description:
+        "Самурай спирається на дисципліну та незламний дух, щоб витримувати натиск і завдавати вирішальних ударів.",
       spellcastingType: SpellcastingType.NONE,
       classConnect: Classes.FIGHTER_2014,
       expandedSpells: { connect: [] },
@@ -1081,7 +1100,7 @@ export const seedSubclasses = async (prisma: PrismaClient) => {
     {
       name: Subclasses.WAY_OF_THE_ASTRAL_SELF,
       description:
-        "Шлях астрального \"я\" вірить, що тіло — це ілюзія. Монахи викликають астральні руки, маски та обладунки, що є проявом їхньої істинної душі та волі.",
+        'Шлях астрального "я" вірить, що тіло — це ілюзія. Монахи викликають астральні руки, маски та обладунки, що є проявом їхньої істинної душі та волі.',
       primaryCastingStat: Ability.WIS,
       spellcastingType: SpellcastingType.NONE,
       classConnect: Classes.MONK_2014,
@@ -1150,15 +1169,24 @@ export const seedSubclasses = async (prisma: PrismaClient) => {
       classConnect: Classes.MONK_2014,
       expandedSpells: { connect: [] },
     },
-  ]
+  ];
 
   for (const subclass of subclasses) {
-    const { classConnect, ...data } = subclass
-    const cls = await prisma.class.findUnique({ where: { name: classConnect } })
+    const { classConnect, ...data } = subclass;
+    const cls = await prisma.class.findUnique({
+      where: { name: classConnect },
+    });
 
     if (!cls) {
-        console.error('💀 КЛАС НЕ ЗНАЙДЕНО:', classConnect, 'для підкласу:', subclass.name);
-        throw new Error(`Class ${classConnect} not found for subclass ${subclass.name}`);
+      console.error(
+        "💀 КЛАС НЕ ЗНАЙДЕНО:",
+        classConnect,
+        "для підкласу:",
+        subclass.name,
+      );
+      throw new Error(
+        `Class ${classConnect} not found for subclass ${subclass.name}`,
+      );
     }
 
     await prisma.subclass.upsert({
@@ -1180,8 +1208,8 @@ export const seedSubclasses = async (prisma: PrismaClient) => {
           connect: { name: classConnect },
         },
       },
-    })
+    });
   }
 
-  console.log(`Готово. Оновлено ${subclasses.length} підкласів.`)
-}
+  console.log(`Готово. Оновлено ${subclasses.length} підкласів.`);
+};
