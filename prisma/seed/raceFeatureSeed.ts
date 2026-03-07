@@ -2163,7 +2163,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             name: 'Натяк на шторм',
             engName: 'Headwinds',
             description: 'Ви знаєте замовляння <a href="/spell/1416">Порив [Gust]</a>. Починаючи з 3-го рівня, ви можете використовувати заклинання <a href="/spell/1267">Порив вітру [Gust of Wind]</a>, яке потребує концентрації. Після використання ви не можете використовувати його знову, доки не завершите довгий відпочинок. Харизма є вашою заклинальною характеристикою для цих заклинань.',
-            shortDescription: 'Gust cantrip + Gust of Wind 1/день',
+            shortDescription: 'Замовляння Порив [Gust] + Порив вітру [Gust of Wind] 1/день',
             displayType: [FeatureDisplayType.PASSIVE],
             limitedUsesPer: RestType.LONG_REST,
             usesCount: 1

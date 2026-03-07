@@ -336,7 +336,7 @@ export const seedSubclasses = async (prisma: PrismaClient) => {
     {
       name: Subclasses.ARCHFEY,
       description:
-        "Покровитель-архіфея дарує силу обману, чарів і туману: присутність феї, невидимість і видіння зводять ворогів з розуму.",
+        "Ваш покровитель — архіфея, володар або володарка фей, істота з легенд, що зберігає таємниці ще з часів до народження смертних рас. Такий покровитель наділяє вас чарами, туманом і примхливою, але грізною фейською силою.",
       primaryCastingStat: Ability.CHA,
       spellcastingType: SpellcastingType.PACT,
       grantsSpells: true,
@@ -346,7 +346,7 @@ export const seedSubclasses = async (prisma: PrismaClient) => {
     {
       name: Subclasses.FIEND,
       description:
-        "Бісівський покровитель укріплює вас пекельною удачею та опором: додаткові закляття вогню, благословення при перемозі й безжальне вигнання ворогів.",
+        "Ваш покровитель — нечистий із Нижніх планів, істота, чиї наміри лихі, навіть якщо ви самі опираєтеся їм. Такий союз дарує вам пекельну міць, жорстоку удачу та магію вогню, страху й загибелі.",
       primaryCastingStat: Ability.CHA,
       spellcastingType: SpellcastingType.PACT,
       grantsSpells: true,
@@ -356,7 +356,7 @@ export const seedSubclasses = async (prisma: PrismaClient) => {
     {
       name: Subclasses.GREAT_OLD_ONE,
       description:
-        "Древній жах дарує телепатію та захист думок: викривлення ймовірності, психічний захист і створення слуг-трилів.",
+        "Ваш покровитель — Великий Древній, загадкова сутність, чужа самій тканині реальності. Його знання незбагненні для смертних, а дарована ним сила проявляється в телепатії, психічному захисті й викривленні розуму.",
       primaryCastingStat: Ability.CHA,
       spellcastingType: SpellcastingType.PACT,
       grantsSpells: true,
@@ -366,7 +366,7 @@ export const seedSubclasses = async (prisma: PrismaClient) => {
     {
       name: Subclasses.HEXBLADE,
       description:
-        "Відьмацький клинок черпає силу з потойбічної зброї: прокляття цілей, майстерність зброї на Харизмі й прислужники-спектри.",
+        "Ваш пакт укладений із таємничою силою з Тіньокраю, що виявляється в розумній магічній зброї. Відьмацький клинок дарує вам прокляття, бойову вправність і владу над душами вбитих.",
       primaryCastingStat: Ability.CHA,
       spellcastingType: SpellcastingType.PACT,
       grantsSpells: true,
@@ -378,7 +378,7 @@ export const seedSubclasses = async (prisma: PrismaClient) => {
     {
       name: Subclasses.CELESTIAL,
       description:
-        "Небесний покровитель дарує світло й зцілення: запас лікування, опір радіантній шкоді та відродження в променистому спалаху.",
+        "Ваш покровитель — могутня істота з Верхніх планів, що дозволяє вам торкнутися священного світла, яке осяює мультивсесвіт. Його дари несуть зцілення, променисту міць і захист від смерті.",
       primaryCastingStat: Ability.CHA,
       spellcastingType: SpellcastingType.PACT,
       grantsSpells: true,
@@ -388,7 +388,7 @@ export const seedSubclasses = async (prisma: PrismaClient) => {
     {
       name: Subclasses.FATHOMLESS,
       description:
-        "Безодня наділяє силами океану: примарні щупальця, опір холоду, контроль води й телепортація крізь глибини.",
+        "Ваш пакт пов’язує вас із безоднею океану, Планом Стихії Води чи іншою потойбічною морською сутністю. Вона кличе вас до глибин і наділяє щупальцями, морською витривалістю та водяною магією.",
       primaryCastingStat: Ability.CHA,
       spellcastingType: SpellcastingType.PACT,
       grantsSpells: true,
@@ -398,7 +398,7 @@ export const seedSubclasses = async (prisma: PrismaClient) => {
     {
       name: Subclasses.THE_GENIE,
       description:
-        "Благородний джинн дає судину, що містить силу стихій: розширений список заклять, додаткову шкоду його стихією та польоти на дарованих вітрах.",
+        "Ваш покровитель — благородний джин, один із найрідкісніших і наймогутніших представників свого роду. Через його судину ви черпаєте стихійну силу, здобуваєте прихисток поза світом і навчаєтеся здійснювати малі бажання.",
       primaryCastingStat: Ability.CHA,
       spellcastingType: SpellcastingType.PACT,
       grantsSpells: true,
@@ -408,7 +408,7 @@ export const seedSubclasses = async (prisma: PrismaClient) => {
     {
       name: Subclasses.UNDEAD,
       description:
-        "Покровитель-некроархон дозволяє ставати формою жаху, посилює некротичну шкоду й дарує безсмертні спалахи.",
+        "Ваш покровитель — безсмертна істота, що знехтувала колом життя і смерті, аби вічно переслідувати свої незбагненні цілі. Вона наділяє вас жахливою подобою, некротичною міццю та владою над духом і тілом.",
       primaryCastingStat: Ability.CHA,
       spellcastingType: SpellcastingType.PACT,
       grantsSpells: true,
@@ -418,7 +418,7 @@ export const seedSubclasses = async (prisma: PrismaClient) => {
     {
       name: Subclasses.UNDYING,
       description:
-        "Невмерлий покровитель захищає від смерті: опір хворобам, ігнорування голоду та відновлення тіла після поранень.",
+        "Смерть не має влади над вашим покровителем, який осягнув секрети вічного життя. Його дари віддаляють вас від смертної природи, захищають від хвороб і дозволяють знову підніматися після тяжких ушкоджень.",
       primaryCastingStat: Ability.CHA,
       spellcastingType: SpellcastingType.PACT,
       grantsSpells: true,
@@ -890,7 +890,7 @@ export const seedSubclasses = async (prisma: PrismaClient) => {
     {
       name: Subclasses.COLLEGE_OF_CREATION,
       description:
-        "Колегія творення втілює пісню, що створила світ. Барди створюють предмети з повітря та пожвавлюють неживе.",
+        "Колегія творення звертається до первісної Пісні творення — гармонії, що досі відлунює в бутті. Її барди через музику, танець і поезію творять із нічого речі та пробуджують неживе до руху.",
       primaryCastingStat: Ability.CHA,
       spellcastingType: SpellcastingType.FULL,
       grantsSpells: true,
@@ -900,7 +900,7 @@ export const seedSubclasses = async (prisma: PrismaClient) => {
     {
       name: Subclasses.COLLEGE_OF_ELOQUENCE,
       description:
-        "Колегія красномовства вчить силі слова: переконувати сумнівних, заспокоювати ворогів і надихати союзників логікою та емоціями.",
+        "Прихильники Колегії красномовства опановують мистецтво ораторства. Вони поєднують логіку, майстерність слова й гру на почуттях, щоб схиляти на свій бік скептиків, противників і цілі натовпи.",
       primaryCastingStat: Ability.CHA,
       spellcastingType: SpellcastingType.FULL,
       grantsSpells: true,
@@ -910,7 +910,7 @@ export const seedSubclasses = async (prisma: PrismaClient) => {
     {
       name: Subclasses.COLLEGE_OF_GLAMOUR,
       description:
-        "Колегія гламуру черпає магію з Фейвайлду. Їхня вистава зачаровує глядачів, а зовнішність набуває неземної краси.",
+        "Колегія гламуру походить із яскравого Фейвайлду та вчить бардів зачаровувати публіку фейською магією. Їхні виступи викликають водночас захват і страх, а сама їхня присутність полонить чужу волю.",
       primaryCastingStat: Ability.CHA,
       spellcastingType: SpellcastingType.FULL,
       grantsSpells: true,
@@ -920,7 +920,7 @@ export const seedSubclasses = async (prisma: PrismaClient) => {
     {
       name: Subclasses.COLLEGE_OF_LORE,
       description:
-        "Колегія знань збирає таємниці з усього світу. Барди використовують знання, щоб різати словом ворогів і вивчати будь-яку магію.",
+        "Барди Колегії знань збирають уривки відомостей з учених трактатів і народних переказів. Їхня відданість належить красі й правді, а знання вони обертають і на гостре слово, і на доступ до чужої магії.",
       primaryCastingStat: Ability.CHA,
       spellcastingType: SpellcastingType.FULL,
       grantsSpells: true,
@@ -930,7 +930,7 @@ export const seedSubclasses = async (prisma: PrismaClient) => {
     {
       name: Subclasses.COLLEGE_OF_SPIRITS,
       description:
-        "Колегія духів звертається до історій минулого. Барди викликають духів через спіритичні сеанси, щоб отримати їхню мудрість і силу.",
+        "Барди Колегії духів шукають історії, що мають власну силу — легенди, хроніки й навіть вигадки. За допомогою окультних атрибутів вони втілюють духів могутніх сил, хоча ті не завжди охоче підкоряються.",
       primaryCastingStat: Ability.CHA,
       spellcastingType: SpellcastingType.FULL,
       grantsSpells: true,
@@ -940,7 +940,7 @@ export const seedSubclasses = async (prisma: PrismaClient) => {
     {
       name: Subclasses.COLLEGE_OF_SWORDS,
       description:
-        "Колегія мечів перетворює бій на виставу. Барди виконують смертельні трюки зі зброєю, танцюючи між ударами.",
+        "Бардів Колегії мечів звуть клинками: вони розважають публіку зухвалими демонстраціями володіння зброєю. Їхні трюки — це водночас вистава і справжнє бойове мистецтво.",
       primaryCastingStat: Ability.CHA,
       spellcastingType: SpellcastingType.FULL,
       grantsSpells: true,
@@ -950,7 +950,7 @@ export const seedSubclasses = async (prisma: PrismaClient) => {
     {
       name: Subclasses.COLLEGE_OF_VALOR,
       description:
-        "Колегія доблесті оспівує героїв минулого. Барди надихають союзників на подвиги та самі вступають у бій зі зброєю та щитом.",
+        "Барди Колегії доблесті — відважні скальди, що зберігають пам’ять про великих героїв минулого й сучасності. Їхні пісні надихають інших на подвиги, а самі вони без вагань стають до бою.",
       primaryCastingStat: Ability.CHA,
       spellcastingType: SpellcastingType.FULL,
       grantsSpells: true,
@@ -960,7 +960,7 @@ export const seedSubclasses = async (prisma: PrismaClient) => {
     {
       name: Subclasses.COLLEGE_OF_WHISPERS,
       description:
-        "Колегія шепотів використовує знання як зброю. Барди сіють страх, крадуть тіні та маніпулюють розумом, залишаючись непоміченими.",
+        "Колегія шепотів обертає добру славу бардів собі на користь. Її барди збирають таємниці, сіють страх і використовують знання та магію, щоб шантажем і погрозами впливати на тих, хто має владу.",
       primaryCastingStat: Ability.CHA,
       spellcastingType: SpellcastingType.FULL,
       grantsSpells: true,

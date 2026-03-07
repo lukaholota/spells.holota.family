@@ -1,4 +1,4 @@
-import 'dotenv/config';
+import "dotenv/config";
 import { prisma } from "@/lib/prisma";
 import { seedWeapons as _seedWeapons } from "./seed/weaponSeed";
 import { seedArmor as _seedArmor } from "./seed/armorSeed";
@@ -27,48 +27,50 @@ import { seedFeats as _seedFeats } from "./seed/featSeed";
 import { seedFeatChoiceOptions as _seedFeatChoiceOptions } from "./seed/featChoiceOptionSeed";
 
 async function main() {
-    console.log('Starting seed...')
-    console.log('ВАЖЛИВО‼️‼️‼️‼️‼️ ЧЕРЕЗ SEEDINDEX НОВІ ФІЧІ МОЖНА ДОДАВАТИ ЛИШЕ В КІНЕЦЬ ФАЙЛУ! АБО ПЕРЕД ІНДЕКСУВАННЯМ ВСЕ ВИДАЛИТИ З БД!')
-    // ВАЖЛИВО! ЧЕРЕЗ SEEDINDEX НОВІ ФІЧІ МОЖНА ДОДАВАТИ ЛИШЕ В КІНЕЦЬ ФАЙЛУ! АБО ПЕРЕД ІНДЕКСУВАННЯМ ВСЕ ВИДАЛИТИ З БД! поки стосується лише classEquipment та classOptionalFeature
-    // await seedWeapons(prisma)
-    // await _seedArmor(prisma)
-    // await seedEquipmentPacks(prisma)
-    // await _seedBackground(prisma)
-    // await _seedRaceFeatures(prisma)
-    // await _seedSubraceFeatures(prisma)
-    // await _seedRaces(prisma)
-    // await seedSubraces(prisma)
-    // await seedRaceVariants(prisma)
-    // await _seedRaceChoiceOptions(prisma)
+  console.log("Starting seed...");
+  console.log(
+    "ВАЖЛИВО‼️‼️‼️‼️‼️ ЧЕРЕЗ SEEDINDEX НОВІ ФІЧІ МОЖНА ДОДАВАТИ ЛИШЕ В КІНЕЦЬ ФАЙЛУ! АБО ПЕРЕД ІНДЕКСУВАННЯМ ВСЕ ВИДАЛИТИ З БД!",
+  );
+  // ВАЖЛИВО! ЧЕРЕЗ SEEDINDEX НОВІ ФІЧІ МОЖНА ДОДАВАТИ ЛИШЕ В КІНЕЦЬ ФАЙЛУ! АБО ПЕРЕД ІНДЕКСУВАННЯМ ВСЕ ВИДАЛИТИ З БД! поки стосується лише classEquipment та classOptionalFeature
+  // await seedWeapons(prisma)
+  // await _seedArmor(prisma)
+  // await seedEquipmentPacks(prisma)
+  // await _seedBackground(prisma)
+  await _seedRaceFeatures(prisma);
+  await _seedSubraceFeatures(prisma);
+  // await _seedRaces(prisma)
+  // await seedSubraces(prisma)
+  // await seedRaceVariants(prisma)
+  // await _seedRaceChoiceOptions(prisma)
 
-    // await _seedClassEquipment(prisma) 
-    // await _seedSubclasses(prisma)
-    // await _seedSubclassChoiceOptions(prisma)
-    // await _seedChoiceOptions(prisma)
-    // await _seedClassChoiceOptions(prisma)
-    
-    // await seedMagicItems(prisma) // items for infusions
-    // await seedInfusions(prisma)  // infusions themselves
+  // await _seedClassEquipment(prisma)
+  await _seedSubclasses(prisma);
+  // await _seedSubclassChoiceOptions(prisma)
+  // await _seedChoiceOptions(prisma)
+  // await _seedClassChoiceOptions(prisma)
 
-    // await seedClassOptionalFeatures(prisma)
-    
-    // await _seedFeats(prisma);
-    // await _seedBackground(prisma);
-    await _seedSubclassFeatures(prisma);
-    // await _seedSubclassChoiceOptions(prisma)
+  // await seedMagicItems(prisma) // items for infusions
+  // await seedInfusions(prisma)  // infusions themselves
 
-    // await _seedFeatChoiceOptions(prisma);
+  // await seedClassOptionalFeatures(prisma)
 
-    await _seedClassFeatures(prisma)
-    // await _seedInfusionFeatures(prisma) // features for infusions
-    await _seedClasses(prisma)
+  await _seedFeats(prisma);
+  // await _seedBackground(prisma);
+  await _seedSubclassFeatures(prisma);
+  // await _seedSubclassChoiceOptions(prisma)
+
+  // await _seedFeatChoiceOptions(prisma);
+
+  await _seedClassFeatures(prisma);
+  // await _seedInfusionFeatures(prisma) // features for infusions
+  // await _seedClasses(prisma)
 }
 
 main()
-    .catch((e) => {
-        console.error(e)
-        process.exit(1)
-    })
-    .finally(async () => {
-        await prisma.$disconnect()
-    })
+  .catch((e) => {
+    console.error(e);
+    process.exit(1);
+  })
+  .finally(async () => {
+    await prisma.$disconnect();
+  });

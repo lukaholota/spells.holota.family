@@ -137,7 +137,7 @@ export const seedSubraceFeatures = async (prisma: PrismaClient) => {
 
         // --- HIGH ELF EXTRA ---
         {
-            name: 'Кантріп Вищого Ельфа',
+            name: 'Замовляння вищого ельфа',
             engName: 'High Elf Cantrip',
             description: 'Ви знаєте одне замовляння на ваш вибір зі списку заклинань чарівника. Інтелект є вашою заклинальною характеристикою для нього.',
             shortDescription: '1 замовляння чарівника',
