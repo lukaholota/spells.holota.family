@@ -11,7 +11,7 @@ bun dev
 
 ## PDF / Print (Chromium) configuration
 
-PDF generation uses `puppeteer-core` and runs **inside the Next.js server process**. That means these settings must be present in the **runtime environment** of the server (e.g. the systemd service that runs `next start` / standalone server), not only during `next build`.
+PDF generation uses `puppeteer-core` and runs **inside the Next.js server process**. That means these settings must be present in the **runtime environment** of the server (e.g. the systemd service that runs `next start` / standalone server), not only during `next build`
 
 Recommended env vars (see [.env.example](.env.example)):
 
