@@ -45,6 +45,7 @@ jobs:
           cp -r public/. deploy/public/
           # Copy prisma files if needed for runtime migrations or seeds
           cp -r prisma deploy/
+          cp -r node_modules/@sparticuz/chromium/bin deploy/node_modules/@sparticuz/chromium/bin
           tar -czf release.tar.gz -C deploy .
 
       - name: Upload release to VPS
