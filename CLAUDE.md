@@ -62,7 +62,12 @@ Production data scale, measured 2026-08-07 — these are real people's character
 
 This is honest debt, written down so no session has to rediscover it:
 
-- **No tests.** Zero. No test runner installed. Everything is verified by hand in the browser.
+- ~~**No tests.** Zero. No test runner installed.~~ Partly fixed in
+  [KR1.2](docs/o1-safety-net/kr1.2-vitest.md): Vitest runs, `bun run test` is green. But it is
+  **one** test file — 29 cases over five functions in `bonus-calculator.ts`. Everything else is
+  still verified by hand in the browser, and nothing touches the database yet (that is
+  [KR1.3](docs/o1-safety-net/kr1.3-test-database.md)). Do not read "there are tests" as "you are
+  covered".
 - ~~**No reproducible schema.**~~ Fixed in [KR1.1](docs/o1-safety-net/kr1.1-schema-baseline.md):
   `db/schema.sql` rebuilds the production structure on an empty database, verified against prod.
   The project no longer uses `prisma db push`. This is *not* migrations — see the schema
@@ -89,6 +94,10 @@ Deleting or "cleaning up" any of this without a test around it is not allowed �
 **Before changing behaviour, pin it.** Any refactor of `src/lib/actions/` or `src/lib/logic/`
 needs a characterization test capturing current output first. If a test does not exist yet, write
 it as part of the change, not after.
+
+**A test that has never been red does not count.** Before claiming a test pins behaviour, break the
+code it covers and confirm it fails — then revert the break. A green-on-first-run test proves the
+runner works, not that the assertion bites.
 
 **Reuse before you write.** Before adding a component or helper, search for an existing one
 (`rg` by concept, not by filename). A duplicated component is a regression, not a feature.
@@ -137,6 +146,9 @@ bunx prisma generate
 bun dev            # next dev --turbopack
 bun run build
 bun run lint
+bun run test       # vitest run — config is vitest.config.mts, not .ts
+bun run test:watch
+bun run test:coverage
 bun run db:pull    # after the owner applied SQL to the DB — regenerates schema + client + db/schema.sql
 bun run db:dump    # only db/schema.sql
 ```
