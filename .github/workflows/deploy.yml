@@ -1,12 +1,57 @@
-name: Deploy to VPS (Zero Downtime)
+name: Checks + Deploy to VPS (Zero Downtime)
 
 on:
   push:
     branches:
       - main
+  pull_request:
 
 jobs:
+  checks:
+    runs-on: ubuntu-latest
+    # Тести роблять TRUNCATE у spells_ci_test. Дві джоби одночасно затирали б дані одна одній
+    # і давали б плаваючі падіння. cancel-in-progress: false — щоб прогін не обривався на півдорозі.
+    concurrency:
+      group: spells-ci-database
+      cancel-in-progress: false
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Prisma Generate
+        run: bunx prisma generate
+        env:
+          DATABASE_URL: ${{ secrets.TEST_DATABASE_URL }}
+
+      # Мусить іти перед tsc: src/lib/spellsData.ts імпортує згенерований spells.json,
+      # а той у .gitignore. Без цього кроку tsc падає з TS2307 на чистому клоні.
+      - name: Generate spells.json
+        run: bun run generate:spells
+        env:
+          DATABASE_URL: ${{ secrets.TEST_DATABASE_URL }}
+
+      - name: Types
+        run: bunx tsc --noEmit
+
+      - name: Lint
+        run: bun run lint
+
+      - name: Tests
+        run: bun run test
+        env:
+          DATABASE_URL: ${{ secrets.TEST_DATABASE_URL }}
+
   build-and-deploy:
+    needs: checks
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
