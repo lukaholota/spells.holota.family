@@ -1,7 +1,0 @@
-enum SpellcastingType {
-  NONE
-  FULL
-  HALF
-  THIRD
-  PACT
-}
