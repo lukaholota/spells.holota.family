@@ -65,6 +65,15 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      # Порожній секрет завалив би смоук уже після викочування, і відкат прибрав би цілком
+      # робочий реліз через помилку конфігурації. Дешевше впасти тут, ще нічого не чіпавши.
+      - name: Check smoke URL is configured
+        run: |
+          if [ -z "${{ secrets.NEXT_PUBLIC_SITE_URL }}" ]; then
+            echo "NEXT_PUBLIC_SITE_URL порожній — смоуку не буде куди ходити."
+            exit 1
+          fi
+
       - name: Setup Bun
         uses: oven-sh/setup-bun@v2
         with:
@@ -133,6 +142,11 @@ jobs:
             rm -rf $RELEASE_DIR/.next/cache
             ln -sfn $SHARED_DIR/cache $RELEASE_DIR/.next/cache
             
+            # Куди відкочуватись, якщо смоук не пройде. Знімається ДО перемикання симлінка —
+            # після нього попередній реліз уже нічим не позначений, а вгадувати його по даті
+            # не можна: після невдалого деплою найновіша тека якраз і є зламаною.
+            readlink -f $CURRENT_DIR > /home/luka/char/previous-release || true
+
             # Atomic symlink switch
             ln -sfn $RELEASE_DIR $CURRENT_DIR
             
@@ -142,3 +156,34 @@ jobs:
             
             # Cleanup old releases (keep latest 5)
             cd /home/luka/char/releases && ls -1t | tail -n +6 | xargs rm -rf --
+
+      # Смоук ганяється з раннера по публічному URL, а не з сервера по localhost:PORT:
+      # порт застосунку заданий в EnvironmentFile на VPS і в репозиторії його немає,
+      # тож будь-яке число тут було б здогадкою. Публічний URL заразом перевіряє nginx і TLS.
+      - name: Smoke check
+        id: smoke
+        run: ./scripts/smoke.sh "${{ secrets.NEXT_PUBLIC_SITE_URL }}"
+
+      # Умова саме на крок смоуку, а не просто failure(): якщо впала збірка, деплою не було
+      # і відкочувати нема чого — відкат тоді зіпсував би цілий реліз на порожньому місці.
+      - name: Rollback on failed smoke
+        if: failure() && steps.smoke.outcome == 'failure'
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script_stop: true
+          script: |
+            CURRENT_DIR="/home/luka/char/current"
+            PREVIOUS_DIR=$(cat /home/luka/char/previous-release 2>/dev/null || true)
+
+            if [ -z "$PREVIOUS_DIR" ] || [ ! -d "$PREVIOUS_DIR" ]; then
+              echo "Попереднього релізу немає ($PREVIOUS_DIR) — відкат неможливий."
+              echo "Сервіс лишається на зламаному релізі, потрібне ручне втручання."
+              exit 1
+            fi
+
+            ln -sfn $PREVIOUS_DIR $CURRENT_DIR
+            echo "${{ secrets.SUDO_PASSWORD }}" | sudo -S systemctl restart char
+            echo "Відкочено на $PREVIOUS_DIR"
