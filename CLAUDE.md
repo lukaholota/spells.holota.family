@@ -63,11 +63,12 @@ Production data scale, measured 2026-08-07 — these are real people's character
 This is honest debt, written down so no session has to rediscover it:
 
 - ~~**No tests.** Zero. No test runner installed.~~ Partly fixed in
-  [KR1.2](docs/o1-safety-net/kr1.2-vitest.md): Vitest runs, `bun run test` is green. But it is
-  **one** test file — 29 cases over five functions in `bonus-calculator.ts`. Everything else is
-  still verified by hand in the browser, and nothing touches the database yet (that is
-  [KR1.3](docs/o1-safety-net/kr1.3-test-database.md)). Do not read "there are tests" as "you are
-  covered".
+  [KR1.2](docs/o1-safety-net/kr1.2-vitest.md) and [KR1.3](docs/o1-safety-net/kr1.3-test-database.md):
+  Vitest runs, `bun run test` is green (33 tests, ~2 s), and tests can hit a real Postgres. But that
+  is **two** files — 29 pure cases over five functions in `bonus-calculator.ts`, plus 4 that prove
+  the DB wiring works. Everything else is still verified by hand in the browser. Do not read
+  "there are tests" as "you are covered". CI does not run any of this yet
+  ([KR1.4](docs/o1-safety-net/kr1.4-ci.md)).
 - ~~**No reproducible schema.**~~ Fixed in [KR1.1](docs/o1-safety-net/kr1.1-schema-baseline.md):
   `db/schema.sql` rebuilds the production structure on an empty database, verified against prod.
   The project no longer uses `prisma db push`. This is *not* migrations — see the schema
@@ -131,6 +132,16 @@ to the owner.
 production DB into another database on the same server. Targets must end in
 `_test`/`_staging`/`_dev`/`_scratch`; the script refuses anything else.
 
+**Tests that touch the database.** They run against `spells_test`, raised by
+`./scripts/db-clone.sh spells_test`. The URL lives in `.env.test`, which is **gitignored** — a fresh
+clone has to create it, and `tests/setup.ts` says so when it is missing. That setup file also refuses
+any database whose name does not end in `_test`, because the reset helper runs
+`TRUNCATE … CASCADE`. Values in `.env*` must be double-quoted: the URL contains `&`, and unquoted it
+breaks `source` in `scripts/lib/pg.sh`. Do not move the `beforeEach` reset into `tests/setup.ts` —
+that would drag the pure tests into Postgres. Never name a test helper `useSomething`:
+`react-hooks/rules-of-hooks` treats the `use` prefix as a React hook and fails the lint with an
+error, not a warning.
+
 **Code style.** Follow the global style rules (minimal comments, verb-named functions, coordinator
 function on top reading as named steps, details in small helpers below). Applied here that means:
 new server-side work goes into a pure function in `src/rules/` (once it exists) or `src/lib/logic/`,
@@ -146,7 +157,7 @@ bunx prisma generate
 bun dev            # next dev --turbopack
 bun run build
 bun run lint
-bun run test       # vitest run — config is vitest.config.mts, not .ts
+bun run test       # vitest run — config is vitest.config.mts, not .ts; DB tests need .env.test
 bun run test:watch
 bun run test:coverage
 bun run db:pull    # after the owner applied SQL to the DB — regenerates schema + client + db/schema.sql
