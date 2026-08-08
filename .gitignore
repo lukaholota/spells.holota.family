@@ -49,3 +49,6 @@ repomix-output.xml
 src/lib/generated/spells.json
 
 /spell-list
+# Дампи БД — реальні дані користувачів, у git їм не місце.
+backups/
+*.dump
