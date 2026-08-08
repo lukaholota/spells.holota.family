@@ -1,6 +1,6 @@
 # KR1.2 — Vitest
 
-**Ціль:** [O1](README.md) · **Статус:** ☐ не розпочато · **Залежить від:** нічого
+**Ціль:** [O1](README.md) · **Статус:** ✅ зроблено 2026-08-08 · **Залежить від:** нічого · **Розблоковує:** KR1.3, KR1.4
 
 ## Навіщо
 
@@ -12,12 +12,14 @@
 
 ## Готово, коли
 
-- [ ] `vitest` + `@vitest/coverage-v8` у devDependencies
-- [ ] `vitest.config.ts` із `@/` → `src/`, `environment: 'node'`
-- [ ] `bun run test` і `bun run test:watch` у `package.json`
-- [ ] є щонайменше один тест на `src/lib/logic/bonus-calculator.ts`, який реально щось перевіряє,
-      а не `expect(true).toBe(true)`
-- [ ] тест зелений і виконується менш ніж за 5 секунд
+- [x] `vitest` + `@vitest/coverage-v8` у devDependencies (обидва 4.1.10)
+- [x] `vitest.config.mts` із `@/` → `src/`, `environment: 'node'` — розширення `.mts`, а не `.ts`,
+      причина в журналі
+- [x] `bun run test` і `bun run test:watch` у `package.json` (плюс `test:coverage`)
+- [x] є щонайменше один тест на `src/lib/logic/bonus-calculator.ts`, який реально щось перевіряє,
+      а не `expect(true).toBe(true)` — 29 тестів, і вони перевірені мутацією коду
+- [x] тест зелений і виконується менш ніж за 5 секунд — 0,71 с за годинником на повний
+      `bun run test`, з них 176 мс усередині vitest
 
 ## Кроки
 
@@ -25,14 +27,14 @@
 bun add -d vitest @vitest/coverage-v8
 ```
 
-`vitest.config.ts`:
+`vitest.config.mts` (розширення `.mts` — не помилка, див. журнал):
 
 ```ts
 import { defineConfig } from "vitest/config";
-import { resolve } from "node:path";
+import { fileURLToPath } from "node:url";
 
 export default defineConfig({
-  resolve: { alias: { "@": resolve(__dirname, "src") } },
+  resolve: { alias: { "@": fileURLToPath(new URL("./src", import.meta.url)) } },
   test: {
     environment: "node",
     include: ["src/**/*.test.ts", "tests/**/*.test.ts"],
@@ -58,9 +60,96 @@ export default defineConfig({
 для цього перевірити першим — якщо він транзитивно тягне `@/lib/prisma`, беремо
 `spellcasting-progression.ts` або `prerequisiteUtils.ts`.
 
+**Перевірено 2026-08-08: запасний варіант не знадобився.** `bonus-calculator.ts` таки імпортує
+`@/lib/actions/pers` (рядок 8), але це імпорт **суто типів**, і esbuild викидає його ще на
+транспіляції. Деталі й застереження — у журналі.
+
 **Не «розв'язувати» ці залежності зараз.** Розчеплення `logic/` від Prisma — це O3. Тут завдання
 одне: довести, що ранер працює.
 
 ## Журнал
 
-_порожньо_
+**2026-08-08 — `bonus-calculator.ts` заводиться, попри рядок 8.** Таблиця вище правильно позначила
+`@/lib/actions/pers` як небезпечний імпорт, але висновок «тоді беремо інший файл» виявився зайвим.
+У `tsconfig.json` не увімкнено `verbatimModuleSyntax`, тож esbuild (а через нього vitest) прибирає
+імпорти, усі імена з яких використані лише в типових позиціях, разом із самим `import`.
+
+Перевірено не на око, а прогоном транспілятора:
+
+```
+./node_modules/.bin/esbuild --format=esm src/lib/logic/bonus-calculator.ts
+```
+
+У виводі лишаються рівно два імпорти — `@prisma/client` (енуми потрібні як значення) і `./utils`.
+`@/lib/actions/pers` і `@/lib/types/model-types` зникають повністю, згадок нуль. Тобто ні
+`next-auth`, ні `next/cache`, ні серверні екшени в рантайм тесту не потрапляють.
+
+**Це міна, а не гарантія.** Тримається на двох умовах, і обидві можна зламати не помітивши:
+увімкнути `verbatimModuleSyntax` у `tsconfig.json`, або почати використовувати щось із
+`@/lib/actions/pers` як значення (не тільки як тип). Тоді тест почне тягнути пів застосунку і
+впаде на імпорті. У тесті імпорт типу навмисно написаний як `import type`, щоб з боку тесту цього
+статися не могло.
+
+**2026-08-08 — конфіг мусить бути `.mts`, а не `.ts`.** Знімок із плану вище
+(`vitest.config.ts` + `__dirname`) працює, але Vite на кожному прогоні пише:
+
+```
+(!) Your Vite config uses features that are unsupported by `configLoader: 'native'`,
+    which is planned to become the default in a future major version of Vite:
+  - ESM syntax in a file loaded as CommonJS
+```
+
+У `package.json` немає `"type": "module"`, тож `.ts`-конфіг вантажиться як CommonJS. Виставити
+`"type": "module"` заради конфіга не можна — це зачепить увесь Next-проєкт. Лікується розширенням:
+`vitest.config.mts` вантажиться як ESM, попередження зникає. Ціною того, що `__dirname` там
+недоступний, — звідси `fileURLToPath(new URL("./src", import.meta.url))` замість
+`resolve(__dirname, "src")`. План виправлено, щоб наступна сесія не проходила це вдруге.
+
+**2026-08-08 — 29 зелених тестів з першого прогону нічого не доводять, тому їх перевірено
+мутацією.** Тест, який ніколи не червонів, не відрізняється від `expect(true).toBe(true)`. Двічі
+зламав код і подивився на код виходу:
+
+| Мутація | Очікування | Факт |
+|---|---|---|
+| `utils.ts`: `Math.ceil(level/4)+1` → `Math.floor(...)` | падають тести на бонус майстерності й усе, що від нього залежить | rc=1, 9 падінь із 29 |
+| `bonus-calculator.ts`: `total += pb * 2` → `total += pb` (експертиза) | падає рівно тест на експертизу | rc=1, 1 падіння з 29 |
+
+Обидві мутації відкочено через `git checkout --`, дерево звірено. Точкове влучання другої мутації
+(рівно один тест) — ознака того, що тести не перекривають один одного зайвим.
+
+Це варто робити правилом для O2: **новий характеризаційний тест не зарахований, поки не показано,
+що він червоніє від зміни коду, який він нібито фіксує.**
+
+**2026-08-08 — знову про код виходу, третій раз за два KR.** Перша спроба довести елізію імпорту
+була така:
+
+```bash
+./node_modules/.bin/esbuild --loader=ts --format=esm src/…/bonus-calculator.ts > bc.mjs
+grep -c 'actions/pers' bc.mjs     # → 0
+```
+
+Нуль збігів, висновок «викинуто», усе сходиться. Насправді esbuild упав з
+`"loader" without extension only applies when reading from stdin` (rc=1), `bc.mjs` лишився
+**порожнім**, і grep рахував збіги в порожньому файлі. Правильний виклик — без `--loader`, воно
+й так визначається за розширенням. Той самий клас помилки, що з `--restrict-key` у KR1.1: перевірка
+дивилась на результат, а не на код виходу.
+
+**2026-08-08 — покриття, чесні цифри.** `bun run test:coverage` працює (`@vitest/coverage-v8`),
+`/coverage` уже в `.gitignore`. По `bonus-calculator.ts`: 28,2% рядків, 23,2% гілок, 40% функцій.
+Це нормально для KR1.2 — покривався не файл, а чотири функції з нього
+(`calculateFinalStat/Modifier/Skill/Save` + `calculateFinalProficiency`). Непокритим лишається
+все важке: `calculateFinalAC` з формулами броні, магічні предмети, зброя, `collectActiveFeatures`.
+Це предмет O2, не цього KR. Порогів на покриття свідомо не ставив — на 28% будь-який поріг або
+нічого не значить, або блокує роботу.
+
+**2026-08-08 — фікстура коштує одного касту, і він локалізований.** `PersWithRelations` виведений
+із результату Prisma-запиту з ~20 relations, тож зібрати його літералом неможливо. У тесті рівно
+один `as unknown as PersWithRelations`, усередині `buildPers()`, і типізований `PersDraft` зверху,
+щоб самі тести лишались типобезпечними. Це не порушення правила «не розширювати тип, щоб
+скомпілювалось» — правило про продакшн-код, який починає брехати; тут навпаки, каст стягнутий в
+одну точку, яку видно. Коли в O3 з'явиться нормальний білдер персонажа, `buildPers` замінюється на
+нього одним рухом.
+
+**2026-08-08 — що НЕ зроблено і чому.** Немає `tests/setup.ts`, немає нічого про БД, `.env.test`
+не заводився. Це KR1.3, і воно чекало саме на цей KR. Тут перевірено рівно одне: ранер працює на
+цьому оточенні — з `@/`-аліасами, з TS, з `@prisma/client` у графі імпортів.
