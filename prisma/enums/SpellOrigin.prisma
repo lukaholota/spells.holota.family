@@ -1,7 +1,0 @@
-enum SpellOrigin {
-  CLASS
-  RACE
-  FEAT
-  MANUAL
-  ITEM
-}

@@ -1,5 +1,0 @@
-enum ChoiceOptionEffectKind {
-  ASI
-  SKILL_PROFICIENCY
-  SKILL_EXPERTISE
-}

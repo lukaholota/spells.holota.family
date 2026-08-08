@@ -1,5 +1,0 @@
-enum WeaponType {
-  SIMPLE_WEAPON
-  MARTIAL_WEAPON
-  FIREARMS
-}
