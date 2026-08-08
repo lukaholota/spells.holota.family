@@ -568,7 +568,6 @@ export type SpellPrisma = Prisma.SpellGetPayload<{
   include: {
     spellClasses: true;
     spellRaces: true;
-    spellbookSpells: true;
     subclasses: true;
     perses: true;
     features: true;
