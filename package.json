@@ -9,7 +9,9 @@
     "prebuild": "npm run generate:spells",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "db:pull": "prisma db pull && prisma format && prisma generate && bun run db:dump",
+    "db:dump": "./scripts/db-dump.sh"
   },
   "prisma": {
     "seed": "tsx prisma/seed.ts"
