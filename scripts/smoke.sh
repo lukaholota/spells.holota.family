@@ -13,14 +13,11 @@ BASE_URL="${1:-${SMOKE_BASE_URL:-}}"
 : "${BASE_URL:?Не задано базовий URL — перший аргумент або SMOKE_BASE_URL}"
 BASE_URL="${BASE_URL%/}"
 
-# УВАГА: ці три маршрути НЕ перевіряють базу. Спершу тут було написано протилежне — нібито
-# без Postgres вони віддадуть 500. Це виявилося неправдою: 2026-08-09 контейнер зі свідомо
-# зламаним DATABASE_URL віддав 200 на всіх трьох. `/spells` і `/magic-items` читають
-# згенеровані spells.json / magicItems.json, а не Postgres; `/` до бази не ходить узагалі.
-#
-# Тобто смоук доводить рівно одне: процес живий і Next віддає сторінки. Мертву базу він
-# пропустить. Чим це закрити — див. журнал KR1.5.
-ROUTES=(/ /spells /magic-items)
+# Сторінкові маршрути базу НЕ перевіряють, хоч і виглядають так. Перевірено 2026-08-09:
+# контейнер зі свідомо зламаним DATABASE_URL віддав 200 на всіх трьох, бо `/spells` і
+# `/magic-items` читають згенеровані spells.json / magicItems.json, а `/` до бази не ходить.
+# Саме тому доданий `/api/health` — він робить `SELECT 1` і віддає 503, коли бази немає.
+ROUTES=(/ /api/health /spells /magic-items)
 
 BOOT_ATTEMPTS="${SMOKE_BOOT_ATTEMPTS:-10}"
 BOOT_DELAY_SECONDS="${SMOKE_BOOT_DELAY_SECONDS:-6}"
