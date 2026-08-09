@@ -11,6 +11,10 @@ services:
       - "127.0.0.1:3000:3000"
     env_file:
       - .env.docker
+    # Chromium рендерить PDF у /dev/shm. У Docker це 64 MB за замовчуванням, а на старому VPS
+    # було 2 GB — на великих аркушах браузер падав би саме тут. Прод має
+    # PUPPETEER_DISABLE_DEV_SHM_USAGE=0, тобто --disable-dev-shm-usage НЕ передається.
+    shm_size: 1gb
     # Щоб контейнер дістав Postgres на хості. На Linux це резолвиться через host-gateway,
     # на macOS Docker Desktop дає host.docker.internal сам.
     extra_hosts:
