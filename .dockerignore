@@ -1,0 +1,25 @@
+# Увага: src/lib/generated/spells.json тут НЕ виключається, хоч і лежить у .gitignore.
+# Він потрібен збірці — без нього образ не збереться (перевірка стоїть у Dockerfile).
+
+node_modules
+.next
+.git
+.github
+coverage
+backups
+*.dump
+
+# Секрети в образ не потрапляють у жодному вигляді.
+.env
+.env.*
+!.env.example
+
+docs
+db
+tests
+.vscode
+.idea
+.cursor
+.agent
+*.md
+!README.md

@@ -1,0 +1,29 @@
+# Postgres тут навмисно немає. За [Р2] база — джерело істини; тягнути прод-БД у контейнер
+# це класичний спосіб втратити дані. Вона лишається на хості, контейнер ходить у неї по мережі.
+
+services:
+  app:
+    build: .
+    image: char:local
+    restart: unless-stopped
+    # Назовні порт не світиться: попереду має стояти nginx/проксі, як і зараз.
+    ports:
+      - "127.0.0.1:3000:3000"
+    env_file:
+      - .env.docker
+    # Щоб контейнер дістав Postgres на хості. На Linux це резолвиться через host-gateway,
+    # на macOS Docker Desktop дає host.docker.internal сам.
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "node",
+          "-e",
+          "fetch('http://127.0.0.1:3000/').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))",
+        ]
+      interval: 30s
+      timeout: 10s
+      start_period: 40s
+      retries: 3
