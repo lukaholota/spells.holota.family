@@ -1,0 +1,72 @@
+name: Build image
+
+# Окремий воркфлоу навмисно: поточний deploy.yml викочує на старий VPS і чіпати його до
+# переїзду не можна. Цей лише збирає образ і кладе в GHCR — нікуди не деплоїть.
+#
+# Збирати треба саме тут, а не на сервері: Hetzner має 2 ядра, ~2 GB вільної памʼяті й нуль
+# свопу, а `next build` це 763 сторінки в 7 воркерів. Поряд із живим сайтом це шанс піймати OOM.
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - "docs/**"
+      - "**/*.md"
+  workflow_dispatch:
+
+jobs:
+  build-image:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Prisma Generate
+        run: bunx prisma generate
+        env:
+          DATABASE_URL: ${{ secrets.TEST_DATABASE_URL }}
+
+      # spells.json у .gitignore, тож у свіжому клоні його немає, а Dockerfile без нього
+      # відмовляється збиратись. Має стояти перед docker build, не після.
+      - name: Generate spells.json
+        run: bun run generate:spells
+        env:
+          DATABASE_URL: ${{ secrets.TEST_DATABASE_URL }}
+
+      - name: Log in to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Buildx
+        uses: docker/setup-buildx-action@v3
+
+      # `next build` пререндерить /char, який читає базу, тож збірці потрібен живий Postgres.
+      # Секрет монтується BuildKit-ом і в шарах образу не осідає (перевірено docker history).
+      # Беремо spells_ci_test: контент той самий, у прод заради збірки ходити не треба.
+      - name: Build and push
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          tags: |
+            ghcr.io/lukaholota/char:latest
+            ghcr.io/lukaholota/char:${{ github.sha }}
+          secrets: |
+            database_url=${{ secrets.TEST_DATABASE_URL }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
