@@ -40,6 +40,16 @@ ENV DATABASE_URL="postgresql://build:build@127.0.0.1:1/none"
 
 RUN bunx prisma generate
 
+# NEXT_PUBLIC_* Next вшиває в клієнтський бандл під час збірки — підставити їх у рантаймі вже
+# неможливо, скільки б їх не було в env-файлі контейнера. Без цього One Tap їде в Google з
+# client_id=undefined і мовчки не працює: серверний вхід при цьому цілий, тож помітно не одразу.
+ARG NEXT_PUBLIC_GOOGLE_CLIENT_ID
+ENV NEXT_PUBLIC_GOOGLE_CLIENT_ID=$NEXT_PUBLIC_GOOGLE_CLIENT_ID
+
+# Порожнє значення дає зламаний One Tap у цілком «успішній» збірці. Краще впасти тут.
+RUN test -n "$NEXT_PUBLIC_GOOGLE_CLIENT_ID" \
+  || { echo "ВІДМОВА: порожній NEXT_PUBLIC_GOOGLE_CLIENT_ID — One Tap збереться зламаним"; exit 1; }
+
 # Саме `next build`, а не `bun run build`: другий тягне prebuild -> generate:spells, який
 # перезаписав би spells.json і вимагав би базу ще й для цього.
 # Секрет підставляється інлайном і перекриває заглушку вище лише на час цієї команди.
