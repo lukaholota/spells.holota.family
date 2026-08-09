@@ -107,17 +107,72 @@ trap 'rm -f "$dump_file"' EXIT
 echo "  дамп…"
 "$PG_DUMP" "${dump_args[@]}" --file="$dump_file" "$SRC_URL"
 
-echo "  перестворення бази…"
+# Локаль і власника беремо з бази-джерела, а не з дефолтів кластера. На Hetzner дефолт
+# кластера `C.utf8`, а прод на `en_US.utf8` — голий CREATE DATABASE дав би копію, яка
+# сортує українські назви інакше, ніж прод. Тести на такій копії перевіряли б не той
+# порядок, який бачить користувач, і мовчали б саме там, де мали б кричати.
+find_source_database_shape() {
+  "$PSQL" "$ADMIN_URL" -tA -F'|' -c \
+    "SELECT pg_get_userbyid(datdba), datlocprovider, datcollate, datctype,
+            pg_encoding_to_char(encoding)
+       FROM pg_database WHERE datname = '$SOURCE_DB';"
+}
+
+IFS='|' read -r SRC_OWNER SRC_PROVIDER SRC_COLLATE SRC_CTYPE SRC_ENCODING \
+  < <(find_source_database_shape)
+
+if [[ "$SRC_PROVIDER" != "c" ]]; then
+  echo "ВІДМОВА: джерело використовує провайдер локалі '$SRC_PROVIDER', а не libc." >&2
+  echo "Відтворити такий клон цей скрипт не вміє — доробити перед використанням." >&2
+  exit 1
+fi
+
+echo "  перестворення бази (власник $SRC_OWNER, локаль $SRC_COLLATE)…"
 "$PSQL" "$ADMIN_URL" -v ON_ERROR_STOP=1 -q <<SQL
 SELECT pg_terminate_backend(pid)
   FROM pg_stat_activity
  WHERE datname = '$TARGET_DB' AND pid <> pg_backend_pid();
 DROP DATABASE IF EXISTS "$TARGET_DB";
-CREATE DATABASE "$TARGET_DB";
+CREATE DATABASE "$TARGET_DB" OWNER "$SRC_OWNER" TEMPLATE template0
+  LOCALE_PROVIDER libc LC_COLLATE '$SRC_COLLATE' LC_CTYPE '$SRC_CTYPE'
+  ENCODING '$SRC_ENCODING';
 SQL
 
 echo "  відновлення…"
 "$PG_RESTORE" --no-owner --no-acl --jobs="$JOBS" --dbname="$DST_URL" "$dump_file"
+
+# `--no-owner` робить власником об'єктів того, хто підключився. А підключитись мусить роль
+# із CREATEDB, тобто зазвичай суперюзер. Виходить база, що належить одному, і таблиці, що
+# належать іншому: роль застосунку бачить їх, але не має прав. Ловиться це не тут, а через
+# кілька кроків — падінням тестів на TRUNCATE з `permission denied`.
+CLONE_ROLE=$("$PSQL" "$DST_URL" -tAc 'SELECT current_user')
+if [[ "$CLONE_ROLE" != "$SRC_OWNER" ]]; then
+  echo "  передача власності: $CLONE_ROLE → $SRC_OWNER"
+  # Не `REASSIGN OWNED BY`: він відмовляється віддавати об'єкти бутстрап-суперюзера,
+  # бо частину з них вважає системними, і падає цілком. Тому поштучно.
+  "$PSQL" "$DST_URL" -v ON_ERROR_STOP=1 -q <<SQL
+DO \$\$
+DECLARE cmd text;
+BEGIN
+  FOR cmd IN
+    SELECT format('ALTER TABLE %I.%I OWNER TO %I', schemaname, tablename, '$SRC_OWNER')
+      FROM pg_tables WHERE schemaname = 'public'
+    UNION ALL
+    SELECT format('ALTER SEQUENCE %I.%I OWNER TO %I', schemaname, sequencename, '$SRC_OWNER')
+      FROM pg_sequences WHERE schemaname = 'public'
+    UNION ALL
+    SELECT format('ALTER VIEW %I.%I OWNER TO %I', schemaname, viewname, '$SRC_OWNER')
+      FROM pg_views WHERE schemaname = 'public'
+    UNION ALL
+    SELECT format('ALTER TYPE %I.%I OWNER TO %I', n.nspname, t.typname, '$SRC_OWNER')
+      FROM pg_type t JOIN pg_namespace n ON n.oid = t.typnamespace
+     WHERE n.nspname = 'public' AND t.typtype = 'e'
+  LOOP
+    EXECUTE cmd;
+  END LOOP;
+END \$\$;
+SQL
+fi
 
 echo
 "$PSQL" "$DST_URL" -tAc "
