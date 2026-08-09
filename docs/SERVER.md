@@ -10,15 +10,15 @@
 
 ## Машина
 
-| | |
-|---|---|
-| Хост | `vaua0071344`, Debian, ядро з `/dev/sda1` |
-| CPU | **2** |
-| RAM | **3 946 MB**, з них зайнято 3 168, **доступно 521** |
-| Swap | 2 048 MB, задіяно 171 |
-| Диск | 47 GB, зайнято 35 GB, **вільно 11 GB** (77 %) |
+|      |                                                     |
+| ---- | --------------------------------------------------- |
+| Хост | `vaua0071344`, Debian, ядро з `/dev/sda1`           |
+| CPU  | а**2**                                              |
+| RAM  | **3 946 MB**, з них зайнято 3 168, **доступно 521** |
+| Swap | 2 048 MB, задіяно 171                               |
+| Диск | 47 GB, зайнято 35 GB, **вільно 11 GB** (77 %)       |
 
-**Машина не наша одна.** У nginx лежать конфіги інших сайтів — при перевірці він лаявся на
+**Машина не наша одна.** У nginx лежать конфіги інших сайт — при перевірці він лаявся на
 конфлікт `server_name` для `trgou.online` / `rgou.online`. Тобто будь-яка перебудова оточення
 зачіпає сусідів, і «просто поставити Docker/Coolify тут» — не безкоштовна дія.
 
@@ -30,10 +30,10 @@
 
 На машині **два кластери Postgres**:
 
-| Порт | Версія | База | Чия |
-|---|---|---|---|
+| Порт           | Версія    | База         | Чия                 |
+| -------------- | --------- | ------------ | ------------------- |
 | 5432 (типовий) | **11.22** | `ur_db_prod` | чужа, не цей проєкт |
-| **5454** | **16** | **`spells`** | наша |
+| **5454**       | **16**    | **`spells`** | наша                |
 
 `psql` і `sudo -u postgres psql -c '\l'` без явного порту йдуть у **5432**, тобто показують чужий
 кластер, у якому `spells` немає. Легко зробити хибний висновок «нашої бази на сервері немає».
@@ -67,12 +67,45 @@ Environment=PDF_RENDER_TIMEOUT_MS=60000
 Environment=PUPPETEER_LAUNCH_TIMEOUT_MS=120000
 Environment=PDF_STRICT_SECTIONS=1
 Environment=NODE_ENV=production
+Environment=PORT=3000
+EnvironmentFile=/home/luka/char/.env
+EnvironmentFile=/home/luka/char/.env.local
+ExecStart=/usr/bin/node server.js
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
 ```
 
-**Це не весь юніт.** Немає ні `ExecStart=`, ні `[Install]`, ні `Restart=` — без `ExecStart` сервіс
-не стартував би взагалі, а він працює. Тобто вивід обрізався, і за кадром лишилось найважливіше:
-чим саме запускається процес і **звідки береться `DATABASE_URL`** (в наведених рядках його немає).
-Найімовірніше там `EnvironmentFile=`. Доповнити, коли буде повний вивід — див. «Відкриті питання».
+Запускається **`node`, не bun** — тобто в контейнері `CMD ["node", "server.js"]` відповідає проду.
+`PORT=3000`, `Restart=always` з паузою 5 с (у compose еквівалент — `restart: unless-stopped`).
+
+**`EnvironmentFile` — ось звідки береться `DATABASE_URL`**, і це робить старий чекаут
+`/home/luka/char/` **несучою конструкцією**, а не мотлохом: `.env` і `.env.local` там читає systemd.
+Видалити теку = зупинити сервіс. Сам Next ці файли не бачить — його `WorkingDirectory` це тека
+релізу, де жодного `.env` немає, тож **єдине джерело змінних — systemd**.
+
+Файлів два, і **пізніший перекриває раніший**: для будь-якого ключа, що є в обох, працює значення
+з `.env.local`, а з `.env` мовчки ігнорується. Тобто прочитати файли й дізнатися діючу конфігурацію
+**неможливо** — джерело істини це `/proc/<pid>/environ`.
+
+### Змінні, які реально має процес
+
+Знято з `/proc/<pid>/environ` (лише імена):
+
+`AUTH_GOOGLE_ID`, `AUTH_GOOGLE_SECRET`, `AUTH_SECRET`, `AUTH_TRUST_HOST`, `DATABASE_URL`,
+`SHADOW_DATABASE_URL`, `NEXTAUTH_URL`, `NEXT_PUBLIC_GOOGLE_CLIENT_ID`, `NODE_ENV`, `PORT`,
+`PDF_RENDER_TIMEOUT_MS`, `PDF_SET_CONTENT_TIMEOUT_MS`, `PDF_STRICT_SECTIONS`,
+`PUPPETEER_DISABLE_DEV_SHM_USAGE`, `PUPPETEER_LAUNCH_TIMEOUT_MS`, `PUPPETEER_USE_SPARTICUZ`.
+
+Два зауваження, обидва мають значення для переїзду:
+
+- **`AUTH_TRUST_HOST` і `NEXTAUTH_URL` потрібні next-auth за проксі.** У локальній перевірці
+  контейнера їх не було, тож **логін там не перевірявся взагалі**. Це саме той клас поломки, що
+  після переїзду виглядає як «сайт відкривається, а зайти неможливо».
+- **`NEXT_PUBLIC_SITE_URL` у рантаймі відсутній**, хоч і передається у збірку. Так і має бути:
+  `NEXT_PUBLIC_*` вшиваються під час `next build`.
 
 Важливе з того, що видно: **PDF ганяється через `@sparticuz/chromium`**
 (`PUPPETEER_USE_SPARTICUZ=1`), а не через системний `/usr/bin/chromium`, попри те що
@@ -125,10 +158,9 @@ Environment=NODE_ENV=production
 
 Закриваються одним заходом на сервер:
 
-1. **Повний юніт** — `systemctl cat char` цілком. Потрібні `ExecStart`, `Restart`, `EnvironmentFile`.
-2. **Звідки береться `DATABASE_URL`** у працюючого процесу. Без розкриття значення:
-   `sudo tr '\0' '\n' < /proc/$(systemctl show char -p MainPID --value)/environ | cut -d= -f1 | sort`
-   — покаже лише **імена** змінних.
+1. ~~**Повний юніт**~~ — закрито 2026-08-09, наведений вище.
+2. ~~**Звідки береться `DATABASE_URL`**~~ — закрито: `EnvironmentFile` на `/home/luka/char/.env`
+   і `.env.local`.
 3. **Чи обмежений доступ до порту 5454** — `sudo ufw status` або `sudo iptables -L -n`.
 4. **Що ще крутиться на машині** — `systemctl list-units --type=service --state=running`,
    і чим зайняті 3,1 GB пам'яті (`ps aux --sort=-rss | head -15`).
