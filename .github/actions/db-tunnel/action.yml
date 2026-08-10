@@ -1,0 +1,50 @@
+name: Тунель до бази
+description: >
+  Піднімає SSH-тунель до Postgres на сервері. База назовні не відкрита — pg_hba.conf
+  пускає лише 127.0.0.1, — тож раннер мусить приходити через тунель.
+
+inputs:
+  host:
+    description: Адреса сервера
+    required: true
+  user:
+    description: Користувач SSH
+    required: true
+  key:
+    description: Приватний ключ SSH
+    required: true
+  local-port:
+    description: Порт на раннері. Має збігатися з тим, що в TEST_DATABASE_URL.
+    required: false
+    default: "5454"
+  remote-port:
+    description: Порт Postgres на сервері
+    required: false
+    default: "5432"
+
+runs:
+  using: composite
+  steps:
+    - shell: bash
+      run: |
+        set -euo pipefail
+        mkdir -p ~/.ssh
+        printf '%s\n' "${{ inputs.key }}" > ~/.ssh/tunnel_key
+        chmod 600 ~/.ssh/tunnel_key
+        ssh-keyscan -H "${{ inputs.host }}" >> ~/.ssh/known_hosts 2>/dev/null
+
+        ssh -f -N -L "${{ inputs.local-port }}:127.0.0.1:${{ inputs.remote-port }}" \
+          -i ~/.ssh/tunnel_key -o StrictHostKeyChecking=yes \
+          "${{ inputs.user }}@${{ inputs.host }}"
+
+        # `ssh -f` повертає нуль, щойно пішов у фон, а не коли порт почав відповідати.
+        # Без цієї перевірки джоба падала б пізніше й з іншим текстом — на Prisma.
+        for attempt in $(seq 1 10); do
+          if (exec 3<>/dev/tcp/127.0.0.1/${{ inputs.local-port }}) 2>/dev/null; then
+            echo "тунель працює: 127.0.0.1:${{ inputs.local-port }} → ${{ inputs.host }}"
+            exit 0
+          fi
+          sleep 1
+        done
+        echo "ВІДМОВА: тунель не підняв порт ${{ inputs.local-port }}" >&2
+        exit 1

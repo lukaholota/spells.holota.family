@@ -28,6 +28,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Tunnel to database
+        uses: ./.github/actions/db-tunnel
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          user: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+
       - name: Setup Bun
         uses: oven-sh/setup-bun@v2
         with:

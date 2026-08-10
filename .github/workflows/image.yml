@@ -25,6 +25,15 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      # Збірці потрібна база: generate:spells читає заклинання, а next build пререндерить
+      # /char. База на Hetzner доступна лише з 127.0.0.1, тож спершу тунель.
+      - name: Tunnel to database
+        uses: ./.github/actions/db-tunnel
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          user: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+
       - name: Setup Bun
         uses: oven-sh/setup-bun@v2
         with:
@@ -52,8 +61,13 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      # `network=host` обов'язковий: кроки RUN усередині збірки інакше живуть у власній
+      # мережі, і 127.0.0.1:5454 там вказував би на сам build-контейнер, а не на тунель
+      # до бази, піднятий на раннері. Та сама пастка, що з `localhost` у docker run.
       - name: Set up Buildx
         uses: docker/setup-buildx-action@v3
+        with:
+          driver-opts: network=host
 
       # `next build` пререндерить /char, який читає базу, тож збірці потрібен живий Postgres.
       # Секрет монтується BuildKit-ом і в шарах образу не осідає (перевірено docker history).
@@ -62,6 +76,7 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: .
+          network: host
           push: true
           tags: |
             ghcr.io/lukaholota/char:latest
