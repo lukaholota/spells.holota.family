@@ -1,10 +1,15 @@
-name: Checks + Deploy to VPS (Zero Downtime)
+name: Checks → Image → Deploy
+
+# Один воркфлоу замість двох. Раніше `image.yml` збирав образ окремо, бо старий `deploy.yml`
+# викочував на інший сервер і чіпати його було не можна; після переїзду ця причина зникла.
+# Послідовність замість паралельності свідома: образ, який не пройшов тести, не має потрапляти
+# в GHCR — а поки деплою не було, це нічого не коштувало, бо образ нікуди й не їхав.
 
 on:
   push:
     branches:
       - main
-    # Коміт, який змінює тільки доки, не має збирати застосунок і рестартувати сервіс.
+    # Коміт, який змінює тільки доки, не має збирати образ і викочувати його.
     # Спрацьовує лише коли ВСІ змінені файли підпадають під шаблон — якщо в коміті є і код,
     # і доки, воркфлоу запуститься. У рантаймі жоден .md не використовується (перевірено).
     paths-ignore:
@@ -13,7 +18,6 @@ on:
   # На pull request paths-ignore навмисно немає: checks там коштує ~1 хвилину і нічого не
   # викочує, а пропущена перевірка заблокувала б PR, якби колись з'явився branch protection.
   pull_request:
-  # Єдиний спосіб запустити викочування на старий VPS — руками і свідомо. Див. `if:` нижче.
   workflow_dispatch:
 
 jobs:
@@ -66,34 +70,31 @@ jobs:
         env:
           DATABASE_URL: ${{ secrets.TEST_DATABASE_URL }}
 
-  build-and-deploy:
+  image:
     needs: checks
-    # ВИМКНЕНО 2026-08-09, після Фази 4 переїзду на Hetzner.
-    #
-    # Ця джоба викочує на СТАРИЙ VPS і робить там `systemctl restart char`. Трафік туди більше
-    # не йде (DNS на Hetzner), а тамтешня база застаріла з моменту переносу. Автоматичний запуск
-    # означав би другий живий застосунок, який пише в мертві дані.
-    #
-    # Гірше: смоук після викочування ганяється по char.holota.family, тобто по Hetzner. Він був
-    # би зелений незалежно від того, що сталося зі старим сервером, — і автовідкат ніколи б не
-    # спрацював. Зелений смоук, який перевіряє не той сервер, гірший за відсутній.
-    #
-    # `checks` на пуш лишається — гейт із KR1.4 не чіпаємо.
-    # Знімати цей рядок тільки разом із переписуванням джоби на «забрати образ із GHCR».
-    if: github.event_name == 'workflow_dispatch'
+    # На PR збирати нема сенсу: образ нікуди не поїде, а збірка найдорожче, що тут є.
+    if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
+    # Збирати треба саме тут, а не на сервері: Hetzner має 2 ядра й ~2 GB вільної памʼяті,
+    # а `next build` це 763 сторінки в 7 воркерів. Поряд із живим сайтом це шанс піймати OOM.
+    permissions:
+      contents: read
+      packages: write
+    # Групи `spells-ci-database` тут навмисно немає, хоч збірка й ходить у ту саму базу:
+    # тести труncають лише таблиці користувача, а збірка читає контентні. Зате зайвий
+    # учасник групи означав би скасування вже поставлених у чергу джоб при частих пушах.
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # Порожній секрет завалив би смоук уже після викочування, і відкат прибрав би цілком
-      # робочий реліз через помилку конфігурації. Дешевше впасти тут, ще нічого не чіпавши.
-      - name: Check smoke URL is configured
-        run: |
-          if [ -z "${{ secrets.NEXT_PUBLIC_SITE_URL }}" ]; then
-            echo "NEXT_PUBLIC_SITE_URL порожній — смоуку не буде куди ходити."
-            exit 1
-          fi
+      # Збірці потрібна база: generate:spells читає заклинання, а next build пререндерить
+      # /char. База на Hetzner доступна лише з 127.0.0.1, тож спершу тунель.
+      - name: Tunnel to database
+        uses: ./.github/actions/db-tunnel
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          user: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
 
       - name: Setup Bun
         uses: oven-sh/setup-bun@v2
@@ -104,89 +105,115 @@ jobs:
         run: bun install --frozen-lockfile
 
       - name: Prisma Generate
-        run: bun run prisma generate
+        run: bunx prisma generate
         env:
-          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          DATABASE_URL: ${{ secrets.TEST_DATABASE_URL }}
 
-      - name: Next.js Build
-        run: bun run build
+      # spells.json у .gitignore, тож у свіжому клоні його немає, а Dockerfile без нього
+      # відмовляється збиратись. Має стояти перед docker build, не після.
+      - name: Generate spells.json
+        run: bun run generate:spells
         env:
-          NEXT_TELEMETRY_DISABLED: 1
-          DATABASE_URL: ${{ secrets.DATABASE_URL }}
-          AUTH_SECRET: ${{ secrets.AUTH_SECRET }}
-          AUTH_GOOGLE_ID: ${{ secrets.AUTH_GOOGLE_ID }}
-          AUTH_GOOGLE_SECRET: ${{ secrets.AUTH_GOOGLE_SECRET }}
-          NEXT_PUBLIC_GOOGLE_CLIENT_ID: ${{ secrets.NEXT_PUBLIC_GOOGLE_CLIENT_ID }}
-          NEXT_PUBLIC_SITE_URL: ${{ secrets.NEXT_PUBLIC_SITE_URL }}
+          DATABASE_URL: ${{ secrets.TEST_DATABASE_URL }}
 
-      - name: Prepare standalone artifact
+      - name: Log in to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      # `network=host` обов'язковий: кроки RUN усередині збірки інакше живуть у власній
+      # мережі, і 127.0.0.1:5454 там вказував би на сам build-контейнер, а не на тунель
+      # до бази, піднятий на раннері. Та сама пастка, що з `localhost` у docker run.
+      - name: Set up Buildx
+        uses: docker/setup-buildx-action@v3
+        with:
+          driver-opts: network=host
+
+      # `next build` пререндерить /char, який читає базу, тож збірці потрібен живий Postgres.
+      # Секрет монтується BuildKit-ом і в шарах образу не осідає (перевірено docker history).
+      # Беремо spells_ci_test: контент той самий, у прод заради збірки ходити не треба.
+      - name: Build and push
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          network: host
+          push: true
+          tags: |
+            ghcr.io/lukaholota/char:latest
+            ghcr.io/lukaholota/char:${{ github.sha }}
+          # Не секрет: це значення однаково їде в браузер кожного користувача. Але без нього
+          # One Tap збереться зламаним, тому Dockerfile падає на порожньому.
+          build-args: |
+            NEXT_PUBLIC_GOOGLE_CLIENT_ID=${{ secrets.NEXT_PUBLIC_GOOGLE_CLIENT_ID }}
+          secrets: |
+            database_url=${{ secrets.TEST_DATABASE_URL }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+  deploy:
+    needs: image
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: read
+    # Два деплої одночасно перемикали б upstream один одному під ногами.
+    concurrency:
+      group: char-deploy
+      cancel-in-progress: false
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Порожній секрет завалив би смоук уже після перемикання трафіку, і відкат прибрав би
+      # цілком робочий реліз через помилку конфігурації. Дешевше впасти тут, ще нічого не чіпавши.
+      - name: Check smoke URL is configured
         run: |
-          mkdir -p deploy/public
-          mkdir -p deploy/.next/static
-          cp -r .next/standalone/. deploy/
-          cp -r .next/static/. deploy/.next/static/
-          cp -r public/. deploy/public/
-          # Copy prisma files if needed for runtime migrations or seeds
-          cp -r prisma deploy/
-          cp -r node_modules/@sparticuz/chromium/bin deploy/node_modules/@sparticuz/chromium/bin
-          tar -czf release.tar.gz -C deploy .
+          if [ -z "${{ secrets.NEXT_PUBLIC_SITE_URL }}" ]; then
+            echo "NEXT_PUBLIC_SITE_URL порожній — смоуку не буде куди ходити."
+            exit 1
+          fi
 
-      - name: Upload release to VPS
+      # Скрипт викочування живе в репозиторії, а не тільки на сервері: на сервері немає
+      # чекауту, а копії, які розходяться, — задокументований клас багів цього проєкту.
+      - name: Upload deploy script
         uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          source: "release.tar.gz"
-          target: "/tmp"
+          source: "scripts/deploy-container.sh"
+          target: "/home/luka/char-ops"
 
-      - name: Atomic Deployment via SSH
+      # Піднімає новий контейнер на вільному слоті, перевіряє /api/health і лише тоді
+      # перемикає upstream. Старий контейнер лишається живим — до кроку `retire` нижче.
+      - name: Release new container
         uses: appleboy/ssh-action@v1.0.3
+        env:
+          GHCR_USER: ${{ github.actor }}
+          GHCR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Образ прибитий до SHA, а не :latest. Тег :latest за час прогону міг переїхати
+          # на інший коміт, і тоді викотилося б не те, що показує історія.
+          IMAGE: ghcr.io/lukaholota/char:${{ github.sha }}
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
+          envs: GHCR_USER,GHCR_TOKEN,IMAGE
           script_stop: true
           script: |
-            TIMESTAMP=$(date +%s)
-            RELEASE_DIR="/home/luka/char/releases/$TIMESTAMP"
-            CURRENT_DIR="/home/luka/char/current"
-            SHARED_DIR="/home/luka/char/shared"
-            
-            mkdir -p $RELEASE_DIR
-            mkdir -p $SHARED_DIR/cache
-            
-            tar -xzf /tmp/release.tar.gz -C $RELEASE_DIR
-            rm /tmp/release.tar.gz
-            
-            # Persist image cache
-            rm -rf $RELEASE_DIR/.next/cache
-            ln -sfn $SHARED_DIR/cache $RELEASE_DIR/.next/cache
-            
-            # Куди відкочуватись, якщо смоук не пройде. Знімається ДО перемикання симлінка —
-            # після нього попередній реліз уже нічим не позначений, а вгадувати його по даті
-            # не можна: після невдалого деплою найновіша тека якраз і є зламаною.
-            readlink -f $CURRENT_DIR > /home/luka/char/previous-release || true
+            chmod +x /home/luka/char-ops/scripts/deploy-container.sh
+            /home/luka/char-ops/scripts/deploy-container.sh release "$IMAGE"
 
-            # Atomic symlink switch
-            ln -sfn $RELEASE_DIR $CURRENT_DIR
-            
-            # Restart service (pointing to the symlink)
-            echo "${{ secrets.SUDO_PASSWORD }}" | sudo -S systemctl restart char
-            echo "${{ secrets.SUDO_PASSWORD }}" | sudo -S systemctl reload nginx || sudo -S systemctl restart nginx
-            
-            # Cleanup old releases (keep latest 5)
-            cd /home/luka/char/releases && ls -1t | tail -n +6 | xargs rm -rf --
-
-      # Смоук ганяється з раннера по публічному URL, а не з сервера по localhost:PORT:
-      # порт застосунку заданий в EnvironmentFile на VPS і в репозиторії його немає,
-      # тож будь-яке число тут було б здогадкою. Публічний URL заразом перевіряє nginx і TLS.
+      # Смоук ганяється з раннера по публічному URL, а не з сервера по 127.0.0.1:PORT:
+      # так він заразом перевіряє, що nginx після reload віддає саме новий контейнер.
       - name: Smoke check
         id: smoke
         run: ./scripts/smoke.sh "${{ secrets.NEXT_PUBLIC_SITE_URL }}"
 
-      # Умова саме на крок смоуку, а не просто failure(): якщо впала збірка, деплою не було
-      # і відкочувати нема чого — відкат тоді зіпсував би цілий реліз на порожньому місці.
+      # Умова саме на крок смоуку, а не просто failure(): якщо впало раніше, трафік ще не
+      # перемикався і відкочувати нема чого — відкат тоді зіпсував би цілий реліз на порожньому місці.
       - name: Rollback on failed smoke
         if: failure() && steps.smoke.outcome == 'failure'
         uses: appleboy/ssh-action@v1.0.3
@@ -195,16 +222,15 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script_stop: true
-          script: |
-            CURRENT_DIR="/home/luka/char/current"
-            PREVIOUS_DIR=$(cat /home/luka/char/previous-release 2>/dev/null || true)
+          script: /home/luka/char-ops/scripts/deploy-container.sh rollback
 
-            if [ -z "$PREVIOUS_DIR" ] || [ ! -d "$PREVIOUS_DIR" ]; then
-              echo "Попереднього релізу немає ($PREVIOUS_DIR) — відкат неможливий."
-              echo "Сервіс лишається на зламаному релізі, потрібне ручне втручання."
-              exit 1
-            fi
-
-            ln -sfn $PREVIOUS_DIR $CURRENT_DIR
-            echo "${{ secrets.SUDO_PASSWORD }}" | sudo -S systemctl restart char
-            echo "Відкочено на $PREVIOUS_DIR"
+      # Тільки після зеленого смоуку. Доти старий контейнер тримає порт і памʼять — це і є
+      # ціна миттєвого відкату, і вона свідома.
+      - name: Retire previous container
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script_stop: true
+          script: /home/luka/char-ops/scripts/deploy-container.sh retire
