@@ -15,6 +15,7 @@ set -euo pipefail
 LOCAL_PORT="${DB_TUNNEL_PORT:-5454}"
 SSH_TARGET="${DB_TUNNEL_TARGET:-srvh}"
 REMOTE_PORT="${DB_TUNNEL_REMOTE_PORT:-5432}"
+PROBE_TIMEOUT_SECONDS="${DB_TUNNEL_PROBE_TIMEOUT:-5}"
 
 FORWARD="$LOCAL_PORT:127.0.0.1:$REMOTE_PORT"
 
@@ -22,8 +23,16 @@ find_tunnel_pid() {
   pgrep -f "ssh -f -N -L $FORWARD $SSH_TARGET" || true
 }
 
-is_port_answering() {
-  nc -z 127.0.0.1 "$LOCAL_PORT" 2>/dev/null
+# `nc -z` доводить лише, що ssh прийняв локальне з'єднання, — а він приймає його й тоді, коли на
+# тому кінці вже нікого немає. Саме так вийшло після рестарту Postgres 2026-08-10: `--status`
+# казав «працює», а тести падали на таймаутах хука. Тому питаємо саму базу: SSLRequest — вісім
+# байтів, на які живий Postgres відповідає рівно одним ('S' або 'N').
+is_database_answering() {
+  local reply
+  reply=$(printf '\x00\x00\x00\x08\x04\xd2\x16\x2f' \
+    | nc -w "$PROBE_TIMEOUT_SECONDS" 127.0.0.1 "$LOCAL_PORT" 2>/dev/null \
+    | head -c 1 || true)
+  [[ "$reply" == "S" || "$reply" == "N" ]]
 }
 
 stop_tunnel() {
@@ -40,7 +49,7 @@ stop_tunnel() {
 report_status() {
   local pid
   pid=$(find_tunnel_pid)
-  if [[ -n "$pid" ]] && is_port_answering; then
+  if [[ -n "$pid" ]] && is_database_answering; then
     echo "тунель працює: 127.0.0.1:$LOCAL_PORT → $SSH_TARGET:$REMOTE_PORT (pid $pid)"
     return 0
   fi
@@ -64,7 +73,7 @@ start_tunnel() {
 
   local attempt=1
   while (( attempt <= 10 )); do
-    if is_port_answering; then
+    if is_database_answering; then
       report_status
       return 0
     fi
@@ -72,7 +81,7 @@ start_tunnel() {
     (( attempt++ ))
   done
 
-  echo "ВІДМОВА: тунель піднявся, але 127.0.0.1:$LOCAL_PORT не відповідає" >&2
+  echo "ВІДМОВА: тунель піднявся, але база через 127.0.0.1:$LOCAL_PORT не відповідає" >&2
   return 1
 }
 
