@@ -3,6 +3,7 @@
 import { useEffect } from 'react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { reportBoundaryError } from '@/lib/monitoring/report-error'
 
 export default function Error({
   error,
@@ -13,6 +14,7 @@ export default function Error({
 }) {
   useEffect(() => {
     console.error(error)
+    reportBoundaryError(error)
   }, [error])
 
   return (

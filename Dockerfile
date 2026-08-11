@@ -50,6 +50,16 @@ ENV NEXT_PUBLIC_GOOGLE_CLIENT_ID=$NEXT_PUBLIC_GOOGLE_CLIENT_ID
 RUN test -n "$NEXT_PUBLIC_GOOGLE_CLIENT_ID" \
   || { echo "ВІДМОВА: порожній NEXT_PUBLIC_GOOGLE_CLIENT_ID — One Tap збереться зламаним"; exit 1; }
 
+# Те саме й з тієї ж причини: клієнтський Sentry ініціалізується з NEXT_PUBLIC_SENTRY_DSN,
+# і в рантаймі це значення підставити вже нічим. Серверна половина при цьому працювала б
+# (вона читає SENTRY_DSN з char.env) — тобто помилки з браузера мовчки зникали б, а панель
+# виглядала б живою. Мовчазно зламаний моніторинг гірший за відсутній.
+ARG NEXT_PUBLIC_SENTRY_DSN
+ENV NEXT_PUBLIC_SENTRY_DSN=$NEXT_PUBLIC_SENTRY_DSN
+
+RUN test -n "$NEXT_PUBLIC_SENTRY_DSN" \
+  || { echo "ВІДМОВА: порожній NEXT_PUBLIC_SENTRY_DSN — клієнтські помилки нікуди не поїдуть"; exit 1; }
+
 # Саме `next build`, а не `bun run build`: другий тягне prebuild -> generate:spells, який
 # перезаписав би spells.json і вимагав би базу ще й для цього.
 # Секрет підставляється інлайном і перекриває заглушку вище лише на час цієї команди.

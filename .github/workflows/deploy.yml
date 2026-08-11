@@ -143,10 +143,11 @@ jobs:
           tags: |
             ghcr.io/lukaholota/char:latest
             ghcr.io/lukaholota/char:${{ github.sha }}
-          # Не секрет: це значення однаково їде в браузер кожного користувача. Але без нього
-          # One Tap збереться зламаним, тому Dockerfile падає на порожньому.
+          # Не секрети: обидва значення однаково їдуть у браузер кожного користувача. Але без
+          # них збірка вийшла б мовчки зламаною, тому Dockerfile падає на порожньому.
           build-args: |
             NEXT_PUBLIC_GOOGLE_CLIENT_ID=${{ secrets.NEXT_PUBLIC_GOOGLE_CLIENT_ID }}
+            NEXT_PUBLIC_SENTRY_DSN=${{ secrets.NEXT_PUBLIC_SENTRY_DSN }}
           secrets: |
             database_url=${{ secrets.TEST_DATABASE_URL }}
           cache-from: type=gha

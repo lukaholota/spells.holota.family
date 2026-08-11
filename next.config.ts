@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import { withSentryConfig } from "@sentry/nextjs";
 
 const nextConfig: NextConfig = {
   output: "standalone",
@@ -26,4 +27,13 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default nextConfig;
+// Source maps вимкнені явно, а не «поки не налаштували». Без них стектрейси мініфіковані —
+// це відомий хвіст (див. docs/MONITORING.md). Але увімкнені без вивантаження вони гірші за
+// вимкнені: .map лягли б поруч зі збіркою й роздавалися б публічно, тобто вихідний код сайту
+// став би доступним усім. Вмикати одночасно з SENTRY_AUTH_TOKEN, не раніше.
+export default withSentryConfig(nextConfig, {
+  org: "char-da",
+  project: "javascript-nextjs",
+  silent: !process.env.CI,
+  sourcemaps: { disable: true },
+});

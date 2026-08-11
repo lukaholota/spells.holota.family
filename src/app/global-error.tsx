@@ -1,5 +1,8 @@
 'use client'
 
+import { useEffect } from 'react'
+import { reportBoundaryError } from '@/lib/monitoring/report-error'
+
 export default function GlobalError({
   error,
   reset,
@@ -7,6 +10,10 @@ export default function GlobalError({
   error: Error & { digest?: string }
   reset: () => void
 }) {
+  useEffect(() => {
+    reportBoundaryError(error)
+  }, [error])
+
   return (
     <html lang="uk" className="dark">
       <body className="bg-slate-950 text-slate-200 min-h-screen flex items-center justify-center p-4 antialiased">
