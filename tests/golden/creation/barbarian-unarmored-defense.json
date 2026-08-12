@@ -1,0 +1,66 @@
+{
+  "scores": {
+    "str": 16,
+    "dex": 15,
+    "con": 14,
+    "int": 13,
+    "wis": 11,
+    "cha": 9
+  },
+  "hp": {
+    "current": 14,
+    "max": 14
+  },
+  "raceStaticAcBonus": 0,
+  "money": {
+    "cp": "0",
+    "sp": "0",
+    "ep": "0",
+    "gp": "10",
+    "pp": "0"
+  },
+  "spellSlots": {
+    "current": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "pact": 0
+  },
+  "additionalSaveProficiencies": [
+    "CON",
+    "STR"
+  ],
+  "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+  "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nМузичний інструмент\nПроста зброя, Бойова зброя",
+  "customEquipment": "Посох x1\nМисливська пастка x1\nТрофей від убитої тварини x1\nДорожній одяг x1",
+  "race": "HUMAN_2014",
+  "subrace": null,
+  "raceVariants": [],
+  "class": "BARBARIAN_2014",
+  "subclass": null,
+  "background": "OUTLANDER",
+  "raceChoiceOptions": [],
+  "choiceOptions": [],
+  "classOptionalFeatures": [],
+  "features": [
+    "Rage",
+    "Unarmored Defense",
+    "Unarmored Defense (Barbarian)"
+  ],
+  "feats": [],
+  "skills": [
+    "ATHLETICS:PROFICIENT",
+    "SURVIVAL:PROFICIENT"
+  ],
+  "weapons": [],
+  "armors": [
+    "UNARMORED_DEFENSE_BARBARIAN*"
+  ]
+}

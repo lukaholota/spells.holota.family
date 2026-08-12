@@ -13,6 +13,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
+    "test:golden:update": "UPDATE_GOLDEN=1 vitest run tests/golden",
     "db:pull": "prisma db pull && prisma format && prisma generate && bun run db:dump",
     "db:dump": "./scripts/db-dump.sh"
   },

@@ -1,0 +1,67 @@
+{
+  "scores": {
+    "str": 15,
+    "dex": 14,
+    "con": 13,
+    "int": 13,
+    "wis": 10,
+    "cha": 10
+  },
+  "hp": {
+    "current": 9,
+    "max": 9
+  },
+  "raceStaticAcBonus": 0,
+  "money": {
+    "cp": "0",
+    "sp": "0",
+    "ep": "0",
+    "gp": "15",
+    "pp": "0"
+  },
+  "spellSlots": {
+    "current": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "pact": 1
+  },
+  "additionalSaveProficiencies": [
+    "CHA",
+    "WIS"
+  ],
+  "customLanguagesKnown": "Загальна\nПекельна",
+  "customProficiencies": "Легкі обладунки\nНабір для гриму, Набір фальшивомонетника\nПроста зброя",
+  "customEquipment": "Гарний одяг x1\nНабір для маскування x1\nІнструменти шахрая (флакони, підроблені кості, марковані карти, фальшива печатка) x1",
+  "race": "TIEFLING_2014",
+  "subrace": null,
+  "raceVariants": [
+    "TIEFLING_ASMODEUS"
+  ],
+  "class": "WARLOCK_2014",
+  "subclass": null,
+  "background": "CHARLATAN",
+  "raceChoiceOptions": [],
+  "choiceOptions": [],
+  "classOptionalFeatures": [],
+  "features": [
+    "Darkvision",
+    "Hellish Resistance",
+    "Infernal Legacy",
+    "Pact Magic"
+  ],
+  "feats": [],
+  "skills": [
+    "DECEPTION:PROFICIENT",
+    "SLEIGHT_OF_HAND:PROFICIENT"
+  ],
+  "weapons": [],
+  "armors": []
+}

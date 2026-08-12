@@ -1,0 +1,71 @@
+{
+  "scores": {
+    "str": 16,
+    "dex": 15,
+    "con": 14,
+    "int": 13,
+    "wis": 11,
+    "cha": 9
+  },
+  "hp": {
+    "current": 12,
+    "max": 12
+  },
+  "raceStaticAcBonus": 0,
+  "money": {
+    "cp": "0",
+    "sp": "0",
+    "ep": "0",
+    "gp": "18",
+    "pp": "0"
+  },
+  "spellSlots": {
+    "current": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "pact": 0
+  },
+  "additionalSaveProficiencies": [
+    "CHA",
+    "WIS"
+  ],
+  "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+  "customProficiencies": "Легкі обладунки, Середні обладунки, Важкі обладунки, Щит\nІгровий набір\nПроста зброя, Бойова зброя",
+  "customEquipment": "Пляшечка чорнила x1\nПеро x1\nПапір (чисті аркуші) x5\nІгровий набір (на вибір) x1\nПерстень-печатка x1\nГарний одяг x1",
+  "race": "HUMAN_2014",
+  "subrace": null,
+  "raceVariants": [],
+  "class": "PALADIN_2014",
+  "subclass": null,
+  "background": "REWARDED",
+  "raceChoiceOptions": [],
+  "choiceOptions": [],
+  "classOptionalFeatures": [],
+  "features": [
+    "Divine Sense",
+    "Lay on Hands"
+  ],
+  "feats": [
+    {
+      "name": "SKILLED",
+      "choices": [
+        "Skilled (ATHLETICS)"
+      ]
+    }
+  ],
+  "skills": [
+    "ATHLETICS:PROFICIENT",
+    "INSIGHT:PROFICIENT",
+    "PERSUASION:PROFICIENT"
+  ],
+  "weapons": [],
+  "armors": []
+}

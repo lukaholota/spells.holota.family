@@ -1,0 +1,68 @@
+{
+  "scores": {
+    "str": 16,
+    "dex": 15,
+    "con": 14,
+    "int": 13,
+    "wis": 11,
+    "cha": 9
+  },
+  "hp": {
+    "current": 12,
+    "max": 12
+  },
+  "raceStaticAcBonus": 0,
+  "money": {
+    "cp": "0",
+    "sp": "0",
+    "ep": "0",
+    "gp": "10",
+    "pp": "0"
+  },
+  "spellSlots": {
+    "current": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "pact": 0
+  },
+  "additionalSaveProficiencies": [
+    "CON",
+    "STR"
+  ],
+  "customLanguagesKnown": "Загальна\nОбери ще 1",
+  "customProficiencies": "Важкі обладунки, Середні обладунки, Легкі обладунки, Щит\nІгровий набір, Наземний транспорт\nПроста зброя, Бойова зброя",
+  "customEquipment": "Знак рангу x1\nТрофей від переможеного ворога x1\nНабір для гри в кості або гральні карти x1\nЗвичайний одяг x1\nАрбалетний болт x20",
+  "race": "HUMAN_2014",
+  "subrace": null,
+  "raceVariants": [],
+  "class": "FIGHTER_2014",
+  "subclass": null,
+  "background": "SOLDIER",
+  "raceChoiceOptions": [],
+  "choiceOptions": [],
+  "classOptionalFeatures": [],
+  "features": [
+    "Fighting Style",
+    "Second Wind"
+  ],
+  "feats": [],
+  "skills": [
+    "ATHLETICS:PROFICIENT",
+    "INTIMIDATION:PROFICIENT"
+  ],
+  "weapons": [
+    "LIGHT_CROSSBOW"
+  ],
+  "armors": [
+    "CHAIN_MAIL*",
+    "SHIELD"
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "scores": {
+    "str": 15,
+    "dex": 14,
+    "con": 13,
+    "int": 12,
+    "wis": 10,
+    "cha": 10
+  },
+  "hp": {
+    "current": 9,
+    "max": 9
+  },
+  "raceStaticAcBonus": 0,
+  "money": {
+    "cp": "0",
+    "sp": "0",
+    "ep": "0",
+    "gp": "15",
+    "pp": "0"
+  },
+  "spellSlots": {
+    "current": [
+      2,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "pact": 0
+  },
+  "additionalSaveProficiencies": [
+    "CHA",
+    "DEX"
+  ],
+  "customLanguagesKnown": "Загальна\nЕльфійська\nОбери ще 1",
+  "customProficiencies": "Легкі обладунки\nІнструменти на вибір (3)\nНабір для гриму, Набір фальшивомонетника\nПроста зброя",
+  "customEquipment": "Гарний одяг x1\nНабір для маскування x1\nІнструменти шахрая (флакони, підроблені кості, марковані карти, фальшива печатка) x1",
+  "race": "HALF_ELF_2014",
+  "subrace": null,
+  "raceVariants": [],
+  "class": "BARD_2014",
+  "subclass": null,
+  "background": "CHARLATAN",
+  "raceChoiceOptions": [
+    "Універсальність напівельфа:Універсальність навичок"
+  ],
+  "choiceOptions": [],
+  "classOptionalFeatures": [],
+  "features": [
+    "Bardic Inspiration",
+    "Darkvision",
+    "Fey Ancestry",
+    "Spellcasting (Bard)"
+  ],
+  "feats": [],
+  "skills": [
+    "DECEPTION:PROFICIENT",
+    "SLEIGHT_OF_HAND:PROFICIENT"
+  ],
+  "weapons": [],
+  "armors": []
+}

@@ -1,0 +1,66 @@
+{
+  "scores": {
+    "str": 11,
+    "dex": 11,
+    "con": 11,
+    "int": 11,
+    "wis": 11,
+    "cha": 11
+  },
+  "hp": {
+    "current": 12,
+    "max": 12
+  },
+  "raceStaticAcBonus": 0,
+  "money": {
+    "cp": "0",
+    "sp": "0",
+    "ep": "0",
+    "gp": "10",
+    "pp": "0"
+  },
+  "spellSlots": {
+    "current": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "pact": 0
+  },
+  "additionalSaveProficiencies": [
+    "CON",
+    "STR"
+  ],
+  "customLanguagesKnown": "Загальна\nОбери ще 1",
+  "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nІнструменти ремісника, Наземний транспорт\nПроста зброя, Бойова зброя",
+  "customEquipment": "Ремісничі інструменти (на вибір) x1\nЛопата x1\nЗалізний казан x1\nЗвичайний одяг x1",
+  "race": "HUMAN_2014",
+  "subrace": null,
+  "raceVariants": [],
+  "class": "BARBARIAN_2014",
+  "subclass": null,
+  "background": "FOLK_HERO",
+  "raceChoiceOptions": [],
+  "choiceOptions": [],
+  "classOptionalFeatures": [],
+  "features": [
+    "Rage",
+    "Unarmored Defense",
+    "Unarmored Defense (Barbarian)"
+  ],
+  "feats": [],
+  "skills": [
+    "ANIMAL_HANDLING:PROFICIENT",
+    "SURVIVAL:PROFICIENT"
+  ],
+  "weapons": [],
+  "armors": [
+    "UNARMORED_DEFENSE_BARBARIAN*"
+  ]
+}

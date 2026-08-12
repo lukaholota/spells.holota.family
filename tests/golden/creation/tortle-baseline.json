@@ -1,0 +1,67 @@
+{
+  "scores": {
+    "str": 15,
+    "dex": 14,
+    "con": 13,
+    "int": 12,
+    "wis": 10,
+    "cha": 8
+  },
+  "hp": {
+    "current": 11,
+    "max": 11
+  },
+  "raceStaticAcBonus": 0,
+  "money": {
+    "cp": "0",
+    "sp": "0",
+    "ep": "0",
+    "gp": "10",
+    "pp": "0"
+  },
+  "spellSlots": {
+    "current": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "pact": 0
+  },
+  "additionalSaveProficiencies": [
+    "DEX",
+    "STR"
+  ],
+  "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+  "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nМузичний інструмент\nПроста зброя, Бойова зброя",
+  "customEquipment": "Посох x1\nМисливська пастка x1\nТрофей від убитої тварини x1\nДорожній одяг x1",
+  "race": "TORTLE_MPMM",
+  "subrace": null,
+  "raceVariants": [],
+  "class": "RANGER_2014",
+  "subclass": null,
+  "background": "OUTLANDER",
+  "raceChoiceOptions": [],
+  "choiceOptions": [],
+  "classOptionalFeatures": [],
+  "features": [
+    "Claws",
+    "Hold Breath",
+    "Shell Armor",
+    "Shell Defense"
+  ],
+  "feats": [],
+  "skills": [
+    "ATHLETICS:PROFICIENT",
+    "SURVIVAL:PROFICIENT"
+  ],
+  "weapons": [],
+  "armors": [
+    "NATURAL_ARMOR_TORTLE*"
+  ]
+}

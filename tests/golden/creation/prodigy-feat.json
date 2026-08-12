@@ -1,0 +1,73 @@
+{
+  "scores": {
+    "str": 16,
+    "dex": 15,
+    "con": 14,
+    "int": 13,
+    "wis": 11,
+    "cha": 9
+  },
+  "hp": {
+    "current": 10,
+    "max": 10
+  },
+  "raceStaticAcBonus": 0,
+  "money": {
+    "cp": "0",
+    "sp": "0",
+    "ep": "0",
+    "gp": "10",
+    "pp": "0"
+  },
+  "spellSlots": {
+    "current": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "pact": 0
+  },
+  "additionalSaveProficiencies": [
+    "DEX",
+    "INT"
+  ],
+  "customLanguagesKnown": "Загальна\nЗлодійський жаргон\nОбери ще 1\nОбери ще 1",
+  "customProficiencies": "Легкі обладунки\nІнструменти злодія\nНабір для гриму, Інструменти злодія\nПроста зброя",
+  "customEquipment": "Маленький ніж x1\nКарта міста, де виріс x1\nДомашня миша (буквально) x1\nЗначок на пам'ять від батьків x1\nЗвичайний одяг x1",
+  "race": "HUMAN_2014",
+  "subrace": null,
+  "raceVariants": [],
+  "class": "ROGUE_2014",
+  "subclass": null,
+  "background": "URCHIN",
+  "raceChoiceOptions": [],
+  "choiceOptions": [],
+  "classOptionalFeatures": [],
+  "features": [
+    "Expertise",
+    "Sneak Attack",
+    "Thieves' Cant"
+  ],
+  "feats": [
+    {
+      "name": "PRODIGY",
+      "choices": [
+        "Prodigy Expertise (ATHLETICS)",
+        "Prodigy Proficiency (ATHLETICS)"
+      ]
+    }
+  ],
+  "skills": [
+    "ATHLETICS:EXPERTISE",
+    "SLEIGHT_OF_HAND:PROFICIENT",
+    "STEALTH:PROFICIENT"
+  ],
+  "weapons": [],
+  "armors": []
+}

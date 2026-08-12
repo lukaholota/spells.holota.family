@@ -1,0 +1,64 @@
+{
+  "scores": {
+    "str": 16,
+    "dex": 15,
+    "con": 14,
+    "int": 13,
+    "wis": 11,
+    "cha": 9
+  },
+  "hp": {
+    "current": 10,
+    "max": 10
+  },
+  "raceStaticAcBonus": 0,
+  "money": {
+    "cp": "0",
+    "sp": "0",
+    "ep": "0",
+    "gp": "5",
+    "pp": "0"
+  },
+  "spellSlots": {
+    "current": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "pact": 1
+  },
+  "additionalSaveProficiencies": [
+    "CHA",
+    "WIS"
+  ],
+  "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+  "customProficiencies": "Легкі обладунки\nНабір травника\nПроста зброя",
+  "customEquipment": "Футляр для свитків з нотатками x1\nЗимова ковдра x1\nЗвичайний одяг x1\nНабір травника x1",
+  "race": "HUMAN_2014",
+  "subrace": null,
+  "raceVariants": [],
+  "class": "WARLOCK_2014",
+  "subclass": "ARCHFEY",
+  "background": "HERMIT",
+  "raceChoiceOptions": [],
+  "choiceOptions": [],
+  "classOptionalFeatures": [],
+  "features": [
+    "Expanded Spell List (Archfey)",
+    "Fey Presence",
+    "Pact Magic"
+  ],
+  "feats": [],
+  "skills": [
+    "MEDICINE:PROFICIENT",
+    "RELIGION:PROFICIENT"
+  ],
+  "weapons": [],
+  "armors": []
+}

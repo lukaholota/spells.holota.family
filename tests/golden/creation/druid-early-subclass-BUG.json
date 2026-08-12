@@ -1,0 +1,66 @@
+{
+  "scores": {
+    "str": 16,
+    "dex": 15,
+    "con": 14,
+    "int": 13,
+    "wis": 11,
+    "cha": 9
+  },
+  "hp": {
+    "current": 10,
+    "max": 10
+  },
+  "raceStaticAcBonus": 0,
+  "money": {
+    "cp": "0",
+    "sp": "0",
+    "ep": "0",
+    "gp": "5",
+    "pp": "0"
+  },
+  "spellSlots": {
+    "current": [
+      2,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "pact": 0
+  },
+  "additionalSaveProficiencies": [
+    "INT",
+    "WIS"
+  ],
+  "customLanguagesKnown": "Загальна\nДруїдська\nОбери ще 1\nОбери ще 1",
+  "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nНабір травника\nНабір травника",
+  "customEquipment": "Футляр для свитків з нотатками x1\nЗимова ковдра x1\nЗвичайний одяг x1\nНабір травника x1",
+  "race": "HUMAN_2014",
+  "subrace": null,
+  "raceVariants": [],
+  "class": "DRUID_2014",
+  "subclass": "CIRCLE_OF_DREAMS",
+  "background": "HERMIT",
+  "raceChoiceOptions": [],
+  "choiceOptions": [],
+  "classOptionalFeatures": [],
+  "features": [
+    "Druidic",
+    "Spellcasting (Druid)"
+  ],
+  "feats": [],
+  "skills": [
+    "MEDICINE:PROFICIENT",
+    "RELIGION:PROFICIENT"
+  ],
+  "weapons": [],
+  "armors": [],
+  "KNOWN_BUGS": [
+    "BUG-001"
+  ]
+}

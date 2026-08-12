@@ -1,0 +1,65 @@
+{
+  "scores": {
+    "str": 16,
+    "dex": 15,
+    "con": 14,
+    "int": 13,
+    "wis": 11,
+    "cha": 9
+  },
+  "hp": {
+    "current": 10,
+    "max": 10
+  },
+  "raceStaticAcBonus": 0,
+  "money": {
+    "cp": "0",
+    "sp": "0",
+    "ep": "0",
+    "gp": "15",
+    "pp": "0"
+  },
+  "spellSlots": {
+    "current": [
+      2,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "pact": 0
+  },
+  "additionalSaveProficiencies": [
+    "CHA",
+    "WIS"
+  ],
+  "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+  "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nПроста зброя",
+  "customEquipment": "Священний символ x1\nМолитовник або молитовне колесо x1\nПалички ладану x5\nРитуальний одяг x1\nЗвичайний одяг x1",
+  "race": "HUMAN_2014",
+  "subrace": null,
+  "raceVariants": [],
+  "class": "CLERIC_2014",
+  "subclass": "ARCANA_DOMAIN",
+  "background": "ACOLYTE",
+  "raceChoiceOptions": [],
+  "choiceOptions": [],
+  "classOptionalFeatures": [],
+  "features": [
+    "Arcana Domain Spells",
+    "Arcane Initiate (Arcana Domain)",
+    "Divine Domain",
+    "Spellcasting (Cleric)"
+  ],
+  "feats": [],
+  "skills": [
+    "INSIGHT:PROFICIENT",
+    "RELIGION:PROFICIENT"
+  ],
+  "weapons": [],
+  "armors": []
+}

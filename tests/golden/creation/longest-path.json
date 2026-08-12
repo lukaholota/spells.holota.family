@@ -1,0 +1,82 @@
+{
+  "scores": {
+    "str": 17,
+    "dex": 15,
+    "con": 13,
+    "int": 12,
+    "wis": 10,
+    "cha": 8
+  },
+  "hp": {
+    "current": 11,
+    "max": 11
+  },
+  "raceStaticAcBonus": 0,
+  "money": {
+    "cp": "0",
+    "sp": "0",
+    "ep": "0",
+    "gp": "18",
+    "pp": "0"
+  },
+  "spellSlots": {
+    "current": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "pact": 0
+  },
+  "additionalSaveProficiencies": [
+    "CON",
+    "STR"
+  ],
+  "customLanguagesKnown": "Загальна\nЕльфійська",
+  "customProficiencies": "Важкі обладунки, Середні обладунки, Легкі обладунки, Щит\nІгровий набір\nПроста зброя, Бойова зброя",
+  "customEquipment": "Пляшечка чорнила x1\nПеро x1\nПапір (чисті аркуші) x5\nІгровий набір (на вибір) x1\nПерстень-печатка x1\nГарний одяг x1",
+  "race": "HUMAN_2014",
+  "subrace": null,
+  "raceVariants": [
+    "HUMAN_VARIANT"
+  ],
+  "class": "FIGHTER_2014",
+  "subclass": null,
+  "background": "REWARDED",
+  "raceChoiceOptions": [],
+  "choiceOptions": [
+    "Superior Technique"
+  ],
+  "classOptionalFeatures": [],
+  "features": [
+    "Fighting Style",
+    "Second Wind",
+    "Superior Technique"
+  ],
+  "feats": [
+    {
+      "name": "LUCKY",
+      "choices": []
+    },
+    {
+      "name": "SKILL_EXPERT",
+      "choices": [
+        "Skill Expert (STR)",
+        "Skill Expert Expertise (PERCEPTION)",
+        "Skill Expert Proficiency (PERCEPTION)"
+      ]
+    }
+  ],
+  "skills": [
+    "INSIGHT:PROFICIENT",
+    "PERCEPTION:EXPERTISE",
+    "PERSUASION:PROFICIENT"
+  ],
+  "weapons": [],
+  "armors": []
+}
