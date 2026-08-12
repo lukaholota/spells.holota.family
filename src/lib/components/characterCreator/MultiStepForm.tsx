@@ -37,6 +37,7 @@ import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import { PersFormData } from "@/lib/zod/schemas/persCreateSchema";
 import { useSession } from "next-auth/react";
+import posthog from "posthog-js";
 
 interface Props {
   races: RaceI[]
@@ -148,6 +149,15 @@ export const MultiStepForm = (
         }
       } else if (result.success) {
         toast.success("Персонажа створено!");
+        // ID-и, не назви — жодного вільного тексту з форми (currentData.name лишається поза подією).
+        posthog.capture("character_created", {
+          classId: currentData.classId,
+          subclassId: currentData.subclassId,
+          raceId: currentData.raceId,
+          subraceId: currentData.subraceId,
+          raceVariantId: currentData.raceVariantId,
+          backgroundId: currentData.backgroundId,
+        });
         router.push(`/char/${result.persId}`);
         // Clear draft after navigation starts to avoid a visible "form reset" flash.
         requestAnimationFrame(() => {

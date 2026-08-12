@@ -60,6 +60,21 @@ ENV NEXT_PUBLIC_SENTRY_DSN=$NEXT_PUBLIC_SENTRY_DSN
 RUN test -n "$NEXT_PUBLIC_SENTRY_DSN" \
   || { echo "ВІДМОВА: порожній NEXT_PUBLIC_SENTRY_DSN — клієнтські помилки нікуди не поїдуть"; exit 1; }
 
+# Та сама пастка з тієї ж причини: PostHog тут лише клієнтський (persistence: memory, без
+# autocapture — docs/MONITORING.md), обидві змінні читаються в браузері з NEXT_PUBLIC_*.
+# Порожнє значення дало б цілком «успішну» збірку, яка мовчки нікуди не шле продуктові події.
+ARG NEXT_PUBLIC_POSTHOG_KEY
+ENV NEXT_PUBLIC_POSTHOG_KEY=$NEXT_PUBLIC_POSTHOG_KEY
+
+RUN test -n "$NEXT_PUBLIC_POSTHOG_KEY" \
+  || { echo "ВІДМОВА: порожній NEXT_PUBLIC_POSTHOG_KEY — продуктові події нікуди не поїдуть"; exit 1; }
+
+ARG NEXT_PUBLIC_POSTHOG_HOST
+ENV NEXT_PUBLIC_POSTHOG_HOST=$NEXT_PUBLIC_POSTHOG_HOST
+
+RUN test -n "$NEXT_PUBLIC_POSTHOG_HOST" \
+  || { echo "ВІДМОВА: порожній NEXT_PUBLIC_POSTHOG_HOST — продуктові події нікуди не поїдуть"; exit 1; }
+
 # Саме `next build`, а не `bun run build`: другий тягне prebuild -> generate:spells, який
 # перезаписав би spells.json і вимагав би базу ще й для цього.
 # Секрет підставляється інлайном і перекриває заглушку вище лише на час цієї команди.
