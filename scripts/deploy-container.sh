@@ -20,6 +20,12 @@ SITE_CONF="${CHAR_SITE_CONF:-/etc/nginx/sites-enabled/char}"
 ENV_FILE="${CHAR_ENV_FILE:-/home/luka/char.env}"
 PREVIOUS_PORT_FILE="${CHAR_PREVIOUS_PORT_FILE:-/home/luka/char-ops/previous-port}"
 
+# Синій-зелений деплой означає новий контейнер щоразу, тобто порожній
+# .next/cache/images на ньому: перший запит на кожен розмір картинки з /_next/image
+# після деплою йде не з кеша, а через переенкодинг наживо. Тека на хості спільна для
+# обох слотів (3000 і 3002), тож розігрітий кеш переживає і деплой, і перемикання слота.
+IMAGE_CACHE_DIR="${CHAR_IMAGE_CACHE_DIR:-/home/luka/char-ops/next-image-cache}"
+
 # 3001 зайнятий gitea, тому другий слот саме 3002. Обидва слухають лише 127.0.0.1 —
 # назовні застосунок видно тільки через nginx.
 SLOT_PORTS=(3000 3002)
@@ -76,10 +82,16 @@ find_container_on_port() {
 start_container() {
   local port="$1" image="$2" name="char-$1"
   docker rm -f "$name" >/dev/null 2>&1 || true
+  # 777, а не chown на конкретний uid: контейнер пише під `node` з образу, деплой-скрипт
+  # виконується під `luka` на хості — узгоджувати uid двох незалежних середовищ заради
+  # тимчасового кеша картинок не варто.
+  mkdir -p "$IMAGE_CACHE_DIR"
+  chmod 777 "$IMAGE_CACHE_DIR"
   # --shm-size=1g: Chromium рендерить PDF у /dev/shm, а в Docker це 64 MB за замовчуванням.
   # PORT усередині контейнера лишається 3000 — назовні відрізняється лише публікація.
   docker run -d --name "$name" --restart unless-stopped \
     --env-file "$ENV_FILE" --shm-size=1g \
+    -v "$IMAGE_CACHE_DIR:/app/.next/cache/images" \
     -p "127.0.0.1:$port:3000" "$image" >/dev/null
   echo "  піднято $name з $image"
 }
