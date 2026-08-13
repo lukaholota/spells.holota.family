@@ -1,9 +1,15 @@
 import { afterAll, beforeEach, describe, expect, it, vi } from "vitest";
-import { BackgroundCategory, Classes, Races, SpellcastingType } from "@prisma/client";
+import { BackgroundCategory, Classes, Races, SpellcastingType, Subclasses } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
 import { disconnectDatabase, resetUserData } from "../user-data";
 import { minimalForm } from "../helpers/build-form";
-import { backgroundByName, classByName, classChoiceOptionIdsAtLevel, raceByName } from "../helpers/seed-lookup";
+import {
+  backgroundByName,
+  classByName,
+  classChoiceOptionIdsAtLevel,
+  raceByName,
+  subclassByName,
+} from "../helpers/seed-lookup";
 
 vi.mock("@/lib/auth", () => ({ auth: vi.fn() }));
 vi.mock("next/cache", () => ({ revalidatePath: vi.fn(), unstable_cache: (fn: unknown) => fn }));
@@ -97,6 +103,37 @@ describe("KR2.5 — multiclass proficiencies за PHB 2014", () => {
   });
 });
 
+describe("KR2.5 — Artificer infusions за TCoE", () => {
+  // Tasha's Cauldron of Everything, с. 9 «The Artificer → Infusions Known»; BUG-007.
+  it.fails("Artificer отримує п'яту infusion на класовому рівні 6", async () => {
+    const persId = await createOwnedCharacter(Classes.ARTIFICER_2014, BackgroundCategory.SAGE);
+    const artificer = await classByName(Classes.ARTIFICER_2014);
+    const infusions = await prisma.infusion.findMany({
+      where: { minArtificerLevel: { lte: 6 } },
+      orderBy: { infusionId: "asc" },
+      take: 5,
+      select: { infusionId: true },
+    });
+    const alchemist = await subclassByName(artificer.classId, Subclasses.ALCHEMIST);
+
+    for (let level = 2; level <= 6; level++) {
+      const result = await levelUpCharacter(
+        persId,
+        minimalLevelUpForm({
+          classId: artificer.classId,
+          ...(level === 2 ? { infusionSelections: infusions.slice(0, 4).map((infusion) => infusion.infusionId) } : {}),
+          ...(level === 3 ? { subclassId: alchemist.subclassId } : {}),
+          ...(level === 4 ? { customAsi: [{ ability: "INT", value: 1 }, { ability: "CON", value: 1 }] } : {}),
+          ...(level === 6 ? { infusionSelections: [infusions[4].infusionId] } : {}),
+        }),
+      );
+      expect(result).toEqual({ success: true });
+    }
+
+    expect(await readInfusionCount(persId)).toBe(5);
+  });
+});
+
 function casterLevelFor({ level, spellcastingType }: { level: number; spellcastingType: SpellcastingType }) {
   return calculateCasterLevel({
     level,
@@ -140,4 +177,8 @@ async function readCustomProficiencies(persId: number) {
     select: { customProficiencies: true },
   });
   return pers.customProficiencies;
+}
+
+async function readInfusionCount(persId: number) {
+  return prisma.persInfusion.count({ where: { persId } });
 }
