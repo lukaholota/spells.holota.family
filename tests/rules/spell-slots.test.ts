@@ -3,15 +3,17 @@ import { BackgroundCategory, Classes, Races, SpellcastingType } from "@prisma/cl
 import { prisma } from "@/lib/prisma";
 import { disconnectDatabase, resetUserData } from "../user-data";
 import { minimalForm } from "../helpers/build-form";
-import { backgroundByName, classByName, raceByName } from "../helpers/seed-lookup";
+import { backgroundByName, classByName, classChoiceOptionIdsAtLevel, raceByName } from "../helpers/seed-lookup";
 
 vi.mock("@/lib/auth", () => ({ auth: vi.fn() }));
-vi.mock("next/cache", () => ({ revalidatePath: vi.fn() }));
+vi.mock("next/cache", () => ({ revalidatePath: vi.fn(), unstable_cache: (fn: unknown) => fn }));
 
 import { auth } from "@/lib/auth";
 import { createCharacter } from "@/lib/actions/character";
+import { levelUpCharacter } from "@/lib/actions/levelup";
 import { longRest } from "@/lib/actions/rest-actions";
 import { calculateCasterLevel, type SpellcastingPersLike } from "@/lib/logic/spell-logic";
+import { minimalLevelUpForm } from "../helpers/levelup-form";
 
 beforeEach(resetUserData);
 afterAll(disconnectDatabase);
@@ -63,6 +65,38 @@ describe("KR2.5 — spell slots за PHB 2014", () => {
   });
 });
 
+describe("KR2.5 — multiclass proficiencies за PHB 2014", () => {
+  // PHB 2014, с. 164 «Multiclassing → Proficiencies»; BUG-006.
+  it.fails("Wizard → Fighter отримує скорочений набір володінь", async () => {
+    const persId = await createOwnedCharacter(Classes.WIZARD_2014, BackgroundCategory.SAGE);
+    const fighter = await classByName(Classes.FIGHTER_2014);
+    const [duelingId] = await classChoiceOptionIdsAtLevel(
+      fighter.classId,
+      1,
+      (choice) => choice.optionNameEng === "Dueling",
+    );
+
+    const before = await readCustomProficiencies(persId);
+    expect(before).not.toContain("Середні обладунки");
+    expect(before).not.toContain("Бойова зброя");
+
+    const result = await levelUpCharacter(
+      persId,
+      minimalLevelUpForm({
+        classId: fighter.classId,
+        levelUpPath: "MULTICLASS",
+        classChoiceSelections: { "Бойовий стиль": duelingId },
+      }),
+    );
+    expect(result).toEqual({ success: true });
+
+    const after = await readCustomProficiencies(persId);
+    expect(after).toContain("Середні обладунки");
+    expect(after).toContain("Щит");
+    expect(after).toContain("Бойова зброя");
+  });
+});
+
 function casterLevelFor({ level, spellcastingType }: { level: number; spellcastingType: SpellcastingType }) {
   return calculateCasterLevel({
     level,
@@ -73,6 +107,10 @@ function casterLevelFor({ level, spellcastingType }: { level: number; spellcasti
 }
 
 async function createOwnedFighter(): Promise<number> {
+  return createOwnedCharacter(Classes.FIGHTER_2014, BackgroundCategory.SOLDIER);
+}
+
+async function createOwnedCharacter(className: Classes, backgroundName: BackgroundCategory): Promise<number> {
   const user = await prisma.user.upsert({
     where: { email: "rules-tests@holota.family" },
     create: { email: "rules-tests@holota.family", name: "Rules Test User" },
@@ -82,8 +120,8 @@ async function createOwnedFighter(): Promise<number> {
 
   const [race, characterClass, background] = await Promise.all([
     raceByName(Races.HUMAN_2014),
-    classByName(Classes.FIGHTER_2014),
-    backgroundByName(BackgroundCategory.SOLDIER),
+    classByName(className),
+    backgroundByName(backgroundName),
   ]);
   const result = await createCharacter(
     minimalForm({ raceId: race.raceId, classId: characterClass.classId, backgroundId: background.backgroundId }),
@@ -94,4 +132,12 @@ async function createOwnedFighter(): Promise<number> {
 
 function emptySpellSlots() {
   return Array<number>(9).fill(0);
+}
+
+async function readCustomProficiencies(persId: number) {
+  const pers = await prisma.pers.findUniqueOrThrow({
+    where: { persId },
+    select: { customProficiencies: true },
+  });
+  return pers.customProficiencies;
 }

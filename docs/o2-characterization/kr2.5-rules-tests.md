@@ -69,3 +69,7 @@ it("половинний кастер додає level/2 округлене вн
 Додано окремий від golden `tests/rules/spell-slots.test.ts`: green assertions для full-caster і правила округлення multiclass caster level, а також `it.fails` для BUG-010. Останній стверджує PHB 2014, с. 164-165: Fighter 2 не має стандартних слотів після long rest. Поточний `longRest` передає загальний `pers.level` у таблицю слотів, тож assertion має падати; golden `rest-and-slots.json` лишається без змін і фіксує фактичні `[3, 0, …]`.
 
 Перевірка: `bunx vitest run tests/rules/spell-slots.test.ts --reporter=verbose` — 2 passed, 1 expected fail (3), 3.06 с; `bun run lint` — 0 errors, старі 368 warnings; `bunx tsc --noEmit` — лише відома стара помилка `tests/fixtures/builds/custom-asi-system.ts:20` (string замість number), нових немає. Production-код і golden-и не змінювались.
+
+**2026-08-13, BUG-006.** Додано окремий `it.fails` Wizard → Fighter: за PHB 2014, с. 164 він має отримати середні обладунки, щит і бойову зброю (також легкі обладунки й просту зброю, уже наявні в стартового Wizard). Він не змішується з golden decisive test: golden як і раніше фіксує нульовий приріст, rules assertion очікує правильні категорії.
+
+Перевірка rules suite після цього доповнення: 2 passed, 2 expected fail (BUG-010 і BUG-006), 6.73 с.
