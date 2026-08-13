@@ -114,5 +114,89 @@
       "isDead": false
     },
     "KNOWN_BUG": "BUG-010"
+  },
+  "halfCaster": {
+    "effectiveCasterLevel": 3,
+    "afterLongRest": {
+      "level": 6,
+      "currentSpellSlots": [
+        4,
+        3,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "currentPactSlots": 0,
+      "currentHitDice": {
+        "12": 6
+      },
+      "currentHp": 12,
+      "tempHp": 0,
+      "deathSaveSuccesses": 0,
+      "deathSaveFailures": 0,
+      "isDead": false
+    },
+    "KNOWN_BUG": "BUG-010"
+  },
+  "thirdCaster": {
+    "effectiveCasterLevel": 2,
+    "afterLongRest": {
+      "level": 6,
+      "currentSpellSlots": [
+        4,
+        3,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "currentPactSlots": 0,
+      "currentHitDice": {
+        "1": 6
+      },
+      "currentHp": 12,
+      "tempHp": 0,
+      "deathSaveSuccesses": 0,
+      "deathSaveFailures": 0,
+      "isDead": false
+    },
+    "KNOWN_BUG": "BUG-010"
+  },
+  "multiclass": {
+    "levels": "Paladin 2 / Wizard 3 / Eldritch Knight 3",
+    "effectiveCasterLevel": 5,
+    "afterLongRest": {
+      "level": 8,
+      "currentSpellSlots": [
+        4,
+        3,
+        3,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "currentPactSlots": 0,
+      "currentHitDice": {
+        "1": 3,
+        "12": 2,
+        "15": 3
+      },
+      "currentHp": 12,
+      "tempHp": 0,
+      "deathSaveSuccesses": 0,
+      "deathSaveFailures": 0,
+      "isDead": false
+    },
+    "KNOWN_BUG": "BUG-010"
   }
 }

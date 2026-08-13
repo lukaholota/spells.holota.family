@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { afterAll, beforeEach, describe, expect, it, vi } from "vitest";
-import { BackgroundCategory, Classes, Races } from "@prisma/client";
+import { BackgroundCategory, Classes, Races, Subclasses } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
 import { disconnectDatabase, resetUserData } from "../../user-data";
 import { minimalForm } from "../../helpers/build-form";
@@ -26,6 +26,14 @@ describe("KR2.4 — golden для слотів і відпочинку", () => {
     const wizardId = await createOwnedCharacter("wizard-slots", Classes.WIZARD_2014, BackgroundCategory.SAGE);
     const warlockId = await createOwnedCharacter("warlock-pact", Classes.WARLOCK_2014, BackgroundCategory.SAGE);
     const fighterId = await createOwnedCharacter("fighter-long-rest-BUG", Classes.FIGHTER_2014, BackgroundCategory.SOLDIER);
+    const paladinId = await createOwnedCharacter("paladin-long-rest-BUG", Classes.PALADIN_2014, BackgroundCategory.SOLDIER);
+    const eldritchKnightId = await createOwnedCharacter("eldritch-knight-long-rest-BUG", Classes.FIGHTER_2014, BackgroundCategory.SOLDIER);
+    const multiclassId = await createOwnedCharacter("multiclass-long-rest-BUG", Classes.PALADIN_2014, BackgroundCategory.SOLDIER);
+    const [eldritchKnight, wizardClass, fighterClass] = await Promise.all([
+      prisma.subclass.findFirstOrThrow({ where: { name: Subclasses.ELDRITCH_KNIGHT }, select: { subclassId: true } }),
+      classByName(Classes.WIZARD_2014),
+      classByName(Classes.FIGHTER_2014),
+    ]);
 
     await prisma.pers.update({
       where: { persId: wizardId },
@@ -38,6 +46,19 @@ describe("KR2.4 — golden для слотів і відпочинку", () => {
     await prisma.pers.update({
       where: { persId: fighterId },
       data: { level: 2, currentSpellSlots: [0, 0, 0, 0, 0, 0, 0, 0, 0] },
+    });
+    await prisma.pers.updateMany({
+      where: { persId: { in: [paladinId, eldritchKnightId, multiclassId] } },
+      data: { currentSpellSlots: [0, 0, 0, 0, 0, 0, 0, 0, 0] },
+    });
+    await prisma.pers.update({ where: { persId: paladinId }, data: { level: 6 } });
+    await prisma.pers.update({ where: { persId: eldritchKnightId }, data: { level: 6, subclassId: eldritchKnight.subclassId } });
+    await prisma.pers.update({ where: { persId: multiclassId }, data: { level: 8 } });
+    await prisma.persMulticlass.createMany({
+      data: [
+        { persId: multiclassId, classId: wizardClass.classId, classLevel: 3 },
+        { persId: multiclassId, classId: fighterClass.classId, subclassId: eldritchKnight.subclassId, classLevel: 3 },
+      ],
     });
 
     await restoreSpellSlot(wizardId, 1);
@@ -52,12 +73,34 @@ describe("KR2.4 — golden для слотів і відпочинку", () => {
 
     await longRest(fighterId);
     const fighterAfterLongRest = await readSlotState(fighterId);
+    await longRest(paladinId);
+    const paladinAfterLongRest = await readSlotState(paladinId);
+    await longRest(eldritchKnightId);
+    const eldritchKnightAfterLongRest = await readSlotState(eldritchKnightId);
+    await longRest(multiclassId);
+    const multiclassAfterLongRest = await readSlotState(multiclassId);
 
     const actual = {
       wizard: { afterFirstRestore: wizardAfterFirstRestore, afterSecondRestore: wizardAfterSecondRestore },
       warlock: { afterPactRestore: warlockAfterPactRestore, afterShortRest: warlockAfterShortRest },
       fighter: {
         afterLongRest: fighterAfterLongRest,
+        KNOWN_BUG: "BUG-010",
+      },
+      halfCaster: {
+        effectiveCasterLevel: 3,
+        afterLongRest: paladinAfterLongRest,
+        KNOWN_BUG: "BUG-010",
+      },
+      thirdCaster: {
+        effectiveCasterLevel: 2,
+        afterLongRest: eldritchKnightAfterLongRest,
+        KNOWN_BUG: "BUG-010",
+      },
+      multiclass: {
+        levels: "Paladin 2 / Wizard 3 / Eldritch Knight 3",
+        effectiveCasterLevel: 5,
+        afterLongRest: multiclassAfterLongRest,
         KNOWN_BUG: "BUG-010",
       },
     };

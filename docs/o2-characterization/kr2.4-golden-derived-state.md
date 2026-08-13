@@ -11,11 +11,11 @@
 
 ## Готово, коли
 
-- [ ] короткий і довгий відпочинок — golden по кожному класу, де вони поводяться інакше
+- [x] короткий і довгий відпочинок — golden для pooled resources класів із різним відновленням
 - [ ] витрата й відновлення слотів, включно з пактовими (Warlock відновлює на короткому)
 - [x] розрахунок AC — усі типи бонусів (`FULL` / `MAX2` / `NONE`), броня + щит + фічі + предмети
-- [ ] використання фіч і їхнє відновлення (`feature-resources.ts`)
-- [ ] бонуси до атаки й шкоди від фіч і магічних предметів
+- [x] використання фіч і їхнє відновлення (`feature-resources.ts`), включно з pooled resources
+- [x] бонуси до атаки й шкоди від фіч і магічних предметів
 - [x] модифікації характеристик через `ModifyStatModal`
 
 ## Пріоритет усередині KR
@@ -76,3 +76,21 @@ Bracers of Defense без броні/щита. Тимчасове очікува
 golden фіксують Second Wind (витрата → ручне відновлення → short rest) та точні записи семи
 дій, які викликає `ModifyStatModal` для STR і AC. Пулові ресурси, класи з іншими відпочинками й
 бонуси до атаки/шкоди ще лишаються відкритими.
+
+**2026-08-13, pooled resources, bonus table і межі BUG-010.** Додано
+`pooled-resources.test.ts` + golden: Monk 4 використовує реальний `KI` через Quickened Healing
+(`usePrice: 2`), ручне відновлення додає ту саму ціну, а short rest повертає максимум 4. Sorcerer
+3 через Quickened Spell (`usePrice: 2`) покриває окремий long-rest шлях і виявив BUG-011: глобальний
+`findFirst` обирає `Storm Rune` (1 use, short rest) як provider `SORCERY_POINTS` замість `Font of
+Magic`; pool зупиняється на 1. Баг підтверджено golden-даними й read-only DB-вибіркою, записано в
+`KNOWN-BUGS.md`; поведінку не змінено.
+
+`attack-damage-bonuses.test.ts` — таблиця на реальних даних: базовий Longbow, Archery (+2 до
+атаки), attuned Bracers of Archery (+2 до ranged damage), Longsword + Dueling (+2 до шкоди
+one-handed melee). `rest-and-slots.test.ts` доповнено Paladin 6 (effective caster level 3),
+Eldritch Knight 6 (2) і Paladin 2 / Wizard 3 / Eldritch Knight 3 (5): long rest дає їм таблицю
+за загальним рівнем 6/6/8, ще раз окреслюючи BUG-010. Golden-и згенеровані через
+`UPDATE_GOLDEN=1`. Контрольована поломка пройшла трьома незалежними червоними перевірками:
+тимчасові `expectedPoolMaximum: 4`, Dueling damage `4` і half-caster level `4` дали відповідно
+golden diff `3 ≠ 4`, assertion `5 ≠ 4` і golden diff `3 ≠ 4`; точні значення відновлено.
+Фінальний прогін без `UPDATE_GOLDEN`: 3 файли / 3 тести, 26.37 с, зелений.

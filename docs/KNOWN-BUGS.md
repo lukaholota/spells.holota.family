@@ -252,6 +252,25 @@ UI)
 **Знайдено:** KR2.4, 2026-08-13, golden `tests/golden/derived-state/rest-and-slots.json`
 **Статус:** відкрито
 
+### BUG-011 — pooled Sorcery Points беруть максимум із чужої фічі, тому можуть стати невитрачуваними
+
+**Де:** `src/lib/actions/feature-uses.ts` (`spendFeatureUse`/`restoreFeatureUse`) і
+`src/lib/actions/rest-actions.ts` (`shortRest`/`longRest`) — provider для `usesPoolKey` шукається
+глобальним `Feature.findFirst(...)`, без `orderBy` і без прив'язки до фіч персонажа
+**Правило:** PHB 2014, Sorcerer table «Sorcery Points» — Sorcerer 3 має 3 Sorcery Points; Quickened
+Spell коштує 2, отже перша витрата залишає 1, а long rest повертає 3
+**Має бути:** для пулу `SORCERY_POINTS` provider — `Font of Magic`, що належить Sorcerer, тож
+максимум на 3 рівні дорівнює 3 незалежно від інших content-рядків із таким самим ключем
+**Є:** на реальних даних `findFirst` обирає `Storm Rune` (featureId 8385, 1 use, short rest), а не
+`Font of Magic` (featureId 4840, рівень Sorcerer). Пул створюється з 1; Quickened Spell з ціною 2
+повертає успіх, але не витрачає нічого (`current < cost`), ручне відновлення й long rest лишають 1
+**Наслідок:** Sorcerer може мати неправильний спільний ресурс; щонайменше на 3 рівні Quickened Spell
+фактично неможливо витратити через UI-трекер, а short/long rest відновлюють не класовий максимум.
+Та сама конструкція загрожує кожному pool key, де кілька фіч-претендентів мають власні ліміти
+**Знайдено:** KR2.4, 2026-08-13, golden
+`tests/golden/derived-state/pooled-resources.json` (Sorcerer) і read-only DB-перевіркою provider
+**Статус:** відкрито
+
 ## Виправлені
 
 _порожньо_

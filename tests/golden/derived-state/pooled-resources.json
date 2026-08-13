@@ -1,0 +1,87 @@
+{
+  "monk": {
+    "feature": {
+      "engName": "Quickened Healing",
+      "usePrice": 2
+    },
+    "spent": {
+      "success": true,
+      "usesRemaining": 2
+    },
+    "afterSpend": {
+      "poolKey": "KI",
+      "usesRemaining": 2
+    },
+    "restored": {
+      "success": true,
+      "usesRemaining": 4
+    },
+    "afterManualRestore": {
+      "poolKey": "KI",
+      "usesRemaining": 4
+    },
+    "restResult": {
+      "success": true,
+      "hpRestored": 0,
+      "newCurrentHp": 10,
+      "currentHitDice": {
+        "3": 4
+      },
+      "currentPactSlots": 0,
+      "featuresRestored": 1
+    },
+    "afterRest": {
+      "poolKey": "KI",
+      "usesRemaining": 4
+    }
+  },
+  "sorcerer": {
+    "feature": {
+      "engName": "Quickened Spell",
+      "usePrice": 2
+    },
+    "spent": {
+      "success": true,
+      "usesRemaining": 1
+    },
+    "afterSpend": {
+      "poolKey": "SORCERY_POINTS",
+      "usesRemaining": 1
+    },
+    "restored": {
+      "success": true,
+      "usesRemaining": 1
+    },
+    "afterManualRestore": {
+      "poolKey": "SORCERY_POINTS",
+      "usesRemaining": 1
+    },
+    "restResult": {
+      "success": true,
+      "newCurrentHp": 8,
+      "currentHitDice": {
+        "14": 3
+      },
+      "currentSpellSlots": [
+        4,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "currentPactSlots": 0,
+      "spellSlotsRestored": true,
+      "featuresRestored": 1
+    },
+    "afterRest": {
+      "poolKey": "SORCERY_POINTS",
+      "usesRemaining": 1
+    },
+    "expectedPoolMaximum": 3,
+    "KNOWN_BUG": "BUG-011"
+  }
+}
