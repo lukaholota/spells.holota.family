@@ -31,6 +31,10 @@ export async function readFullPers(persId: number) {
       skills: { select: { name: true, proficiencyType: true } },
       weapons: { include: { weapon: { select: { name: true } } } },
       armors: { include: { armor: { select: { name: true } } } },
+      multiclasses: {
+        include: { class: { select: { name: true } }, subclass: { select: { name: true } } },
+      },
+      persInfusions: { include: { infusion: { select: { engName: true } } } },
     },
   });
 }
@@ -45,6 +49,7 @@ type FullPers = Awaited<ReturnType<typeof readFullPers>>;
  */
 export function normalizeForGolden(pers: FullPers) {
   return {
+    level: pers.level,
     scores: { str: pers.str, dex: pers.dex, con: pers.con, int: pers.int, wis: pers.wis, cha: pers.cha },
     hp: { current: pers.currentHp, max: pers.maxHp },
     raceStaticAcBonus: pers.raceStaticAcBonus,
@@ -75,6 +80,12 @@ export function normalizeForGolden(pers: FullPers) {
     skills: sortBy(pers.skills, (s) => s.name).map((s) => `${s.name}:${s.proficiencyType}`),
     weapons: sortBy(pers.weapons, (w) => w.weapon.name).map((w) => w.weapon.name),
     armors: sortBy(pers.armors, (a) => a.armor.name).map((a) => `${a.armor.name}${a.equipped ? "*" : ""}`),
+    multiclasses: sortBy(pers.multiclasses, (m) => m.class.name).map((m) => ({
+      class: m.class.name,
+      subclass: m.subclass?.name ?? null,
+      classLevel: m.classLevel,
+    })),
+    infusions: sortBy(pers.persInfusions, (i) => i.infusion.engName).map((i) => i.infusion.engName),
   };
 }
 

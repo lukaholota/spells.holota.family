@@ -1,4 +1,5 @@
 {
+  "level": 1,
   "scores": {
     "str": 16,
     "dex": 15,
@@ -60,6 +61,8 @@
   ],
   "weapons": [],
   "armors": [],
+  "multiclasses": [],
+  "infusions": [],
   "KNOWN_BUGS": [
     "BUG-001"
   ]

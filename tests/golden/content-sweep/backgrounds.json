@@ -1,5 +1,6 @@
 {
   "ACOLYTE": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -60,9 +61,12 @@
       "RELIGION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "ANTHROPOLOGIST": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -123,9 +127,12 @@
       "RELIGION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "ARCHAEOLOGIST": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -186,9 +193,12 @@
       "SURVIVAL:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "ARTISAN_2024": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -249,9 +259,12 @@
       "PERSUASION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "ASTRAL_DRIFTER": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -312,9 +325,12 @@
       "RELIGION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "ATHLETE": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -375,9 +391,12 @@
       "ATHLETICS:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "AZORIUS_FUNCTIONARY": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -438,9 +457,12 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "BOROS_LEGIONNAIRE": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -501,9 +523,12 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "CHARLATAN": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -564,9 +589,12 @@
       "SLEIGHT_OF_HAND:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "CHARLATAN_2024": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -627,9 +655,12 @@
       "SLEIGHT_OF_HAND:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "CITY_WATCH": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -690,9 +721,12 @@
       "INSIGHT:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "CLAN_CRAFTER": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -753,9 +787,12 @@
       "INSIGHT:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "CLOISTERED_SCHOLAR": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -816,9 +853,12 @@
       "RELIGION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "COURTIER": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -879,9 +919,12 @@
       "PERSUASION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "CRIMINAL": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -942,9 +985,12 @@
       "STEALTH:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "CRIMINAL_2024": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -1005,9 +1051,12 @@
       "STEALTH:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "CUSTOM": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -1065,9 +1114,12 @@
     "feats": [],
     "skills": [],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "DIMIR_OPERATIVE": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -1128,9 +1180,12 @@
       "STEALTH:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "ENTERTAINER": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -1191,9 +1246,12 @@
       "PERFORMANCE:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "ENTERTAINER_2024": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -1254,9 +1312,12 @@
       "PERFORMANCE:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "FACELESS": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -1317,9 +1378,12 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "FACTION_AGENT": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -1380,9 +1444,12 @@
       "PERSUASION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "FAILED_MERCHANT": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -1443,9 +1510,12 @@
       "PERSUASION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "FARMER_2024": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -1506,9 +1576,12 @@
       "NATURE:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "FAR_TRAVELER": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -1569,9 +1642,12 @@
       "PERCEPTION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "FEYLOST": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -1632,9 +1708,12 @@
       "SURVIVAL:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "FISHER": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -1695,9 +1774,12 @@
       "SURVIVAL:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "FOLK_HERO": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -1758,9 +1840,12 @@
       "SURVIVAL:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "GAMBLER": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -1821,9 +1906,12 @@
       "INSIGHT:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "GATE_WARDEN": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -1884,9 +1972,12 @@
       "SURVIVAL:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "GIANT_FOUNDLING": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -1947,9 +2038,12 @@
       "SURVIVAL:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "GLADIATOR": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -2010,9 +2104,12 @@
       "PERFORMANCE:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "GOLGARI_AGENT": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -2073,9 +2170,12 @@
       "SURVIVAL:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "GRINNER": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -2136,9 +2236,12 @@
       "PERFORMANCE:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "GRUUL_ANARCH": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -2199,9 +2302,12 @@
       "ATHLETICS:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "GUARD_2024": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -2262,9 +2368,12 @@
       "PERCEPTION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "GUIDE_2024": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -2325,9 +2434,12 @@
       "SURVIVAL:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "GUILD_ARTISAN": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -2388,9 +2500,12 @@
       "PERSUASION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "GUILD_MERCHANT": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -2451,9 +2566,12 @@
       "PERSUASION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "HAUNTED_ONE": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -2514,9 +2632,12 @@
       "INVESTIGATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "HERMIT": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -2577,9 +2698,12 @@
       "RELIGION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "HERMIT_2024": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -2640,9 +2764,12 @@
       "RELIGION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "HOUSE_AGENT": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -2703,9 +2830,12 @@
       "PERSUASION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "INHERITOR": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -2766,9 +2896,12 @@
       "SURVIVAL:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "INVESTIGATOR": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -2829,9 +2962,12 @@
       "INVESTIGATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "IZZET_ENGINEER": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -2892,9 +3028,12 @@
       "INVESTIGATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "KNIGHT": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -2955,9 +3094,12 @@
       "PERSUASION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "KNIGHT_OF_SOLAMNIA": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -3018,9 +3160,12 @@
       "SURVIVAL:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "KNIGHT_OF_THE_ORDER": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -3081,9 +3226,12 @@
       "PERSUASION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "LOREHOLD_STUDENT": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -3144,9 +3292,12 @@
       "RELIGION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "MAGE_OF_HIGH_SORCERY": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -3207,9 +3358,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "MARINE": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -3270,9 +3424,12 @@
       "SURVIVAL:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "MERCENARY_VETERAN": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -3333,9 +3490,12 @@
       "PERSUASION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "MERCHANT_2024": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -3396,9 +3556,12 @@
       "PERSUASION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "NOBLE": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -3459,9 +3622,12 @@
       "PERSUASION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "NOBLE_2024": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -3522,9 +3688,12 @@
       "PERSUASION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "ORZHOV_REPRESENTATIVE": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -3585,9 +3754,12 @@
       "RELIGION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "OUTLANDER": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -3648,9 +3820,12 @@
       "SURVIVAL:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "PIRATE": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -3711,9 +3886,12 @@
       "PERCEPTION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "PLAINTIFF": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -3774,9 +3952,12 @@
       "PERSUASION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "PLANAR_PHILOSOPHER": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -3837,9 +4018,12 @@
       "PERSUASION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "PRISMARI_STUDENT": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -3900,9 +4084,12 @@
       "PERFORMANCE:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "QUANDRIX_STUDENT": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -3963,9 +4150,12 @@
       "NATURE:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "RAKDOS_CULTIST": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -4026,9 +4216,12 @@
       "PERFORMANCE:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "REWARDED": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -4089,9 +4282,12 @@
       "PERSUASION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "RIVAL_INTERN": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -4152,9 +4348,12 @@
       "INVESTIGATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "RUINED": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -4215,9 +4414,12 @@
       "SURVIVAL:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "RUNE_CARVER": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -4278,9 +4480,12 @@
       "PERCEPTION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "SAGE": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -4341,9 +4546,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "SAGE_2024": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -4404,9 +4612,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "SAILOR": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -4467,9 +4678,12 @@
       "PERCEPTION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "SAILOR_2024": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -4530,9 +4744,12 @@
       "PERCEPTION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "SCRIBE_2024": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -4593,9 +4810,12 @@
       "PERCEPTION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "SELESNYA_INITIATE": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -4656,9 +4876,12 @@
       "PERSUASION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "SHIPWRIGHT": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -4719,9 +4942,12 @@
       "PERCEPTION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "SILVERQUILL_STUDENT": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -4782,9 +5008,12 @@
       "PERSUASION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "SIMIC_SCIENTIST": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -4845,9 +5074,12 @@
       "MEDICINE:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "SMUGGLER": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -4908,9 +5140,12 @@
       "DECEPTION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "SOLDIER": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -4971,9 +5206,12 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "SOLDIER_2024": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -5034,9 +5272,12 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "SPY": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -5097,9 +5338,12 @@
       "STEALTH:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "URBAN_BOUNTY_HUNTER": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -5160,9 +5404,12 @@
       "INSIGHT:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "URCHIN": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -5223,9 +5470,12 @@
       "STEALTH:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "UTHGARDT_TRIBE_MEMBER": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -5286,9 +5536,12 @@
       "SURVIVAL:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "VOLSTRUCKER_AGENT": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -5349,9 +5602,12 @@
       "STEALTH:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "WATERDHAVIAN_NOBLE": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -5412,9 +5668,12 @@
       "PERSUASION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "WAYFARER_2024": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -5475,9 +5734,12 @@
       "STEALTH:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "WILDSPACER": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -5538,9 +5800,12 @@
       "SURVIVAL:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "WITCHLIGHT_HAND": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -5601,9 +5866,12 @@
       "SLEIGHT_OF_HAND:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "WITHERBLOOM_STUDENT": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -5664,6 +5932,8 @@
       "SURVIVAL:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   }
 }

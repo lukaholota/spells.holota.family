@@ -1,4 +1,5 @@
 {
+  "level": 1,
   "scores": {
     "str": 16,
     "dex": 15,
@@ -67,5 +68,7 @@
     "HISTORY:PROFICIENT"
   ],
   "weapons": [],
-  "armors": []
+  "armors": [],
+  "multiclasses": [],
+  "infusions": []
 }

@@ -1,4 +1,5 @@
 {
+  "level": 1,
   "scores": {
     "str": 15,
     "dex": 16,
@@ -68,5 +69,7 @@
     "PERCEPTION:PROFICIENT"
   ],
   "weapons": [],
-  "armors": []
+  "armors": [],
+  "multiclasses": [],
+  "infusions": []
 }

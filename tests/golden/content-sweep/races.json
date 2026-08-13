@@ -1,5 +1,6 @@
 {
   "AARAKOCRA_MPMM": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 14,
@@ -63,9 +64,12 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "AASIMAR_MPMM": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 14,
@@ -130,9 +134,12 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "ASTRAL_ELF_SPELLJAMMER": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 14,
@@ -200,9 +207,12 @@
       "PERCEPTION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "AUTOGNOME_SPELLJAMMER": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 14,
@@ -271,9 +281,12 @@
     "weapons": [],
     "armors": [
       "NATURAL_ARMOR_13_DEX*"
-    ]
+    ],
+    "multiclasses": [],
+    "infusions": []
   },
   "BUGBEAR_MPMM": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 14,
@@ -340,9 +353,12 @@
       "STEALTH:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "CENTAUR_MPMM": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 14,
@@ -406,9 +422,12 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "CHANGELING_MPMM": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 14,
@@ -470,9 +489,12 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "CUSTOM_LINEAGE_TCE": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 14,
@@ -533,9 +555,12 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "DEEP_GNOME_MPMM": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 14,
@@ -600,9 +625,12 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "DHAMPIR_VRGTR": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 14,
@@ -667,9 +695,12 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "DRAGONBORN_2014": {
+    "level": 1,
     "scores": {
       "str": 17,
       "dex": 14,
@@ -731,9 +762,12 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "DRAGONBORN_CHROMATIC": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 14,
@@ -795,9 +829,12 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "DRAGONBORN_GEM": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 14,
@@ -860,9 +897,12 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "DRAGONBORN_METALLIC": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 14,
@@ -924,9 +964,12 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "DUERGAR_MPMM": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 14,
@@ -992,9 +1035,12 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "DWARF_2014": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 14,
@@ -1060,9 +1106,12 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "ELADRIN_MPMM": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 14,
@@ -1129,9 +1178,12 @@
       "PERCEPTION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "ELF_2014": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 16,
@@ -1197,9 +1249,12 @@
       "PERCEPTION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "FAIRY_MPMM": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 14,
@@ -1262,9 +1317,12 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "FIRBOLG_MPMM": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 14,
@@ -1329,9 +1387,12 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "GENASI_AIR_MPMM": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 14,
@@ -1396,9 +1457,12 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "GENASI_EARTH_MPMM": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 14,
@@ -1462,9 +1526,12 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "GENASI_FIRE_MPMM": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 14,
@@ -1528,9 +1595,12 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "GENASI_WATER_MPMM": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 14,
@@ -1595,9 +1665,12 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "GIFF_SPELLJAMMER": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 14,
@@ -1661,9 +1734,12 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "GITHYANKI_MPMM": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 14,
@@ -1727,9 +1803,12 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "GITHZERAI_MPMM": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 14,
@@ -1793,9 +1872,12 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "GNOME_2014": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 14,
@@ -1858,9 +1940,12 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "GOBLIN_MPMM": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 14,
@@ -1925,9 +2010,12 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "GOLIATH_MPMM": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 14,
@@ -1991,9 +2079,12 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "GRUNG_OGA": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 16,
@@ -2061,9 +2152,12 @@
       "PERCEPTION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "HADOZEE_SPELLJAMMER": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 14,
@@ -2128,9 +2222,12 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "HALFLING_2014": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 16,
@@ -2194,9 +2291,12 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "HALF_ELF_2014": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 14,
@@ -2259,9 +2359,12 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "HALF_ORC_2014": {
+    "level": 1,
     "scores": {
       "str": 17,
       "dex": 14,
@@ -2326,9 +2429,12 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "HARENGON_MPMM": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 14,
@@ -2394,9 +2500,12 @@
       "PERCEPTION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "HEXBLOOD_VRGTR": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 14,
@@ -2460,9 +2569,12 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "HOBGOBLIN_MPMM": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 14,
@@ -2527,9 +2639,12 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "HUMAN_2014": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -2590,9 +2705,12 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "KALASHTAR_EBERRON": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 14,
@@ -2657,9 +2775,12 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "KENDER_DRAGONLANCE": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 14,
@@ -2723,9 +2844,12 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "KENKU_MPMM": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 14,
@@ -2789,9 +2913,12 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "KOBOLD_MPMM": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 14,
@@ -2855,9 +2982,12 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "LEONIN_MOOT": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 14,
@@ -2922,9 +3052,12 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "LIZARDFOLK_MPMM": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 14,
@@ -2989,9 +3122,12 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "LOCATHAH_LR": {
+    "level": 1,
     "scores": {
       "str": 17,
       "dex": 15,
@@ -3059,9 +3195,12 @@
     "weapons": [],
     "armors": [
       "NATURAL_ARMOR_12_DEX*"
-    ]
+    ],
+    "multiclasses": [],
+    "infusions": []
   },
   "LOXODON_GGTR": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 14,
@@ -3129,9 +3268,12 @@
     "weapons": [],
     "armors": [
       "NATURAL_ARMOR_12_CON*"
-    ]
+    ],
+    "multiclasses": [],
+    "infusions": []
   },
   "MINOTAUR_MPMM": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 14,
@@ -3197,9 +3339,12 @@
       "SURVIVAL:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "ORC_MPMM": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 14,
@@ -3264,9 +3409,12 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "OWLIN_SACOC": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 14,
@@ -3331,9 +3479,12 @@
       "STEALTH:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "PLASMOID_SPELLJAMMER": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 14,
@@ -3399,9 +3550,12 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "REBORN_VRGTR": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 14,
@@ -3465,9 +3619,12 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "SATYR_MPMM": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 14,
@@ -3534,9 +3691,12 @@
       "PERSUASION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "SEA_ELF_MPMM": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 14,
@@ -3604,9 +3764,12 @@
       "PERCEPTION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "SHADAR_KAI_MPMM": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 14,
@@ -3674,9 +3837,12 @@
       "PERCEPTION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "SHIFTER_MPMM": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 14,
@@ -3739,9 +3905,12 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "SIMIC_HYBRID_GGTR": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 14,
@@ -3804,9 +3973,12 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "TABAXI_MPMM": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 14,
@@ -3873,9 +4045,12 @@
       "STEALTH:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "THRI_KREEN_SPELLJAMMER": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 14,
@@ -3943,9 +4118,12 @@
     "weapons": [],
     "armors": [
       "NATURAL_ARMOR_13_DEX*"
-    ]
+    ],
+    "multiclasses": [],
+    "infusions": []
   },
   "TIEFLING_2014": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 14,
@@ -4009,9 +4187,12 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "TORTLE_MPMM": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 14,
@@ -4078,9 +4259,12 @@
     "weapons": [],
     "armors": [
       "NATURAL_ARMOR_TORTLE*"
-    ]
+    ],
+    "multiclasses": [],
+    "infusions": []
   },
   "TRITON_MPMM": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 14,
@@ -4146,9 +4330,12 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "VEDALKEN_GGTR": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 14,
@@ -4212,9 +4399,12 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "VERDAN_AI": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 14,
@@ -4280,9 +4470,12 @@
       "PERSUASION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "WARFORGED_EBERRON": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 14,
@@ -4347,9 +4540,12 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "YUAN_TI_MPMM": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 14,
@@ -4414,6 +4610,8 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   }
 }

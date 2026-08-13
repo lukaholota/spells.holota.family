@@ -1,5 +1,6 @@
 {
   "Бронзовий дракон": {
+    "level": 1,
     "scores": {
       "str": 17,
       "dex": 14,
@@ -65,9 +66,12 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "Білий дракон": {
+    "level": 1,
     "scores": {
       "str": 17,
       "dex": 14,
@@ -133,9 +137,12 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "Зелений дракон": {
+    "level": 1,
     "scores": {
       "str": 17,
       "dex": 14,
@@ -201,9 +208,12 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "Золотий дракон": {
+    "level": 1,
     "scores": {
       "str": 17,
       "dex": 14,
@@ -269,9 +279,12 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "Латунний дракон": {
+    "level": 1,
     "scores": {
       "str": 17,
       "dex": 14,
@@ -337,9 +350,12 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "Мідний дракон": {
+    "level": 1,
     "scores": {
       "str": 17,
       "dex": 14,
@@ -405,9 +421,12 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "Синій дракон": {
+    "level": 1,
     "scores": {
       "str": 17,
       "dex": 14,
@@ -473,9 +492,12 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "Срібний дракон": {
+    "level": 1,
     "scores": {
       "str": 17,
       "dex": 14,
@@ -541,9 +563,12 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "Червоний дракон": {
+    "level": 1,
     "scores": {
       "str": 17,
       "dex": 14,
@@ -609,9 +634,12 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "Чорний дракон": {
+    "level": 1,
     "scores": {
       "str": 17,
       "dex": 14,
@@ -677,6 +705,8 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   }
 }

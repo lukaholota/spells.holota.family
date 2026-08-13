@@ -1,4 +1,5 @@
 {
+  "level": 1,
   "scores": {
     "str": 16,
     "dex": 15,
@@ -69,5 +70,7 @@
     "STEALTH:PROFICIENT"
   ],
   "weapons": [],
-  "armors": []
+  "armors": [],
+  "multiclasses": [],
+  "infusions": []
 }

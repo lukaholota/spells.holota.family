@@ -1,5 +1,6 @@
 {
   "DWARF_DUERGAR_GRAY_SCAG": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 14,
@@ -70,9 +71,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "DWARF_HILL_2014": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 14,
@@ -140,9 +144,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "DWARF_MOUNTAIN_2014": {
+    "level": 1,
     "scores": {
       "str": 17,
       "dex": 14,
@@ -210,9 +217,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "ELF_DARK_DROW_2014": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 16,
@@ -283,9 +293,12 @@
       "PERCEPTION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "ELF_ELADRIN_DMG": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 16,
@@ -354,9 +367,12 @@
       "PERCEPTION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "ELF_ELADRIN_MPMM": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 14,
@@ -424,9 +440,12 @@
       "PERCEPTION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "ELF_HIGH_2014": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 16,
@@ -496,9 +515,12 @@
       "PERCEPTION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "ELF_PALLID_EGTW": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 16,
@@ -567,9 +589,12 @@
       "PERCEPTION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "ELF_SEA_MTOF": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 16,
@@ -638,9 +663,12 @@
       "PERCEPTION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "ELF_SHADAR_KAI_MPMM": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 14,
@@ -709,9 +737,12 @@
       "PERCEPTION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "ELF_WOOD_2014": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 16,
@@ -780,9 +811,12 @@
       "PERCEPTION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "GNOME_DEEP_SCAG": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 15,
@@ -848,9 +882,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "GNOME_FOREST_2014": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 15,
@@ -916,9 +953,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "GNOME_ROCK_2014": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 14,
@@ -984,9 +1024,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "HALFLING_GHOSTWISE_SCAG": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 16,
@@ -1052,9 +1095,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "HALFLING_LIGHTFOOT_2014": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 16,
@@ -1120,9 +1166,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "HALFLING_STOUT_2014": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 16,
@@ -1188,6 +1237,8 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   }
 }

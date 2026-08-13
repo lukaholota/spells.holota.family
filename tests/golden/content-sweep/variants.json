@@ -1,5 +1,6 @@
 {
   "DWARF_MARK_OF_WARDING_EBERRON": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 14,
@@ -67,9 +68,12 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "ELF_MARK_OF_SHADOW_EBERRON": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 16,
@@ -137,9 +141,12 @@
       "PERCEPTION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "GNOME_MARK_OF_SCRIBING_EBERRON": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 14,
@@ -204,9 +211,12 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "HALFLING_MARK_OF_HEALING_EBERRON": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 16,
@@ -272,9 +282,12 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "HALFLING_MARK_OF_HOSPITALITY_EBERRON": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 16,
@@ -340,9 +353,12 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "HALF_ELF_MARK_OF_DETECTION_EBERRON": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 14,
@@ -407,9 +423,12 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "HALF_ELF_MARK_OF_STORM_EBERRON": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 15,
@@ -474,9 +493,12 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "HALF_ORC_MARK_OF_FINDING_EBERRON": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 14,
@@ -543,9 +565,12 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "HUMAN_MARK_OF_FINDING_EBERRON": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 14,
@@ -608,9 +633,12 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "HUMAN_MARK_OF_HANDLING_EBERRON": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 14,
@@ -673,9 +701,12 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "HUMAN_MARK_OF_MAKING_EBERRON": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 15,
@@ -738,9 +769,12 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "HUMAN_MARK_OF_PASSAGE_EBERRON": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 16,
@@ -803,9 +837,12 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "HUMAN_MARK_OF_SENTINEL_EBERRON": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 14,
@@ -868,9 +905,12 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "HUMAN_VARIANT": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -933,9 +973,12 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "TIEFLING_ASMODEUS": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 14,
@@ -1001,9 +1044,12 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "TIEFLING_BAALZEBUL": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 14,
@@ -1069,9 +1115,12 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "TIEFLING_DISPATER": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 15,
@@ -1137,9 +1186,12 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "TIEFLING_FIERNA": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 14,
@@ -1205,9 +1257,12 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "TIEFLING_GLASYA": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 15,
@@ -1273,9 +1328,12 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "TIEFLING_LEVISTUS": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 14,
@@ -1341,9 +1399,12 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "TIEFLING_MAMMON": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 14,
@@ -1409,9 +1470,12 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "TIEFLING_MEPHISTOPHELES": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 14,
@@ -1477,9 +1541,12 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "TIEFLING_VARIANT_DEVILS_TONGUE_SCAG": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 14,
@@ -1545,9 +1612,12 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "TIEFLING_VARIANT_HELLFIRE_SCAG": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 14,
@@ -1613,9 +1683,12 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "TIEFLING_VARIANT_WINGED_SCAG": {
+    "level": 1,
     "scores": {
       "str": 15,
       "dex": 14,
@@ -1681,9 +1754,12 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "TIEFLING_ZARIEL": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 14,
@@ -1749,6 +1825,8 @@
       "INTIMIDATION:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   }
 }

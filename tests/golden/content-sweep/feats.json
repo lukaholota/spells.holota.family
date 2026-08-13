@@ -1,5 +1,6 @@
 {
   "ABERRANT_DRAGONMARK": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -66,9 +67,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "ACTOR": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -135,9 +139,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "ALERT": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -204,9 +211,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "ARTIFICER_INITIATE": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -273,9 +283,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "ATHLETE": {
+    "level": 1,
     "scores": {
       "str": 17,
       "dex": 15,
@@ -344,9 +357,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "CHARGER": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -413,9 +429,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "CHEF": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -484,9 +503,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "CROSSBOW_EXPERT": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -553,9 +575,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "CRUSHER": {
+    "level": 1,
     "scores": {
       "str": 17,
       "dex": 15,
@@ -624,9 +649,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "DEFENSIVE_DUELIST": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -693,9 +721,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "DROW_HIGH_MAGIC": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -762,9 +793,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "DUAL_WIELDER": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -831,9 +865,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "DUNGEON_DELVER": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -900,9 +937,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "DURABLE": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -969,9 +1009,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "ELDRITCH_ADEPT": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -1040,9 +1083,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "ELEMENTAL_ADEPT": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -1111,9 +1157,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "EMBER_OF_GIANTS": {
+    "level": 1,
     "scores": {
       "str": 17,
       "dex": 15,
@@ -1182,9 +1231,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "FEY_TELEPORTATION": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -1251,9 +1303,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "FEY_TOUCHED": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -1322,9 +1377,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "FIGHTING_INITIATE": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -1393,9 +1451,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "FURY_OF_GIANTS": {
+    "level": 1,
     "scores": {
       "str": 17,
       "dex": 15,
@@ -1464,9 +1525,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "GIFT_OF_THE_CHROMATIC_DRAGON": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -1533,9 +1597,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "GIFT_OF_THE_GEM_DRAGON": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -1604,9 +1671,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "GIFT_OF_THE_METALLIC_DRAGON": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -1673,9 +1743,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "GRAPPLER": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -1742,9 +1815,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "GREAT_WEAPON_MASTER": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -1811,9 +1887,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "GUILE_OF_GIANTS": {
+    "level": 1,
     "scores": {
       "str": 17,
       "dex": 15,
@@ -1882,9 +1961,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "GUNNER": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 16,
@@ -1951,9 +2033,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "HEALER": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -2020,9 +2105,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "HEAVILY_ARMORED": {
+    "level": 1,
     "scores": {
       "str": 17,
       "dex": 15,
@@ -2089,9 +2177,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "HEAVY_ARMOR_MASTER": {
+    "level": 1,
     "scores": {
       "str": 17,
       "dex": 15,
@@ -2158,9 +2249,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "INITIATE_OF_HIGH_SORCERY": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -2227,9 +2321,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "INSPIRING_LEADER": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -2296,9 +2393,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "KEENNESS_OF_GIANTS": {
+    "level": 1,
     "scores": {
       "str": 17,
       "dex": 15,
@@ -2367,9 +2467,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "KEEN_MIND": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -2436,9 +2539,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "LIGHTLY_ARMORED": {
+    "level": 1,
     "scores": {
       "str": 17,
       "dex": 15,
@@ -2507,9 +2613,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "LINGUIST": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -2576,9 +2685,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "LUCKY": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -2645,9 +2757,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "MAGE_SLAYER": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -2714,9 +2829,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "MAGIC_INITIATE": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -2783,9 +2901,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "MARTIAL_ADEPT": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -2854,9 +2975,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "MEDIUM_ARMOR_MASTER": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -2923,9 +3047,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "METAMAGIC_ADEPT": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -2992,9 +3119,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "MOBILE": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -3061,9 +3191,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "MODERATELY_ARMORED": {
+    "level": 1,
     "scores": {
       "str": 17,
       "dex": 15,
@@ -3132,9 +3265,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "MOUNTED_COMBATANT": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -3201,9 +3337,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "OBSERVANT": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -3272,9 +3411,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "PIERCER": {
+    "level": 1,
     "scores": {
       "str": 17,
       "dex": 15,
@@ -3343,9 +3485,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "POISONER": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -3412,9 +3557,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "POLEARM_MASTER": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -3481,9 +3629,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "PRODIGY": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -3553,9 +3704,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "RESILIENT": {
+    "level": 1,
     "scores": {
       "str": 17,
       "dex": 15,
@@ -3625,9 +3779,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "RITUAL_CASTER": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -3694,9 +3851,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "RUNE_SHAPER": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -3763,9 +3923,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "SAVAGE_ATTACKER": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -3832,9 +3995,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "SCION_OF_THE_OUTER_PLANES": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -3901,9 +4067,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "SENTINEL": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -3970,9 +4139,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "SHADOW_TOUCHED": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -4041,9 +4213,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "SHARPSHOOTER": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -4110,9 +4285,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "SHIELD_MASTER": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -4179,9 +4357,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "SKILLED": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -4251,9 +4432,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "SKILL_EXPERT": {
+    "level": 1,
     "scores": {
       "str": 17,
       "dex": 15,
@@ -4322,9 +4506,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "SKULKER": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -4391,9 +4578,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "SLASHER": {
+    "level": 1,
     "scores": {
       "str": 17,
       "dex": 15,
@@ -4462,9 +4652,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "SOUL_OF_GIANTS": {
+    "level": 1,
     "scores": {
       "str": 17,
       "dex": 15,
@@ -4533,9 +4726,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "SPELL_SNIPER": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -4602,9 +4798,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "SQUIRE_OF_SOLAMNIA": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -4671,9 +4870,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "STRIKE_OF_THE_GIANTS": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -4740,9 +4942,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "STRIXHAVEN_INITIATE_LOREHOLD": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -4809,9 +5014,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "STRIXHAVEN_INITIATE_PRISMARI": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -4878,9 +5086,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "STRIXHAVEN_INITIATE_QUANDRIX": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -4947,9 +5158,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "STRIXHAVEN_INITIATE_SILVERQUILL": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -5016,9 +5230,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "STRIXHAVEN_INITIATE_WITHERBLOOM": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -5085,9 +5302,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "TAVERN_BRAWLER": {
+    "level": 1,
     "scores": {
       "str": 17,
       "dex": 15,
@@ -5156,9 +5376,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "TELEKINETIC": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -5227,9 +5450,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "TELEPATHIC": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -5298,9 +5524,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "TOUGH": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -5367,9 +5596,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "VIGOR_OF_GIANTS": {
+    "level": 1,
     "scores": {
       "str": 17,
       "dex": 15,
@@ -5438,9 +5670,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "WAR_CASTER": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -5507,9 +5742,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "WEAPON_MASTER": {
+    "level": 1,
     "scores": {
       "str": 17,
       "dex": 15,
@@ -5578,9 +5816,12 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   },
   "WOOD_ELF_MAGIC": {
+    "level": 1,
     "scores": {
       "str": 16,
       "dex": 15,
@@ -5647,6 +5888,8 @@
       "HISTORY:PROFICIENT"
     ],
     "weapons": [],
-    "armors": []
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
   }
 }
