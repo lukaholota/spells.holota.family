@@ -32,6 +32,7 @@ import { build as longestPath } from "./longest-path";
 import { build as fighterEquipmentChoices } from "./fighter-equipment-choices";
 import { build as fighterOptionalFeatureEarlyBug } from "./fighter-optional-feature-early-BUG";
 import { build as backgroundRewardedSkilled } from "./background-rewarded-skilled";
+import { build as athleteFeatBug } from "./athlete-feat-BUG";
 import type { Build } from "./types";
 
 export const builds: Build[] = [
@@ -69,4 +70,5 @@ export const builds: Build[] = [
   fighterEquipmentChoices,
   fighterOptionalFeatureEarlyBug,
   backgroundRewardedSkilled,
+  athleteFeatBug,
 ];
