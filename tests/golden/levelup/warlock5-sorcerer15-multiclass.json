@@ -1,0 +1,1807 @@
+[
+  {
+    "level": 1,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "5",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 1
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nНабір травника\nПроста зброя",
+    "customEquipment": "Футляр для свитків з нотатками x1\nЗимова ковдра x1\nЗвичайний одяг x1\nНабір травника x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WARLOCK_2014",
+    "subclass": "FIEND",
+    "background": "HERMIT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Dark One’s Blessing",
+      "Expanded Spell List (Fiend)",
+      "Pact Magic"
+    ],
+    "feats": [],
+    "skills": [
+      "MEDICINE:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 2,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 17,
+      "max": 17
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "5",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 2
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nНабір травника\nПроста зброя",
+    "customEquipment": "Футляр для свитків з нотатками x1\nЗимова ковдра x1\nЗвичайний одяг x1\nНабір травника x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WARLOCK_2014",
+    "subclass": "FIEND",
+    "background": "HERMIT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Agonizing Blast",
+      "Armor of Shadows"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Agonizing Blast",
+      "Armor of Shadows",
+      "Dark One’s Blessing",
+      "Eldritch Invocations",
+      "Expanded Spell List (Fiend)",
+      "Pact Magic"
+    ],
+    "feats": [],
+    "skills": [
+      "MEDICINE:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 3,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 24,
+      "max": 24
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "5",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 2
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nНабір травника\nПроста зброя",
+    "customEquipment": "Футляр для свитків з нотатками x1\nЗимова ковдра x1\nЗвичайний одяг x1\nНабір травника x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WARLOCK_2014",
+    "subclass": "FIEND",
+    "background": "HERMIT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Pact of the Tome",
+      "Agonizing Blast",
+      "Armor of Shadows"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Agonizing Blast",
+      "Armor of Shadows",
+      "Dark One’s Blessing",
+      "Eldritch Invocations",
+      "Expanded Spell List (Fiend)",
+      "Pact Boon",
+      "Pact Magic",
+      "Pact of the Tome"
+    ],
+    "feats": [],
+    "skills": [
+      "MEDICINE:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 4,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 15,
+      "int": 13,
+      "wis": 11,
+      "cha": 10
+    },
+    "hp": {
+      "current": 31,
+      "max": 31
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "5",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 2
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nНабір травника\nПроста зброя",
+    "customEquipment": "Футляр для свитків з нотатками x1\nЗимова ковдра x1\nЗвичайний одяг x1\nНабір травника x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WARLOCK_2014",
+    "subclass": "FIEND",
+    "background": "HERMIT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Pact of the Tome",
+      "Agonizing Blast",
+      "Armor of Shadows"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Agonizing Blast",
+      "Armor of Shadows",
+      "Dark One’s Blessing",
+      "Eldritch Invocations",
+      "Expanded Spell List (Fiend)",
+      "Pact Boon",
+      "Pact Magic",
+      "Pact of the Tome"
+    ],
+    "feats": [],
+    "skills": [
+      "MEDICINE:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 5,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 15,
+      "int": 13,
+      "wis": 11,
+      "cha": 10
+    },
+    "hp": {
+      "current": 38,
+      "max": 38
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "5",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 2
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nНабір травника\nПроста зброя",
+    "customEquipment": "Футляр для свитків з нотатками x1\nЗимова ковдра x1\nЗвичайний одяг x1\nНабір травника x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WARLOCK_2014",
+    "subclass": "FIEND",
+    "background": "HERMIT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Pact of the Tome",
+      "Agonizing Blast",
+      "Armor of Shadows",
+      "Beguiling Influence"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Agonizing Blast",
+      "Armor of Shadows",
+      "Beguiling Influence",
+      "Dark One’s Blessing",
+      "Eldritch Invocations",
+      "Expanded Spell List (Fiend)",
+      "Pact Boon",
+      "Pact Magic",
+      "Pact of the Tome"
+    ],
+    "feats": [],
+    "skills": [
+      "MEDICINE:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 6,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 15,
+      "int": 13,
+      "wis": 11,
+      "cha": 10
+    },
+    "hp": {
+      "current": 44,
+      "max": 44
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "5",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 2
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nНабір травника\nПроста зброя",
+    "customEquipment": "Футляр для свитків з нотатками x1\nЗимова ковдра x1\nЗвичайний одяг x1\nНабір травника x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WARLOCK_2014",
+    "subclass": "FIEND",
+    "background": "HERMIT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Pact of the Tome",
+      "Agonizing Blast",
+      "Armor of Shadows",
+      "Beguiling Influence"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Agonizing Blast",
+      "Armor of Shadows",
+      "Beguiling Influence",
+      "Dark One’s Blessing",
+      "Eldritch Invocations",
+      "Expanded Spell List (Fiend)",
+      "Pact Boon",
+      "Pact Magic",
+      "Pact of the Tome",
+      "Sorcerous Origin",
+      "Spellcasting (Sorcerer)",
+      "Tides of Chaos",
+      "Wild Magic Surge"
+    ],
+    "feats": [],
+    "skills": [
+      "MEDICINE:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [
+      {
+        "class": "SORCERER_2014",
+        "subclass": "WILD_MAGIC",
+        "classLevel": 1
+      }
+    ],
+    "infusions": []
+  },
+  {
+    "level": 7,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 15,
+      "int": 13,
+      "wis": 11,
+      "cha": 10
+    },
+    "hp": {
+      "current": 50,
+      "max": 50
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "5",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 2
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nНабір травника\nПроста зброя",
+    "customEquipment": "Футляр для свитків з нотатками x1\nЗимова ковдра x1\nЗвичайний одяг x1\nНабір травника x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WARLOCK_2014",
+    "subclass": "FIEND",
+    "background": "HERMIT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Pact of the Tome",
+      "Agonizing Blast",
+      "Armor of Shadows",
+      "Beguiling Influence"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Agonizing Blast",
+      "Armor of Shadows",
+      "Beguiling Influence",
+      "Dark One’s Blessing",
+      "Eldritch Invocations",
+      "Expanded Spell List (Fiend)",
+      "Font of Magic",
+      "Pact Boon",
+      "Pact Magic",
+      "Pact of the Tome",
+      "Sorcerous Origin",
+      "Spellcasting (Sorcerer)",
+      "Tides of Chaos",
+      "Wild Magic Surge"
+    ],
+    "feats": [],
+    "skills": [
+      "MEDICINE:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [
+      {
+        "class": "SORCERER_2014",
+        "subclass": "WILD_MAGIC",
+        "classLevel": 2
+      }
+    ],
+    "infusions": []
+  },
+  {
+    "level": 8,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 15,
+      "int": 13,
+      "wis": 11,
+      "cha": 10
+    },
+    "hp": {
+      "current": 56,
+      "max": 56
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "5",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 2
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nНабір травника\nПроста зброя",
+    "customEquipment": "Футляр для свитків з нотатками x1\nЗимова ковдра x1\nЗвичайний одяг x1\nНабір травника x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WARLOCK_2014",
+    "subclass": "FIEND",
+    "background": "HERMIT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Pact of the Tome",
+      "Agonizing Blast",
+      "Armor of Shadows",
+      "Beguiling Influence",
+      "Careful Spell",
+      "Distant Spell"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Agonizing Blast",
+      "Armor of Shadows",
+      "Beguiling Influence",
+      "Careful Spell",
+      "Dark One’s Blessing",
+      "Distant Spell",
+      "Eldritch Invocations",
+      "Expanded Spell List (Fiend)",
+      "Font of Magic",
+      "Metamagic",
+      "Pact Boon",
+      "Pact Magic",
+      "Pact of the Tome",
+      "Sorcerous Origin",
+      "Spellcasting (Sorcerer)",
+      "Tides of Chaos",
+      "Wild Magic Surge"
+    ],
+    "feats": [],
+    "skills": [
+      "MEDICINE:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [
+      {
+        "class": "SORCERER_2014",
+        "subclass": "WILD_MAGIC",
+        "classLevel": 3
+      }
+    ],
+    "infusions": []
+  },
+  {
+    "level": 9,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 16,
+      "int": 13,
+      "wis": 11,
+      "cha": 11
+    },
+    "hp": {
+      "current": 71,
+      "max": 71
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "5",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 2
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nНабір травника\nПроста зброя",
+    "customEquipment": "Футляр для свитків з нотатками x1\nЗимова ковдра x1\nЗвичайний одяг x1\nНабір травника x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WARLOCK_2014",
+    "subclass": "FIEND",
+    "background": "HERMIT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Pact of the Tome",
+      "Agonizing Blast",
+      "Armor of Shadows",
+      "Beguiling Influence",
+      "Careful Spell",
+      "Distant Spell"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Agonizing Blast",
+      "Armor of Shadows",
+      "Beguiling Influence",
+      "Careful Spell",
+      "Dark One’s Blessing",
+      "Distant Spell",
+      "Eldritch Invocations",
+      "Expanded Spell List (Fiend)",
+      "Font of Magic",
+      "Metamagic",
+      "Pact Boon",
+      "Pact Magic",
+      "Pact of the Tome",
+      "Sorcerous Origin",
+      "Spellcasting (Sorcerer)",
+      "Tides of Chaos",
+      "Wild Magic Surge"
+    ],
+    "feats": [],
+    "skills": [
+      "MEDICINE:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [
+      {
+        "class": "SORCERER_2014",
+        "subclass": "WILD_MAGIC",
+        "classLevel": 4
+      }
+    ],
+    "infusions": []
+  },
+  {
+    "level": 10,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 16,
+      "int": 13,
+      "wis": 11,
+      "cha": 11
+    },
+    "hp": {
+      "current": 78,
+      "max": 78
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "5",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 2
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nНабір травника\nПроста зброя",
+    "customEquipment": "Футляр для свитків з нотатками x1\nЗимова ковдра x1\nЗвичайний одяг x1\nНабір травника x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WARLOCK_2014",
+    "subclass": "FIEND",
+    "background": "HERMIT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Pact of the Tome",
+      "Agonizing Blast",
+      "Armor of Shadows",
+      "Beguiling Influence",
+      "Careful Spell",
+      "Distant Spell"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Agonizing Blast",
+      "Armor of Shadows",
+      "Beguiling Influence",
+      "Careful Spell",
+      "Dark One’s Blessing",
+      "Distant Spell",
+      "Eldritch Invocations",
+      "Expanded Spell List (Fiend)",
+      "Font of Magic",
+      "Metamagic",
+      "Pact Boon",
+      "Pact Magic",
+      "Pact of the Tome",
+      "Sorcerous Origin",
+      "Spellcasting (Sorcerer)",
+      "Tides of Chaos",
+      "Wild Magic Surge"
+    ],
+    "feats": [],
+    "skills": [
+      "MEDICINE:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [
+      {
+        "class": "SORCERER_2014",
+        "subclass": "WILD_MAGIC",
+        "classLevel": 5
+      }
+    ],
+    "infusions": []
+  },
+  {
+    "level": 11,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 16,
+      "int": 13,
+      "wis": 11,
+      "cha": 11
+    },
+    "hp": {
+      "current": 85,
+      "max": 85
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "5",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 2
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nНабір травника\nПроста зброя",
+    "customEquipment": "Футляр для свитків з нотатками x1\nЗимова ковдра x1\nЗвичайний одяг x1\nНабір травника x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WARLOCK_2014",
+    "subclass": "FIEND",
+    "background": "HERMIT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Pact of the Tome",
+      "Agonizing Blast",
+      "Armor of Shadows",
+      "Beguiling Influence",
+      "Careful Spell",
+      "Distant Spell"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Agonizing Blast",
+      "Armor of Shadows",
+      "Beguiling Influence",
+      "Bend Luck",
+      "Careful Spell",
+      "Dark One’s Blessing",
+      "Distant Spell",
+      "Eldritch Invocations",
+      "Expanded Spell List (Fiend)",
+      "Font of Magic",
+      "Metamagic",
+      "Pact Boon",
+      "Pact Magic",
+      "Pact of the Tome",
+      "Sorcerous Origin",
+      "Spellcasting (Sorcerer)",
+      "Tides of Chaos",
+      "Wild Magic Surge"
+    ],
+    "feats": [],
+    "skills": [
+      "MEDICINE:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [
+      {
+        "class": "SORCERER_2014",
+        "subclass": "WILD_MAGIC",
+        "classLevel": 6
+      }
+    ],
+    "infusions": []
+  },
+  {
+    "level": 12,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 16,
+      "int": 13,
+      "wis": 11,
+      "cha": 11
+    },
+    "hp": {
+      "current": 92,
+      "max": 92
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "5",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        3,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 2
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nНабір травника\nПроста зброя",
+    "customEquipment": "Футляр для свитків з нотатками x1\nЗимова ковдра x1\nЗвичайний одяг x1\nНабір травника x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WARLOCK_2014",
+    "subclass": "FIEND",
+    "background": "HERMIT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Pact of the Tome",
+      "Agonizing Blast",
+      "Armor of Shadows",
+      "Beguiling Influence",
+      "Careful Spell",
+      "Distant Spell"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Agonizing Blast",
+      "Armor of Shadows",
+      "Beguiling Influence",
+      "Bend Luck",
+      "Careful Spell",
+      "Dark One’s Blessing",
+      "Distant Spell",
+      "Eldritch Invocations",
+      "Expanded Spell List (Fiend)",
+      "Font of Magic",
+      "Metamagic",
+      "Pact Boon",
+      "Pact Magic",
+      "Pact of the Tome",
+      "Sorcerous Origin",
+      "Spellcasting (Sorcerer)",
+      "Tides of Chaos",
+      "Wild Magic Surge"
+    ],
+    "feats": [],
+    "skills": [
+      "MEDICINE:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [
+      {
+        "class": "SORCERER_2014",
+        "subclass": "WILD_MAGIC",
+        "classLevel": 7
+      }
+    ],
+    "infusions": []
+  },
+  {
+    "level": 13,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 17,
+      "int": 13,
+      "wis": 11,
+      "cha": 12
+    },
+    "hp": {
+      "current": 99,
+      "max": 99
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "5",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        3,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 2
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nНабір травника\nПроста зброя",
+    "customEquipment": "Футляр для свитків з нотатками x1\nЗимова ковдра x1\nЗвичайний одяг x1\nНабір травника x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WARLOCK_2014",
+    "subclass": "FIEND",
+    "background": "HERMIT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Pact of the Tome",
+      "Agonizing Blast",
+      "Armor of Shadows",
+      "Beguiling Influence",
+      "Careful Spell",
+      "Distant Spell"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Agonizing Blast",
+      "Armor of Shadows",
+      "Beguiling Influence",
+      "Bend Luck",
+      "Careful Spell",
+      "Dark One’s Blessing",
+      "Distant Spell",
+      "Eldritch Invocations",
+      "Expanded Spell List (Fiend)",
+      "Font of Magic",
+      "Metamagic",
+      "Pact Boon",
+      "Pact Magic",
+      "Pact of the Tome",
+      "Sorcerous Origin",
+      "Spellcasting (Sorcerer)",
+      "Tides of Chaos",
+      "Wild Magic Surge"
+    ],
+    "feats": [],
+    "skills": [
+      "MEDICINE:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [
+      {
+        "class": "SORCERER_2014",
+        "subclass": "WILD_MAGIC",
+        "classLevel": 8
+      }
+    ],
+    "infusions": []
+  },
+  {
+    "level": 14,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 17,
+      "int": 13,
+      "wis": 11,
+      "cha": 12
+    },
+    "hp": {
+      "current": 106,
+      "max": 106
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "5",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        3,
+        3,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 2
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nНабір травника\nПроста зброя",
+    "customEquipment": "Футляр для свитків з нотатками x1\nЗимова ковдра x1\nЗвичайний одяг x1\nНабір травника x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WARLOCK_2014",
+    "subclass": "FIEND",
+    "background": "HERMIT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Pact of the Tome",
+      "Agonizing Blast",
+      "Armor of Shadows",
+      "Beguiling Influence",
+      "Careful Spell",
+      "Distant Spell"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Agonizing Blast",
+      "Armor of Shadows",
+      "Beguiling Influence",
+      "Bend Luck",
+      "Careful Spell",
+      "Dark One’s Blessing",
+      "Distant Spell",
+      "Eldritch Invocations",
+      "Expanded Spell List (Fiend)",
+      "Font of Magic",
+      "Metamagic",
+      "Pact Boon",
+      "Pact Magic",
+      "Pact of the Tome",
+      "Sorcerous Origin",
+      "Spellcasting (Sorcerer)",
+      "Tides of Chaos",
+      "Wild Magic Surge"
+    ],
+    "feats": [],
+    "skills": [
+      "MEDICINE:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [
+      {
+        "class": "SORCERER_2014",
+        "subclass": "WILD_MAGIC",
+        "classLevel": 9
+      }
+    ],
+    "infusions": []
+  },
+  {
+    "level": 15,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 17,
+      "int": 13,
+      "wis": 11,
+      "cha": 12
+    },
+    "hp": {
+      "current": 113,
+      "max": 113
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "5",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        3,
+        3,
+        2,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 2
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nНабір травника\nПроста зброя",
+    "customEquipment": "Футляр для свитків з нотатками x1\nЗимова ковдра x1\nЗвичайний одяг x1\nНабір травника x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WARLOCK_2014",
+    "subclass": "FIEND",
+    "background": "HERMIT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Pact of the Tome",
+      "Agonizing Blast",
+      "Armor of Shadows",
+      "Beguiling Influence",
+      "Careful Spell",
+      "Distant Spell",
+      "Empowered Spell"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Agonizing Blast",
+      "Armor of Shadows",
+      "Beguiling Influence",
+      "Bend Luck",
+      "Careful Spell",
+      "Dark One’s Blessing",
+      "Distant Spell",
+      "Eldritch Invocations",
+      "Empowered Spell",
+      "Expanded Spell List (Fiend)",
+      "Font of Magic",
+      "Metamagic",
+      "Pact Boon",
+      "Pact Magic",
+      "Pact of the Tome",
+      "Sorcerous Origin",
+      "Spellcasting (Sorcerer)",
+      "Tides of Chaos",
+      "Wild Magic Surge"
+    ],
+    "feats": [],
+    "skills": [
+      "MEDICINE:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [
+      {
+        "class": "SORCERER_2014",
+        "subclass": "WILD_MAGIC",
+        "classLevel": 10
+      }
+    ],
+    "infusions": []
+  },
+  {
+    "level": 16,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 17,
+      "int": 13,
+      "wis": 11,
+      "cha": 12
+    },
+    "hp": {
+      "current": 120,
+      "max": 120
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "5",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        3,
+        3,
+        2,
+        1,
+        0,
+        0,
+        0
+      ],
+      "pact": 2
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nНабір травника\nПроста зброя",
+    "customEquipment": "Футляр для свитків з нотатками x1\nЗимова ковдра x1\nЗвичайний одяг x1\nНабір травника x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WARLOCK_2014",
+    "subclass": "FIEND",
+    "background": "HERMIT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Pact of the Tome",
+      "Agonizing Blast",
+      "Armor of Shadows",
+      "Beguiling Influence",
+      "Careful Spell",
+      "Distant Spell",
+      "Empowered Spell"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Agonizing Blast",
+      "Armor of Shadows",
+      "Beguiling Influence",
+      "Bend Luck",
+      "Careful Spell",
+      "Dark One’s Blessing",
+      "Distant Spell",
+      "Eldritch Invocations",
+      "Empowered Spell",
+      "Expanded Spell List (Fiend)",
+      "Font of Magic",
+      "Metamagic",
+      "Pact Boon",
+      "Pact Magic",
+      "Pact of the Tome",
+      "Sorcerous Origin",
+      "Spellcasting (Sorcerer)",
+      "Tides of Chaos",
+      "Wild Magic Surge"
+    ],
+    "feats": [],
+    "skills": [
+      "MEDICINE:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [
+      {
+        "class": "SORCERER_2014",
+        "subclass": "WILD_MAGIC",
+        "classLevel": 11
+      }
+    ],
+    "infusions": []
+  },
+  {
+    "level": 17,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 18,
+      "int": 13,
+      "wis": 11,
+      "cha": 13
+    },
+    "hp": {
+      "current": 144,
+      "max": 144
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "5",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        3,
+        3,
+        2,
+        1,
+        0,
+        0,
+        0
+      ],
+      "pact": 2
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nНабір травника\nПроста зброя",
+    "customEquipment": "Футляр для свитків з нотатками x1\nЗимова ковдра x1\nЗвичайний одяг x1\nНабір травника x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WARLOCK_2014",
+    "subclass": "FIEND",
+    "background": "HERMIT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Pact of the Tome",
+      "Agonizing Blast",
+      "Armor of Shadows",
+      "Beguiling Influence",
+      "Careful Spell",
+      "Distant Spell",
+      "Empowered Spell"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Agonizing Blast",
+      "Armor of Shadows",
+      "Beguiling Influence",
+      "Bend Luck",
+      "Careful Spell",
+      "Dark One’s Blessing",
+      "Distant Spell",
+      "Eldritch Invocations",
+      "Empowered Spell",
+      "Expanded Spell List (Fiend)",
+      "Font of Magic",
+      "Metamagic",
+      "Pact Boon",
+      "Pact Magic",
+      "Pact of the Tome",
+      "Sorcerous Origin",
+      "Spellcasting (Sorcerer)",
+      "Tides of Chaos",
+      "Wild Magic Surge"
+    ],
+    "feats": [],
+    "skills": [
+      "MEDICINE:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [
+      {
+        "class": "SORCERER_2014",
+        "subclass": "WILD_MAGIC",
+        "classLevel": 12
+      }
+    ],
+    "infusions": []
+  },
+  {
+    "level": 18,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 18,
+      "int": 13,
+      "wis": 11,
+      "cha": 13
+    },
+    "hp": {
+      "current": 152,
+      "max": 152
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "5",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        3,
+        3,
+        2,
+        1,
+        1,
+        0,
+        0
+      ],
+      "pact": 2
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nНабір травника\nПроста зброя",
+    "customEquipment": "Футляр для свитків з нотатками x1\nЗимова ковдра x1\nЗвичайний одяг x1\nНабір травника x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WARLOCK_2014",
+    "subclass": "FIEND",
+    "background": "HERMIT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Pact of the Tome",
+      "Agonizing Blast",
+      "Armor of Shadows",
+      "Beguiling Influence",
+      "Careful Spell",
+      "Distant Spell",
+      "Empowered Spell"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Agonizing Blast",
+      "Armor of Shadows",
+      "Beguiling Influence",
+      "Bend Luck",
+      "Careful Spell",
+      "Dark One’s Blessing",
+      "Distant Spell",
+      "Eldritch Invocations",
+      "Empowered Spell",
+      "Expanded Spell List (Fiend)",
+      "Font of Magic",
+      "Metamagic",
+      "Pact Boon",
+      "Pact Magic",
+      "Pact of the Tome",
+      "Sorcerous Origin",
+      "Spellcasting (Sorcerer)",
+      "Tides of Chaos",
+      "Wild Magic Surge"
+    ],
+    "feats": [],
+    "skills": [
+      "MEDICINE:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [
+      {
+        "class": "SORCERER_2014",
+        "subclass": "WILD_MAGIC",
+        "classLevel": 13
+      }
+    ],
+    "infusions": []
+  },
+  {
+    "level": 19,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 18,
+      "int": 13,
+      "wis": 11,
+      "cha": 13
+    },
+    "hp": {
+      "current": 160,
+      "max": 160
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "5",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        3,
+        3,
+        2,
+        1,
+        1,
+        0,
+        0
+      ],
+      "pact": 2
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nНабір травника\nПроста зброя",
+    "customEquipment": "Футляр для свитків з нотатками x1\nЗимова ковдра x1\nЗвичайний одяг x1\nНабір травника x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WARLOCK_2014",
+    "subclass": "FIEND",
+    "background": "HERMIT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Pact of the Tome",
+      "Agonizing Blast",
+      "Armor of Shadows",
+      "Beguiling Influence",
+      "Careful Spell",
+      "Distant Spell",
+      "Empowered Spell"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Agonizing Blast",
+      "Armor of Shadows",
+      "Beguiling Influence",
+      "Bend Luck",
+      "Careful Spell",
+      "Controlled Chaos",
+      "Dark One’s Blessing",
+      "Distant Spell",
+      "Eldritch Invocations",
+      "Empowered Spell",
+      "Expanded Spell List (Fiend)",
+      "Font of Magic",
+      "Metamagic",
+      "Pact Boon",
+      "Pact Magic",
+      "Pact of the Tome",
+      "Sorcerous Origin",
+      "Spellcasting (Sorcerer)",
+      "Tides of Chaos",
+      "Wild Magic Surge"
+    ],
+    "feats": [],
+    "skills": [
+      "MEDICINE:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [
+      {
+        "class": "SORCERER_2014",
+        "subclass": "WILD_MAGIC",
+        "classLevel": 14
+      }
+    ],
+    "infusions": []
+  },
+  {
+    "level": 20,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 18,
+      "int": 13,
+      "wis": 11,
+      "cha": 13
+    },
+    "hp": {
+      "current": 168,
+      "max": 168
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "5",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        3,
+        3,
+        2,
+        1,
+        1,
+        1,
+        0
+      ],
+      "pact": 2
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nНабір травника\nПроста зброя",
+    "customEquipment": "Футляр для свитків з нотатками x1\nЗимова ковдра x1\nЗвичайний одяг x1\nНабір травника x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WARLOCK_2014",
+    "subclass": "FIEND",
+    "background": "HERMIT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Pact of the Tome",
+      "Agonizing Blast",
+      "Armor of Shadows",
+      "Beguiling Influence",
+      "Careful Spell",
+      "Distant Spell",
+      "Empowered Spell"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Agonizing Blast",
+      "Armor of Shadows",
+      "Beguiling Influence",
+      "Bend Luck",
+      "Careful Spell",
+      "Controlled Chaos",
+      "Dark One’s Blessing",
+      "Distant Spell",
+      "Eldritch Invocations",
+      "Empowered Spell",
+      "Expanded Spell List (Fiend)",
+      "Font of Magic",
+      "Metamagic",
+      "Pact Boon",
+      "Pact Magic",
+      "Pact of the Tome",
+      "Sorcerous Origin",
+      "Spellcasting (Sorcerer)",
+      "Tides of Chaos",
+      "Wild Magic Surge"
+    ],
+    "feats": [],
+    "skills": [
+      "MEDICINE:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [
+      {
+        "class": "SORCERER_2014",
+        "subclass": "WILD_MAGIC",
+        "classLevel": 15
+      }
+    ],
+    "infusions": []
+  }
+]

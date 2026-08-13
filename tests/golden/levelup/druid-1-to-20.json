@@ -1,0 +1,1455 @@
+[
+  {
+    "level": 1,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "5",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nДруїдська\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nНабір травника\nНабір травника",
+    "customEquipment": "Футляр для свитків з нотатками x1\nЗимова ковдра x1\nЗвичайний одяг x1\nНабір травника x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "DRUID_2014",
+    "subclass": null,
+    "background": "HERMIT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Druidic",
+      "Spellcasting (Druid)"
+    ],
+    "feats": [],
+    "skills": [
+      "MEDICINE:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 2,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 17,
+      "max": 17
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "5",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nДруїдська\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nНабір травника\nНабір травника",
+    "customEquipment": "Футляр для свитків з нотатками x1\nЗимова ковдра x1\nЗвичайний одяг x1\nНабір травника x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "DRUID_2014",
+    "subclass": "CIRCLE_OF_THE_MOON",
+    "background": "HERMIT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Circle Forms",
+      "Combat Wild Shape",
+      "Druid Circle",
+      "Druidic",
+      "Spellcasting (Druid)",
+      "Wild Shape"
+    ],
+    "feats": [],
+    "skills": [
+      "MEDICINE:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 3,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 24,
+      "max": 24
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "5",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nДруїдська\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nНабір травника\nНабір травника",
+    "customEquipment": "Футляр для свитків з нотатками x1\nЗимова ковдра x1\nЗвичайний одяг x1\nНабір травника x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "DRUID_2014",
+    "subclass": "CIRCLE_OF_THE_MOON",
+    "background": "HERMIT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Circle Forms",
+      "Combat Wild Shape",
+      "Druid Circle",
+      "Druidic",
+      "Spellcasting (Druid)",
+      "Wild Shape"
+    ],
+    "feats": [],
+    "skills": [
+      "MEDICINE:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 4,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 15,
+      "int": 13,
+      "wis": 12,
+      "cha": 9
+    },
+    "hp": {
+      "current": 31,
+      "max": 31
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "5",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nДруїдська\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nНабір травника\nНабір травника",
+    "customEquipment": "Футляр для свитків з нотатками x1\nЗимова ковдра x1\nЗвичайний одяг x1\nНабір травника x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "DRUID_2014",
+    "subclass": "CIRCLE_OF_THE_MOON",
+    "background": "HERMIT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Circle Forms",
+      "Combat Wild Shape",
+      "Druid Circle",
+      "Druidic",
+      "Spellcasting (Druid)",
+      "Wild Shape"
+    ],
+    "feats": [],
+    "skills": [
+      "MEDICINE:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 5,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 15,
+      "int": 13,
+      "wis": 12,
+      "cha": 9
+    },
+    "hp": {
+      "current": 38,
+      "max": 38
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "5",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nДруїдська\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nНабір травника\nНабір травника",
+    "customEquipment": "Футляр для свитків з нотатками x1\nЗимова ковдра x1\nЗвичайний одяг x1\nНабір травника x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "DRUID_2014",
+    "subclass": "CIRCLE_OF_THE_MOON",
+    "background": "HERMIT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Circle Forms",
+      "Combat Wild Shape",
+      "Druid Circle",
+      "Druidic",
+      "Spellcasting (Druid)",
+      "Wild Shape"
+    ],
+    "feats": [],
+    "skills": [
+      "MEDICINE:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 6,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 15,
+      "int": 13,
+      "wis": 12,
+      "cha": 9
+    },
+    "hp": {
+      "current": 45,
+      "max": 45
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "5",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nДруїдська\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nНабір травника\nНабір травника",
+    "customEquipment": "Футляр для свитків з нотатками x1\nЗимова ковдра x1\nЗвичайний одяг x1\nНабір травника x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "DRUID_2014",
+    "subclass": "CIRCLE_OF_THE_MOON",
+    "background": "HERMIT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Circle Forms",
+      "Combat Wild Shape",
+      "Druid Circle",
+      "Druidic",
+      "Primal Strike",
+      "Spellcasting (Druid)",
+      "Wild Shape"
+    ],
+    "feats": [],
+    "skills": [
+      "MEDICINE:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 7,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 15,
+      "int": 13,
+      "wis": 12,
+      "cha": 9
+    },
+    "hp": {
+      "current": 52,
+      "max": 52
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "5",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        3,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nДруїдська\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nНабір травника\nНабір травника",
+    "customEquipment": "Футляр для свитків з нотатками x1\nЗимова ковдра x1\nЗвичайний одяг x1\nНабір травника x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "DRUID_2014",
+    "subclass": "CIRCLE_OF_THE_MOON",
+    "background": "HERMIT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Circle Forms",
+      "Combat Wild Shape",
+      "Druid Circle",
+      "Druidic",
+      "Primal Strike",
+      "Spellcasting (Druid)",
+      "Wild Shape"
+    ],
+    "feats": [],
+    "skills": [
+      "MEDICINE:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 8,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 16,
+      "int": 13,
+      "wis": 13,
+      "cha": 9
+    },
+    "hp": {
+      "current": 67,
+      "max": 67
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "5",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        3,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nДруїдська\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nНабір травника\nНабір травника",
+    "customEquipment": "Футляр для свитків з нотатками x1\nЗимова ковдра x1\nЗвичайний одяг x1\nНабір травника x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "DRUID_2014",
+    "subclass": "CIRCLE_OF_THE_MOON",
+    "background": "HERMIT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Circle Forms",
+      "Combat Wild Shape",
+      "Druid Circle",
+      "Druidic",
+      "Primal Strike",
+      "Spellcasting (Druid)",
+      "Wild Shape"
+    ],
+    "feats": [],
+    "skills": [
+      "MEDICINE:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 9,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 16,
+      "int": 13,
+      "wis": 13,
+      "cha": 9
+    },
+    "hp": {
+      "current": 75,
+      "max": 75
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "5",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        3,
+        3,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nДруїдська\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nНабір травника\nНабір травника",
+    "customEquipment": "Футляр для свитків з нотатками x1\nЗимова ковдра x1\nЗвичайний одяг x1\nНабір травника x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "DRUID_2014",
+    "subclass": "CIRCLE_OF_THE_MOON",
+    "background": "HERMIT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Circle Forms",
+      "Combat Wild Shape",
+      "Druid Circle",
+      "Druidic",
+      "Primal Strike",
+      "Spellcasting (Druid)",
+      "Wild Shape"
+    ],
+    "feats": [],
+    "skills": [
+      "MEDICINE:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 10,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 16,
+      "int": 13,
+      "wis": 13,
+      "cha": 9
+    },
+    "hp": {
+      "current": 83,
+      "max": 83
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "5",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        3,
+        3,
+        2,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nДруїдська\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nНабір травника\nНабір травника",
+    "customEquipment": "Футляр для свитків з нотатками x1\nЗимова ковдра x1\nЗвичайний одяг x1\nНабір травника x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "DRUID_2014",
+    "subclass": "CIRCLE_OF_THE_MOON",
+    "background": "HERMIT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Circle Forms",
+      "Combat Wild Shape",
+      "Druid Circle",
+      "Druidic",
+      "Elemental Wild Shape",
+      "Primal Strike",
+      "Spellcasting (Druid)",
+      "Wild Shape"
+    ],
+    "feats": [],
+    "skills": [
+      "MEDICINE:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 11,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 16,
+      "int": 13,
+      "wis": 13,
+      "cha": 9
+    },
+    "hp": {
+      "current": 91,
+      "max": 91
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "5",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        3,
+        3,
+        2,
+        1,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nДруїдська\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nНабір травника\nНабір травника",
+    "customEquipment": "Футляр для свитків з нотатками x1\nЗимова ковдра x1\nЗвичайний одяг x1\nНабір травника x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "DRUID_2014",
+    "subclass": "CIRCLE_OF_THE_MOON",
+    "background": "HERMIT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Circle Forms",
+      "Combat Wild Shape",
+      "Druid Circle",
+      "Druidic",
+      "Elemental Wild Shape",
+      "Primal Strike",
+      "Spellcasting (Druid)",
+      "Wild Shape"
+    ],
+    "feats": [],
+    "skills": [
+      "MEDICINE:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 12,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 17,
+      "int": 13,
+      "wis": 14,
+      "cha": 9
+    },
+    "hp": {
+      "current": 99,
+      "max": 99
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "5",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        3,
+        3,
+        2,
+        1,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nДруїдська\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nНабір травника\nНабір травника",
+    "customEquipment": "Футляр для свитків з нотатками x1\nЗимова ковдра x1\nЗвичайний одяг x1\nНабір травника x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "DRUID_2014",
+    "subclass": "CIRCLE_OF_THE_MOON",
+    "background": "HERMIT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Circle Forms",
+      "Combat Wild Shape",
+      "Druid Circle",
+      "Druidic",
+      "Elemental Wild Shape",
+      "Primal Strike",
+      "Spellcasting (Druid)",
+      "Wild Shape"
+    ],
+    "feats": [],
+    "skills": [
+      "MEDICINE:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 13,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 17,
+      "int": 13,
+      "wis": 14,
+      "cha": 9
+    },
+    "hp": {
+      "current": 107,
+      "max": 107
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "5",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        3,
+        3,
+        2,
+        1,
+        1,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nДруїдська\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nНабір травника\nНабір травника",
+    "customEquipment": "Футляр для свитків з нотатками x1\nЗимова ковдра x1\nЗвичайний одяг x1\nНабір травника x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "DRUID_2014",
+    "subclass": "CIRCLE_OF_THE_MOON",
+    "background": "HERMIT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Circle Forms",
+      "Combat Wild Shape",
+      "Druid Circle",
+      "Druidic",
+      "Elemental Wild Shape",
+      "Primal Strike",
+      "Spellcasting (Druid)",
+      "Wild Shape"
+    ],
+    "feats": [],
+    "skills": [
+      "MEDICINE:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 14,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 17,
+      "int": 13,
+      "wis": 14,
+      "cha": 9
+    },
+    "hp": {
+      "current": 115,
+      "max": 115
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "5",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        3,
+        3,
+        2,
+        1,
+        1,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nДруїдська\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nНабір травника\nНабір травника",
+    "customEquipment": "Футляр для свитків з нотатками x1\nЗимова ковдра x1\nЗвичайний одяг x1\nНабір травника x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "DRUID_2014",
+    "subclass": "CIRCLE_OF_THE_MOON",
+    "background": "HERMIT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Circle Forms",
+      "Combat Wild Shape",
+      "Druid Circle",
+      "Druidic",
+      "Elemental Wild Shape",
+      "Primal Strike",
+      "Spellcasting (Druid)",
+      "Thousand Forms",
+      "Wild Shape"
+    ],
+    "feats": [],
+    "skills": [
+      "MEDICINE:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 15,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 17,
+      "int": 13,
+      "wis": 14,
+      "cha": 9
+    },
+    "hp": {
+      "current": 123,
+      "max": 123
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "5",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        3,
+        3,
+        2,
+        1,
+        1,
+        1,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nДруїдська\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nНабір травника\nНабір травника",
+    "customEquipment": "Футляр для свитків з нотатками x1\nЗимова ковдра x1\nЗвичайний одяг x1\nНабір травника x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "DRUID_2014",
+    "subclass": "CIRCLE_OF_THE_MOON",
+    "background": "HERMIT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Circle Forms",
+      "Combat Wild Shape",
+      "Druid Circle",
+      "Druidic",
+      "Elemental Wild Shape",
+      "Primal Strike",
+      "Spellcasting (Druid)",
+      "Thousand Forms",
+      "Wild Shape"
+    ],
+    "feats": [],
+    "skills": [
+      "MEDICINE:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 16,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 18,
+      "int": 13,
+      "wis": 15,
+      "cha": 9
+    },
+    "hp": {
+      "current": 147,
+      "max": 147
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "5",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        3,
+        3,
+        2,
+        1,
+        1,
+        1,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nДруїдська\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nНабір травника\nНабір травника",
+    "customEquipment": "Футляр для свитків з нотатками x1\nЗимова ковдра x1\nЗвичайний одяг x1\nНабір травника x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "DRUID_2014",
+    "subclass": "CIRCLE_OF_THE_MOON",
+    "background": "HERMIT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Circle Forms",
+      "Combat Wild Shape",
+      "Druid Circle",
+      "Druidic",
+      "Elemental Wild Shape",
+      "Primal Strike",
+      "Spellcasting (Druid)",
+      "Thousand Forms",
+      "Wild Shape"
+    ],
+    "feats": [],
+    "skills": [
+      "MEDICINE:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 17,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 18,
+      "int": 13,
+      "wis": 15,
+      "cha": 9
+    },
+    "hp": {
+      "current": 156,
+      "max": 156
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "5",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        3,
+        3,
+        2,
+        1,
+        1,
+        1,
+        1
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nДруїдська\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nНабір травника\nНабір травника",
+    "customEquipment": "Футляр для свитків з нотатками x1\nЗимова ковдра x1\nЗвичайний одяг x1\nНабір травника x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "DRUID_2014",
+    "subclass": "CIRCLE_OF_THE_MOON",
+    "background": "HERMIT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Circle Forms",
+      "Combat Wild Shape",
+      "Druid Circle",
+      "Druidic",
+      "Elemental Wild Shape",
+      "Primal Strike",
+      "Spellcasting (Druid)",
+      "Thousand Forms",
+      "Wild Shape"
+    ],
+    "feats": [],
+    "skills": [
+      "MEDICINE:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 18,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 18,
+      "int": 13,
+      "wis": 15,
+      "cha": 9
+    },
+    "hp": {
+      "current": 165,
+      "max": 165
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "5",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        3,
+        3,
+        3,
+        1,
+        1,
+        1,
+        1
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nДруїдська\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nНабір травника\nНабір травника",
+    "customEquipment": "Футляр для свитків з нотатками x1\nЗимова ковдра x1\nЗвичайний одяг x1\nНабір травника x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "DRUID_2014",
+    "subclass": "CIRCLE_OF_THE_MOON",
+    "background": "HERMIT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Beast Spells",
+      "Circle Forms",
+      "Combat Wild Shape",
+      "Druid Circle",
+      "Druidic",
+      "Elemental Wild Shape",
+      "Primal Strike",
+      "Spellcasting (Druid)",
+      "Thousand Forms",
+      "Timeless Body (Druid)",
+      "Wild Shape"
+    ],
+    "feats": [],
+    "skills": [
+      "MEDICINE:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 19,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 19,
+      "int": 13,
+      "wis": 16,
+      "cha": 9
+    },
+    "hp": {
+      "current": 174,
+      "max": 174
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "5",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        3,
+        3,
+        3,
+        2,
+        1,
+        1,
+        1
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nДруїдська\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nНабір травника\nНабір травника",
+    "customEquipment": "Футляр для свитків з нотатками x1\nЗимова ковдра x1\nЗвичайний одяг x1\nНабір травника x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "DRUID_2014",
+    "subclass": "CIRCLE_OF_THE_MOON",
+    "background": "HERMIT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Beast Spells",
+      "Circle Forms",
+      "Combat Wild Shape",
+      "Druid Circle",
+      "Druidic",
+      "Elemental Wild Shape",
+      "Primal Strike",
+      "Spellcasting (Druid)",
+      "Thousand Forms",
+      "Timeless Body (Druid)",
+      "Wild Shape"
+    ],
+    "feats": [],
+    "skills": [
+      "MEDICINE:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 20,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 19,
+      "int": 13,
+      "wis": 16,
+      "cha": 9
+    },
+    "hp": {
+      "current": 183,
+      "max": 183
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "5",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        3,
+        3,
+        3,
+        2,
+        2,
+        1,
+        1
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nДруїдська\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nНабір травника\nНабір травника",
+    "customEquipment": "Футляр для свитків з нотатками x1\nЗимова ковдра x1\nЗвичайний одяг x1\nНабір травника x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "DRUID_2014",
+    "subclass": "CIRCLE_OF_THE_MOON",
+    "background": "HERMIT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Archdruid",
+      "Beast Spells",
+      "Circle Forms",
+      "Combat Wild Shape",
+      "Druid Circle",
+      "Druidic",
+      "Elemental Wild Shape",
+      "Primal Strike",
+      "Spellcasting (Druid)",
+      "Thousand Forms",
+      "Timeless Body (Druid)",
+      "Wild Shape"
+    ],
+    "feats": [],
+    "skills": [
+      "MEDICINE:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  }
+]

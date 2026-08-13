@@ -1,0 +1,1562 @@
+[
+  {
+    "level": 1,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "25",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "CON"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Ігровий набір",
+    "customEquipment": "Гарний одяг x1\nПерстень-печатка x1\nСвиток з родоводом x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "SORCERER_2014",
+    "subclass": "WILD_MAGIC",
+    "background": "NOBLE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Sorcerous Origin",
+      "Spellcasting (Sorcerer)",
+      "Tides of Chaos",
+      "Wild Magic Surge"
+    ],
+    "feats": [],
+    "skills": [
+      "HISTORY:PROFICIENT",
+      "PERSUASION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 2,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 14,
+      "max": 14
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "25",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "CON"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Ігровий набір",
+    "customEquipment": "Гарний одяг x1\nПерстень-печатка x1\nСвиток з родоводом x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "SORCERER_2014",
+    "subclass": "WILD_MAGIC",
+    "background": "NOBLE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Font of Magic",
+      "Sorcerous Origin",
+      "Spellcasting (Sorcerer)",
+      "Tides of Chaos",
+      "Wild Magic Surge"
+    ],
+    "feats": [],
+    "skills": [
+      "HISTORY:PROFICIENT",
+      "PERSUASION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 3,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 20,
+      "max": 20
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "25",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "CON"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Ігровий набір",
+    "customEquipment": "Гарний одяг x1\nПерстень-печатка x1\nСвиток з родоводом x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "SORCERER_2014",
+    "subclass": "WILD_MAGIC",
+    "background": "NOBLE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Careful Spell",
+      "Distant Spell"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Careful Spell",
+      "Distant Spell",
+      "Font of Magic",
+      "Metamagic",
+      "Sorcerous Origin",
+      "Spellcasting (Sorcerer)",
+      "Tides of Chaos",
+      "Wild Magic Surge"
+    ],
+    "feats": [],
+    "skills": [
+      "HISTORY:PROFICIENT",
+      "PERSUASION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 4,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 15,
+      "int": 13,
+      "wis": 11,
+      "cha": 10
+    },
+    "hp": {
+      "current": 26,
+      "max": 26
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "25",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "CON"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Ігровий набір",
+    "customEquipment": "Гарний одяг x1\nПерстень-печатка x1\nСвиток з родоводом x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "SORCERER_2014",
+    "subclass": "WILD_MAGIC",
+    "background": "NOBLE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Careful Spell",
+      "Distant Spell"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Careful Spell",
+      "Distant Spell",
+      "Font of Magic",
+      "Metamagic",
+      "Sorcerous Origin",
+      "Spellcasting (Sorcerer)",
+      "Tides of Chaos",
+      "Wild Magic Surge"
+    ],
+    "feats": [],
+    "skills": [
+      "HISTORY:PROFICIENT",
+      "PERSUASION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 5,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 15,
+      "int": 13,
+      "wis": 11,
+      "cha": 10
+    },
+    "hp": {
+      "current": 32,
+      "max": 32
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "25",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "CON"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Ігровий набір",
+    "customEquipment": "Гарний одяг x1\nПерстень-печатка x1\nСвиток з родоводом x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "SORCERER_2014",
+    "subclass": "WILD_MAGIC",
+    "background": "NOBLE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Careful Spell",
+      "Distant Spell"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Careful Spell",
+      "Distant Spell",
+      "Font of Magic",
+      "Metamagic",
+      "Sorcerous Origin",
+      "Spellcasting (Sorcerer)",
+      "Tides of Chaos",
+      "Wild Magic Surge"
+    ],
+    "feats": [],
+    "skills": [
+      "HISTORY:PROFICIENT",
+      "PERSUASION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 6,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 15,
+      "int": 13,
+      "wis": 11,
+      "cha": 10
+    },
+    "hp": {
+      "current": 38,
+      "max": 38
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "25",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "CON"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Ігровий набір",
+    "customEquipment": "Гарний одяг x1\nПерстень-печатка x1\nСвиток з родоводом x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "SORCERER_2014",
+    "subclass": "WILD_MAGIC",
+    "background": "NOBLE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Careful Spell",
+      "Distant Spell"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Bend Luck",
+      "Careful Spell",
+      "Distant Spell",
+      "Font of Magic",
+      "Metamagic",
+      "Sorcerous Origin",
+      "Spellcasting (Sorcerer)",
+      "Tides of Chaos",
+      "Wild Magic Surge"
+    ],
+    "feats": [],
+    "skills": [
+      "HISTORY:PROFICIENT",
+      "PERSUASION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 7,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 15,
+      "int": 13,
+      "wis": 11,
+      "cha": 10
+    },
+    "hp": {
+      "current": 44,
+      "max": 44
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "25",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        3,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "CON"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Ігровий набір",
+    "customEquipment": "Гарний одяг x1\nПерстень-печатка x1\nСвиток з родоводом x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "SORCERER_2014",
+    "subclass": "WILD_MAGIC",
+    "background": "NOBLE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Careful Spell",
+      "Distant Spell"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Bend Luck",
+      "Careful Spell",
+      "Distant Spell",
+      "Font of Magic",
+      "Metamagic",
+      "Sorcerous Origin",
+      "Spellcasting (Sorcerer)",
+      "Tides of Chaos",
+      "Wild Magic Surge"
+    ],
+    "feats": [],
+    "skills": [
+      "HISTORY:PROFICIENT",
+      "PERSUASION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 8,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 16,
+      "int": 13,
+      "wis": 11,
+      "cha": 11
+    },
+    "hp": {
+      "current": 58,
+      "max": 58
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "25",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        3,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "CON"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Ігровий набір",
+    "customEquipment": "Гарний одяг x1\nПерстень-печатка x1\nСвиток з родоводом x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "SORCERER_2014",
+    "subclass": "WILD_MAGIC",
+    "background": "NOBLE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Careful Spell",
+      "Distant Spell"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Bend Luck",
+      "Careful Spell",
+      "Distant Spell",
+      "Font of Magic",
+      "Metamagic",
+      "Sorcerous Origin",
+      "Spellcasting (Sorcerer)",
+      "Tides of Chaos",
+      "Wild Magic Surge"
+    ],
+    "feats": [],
+    "skills": [
+      "HISTORY:PROFICIENT",
+      "PERSUASION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 9,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 16,
+      "int": 13,
+      "wis": 11,
+      "cha": 11
+    },
+    "hp": {
+      "current": 65,
+      "max": 65
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "25",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        3,
+        3,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "CON"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Ігровий набір",
+    "customEquipment": "Гарний одяг x1\nПерстень-печатка x1\nСвиток з родоводом x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "SORCERER_2014",
+    "subclass": "WILD_MAGIC",
+    "background": "NOBLE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Careful Spell",
+      "Distant Spell"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Bend Luck",
+      "Careful Spell",
+      "Distant Spell",
+      "Font of Magic",
+      "Metamagic",
+      "Sorcerous Origin",
+      "Spellcasting (Sorcerer)",
+      "Tides of Chaos",
+      "Wild Magic Surge"
+    ],
+    "feats": [],
+    "skills": [
+      "HISTORY:PROFICIENT",
+      "PERSUASION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 10,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 16,
+      "int": 13,
+      "wis": 11,
+      "cha": 11
+    },
+    "hp": {
+      "current": 72,
+      "max": 72
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "25",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        3,
+        3,
+        2,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "CON"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Ігровий набір",
+    "customEquipment": "Гарний одяг x1\nПерстень-печатка x1\nСвиток з родоводом x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "SORCERER_2014",
+    "subclass": "WILD_MAGIC",
+    "background": "NOBLE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Careful Spell",
+      "Distant Spell",
+      "Empowered Spell"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Bend Luck",
+      "Careful Spell",
+      "Distant Spell",
+      "Empowered Spell",
+      "Font of Magic",
+      "Metamagic",
+      "Sorcerous Origin",
+      "Spellcasting (Sorcerer)",
+      "Tides of Chaos",
+      "Wild Magic Surge"
+    ],
+    "feats": [],
+    "skills": [
+      "HISTORY:PROFICIENT",
+      "PERSUASION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 11,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 16,
+      "int": 13,
+      "wis": 11,
+      "cha": 11
+    },
+    "hp": {
+      "current": 79,
+      "max": 79
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "25",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        3,
+        3,
+        2,
+        1,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "CON"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Ігровий набір",
+    "customEquipment": "Гарний одяг x1\nПерстень-печатка x1\nСвиток з родоводом x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "SORCERER_2014",
+    "subclass": "WILD_MAGIC",
+    "background": "NOBLE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Careful Spell",
+      "Distant Spell",
+      "Empowered Spell"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Bend Luck",
+      "Careful Spell",
+      "Distant Spell",
+      "Empowered Spell",
+      "Font of Magic",
+      "Metamagic",
+      "Sorcerous Origin",
+      "Spellcasting (Sorcerer)",
+      "Tides of Chaos",
+      "Wild Magic Surge"
+    ],
+    "feats": [],
+    "skills": [
+      "HISTORY:PROFICIENT",
+      "PERSUASION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 12,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 17,
+      "int": 13,
+      "wis": 11,
+      "cha": 12
+    },
+    "hp": {
+      "current": 86,
+      "max": 86
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "25",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        3,
+        3,
+        2,
+        1,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "CON"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Ігровий набір",
+    "customEquipment": "Гарний одяг x1\nПерстень-печатка x1\nСвиток з родоводом x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "SORCERER_2014",
+    "subclass": "WILD_MAGIC",
+    "background": "NOBLE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Careful Spell",
+      "Distant Spell",
+      "Empowered Spell"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Bend Luck",
+      "Careful Spell",
+      "Distant Spell",
+      "Empowered Spell",
+      "Font of Magic",
+      "Metamagic",
+      "Sorcerous Origin",
+      "Spellcasting (Sorcerer)",
+      "Tides of Chaos",
+      "Wild Magic Surge"
+    ],
+    "feats": [],
+    "skills": [
+      "HISTORY:PROFICIENT",
+      "PERSUASION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 13,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 17,
+      "int": 13,
+      "wis": 11,
+      "cha": 12
+    },
+    "hp": {
+      "current": 93,
+      "max": 93
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "25",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        3,
+        3,
+        2,
+        1,
+        1,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "CON"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Ігровий набір",
+    "customEquipment": "Гарний одяг x1\nПерстень-печатка x1\nСвиток з родоводом x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "SORCERER_2014",
+    "subclass": "WILD_MAGIC",
+    "background": "NOBLE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Careful Spell",
+      "Distant Spell",
+      "Empowered Spell"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Bend Luck",
+      "Careful Spell",
+      "Distant Spell",
+      "Empowered Spell",
+      "Font of Magic",
+      "Metamagic",
+      "Sorcerous Origin",
+      "Spellcasting (Sorcerer)",
+      "Tides of Chaos",
+      "Wild Magic Surge"
+    ],
+    "feats": [],
+    "skills": [
+      "HISTORY:PROFICIENT",
+      "PERSUASION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 14,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 17,
+      "int": 13,
+      "wis": 11,
+      "cha": 12
+    },
+    "hp": {
+      "current": 100,
+      "max": 100
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "25",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        3,
+        3,
+        2,
+        1,
+        1,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "CON"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Ігровий набір",
+    "customEquipment": "Гарний одяг x1\nПерстень-печатка x1\nСвиток з родоводом x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "SORCERER_2014",
+    "subclass": "WILD_MAGIC",
+    "background": "NOBLE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Careful Spell",
+      "Distant Spell",
+      "Empowered Spell"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Bend Luck",
+      "Careful Spell",
+      "Controlled Chaos",
+      "Distant Spell",
+      "Empowered Spell",
+      "Font of Magic",
+      "Metamagic",
+      "Sorcerous Origin",
+      "Spellcasting (Sorcerer)",
+      "Tides of Chaos",
+      "Wild Magic Surge"
+    ],
+    "feats": [],
+    "skills": [
+      "HISTORY:PROFICIENT",
+      "PERSUASION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 15,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 17,
+      "int": 13,
+      "wis": 11,
+      "cha": 12
+    },
+    "hp": {
+      "current": 107,
+      "max": 107
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "25",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        3,
+        3,
+        2,
+        1,
+        1,
+        1,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "CON"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Ігровий набір",
+    "customEquipment": "Гарний одяг x1\nПерстень-печатка x1\nСвиток з родоводом x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "SORCERER_2014",
+    "subclass": "WILD_MAGIC",
+    "background": "NOBLE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Careful Spell",
+      "Distant Spell",
+      "Empowered Spell"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Bend Luck",
+      "Careful Spell",
+      "Controlled Chaos",
+      "Distant Spell",
+      "Empowered Spell",
+      "Font of Magic",
+      "Metamagic",
+      "Sorcerous Origin",
+      "Spellcasting (Sorcerer)",
+      "Tides of Chaos",
+      "Wild Magic Surge"
+    ],
+    "feats": [],
+    "skills": [
+      "HISTORY:PROFICIENT",
+      "PERSUASION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 16,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 18,
+      "int": 13,
+      "wis": 11,
+      "cha": 13
+    },
+    "hp": {
+      "current": 130,
+      "max": 130
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "25",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        3,
+        3,
+        2,
+        1,
+        1,
+        1,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "CON"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Ігровий набір",
+    "customEquipment": "Гарний одяг x1\nПерстень-печатка x1\nСвиток з родоводом x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "SORCERER_2014",
+    "subclass": "WILD_MAGIC",
+    "background": "NOBLE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Careful Spell",
+      "Distant Spell",
+      "Empowered Spell"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Bend Luck",
+      "Careful Spell",
+      "Controlled Chaos",
+      "Distant Spell",
+      "Empowered Spell",
+      "Font of Magic",
+      "Metamagic",
+      "Sorcerous Origin",
+      "Spellcasting (Sorcerer)",
+      "Tides of Chaos",
+      "Wild Magic Surge"
+    ],
+    "feats": [],
+    "skills": [
+      "HISTORY:PROFICIENT",
+      "PERSUASION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 17,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 18,
+      "int": 13,
+      "wis": 11,
+      "cha": 13
+    },
+    "hp": {
+      "current": 138,
+      "max": 138
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "25",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        3,
+        3,
+        2,
+        1,
+        1,
+        1,
+        1
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "CON"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Ігровий набір",
+    "customEquipment": "Гарний одяг x1\nПерстень-печатка x1\nСвиток з родоводом x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "SORCERER_2014",
+    "subclass": "WILD_MAGIC",
+    "background": "NOBLE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Careful Spell",
+      "Distant Spell",
+      "Empowered Spell",
+      "Extended Spell"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Bend Luck",
+      "Careful Spell",
+      "Controlled Chaos",
+      "Distant Spell",
+      "Empowered Spell",
+      "Extended Spell",
+      "Font of Magic",
+      "Metamagic",
+      "Sorcerous Origin",
+      "Spellcasting (Sorcerer)",
+      "Tides of Chaos",
+      "Wild Magic Surge"
+    ],
+    "feats": [],
+    "skills": [
+      "HISTORY:PROFICIENT",
+      "PERSUASION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 18,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 18,
+      "int": 13,
+      "wis": 11,
+      "cha": 13
+    },
+    "hp": {
+      "current": 146,
+      "max": 146
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "25",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        3,
+        3,
+        3,
+        1,
+        1,
+        1,
+        1
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "CON"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Ігровий набір",
+    "customEquipment": "Гарний одяг x1\nПерстень-печатка x1\nСвиток з родоводом x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "SORCERER_2014",
+    "subclass": "WILD_MAGIC",
+    "background": "NOBLE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Careful Spell",
+      "Distant Spell",
+      "Empowered Spell",
+      "Extended Spell"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Bend Luck",
+      "Careful Spell",
+      "Controlled Chaos",
+      "Distant Spell",
+      "Empowered Spell",
+      "Extended Spell",
+      "Font of Magic",
+      "Metamagic",
+      "Sorcerous Origin",
+      "Spell Bombardment",
+      "Spellcasting (Sorcerer)",
+      "Tides of Chaos",
+      "Wild Magic Surge"
+    ],
+    "feats": [],
+    "skills": [
+      "HISTORY:PROFICIENT",
+      "PERSUASION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 19,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 19,
+      "int": 13,
+      "wis": 11,
+      "cha": 14
+    },
+    "hp": {
+      "current": 154,
+      "max": 154
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "25",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        3,
+        3,
+        3,
+        2,
+        1,
+        1,
+        1
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "CON"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Ігровий набір",
+    "customEquipment": "Гарний одяг x1\nПерстень-печатка x1\nСвиток з родоводом x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "SORCERER_2014",
+    "subclass": "WILD_MAGIC",
+    "background": "NOBLE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Careful Spell",
+      "Distant Spell",
+      "Empowered Spell",
+      "Extended Spell"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Bend Luck",
+      "Careful Spell",
+      "Controlled Chaos",
+      "Distant Spell",
+      "Empowered Spell",
+      "Extended Spell",
+      "Font of Magic",
+      "Metamagic",
+      "Sorcerous Origin",
+      "Spell Bombardment",
+      "Spellcasting (Sorcerer)",
+      "Tides of Chaos",
+      "Wild Magic Surge"
+    ],
+    "feats": [],
+    "skills": [
+      "HISTORY:PROFICIENT",
+      "PERSUASION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 20,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 19,
+      "int": 13,
+      "wis": 11,
+      "cha": 14
+    },
+    "hp": {
+      "current": 162,
+      "max": 162
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "25",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        3,
+        3,
+        3,
+        2,
+        2,
+        1,
+        1
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "CON"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Ігровий набір",
+    "customEquipment": "Гарний одяг x1\nПерстень-печатка x1\nСвиток з родоводом x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "SORCERER_2014",
+    "subclass": "WILD_MAGIC",
+    "background": "NOBLE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Careful Spell",
+      "Distant Spell",
+      "Empowered Spell",
+      "Extended Spell"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Bend Luck",
+      "Careful Spell",
+      "Controlled Chaos",
+      "Distant Spell",
+      "Empowered Spell",
+      "Extended Spell",
+      "Font of Magic",
+      "Metamagic",
+      "Sorcerous Origin",
+      "Sorcerous Restoration",
+      "Spell Bombardment",
+      "Spellcasting (Sorcerer)",
+      "Tides of Chaos",
+      "Wild Magic Surge"
+    ],
+    "feats": [],
+    "skills": [
+      "HISTORY:PROFICIENT",
+      "PERSUASION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  }
+]

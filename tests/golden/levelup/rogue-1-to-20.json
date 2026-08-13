@@ -1,0 +1,1528 @@
+[
+  {
+    "level": 1,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "15",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "DEX",
+      "INT"
+    ],
+    "customLanguagesKnown": "Загальна\nЗлодійський жаргон\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nІнструменти злодія\nІгровий набір, Інструменти злодія\nПроста зброя",
+    "customEquipment": "Ломик x1\nТемний звичайний одяг з капюшоном x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "ROGUE_2014",
+    "subclass": null,
+    "background": "CRIMINAL",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Expertise",
+      "Sneak Attack",
+      "Thieves' Cant"
+    ],
+    "feats": [],
+    "skills": [
+      "DECEPTION:PROFICIENT",
+      "STEALTH:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 2,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 17,
+      "max": 17
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "15",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "DEX",
+      "INT"
+    ],
+    "customLanguagesKnown": "Загальна\nЗлодійський жаргон\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nІнструменти злодія\nІгровий набір, Інструменти злодія\nПроста зброя",
+    "customEquipment": "Ломик x1\nТемний звичайний одяг з капюшоном x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "ROGUE_2014",
+    "subclass": null,
+    "background": "CRIMINAL",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Cunning Action",
+      "Expertise",
+      "Sneak Attack",
+      "Thieves' Cant"
+    ],
+    "feats": [],
+    "skills": [
+      "DECEPTION:PROFICIENT",
+      "STEALTH:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 3,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 24,
+      "max": 24
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "15",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "DEX",
+      "INT"
+    ],
+    "customLanguagesKnown": "Загальна\nЗлодійський жаргон\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nІнструменти злодія\nІгровий набір, Інструменти злодія\nПроста зброя\nНабір для гриму, Набір отруйника",
+    "customEquipment": "Ломик x1\nТемний звичайний одяг з капюшоном x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "ROGUE_2014",
+    "subclass": "ASSASSIN",
+    "background": "CRIMINAL",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Assassinate",
+      "Bonus Proficiencies (Assassin)",
+      "Cunning Action",
+      "Expertise",
+      "Roguish Archetype",
+      "Sneak Attack",
+      "Thieves' Cant"
+    ],
+    "feats": [],
+    "skills": [
+      "DECEPTION:PROFICIENT",
+      "STEALTH:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 4,
+    "scores": {
+      "str": 16,
+      "dex": 16,
+      "con": 14,
+      "int": 14,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 31,
+      "max": 31
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "15",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "DEX",
+      "INT"
+    ],
+    "customLanguagesKnown": "Загальна\nЗлодійський жаргон\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nІнструменти злодія\nІгровий набір, Інструменти злодія\nПроста зброя\nНабір для гриму, Набір отруйника",
+    "customEquipment": "Ломик x1\nТемний звичайний одяг з капюшоном x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "ROGUE_2014",
+    "subclass": "ASSASSIN",
+    "background": "CRIMINAL",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Assassinate",
+      "Bonus Proficiencies (Assassin)",
+      "Cunning Action",
+      "Expertise",
+      "Roguish Archetype",
+      "Sneak Attack",
+      "Thieves' Cant"
+    ],
+    "feats": [],
+    "skills": [
+      "DECEPTION:PROFICIENT",
+      "STEALTH:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 5,
+    "scores": {
+      "str": 16,
+      "dex": 16,
+      "con": 14,
+      "int": 14,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 38,
+      "max": 38
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "15",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "DEX",
+      "INT"
+    ],
+    "customLanguagesKnown": "Загальна\nЗлодійський жаргон\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nІнструменти злодія\nІгровий набір, Інструменти злодія\nПроста зброя\nНабір для гриму, Набір отруйника",
+    "customEquipment": "Ломик x1\nТемний звичайний одяг з капюшоном x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "ROGUE_2014",
+    "subclass": "ASSASSIN",
+    "background": "CRIMINAL",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Assassinate",
+      "Bonus Proficiencies (Assassin)",
+      "Cunning Action",
+      "Expertise",
+      "Roguish Archetype",
+      "Sneak Attack",
+      "Thieves' Cant",
+      "Uncanny Dodge"
+    ],
+    "feats": [],
+    "skills": [
+      "DECEPTION:PROFICIENT",
+      "STEALTH:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 6,
+    "scores": {
+      "str": 16,
+      "dex": 16,
+      "con": 14,
+      "int": 14,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 45,
+      "max": 45
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "15",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "DEX",
+      "INT"
+    ],
+    "customLanguagesKnown": "Загальна\nЗлодійський жаргон\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nІнструменти злодія\nІгровий набір, Інструменти злодія\nПроста зброя\nНабір для гриму, Набір отруйника",
+    "customEquipment": "Ломик x1\nТемний звичайний одяг з капюшоном x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "ROGUE_2014",
+    "subclass": "ASSASSIN",
+    "background": "CRIMINAL",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Assassinate",
+      "Bonus Proficiencies (Assassin)",
+      "Cunning Action",
+      "Expertise",
+      "Expertise 2",
+      "Roguish Archetype",
+      "Sneak Attack",
+      "Thieves' Cant",
+      "Uncanny Dodge"
+    ],
+    "feats": [],
+    "skills": [
+      "DECEPTION:PROFICIENT",
+      "STEALTH:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 7,
+    "scores": {
+      "str": 16,
+      "dex": 16,
+      "con": 14,
+      "int": 14,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 52,
+      "max": 52
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "15",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "DEX",
+      "INT"
+    ],
+    "customLanguagesKnown": "Загальна\nЗлодійський жаргон\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nІнструменти злодія\nІгровий набір, Інструменти злодія\nПроста зброя\nНабір для гриму, Набір отруйника",
+    "customEquipment": "Ломик x1\nТемний звичайний одяг з капюшоном x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "ROGUE_2014",
+    "subclass": "ASSASSIN",
+    "background": "CRIMINAL",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Assassinate",
+      "Bonus Proficiencies (Assassin)",
+      "Cunning Action",
+      "Evasion",
+      "Expertise",
+      "Expertise 2",
+      "Roguish Archetype",
+      "Sneak Attack",
+      "Thieves' Cant",
+      "Uncanny Dodge"
+    ],
+    "feats": [],
+    "skills": [
+      "DECEPTION:PROFICIENT",
+      "STEALTH:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 8,
+    "scores": {
+      "str": 16,
+      "dex": 17,
+      "con": 14,
+      "int": 15,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 59,
+      "max": 59
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "15",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "DEX",
+      "INT"
+    ],
+    "customLanguagesKnown": "Загальна\nЗлодійський жаргон\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nІнструменти злодія\nІгровий набір, Інструменти злодія\nПроста зброя\nНабір для гриму, Набір отруйника",
+    "customEquipment": "Ломик x1\nТемний звичайний одяг з капюшоном x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "ROGUE_2014",
+    "subclass": "ASSASSIN",
+    "background": "CRIMINAL",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Assassinate",
+      "Bonus Proficiencies (Assassin)",
+      "Cunning Action",
+      "Evasion",
+      "Expertise",
+      "Expertise 2",
+      "Roguish Archetype",
+      "Sneak Attack",
+      "Thieves' Cant",
+      "Uncanny Dodge"
+    ],
+    "feats": [],
+    "skills": [
+      "DECEPTION:PROFICIENT",
+      "STEALTH:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 9,
+    "scores": {
+      "str": 16,
+      "dex": 17,
+      "con": 14,
+      "int": 15,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 66,
+      "max": 66
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "15",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "DEX",
+      "INT"
+    ],
+    "customLanguagesKnown": "Загальна\nЗлодійський жаргон\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nІнструменти злодія\nІгровий набір, Інструменти злодія\nПроста зброя\nНабір для гриму, Набір отруйника",
+    "customEquipment": "Ломик x1\nТемний звичайний одяг з капюшоном x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "ROGUE_2014",
+    "subclass": "ASSASSIN",
+    "background": "CRIMINAL",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Assassinate",
+      "Bonus Proficiencies (Assassin)",
+      "Cunning Action",
+      "Evasion",
+      "Expertise",
+      "Expertise 2",
+      "Infiltration Expertise",
+      "Roguish Archetype",
+      "Sneak Attack",
+      "Thieves' Cant",
+      "Uncanny Dodge"
+    ],
+    "feats": [],
+    "skills": [
+      "DECEPTION:PROFICIENT",
+      "STEALTH:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 10,
+    "scores": {
+      "str": 16,
+      "dex": 18,
+      "con": 14,
+      "int": 16,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 73,
+      "max": 73
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "15",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "DEX",
+      "INT"
+    ],
+    "customLanguagesKnown": "Загальна\nЗлодійський жаргон\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nІнструменти злодія\nІгровий набір, Інструменти злодія\nПроста зброя\nНабір для гриму, Набір отруйника",
+    "customEquipment": "Ломик x1\nТемний звичайний одяг з капюшоном x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "ROGUE_2014",
+    "subclass": "ASSASSIN",
+    "background": "CRIMINAL",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Assassinate",
+      "Bonus Proficiencies (Assassin)",
+      "Cunning Action",
+      "Evasion",
+      "Expertise",
+      "Expertise 2",
+      "Infiltration Expertise",
+      "Roguish Archetype",
+      "Sneak Attack",
+      "Thieves' Cant",
+      "Uncanny Dodge"
+    ],
+    "feats": [],
+    "skills": [
+      "DECEPTION:PROFICIENT",
+      "STEALTH:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 11,
+    "scores": {
+      "str": 16,
+      "dex": 18,
+      "con": 14,
+      "int": 16,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 80,
+      "max": 80
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "15",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "DEX",
+      "INT"
+    ],
+    "customLanguagesKnown": "Загальна\nЗлодійський жаргон\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nІнструменти злодія\nІгровий набір, Інструменти злодія\nПроста зброя\nНабір для гриму, Набір отруйника",
+    "customEquipment": "Ломик x1\nТемний звичайний одяг з капюшоном x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "ROGUE_2014",
+    "subclass": "ASSASSIN",
+    "background": "CRIMINAL",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Assassinate",
+      "Bonus Proficiencies (Assassin)",
+      "Cunning Action",
+      "Evasion",
+      "Expertise",
+      "Expertise 2",
+      "Infiltration Expertise",
+      "Reliable Talent",
+      "Roguish Archetype",
+      "Sneak Attack",
+      "Thieves' Cant",
+      "Uncanny Dodge"
+    ],
+    "feats": [],
+    "skills": [
+      "DECEPTION:PROFICIENT",
+      "STEALTH:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 12,
+    "scores": {
+      "str": 16,
+      "dex": 19,
+      "con": 14,
+      "int": 17,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 87,
+      "max": 87
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "15",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "DEX",
+      "INT"
+    ],
+    "customLanguagesKnown": "Загальна\nЗлодійський жаргон\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nІнструменти злодія\nІгровий набір, Інструменти злодія\nПроста зброя\nНабір для гриму, Набір отруйника",
+    "customEquipment": "Ломик x1\nТемний звичайний одяг з капюшоном x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "ROGUE_2014",
+    "subclass": "ASSASSIN",
+    "background": "CRIMINAL",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Assassinate",
+      "Bonus Proficiencies (Assassin)",
+      "Cunning Action",
+      "Evasion",
+      "Expertise",
+      "Expertise 2",
+      "Infiltration Expertise",
+      "Reliable Talent",
+      "Roguish Archetype",
+      "Sneak Attack",
+      "Thieves' Cant",
+      "Uncanny Dodge"
+    ],
+    "feats": [],
+    "skills": [
+      "DECEPTION:PROFICIENT",
+      "STEALTH:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 13,
+    "scores": {
+      "str": 16,
+      "dex": 19,
+      "con": 14,
+      "int": 17,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 94,
+      "max": 94
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "15",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "DEX",
+      "INT"
+    ],
+    "customLanguagesKnown": "Загальна\nЗлодійський жаргон\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nІнструменти злодія\nІгровий набір, Інструменти злодія\nПроста зброя\nНабір для гриму, Набір отруйника",
+    "customEquipment": "Ломик x1\nТемний звичайний одяг з капюшоном x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "ROGUE_2014",
+    "subclass": "ASSASSIN",
+    "background": "CRIMINAL",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Assassinate",
+      "Bonus Proficiencies (Assassin)",
+      "Cunning Action",
+      "Evasion",
+      "Expertise",
+      "Expertise 2",
+      "Impostor",
+      "Infiltration Expertise",
+      "Reliable Talent",
+      "Roguish Archetype",
+      "Sneak Attack",
+      "Thieves' Cant",
+      "Uncanny Dodge"
+    ],
+    "feats": [],
+    "skills": [
+      "DECEPTION:PROFICIENT",
+      "STEALTH:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 14,
+    "scores": {
+      "str": 16,
+      "dex": 19,
+      "con": 14,
+      "int": 17,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 101,
+      "max": 101
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "15",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "DEX",
+      "INT"
+    ],
+    "customLanguagesKnown": "Загальна\nЗлодійський жаргон\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nІнструменти злодія\nІгровий набір, Інструменти злодія\nПроста зброя\nНабір для гриму, Набір отруйника",
+    "customEquipment": "Ломик x1\nТемний звичайний одяг з капюшоном x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "ROGUE_2014",
+    "subclass": "ASSASSIN",
+    "background": "CRIMINAL",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Assassinate",
+      "Blindsense",
+      "Bonus Proficiencies (Assassin)",
+      "Cunning Action",
+      "Evasion",
+      "Expertise",
+      "Expertise 2",
+      "Impostor",
+      "Infiltration Expertise",
+      "Reliable Talent",
+      "Roguish Archetype",
+      "Sneak Attack",
+      "Thieves' Cant",
+      "Uncanny Dodge"
+    ],
+    "feats": [],
+    "skills": [
+      "DECEPTION:PROFICIENT",
+      "STEALTH:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 15,
+    "scores": {
+      "str": 16,
+      "dex": 19,
+      "con": 14,
+      "int": 17,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 108,
+      "max": 108
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "15",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "DEX",
+      "INT"
+    ],
+    "customLanguagesKnown": "Загальна\nЗлодійський жаргон\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nІнструменти злодія\nІгровий набір, Інструменти злодія\nПроста зброя\nНабір для гриму, Набір отруйника",
+    "customEquipment": "Ломик x1\nТемний звичайний одяг з капюшоном x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "ROGUE_2014",
+    "subclass": "ASSASSIN",
+    "background": "CRIMINAL",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Assassinate",
+      "Blindsense",
+      "Bonus Proficiencies (Assassin)",
+      "Cunning Action",
+      "Evasion",
+      "Expertise",
+      "Expertise 2",
+      "Impostor",
+      "Infiltration Expertise",
+      "Reliable Talent",
+      "Roguish Archetype",
+      "Slippery Mind",
+      "Sneak Attack",
+      "Thieves' Cant",
+      "Uncanny Dodge"
+    ],
+    "feats": [],
+    "skills": [
+      "DECEPTION:PROFICIENT",
+      "STEALTH:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 16,
+    "scores": {
+      "str": 16,
+      "dex": 20,
+      "con": 14,
+      "int": 18,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 115,
+      "max": 115
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "15",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "DEX",
+      "INT"
+    ],
+    "customLanguagesKnown": "Загальна\nЗлодійський жаргон\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nІнструменти злодія\nІгровий набір, Інструменти злодія\nПроста зброя\nНабір для гриму, Набір отруйника",
+    "customEquipment": "Ломик x1\nТемний звичайний одяг з капюшоном x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "ROGUE_2014",
+    "subclass": "ASSASSIN",
+    "background": "CRIMINAL",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Assassinate",
+      "Blindsense",
+      "Bonus Proficiencies (Assassin)",
+      "Cunning Action",
+      "Evasion",
+      "Expertise",
+      "Expertise 2",
+      "Impostor",
+      "Infiltration Expertise",
+      "Reliable Talent",
+      "Roguish Archetype",
+      "Slippery Mind",
+      "Sneak Attack",
+      "Thieves' Cant",
+      "Uncanny Dodge"
+    ],
+    "feats": [],
+    "skills": [
+      "DECEPTION:PROFICIENT",
+      "STEALTH:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 17,
+    "scores": {
+      "str": 16,
+      "dex": 20,
+      "con": 14,
+      "int": 18,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 122,
+      "max": 122
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "15",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "DEX",
+      "INT"
+    ],
+    "customLanguagesKnown": "Загальна\nЗлодійський жаргон\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nІнструменти злодія\nІгровий набір, Інструменти злодія\nПроста зброя\nНабір для гриму, Набір отруйника",
+    "customEquipment": "Ломик x1\nТемний звичайний одяг з капюшоном x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "ROGUE_2014",
+    "subclass": "ASSASSIN",
+    "background": "CRIMINAL",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Assassinate",
+      "Blindsense",
+      "Bonus Proficiencies (Assassin)",
+      "Cunning Action",
+      "Death Strike",
+      "Evasion",
+      "Expertise",
+      "Expertise 2",
+      "Impostor",
+      "Infiltration Expertise",
+      "Reliable Talent",
+      "Roguish Archetype",
+      "Slippery Mind",
+      "Sneak Attack",
+      "Thieves' Cant",
+      "Uncanny Dodge"
+    ],
+    "feats": [],
+    "skills": [
+      "DECEPTION:PROFICIENT",
+      "STEALTH:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 18,
+    "scores": {
+      "str": 16,
+      "dex": 20,
+      "con": 14,
+      "int": 18,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 129,
+      "max": 129
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "15",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "DEX",
+      "INT"
+    ],
+    "customLanguagesKnown": "Загальна\nЗлодійський жаргон\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nІнструменти злодія\nІгровий набір, Інструменти злодія\nПроста зброя\nНабір для гриму, Набір отруйника",
+    "customEquipment": "Ломик x1\nТемний звичайний одяг з капюшоном x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "ROGUE_2014",
+    "subclass": "ASSASSIN",
+    "background": "CRIMINAL",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Assassinate",
+      "Blindsense",
+      "Bonus Proficiencies (Assassin)",
+      "Cunning Action",
+      "Death Strike",
+      "Elusive",
+      "Evasion",
+      "Expertise",
+      "Expertise 2",
+      "Impostor",
+      "Infiltration Expertise",
+      "Reliable Talent",
+      "Roguish Archetype",
+      "Slippery Mind",
+      "Sneak Attack",
+      "Thieves' Cant",
+      "Uncanny Dodge"
+    ],
+    "feats": [],
+    "skills": [
+      "DECEPTION:PROFICIENT",
+      "STEALTH:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 19,
+    "scores": {
+      "str": 16,
+      "dex": 20,
+      "con": 14,
+      "int": 19,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 136,
+      "max": 136
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "15",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "DEX",
+      "INT"
+    ],
+    "customLanguagesKnown": "Загальна\nЗлодійський жаргон\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nІнструменти злодія\nІгровий набір, Інструменти злодія\nПроста зброя\nНабір для гриму, Набір отруйника",
+    "customEquipment": "Ломик x1\nТемний звичайний одяг з капюшоном x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "ROGUE_2014",
+    "subclass": "ASSASSIN",
+    "background": "CRIMINAL",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Assassinate",
+      "Blindsense",
+      "Bonus Proficiencies (Assassin)",
+      "Cunning Action",
+      "Death Strike",
+      "Elusive",
+      "Evasion",
+      "Expertise",
+      "Expertise 2",
+      "Impostor",
+      "Infiltration Expertise",
+      "Reliable Talent",
+      "Roguish Archetype",
+      "Slippery Mind",
+      "Sneak Attack",
+      "Thieves' Cant",
+      "Uncanny Dodge"
+    ],
+    "feats": [],
+    "skills": [
+      "DECEPTION:PROFICIENT",
+      "STEALTH:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 20,
+    "scores": {
+      "str": 16,
+      "dex": 20,
+      "con": 14,
+      "int": 19,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 143,
+      "max": 143
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "15",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "DEX",
+      "INT"
+    ],
+    "customLanguagesKnown": "Загальна\nЗлодійський жаргон\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nІнструменти злодія\nІгровий набір, Інструменти злодія\nПроста зброя\nНабір для гриму, Набір отруйника",
+    "customEquipment": "Ломик x1\nТемний звичайний одяг з капюшоном x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "ROGUE_2014",
+    "subclass": "ASSASSIN",
+    "background": "CRIMINAL",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Assassinate",
+      "Blindsense",
+      "Bonus Proficiencies (Assassin)",
+      "Cunning Action",
+      "Death Strike",
+      "Elusive",
+      "Evasion",
+      "Expertise",
+      "Expertise 2",
+      "Impostor",
+      "Infiltration Expertise",
+      "Reliable Talent",
+      "Roguish Archetype",
+      "Slippery Mind",
+      "Sneak Attack",
+      "Stroke of Luck",
+      "Thieves' Cant",
+      "Uncanny Dodge"
+    ],
+    "feats": [],
+    "skills": [
+      "DECEPTION:PROFICIENT",
+      "STEALTH:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  }
+]

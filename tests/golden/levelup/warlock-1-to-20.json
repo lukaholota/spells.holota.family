@@ -1,0 +1,1692 @@
+[
+  {
+    "level": 1,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "5",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 1
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nНабір травника\nПроста зброя",
+    "customEquipment": "Футляр для свитків з нотатками x1\nЗимова ковдра x1\nЗвичайний одяг x1\nНабір травника x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WARLOCK_2014",
+    "subclass": "FIEND",
+    "background": "HERMIT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Dark One’s Blessing",
+      "Expanded Spell List (Fiend)",
+      "Pact Magic"
+    ],
+    "feats": [],
+    "skills": [
+      "MEDICINE:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 2,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 17,
+      "max": 17
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "5",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 2
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nНабір травника\nПроста зброя",
+    "customEquipment": "Футляр для свитків з нотатками x1\nЗимова ковдра x1\nЗвичайний одяг x1\nНабір травника x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WARLOCK_2014",
+    "subclass": "FIEND",
+    "background": "HERMIT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Agonizing Blast",
+      "Armor of Shadows"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Agonizing Blast",
+      "Armor of Shadows",
+      "Dark One’s Blessing",
+      "Eldritch Invocations",
+      "Expanded Spell List (Fiend)",
+      "Pact Magic"
+    ],
+    "feats": [],
+    "skills": [
+      "MEDICINE:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 3,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 24,
+      "max": 24
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "5",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 2
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nНабір травника\nПроста зброя",
+    "customEquipment": "Футляр для свитків з нотатками x1\nЗимова ковдра x1\nЗвичайний одяг x1\nНабір травника x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WARLOCK_2014",
+    "subclass": "FIEND",
+    "background": "HERMIT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Pact of the Tome",
+      "Agonizing Blast",
+      "Armor of Shadows"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Agonizing Blast",
+      "Armor of Shadows",
+      "Dark One’s Blessing",
+      "Eldritch Invocations",
+      "Expanded Spell List (Fiend)",
+      "Pact Boon",
+      "Pact Magic",
+      "Pact of the Tome"
+    ],
+    "feats": [],
+    "skills": [
+      "MEDICINE:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 4,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 15,
+      "int": 13,
+      "wis": 11,
+      "cha": 10
+    },
+    "hp": {
+      "current": 31,
+      "max": 31
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "5",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 2
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nНабір травника\nПроста зброя",
+    "customEquipment": "Футляр для свитків з нотатками x1\nЗимова ковдра x1\nЗвичайний одяг x1\nНабір травника x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WARLOCK_2014",
+    "subclass": "FIEND",
+    "background": "HERMIT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Pact of the Tome",
+      "Agonizing Blast",
+      "Armor of Shadows"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Agonizing Blast",
+      "Armor of Shadows",
+      "Dark One’s Blessing",
+      "Eldritch Invocations",
+      "Expanded Spell List (Fiend)",
+      "Pact Boon",
+      "Pact Magic",
+      "Pact of the Tome"
+    ],
+    "feats": [],
+    "skills": [
+      "MEDICINE:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 5,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 15,
+      "int": 13,
+      "wis": 11,
+      "cha": 10
+    },
+    "hp": {
+      "current": 38,
+      "max": 38
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "5",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 2
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nНабір травника\nПроста зброя",
+    "customEquipment": "Футляр для свитків з нотатками x1\nЗимова ковдра x1\nЗвичайний одяг x1\nНабір травника x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WARLOCK_2014",
+    "subclass": "FIEND",
+    "background": "HERMIT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Pact of the Tome",
+      "Agonizing Blast",
+      "Armor of Shadows",
+      "Beguiling Influence"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Agonizing Blast",
+      "Armor of Shadows",
+      "Beguiling Influence",
+      "Dark One’s Blessing",
+      "Eldritch Invocations",
+      "Expanded Spell List (Fiend)",
+      "Pact Boon",
+      "Pact Magic",
+      "Pact of the Tome"
+    ],
+    "feats": [],
+    "skills": [
+      "MEDICINE:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 6,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 15,
+      "int": 13,
+      "wis": 11,
+      "cha": 10
+    },
+    "hp": {
+      "current": 45,
+      "max": 45
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "5",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 2
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nНабір травника\nПроста зброя",
+    "customEquipment": "Футляр для свитків з нотатками x1\nЗимова ковдра x1\nЗвичайний одяг x1\nНабір травника x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WARLOCK_2014",
+    "subclass": "FIEND",
+    "background": "HERMIT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Pact of the Tome",
+      "Agonizing Blast",
+      "Armor of Shadows",
+      "Beguiling Influence"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Agonizing Blast",
+      "Armor of Shadows",
+      "Beguiling Influence",
+      "Dark One’s Blessing",
+      "Dark One’s Own Luck",
+      "Eldritch Invocations",
+      "Expanded Spell List (Fiend)",
+      "Pact Boon",
+      "Pact Magic",
+      "Pact of the Tome"
+    ],
+    "feats": [],
+    "skills": [
+      "MEDICINE:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 7,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 15,
+      "int": 13,
+      "wis": 11,
+      "cha": 10
+    },
+    "hp": {
+      "current": 52,
+      "max": 52
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "5",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 2
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nНабір травника\nПроста зброя",
+    "customEquipment": "Футляр для свитків з нотатками x1\nЗимова ковдра x1\nЗвичайний одяг x1\nНабір травника x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WARLOCK_2014",
+    "subclass": "FIEND",
+    "background": "HERMIT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Pact of the Tome",
+      "Agonizing Blast",
+      "Armor of Shadows",
+      "Beguiling Influence",
+      "Beast Speech"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Agonizing Blast",
+      "Armor of Shadows",
+      "Beast Speech",
+      "Beguiling Influence",
+      "Dark One’s Blessing",
+      "Dark One’s Own Luck",
+      "Eldritch Invocations",
+      "Expanded Spell List (Fiend)",
+      "Pact Boon",
+      "Pact Magic",
+      "Pact of the Tome"
+    ],
+    "feats": [],
+    "skills": [
+      "MEDICINE:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 8,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 16,
+      "int": 13,
+      "wis": 11,
+      "cha": 11
+    },
+    "hp": {
+      "current": 67,
+      "max": 67
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "5",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 2
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nНабір травника\nПроста зброя",
+    "customEquipment": "Футляр для свитків з нотатками x1\nЗимова ковдра x1\nЗвичайний одяг x1\nНабір травника x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WARLOCK_2014",
+    "subclass": "FIEND",
+    "background": "HERMIT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Pact of the Tome",
+      "Agonizing Blast",
+      "Armor of Shadows",
+      "Beguiling Influence",
+      "Beast Speech"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Agonizing Blast",
+      "Armor of Shadows",
+      "Beast Speech",
+      "Beguiling Influence",
+      "Dark One’s Blessing",
+      "Dark One’s Own Luck",
+      "Eldritch Invocations",
+      "Expanded Spell List (Fiend)",
+      "Pact Boon",
+      "Pact Magic",
+      "Pact of the Tome"
+    ],
+    "feats": [],
+    "skills": [
+      "MEDICINE:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 9,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 16,
+      "int": 13,
+      "wis": 11,
+      "cha": 11
+    },
+    "hp": {
+      "current": 75,
+      "max": 75
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "5",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 2
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nНабір травника\nПроста зброя",
+    "customEquipment": "Футляр для свитків з нотатками x1\nЗимова ковдра x1\nЗвичайний одяг x1\nНабір травника x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WARLOCK_2014",
+    "subclass": "FIEND",
+    "background": "HERMIT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Pact of the Tome",
+      "Agonizing Blast",
+      "Armor of Shadows",
+      "Beguiling Influence",
+      "Beast Speech",
+      "Devil's Sight"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Agonizing Blast",
+      "Armor of Shadows",
+      "Beast Speech",
+      "Beguiling Influence",
+      "Dark One’s Blessing",
+      "Dark One’s Own Luck",
+      "Devil's Sight",
+      "Eldritch Invocations",
+      "Expanded Spell List (Fiend)",
+      "Pact Boon",
+      "Pact Magic",
+      "Pact of the Tome"
+    ],
+    "feats": [],
+    "skills": [
+      "MEDICINE:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 10,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 16,
+      "int": 13,
+      "wis": 11,
+      "cha": 11
+    },
+    "hp": {
+      "current": 83,
+      "max": 83
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "5",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 2
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nНабір травника\nПроста зброя",
+    "customEquipment": "Футляр для свитків з нотатками x1\nЗимова ковдра x1\nЗвичайний одяг x1\nНабір травника x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WARLOCK_2014",
+    "subclass": "FIEND",
+    "background": "HERMIT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Pact of the Tome",
+      "Agonizing Blast",
+      "Armor of Shadows",
+      "Beguiling Influence",
+      "Beast Speech",
+      "Devil's Sight"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Agonizing Blast",
+      "Armor of Shadows",
+      "Beast Speech",
+      "Beguiling Influence",
+      "Dark One’s Blessing",
+      "Dark One’s Own Luck",
+      "Devil's Sight",
+      "Eldritch Invocations",
+      "Expanded Spell List (Fiend)",
+      "Fiendish Resilience",
+      "Pact Boon",
+      "Pact Magic",
+      "Pact of the Tome"
+    ],
+    "feats": [],
+    "skills": [
+      "MEDICINE:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 11,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 16,
+      "int": 13,
+      "wis": 11,
+      "cha": 11
+    },
+    "hp": {
+      "current": 91,
+      "max": 91
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "5",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 3
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nНабір травника\nПроста зброя",
+    "customEquipment": "Футляр для свитків з нотатками x1\nЗимова ковдра x1\nЗвичайний одяг x1\nНабір травника x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WARLOCK_2014",
+    "subclass": "FIEND",
+    "background": "HERMIT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Pact of the Tome",
+      "Agonizing Blast",
+      "Armor of Shadows",
+      "Beguiling Influence",
+      "Beast Speech",
+      "Devil's Sight"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Agonizing Blast",
+      "Armor of Shadows",
+      "Beast Speech",
+      "Beguiling Influence",
+      "Dark One’s Blessing",
+      "Dark One’s Own Luck",
+      "Devil's Sight",
+      "Eldritch Invocations",
+      "Expanded Spell List (Fiend)",
+      "Fiendish Resilience",
+      "Mystic Arcanum (6th level)",
+      "Pact Boon",
+      "Pact Magic",
+      "Pact of the Tome"
+    ],
+    "feats": [],
+    "skills": [
+      "MEDICINE:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 12,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 17,
+      "int": 13,
+      "wis": 11,
+      "cha": 12
+    },
+    "hp": {
+      "current": 99,
+      "max": 99
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "5",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 3
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nНабір травника\nПроста зброя",
+    "customEquipment": "Футляр для свитків з нотатками x1\nЗимова ковдра x1\nЗвичайний одяг x1\nНабір травника x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WARLOCK_2014",
+    "subclass": "FIEND",
+    "background": "HERMIT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Pact of the Tome",
+      "Agonizing Blast",
+      "Armor of Shadows",
+      "Beguiling Influence",
+      "Beast Speech",
+      "Devil's Sight",
+      "Eldritch Sight"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Agonizing Blast",
+      "Armor of Shadows",
+      "Beast Speech",
+      "Beguiling Influence",
+      "Dark One’s Blessing",
+      "Dark One’s Own Luck",
+      "Devil's Sight",
+      "Eldritch Invocations",
+      "Eldritch Sight",
+      "Expanded Spell List (Fiend)",
+      "Fiendish Resilience",
+      "Mystic Arcanum (6th level)",
+      "Pact Boon",
+      "Pact Magic",
+      "Pact of the Tome"
+    ],
+    "feats": [],
+    "skills": [
+      "MEDICINE:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 13,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 17,
+      "int": 13,
+      "wis": 11,
+      "cha": 12
+    },
+    "hp": {
+      "current": 107,
+      "max": 107
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "5",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 3
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nНабір травника\nПроста зброя",
+    "customEquipment": "Футляр для свитків з нотатками x1\nЗимова ковдра x1\nЗвичайний одяг x1\nНабір травника x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WARLOCK_2014",
+    "subclass": "FIEND",
+    "background": "HERMIT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Pact of the Tome",
+      "Agonizing Blast",
+      "Armor of Shadows",
+      "Beguiling Influence",
+      "Beast Speech",
+      "Devil's Sight",
+      "Eldritch Sight"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Agonizing Blast",
+      "Armor of Shadows",
+      "Beast Speech",
+      "Beguiling Influence",
+      "Dark One’s Blessing",
+      "Dark One’s Own Luck",
+      "Devil's Sight",
+      "Eldritch Invocations",
+      "Eldritch Sight",
+      "Expanded Spell List (Fiend)",
+      "Fiendish Resilience",
+      "Mystic Arcanum (6th level)",
+      "Mystic Arcanum (7th level)",
+      "Pact Boon",
+      "Pact Magic",
+      "Pact of the Tome"
+    ],
+    "feats": [],
+    "skills": [
+      "MEDICINE:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 14,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 17,
+      "int": 13,
+      "wis": 11,
+      "cha": 12
+    },
+    "hp": {
+      "current": 115,
+      "max": 115
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "5",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 3
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nНабір травника\nПроста зброя",
+    "customEquipment": "Футляр для свитків з нотатками x1\nЗимова ковдра x1\nЗвичайний одяг x1\nНабір травника x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WARLOCK_2014",
+    "subclass": "FIEND",
+    "background": "HERMIT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Pact of the Tome",
+      "Agonizing Blast",
+      "Armor of Shadows",
+      "Beguiling Influence",
+      "Beast Speech",
+      "Devil's Sight",
+      "Eldritch Sight"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Agonizing Blast",
+      "Armor of Shadows",
+      "Beast Speech",
+      "Beguiling Influence",
+      "Dark One’s Blessing",
+      "Dark One’s Own Luck",
+      "Devil's Sight",
+      "Eldritch Invocations",
+      "Eldritch Sight",
+      "Expanded Spell List (Fiend)",
+      "Fiendish Resilience",
+      "Hurl Through Hell",
+      "Mystic Arcanum (6th level)",
+      "Mystic Arcanum (7th level)",
+      "Pact Boon",
+      "Pact Magic",
+      "Pact of the Tome"
+    ],
+    "feats": [],
+    "skills": [
+      "MEDICINE:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 15,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 17,
+      "int": 13,
+      "wis": 11,
+      "cha": 12
+    },
+    "hp": {
+      "current": 123,
+      "max": 123
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "5",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 3
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nНабір травника\nПроста зброя",
+    "customEquipment": "Футляр для свитків з нотатками x1\nЗимова ковдра x1\nЗвичайний одяг x1\nНабір травника x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WARLOCK_2014",
+    "subclass": "FIEND",
+    "background": "HERMIT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Pact of the Tome",
+      "Agonizing Blast",
+      "Armor of Shadows",
+      "Beguiling Influence",
+      "Beast Speech",
+      "Devil's Sight",
+      "Eldritch Sight",
+      "Eldritch Mind"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Agonizing Blast",
+      "Armor of Shadows",
+      "Beast Speech",
+      "Beguiling Influence",
+      "Dark One’s Blessing",
+      "Dark One’s Own Luck",
+      "Devil's Sight",
+      "Eldritch Invocations",
+      "Eldritch Mind",
+      "Eldritch Sight",
+      "Expanded Spell List (Fiend)",
+      "Fiendish Resilience",
+      "Hurl Through Hell",
+      "Mystic Arcanum (6th level)",
+      "Mystic Arcanum (7th level)",
+      "Mystic Arcanum (8th level)",
+      "Pact Boon",
+      "Pact Magic",
+      "Pact of the Tome"
+    ],
+    "feats": [],
+    "skills": [
+      "MEDICINE:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 16,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 18,
+      "int": 13,
+      "wis": 11,
+      "cha": 13
+    },
+    "hp": {
+      "current": 147,
+      "max": 147
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "5",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 3
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nНабір травника\nПроста зброя",
+    "customEquipment": "Футляр для свитків з нотатками x1\nЗимова ковдра x1\nЗвичайний одяг x1\nНабір травника x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WARLOCK_2014",
+    "subclass": "FIEND",
+    "background": "HERMIT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Pact of the Tome",
+      "Agonizing Blast",
+      "Armor of Shadows",
+      "Beguiling Influence",
+      "Beast Speech",
+      "Devil's Sight",
+      "Eldritch Sight",
+      "Eldritch Mind"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Agonizing Blast",
+      "Armor of Shadows",
+      "Beast Speech",
+      "Beguiling Influence",
+      "Dark One’s Blessing",
+      "Dark One’s Own Luck",
+      "Devil's Sight",
+      "Eldritch Invocations",
+      "Eldritch Mind",
+      "Eldritch Sight",
+      "Expanded Spell List (Fiend)",
+      "Fiendish Resilience",
+      "Hurl Through Hell",
+      "Mystic Arcanum (6th level)",
+      "Mystic Arcanum (7th level)",
+      "Mystic Arcanum (8th level)",
+      "Pact Boon",
+      "Pact Magic",
+      "Pact of the Tome"
+    ],
+    "feats": [],
+    "skills": [
+      "MEDICINE:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 17,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 18,
+      "int": 13,
+      "wis": 11,
+      "cha": 13
+    },
+    "hp": {
+      "current": 156,
+      "max": 156
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "5",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 4
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nНабір травника\nПроста зброя",
+    "customEquipment": "Футляр для свитків з нотатками x1\nЗимова ковдра x1\nЗвичайний одяг x1\nНабір травника x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WARLOCK_2014",
+    "subclass": "FIEND",
+    "background": "HERMIT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Pact of the Tome",
+      "Agonizing Blast",
+      "Armor of Shadows",
+      "Beguiling Influence",
+      "Beast Speech",
+      "Devil's Sight",
+      "Eldritch Sight",
+      "Eldritch Mind"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Agonizing Blast",
+      "Armor of Shadows",
+      "Beast Speech",
+      "Beguiling Influence",
+      "Dark One’s Blessing",
+      "Dark One’s Own Luck",
+      "Devil's Sight",
+      "Eldritch Invocations",
+      "Eldritch Mind",
+      "Eldritch Sight",
+      "Expanded Spell List (Fiend)",
+      "Fiendish Resilience",
+      "Hurl Through Hell",
+      "Mystic Arcanum (6th level)",
+      "Mystic Arcanum (7th level)",
+      "Mystic Arcanum (8th level)",
+      "Mystic Arcanum (9th level)",
+      "Pact Boon",
+      "Pact Magic",
+      "Pact of the Tome"
+    ],
+    "feats": [],
+    "skills": [
+      "MEDICINE:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 18,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 18,
+      "int": 13,
+      "wis": 11,
+      "cha": 13
+    },
+    "hp": {
+      "current": 165,
+      "max": 165
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "5",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 4
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nНабір травника\nПроста зброя",
+    "customEquipment": "Футляр для свитків з нотатками x1\nЗимова ковдра x1\nЗвичайний одяг x1\nНабір травника x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WARLOCK_2014",
+    "subclass": "FIEND",
+    "background": "HERMIT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Pact of the Tome",
+      "Agonizing Blast",
+      "Armor of Shadows",
+      "Beguiling Influence",
+      "Beast Speech",
+      "Devil's Sight",
+      "Eldritch Sight",
+      "Eldritch Mind",
+      "Eldritch Spear"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Agonizing Blast",
+      "Armor of Shadows",
+      "Beast Speech",
+      "Beguiling Influence",
+      "Dark One’s Blessing",
+      "Dark One’s Own Luck",
+      "Devil's Sight",
+      "Eldritch Invocations",
+      "Eldritch Mind",
+      "Eldritch Sight",
+      "Eldritch Spear",
+      "Expanded Spell List (Fiend)",
+      "Fiendish Resilience",
+      "Hurl Through Hell",
+      "Mystic Arcanum (6th level)",
+      "Mystic Arcanum (7th level)",
+      "Mystic Arcanum (8th level)",
+      "Mystic Arcanum (9th level)",
+      "Pact Boon",
+      "Pact Magic",
+      "Pact of the Tome"
+    ],
+    "feats": [],
+    "skills": [
+      "MEDICINE:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 19,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 19,
+      "int": 13,
+      "wis": 11,
+      "cha": 14
+    },
+    "hp": {
+      "current": 174,
+      "max": 174
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "5",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 4
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nНабір травника\nПроста зброя",
+    "customEquipment": "Футляр для свитків з нотатками x1\nЗимова ковдра x1\nЗвичайний одяг x1\nНабір травника x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WARLOCK_2014",
+    "subclass": "FIEND",
+    "background": "HERMIT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Pact of the Tome",
+      "Agonizing Blast",
+      "Armor of Shadows",
+      "Beguiling Influence",
+      "Beast Speech",
+      "Devil's Sight",
+      "Eldritch Sight",
+      "Eldritch Mind",
+      "Eldritch Spear"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Agonizing Blast",
+      "Armor of Shadows",
+      "Beast Speech",
+      "Beguiling Influence",
+      "Dark One’s Blessing",
+      "Dark One’s Own Luck",
+      "Devil's Sight",
+      "Eldritch Invocations",
+      "Eldritch Mind",
+      "Eldritch Sight",
+      "Eldritch Spear",
+      "Expanded Spell List (Fiend)",
+      "Fiendish Resilience",
+      "Hurl Through Hell",
+      "Mystic Arcanum (6th level)",
+      "Mystic Arcanum (7th level)",
+      "Mystic Arcanum (8th level)",
+      "Mystic Arcanum (9th level)",
+      "Pact Boon",
+      "Pact Magic",
+      "Pact of the Tome"
+    ],
+    "feats": [],
+    "skills": [
+      "MEDICINE:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 20,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 19,
+      "int": 13,
+      "wis": 11,
+      "cha": 14
+    },
+    "hp": {
+      "current": 183,
+      "max": 183
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "5",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 4
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nНабір травника\nПроста зброя",
+    "customEquipment": "Футляр для свитків з нотатками x1\nЗимова ковдра x1\nЗвичайний одяг x1\nНабір травника x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WARLOCK_2014",
+    "subclass": "FIEND",
+    "background": "HERMIT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Pact of the Tome",
+      "Agonizing Blast",
+      "Armor of Shadows",
+      "Beguiling Influence",
+      "Beast Speech",
+      "Devil's Sight",
+      "Eldritch Sight",
+      "Eldritch Mind",
+      "Eldritch Spear"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Agonizing Blast",
+      "Armor of Shadows",
+      "Beast Speech",
+      "Beguiling Influence",
+      "Dark One’s Blessing",
+      "Dark One’s Own Luck",
+      "Devil's Sight",
+      "Eldritch Invocations",
+      "Eldritch Master",
+      "Eldritch Mind",
+      "Eldritch Sight",
+      "Eldritch Spear",
+      "Expanded Spell List (Fiend)",
+      "Fiendish Resilience",
+      "Hurl Through Hell",
+      "Mystic Arcanum (6th level)",
+      "Mystic Arcanum (7th level)",
+      "Mystic Arcanum (8th level)",
+      "Mystic Arcanum (9th level)",
+      "Pact Boon",
+      "Pact Magic",
+      "Pact of the Tome"
+    ],
+    "feats": [],
+    "skills": [
+      "MEDICINE:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  }
+]

@@ -1,0 +1,1584 @@
+[
+  {
+    "level": 1,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 14,
+      "max": 14
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CON",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nМузичний інструмент\nПроста зброя, Бойова зброя",
+    "customEquipment": "Посох x1\nМисливська пастка x1\nТрофей від убитої тварини x1\nДорожній одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "BARBARIAN_2014",
+    "subclass": null,
+    "background": "OUTLANDER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Rage",
+      "Unarmored Defense",
+      "Unarmored Defense (Barbarian)"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "SURVIVAL:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [
+      "UNARMORED_DEFENSE_BARBARIAN*"
+    ],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 2,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 23,
+      "max": 23
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CON",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nМузичний інструмент\nПроста зброя, Бойова зброя",
+    "customEquipment": "Посох x1\nМисливська пастка x1\nТрофей від убитої тварини x1\nДорожній одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "BARBARIAN_2014",
+    "subclass": null,
+    "background": "OUTLANDER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Danger Sense",
+      "Rage",
+      "Reckless Attack",
+      "Unarmored Defense",
+      "Unarmored Defense (Barbarian)"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "SURVIVAL:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [
+      "UNARMORED_DEFENSE_BARBARIAN*"
+    ],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 3,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 32,
+      "max": 32
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CON",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nМузичний інструмент\nПроста зброя, Бойова зброя",
+    "customEquipment": "Посох x1\nМисливська пастка x1\nТрофей від убитої тварини x1\nДорожній одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "BARBARIAN_2014",
+    "subclass": "PATH_OF_THE_ANCESTRAL_GUARDIAN",
+    "background": "OUTLANDER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ancestral Protectors",
+      "Danger Sense",
+      "Primal Path",
+      "Rage",
+      "Reckless Attack",
+      "Unarmored Defense",
+      "Unarmored Defense (Barbarian)"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "SURVIVAL:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [
+      "UNARMORED_DEFENSE_BARBARIAN*"
+    ],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 4,
+    "scores": {
+      "str": 17,
+      "dex": 15,
+      "con": 15,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 41,
+      "max": 41
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CON",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nМузичний інструмент\nПроста зброя, Бойова зброя",
+    "customEquipment": "Посох x1\nМисливська пастка x1\nТрофей від убитої тварини x1\nДорожній одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "BARBARIAN_2014",
+    "subclass": "PATH_OF_THE_ANCESTRAL_GUARDIAN",
+    "background": "OUTLANDER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Ancestral Protectors",
+      "Danger Sense",
+      "Primal Path",
+      "Rage",
+      "Reckless Attack",
+      "Unarmored Defense",
+      "Unarmored Defense (Barbarian)"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "SURVIVAL:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [
+      "UNARMORED_DEFENSE_BARBARIAN*"
+    ],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 5,
+    "scores": {
+      "str": 17,
+      "dex": 15,
+      "con": 15,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 50,
+      "max": 50
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CON",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nМузичний інструмент\nПроста зброя, Бойова зброя",
+    "customEquipment": "Посох x1\nМисливська пастка x1\nТрофей від убитої тварини x1\nДорожній одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "BARBARIAN_2014",
+    "subclass": "PATH_OF_THE_ANCESTRAL_GUARDIAN",
+    "background": "OUTLANDER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Ancestral Protectors",
+      "Barbarian Extra Attack",
+      "Danger Sense",
+      "Fast Movement",
+      "Primal Path",
+      "Rage",
+      "Reckless Attack",
+      "Unarmored Defense",
+      "Unarmored Defense (Barbarian)"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "SURVIVAL:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [
+      "UNARMORED_DEFENSE_BARBARIAN*"
+    ],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 6,
+    "scores": {
+      "str": 17,
+      "dex": 15,
+      "con": 15,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 59,
+      "max": 59
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CON",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nМузичний інструмент\nПроста зброя, Бойова зброя",
+    "customEquipment": "Посох x1\nМисливська пастка x1\nТрофей від убитої тварини x1\nДорожній одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "BARBARIAN_2014",
+    "subclass": "PATH_OF_THE_ANCESTRAL_GUARDIAN",
+    "background": "OUTLANDER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Ancestral Protectors",
+      "Barbarian Extra Attack",
+      "Danger Sense",
+      "Fast Movement",
+      "Primal Path",
+      "Rage",
+      "Reckless Attack",
+      "Spirit Shield",
+      "Unarmored Defense",
+      "Unarmored Defense (Barbarian)"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "SURVIVAL:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [
+      "UNARMORED_DEFENSE_BARBARIAN*"
+    ],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 7,
+    "scores": {
+      "str": 17,
+      "dex": 15,
+      "con": 15,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 68,
+      "max": 68
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CON",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nМузичний інструмент\nПроста зброя, Бойова зброя",
+    "customEquipment": "Посох x1\nМисливська пастка x1\nТрофей від убитої тварини x1\nДорожній одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "BARBARIAN_2014",
+    "subclass": "PATH_OF_THE_ANCESTRAL_GUARDIAN",
+    "background": "OUTLANDER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Ancestral Protectors",
+      "Barbarian Extra Attack",
+      "Danger Sense",
+      "Fast Movement",
+      "Feral Instinct",
+      "Primal Path",
+      "Rage",
+      "Reckless Attack",
+      "Spirit Shield",
+      "Unarmored Defense",
+      "Unarmored Defense (Barbarian)"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "SURVIVAL:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [
+      "UNARMORED_DEFENSE_BARBARIAN*"
+    ],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 8,
+    "scores": {
+      "str": 18,
+      "dex": 15,
+      "con": 16,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 85,
+      "max": 85
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CON",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nМузичний інструмент\nПроста зброя, Бойова зброя",
+    "customEquipment": "Посох x1\nМисливська пастка x1\nТрофей від убитої тварини x1\nДорожній одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "BARBARIAN_2014",
+    "subclass": "PATH_OF_THE_ANCESTRAL_GUARDIAN",
+    "background": "OUTLANDER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Ancestral Protectors",
+      "Barbarian Extra Attack",
+      "Danger Sense",
+      "Fast Movement",
+      "Feral Instinct",
+      "Primal Path",
+      "Rage",
+      "Reckless Attack",
+      "Spirit Shield",
+      "Unarmored Defense",
+      "Unarmored Defense (Barbarian)"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "SURVIVAL:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [
+      "UNARMORED_DEFENSE_BARBARIAN*"
+    ],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 9,
+    "scores": {
+      "str": 18,
+      "dex": 15,
+      "con": 16,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 95,
+      "max": 95
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CON",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nМузичний інструмент\nПроста зброя, Бойова зброя",
+    "customEquipment": "Посох x1\nМисливська пастка x1\nТрофей від убитої тварини x1\nДорожній одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "BARBARIAN_2014",
+    "subclass": "PATH_OF_THE_ANCESTRAL_GUARDIAN",
+    "background": "OUTLANDER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Ancestral Protectors",
+      "Barbarian Extra Attack",
+      "Brutal Critical",
+      "Danger Sense",
+      "Fast Movement",
+      "Feral Instinct",
+      "Primal Path",
+      "Rage",
+      "Reckless Attack",
+      "Spirit Shield",
+      "Unarmored Defense",
+      "Unarmored Defense (Barbarian)"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "SURVIVAL:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [
+      "UNARMORED_DEFENSE_BARBARIAN*"
+    ],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 10,
+    "scores": {
+      "str": 18,
+      "dex": 15,
+      "con": 16,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 105,
+      "max": 105
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CON",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nМузичний інструмент\nПроста зброя, Бойова зброя",
+    "customEquipment": "Посох x1\nМисливська пастка x1\nТрофей від убитої тварини x1\nДорожній одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "BARBARIAN_2014",
+    "subclass": "PATH_OF_THE_ANCESTRAL_GUARDIAN",
+    "background": "OUTLANDER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Ancestral Protectors",
+      "Barbarian Extra Attack",
+      "Brutal Critical",
+      "Consult the Spirits",
+      "Danger Sense",
+      "Fast Movement",
+      "Feral Instinct",
+      "Primal Path",
+      "Rage",
+      "Reckless Attack",
+      "Spirit Shield",
+      "Unarmored Defense",
+      "Unarmored Defense (Barbarian)"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "SURVIVAL:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [
+      "UNARMORED_DEFENSE_BARBARIAN*"
+    ],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 11,
+    "scores": {
+      "str": 18,
+      "dex": 15,
+      "con": 16,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 115,
+      "max": 115
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CON",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nМузичний інструмент\nПроста зброя, Бойова зброя",
+    "customEquipment": "Посох x1\nМисливська пастка x1\nТрофей від убитої тварини x1\nДорожній одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "BARBARIAN_2014",
+    "subclass": "PATH_OF_THE_ANCESTRAL_GUARDIAN",
+    "background": "OUTLANDER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Ancestral Protectors",
+      "Barbarian Extra Attack",
+      "Brutal Critical",
+      "Consult the Spirits",
+      "Danger Sense",
+      "Fast Movement",
+      "Feral Instinct",
+      "Primal Path",
+      "Rage",
+      "Reckless Attack",
+      "Relentless Rage",
+      "Spirit Shield",
+      "Unarmored Defense",
+      "Unarmored Defense (Barbarian)"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "SURVIVAL:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [
+      "UNARMORED_DEFENSE_BARBARIAN*"
+    ],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 12,
+    "scores": {
+      "str": 19,
+      "dex": 15,
+      "con": 17,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 125,
+      "max": 125
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CON",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nМузичний інструмент\nПроста зброя, Бойова зброя",
+    "customEquipment": "Посох x1\nМисливська пастка x1\nТрофей від убитої тварини x1\nДорожній одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "BARBARIAN_2014",
+    "subclass": "PATH_OF_THE_ANCESTRAL_GUARDIAN",
+    "background": "OUTLANDER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Ancestral Protectors",
+      "Barbarian Extra Attack",
+      "Brutal Critical",
+      "Consult the Spirits",
+      "Danger Sense",
+      "Fast Movement",
+      "Feral Instinct",
+      "Primal Path",
+      "Rage",
+      "Reckless Attack",
+      "Relentless Rage",
+      "Spirit Shield",
+      "Unarmored Defense",
+      "Unarmored Defense (Barbarian)"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "SURVIVAL:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [
+      "UNARMORED_DEFENSE_BARBARIAN*"
+    ],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 13,
+    "scores": {
+      "str": 19,
+      "dex": 15,
+      "con": 17,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 135,
+      "max": 135
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CON",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nМузичний інструмент\nПроста зброя, Бойова зброя",
+    "customEquipment": "Посох x1\nМисливська пастка x1\nТрофей від убитої тварини x1\nДорожній одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "BARBARIAN_2014",
+    "subclass": "PATH_OF_THE_ANCESTRAL_GUARDIAN",
+    "background": "OUTLANDER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Ancestral Protectors",
+      "Barbarian Extra Attack",
+      "Brutal Critical",
+      "Consult the Spirits",
+      "Danger Sense",
+      "Fast Movement",
+      "Feral Instinct",
+      "Primal Path",
+      "Rage",
+      "Reckless Attack",
+      "Relentless Rage",
+      "Spirit Shield",
+      "Unarmored Defense",
+      "Unarmored Defense (Barbarian)"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "SURVIVAL:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [
+      "UNARMORED_DEFENSE_BARBARIAN*"
+    ],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 14,
+    "scores": {
+      "str": 19,
+      "dex": 15,
+      "con": 17,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 145,
+      "max": 145
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CON",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nМузичний інструмент\nПроста зброя, Бойова зброя",
+    "customEquipment": "Посох x1\nМисливська пастка x1\nТрофей від убитої тварини x1\nДорожній одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "BARBARIAN_2014",
+    "subclass": "PATH_OF_THE_ANCESTRAL_GUARDIAN",
+    "background": "OUTLANDER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Ancestral Protectors",
+      "Barbarian Extra Attack",
+      "Brutal Critical",
+      "Consult the Spirits",
+      "Danger Sense",
+      "Fast Movement",
+      "Feral Instinct",
+      "Primal Path",
+      "Rage",
+      "Reckless Attack",
+      "Relentless Rage",
+      "Spirit Shield",
+      "Unarmored Defense",
+      "Unarmored Defense (Barbarian)",
+      "Vengeful Ancestors"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "SURVIVAL:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [
+      "UNARMORED_DEFENSE_BARBARIAN*"
+    ],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 15,
+    "scores": {
+      "str": 19,
+      "dex": 15,
+      "con": 17,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 155,
+      "max": 155
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CON",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nМузичний інструмент\nПроста зброя, Бойова зброя",
+    "customEquipment": "Посох x1\nМисливська пастка x1\nТрофей від убитої тварини x1\nДорожній одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "BARBARIAN_2014",
+    "subclass": "PATH_OF_THE_ANCESTRAL_GUARDIAN",
+    "background": "OUTLANDER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Ancestral Protectors",
+      "Barbarian Extra Attack",
+      "Brutal Critical",
+      "Consult the Spirits",
+      "Danger Sense",
+      "Fast Movement",
+      "Feral Instinct",
+      "Persistent Rage",
+      "Primal Path",
+      "Rage",
+      "Reckless Attack",
+      "Relentless Rage",
+      "Spirit Shield",
+      "Unarmored Defense",
+      "Unarmored Defense (Barbarian)",
+      "Vengeful Ancestors"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "SURVIVAL:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [
+      "UNARMORED_DEFENSE_BARBARIAN*"
+    ],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 16,
+    "scores": {
+      "str": 20,
+      "dex": 15,
+      "con": 18,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 181,
+      "max": 181
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CON",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nМузичний інструмент\nПроста зброя, Бойова зброя",
+    "customEquipment": "Посох x1\nМисливська пастка x1\nТрофей від убитої тварини x1\nДорожній одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "BARBARIAN_2014",
+    "subclass": "PATH_OF_THE_ANCESTRAL_GUARDIAN",
+    "background": "OUTLANDER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Ancestral Protectors",
+      "Barbarian Extra Attack",
+      "Brutal Critical",
+      "Consult the Spirits",
+      "Danger Sense",
+      "Fast Movement",
+      "Feral Instinct",
+      "Persistent Rage",
+      "Primal Path",
+      "Rage",
+      "Reckless Attack",
+      "Relentless Rage",
+      "Spirit Shield",
+      "Unarmored Defense",
+      "Unarmored Defense (Barbarian)",
+      "Vengeful Ancestors"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "SURVIVAL:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [
+      "UNARMORED_DEFENSE_BARBARIAN*"
+    ],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 17,
+    "scores": {
+      "str": 20,
+      "dex": 15,
+      "con": 18,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 192,
+      "max": 192
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CON",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nМузичний інструмент\nПроста зброя, Бойова зброя",
+    "customEquipment": "Посох x1\nМисливська пастка x1\nТрофей від убитої тварини x1\nДорожній одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "BARBARIAN_2014",
+    "subclass": "PATH_OF_THE_ANCESTRAL_GUARDIAN",
+    "background": "OUTLANDER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Ancestral Protectors",
+      "Barbarian Extra Attack",
+      "Brutal Critical",
+      "Consult the Spirits",
+      "Danger Sense",
+      "Fast Movement",
+      "Feral Instinct",
+      "Persistent Rage",
+      "Primal Path",
+      "Rage",
+      "Reckless Attack",
+      "Relentless Rage",
+      "Spirit Shield",
+      "Unarmored Defense",
+      "Unarmored Defense (Barbarian)",
+      "Vengeful Ancestors"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "SURVIVAL:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [
+      "UNARMORED_DEFENSE_BARBARIAN*"
+    ],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 18,
+    "scores": {
+      "str": 20,
+      "dex": 15,
+      "con": 18,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 203,
+      "max": 203
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CON",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nМузичний інструмент\nПроста зброя, Бойова зброя",
+    "customEquipment": "Посох x1\nМисливська пастка x1\nТрофей від убитої тварини x1\nДорожній одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "BARBARIAN_2014",
+    "subclass": "PATH_OF_THE_ANCESTRAL_GUARDIAN",
+    "background": "OUTLANDER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Ancestral Protectors",
+      "Barbarian Extra Attack",
+      "Brutal Critical",
+      "Consult the Spirits",
+      "Danger Sense",
+      "Fast Movement",
+      "Feral Instinct",
+      "Indomitable Might",
+      "Persistent Rage",
+      "Primal Path",
+      "Rage",
+      "Reckless Attack",
+      "Relentless Rage",
+      "Spirit Shield",
+      "Unarmored Defense",
+      "Unarmored Defense (Barbarian)",
+      "Vengeful Ancestors"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "SURVIVAL:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [
+      "UNARMORED_DEFENSE_BARBARIAN*"
+    ],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 19,
+    "scores": {
+      "str": 20,
+      "dex": 15,
+      "con": 19,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 214,
+      "max": 214
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CON",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nМузичний інструмент\nПроста зброя, Бойова зброя",
+    "customEquipment": "Посох x1\nМисливська пастка x1\nТрофей від убитої тварини x1\nДорожній одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "BARBARIAN_2014",
+    "subclass": "PATH_OF_THE_ANCESTRAL_GUARDIAN",
+    "background": "OUTLANDER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Ancestral Protectors",
+      "Barbarian Extra Attack",
+      "Brutal Critical",
+      "Consult the Spirits",
+      "Danger Sense",
+      "Fast Movement",
+      "Feral Instinct",
+      "Indomitable Might",
+      "Persistent Rage",
+      "Primal Path",
+      "Rage",
+      "Reckless Attack",
+      "Relentless Rage",
+      "Spirit Shield",
+      "Unarmored Defense",
+      "Unarmored Defense (Barbarian)",
+      "Vengeful Ancestors"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "SURVIVAL:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [
+      "UNARMORED_DEFENSE_BARBARIAN*"
+    ],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 20,
+    "scores": {
+      "str": 20,
+      "dex": 15,
+      "con": 19,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 225,
+      "max": 225
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CON",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nМузичний інструмент\nПроста зброя, Бойова зброя",
+    "customEquipment": "Посох x1\nМисливська пастка x1\nТрофей від убитої тварини x1\nДорожній одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "BARBARIAN_2014",
+    "subclass": "PATH_OF_THE_ANCESTRAL_GUARDIAN",
+    "background": "OUTLANDER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Ancestral Protectors",
+      "Barbarian Extra Attack",
+      "Brutal Critical",
+      "Consult the Spirits",
+      "Danger Sense",
+      "Fast Movement",
+      "Feral Instinct",
+      "Indomitable Might",
+      "Persistent Rage",
+      "Primal Champion",
+      "Primal Path",
+      "Rage",
+      "Reckless Attack",
+      "Relentless Rage",
+      "Spirit Shield",
+      "Unarmored Defense",
+      "Unarmored Defense (Barbarian)",
+      "Vengeful Ancestors"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "SURVIVAL:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [
+      "UNARMORED_DEFENSE_BARBARIAN*"
+    ],
+    "multiclasses": [],
+    "infusions": []
+  }
+]

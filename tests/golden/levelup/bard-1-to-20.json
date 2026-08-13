@@ -1,0 +1,1545 @@
+[
+  {
+    "level": 1,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "15",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "DEX"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nІнструменти на вибір (3)\nНабір для гриму, Музичний інструмент\nПроста зброя",
+    "customEquipment": "Музичний інструмент (на вибір) x1\nПодарунок від шанувальника (любовний лист, локон волосся або якась дрібничка) x1\nКостюм x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "BARD_2014",
+    "subclass": null,
+    "background": "ENTERTAINER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Bardic Inspiration",
+      "Spellcasting (Bard)"
+    ],
+    "feats": [],
+    "skills": [
+      "ACROBATICS:PROFICIENT",
+      "PERFORMANCE:EXPERTISE",
+      "PERSUASION:EXPERTISE"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 2,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 17,
+      "max": 17
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "15",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "DEX"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nІнструменти на вибір (3)\nНабір для гриму, Музичний інструмент\nПроста зброя",
+    "customEquipment": "Музичний інструмент (на вибір) x1\nПодарунок від шанувальника (любовний лист, локон волосся або якась дрібничка) x1\nКостюм x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "BARD_2014",
+    "subclass": null,
+    "background": "ENTERTAINER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Bardic Inspiration",
+      "Jack of All Trades",
+      "Song of Rest",
+      "Spellcasting (Bard)"
+    ],
+    "feats": [],
+    "skills": [
+      "ACROBATICS:PROFICIENT",
+      "PERFORMANCE:EXPERTISE",
+      "PERSUASION:EXPERTISE"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 3,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 24,
+      "max": 24
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "15",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "DEX"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nІнструменти на вибір (3)\nНабір для гриму, Музичний інструмент\nПроста зброя",
+    "customEquipment": "Музичний інструмент (на вибір) x1\nПодарунок від шанувальника (любовний лист, локон волосся або якась дрібничка) x1\nКостюм x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "BARD_2014",
+    "subclass": "COLLEGE_OF_LORE",
+    "background": "ENTERTAINER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Bard College",
+      "Bardic Inspiration",
+      "Bonus Proficiencies (Lore)",
+      "Cutting Words",
+      "Expertise (Bard)",
+      "Jack of All Trades",
+      "Song of Rest",
+      "Spellcasting (Bard)"
+    ],
+    "feats": [],
+    "skills": [
+      "ACROBATICS:PROFICIENT",
+      "PERFORMANCE:EXPERTISE",
+      "PERSUASION:EXPERTISE"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 4,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 15,
+      "int": 13,
+      "wis": 11,
+      "cha": 10
+    },
+    "hp": {
+      "current": 31,
+      "max": 31
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "15",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "DEX"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nІнструменти на вибір (3)\nНабір для гриму, Музичний інструмент\nПроста зброя",
+    "customEquipment": "Музичний інструмент (на вибір) x1\nПодарунок від шанувальника (любовний лист, локон волосся або якась дрібничка) x1\nКостюм x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "BARD_2014",
+    "subclass": "COLLEGE_OF_LORE",
+    "background": "ENTERTAINER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Bard College",
+      "Bardic Inspiration",
+      "Bonus Proficiencies (Lore)",
+      "Cutting Words",
+      "Expertise (Bard)",
+      "Jack of All Trades",
+      "Song of Rest",
+      "Spellcasting (Bard)"
+    ],
+    "feats": [],
+    "skills": [
+      "ACROBATICS:PROFICIENT",
+      "PERFORMANCE:EXPERTISE",
+      "PERSUASION:EXPERTISE"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 5,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 15,
+      "int": 13,
+      "wis": 11,
+      "cha": 10
+    },
+    "hp": {
+      "current": 38,
+      "max": 38
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "15",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "DEX"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nІнструменти на вибір (3)\nНабір для гриму, Музичний інструмент\nПроста зброя",
+    "customEquipment": "Музичний інструмент (на вибір) x1\nПодарунок від шанувальника (любовний лист, локон волосся або якась дрібничка) x1\nКостюм x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "BARD_2014",
+    "subclass": "COLLEGE_OF_LORE",
+    "background": "ENTERTAINER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Bard College",
+      "Bardic Inspiration",
+      "Bonus Proficiencies (Lore)",
+      "Cutting Words",
+      "Expertise (Bard)",
+      "Font of Inspiration",
+      "Jack of All Trades",
+      "Song of Rest",
+      "Spellcasting (Bard)"
+    ],
+    "feats": [],
+    "skills": [
+      "ACROBATICS:PROFICIENT",
+      "PERFORMANCE:EXPERTISE",
+      "PERSUASION:EXPERTISE"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 6,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 15,
+      "int": 13,
+      "wis": 11,
+      "cha": 10
+    },
+    "hp": {
+      "current": 45,
+      "max": 45
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "15",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "DEX"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nІнструменти на вибір (3)\nНабір для гриму, Музичний інструмент\nПроста зброя",
+    "customEquipment": "Музичний інструмент (на вибір) x1\nПодарунок від шанувальника (любовний лист, локон волосся або якась дрібничка) x1\nКостюм x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "BARD_2014",
+    "subclass": "COLLEGE_OF_LORE",
+    "background": "ENTERTAINER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Additional Magical Secrets",
+      "Bard College",
+      "Bardic Inspiration",
+      "Bonus Proficiencies (Lore)",
+      "Countercharm",
+      "Cutting Words",
+      "Expertise (Bard)",
+      "Font of Inspiration",
+      "Jack of All Trades",
+      "Song of Rest",
+      "Spellcasting (Bard)"
+    ],
+    "feats": [],
+    "skills": [
+      "ACROBATICS:PROFICIENT",
+      "PERFORMANCE:EXPERTISE",
+      "PERSUASION:EXPERTISE"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 7,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 15,
+      "int": 13,
+      "wis": 11,
+      "cha": 10
+    },
+    "hp": {
+      "current": 52,
+      "max": 52
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "15",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        3,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "DEX"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nІнструменти на вибір (3)\nНабір для гриму, Музичний інструмент\nПроста зброя",
+    "customEquipment": "Музичний інструмент (на вибір) x1\nПодарунок від шанувальника (любовний лист, локон волосся або якась дрібничка) x1\nКостюм x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "BARD_2014",
+    "subclass": "COLLEGE_OF_LORE",
+    "background": "ENTERTAINER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Additional Magical Secrets",
+      "Bard College",
+      "Bardic Inspiration",
+      "Bonus Proficiencies (Lore)",
+      "Countercharm",
+      "Cutting Words",
+      "Expertise (Bard)",
+      "Font of Inspiration",
+      "Jack of All Trades",
+      "Song of Rest",
+      "Spellcasting (Bard)"
+    ],
+    "feats": [],
+    "skills": [
+      "ACROBATICS:PROFICIENT",
+      "PERFORMANCE:EXPERTISE",
+      "PERSUASION:EXPERTISE"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 8,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 16,
+      "int": 13,
+      "wis": 11,
+      "cha": 11
+    },
+    "hp": {
+      "current": 67,
+      "max": 67
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "15",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        3,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "DEX"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nІнструменти на вибір (3)\nНабір для гриму, Музичний інструмент\nПроста зброя",
+    "customEquipment": "Музичний інструмент (на вибір) x1\nПодарунок від шанувальника (любовний лист, локон волосся або якась дрібничка) x1\nКостюм x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "BARD_2014",
+    "subclass": "COLLEGE_OF_LORE",
+    "background": "ENTERTAINER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Additional Magical Secrets",
+      "Bard College",
+      "Bardic Inspiration",
+      "Bonus Proficiencies (Lore)",
+      "Countercharm",
+      "Cutting Words",
+      "Expertise (Bard)",
+      "Font of Inspiration",
+      "Jack of All Trades",
+      "Song of Rest",
+      "Spellcasting (Bard)"
+    ],
+    "feats": [],
+    "skills": [
+      "ACROBATICS:PROFICIENT",
+      "PERFORMANCE:EXPERTISE",
+      "PERSUASION:EXPERTISE"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 9,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 16,
+      "int": 13,
+      "wis": 11,
+      "cha": 11
+    },
+    "hp": {
+      "current": 75,
+      "max": 75
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "15",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        3,
+        3,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "DEX"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nІнструменти на вибір (3)\nНабір для гриму, Музичний інструмент\nПроста зброя",
+    "customEquipment": "Музичний інструмент (на вибір) x1\nПодарунок від шанувальника (любовний лист, локон волосся або якась дрібничка) x1\nКостюм x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "BARD_2014",
+    "subclass": "COLLEGE_OF_LORE",
+    "background": "ENTERTAINER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Additional Magical Secrets",
+      "Bard College",
+      "Bardic Inspiration",
+      "Bonus Proficiencies (Lore)",
+      "Countercharm",
+      "Cutting Words",
+      "Expertise (Bard)",
+      "Font of Inspiration",
+      "Jack of All Trades",
+      "Song of Rest",
+      "Spellcasting (Bard)"
+    ],
+    "feats": [],
+    "skills": [
+      "ACROBATICS:PROFICIENT",
+      "PERFORMANCE:EXPERTISE",
+      "PERSUASION:EXPERTISE"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 10,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 16,
+      "int": 13,
+      "wis": 11,
+      "cha": 11
+    },
+    "hp": {
+      "current": 83,
+      "max": 83
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "15",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        3,
+        3,
+        2,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "DEX"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nІнструменти на вибір (3)\nНабір для гриму, Музичний інструмент\nПроста зброя",
+    "customEquipment": "Музичний інструмент (на вибір) x1\nПодарунок від шанувальника (любовний лист, локон волосся або якась дрібничка) x1\nКостюм x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "BARD_2014",
+    "subclass": "COLLEGE_OF_LORE",
+    "background": "ENTERTAINER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Additional Magical Secrets",
+      "Bard College",
+      "Bardic Inspiration",
+      "Bonus Proficiencies (Lore)",
+      "Countercharm",
+      "Cutting Words",
+      "Expertise (Bard)",
+      "Expertise (Bard) 2",
+      "Font of Inspiration",
+      "Jack of All Trades",
+      "Magical Secrets",
+      "Song of Rest",
+      "Spellcasting (Bard)"
+    ],
+    "feats": [],
+    "skills": [
+      "ACROBATICS:PROFICIENT",
+      "PERFORMANCE:EXPERTISE",
+      "PERSUASION:EXPERTISE"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 11,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 16,
+      "int": 13,
+      "wis": 11,
+      "cha": 11
+    },
+    "hp": {
+      "current": 91,
+      "max": 91
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "15",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        3,
+        3,
+        2,
+        1,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "DEX"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nІнструменти на вибір (3)\nНабір для гриму, Музичний інструмент\nПроста зброя",
+    "customEquipment": "Музичний інструмент (на вибір) x1\nПодарунок від шанувальника (любовний лист, локон волосся або якась дрібничка) x1\nКостюм x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "BARD_2014",
+    "subclass": "COLLEGE_OF_LORE",
+    "background": "ENTERTAINER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Additional Magical Secrets",
+      "Bard College",
+      "Bardic Inspiration",
+      "Bonus Proficiencies (Lore)",
+      "Countercharm",
+      "Cutting Words",
+      "Expertise (Bard)",
+      "Expertise (Bard) 2",
+      "Font of Inspiration",
+      "Jack of All Trades",
+      "Magical Secrets",
+      "Song of Rest",
+      "Spellcasting (Bard)"
+    ],
+    "feats": [],
+    "skills": [
+      "ACROBATICS:PROFICIENT",
+      "PERFORMANCE:EXPERTISE",
+      "PERSUASION:EXPERTISE"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 12,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 17,
+      "int": 13,
+      "wis": 11,
+      "cha": 12
+    },
+    "hp": {
+      "current": 99,
+      "max": 99
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "15",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        3,
+        3,
+        2,
+        1,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "DEX"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nІнструменти на вибір (3)\nНабір для гриму, Музичний інструмент\nПроста зброя",
+    "customEquipment": "Музичний інструмент (на вибір) x1\nПодарунок від шанувальника (любовний лист, локон волосся або якась дрібничка) x1\nКостюм x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "BARD_2014",
+    "subclass": "COLLEGE_OF_LORE",
+    "background": "ENTERTAINER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Additional Magical Secrets",
+      "Bard College",
+      "Bardic Inspiration",
+      "Bonus Proficiencies (Lore)",
+      "Countercharm",
+      "Cutting Words",
+      "Expertise (Bard)",
+      "Expertise (Bard) 2",
+      "Font of Inspiration",
+      "Jack of All Trades",
+      "Magical Secrets",
+      "Song of Rest",
+      "Spellcasting (Bard)"
+    ],
+    "feats": [],
+    "skills": [
+      "ACROBATICS:PROFICIENT",
+      "PERFORMANCE:EXPERTISE",
+      "PERSUASION:EXPERTISE"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 13,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 17,
+      "int": 13,
+      "wis": 11,
+      "cha": 12
+    },
+    "hp": {
+      "current": 107,
+      "max": 107
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "15",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        3,
+        3,
+        2,
+        1,
+        1,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "DEX"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nІнструменти на вибір (3)\nНабір для гриму, Музичний інструмент\nПроста зброя",
+    "customEquipment": "Музичний інструмент (на вибір) x1\nПодарунок від шанувальника (любовний лист, локон волосся або якась дрібничка) x1\nКостюм x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "BARD_2014",
+    "subclass": "COLLEGE_OF_LORE",
+    "background": "ENTERTAINER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Additional Magical Secrets",
+      "Bard College",
+      "Bardic Inspiration",
+      "Bonus Proficiencies (Lore)",
+      "Countercharm",
+      "Cutting Words",
+      "Expertise (Bard)",
+      "Expertise (Bard) 2",
+      "Font of Inspiration",
+      "Jack of All Trades",
+      "Magical Secrets",
+      "Song of Rest",
+      "Spellcasting (Bard)"
+    ],
+    "feats": [],
+    "skills": [
+      "ACROBATICS:PROFICIENT",
+      "PERFORMANCE:EXPERTISE",
+      "PERSUASION:EXPERTISE"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 14,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 17,
+      "int": 13,
+      "wis": 11,
+      "cha": 12
+    },
+    "hp": {
+      "current": 115,
+      "max": 115
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "15",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        3,
+        3,
+        2,
+        1,
+        1,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "DEX"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nІнструменти на вибір (3)\nНабір для гриму, Музичний інструмент\nПроста зброя",
+    "customEquipment": "Музичний інструмент (на вибір) x1\nПодарунок від шанувальника (любовний лист, локон волосся або якась дрібничка) x1\nКостюм x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "BARD_2014",
+    "subclass": "COLLEGE_OF_LORE",
+    "background": "ENTERTAINER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Additional Magical Secrets",
+      "Bard College",
+      "Bardic Inspiration",
+      "Bonus Proficiencies (Lore)",
+      "Countercharm",
+      "Cutting Words",
+      "Expertise (Bard)",
+      "Expertise (Bard) 2",
+      "Font of Inspiration",
+      "Jack of All Trades",
+      "Magical Secrets",
+      "Peerless Skill",
+      "Song of Rest",
+      "Spellcasting (Bard)"
+    ],
+    "feats": [],
+    "skills": [
+      "ACROBATICS:PROFICIENT",
+      "PERFORMANCE:EXPERTISE",
+      "PERSUASION:EXPERTISE"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 15,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 17,
+      "int": 13,
+      "wis": 11,
+      "cha": 12
+    },
+    "hp": {
+      "current": 123,
+      "max": 123
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "15",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        3,
+        3,
+        2,
+        1,
+        1,
+        1,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "DEX"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nІнструменти на вибір (3)\nНабір для гриму, Музичний інструмент\nПроста зброя",
+    "customEquipment": "Музичний інструмент (на вибір) x1\nПодарунок від шанувальника (любовний лист, локон волосся або якась дрібничка) x1\nКостюм x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "BARD_2014",
+    "subclass": "COLLEGE_OF_LORE",
+    "background": "ENTERTAINER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Additional Magical Secrets",
+      "Bard College",
+      "Bardic Inspiration",
+      "Bonus Proficiencies (Lore)",
+      "Countercharm",
+      "Cutting Words",
+      "Expertise (Bard)",
+      "Expertise (Bard) 2",
+      "Font of Inspiration",
+      "Jack of All Trades",
+      "Magical Secrets",
+      "Peerless Skill",
+      "Song of Rest",
+      "Spellcasting (Bard)"
+    ],
+    "feats": [],
+    "skills": [
+      "ACROBATICS:PROFICIENT",
+      "PERFORMANCE:EXPERTISE",
+      "PERSUASION:EXPERTISE"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 16,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 18,
+      "int": 13,
+      "wis": 11,
+      "cha": 13
+    },
+    "hp": {
+      "current": 147,
+      "max": 147
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "15",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        3,
+        3,
+        2,
+        1,
+        1,
+        1,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "DEX"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nІнструменти на вибір (3)\nНабір для гриму, Музичний інструмент\nПроста зброя",
+    "customEquipment": "Музичний інструмент (на вибір) x1\nПодарунок від шанувальника (любовний лист, локон волосся або якась дрібничка) x1\nКостюм x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "BARD_2014",
+    "subclass": "COLLEGE_OF_LORE",
+    "background": "ENTERTAINER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Additional Magical Secrets",
+      "Bard College",
+      "Bardic Inspiration",
+      "Bonus Proficiencies (Lore)",
+      "Countercharm",
+      "Cutting Words",
+      "Expertise (Bard)",
+      "Expertise (Bard) 2",
+      "Font of Inspiration",
+      "Jack of All Trades",
+      "Magical Secrets",
+      "Peerless Skill",
+      "Song of Rest",
+      "Spellcasting (Bard)"
+    ],
+    "feats": [],
+    "skills": [
+      "ACROBATICS:PROFICIENT",
+      "PERFORMANCE:EXPERTISE",
+      "PERSUASION:EXPERTISE"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 17,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 18,
+      "int": 13,
+      "wis": 11,
+      "cha": 13
+    },
+    "hp": {
+      "current": 156,
+      "max": 156
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "15",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        3,
+        3,
+        2,
+        1,
+        1,
+        1,
+        1
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "DEX"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nІнструменти на вибір (3)\nНабір для гриму, Музичний інструмент\nПроста зброя",
+    "customEquipment": "Музичний інструмент (на вибір) x1\nПодарунок від шанувальника (любовний лист, локон волосся або якась дрібничка) x1\nКостюм x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "BARD_2014",
+    "subclass": "COLLEGE_OF_LORE",
+    "background": "ENTERTAINER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Additional Magical Secrets",
+      "Bard College",
+      "Bardic Inspiration",
+      "Bonus Proficiencies (Lore)",
+      "Countercharm",
+      "Cutting Words",
+      "Expertise (Bard)",
+      "Expertise (Bard) 2",
+      "Font of Inspiration",
+      "Jack of All Trades",
+      "Magical Secrets",
+      "Peerless Skill",
+      "Song of Rest",
+      "Spellcasting (Bard)"
+    ],
+    "feats": [],
+    "skills": [
+      "ACROBATICS:PROFICIENT",
+      "PERFORMANCE:EXPERTISE",
+      "PERSUASION:EXPERTISE"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 18,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 18,
+      "int": 13,
+      "wis": 11,
+      "cha": 13
+    },
+    "hp": {
+      "current": 165,
+      "max": 165
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "15",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        3,
+        3,
+        3,
+        1,
+        1,
+        1,
+        1
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "DEX"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nІнструменти на вибір (3)\nНабір для гриму, Музичний інструмент\nПроста зброя",
+    "customEquipment": "Музичний інструмент (на вибір) x1\nПодарунок від шанувальника (любовний лист, локон волосся або якась дрібничка) x1\nКостюм x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "BARD_2014",
+    "subclass": "COLLEGE_OF_LORE",
+    "background": "ENTERTAINER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Additional Magical Secrets",
+      "Bard College",
+      "Bardic Inspiration",
+      "Bonus Proficiencies (Lore)",
+      "Countercharm",
+      "Cutting Words",
+      "Expertise (Bard)",
+      "Expertise (Bard) 2",
+      "Font of Inspiration",
+      "Jack of All Trades",
+      "Magical Secrets",
+      "Peerless Skill",
+      "Song of Rest",
+      "Spellcasting (Bard)"
+    ],
+    "feats": [],
+    "skills": [
+      "ACROBATICS:PROFICIENT",
+      "PERFORMANCE:EXPERTISE",
+      "PERSUASION:EXPERTISE"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 19,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 19,
+      "int": 13,
+      "wis": 11,
+      "cha": 14
+    },
+    "hp": {
+      "current": 174,
+      "max": 174
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "15",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        3,
+        3,
+        3,
+        2,
+        1,
+        1,
+        1
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "DEX"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nІнструменти на вибір (3)\nНабір для гриму, Музичний інструмент\nПроста зброя",
+    "customEquipment": "Музичний інструмент (на вибір) x1\nПодарунок від шанувальника (любовний лист, локон волосся або якась дрібничка) x1\nКостюм x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "BARD_2014",
+    "subclass": "COLLEGE_OF_LORE",
+    "background": "ENTERTAINER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Additional Magical Secrets",
+      "Bard College",
+      "Bardic Inspiration",
+      "Bonus Proficiencies (Lore)",
+      "Countercharm",
+      "Cutting Words",
+      "Expertise (Bard)",
+      "Expertise (Bard) 2",
+      "Font of Inspiration",
+      "Jack of All Trades",
+      "Magical Secrets",
+      "Peerless Skill",
+      "Song of Rest",
+      "Spellcasting (Bard)"
+    ],
+    "feats": [],
+    "skills": [
+      "ACROBATICS:PROFICIENT",
+      "PERFORMANCE:EXPERTISE",
+      "PERSUASION:EXPERTISE"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 20,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 19,
+      "int": 13,
+      "wis": 11,
+      "cha": 14
+    },
+    "hp": {
+      "current": 183,
+      "max": 183
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "15",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        3,
+        3,
+        3,
+        2,
+        2,
+        1,
+        1
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "DEX"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nІнструменти на вибір (3)\nНабір для гриму, Музичний інструмент\nПроста зброя",
+    "customEquipment": "Музичний інструмент (на вибір) x1\nПодарунок від шанувальника (любовний лист, локон волосся або якась дрібничка) x1\nКостюм x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "BARD_2014",
+    "subclass": "COLLEGE_OF_LORE",
+    "background": "ENTERTAINER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Additional Magical Secrets",
+      "Bard College",
+      "Bardic Inspiration",
+      "Bonus Proficiencies (Lore)",
+      "Countercharm",
+      "Cutting Words",
+      "Expertise (Bard)",
+      "Expertise (Bard) 2",
+      "Font of Inspiration",
+      "Jack of All Trades",
+      "Magical Secrets",
+      "Peerless Skill",
+      "Song of Rest",
+      "Spellcasting (Bard)",
+      "Superior Inspiration"
+    ],
+    "feats": [],
+    "skills": [
+      "ACROBATICS:PROFICIENT",
+      "PERFORMANCE:EXPERTISE",
+      "PERSUASION:EXPERTISE"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  }
+]

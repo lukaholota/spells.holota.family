@@ -1,0 +1,1700 @@
+[
+  {
+    "level": 1,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "5",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "DEX",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Інструменти на вибір\nНабір травника\nПроста зброя",
+    "customEquipment": "Футляр для свитків з нотатками x1\nЗимова ковдра x1\nЗвичайний одяг x1\nНабір травника x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "MONK_2014",
+    "subclass": null,
+    "background": "HERMIT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Martial Arts",
+      "Unarmored Defense (Monk)"
+    ],
+    "feats": [],
+    "skills": [
+      "MEDICINE:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [
+      "UNARMORED_DEFENSE_MONK*"
+    ],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 2,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 17,
+      "max": 17
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "5",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "DEX",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Інструменти на вибір\nНабір травника\nПроста зброя",
+    "customEquipment": "Футляр для свитків з нотатками x1\nЗимова ковдра x1\nЗвичайний одяг x1\nНабір травника x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "MONK_2014",
+    "subclass": null,
+    "background": "HERMIT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Flurry of Blows",
+      "Ki",
+      "Martial Arts",
+      "Patient Defense",
+      "Step of the Wind",
+      "Unarmored Defense (Monk)",
+      "Unarmored Movement"
+    ],
+    "feats": [],
+    "skills": [
+      "MEDICINE:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [
+      "UNARMORED_DEFENSE_MONK*"
+    ],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 3,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 24,
+      "max": 24
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "5",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "DEX",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Інструменти на вибір\nНабір травника\nПроста зброя",
+    "customEquipment": "Футляр для свитків з нотатками x1\nЗимова ковдра x1\nЗвичайний одяг x1\nНабір травника x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "MONK_2014",
+    "subclass": "WAY_OF_THE_OPEN_HAND",
+    "background": "HERMIT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Deflect Missiles",
+      "Flurry of Blows",
+      "Ki",
+      "Martial Arts",
+      "Monastic Tradition",
+      "Open Hand Technique",
+      "Patient Defense",
+      "Step of the Wind",
+      "Unarmored Defense (Monk)",
+      "Unarmored Movement"
+    ],
+    "feats": [],
+    "skills": [
+      "MEDICINE:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [
+      "UNARMORED_DEFENSE_MONK*"
+    ],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 4,
+    "scores": {
+      "str": 16,
+      "dex": 16,
+      "con": 14,
+      "int": 13,
+      "wis": 12,
+      "cha": 9
+    },
+    "hp": {
+      "current": 31,
+      "max": 31
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "5",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "DEX",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Інструменти на вибір\nНабір травника\nПроста зброя",
+    "customEquipment": "Футляр для свитків з нотатками x1\nЗимова ковдра x1\nЗвичайний одяг x1\nНабір травника x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "MONK_2014",
+    "subclass": "WAY_OF_THE_OPEN_HAND",
+    "background": "HERMIT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Deflect Missiles",
+      "Flurry of Blows",
+      "Ki",
+      "Martial Arts",
+      "Monastic Tradition",
+      "Open Hand Technique",
+      "Patient Defense",
+      "Slow Fall",
+      "Step of the Wind",
+      "Unarmored Defense (Monk)",
+      "Unarmored Movement"
+    ],
+    "feats": [],
+    "skills": [
+      "MEDICINE:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [
+      "UNARMORED_DEFENSE_MONK*"
+    ],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 5,
+    "scores": {
+      "str": 16,
+      "dex": 16,
+      "con": 14,
+      "int": 13,
+      "wis": 12,
+      "cha": 9
+    },
+    "hp": {
+      "current": 38,
+      "max": 38
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "5",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "DEX",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Інструменти на вибір\nНабір травника\nПроста зброя",
+    "customEquipment": "Футляр для свитків з нотатками x1\nЗимова ковдра x1\nЗвичайний одяг x1\nНабір травника x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "MONK_2014",
+    "subclass": "WAY_OF_THE_OPEN_HAND",
+    "background": "HERMIT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Deflect Missiles",
+      "Extra Attack (Monk)",
+      "Flurry of Blows",
+      "Ki",
+      "Martial Arts",
+      "Monastic Tradition",
+      "Open Hand Technique",
+      "Patient Defense",
+      "Slow Fall",
+      "Step of the Wind",
+      "Stunning Strike",
+      "Unarmored Defense (Monk)",
+      "Unarmored Movement"
+    ],
+    "feats": [],
+    "skills": [
+      "MEDICINE:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [
+      "UNARMORED_DEFENSE_MONK*"
+    ],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 6,
+    "scores": {
+      "str": 16,
+      "dex": 16,
+      "con": 14,
+      "int": 13,
+      "wis": 12,
+      "cha": 9
+    },
+    "hp": {
+      "current": 45,
+      "max": 45
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "5",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "DEX",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Інструменти на вибір\nНабір травника\nПроста зброя",
+    "customEquipment": "Футляр для свитків з нотатками x1\nЗимова ковдра x1\nЗвичайний одяг x1\nНабір травника x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "MONK_2014",
+    "subclass": "WAY_OF_THE_OPEN_HAND",
+    "background": "HERMIT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Deflect Missiles",
+      "Extra Attack (Monk)",
+      "Flurry of Blows",
+      "Ki",
+      "Ki-Empowered Strikes",
+      "Martial Arts",
+      "Monastic Tradition",
+      "Open Hand Technique",
+      "Patient Defense",
+      "Slow Fall",
+      "Step of the Wind",
+      "Stunning Strike",
+      "Unarmored Defense (Monk)",
+      "Unarmored Movement",
+      "Wholeness of Body"
+    ],
+    "feats": [],
+    "skills": [
+      "MEDICINE:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [
+      "UNARMORED_DEFENSE_MONK*"
+    ],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 7,
+    "scores": {
+      "str": 16,
+      "dex": 16,
+      "con": 14,
+      "int": 13,
+      "wis": 12,
+      "cha": 9
+    },
+    "hp": {
+      "current": 52,
+      "max": 52
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "5",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "DEX",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Інструменти на вибір\nНабір травника\nПроста зброя",
+    "customEquipment": "Футляр для свитків з нотатками x1\nЗимова ковдра x1\nЗвичайний одяг x1\nНабір травника x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "MONK_2014",
+    "subclass": "WAY_OF_THE_OPEN_HAND",
+    "background": "HERMIT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Deflect Missiles",
+      "Evasion",
+      "Extra Attack (Monk)",
+      "Flurry of Blows",
+      "Ki",
+      "Ki-Empowered Strikes",
+      "Martial Arts",
+      "Monastic Tradition",
+      "Open Hand Technique",
+      "Patient Defense",
+      "Slow Fall",
+      "Step of the Wind",
+      "Stillness of Mind",
+      "Stunning Strike",
+      "Unarmored Defense (Monk)",
+      "Unarmored Movement",
+      "Wholeness of Body"
+    ],
+    "feats": [],
+    "skills": [
+      "MEDICINE:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [
+      "UNARMORED_DEFENSE_MONK*"
+    ],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 8,
+    "scores": {
+      "str": 16,
+      "dex": 17,
+      "con": 14,
+      "int": 13,
+      "wis": 13,
+      "cha": 9
+    },
+    "hp": {
+      "current": 59,
+      "max": 59
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "5",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "DEX",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Інструменти на вибір\nНабір травника\nПроста зброя",
+    "customEquipment": "Футляр для свитків з нотатками x1\nЗимова ковдра x1\nЗвичайний одяг x1\nНабір травника x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "MONK_2014",
+    "subclass": "WAY_OF_THE_OPEN_HAND",
+    "background": "HERMIT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Deflect Missiles",
+      "Evasion",
+      "Extra Attack (Monk)",
+      "Flurry of Blows",
+      "Ki",
+      "Ki-Empowered Strikes",
+      "Martial Arts",
+      "Monastic Tradition",
+      "Open Hand Technique",
+      "Patient Defense",
+      "Slow Fall",
+      "Step of the Wind",
+      "Stillness of Mind",
+      "Stunning Strike",
+      "Unarmored Defense (Monk)",
+      "Unarmored Movement",
+      "Wholeness of Body"
+    ],
+    "feats": [],
+    "skills": [
+      "MEDICINE:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [
+      "UNARMORED_DEFENSE_MONK*"
+    ],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 9,
+    "scores": {
+      "str": 16,
+      "dex": 17,
+      "con": 14,
+      "int": 13,
+      "wis": 13,
+      "cha": 9
+    },
+    "hp": {
+      "current": 66,
+      "max": 66
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "5",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "DEX",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Інструменти на вибір\nНабір травника\nПроста зброя",
+    "customEquipment": "Футляр для свитків з нотатками x1\nЗимова ковдра x1\nЗвичайний одяг x1\nНабір травника x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "MONK_2014",
+    "subclass": "WAY_OF_THE_OPEN_HAND",
+    "background": "HERMIT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Deflect Missiles",
+      "Evasion",
+      "Extra Attack (Monk)",
+      "Flurry of Blows",
+      "Ki",
+      "Ki-Empowered Strikes",
+      "Martial Arts",
+      "Monastic Tradition",
+      "Open Hand Technique",
+      "Patient Defense",
+      "Slow Fall",
+      "Step of the Wind",
+      "Stillness of Mind",
+      "Stunning Strike",
+      "Unarmored Defense (Monk)",
+      "Unarmored Movement",
+      "Unarmored Movement (Vertical)",
+      "Wholeness of Body"
+    ],
+    "feats": [],
+    "skills": [
+      "MEDICINE:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [
+      "UNARMORED_DEFENSE_MONK*"
+    ],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 10,
+    "scores": {
+      "str": 16,
+      "dex": 17,
+      "con": 14,
+      "int": 13,
+      "wis": 13,
+      "cha": 9
+    },
+    "hp": {
+      "current": 73,
+      "max": 73
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "5",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "DEX",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Інструменти на вибір\nНабір травника\nПроста зброя",
+    "customEquipment": "Футляр для свитків з нотатками x1\nЗимова ковдра x1\nЗвичайний одяг x1\nНабір травника x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "MONK_2014",
+    "subclass": "WAY_OF_THE_OPEN_HAND",
+    "background": "HERMIT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Deflect Missiles",
+      "Evasion",
+      "Extra Attack (Monk)",
+      "Flurry of Blows",
+      "Ki",
+      "Ki-Empowered Strikes",
+      "Martial Arts",
+      "Monastic Tradition",
+      "Open Hand Technique",
+      "Patient Defense",
+      "Purity of Body",
+      "Slow Fall",
+      "Step of the Wind",
+      "Stillness of Mind",
+      "Stunning Strike",
+      "Unarmored Defense (Monk)",
+      "Unarmored Movement",
+      "Unarmored Movement (Vertical)",
+      "Wholeness of Body"
+    ],
+    "feats": [],
+    "skills": [
+      "MEDICINE:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [
+      "UNARMORED_DEFENSE_MONK*"
+    ],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 11,
+    "scores": {
+      "str": 16,
+      "dex": 17,
+      "con": 14,
+      "int": 13,
+      "wis": 13,
+      "cha": 9
+    },
+    "hp": {
+      "current": 80,
+      "max": 80
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "5",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "DEX",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Інструменти на вибір\nНабір травника\nПроста зброя",
+    "customEquipment": "Футляр для свитків з нотатками x1\nЗимова ковдра x1\nЗвичайний одяг x1\nНабір травника x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "MONK_2014",
+    "subclass": "WAY_OF_THE_OPEN_HAND",
+    "background": "HERMIT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Deflect Missiles",
+      "Evasion",
+      "Extra Attack (Monk)",
+      "Flurry of Blows",
+      "Ki",
+      "Ki-Empowered Strikes",
+      "Martial Arts",
+      "Monastic Tradition",
+      "Open Hand Technique",
+      "Patient Defense",
+      "Purity of Body",
+      "Slow Fall",
+      "Step of the Wind",
+      "Stillness of Mind",
+      "Stunning Strike",
+      "Tranquility",
+      "Unarmored Defense (Monk)",
+      "Unarmored Movement",
+      "Unarmored Movement (Vertical)",
+      "Wholeness of Body"
+    ],
+    "feats": [],
+    "skills": [
+      "MEDICINE:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [
+      "UNARMORED_DEFENSE_MONK*"
+    ],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 12,
+    "scores": {
+      "str": 16,
+      "dex": 18,
+      "con": 14,
+      "int": 13,
+      "wis": 14,
+      "cha": 9
+    },
+    "hp": {
+      "current": 87,
+      "max": 87
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "5",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "DEX",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Інструменти на вибір\nНабір травника\nПроста зброя",
+    "customEquipment": "Футляр для свитків з нотатками x1\nЗимова ковдра x1\nЗвичайний одяг x1\nНабір травника x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "MONK_2014",
+    "subclass": "WAY_OF_THE_OPEN_HAND",
+    "background": "HERMIT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Deflect Missiles",
+      "Evasion",
+      "Extra Attack (Monk)",
+      "Flurry of Blows",
+      "Ki",
+      "Ki-Empowered Strikes",
+      "Martial Arts",
+      "Monastic Tradition",
+      "Open Hand Technique",
+      "Patient Defense",
+      "Purity of Body",
+      "Slow Fall",
+      "Step of the Wind",
+      "Stillness of Mind",
+      "Stunning Strike",
+      "Tranquility",
+      "Unarmored Defense (Monk)",
+      "Unarmored Movement",
+      "Unarmored Movement (Vertical)",
+      "Wholeness of Body"
+    ],
+    "feats": [],
+    "skills": [
+      "MEDICINE:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [
+      "UNARMORED_DEFENSE_MONK*"
+    ],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 13,
+    "scores": {
+      "str": 16,
+      "dex": 18,
+      "con": 14,
+      "int": 13,
+      "wis": 14,
+      "cha": 9
+    },
+    "hp": {
+      "current": 94,
+      "max": 94
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "5",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "DEX",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Інструменти на вибір\nНабір травника\nПроста зброя",
+    "customEquipment": "Футляр для свитків з нотатками x1\nЗимова ковдра x1\nЗвичайний одяг x1\nНабір травника x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "MONK_2014",
+    "subclass": "WAY_OF_THE_OPEN_HAND",
+    "background": "HERMIT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Deflect Missiles",
+      "Evasion",
+      "Extra Attack (Monk)",
+      "Flurry of Blows",
+      "Ki",
+      "Ki-Empowered Strikes",
+      "Martial Arts",
+      "Monastic Tradition",
+      "Open Hand Technique",
+      "Patient Defense",
+      "Purity of Body",
+      "Slow Fall",
+      "Step of the Wind",
+      "Stillness of Mind",
+      "Stunning Strike",
+      "Tongue of the Sun and Moon",
+      "Tranquility",
+      "Unarmored Defense (Monk)",
+      "Unarmored Movement",
+      "Unarmored Movement (Vertical)",
+      "Wholeness of Body"
+    ],
+    "feats": [],
+    "skills": [
+      "MEDICINE:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [
+      "UNARMORED_DEFENSE_MONK*"
+    ],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 14,
+    "scores": {
+      "str": 16,
+      "dex": 18,
+      "con": 14,
+      "int": 13,
+      "wis": 14,
+      "cha": 9
+    },
+    "hp": {
+      "current": 101,
+      "max": 101
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "5",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "DEX",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Інструменти на вибір\nНабір травника\nПроста зброя",
+    "customEquipment": "Футляр для свитків з нотатками x1\nЗимова ковдра x1\nЗвичайний одяг x1\nНабір травника x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "MONK_2014",
+    "subclass": "WAY_OF_THE_OPEN_HAND",
+    "background": "HERMIT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Deflect Missiles",
+      "Diamond Soul",
+      "Evasion",
+      "Extra Attack (Monk)",
+      "Flurry of Blows",
+      "Ki",
+      "Ki-Empowered Strikes",
+      "Martial Arts",
+      "Monastic Tradition",
+      "Open Hand Technique",
+      "Patient Defense",
+      "Purity of Body",
+      "Slow Fall",
+      "Step of the Wind",
+      "Stillness of Mind",
+      "Stunning Strike",
+      "Tongue of the Sun and Moon",
+      "Tranquility",
+      "Unarmored Defense (Monk)",
+      "Unarmored Movement",
+      "Unarmored Movement (Vertical)",
+      "Wholeness of Body"
+    ],
+    "feats": [],
+    "skills": [
+      "MEDICINE:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [
+      "UNARMORED_DEFENSE_MONK*"
+    ],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 15,
+    "scores": {
+      "str": 16,
+      "dex": 18,
+      "con": 14,
+      "int": 13,
+      "wis": 14,
+      "cha": 9
+    },
+    "hp": {
+      "current": 108,
+      "max": 108
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "5",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "DEX",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Інструменти на вибір\nНабір травника\nПроста зброя",
+    "customEquipment": "Футляр для свитків з нотатками x1\nЗимова ковдра x1\nЗвичайний одяг x1\nНабір травника x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "MONK_2014",
+    "subclass": "WAY_OF_THE_OPEN_HAND",
+    "background": "HERMIT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Deflect Missiles",
+      "Diamond Soul",
+      "Evasion",
+      "Extra Attack (Monk)",
+      "Flurry of Blows",
+      "Ki",
+      "Ki-Empowered Strikes",
+      "Martial Arts",
+      "Monastic Tradition",
+      "Open Hand Technique",
+      "Patient Defense",
+      "Purity of Body",
+      "Slow Fall",
+      "Step of the Wind",
+      "Stillness of Mind",
+      "Stunning Strike",
+      "Timeless Body",
+      "Tongue of the Sun and Moon",
+      "Tranquility",
+      "Unarmored Defense (Monk)",
+      "Unarmored Movement",
+      "Unarmored Movement (Vertical)",
+      "Wholeness of Body"
+    ],
+    "feats": [],
+    "skills": [
+      "MEDICINE:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [
+      "UNARMORED_DEFENSE_MONK*"
+    ],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 16,
+    "scores": {
+      "str": 16,
+      "dex": 19,
+      "con": 14,
+      "int": 13,
+      "wis": 15,
+      "cha": 9
+    },
+    "hp": {
+      "current": 115,
+      "max": 115
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "5",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "DEX",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Інструменти на вибір\nНабір травника\nПроста зброя",
+    "customEquipment": "Футляр для свитків з нотатками x1\nЗимова ковдра x1\nЗвичайний одяг x1\nНабір травника x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "MONK_2014",
+    "subclass": "WAY_OF_THE_OPEN_HAND",
+    "background": "HERMIT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Deflect Missiles",
+      "Diamond Soul",
+      "Evasion",
+      "Extra Attack (Monk)",
+      "Flurry of Blows",
+      "Ki",
+      "Ki-Empowered Strikes",
+      "Martial Arts",
+      "Monastic Tradition",
+      "Open Hand Technique",
+      "Patient Defense",
+      "Purity of Body",
+      "Slow Fall",
+      "Step of the Wind",
+      "Stillness of Mind",
+      "Stunning Strike",
+      "Timeless Body",
+      "Tongue of the Sun and Moon",
+      "Tranquility",
+      "Unarmored Defense (Monk)",
+      "Unarmored Movement",
+      "Unarmored Movement (Vertical)",
+      "Wholeness of Body"
+    ],
+    "feats": [],
+    "skills": [
+      "MEDICINE:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [
+      "UNARMORED_DEFENSE_MONK*"
+    ],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 17,
+    "scores": {
+      "str": 16,
+      "dex": 19,
+      "con": 14,
+      "int": 13,
+      "wis": 15,
+      "cha": 9
+    },
+    "hp": {
+      "current": 122,
+      "max": 122
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "5",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "DEX",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Інструменти на вибір\nНабір травника\nПроста зброя",
+    "customEquipment": "Футляр для свитків з нотатками x1\nЗимова ковдра x1\nЗвичайний одяг x1\nНабір травника x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "MONK_2014",
+    "subclass": "WAY_OF_THE_OPEN_HAND",
+    "background": "HERMIT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Deflect Missiles",
+      "Diamond Soul",
+      "Evasion",
+      "Extra Attack (Monk)",
+      "Flurry of Blows",
+      "Ki",
+      "Ki-Empowered Strikes",
+      "Martial Arts",
+      "Monastic Tradition",
+      "Open Hand Technique",
+      "Patient Defense",
+      "Purity of Body",
+      "Quivering Palm",
+      "Slow Fall",
+      "Step of the Wind",
+      "Stillness of Mind",
+      "Stunning Strike",
+      "Timeless Body",
+      "Tongue of the Sun and Moon",
+      "Tranquility",
+      "Unarmored Defense (Monk)",
+      "Unarmored Movement",
+      "Unarmored Movement (Vertical)",
+      "Wholeness of Body"
+    ],
+    "feats": [],
+    "skills": [
+      "MEDICINE:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [
+      "UNARMORED_DEFENSE_MONK*"
+    ],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 18,
+    "scores": {
+      "str": 16,
+      "dex": 19,
+      "con": 14,
+      "int": 13,
+      "wis": 15,
+      "cha": 9
+    },
+    "hp": {
+      "current": 129,
+      "max": 129
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "5",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "DEX",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Інструменти на вибір\nНабір травника\nПроста зброя",
+    "customEquipment": "Футляр для свитків з нотатками x1\nЗимова ковдра x1\nЗвичайний одяг x1\nНабір травника x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "MONK_2014",
+    "subclass": "WAY_OF_THE_OPEN_HAND",
+    "background": "HERMIT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Deflect Missiles",
+      "Diamond Soul",
+      "Empty Body",
+      "Empty Body: Astral Projection",
+      "Evasion",
+      "Extra Attack (Monk)",
+      "Flurry of Blows",
+      "Ki",
+      "Ki-Empowered Strikes",
+      "Martial Arts",
+      "Monastic Tradition",
+      "Open Hand Technique",
+      "Patient Defense",
+      "Purity of Body",
+      "Quivering Palm",
+      "Slow Fall",
+      "Step of the Wind",
+      "Stillness of Mind",
+      "Stunning Strike",
+      "Timeless Body",
+      "Tongue of the Sun and Moon",
+      "Tranquility",
+      "Unarmored Defense (Monk)",
+      "Unarmored Movement",
+      "Unarmored Movement (Vertical)",
+      "Wholeness of Body"
+    ],
+    "feats": [],
+    "skills": [
+      "MEDICINE:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [
+      "UNARMORED_DEFENSE_MONK*"
+    ],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 19,
+    "scores": {
+      "str": 16,
+      "dex": 20,
+      "con": 14,
+      "int": 13,
+      "wis": 16,
+      "cha": 9
+    },
+    "hp": {
+      "current": 136,
+      "max": 136
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "5",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "DEX",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Інструменти на вибір\nНабір травника\nПроста зброя",
+    "customEquipment": "Футляр для свитків з нотатками x1\nЗимова ковдра x1\nЗвичайний одяг x1\nНабір травника x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "MONK_2014",
+    "subclass": "WAY_OF_THE_OPEN_HAND",
+    "background": "HERMIT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Deflect Missiles",
+      "Diamond Soul",
+      "Empty Body",
+      "Empty Body: Astral Projection",
+      "Evasion",
+      "Extra Attack (Monk)",
+      "Flurry of Blows",
+      "Ki",
+      "Ki-Empowered Strikes",
+      "Martial Arts",
+      "Monastic Tradition",
+      "Open Hand Technique",
+      "Patient Defense",
+      "Purity of Body",
+      "Quivering Palm",
+      "Slow Fall",
+      "Step of the Wind",
+      "Stillness of Mind",
+      "Stunning Strike",
+      "Timeless Body",
+      "Tongue of the Sun and Moon",
+      "Tranquility",
+      "Unarmored Defense (Monk)",
+      "Unarmored Movement",
+      "Unarmored Movement (Vertical)",
+      "Wholeness of Body"
+    ],
+    "feats": [],
+    "skills": [
+      "MEDICINE:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [
+      "UNARMORED_DEFENSE_MONK*"
+    ],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 20,
+    "scores": {
+      "str": 16,
+      "dex": 20,
+      "con": 14,
+      "int": 13,
+      "wis": 16,
+      "cha": 9
+    },
+    "hp": {
+      "current": 143,
+      "max": 143
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "5",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "DEX",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Інструменти на вибір\nНабір травника\nПроста зброя",
+    "customEquipment": "Футляр для свитків з нотатками x1\nЗимова ковдра x1\nЗвичайний одяг x1\nНабір травника x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "MONK_2014",
+    "subclass": "WAY_OF_THE_OPEN_HAND",
+    "background": "HERMIT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Deflect Missiles",
+      "Diamond Soul",
+      "Empty Body",
+      "Empty Body: Astral Projection",
+      "Evasion",
+      "Extra Attack (Monk)",
+      "Flurry of Blows",
+      "Ki",
+      "Ki-Empowered Strikes",
+      "Martial Arts",
+      "Monastic Tradition",
+      "Open Hand Technique",
+      "Patient Defense",
+      "Perfect Self",
+      "Purity of Body",
+      "Quivering Palm",
+      "Slow Fall",
+      "Step of the Wind",
+      "Stillness of Mind",
+      "Stunning Strike",
+      "Timeless Body",
+      "Tongue of the Sun and Moon",
+      "Tranquility",
+      "Unarmored Defense (Monk)",
+      "Unarmored Movement",
+      "Unarmored Movement (Vertical)",
+      "Wholeness of Body"
+    ],
+    "feats": [],
+    "skills": [
+      "MEDICINE:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [
+      "UNARMORED_DEFENSE_MONK*"
+    ],
+    "multiclasses": [],
+    "infusions": []
+  }
+]

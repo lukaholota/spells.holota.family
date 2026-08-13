@@ -1,0 +1,1883 @@
+[
+  {
+    "level": 1,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 12,
+      "max": 12
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "25",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Важкі обладунки, Щит\nІгровий набір\nПроста зброя, Бойова зброя",
+    "customEquipment": "Гарний одяг x1\nПерстень-печатка x1\nСвиток з родоводом x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "PALADIN_2014",
+    "subclass": null,
+    "background": "NOBLE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Sense",
+      "Lay on Hands"
+    ],
+    "feats": [],
+    "skills": [
+      "HISTORY:PROFICIENT",
+      "PERSUASION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 2,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 20,
+      "max": 20
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "25",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Важкі обладунки, Щит\nІгровий набір\nПроста зброя, Бойова зброя",
+    "customEquipment": "Гарний одяг x1\nПерстень-печатка x1\nСвиток з родоводом x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "PALADIN_2014",
+    "subclass": null,
+    "background": "NOBLE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Dueling"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Sense",
+      "Divine Smite",
+      "Dueling",
+      "Fighting Style",
+      "Lay on Hands",
+      "Spellcasting (Paladin)"
+    ],
+    "feats": [],
+    "skills": [
+      "HISTORY:PROFICIENT",
+      "PERSUASION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 3,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 28,
+      "max": 28
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "25",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Важкі обладунки, Щит\nІгровий набір\nПроста зброя, Бойова зброя",
+    "customEquipment": "Гарний одяг x1\nПерстень-печатка x1\nСвиток з родоводом x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "PALADIN_2014",
+    "subclass": "OATH_OF_DEVOTION",
+    "background": "NOBLE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Dueling"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Channel Divinity",
+      "Channel Divinity: Sacred Weapon",
+      "Channel Divinity: Turn the Unholy",
+      "Divine Health",
+      "Divine Sense",
+      "Divine Smite",
+      "Dueling",
+      "Fighting Style",
+      "Lay on Hands",
+      "Oath Spells",
+      "Oath of Devotion Spells",
+      "Sacred Oath",
+      "Spellcasting (Paladin)"
+    ],
+    "feats": [],
+    "skills": [
+      "HISTORY:PROFICIENT",
+      "PERSUASION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 4,
+    "scores": {
+      "str": 17,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 10
+    },
+    "hp": {
+      "current": 36,
+      "max": 36
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "25",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Важкі обладунки, Щит\nІгровий набір\nПроста зброя, Бойова зброя",
+    "customEquipment": "Гарний одяг x1\nПерстень-печатка x1\nСвиток з родоводом x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "PALADIN_2014",
+    "subclass": "OATH_OF_DEVOTION",
+    "background": "NOBLE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Dueling"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Channel Divinity",
+      "Channel Divinity: Sacred Weapon",
+      "Channel Divinity: Turn the Unholy",
+      "Divine Health",
+      "Divine Sense",
+      "Divine Smite",
+      "Dueling",
+      "Fighting Style",
+      "Lay on Hands",
+      "Oath Spells",
+      "Oath of Devotion Spells",
+      "Sacred Oath",
+      "Spellcasting (Paladin)"
+    ],
+    "feats": [],
+    "skills": [
+      "HISTORY:PROFICIENT",
+      "PERSUASION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 5,
+    "scores": {
+      "str": 17,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 10
+    },
+    "hp": {
+      "current": 44,
+      "max": 44
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "25",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Важкі обладунки, Щит\nІгровий набір\nПроста зброя, Бойова зброя",
+    "customEquipment": "Гарний одяг x1\nПерстень-печатка x1\nСвиток з родоводом x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "PALADIN_2014",
+    "subclass": "OATH_OF_DEVOTION",
+    "background": "NOBLE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Dueling"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Channel Divinity",
+      "Channel Divinity: Sacred Weapon",
+      "Channel Divinity: Turn the Unholy",
+      "Divine Health",
+      "Divine Sense",
+      "Divine Smite",
+      "Dueling",
+      "Extra Attack (Paladin)",
+      "Fighting Style",
+      "Lay on Hands",
+      "Oath Spells",
+      "Oath of Devotion Spells",
+      "Sacred Oath",
+      "Spellcasting (Paladin)"
+    ],
+    "feats": [],
+    "skills": [
+      "HISTORY:PROFICIENT",
+      "PERSUASION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 6,
+    "scores": {
+      "str": 17,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 10
+    },
+    "hp": {
+      "current": 52,
+      "max": 52
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "25",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Важкі обладунки, Щит\nІгровий набір\nПроста зброя, Бойова зброя",
+    "customEquipment": "Гарний одяг x1\nПерстень-печатка x1\nСвиток з родоводом x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "PALADIN_2014",
+    "subclass": "OATH_OF_DEVOTION",
+    "background": "NOBLE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Dueling"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Aura of Protection",
+      "Channel Divinity",
+      "Channel Divinity: Sacred Weapon",
+      "Channel Divinity: Turn the Unholy",
+      "Divine Health",
+      "Divine Sense",
+      "Divine Smite",
+      "Dueling",
+      "Extra Attack (Paladin)",
+      "Fighting Style",
+      "Lay on Hands",
+      "Oath Spells",
+      "Oath of Devotion Spells",
+      "Sacred Oath",
+      "Spellcasting (Paladin)"
+    ],
+    "feats": [],
+    "skills": [
+      "HISTORY:PROFICIENT",
+      "PERSUASION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 7,
+    "scores": {
+      "str": 17,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 10
+    },
+    "hp": {
+      "current": 60,
+      "max": 60
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "25",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Важкі обладунки, Щит\nІгровий набір\nПроста зброя, Бойова зброя",
+    "customEquipment": "Гарний одяг x1\nПерстень-печатка x1\nСвиток з родоводом x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "PALADIN_2014",
+    "subclass": "OATH_OF_DEVOTION",
+    "background": "NOBLE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Dueling",
+      "Favored Enemy",
+      "Natural Explorer"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Aura of Protection",
+      "Channel Divinity",
+      "Channel Divinity: Sacred Weapon",
+      "Channel Divinity: Turn the Unholy",
+      "Divine Health",
+      "Divine Sense",
+      "Divine Smite",
+      "Dueling",
+      "Extra Attack (Paladin)",
+      "Favored Enemy",
+      "Fighting Style",
+      "Lay on Hands",
+      "Natural Explorer",
+      "Oath Spells",
+      "Oath of Devotion Spells",
+      "Sacred Oath",
+      "Spellcasting (Paladin)"
+    ],
+    "feats": [],
+    "skills": [
+      "HISTORY:PROFICIENT",
+      "PERSUASION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [
+      {
+        "class": "RANGER_2014",
+        "subclass": null,
+        "classLevel": 1
+      }
+    ],
+    "infusions": []
+  },
+  {
+    "level": 8,
+    "scores": {
+      "str": 17,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 10
+    },
+    "hp": {
+      "current": 68,
+      "max": 68
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "25",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Важкі обладунки, Щит\nІгровий набір\nПроста зброя, Бойова зброя",
+    "customEquipment": "Гарний одяг x1\nПерстень-печатка x1\nСвиток з родоводом x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "PALADIN_2014",
+    "subclass": "OATH_OF_DEVOTION",
+    "background": "NOBLE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Archery",
+      "Dueling",
+      "Favored Enemy",
+      "Natural Explorer"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Archery",
+      "Aura of Protection",
+      "Channel Divinity",
+      "Channel Divinity: Sacred Weapon",
+      "Channel Divinity: Turn the Unholy",
+      "Divine Health",
+      "Divine Sense",
+      "Divine Smite",
+      "Dueling",
+      "Extra Attack (Paladin)",
+      "Favored Enemy",
+      "Fighting Style",
+      "Lay on Hands",
+      "Natural Explorer",
+      "Oath Spells",
+      "Oath of Devotion Spells",
+      "Sacred Oath",
+      "Spellcasting (Paladin)",
+      "Spellcasting (Ranger)"
+    ],
+    "feats": [],
+    "skills": [
+      "HISTORY:PROFICIENT",
+      "PERSUASION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [
+      {
+        "class": "RANGER_2014",
+        "subclass": null,
+        "classLevel": 2
+      }
+    ],
+    "infusions": []
+  },
+  {
+    "level": 9,
+    "scores": {
+      "str": 17,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 10
+    },
+    "hp": {
+      "current": 76,
+      "max": 76
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "25",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Важкі обладунки, Щит\nІгровий набір\nПроста зброя, Бойова зброя",
+    "customEquipment": "Гарний одяг x1\nПерстень-печатка x1\nСвиток з родоводом x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "PALADIN_2014",
+    "subclass": "OATH_OF_DEVOTION",
+    "background": "NOBLE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Archery",
+      "Dueling",
+      "Favored Enemy",
+      "Natural Explorer",
+      "Primeval Awareness"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Archery",
+      "Aura of Protection",
+      "Channel Divinity",
+      "Channel Divinity: Sacred Weapon",
+      "Channel Divinity: Turn the Unholy",
+      "Divine Health",
+      "Divine Sense",
+      "Divine Smite",
+      "Dueling",
+      "Extra Attack (Paladin)",
+      "Favored Enemy",
+      "Fighting Style",
+      "Lay on Hands",
+      "Natural Explorer",
+      "Oath Spells",
+      "Oath of Devotion Spells",
+      "Primal Companion (Optional)",
+      "Primeval Awareness",
+      "Ranger Archetype",
+      "Ranger's Companion",
+      "Sacred Oath",
+      "Spellcasting (Paladin)",
+      "Spellcasting (Ranger)"
+    ],
+    "feats": [],
+    "skills": [
+      "HISTORY:PROFICIENT",
+      "PERSUASION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [
+      {
+        "class": "RANGER_2014",
+        "subclass": "BEAST_MASTER_CONCLAVE",
+        "classLevel": 3
+      }
+    ],
+    "infusions": []
+  },
+  {
+    "level": 10,
+    "scores": {
+      "str": 17,
+      "dex": 16,
+      "con": 14,
+      "int": 13,
+      "wis": 12,
+      "cha": 10
+    },
+    "hp": {
+      "current": 84,
+      "max": 84
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "25",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Важкі обладунки, Щит\nІгровий набір\nПроста зброя, Бойова зброя",
+    "customEquipment": "Гарний одяг x1\nПерстень-печатка x1\nСвиток з родоводом x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "PALADIN_2014",
+    "subclass": "OATH_OF_DEVOTION",
+    "background": "NOBLE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Archery",
+      "Dueling",
+      "Favored Enemy",
+      "Natural Explorer",
+      "Primeval Awareness"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Archery",
+      "Aura of Protection",
+      "Channel Divinity",
+      "Channel Divinity: Sacred Weapon",
+      "Channel Divinity: Turn the Unholy",
+      "Divine Health",
+      "Divine Sense",
+      "Divine Smite",
+      "Dueling",
+      "Extra Attack (Paladin)",
+      "Favored Enemy",
+      "Fighting Style",
+      "Lay on Hands",
+      "Natural Explorer",
+      "Oath Spells",
+      "Oath of Devotion Spells",
+      "Primal Companion (Optional)",
+      "Primeval Awareness",
+      "Ranger Archetype",
+      "Ranger's Companion",
+      "Sacred Oath",
+      "Spellcasting (Paladin)",
+      "Spellcasting (Ranger)"
+    ],
+    "feats": [],
+    "skills": [
+      "HISTORY:PROFICIENT",
+      "PERSUASION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [
+      {
+        "class": "RANGER_2014",
+        "subclass": "BEAST_MASTER_CONCLAVE",
+        "classLevel": 4
+      }
+    ],
+    "infusions": []
+  },
+  {
+    "level": 11,
+    "scores": {
+      "str": 17,
+      "dex": 16,
+      "con": 14,
+      "int": 13,
+      "wis": 12,
+      "cha": 10
+    },
+    "hp": {
+      "current": 92,
+      "max": 92
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "25",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Важкі обладунки, Щит\nІгровий набір\nПроста зброя, Бойова зброя",
+    "customEquipment": "Гарний одяг x1\nПерстень-печатка x1\nСвиток з родоводом x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "PALADIN_2014",
+    "subclass": "OATH_OF_DEVOTION",
+    "background": "NOBLE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Archery",
+      "Dueling",
+      "Favored Enemy",
+      "Natural Explorer",
+      "Primeval Awareness"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Archery",
+      "Aura of Protection",
+      "Channel Divinity",
+      "Channel Divinity: Sacred Weapon",
+      "Channel Divinity: Turn the Unholy",
+      "Divine Health",
+      "Divine Sense",
+      "Divine Smite",
+      "Dueling",
+      "Extra Attack (Paladin)",
+      "Extra Attack (Ranger)",
+      "Favored Enemy",
+      "Fighting Style",
+      "Lay on Hands",
+      "Natural Explorer",
+      "Oath Spells",
+      "Oath of Devotion Spells",
+      "Primal Companion (Optional)",
+      "Primeval Awareness",
+      "Ranger Archetype",
+      "Ranger's Companion",
+      "Sacred Oath",
+      "Spellcasting (Paladin)",
+      "Spellcasting (Ranger)"
+    ],
+    "feats": [],
+    "skills": [
+      "HISTORY:PROFICIENT",
+      "PERSUASION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [
+      {
+        "class": "RANGER_2014",
+        "subclass": "BEAST_MASTER_CONCLAVE",
+        "classLevel": 5
+      }
+    ],
+    "infusions": []
+  },
+  {
+    "level": 12,
+    "scores": {
+      "str": 17,
+      "dex": 16,
+      "con": 14,
+      "int": 13,
+      "wis": 12,
+      "cha": 10
+    },
+    "hp": {
+      "current": 100,
+      "max": 100
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "25",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Важкі обладунки, Щит\nІгровий набір\nПроста зброя, Бойова зброя",
+    "customEquipment": "Гарний одяг x1\nПерстень-печатка x1\nСвиток з родоводом x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "PALADIN_2014",
+    "subclass": "OATH_OF_DEVOTION",
+    "background": "NOBLE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Archery",
+      "Dueling",
+      "Favored Enemy",
+      "Natural Explorer",
+      "Primeval Awareness"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Archery",
+      "Aura of Protection",
+      "Channel Divinity",
+      "Channel Divinity: Sacred Weapon",
+      "Channel Divinity: Turn the Unholy",
+      "Divine Health",
+      "Divine Sense",
+      "Divine Smite",
+      "Dueling",
+      "Extra Attack (Paladin)",
+      "Extra Attack (Ranger)",
+      "Favored Enemy",
+      "Fighting Style",
+      "Lay on Hands",
+      "Natural Explorer",
+      "Oath Spells",
+      "Oath of Devotion Spells",
+      "Primal Companion (Optional)",
+      "Primeval Awareness",
+      "Ranger Archetype",
+      "Ranger's Companion",
+      "Sacred Oath",
+      "Spellcasting (Paladin)",
+      "Spellcasting (Ranger)"
+    ],
+    "feats": [],
+    "skills": [
+      "HISTORY:PROFICIENT",
+      "PERSUASION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [
+      {
+        "class": "RANGER_2014",
+        "subclass": "BEAST_MASTER_CONCLAVE",
+        "classLevel": 6
+      }
+    ],
+    "infusions": []
+  },
+  {
+    "level": 13,
+    "scores": {
+      "str": 17,
+      "dex": 16,
+      "con": 14,
+      "int": 13,
+      "wis": 12,
+      "cha": 10
+    },
+    "hp": {
+      "current": 108,
+      "max": 108
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "25",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Важкі обладунки, Щит\nІгровий набір\nПроста зброя, Бойова зброя",
+    "customEquipment": "Гарний одяг x1\nПерстень-печатка x1\nСвиток з родоводом x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "PALADIN_2014",
+    "subclass": "OATH_OF_DEVOTION",
+    "background": "NOBLE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Archery",
+      "Dueling",
+      "Favored Enemy",
+      "Natural Explorer",
+      "Primeval Awareness"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Archery",
+      "Aura of Protection",
+      "Channel Divinity",
+      "Channel Divinity: Sacred Weapon",
+      "Channel Divinity: Turn the Unholy",
+      "Divine Health",
+      "Divine Sense",
+      "Divine Smite",
+      "Dueling",
+      "Exceptional Training",
+      "Extra Attack (Paladin)",
+      "Extra Attack (Ranger)",
+      "Favored Enemy",
+      "Fighting Style",
+      "Lay on Hands",
+      "Natural Explorer",
+      "Oath Spells",
+      "Oath of Devotion Spells",
+      "Primal Companion (Optional)",
+      "Primeval Awareness",
+      "Ranger Archetype",
+      "Ranger's Companion",
+      "Sacred Oath",
+      "Spellcasting (Paladin)",
+      "Spellcasting (Ranger)"
+    ],
+    "feats": [],
+    "skills": [
+      "HISTORY:PROFICIENT",
+      "PERSUASION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [
+      {
+        "class": "RANGER_2014",
+        "subclass": "BEAST_MASTER_CONCLAVE",
+        "classLevel": 7
+      }
+    ],
+    "infusions": []
+  },
+  {
+    "level": 14,
+    "scores": {
+      "str": 17,
+      "dex": 17,
+      "con": 14,
+      "int": 13,
+      "wis": 13,
+      "cha": 10
+    },
+    "hp": {
+      "current": 116,
+      "max": 116
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "25",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        3,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Важкі обладунки, Щит\nІгровий набір\nПроста зброя, Бойова зброя",
+    "customEquipment": "Гарний одяг x1\nПерстень-печатка x1\nСвиток з родоводом x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "PALADIN_2014",
+    "subclass": "OATH_OF_DEVOTION",
+    "background": "NOBLE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Archery",
+      "Dueling",
+      "Favored Enemy",
+      "Natural Explorer",
+      "Primeval Awareness"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Archery",
+      "Aura of Protection",
+      "Channel Divinity",
+      "Channel Divinity: Sacred Weapon",
+      "Channel Divinity: Turn the Unholy",
+      "Divine Health",
+      "Divine Sense",
+      "Divine Smite",
+      "Dueling",
+      "Exceptional Training",
+      "Extra Attack (Paladin)",
+      "Extra Attack (Ranger)",
+      "Favored Enemy",
+      "Fighting Style",
+      "Land's Stride",
+      "Lay on Hands",
+      "Natural Explorer",
+      "Oath Spells",
+      "Oath of Devotion Spells",
+      "Primal Companion (Optional)",
+      "Primeval Awareness",
+      "Ranger Archetype",
+      "Ranger's Companion",
+      "Sacred Oath",
+      "Spellcasting (Paladin)",
+      "Spellcasting (Ranger)"
+    ],
+    "feats": [],
+    "skills": [
+      "HISTORY:PROFICIENT",
+      "PERSUASION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [
+      {
+        "class": "RANGER_2014",
+        "subclass": "BEAST_MASTER_CONCLAVE",
+        "classLevel": 8
+      }
+    ],
+    "infusions": []
+  },
+  {
+    "level": 15,
+    "scores": {
+      "str": 17,
+      "dex": 17,
+      "con": 14,
+      "int": 13,
+      "wis": 13,
+      "cha": 10
+    },
+    "hp": {
+      "current": 124,
+      "max": 124
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "25",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        3,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Важкі обладунки, Щит\nІгровий набір\nПроста зброя, Бойова зброя",
+    "customEquipment": "Гарний одяг x1\nПерстень-печатка x1\nСвиток з родоводом x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "PALADIN_2014",
+    "subclass": "OATH_OF_DEVOTION",
+    "background": "NOBLE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Archery",
+      "Dueling",
+      "Favored Enemy",
+      "Natural Explorer",
+      "Primeval Awareness"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Archery",
+      "Aura of Protection",
+      "Channel Divinity",
+      "Channel Divinity: Sacred Weapon",
+      "Channel Divinity: Turn the Unholy",
+      "Divine Health",
+      "Divine Sense",
+      "Divine Smite",
+      "Dueling",
+      "Exceptional Training",
+      "Extra Attack (Paladin)",
+      "Extra Attack (Ranger)",
+      "Favored Enemy",
+      "Fighting Style",
+      "Land's Stride",
+      "Lay on Hands",
+      "Natural Explorer",
+      "Oath Spells",
+      "Oath of Devotion Spells",
+      "Primal Companion (Optional)",
+      "Primeval Awareness",
+      "Ranger Archetype",
+      "Ranger's Companion",
+      "Sacred Oath",
+      "Spellcasting (Paladin)",
+      "Spellcasting (Ranger)"
+    ],
+    "feats": [],
+    "skills": [
+      "HISTORY:PROFICIENT",
+      "PERSUASION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [
+      {
+        "class": "RANGER_2014",
+        "subclass": "BEAST_MASTER_CONCLAVE",
+        "classLevel": 9
+      }
+    ],
+    "infusions": []
+  },
+  {
+    "level": 16,
+    "scores": {
+      "str": 17,
+      "dex": 17,
+      "con": 14,
+      "int": 13,
+      "wis": 13,
+      "cha": 10
+    },
+    "hp": {
+      "current": 132,
+      "max": 132
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "25",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        3,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Важкі обладунки, Щит\nІгровий набір\nПроста зброя, Бойова зброя",
+    "customEquipment": "Гарний одяг x1\nПерстень-печатка x1\nСвиток з родоводом x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "PALADIN_2014",
+    "subclass": "OATH_OF_DEVOTION",
+    "background": "NOBLE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Archery",
+      "Dueling",
+      "Favored Enemy",
+      "Natural Explorer",
+      "Primeval Awareness",
+      "Hide in Plain Sight"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Archery",
+      "Aura of Protection",
+      "Channel Divinity",
+      "Channel Divinity: Sacred Weapon",
+      "Channel Divinity: Turn the Unholy",
+      "Divine Health",
+      "Divine Sense",
+      "Divine Smite",
+      "Dueling",
+      "Exceptional Training",
+      "Extra Attack (Paladin)",
+      "Extra Attack (Ranger)",
+      "Favored Enemy",
+      "Fighting Style",
+      "Hide in Plain Sight",
+      "Land's Stride",
+      "Lay on Hands",
+      "Natural Explorer",
+      "Oath Spells",
+      "Oath of Devotion Spells",
+      "Primal Companion (Optional)",
+      "Primeval Awareness",
+      "Ranger Archetype",
+      "Ranger's Companion",
+      "Sacred Oath",
+      "Spellcasting (Paladin)",
+      "Spellcasting (Ranger)"
+    ],
+    "feats": [],
+    "skills": [
+      "HISTORY:PROFICIENT",
+      "PERSUASION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [
+      {
+        "class": "RANGER_2014",
+        "subclass": "BEAST_MASTER_CONCLAVE",
+        "classLevel": 10
+      }
+    ],
+    "infusions": []
+  },
+  {
+    "level": 17,
+    "scores": {
+      "str": 17,
+      "dex": 17,
+      "con": 14,
+      "int": 13,
+      "wis": 13,
+      "cha": 10
+    },
+    "hp": {
+      "current": 140,
+      "max": 140
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "25",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        3,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Важкі обладунки, Щит\nІгровий набір\nПроста зброя, Бойова зброя",
+    "customEquipment": "Гарний одяг x1\nПерстень-печатка x1\nСвиток з родоводом x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "PALADIN_2014",
+    "subclass": "OATH_OF_DEVOTION",
+    "background": "NOBLE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Archery",
+      "Dueling",
+      "Favored Enemy",
+      "Natural Explorer",
+      "Primeval Awareness",
+      "Hide in Plain Sight"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Archery",
+      "Aura of Protection",
+      "Bestial Fury",
+      "Channel Divinity",
+      "Channel Divinity: Sacred Weapon",
+      "Channel Divinity: Turn the Unholy",
+      "Divine Health",
+      "Divine Sense",
+      "Divine Smite",
+      "Dueling",
+      "Exceptional Training",
+      "Extra Attack (Paladin)",
+      "Extra Attack (Ranger)",
+      "Favored Enemy",
+      "Fighting Style",
+      "Hide in Plain Sight",
+      "Land's Stride",
+      "Lay on Hands",
+      "Natural Explorer",
+      "Oath Spells",
+      "Oath of Devotion Spells",
+      "Primal Companion (Optional)",
+      "Primeval Awareness",
+      "Ranger Archetype",
+      "Ranger's Companion",
+      "Sacred Oath",
+      "Spellcasting (Paladin)",
+      "Spellcasting (Ranger)"
+    ],
+    "feats": [],
+    "skills": [
+      "HISTORY:PROFICIENT",
+      "PERSUASION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [
+      {
+        "class": "RANGER_2014",
+        "subclass": "BEAST_MASTER_CONCLAVE",
+        "classLevel": 11
+      }
+    ],
+    "infusions": []
+  },
+  {
+    "level": 18,
+    "scores": {
+      "str": 17,
+      "dex": 18,
+      "con": 14,
+      "int": 13,
+      "wis": 14,
+      "cha": 10
+    },
+    "hp": {
+      "current": 148,
+      "max": 148
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "25",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        3,
+        3,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Важкі обладунки, Щит\nІгровий набір\nПроста зброя, Бойова зброя",
+    "customEquipment": "Гарний одяг x1\nПерстень-печатка x1\nСвиток з родоводом x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "PALADIN_2014",
+    "subclass": "OATH_OF_DEVOTION",
+    "background": "NOBLE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Archery",
+      "Dueling",
+      "Favored Enemy",
+      "Natural Explorer",
+      "Primeval Awareness",
+      "Hide in Plain Sight"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Archery",
+      "Aura of Protection",
+      "Bestial Fury",
+      "Channel Divinity",
+      "Channel Divinity: Sacred Weapon",
+      "Channel Divinity: Turn the Unholy",
+      "Divine Health",
+      "Divine Sense",
+      "Divine Smite",
+      "Dueling",
+      "Exceptional Training",
+      "Extra Attack (Paladin)",
+      "Extra Attack (Ranger)",
+      "Favored Enemy",
+      "Fighting Style",
+      "Hide in Plain Sight",
+      "Land's Stride",
+      "Lay on Hands",
+      "Natural Explorer",
+      "Oath Spells",
+      "Oath of Devotion Spells",
+      "Primal Companion (Optional)",
+      "Primeval Awareness",
+      "Ranger Archetype",
+      "Ranger's Companion",
+      "Sacred Oath",
+      "Spellcasting (Paladin)",
+      "Spellcasting (Ranger)"
+    ],
+    "feats": [],
+    "skills": [
+      "HISTORY:PROFICIENT",
+      "PERSUASION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [
+      {
+        "class": "RANGER_2014",
+        "subclass": "BEAST_MASTER_CONCLAVE",
+        "classLevel": 12
+      }
+    ],
+    "infusions": []
+  },
+  {
+    "level": 19,
+    "scores": {
+      "str": 17,
+      "dex": 18,
+      "con": 14,
+      "int": 13,
+      "wis": 14,
+      "cha": 10
+    },
+    "hp": {
+      "current": 156,
+      "max": 156
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "25",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        3,
+        3,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Важкі обладунки, Щит\nІгровий набір\nПроста зброя, Бойова зброя",
+    "customEquipment": "Гарний одяг x1\nПерстень-печатка x1\nСвиток з родоводом x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "PALADIN_2014",
+    "subclass": "OATH_OF_DEVOTION",
+    "background": "NOBLE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Archery",
+      "Dueling",
+      "Favored Enemy",
+      "Natural Explorer",
+      "Primeval Awareness",
+      "Hide in Plain Sight"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Archery",
+      "Aura of Protection",
+      "Bestial Fury",
+      "Channel Divinity",
+      "Channel Divinity: Sacred Weapon",
+      "Channel Divinity: Turn the Unholy",
+      "Divine Health",
+      "Divine Sense",
+      "Divine Smite",
+      "Dueling",
+      "Exceptional Training",
+      "Extra Attack (Paladin)",
+      "Extra Attack (Ranger)",
+      "Favored Enemy",
+      "Fighting Style",
+      "Hide in Plain Sight",
+      "Land's Stride",
+      "Lay on Hands",
+      "Natural Explorer",
+      "Oath Spells",
+      "Oath of Devotion Spells",
+      "Primal Companion (Optional)",
+      "Primeval Awareness",
+      "Ranger Archetype",
+      "Ranger's Companion",
+      "Sacred Oath",
+      "Spellcasting (Paladin)",
+      "Spellcasting (Ranger)"
+    ],
+    "feats": [],
+    "skills": [
+      "HISTORY:PROFICIENT",
+      "PERSUASION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [
+      {
+        "class": "RANGER_2014",
+        "subclass": "BEAST_MASTER_CONCLAVE",
+        "classLevel": 13
+      }
+    ],
+    "infusions": []
+  },
+  {
+    "level": 20,
+    "scores": {
+      "str": 17,
+      "dex": 18,
+      "con": 14,
+      "int": 13,
+      "wis": 14,
+      "cha": 10
+    },
+    "hp": {
+      "current": 164,
+      "max": 164
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "25",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        3,
+        3,
+        2,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Важкі обладунки, Щит\nІгровий набір\nПроста зброя, Бойова зброя",
+    "customEquipment": "Гарний одяг x1\nПерстень-печатка x1\nСвиток з родоводом x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "PALADIN_2014",
+    "subclass": "OATH_OF_DEVOTION",
+    "background": "NOBLE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Archery",
+      "Dueling",
+      "Favored Enemy",
+      "Natural Explorer",
+      "Primeval Awareness",
+      "Hide in Plain Sight"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Archery",
+      "Aura of Protection",
+      "Bestial Fury",
+      "Channel Divinity",
+      "Channel Divinity: Sacred Weapon",
+      "Channel Divinity: Turn the Unholy",
+      "Divine Health",
+      "Divine Sense",
+      "Divine Smite",
+      "Dueling",
+      "Exceptional Training",
+      "Extra Attack (Paladin)",
+      "Extra Attack (Ranger)",
+      "Favored Enemy",
+      "Fighting Style",
+      "Hide in Plain Sight",
+      "Land's Stride",
+      "Lay on Hands",
+      "Natural Explorer",
+      "Oath Spells",
+      "Oath of Devotion Spells",
+      "Primal Companion (Optional)",
+      "Primeval Awareness",
+      "Ranger Archetype",
+      "Ranger's Companion",
+      "Sacred Oath",
+      "Spellcasting (Paladin)",
+      "Spellcasting (Ranger)",
+      "Vanish"
+    ],
+    "feats": [],
+    "skills": [
+      "HISTORY:PROFICIENT",
+      "PERSUASION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [
+      {
+        "class": "RANGER_2014",
+        "subclass": "BEAST_MASTER_CONCLAVE",
+        "classLevel": 14
+      }
+    ],
+    "infusions": []
+  }
+]

@@ -1,0 +1,1575 @@
+[
+  {
+    "level": 1,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 12,
+      "max": 12
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "DEX",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nМузичний інструмент\nПроста зброя, Бойова зброя",
+    "customEquipment": "Посох x1\nМисливська пастка x1\nТрофей від убитої тварини x1\nДорожній одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "RANGER_2014",
+    "subclass": null,
+    "background": "OUTLANDER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "SURVIVAL:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 2,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 20,
+      "max": 20
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "DEX",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nМузичний інструмент\nПроста зброя, Бойова зброя",
+    "customEquipment": "Посох x1\nМисливська пастка x1\nТрофей від убитої тварини x1\nДорожній одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "RANGER_2014",
+    "subclass": null,
+    "background": "OUTLANDER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Dueling"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Dueling",
+      "Fighting Style",
+      "Spellcasting (Ranger)"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "SURVIVAL:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 3,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 28,
+      "max": 28
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "DEX",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nМузичний інструмент\nПроста зброя, Бойова зброя",
+    "customEquipment": "Посох x1\nМисливська пастка x1\nТрофей від убитої тварини x1\nДорожній одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "RANGER_2014",
+    "subclass": "BEAST_MASTER_CONCLAVE",
+    "background": "OUTLANDER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Dueling",
+      "Primeval Awareness"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Dueling",
+      "Fighting Style",
+      "Primal Companion (Optional)",
+      "Primeval Awareness",
+      "Ranger Archetype",
+      "Ranger's Companion",
+      "Spellcasting (Ranger)"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "SURVIVAL:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 4,
+    "scores": {
+      "str": 16,
+      "dex": 16,
+      "con": 14,
+      "int": 13,
+      "wis": 12,
+      "cha": 9
+    },
+    "hp": {
+      "current": 36,
+      "max": 36
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "DEX",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nМузичний інструмент\nПроста зброя, Бойова зброя",
+    "customEquipment": "Посох x1\nМисливська пастка x1\nТрофей від убитої тварини x1\nДорожній одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "RANGER_2014",
+    "subclass": "BEAST_MASTER_CONCLAVE",
+    "background": "OUTLANDER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Dueling",
+      "Primeval Awareness"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Dueling",
+      "Fighting Style",
+      "Primal Companion (Optional)",
+      "Primeval Awareness",
+      "Ranger Archetype",
+      "Ranger's Companion",
+      "Spellcasting (Ranger)"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "SURVIVAL:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 5,
+    "scores": {
+      "str": 16,
+      "dex": 16,
+      "con": 14,
+      "int": 13,
+      "wis": 12,
+      "cha": 9
+    },
+    "hp": {
+      "current": 44,
+      "max": 44
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "DEX",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nМузичний інструмент\nПроста зброя, Бойова зброя",
+    "customEquipment": "Посох x1\nМисливська пастка x1\nТрофей від убитої тварини x1\nДорожній одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "RANGER_2014",
+    "subclass": "BEAST_MASTER_CONCLAVE",
+    "background": "OUTLANDER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Dueling",
+      "Primeval Awareness"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Dueling",
+      "Extra Attack (Ranger)",
+      "Fighting Style",
+      "Primal Companion (Optional)",
+      "Primeval Awareness",
+      "Ranger Archetype",
+      "Ranger's Companion",
+      "Spellcasting (Ranger)"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "SURVIVAL:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 6,
+    "scores": {
+      "str": 16,
+      "dex": 16,
+      "con": 14,
+      "int": 13,
+      "wis": 12,
+      "cha": 9
+    },
+    "hp": {
+      "current": 52,
+      "max": 52
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "DEX",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nМузичний інструмент\nПроста зброя, Бойова зброя",
+    "customEquipment": "Посох x1\nМисливська пастка x1\nТрофей від убитої тварини x1\nДорожній одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "RANGER_2014",
+    "subclass": "BEAST_MASTER_CONCLAVE",
+    "background": "OUTLANDER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Dueling",
+      "Primeval Awareness"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Dueling",
+      "Extra Attack (Ranger)",
+      "Fighting Style",
+      "Primal Companion (Optional)",
+      "Primeval Awareness",
+      "Ranger Archetype",
+      "Ranger's Companion",
+      "Spellcasting (Ranger)"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "SURVIVAL:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 7,
+    "scores": {
+      "str": 16,
+      "dex": 16,
+      "con": 14,
+      "int": 13,
+      "wis": 12,
+      "cha": 9
+    },
+    "hp": {
+      "current": 60,
+      "max": 60
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "DEX",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nМузичний інструмент\nПроста зброя, Бойова зброя",
+    "customEquipment": "Посох x1\nМисливська пастка x1\nТрофей від убитої тварини x1\nДорожній одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "RANGER_2014",
+    "subclass": "BEAST_MASTER_CONCLAVE",
+    "background": "OUTLANDER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Dueling",
+      "Primeval Awareness"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Dueling",
+      "Exceptional Training",
+      "Extra Attack (Ranger)",
+      "Fighting Style",
+      "Primal Companion (Optional)",
+      "Primeval Awareness",
+      "Ranger Archetype",
+      "Ranger's Companion",
+      "Spellcasting (Ranger)"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "SURVIVAL:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 8,
+    "scores": {
+      "str": 16,
+      "dex": 17,
+      "con": 14,
+      "int": 13,
+      "wis": 13,
+      "cha": 9
+    },
+    "hp": {
+      "current": 68,
+      "max": 68
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "DEX",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nМузичний інструмент\nПроста зброя, Бойова зброя",
+    "customEquipment": "Посох x1\nМисливська пастка x1\nТрофей від убитої тварини x1\nДорожній одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "RANGER_2014",
+    "subclass": "BEAST_MASTER_CONCLAVE",
+    "background": "OUTLANDER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Dueling",
+      "Primeval Awareness"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Dueling",
+      "Exceptional Training",
+      "Extra Attack (Ranger)",
+      "Fighting Style",
+      "Land's Stride",
+      "Primal Companion (Optional)",
+      "Primeval Awareness",
+      "Ranger Archetype",
+      "Ranger's Companion",
+      "Spellcasting (Ranger)"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "SURVIVAL:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 9,
+    "scores": {
+      "str": 16,
+      "dex": 17,
+      "con": 14,
+      "int": 13,
+      "wis": 13,
+      "cha": 9
+    },
+    "hp": {
+      "current": 76,
+      "max": 76
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "DEX",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nМузичний інструмент\nПроста зброя, Бойова зброя",
+    "customEquipment": "Посох x1\nМисливська пастка x1\nТрофей від убитої тварини x1\nДорожній одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "RANGER_2014",
+    "subclass": "BEAST_MASTER_CONCLAVE",
+    "background": "OUTLANDER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Dueling",
+      "Primeval Awareness"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Dueling",
+      "Exceptional Training",
+      "Extra Attack (Ranger)",
+      "Fighting Style",
+      "Land's Stride",
+      "Primal Companion (Optional)",
+      "Primeval Awareness",
+      "Ranger Archetype",
+      "Ranger's Companion",
+      "Spellcasting (Ranger)"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "SURVIVAL:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 10,
+    "scores": {
+      "str": 16,
+      "dex": 17,
+      "con": 14,
+      "int": 13,
+      "wis": 13,
+      "cha": 9
+    },
+    "hp": {
+      "current": 84,
+      "max": 84
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "DEX",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nМузичний інструмент\nПроста зброя, Бойова зброя",
+    "customEquipment": "Посох x1\nМисливська пастка x1\nТрофей від убитої тварини x1\nДорожній одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "RANGER_2014",
+    "subclass": "BEAST_MASTER_CONCLAVE",
+    "background": "OUTLANDER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Dueling",
+      "Primeval Awareness",
+      "Hide in Plain Sight"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Dueling",
+      "Exceptional Training",
+      "Extra Attack (Ranger)",
+      "Fighting Style",
+      "Hide in Plain Sight",
+      "Land's Stride",
+      "Primal Companion (Optional)",
+      "Primeval Awareness",
+      "Ranger Archetype",
+      "Ranger's Companion",
+      "Spellcasting (Ranger)"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "SURVIVAL:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 11,
+    "scores": {
+      "str": 16,
+      "dex": 17,
+      "con": 14,
+      "int": 13,
+      "wis": 13,
+      "cha": 9
+    },
+    "hp": {
+      "current": 92,
+      "max": 92
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "DEX",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nМузичний інструмент\nПроста зброя, Бойова зброя",
+    "customEquipment": "Посох x1\nМисливська пастка x1\nТрофей від убитої тварини x1\nДорожній одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "RANGER_2014",
+    "subclass": "BEAST_MASTER_CONCLAVE",
+    "background": "OUTLANDER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Dueling",
+      "Primeval Awareness",
+      "Hide in Plain Sight"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Bestial Fury",
+      "Dueling",
+      "Exceptional Training",
+      "Extra Attack (Ranger)",
+      "Fighting Style",
+      "Hide in Plain Sight",
+      "Land's Stride",
+      "Primal Companion (Optional)",
+      "Primeval Awareness",
+      "Ranger Archetype",
+      "Ranger's Companion",
+      "Spellcasting (Ranger)"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "SURVIVAL:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 12,
+    "scores": {
+      "str": 16,
+      "dex": 18,
+      "con": 14,
+      "int": 13,
+      "wis": 14,
+      "cha": 9
+    },
+    "hp": {
+      "current": 100,
+      "max": 100
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "DEX",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nМузичний інструмент\nПроста зброя, Бойова зброя",
+    "customEquipment": "Посох x1\nМисливська пастка x1\nТрофей від убитої тварини x1\nДорожній одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "RANGER_2014",
+    "subclass": "BEAST_MASTER_CONCLAVE",
+    "background": "OUTLANDER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Dueling",
+      "Primeval Awareness",
+      "Hide in Plain Sight"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Bestial Fury",
+      "Dueling",
+      "Exceptional Training",
+      "Extra Attack (Ranger)",
+      "Fighting Style",
+      "Hide in Plain Sight",
+      "Land's Stride",
+      "Primal Companion (Optional)",
+      "Primeval Awareness",
+      "Ranger Archetype",
+      "Ranger's Companion",
+      "Spellcasting (Ranger)"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "SURVIVAL:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 13,
+    "scores": {
+      "str": 16,
+      "dex": 18,
+      "con": 14,
+      "int": 13,
+      "wis": 14,
+      "cha": 9
+    },
+    "hp": {
+      "current": 108,
+      "max": 108
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "DEX",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nМузичний інструмент\nПроста зброя, Бойова зброя",
+    "customEquipment": "Посох x1\nМисливська пастка x1\nТрофей від убитої тварини x1\nДорожній одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "RANGER_2014",
+    "subclass": "BEAST_MASTER_CONCLAVE",
+    "background": "OUTLANDER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Dueling",
+      "Primeval Awareness",
+      "Hide in Plain Sight"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Bestial Fury",
+      "Dueling",
+      "Exceptional Training",
+      "Extra Attack (Ranger)",
+      "Fighting Style",
+      "Hide in Plain Sight",
+      "Land's Stride",
+      "Primal Companion (Optional)",
+      "Primeval Awareness",
+      "Ranger Archetype",
+      "Ranger's Companion",
+      "Spellcasting (Ranger)"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "SURVIVAL:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 14,
+    "scores": {
+      "str": 16,
+      "dex": 18,
+      "con": 14,
+      "int": 13,
+      "wis": 14,
+      "cha": 9
+    },
+    "hp": {
+      "current": 116,
+      "max": 116
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        3,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "DEX",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nМузичний інструмент\nПроста зброя, Бойова зброя",
+    "customEquipment": "Посох x1\nМисливська пастка x1\nТрофей від убитої тварини x1\nДорожній одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "RANGER_2014",
+    "subclass": "BEAST_MASTER_CONCLAVE",
+    "background": "OUTLANDER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Dueling",
+      "Primeval Awareness",
+      "Hide in Plain Sight"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Bestial Fury",
+      "Dueling",
+      "Exceptional Training",
+      "Extra Attack (Ranger)",
+      "Fighting Style",
+      "Hide in Plain Sight",
+      "Land's Stride",
+      "Primal Companion (Optional)",
+      "Primeval Awareness",
+      "Ranger Archetype",
+      "Ranger's Companion",
+      "Spellcasting (Ranger)",
+      "Vanish"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "SURVIVAL:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 15,
+    "scores": {
+      "str": 16,
+      "dex": 18,
+      "con": 14,
+      "int": 13,
+      "wis": 14,
+      "cha": 9
+    },
+    "hp": {
+      "current": 124,
+      "max": 124
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        3,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "DEX",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nМузичний інструмент\nПроста зброя, Бойова зброя",
+    "customEquipment": "Посох x1\nМисливська пастка x1\nТрофей від убитої тварини x1\nДорожній одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "RANGER_2014",
+    "subclass": "BEAST_MASTER_CONCLAVE",
+    "background": "OUTLANDER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Dueling",
+      "Primeval Awareness",
+      "Hide in Plain Sight"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Bestial Fury",
+      "Dueling",
+      "Exceptional Training",
+      "Extra Attack (Ranger)",
+      "Fighting Style",
+      "Hide in Plain Sight",
+      "Land's Stride",
+      "Primal Companion (Optional)",
+      "Primeval Awareness",
+      "Ranger Archetype",
+      "Ranger's Companion",
+      "Share Spells",
+      "Spellcasting (Ranger)",
+      "Vanish"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "SURVIVAL:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 16,
+    "scores": {
+      "str": 16,
+      "dex": 19,
+      "con": 14,
+      "int": 13,
+      "wis": 15,
+      "cha": 9
+    },
+    "hp": {
+      "current": 132,
+      "max": 132
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        3,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "DEX",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nМузичний інструмент\nПроста зброя, Бойова зброя",
+    "customEquipment": "Посох x1\nМисливська пастка x1\nТрофей від убитої тварини x1\nДорожній одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "RANGER_2014",
+    "subclass": "BEAST_MASTER_CONCLAVE",
+    "background": "OUTLANDER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Dueling",
+      "Primeval Awareness",
+      "Hide in Plain Sight"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Bestial Fury",
+      "Dueling",
+      "Exceptional Training",
+      "Extra Attack (Ranger)",
+      "Fighting Style",
+      "Hide in Plain Sight",
+      "Land's Stride",
+      "Primal Companion (Optional)",
+      "Primeval Awareness",
+      "Ranger Archetype",
+      "Ranger's Companion",
+      "Share Spells",
+      "Spellcasting (Ranger)",
+      "Vanish"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "SURVIVAL:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 17,
+    "scores": {
+      "str": 16,
+      "dex": 19,
+      "con": 14,
+      "int": 13,
+      "wis": 15,
+      "cha": 9
+    },
+    "hp": {
+      "current": 140,
+      "max": 140
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        3,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "DEX",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nМузичний інструмент\nПроста зброя, Бойова зброя",
+    "customEquipment": "Посох x1\nМисливська пастка x1\nТрофей від убитої тварини x1\nДорожній одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "RANGER_2014",
+    "subclass": "BEAST_MASTER_CONCLAVE",
+    "background": "OUTLANDER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Dueling",
+      "Primeval Awareness",
+      "Hide in Plain Sight"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Bestial Fury",
+      "Dueling",
+      "Exceptional Training",
+      "Extra Attack (Ranger)",
+      "Fighting Style",
+      "Hide in Plain Sight",
+      "Land's Stride",
+      "Primal Companion (Optional)",
+      "Primeval Awareness",
+      "Ranger Archetype",
+      "Ranger's Companion",
+      "Share Spells",
+      "Spellcasting (Ranger)",
+      "Vanish"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "SURVIVAL:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 18,
+    "scores": {
+      "str": 16,
+      "dex": 19,
+      "con": 14,
+      "int": 13,
+      "wis": 15,
+      "cha": 9
+    },
+    "hp": {
+      "current": 148,
+      "max": 148
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        3,
+        3,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "DEX",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nМузичний інструмент\nПроста зброя, Бойова зброя",
+    "customEquipment": "Посох x1\nМисливська пастка x1\nТрофей від убитої тварини x1\nДорожній одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "RANGER_2014",
+    "subclass": "BEAST_MASTER_CONCLAVE",
+    "background": "OUTLANDER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Dueling",
+      "Primeval Awareness",
+      "Hide in Plain Sight"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Bestial Fury",
+      "Dueling",
+      "Exceptional Training",
+      "Extra Attack (Ranger)",
+      "Feral Senses",
+      "Fighting Style",
+      "Hide in Plain Sight",
+      "Land's Stride",
+      "Primal Companion (Optional)",
+      "Primeval Awareness",
+      "Ranger Archetype",
+      "Ranger's Companion",
+      "Share Spells",
+      "Spellcasting (Ranger)",
+      "Vanish"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "SURVIVAL:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 19,
+    "scores": {
+      "str": 16,
+      "dex": 20,
+      "con": 14,
+      "int": 13,
+      "wis": 16,
+      "cha": 9
+    },
+    "hp": {
+      "current": 156,
+      "max": 156
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        3,
+        3,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "DEX",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nМузичний інструмент\nПроста зброя, Бойова зброя",
+    "customEquipment": "Посох x1\nМисливська пастка x1\nТрофей від убитої тварини x1\nДорожній одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "RANGER_2014",
+    "subclass": "BEAST_MASTER_CONCLAVE",
+    "background": "OUTLANDER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Dueling",
+      "Primeval Awareness",
+      "Hide in Plain Sight"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Bestial Fury",
+      "Dueling",
+      "Exceptional Training",
+      "Extra Attack (Ranger)",
+      "Feral Senses",
+      "Fighting Style",
+      "Hide in Plain Sight",
+      "Land's Stride",
+      "Primal Companion (Optional)",
+      "Primeval Awareness",
+      "Ranger Archetype",
+      "Ranger's Companion",
+      "Share Spells",
+      "Spellcasting (Ranger)",
+      "Vanish"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "SURVIVAL:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 20,
+    "scores": {
+      "str": 16,
+      "dex": 20,
+      "con": 14,
+      "int": 13,
+      "wis": 16,
+      "cha": 9
+    },
+    "hp": {
+      "current": 164,
+      "max": 164
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        3,
+        3,
+        2,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "DEX",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nМузичний інструмент\nПроста зброя, Бойова зброя",
+    "customEquipment": "Посох x1\nМисливська пастка x1\nТрофей від убитої тварини x1\nДорожній одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "RANGER_2014",
+    "subclass": "BEAST_MASTER_CONCLAVE",
+    "background": "OUTLANDER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Dueling",
+      "Primeval Awareness",
+      "Hide in Plain Sight"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Bestial Fury",
+      "Dueling",
+      "Exceptional Training",
+      "Extra Attack (Ranger)",
+      "Feral Senses",
+      "Fighting Style",
+      "Foe Slayer",
+      "Hide in Plain Sight",
+      "Land's Stride",
+      "Primal Companion (Optional)",
+      "Primeval Awareness",
+      "Ranger Archetype",
+      "Ranger's Companion",
+      "Share Spells",
+      "Spellcasting (Ranger)",
+      "Vanish"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "SURVIVAL:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  }
+]
