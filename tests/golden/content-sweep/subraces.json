@@ -1,0 +1,1193 @@
+{
+  "DWARF_DUERGAR_GRAY_SCAG": {
+    "scores": {
+      "str": 16,
+      "dex": 14,
+      "con": 15,
+      "int": 12,
+      "wis": 10,
+      "cha": 8
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nДворфська\nОбери ще 2",
+    "customProficiencies": "Ковальські інструменти, Пивоварні приладдя, Каменярські інструменти\nБойова сокира, Ручна сокира, Легкий молот, Бойовий молот",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "DWARF_2014",
+    "subrace": "DWARF_DUERGAR_GRAY_SCAG",
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Darkvision",
+      "Duergar Magic",
+      "Duergar Resilience",
+      "Dwarven Combat Training",
+      "Dwarven Resilience",
+      "Dwarven Tool Proficiency",
+      "Spellcasting",
+      "Spellcasting (Wizard)",
+      "Stonecunning",
+      "Sunlight Sensitivity",
+      "Superior Darkvision (Duergar)"
+    ],
+    "feats": [],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "DWARF_HILL_2014": {
+    "scores": {
+      "str": 15,
+      "dex": 14,
+      "con": 15,
+      "int": 12,
+      "wis": 11,
+      "cha": 8
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nДворфська\nОбери ще 2",
+    "customProficiencies": "Ковальські інструменти, Пивоварні приладдя, Каменярські інструменти\nБойова сокира, Ручна сокира, Легкий молот, Бойовий молот",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "DWARF_2014",
+    "subrace": "DWARF_HILL_2014",
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Darkvision",
+      "Dwarven Combat Training",
+      "Dwarven Resilience",
+      "Dwarven Tool Proficiency",
+      "Dwarven Toughness",
+      "Spellcasting",
+      "Spellcasting (Wizard)",
+      "Stonecunning"
+    ],
+    "feats": [],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "DWARF_MOUNTAIN_2014": {
+    "scores": {
+      "str": 17,
+      "dex": 14,
+      "con": 15,
+      "int": 12,
+      "wis": 10,
+      "cha": 8
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nДворфська\nОбери ще 2",
+    "customProficiencies": "Легкі обладунки, Середні обладунки\nКовальські інструменти, Пивоварні приладдя, Каменярські інструменти\nБойова сокира, Ручна сокира, Легкий молот, Бойовий молот",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "DWARF_2014",
+    "subrace": "DWARF_MOUNTAIN_2014",
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Darkvision",
+      "Dwarven Armor Training",
+      "Dwarven Combat Training",
+      "Dwarven Resilience",
+      "Dwarven Tool Proficiency",
+      "Spellcasting",
+      "Spellcasting (Wizard)",
+      "Stonecunning"
+    ],
+    "feats": [],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "ELF_DARK_DROW_2014": {
+    "scores": {
+      "str": 15,
+      "dex": 16,
+      "con": 13,
+      "int": 12,
+      "wis": 10,
+      "cha": 9
+    },
+    "hp": {
+      "current": 7,
+      "max": 7
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nЕльфійська\nОбери ще 2",
+    "customProficiencies": "Рапіра, Короткий меч, Ручний арбалет",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "ELF_2014",
+    "subrace": "ELF_DARK_DROW_2014",
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Darkvision",
+      "Drow Magic",
+      "Drow Weapon Training",
+      "Fey Ancestry",
+      "Keen Senses",
+      "Spellcasting",
+      "Spellcasting (Wizard)",
+      "Sunlight Sensitivity",
+      "Superior Darkvision (Drow)",
+      "Trance"
+    ],
+    "feats": [],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT",
+      "PERCEPTION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "ELF_ELADRIN_DMG": {
+    "scores": {
+      "str": 15,
+      "dex": 16,
+      "con": 13,
+      "int": 13,
+      "wis": 10,
+      "cha": 8
+    },
+    "hp": {
+      "current": 7,
+      "max": 7
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nЕльфійська\nОбери ще 2",
+    "customProficiencies": "Довгий меч, Короткий меч, Короткий лук, Довгий лук",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "ELF_2014",
+    "subrace": "ELF_ELADRIN_DMG",
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Darkvision",
+      "Elf Weapon Training",
+      "Fey Ancestry",
+      "Fey Step (DMG)",
+      "Keen Senses",
+      "Spellcasting",
+      "Spellcasting (Wizard)",
+      "Trance"
+    ],
+    "feats": [],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT",
+      "PERCEPTION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "ELF_ELADRIN_MPMM": {
+    "scores": {
+      "str": 15,
+      "dex": 14,
+      "con": 13,
+      "int": 12,
+      "wis": 10,
+      "cha": 8
+    },
+    "hp": {
+      "current": 7,
+      "max": 7
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nЕльфійська\nОбери ще 2",
+    "customProficiencies": "",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "ELF_2014",
+    "subrace": "ELF_ELADRIN_MPMM",
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Darkvision",
+      "Fey Ancestry",
+      "Fey Step",
+      "Keen Senses",
+      "Spellcasting",
+      "Spellcasting (Wizard)",
+      "Trance"
+    ],
+    "feats": [],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT",
+      "PERCEPTION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "ELF_HIGH_2014": {
+    "scores": {
+      "str": 15,
+      "dex": 16,
+      "con": 13,
+      "int": 13,
+      "wis": 10,
+      "cha": 8
+    },
+    "hp": {
+      "current": 7,
+      "max": 7
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nЕльфійська\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "Довгий меч, Короткий меч, Короткий лук, Довгий лук",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "ELF_2014",
+    "subrace": "ELF_HIGH_2014",
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Darkvision",
+      "Elf Weapon Training",
+      "Extra Language",
+      "Fey Ancestry",
+      "High Elf Cantrip",
+      "Keen Senses",
+      "Spellcasting",
+      "Spellcasting (Wizard)",
+      "Trance"
+    ],
+    "feats": [],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT",
+      "PERCEPTION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "ELF_PALLID_EGTW": {
+    "scores": {
+      "str": 15,
+      "dex": 16,
+      "con": 13,
+      "int": 12,
+      "wis": 11,
+      "cha": 8
+    },
+    "hp": {
+      "current": 7,
+      "max": 7
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nЕльфійська\nОбери ще 2",
+    "customProficiencies": "",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "ELF_2014",
+    "subrace": "ELF_PALLID_EGTW",
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Blessing of the Moon Weaver",
+      "Darkvision",
+      "Fey Ancestry",
+      "Incisive Sense",
+      "Keen Senses",
+      "Spellcasting",
+      "Spellcasting (Wizard)",
+      "Trance"
+    ],
+    "feats": [],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT",
+      "PERCEPTION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "ELF_SEA_MTOF": {
+    "scores": {
+      "str": 15,
+      "dex": 16,
+      "con": 14,
+      "int": 12,
+      "wis": 10,
+      "cha": 8
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nЕльфійська\nАкванська\nОбери ще 2",
+    "customProficiencies": "Спис, Тризуб, Легкий арбалет, Сітка",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "ELF_2014",
+    "subrace": "ELF_SEA_MTOF",
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Child of the Sea",
+      "Darkvision",
+      "Fey Ancestry",
+      "Friend of the Sea",
+      "Keen Senses",
+      "Spellcasting",
+      "Spellcasting (Wizard)",
+      "Trance"
+    ],
+    "feats": [],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT",
+      "PERCEPTION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "ELF_SHADAR_KAI_MPMM": {
+    "scores": {
+      "str": 15,
+      "dex": 14,
+      "con": 13,
+      "int": 12,
+      "wis": 10,
+      "cha": 8
+    },
+    "hp": {
+      "current": 7,
+      "max": 7
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nЕльфійська\nОбери ще 2",
+    "customProficiencies": "",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "ELF_2014",
+    "subrace": "ELF_SHADAR_KAI_MPMM",
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Blessing of the Raven Queen",
+      "Darkvision",
+      "Fey Ancestry",
+      "Keen Senses",
+      "Necrotic Resistance",
+      "Spellcasting",
+      "Spellcasting (Wizard)",
+      "Trance"
+    ],
+    "feats": [],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT",
+      "PERCEPTION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "ELF_WOOD_2014": {
+    "scores": {
+      "str": 15,
+      "dex": 16,
+      "con": 13,
+      "int": 12,
+      "wis": 11,
+      "cha": 8
+    },
+    "hp": {
+      "current": 7,
+      "max": 7
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nЕльфійська\nОбери ще 2",
+    "customProficiencies": "Довгий меч, Короткий меч, Короткий лук, Довгий лук",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "ELF_2014",
+    "subrace": "ELF_WOOD_2014",
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Darkvision",
+      "Elf Weapon Training",
+      "Fey Ancestry",
+      "Keen Senses",
+      "Mask of the Wild",
+      "Spellcasting",
+      "Spellcasting (Wizard)",
+      "Trance"
+    ],
+    "feats": [],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT",
+      "PERCEPTION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "GNOME_DEEP_SCAG": {
+    "scores": {
+      "str": 15,
+      "dex": 15,
+      "con": 13,
+      "int": 14,
+      "wis": 10,
+      "cha": 8
+    },
+    "hp": {
+      "current": 7,
+      "max": 7
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nГном'яча\nОбери ще 2",
+    "customProficiencies": "",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "GNOME_2014",
+    "subrace": "GNOME_DEEP_SCAG",
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Darkvision",
+      "Gnome Cunning",
+      "Spellcasting",
+      "Spellcasting (Wizard)",
+      "Stone Camouflage",
+      "Superior Darkvision (Deep Gnome)"
+    ],
+    "feats": [],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "GNOME_FOREST_2014": {
+    "scores": {
+      "str": 15,
+      "dex": 15,
+      "con": 13,
+      "int": 14,
+      "wis": 10,
+      "cha": 8
+    },
+    "hp": {
+      "current": 7,
+      "max": 7
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nГном'яча\nОбери ще 2",
+    "customProficiencies": "",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "GNOME_2014",
+    "subrace": "GNOME_FOREST_2014",
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Darkvision",
+      "Gnome Cunning",
+      "Natural Illusionist",
+      "Speak with Small Beasts",
+      "Spellcasting",
+      "Spellcasting (Wizard)"
+    ],
+    "feats": [],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "GNOME_ROCK_2014": {
+    "scores": {
+      "str": 15,
+      "dex": 14,
+      "con": 14,
+      "int": 14,
+      "wis": 10,
+      "cha": 8
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nГном'яча\nОбери ще 2",
+    "customProficiencies": "",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "GNOME_2014",
+    "subrace": "GNOME_ROCK_2014",
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Artificer's Lore",
+      "Darkvision",
+      "Gnome Cunning",
+      "Spellcasting",
+      "Spellcasting (Wizard)",
+      "Tinker"
+    ],
+    "feats": [],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "HALFLING_GHOSTWISE_SCAG": {
+    "scores": {
+      "str": 15,
+      "dex": 16,
+      "con": 13,
+      "int": 12,
+      "wis": 11,
+      "cha": 8
+    },
+    "hp": {
+      "current": 7,
+      "max": 7
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nМова напівросликів\nОбери ще 2",
+    "customProficiencies": "",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "HALFLING_2014",
+    "subrace": "HALFLING_GHOSTWISE_SCAG",
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Brave",
+      "Lucky",
+      "Nimbleness",
+      "Silent Speech",
+      "Spellcasting",
+      "Spellcasting (Wizard)"
+    ],
+    "feats": [],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "HALFLING_LIGHTFOOT_2014": {
+    "scores": {
+      "str": 15,
+      "dex": 16,
+      "con": 13,
+      "int": 12,
+      "wis": 10,
+      "cha": 9
+    },
+    "hp": {
+      "current": 7,
+      "max": 7
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nМова напівросликів\nОбери ще 2",
+    "customProficiencies": "",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "HALFLING_2014",
+    "subrace": "HALFLING_LIGHTFOOT_2014",
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Brave",
+      "Lucky",
+      "Naturally Stealthy",
+      "Nimbleness",
+      "Spellcasting",
+      "Spellcasting (Wizard)"
+    ],
+    "feats": [],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "HALFLING_STOUT_2014": {
+    "scores": {
+      "str": 15,
+      "dex": 16,
+      "con": 14,
+      "int": 12,
+      "wis": 10,
+      "cha": 8
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nМова напівросликів\nОбери ще 2",
+    "customProficiencies": "",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "HALFLING_2014",
+    "subrace": "HALFLING_STOUT_2014",
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Brave",
+      "Lucky",
+      "Nimbleness",
+      "Spellcasting",
+      "Spellcasting (Wizard)",
+      "Stout Resilience"
+    ],
+    "feats": [],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  }
+}

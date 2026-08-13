@@ -5,7 +5,7 @@ import type { Build } from "./types";
 
 export const build: Build = {
   id: "athlete-feat-BUG",
-  why: "KNOWN-BUG характеризація (BUG-004): Athlete → STR обирається, але STR не зростає. Емпірично підтверджено: Human дає базовий +1 до всіх характеристик (15→16), Athlete мав би додати ще +1 (→17) — golden фіксує 16, не 17. Корінь — Feat.grantedASI має складений ключ {STR_OR_DEX:1}, який isAbilityKey (character.ts) не розпізнає, а FeatChoiceOption-рядки без effectKind/effectAbility і з абревіатурою в optionNameEng не рятують. Деталі — docs/KNOWN-BUGS.md BUG-004.",
+  why: "KNOWN-BUG характеризація (BUG-004) — УВАГА, це навмисно МЕРТВИЙ шлях, не те, що реально відбувається з гравцями: Athlete має ДВІ дубльовані ChoiceOption-групи ('Характеристика ATHLETE' — робоча, повне слово 'Strength'; 'Атлет (здібність)' — мертва, абревіатура '(STR)'). Цей білд навмисно бере choiceOptionId саме з мертвої групи ('(STR)'), щоб зафіксувати, що вона справді нічого не додає (STR лишається 16, не 17). Реальний UI (FeatChoiceOptionsForm.tsx) дедублікує групи й завжди віддає перевагу робочій — перевірено проти прод-даних: 100% реальних гравців мають вибір саме з робочої групи. Деталі — docs/KNOWN-BUGS.md BUG-004.",
   knownBugs: ["BUG-004"],
   async form() {
     const [race, cls, background, athlete] = await Promise.all([

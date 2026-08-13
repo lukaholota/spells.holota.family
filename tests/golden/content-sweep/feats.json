@@ -1,0 +1,5652 @@
+{
+  "ABERRANT_DRAGONMARK": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 15,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Spellcasting",
+      "Spellcasting (Wizard)"
+    ],
+    "feats": [
+      {
+        "name": "ABERRANT_DRAGONMARK",
+        "choices": []
+      }
+    ],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "ACTOR": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 10
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Spellcasting",
+      "Spellcasting (Wizard)"
+    ],
+    "feats": [
+      {
+        "name": "ACTOR",
+        "choices": []
+      }
+    ],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "ALERT": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Spellcasting",
+      "Spellcasting (Wizard)"
+    ],
+    "feats": [
+      {
+        "name": "ALERT",
+        "choices": []
+      }
+    ],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "ARTIFICER_INITIATE": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Spellcasting",
+      "Spellcasting (Wizard)"
+    ],
+    "feats": [
+      {
+        "name": "ARTIFICER_INITIATE",
+        "choices": []
+      }
+    ],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "ATHLETE": {
+    "scores": {
+      "str": 17,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Spellcasting",
+      "Spellcasting (Wizard)"
+    ],
+    "feats": [
+      {
+        "name": "ATHLETE",
+        "choices": [
+          "ATHLETE Ability (Strength)"
+        ]
+      }
+    ],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "CHARGER": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Spellcasting",
+      "Spellcasting (Wizard)"
+    ],
+    "feats": [
+      {
+        "name": "CHARGER",
+        "choices": []
+      }
+    ],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "CHEF": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 15,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Spellcasting",
+      "Spellcasting (Wizard)"
+    ],
+    "feats": [
+      {
+        "name": "CHEF",
+        "choices": [
+          "CHEF Ability (Constitution)"
+        ]
+      }
+    ],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "CROSSBOW_EXPERT": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Spellcasting",
+      "Spellcasting (Wizard)"
+    ],
+    "feats": [
+      {
+        "name": "CROSSBOW_EXPERT",
+        "choices": []
+      }
+    ],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "CRUSHER": {
+    "scores": {
+      "str": 17,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Spellcasting",
+      "Spellcasting (Wizard)"
+    ],
+    "feats": [
+      {
+        "name": "CRUSHER",
+        "choices": [
+          "CRUSHER Ability (Strength)"
+        ]
+      }
+    ],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "DEFENSIVE_DUELIST": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Spellcasting",
+      "Spellcasting (Wizard)"
+    ],
+    "feats": [
+      {
+        "name": "DEFENSIVE_DUELIST",
+        "choices": []
+      }
+    ],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "DROW_HIGH_MAGIC": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Spellcasting",
+      "Spellcasting (Wizard)"
+    ],
+    "feats": [
+      {
+        "name": "DROW_HIGH_MAGIC",
+        "choices": []
+      }
+    ],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "DUAL_WIELDER": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Spellcasting",
+      "Spellcasting (Wizard)"
+    ],
+    "feats": [
+      {
+        "name": "DUAL_WIELDER",
+        "choices": []
+      }
+    ],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "DUNGEON_DELVER": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Spellcasting",
+      "Spellcasting (Wizard)"
+    ],
+    "feats": [
+      {
+        "name": "DUNGEON_DELVER",
+        "choices": []
+      }
+    ],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "DURABLE": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 15,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Spellcasting",
+      "Spellcasting (Wizard)"
+    ],
+    "feats": [
+      {
+        "name": "DURABLE",
+        "choices": []
+      }
+    ],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "ELDRITCH_ADEPT": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Spellcasting",
+      "Spellcasting (Wizard)"
+    ],
+    "feats": [
+      {
+        "name": "ELDRITCH_ADEPT",
+        "choices": [
+          "Agonizing Blast"
+        ]
+      }
+    ],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "ELEMENTAL_ADEPT": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Spellcasting",
+      "Spellcasting (Wizard)"
+    ],
+    "feats": [
+      {
+        "name": "ELEMENTAL_ADEPT",
+        "choices": [
+          "Elemental Adept (Acid)"
+        ]
+      }
+    ],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "EMBER_OF_GIANTS": {
+    "scores": {
+      "str": 17,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Spellcasting",
+      "Spellcasting (Wizard)"
+    ],
+    "feats": [
+      {
+        "name": "EMBER_OF_GIANTS",
+        "choices": [
+          "EMBER_OF_GIANTS Ability (Strength)"
+        ]
+      }
+    ],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "FEY_TELEPORTATION": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nСільван\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Spellcasting",
+      "Spellcasting (Wizard)"
+    ],
+    "feats": [
+      {
+        "name": "FEY_TELEPORTATION",
+        "choices": []
+      }
+    ],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "FEY_TOUCHED": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 14,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Spellcasting",
+      "Spellcasting (Wizard)"
+    ],
+    "feats": [
+      {
+        "name": "FEY_TOUCHED",
+        "choices": [
+          "FEY_TOUCHED Ability (Intelligence)"
+        ]
+      }
+    ],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "FIGHTING_INITIATE": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Spellcasting",
+      "Spellcasting (Wizard)"
+    ],
+    "feats": [
+      {
+        "name": "FIGHTING_INITIATE",
+        "choices": [
+          "Blind Fighting"
+        ]
+      }
+    ],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "FURY_OF_GIANTS": {
+    "scores": {
+      "str": 17,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Spellcasting",
+      "Spellcasting (Wizard)"
+    ],
+    "feats": [
+      {
+        "name": "FURY_OF_GIANTS",
+        "choices": [
+          "FURY_OF_GIANTS Ability (Strength)"
+        ]
+      }
+    ],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "GIFT_OF_THE_CHROMATIC_DRAGON": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Spellcasting",
+      "Spellcasting (Wizard)"
+    ],
+    "feats": [
+      {
+        "name": "GIFT_OF_THE_CHROMATIC_DRAGON",
+        "choices": []
+      }
+    ],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "GIFT_OF_THE_GEM_DRAGON": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 14,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Spellcasting",
+      "Spellcasting (Wizard)"
+    ],
+    "feats": [
+      {
+        "name": "GIFT_OF_THE_GEM_DRAGON",
+        "choices": [
+          "GIFT_OF_THE_GEM_DRAGON Ability (Intelligence)"
+        ]
+      }
+    ],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "GIFT_OF_THE_METALLIC_DRAGON": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Spellcasting",
+      "Spellcasting (Wizard)"
+    ],
+    "feats": [
+      {
+        "name": "GIFT_OF_THE_METALLIC_DRAGON",
+        "choices": []
+      }
+    ],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "GRAPPLER": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Spellcasting",
+      "Spellcasting (Wizard)"
+    ],
+    "feats": [
+      {
+        "name": "GRAPPLER",
+        "choices": []
+      }
+    ],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "GREAT_WEAPON_MASTER": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Spellcasting",
+      "Spellcasting (Wizard)"
+    ],
+    "feats": [
+      {
+        "name": "GREAT_WEAPON_MASTER",
+        "choices": []
+      }
+    ],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "GUILE_OF_GIANTS": {
+    "scores": {
+      "str": 17,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Spellcasting",
+      "Spellcasting (Wizard)"
+    ],
+    "feats": [
+      {
+        "name": "GUILE_OF_GIANTS",
+        "choices": [
+          "GUILE_OF_GIANTS Ability (Strength)"
+        ]
+      }
+    ],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "GUNNER": {
+    "scores": {
+      "str": 16,
+      "dex": 16,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "Вогнепальна зброя",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Spellcasting",
+      "Spellcasting (Wizard)"
+    ],
+    "feats": [
+      {
+        "name": "GUNNER",
+        "choices": []
+      }
+    ],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "HEALER": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Spellcasting",
+      "Spellcasting (Wizard)"
+    ],
+    "feats": [
+      {
+        "name": "HEALER",
+        "choices": []
+      }
+    ],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "HEAVILY_ARMORED": {
+    "scores": {
+      "str": 17,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "Важкі обладунки",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Spellcasting",
+      "Spellcasting (Wizard)"
+    ],
+    "feats": [
+      {
+        "name": "HEAVILY_ARMORED",
+        "choices": []
+      }
+    ],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "HEAVY_ARMOR_MASTER": {
+    "scores": {
+      "str": 17,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Spellcasting",
+      "Spellcasting (Wizard)"
+    ],
+    "feats": [
+      {
+        "name": "HEAVY_ARMOR_MASTER",
+        "choices": []
+      }
+    ],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "INITIATE_OF_HIGH_SORCERY": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Spellcasting",
+      "Spellcasting (Wizard)"
+    ],
+    "feats": [
+      {
+        "name": "INITIATE_OF_HIGH_SORCERY",
+        "choices": []
+      }
+    ],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "INSPIRING_LEADER": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Spellcasting",
+      "Spellcasting (Wizard)"
+    ],
+    "feats": [
+      {
+        "name": "INSPIRING_LEADER",
+        "choices": []
+      }
+    ],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "KEENNESS_OF_GIANTS": {
+    "scores": {
+      "str": 17,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Spellcasting",
+      "Spellcasting (Wizard)"
+    ],
+    "feats": [
+      {
+        "name": "KEENNESS_OF_GIANTS",
+        "choices": [
+          "KEENNESS_OF_GIANTS Ability (Strength)"
+        ]
+      }
+    ],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "KEEN_MIND": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 14,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Spellcasting",
+      "Spellcasting (Wizard)"
+    ],
+    "feats": [
+      {
+        "name": "KEEN_MIND",
+        "choices": []
+      }
+    ],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "LIGHTLY_ARMORED": {
+    "scores": {
+      "str": 17,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "Легкі обладунки",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Spellcasting",
+      "Spellcasting (Wizard)"
+    ],
+    "feats": [
+      {
+        "name": "LIGHTLY_ARMORED",
+        "choices": [
+          "LIGHTLY_ARMORED Ability (Strength)"
+        ]
+      }
+    ],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "LINGUIST": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 14,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2\nОбери ще 3",
+    "customProficiencies": "",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Spellcasting",
+      "Spellcasting (Wizard)"
+    ],
+    "feats": [
+      {
+        "name": "LINGUIST",
+        "choices": []
+      }
+    ],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "LUCKY": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Spellcasting",
+      "Spellcasting (Wizard)"
+    ],
+    "feats": [
+      {
+        "name": "LUCKY",
+        "choices": []
+      }
+    ],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "MAGE_SLAYER": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Spellcasting",
+      "Spellcasting (Wizard)"
+    ],
+    "feats": [
+      {
+        "name": "MAGE_SLAYER",
+        "choices": []
+      }
+    ],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "MAGIC_INITIATE": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Spellcasting",
+      "Spellcasting (Wizard)"
+    ],
+    "feats": [
+      {
+        "name": "MAGIC_INITIATE",
+        "choices": []
+      }
+    ],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "MARTIAL_ADEPT": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Spellcasting",
+      "Spellcasting (Wizard)"
+    ],
+    "feats": [
+      {
+        "name": "MARTIAL_ADEPT",
+        "choices": [
+          "Ambush (Maneuver)"
+        ]
+      }
+    ],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "MEDIUM_ARMOR_MASTER": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Spellcasting",
+      "Spellcasting (Wizard)"
+    ],
+    "feats": [
+      {
+        "name": "MEDIUM_ARMOR_MASTER",
+        "choices": []
+      }
+    ],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "METAMAGIC_ADEPT": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Spellcasting",
+      "Spellcasting (Wizard)"
+    ],
+    "feats": [
+      {
+        "name": "METAMAGIC_ADEPT",
+        "choices": []
+      }
+    ],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "MOBILE": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Spellcasting",
+      "Spellcasting (Wizard)"
+    ],
+    "feats": [
+      {
+        "name": "MOBILE",
+        "choices": []
+      }
+    ],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "MODERATELY_ARMORED": {
+    "scores": {
+      "str": 17,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "Середні обладунки, Щит",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Spellcasting",
+      "Spellcasting (Wizard)"
+    ],
+    "feats": [
+      {
+        "name": "MODERATELY_ARMORED",
+        "choices": [
+          "MODERATELY_ARMORED Ability (Strength)"
+        ]
+      }
+    ],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "MOUNTED_COMBATANT": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Spellcasting",
+      "Spellcasting (Wizard)"
+    ],
+    "feats": [
+      {
+        "name": "MOUNTED_COMBATANT",
+        "choices": []
+      }
+    ],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "OBSERVANT": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 14,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Spellcasting",
+      "Spellcasting (Wizard)"
+    ],
+    "feats": [
+      {
+        "name": "OBSERVANT",
+        "choices": [
+          "OBSERVANT Ability (Intelligence)"
+        ]
+      }
+    ],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "PIERCER": {
+    "scores": {
+      "str": 17,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Spellcasting",
+      "Spellcasting (Wizard)"
+    ],
+    "feats": [
+      {
+        "name": "PIERCER",
+        "choices": [
+          "PIERCER Ability (Strength)"
+        ]
+      }
+    ],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "POISONER": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Spellcasting",
+      "Spellcasting (Wizard)"
+    ],
+    "feats": [
+      {
+        "name": "POISONER",
+        "choices": []
+      }
+    ],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "POLEARM_MASTER": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Spellcasting",
+      "Spellcasting (Wizard)"
+    ],
+    "feats": [
+      {
+        "name": "POLEARM_MASTER",
+        "choices": []
+      }
+    ],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "PRODIGY": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2\nОбери ще 1",
+    "customProficiencies": "",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Spellcasting",
+      "Spellcasting (Wizard)"
+    ],
+    "feats": [
+      {
+        "name": "PRODIGY",
+        "choices": [
+          "Prodigy Proficiency (ATHLETICS)"
+        ]
+      }
+    ],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "ATHLETICS:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "RESILIENT": {
+    "scores": {
+      "str": 17,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "STR",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Spellcasting",
+      "Spellcasting (Wizard)"
+    ],
+    "feats": [
+      {
+        "name": "RESILIENT",
+        "choices": [
+          "Resilient (Strength)"
+        ]
+      }
+    ],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "RITUAL_CASTER": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Spellcasting",
+      "Spellcasting (Wizard)"
+    ],
+    "feats": [
+      {
+        "name": "RITUAL_CASTER",
+        "choices": []
+      }
+    ],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "RUNE_SHAPER": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Spellcasting",
+      "Spellcasting (Wizard)"
+    ],
+    "feats": [
+      {
+        "name": "RUNE_SHAPER",
+        "choices": []
+      }
+    ],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "SAVAGE_ATTACKER": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Spellcasting",
+      "Spellcasting (Wizard)"
+    ],
+    "feats": [
+      {
+        "name": "SAVAGE_ATTACKER",
+        "choices": []
+      }
+    ],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "SCION_OF_THE_OUTER_PLANES": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Spellcasting",
+      "Spellcasting (Wizard)"
+    ],
+    "feats": [
+      {
+        "name": "SCION_OF_THE_OUTER_PLANES",
+        "choices": []
+      }
+    ],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "SENTINEL": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Spellcasting",
+      "Spellcasting (Wizard)"
+    ],
+    "feats": [
+      {
+        "name": "SENTINEL",
+        "choices": []
+      }
+    ],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "SHADOW_TOUCHED": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 14,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Spellcasting",
+      "Spellcasting (Wizard)"
+    ],
+    "feats": [
+      {
+        "name": "SHADOW_TOUCHED",
+        "choices": [
+          "SHADOW_TOUCHED Ability (Intelligence)"
+        ]
+      }
+    ],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "SHARPSHOOTER": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Spellcasting",
+      "Spellcasting (Wizard)"
+    ],
+    "feats": [
+      {
+        "name": "SHARPSHOOTER",
+        "choices": []
+      }
+    ],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "SHIELD_MASTER": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Spellcasting",
+      "Spellcasting (Wizard)"
+    ],
+    "feats": [
+      {
+        "name": "SHIELD_MASTER",
+        "choices": []
+      }
+    ],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "SKILLED": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Spellcasting",
+      "Spellcasting (Wizard)"
+    ],
+    "feats": [
+      {
+        "name": "SKILLED",
+        "choices": [
+          "Skilled (ATHLETICS)"
+        ]
+      }
+    ],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "ATHLETICS:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "SKILL_EXPERT": {
+    "scores": {
+      "str": 17,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Spellcasting",
+      "Spellcasting (Wizard)"
+    ],
+    "feats": [
+      {
+        "name": "SKILL_EXPERT",
+        "choices": [
+          "Skill Expert (STR)"
+        ]
+      }
+    ],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "SKULKER": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Spellcasting",
+      "Spellcasting (Wizard)"
+    ],
+    "feats": [
+      {
+        "name": "SKULKER",
+        "choices": []
+      }
+    ],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "SLASHER": {
+    "scores": {
+      "str": 17,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Spellcasting",
+      "Spellcasting (Wizard)"
+    ],
+    "feats": [
+      {
+        "name": "SLASHER",
+        "choices": [
+          "SLASHER Ability (Strength)"
+        ]
+      }
+    ],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "SOUL_OF_GIANTS": {
+    "scores": {
+      "str": 17,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Spellcasting",
+      "Spellcasting (Wizard)"
+    ],
+    "feats": [
+      {
+        "name": "SOUL_OF_GIANTS",
+        "choices": [
+          "SOUL_OF_GIANTS Ability (Strength)"
+        ]
+      }
+    ],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "SPELL_SNIPER": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Spellcasting",
+      "Spellcasting (Wizard)"
+    ],
+    "feats": [
+      {
+        "name": "SPELL_SNIPER",
+        "choices": []
+      }
+    ],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "SQUIRE_OF_SOLAMNIA": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "Середні обладунки, Щит",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Spellcasting",
+      "Spellcasting (Wizard)"
+    ],
+    "feats": [
+      {
+        "name": "SQUIRE_OF_SOLAMNIA",
+        "choices": []
+      }
+    ],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "STRIKE_OF_THE_GIANTS": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Spellcasting",
+      "Spellcasting (Wizard)"
+    ],
+    "feats": [
+      {
+        "name": "STRIKE_OF_THE_GIANTS",
+        "choices": []
+      }
+    ],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "STRIXHAVEN_INITIATE_LOREHOLD": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Spellcasting",
+      "Spellcasting (Wizard)"
+    ],
+    "feats": [
+      {
+        "name": "STRIXHAVEN_INITIATE_LOREHOLD",
+        "choices": []
+      }
+    ],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "STRIXHAVEN_INITIATE_PRISMARI": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Spellcasting",
+      "Spellcasting (Wizard)"
+    ],
+    "feats": [
+      {
+        "name": "STRIXHAVEN_INITIATE_PRISMARI",
+        "choices": []
+      }
+    ],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "STRIXHAVEN_INITIATE_QUANDRIX": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Spellcasting",
+      "Spellcasting (Wizard)"
+    ],
+    "feats": [
+      {
+        "name": "STRIXHAVEN_INITIATE_QUANDRIX",
+        "choices": []
+      }
+    ],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "STRIXHAVEN_INITIATE_SILVERQUILL": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Spellcasting",
+      "Spellcasting (Wizard)"
+    ],
+    "feats": [
+      {
+        "name": "STRIXHAVEN_INITIATE_SILVERQUILL",
+        "choices": []
+      }
+    ],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "STRIXHAVEN_INITIATE_WITHERBLOOM": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Spellcasting",
+      "Spellcasting (Wizard)"
+    ],
+    "feats": [
+      {
+        "name": "STRIXHAVEN_INITIATE_WITHERBLOOM",
+        "choices": []
+      }
+    ],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "TAVERN_BRAWLER": {
+    "scores": {
+      "str": 17,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Spellcasting",
+      "Spellcasting (Wizard)"
+    ],
+    "feats": [
+      {
+        "name": "TAVERN_BRAWLER",
+        "choices": [
+          "TAVERN_BRAWLER Ability (Strength)"
+        ]
+      }
+    ],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "TELEKINETIC": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 14,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Spellcasting",
+      "Spellcasting (Wizard)"
+    ],
+    "feats": [
+      {
+        "name": "TELEKINETIC",
+        "choices": [
+          "TELEKINETIC Ability (Intelligence)"
+        ]
+      }
+    ],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "TELEPATHIC": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 14,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Spellcasting",
+      "Spellcasting (Wizard)"
+    ],
+    "feats": [
+      {
+        "name": "TELEPATHIC",
+        "choices": [
+          "TELEPATHIC Ability (Intelligence)"
+        ]
+      }
+    ],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "TOUGH": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Spellcasting",
+      "Spellcasting (Wizard)"
+    ],
+    "feats": [
+      {
+        "name": "TOUGH",
+        "choices": []
+      }
+    ],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "VIGOR_OF_GIANTS": {
+    "scores": {
+      "str": 17,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Spellcasting",
+      "Spellcasting (Wizard)"
+    ],
+    "feats": [
+      {
+        "name": "VIGOR_OF_GIANTS",
+        "choices": [
+          "VIGOR_OF_GIANTS Ability (Strength)"
+        ]
+      }
+    ],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "WAR_CASTER": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Spellcasting",
+      "Spellcasting (Wizard)"
+    ],
+    "feats": [
+      {
+        "name": "WAR_CASTER",
+        "choices": []
+      }
+    ],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "WEAPON_MASTER": {
+    "scores": {
+      "str": 17,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Spellcasting",
+      "Spellcasting (Wizard)"
+    ],
+    "feats": [
+      {
+        "name": "WEAPON_MASTER",
+        "choices": [
+          "WEAPON_MASTER Ability (Strength)"
+        ]
+      }
+    ],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "WOOD_ELF_MAGIC": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 8,
+      "max": 8
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "INT",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "WIZARD_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Arcane Recovery",
+      "Spellcasting",
+      "Spellcasting (Wizard)"
+    ],
+    "feats": [
+      {
+        "name": "WOOD_ELF_MAGIC",
+        "choices": []
+      }
+    ],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  }
+}

@@ -9,9 +9,15 @@ import knownNoOps from "./known-no-op-choice-options.json";
  * feat/class/subclass. createCharacter grants an option's effect through exactly three
  * channels — a linked ChoiceOptionFeature, an ASI (effectKind="ASI" or legacy name-substring
  * match), or a skill/expertise (extractSkillsFromChoiceOption, same fallback the real action
- * uses). An option matching none of the three does literally nothing when picked — a silent
- * no-op the player has no way to notice, and confirmed live: 733/8572 prod characters
- * (2026-08-13 audit) hold one of the 29 feats affected by BUG-004.
+ * uses). An option matching none of the three does literally nothing when picked.
+ *
+ * IMPORTANT caveat found the same day (see BUG-004 in docs/KNOWN-BUGS.md): a raw no-op here does
+ * NOT by itself mean a live player can reach it. 29 feats each carry a duplicate ChoiceOption
+ * group — one working, one dead — and the character creator's own dedup logic always prefers the
+ * working one, confirmed against real PersFeatChoice rows in prod (0% of live picks hit the dead
+ * group). So this test finds dead/duplicate data reliably, but "reachable via the real UI" needs
+ * a separate check against actual usage before calling something a live bug — this test alone
+ * isn't that check.
  *
  * Known offenders are pinned in known-no-op-choice-options.json (BUG-004, BUG-005 in
  * docs/KNOWN-BUGS.md) so this test stays green while still catching any NEW no-op — the same

@@ -1,0 +1,1754 @@
+{
+  "DWARF_MARK_OF_WARDING_EBERRON": {
+    "scores": {
+      "str": 15,
+      "dex": 14,
+      "con": 15,
+      "int": 13,
+      "wis": 10,
+      "cha": 8
+    },
+    "hp": {
+      "current": 12,
+      "max": 12
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CON",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nДворфська",
+    "customProficiencies": "Важкі обладунки, Середні обладунки, Легкі обладунки, Щит\nКовальські інструменти, Пивоварні приладдя, Каменярські інструменти\nІгровий набір, Наземний транспорт\nБойова сокира, Ручна сокира, Легкий молот, Бойовий молот\nПроста зброя, Бойова зброя",
+    "customEquipment": "Знак рангу x1\nТрофей від переможеного ворога x1\nНабір для гри в кості або гральні карти x1\nЗвичайний одяг x1",
+    "race": "DWARF_2014",
+    "subrace": null,
+    "raceVariants": [
+      "DWARF_MARK_OF_WARDING_EBERRON"
+    ],
+    "class": "FIGHTER_2014",
+    "subclass": null,
+    "background": "SOLDIER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Darkvision",
+      "Dwarven Combat Training",
+      "Dwarven Resilience",
+      "Dwarven Tool Proficiency",
+      "Fighting Style",
+      "Second Wind",
+      "Stonecunning"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "INTIMIDATION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "ELF_MARK_OF_SHADOW_EBERRON": {
+    "scores": {
+      "str": 15,
+      "dex": 16,
+      "con": 13,
+      "int": 12,
+      "wis": 10,
+      "cha": 9
+    },
+    "hp": {
+      "current": 11,
+      "max": 11
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CON",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nЕльфійська",
+    "customProficiencies": "Важкі обладунки, Середні обладунки, Легкі обладунки, Щит\nІгровий набір, Наземний транспорт\nПроста зброя, Бойова зброя",
+    "customEquipment": "Знак рангу x1\nТрофей від переможеного ворога x1\nНабір для гри в кості або гральні карти x1\nЗвичайний одяг x1",
+    "race": "ELF_2014",
+    "subrace": null,
+    "raceVariants": [
+      "ELF_MARK_OF_SHADOW_EBERRON"
+    ],
+    "class": "FIGHTER_2014",
+    "subclass": null,
+    "background": "SOLDIER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Darkvision",
+      "Fey Ancestry",
+      "Fighting Style",
+      "Keen Senses",
+      "Second Wind",
+      "Trance"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "INTIMIDATION:PROFICIENT",
+      "PERCEPTION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "GNOME_MARK_OF_SCRIBING_EBERRON": {
+    "scores": {
+      "str": 15,
+      "dex": 14,
+      "con": 13,
+      "int": 14,
+      "wis": 10,
+      "cha": 9
+    },
+    "hp": {
+      "current": 11,
+      "max": 11
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CON",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nГном'яча",
+    "customProficiencies": "Важкі обладунки, Середні обладунки, Легкі обладунки, Щит\nІгровий набір, Наземний транспорт\nПроста зброя, Бойова зброя",
+    "customEquipment": "Знак рангу x1\nТрофей від переможеного ворога x1\nНабір для гри в кості або гральні карти x1\nЗвичайний одяг x1",
+    "race": "GNOME_2014",
+    "subrace": null,
+    "raceVariants": [
+      "GNOME_MARK_OF_SCRIBING_EBERRON"
+    ],
+    "class": "FIGHTER_2014",
+    "subclass": null,
+    "background": "SOLDIER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Darkvision",
+      "Fighting Style",
+      "Gnome Cunning",
+      "Second Wind"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "INTIMIDATION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "HALFLING_MARK_OF_HEALING_EBERRON": {
+    "scores": {
+      "str": 15,
+      "dex": 16,
+      "con": 13,
+      "int": 12,
+      "wis": 11,
+      "cha": 8
+    },
+    "hp": {
+      "current": 11,
+      "max": 11
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CON",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nМова напівросликів",
+    "customProficiencies": "Важкі обладунки, Середні обладунки, Легкі обладунки, Щит\nІгровий набір, Наземний транспорт\nПроста зброя, Бойова зброя",
+    "customEquipment": "Знак рангу x1\nТрофей від переможеного ворога x1\nНабір для гри в кості або гральні карти x1\nЗвичайний одяг x1",
+    "race": "HALFLING_2014",
+    "subrace": null,
+    "raceVariants": [
+      "HALFLING_MARK_OF_HEALING_EBERRON"
+    ],
+    "class": "FIGHTER_2014",
+    "subclass": null,
+    "background": "SOLDIER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Brave",
+      "Fighting Style",
+      "Lucky",
+      "Nimbleness",
+      "Second Wind"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "INTIMIDATION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "HALFLING_MARK_OF_HOSPITALITY_EBERRON": {
+    "scores": {
+      "str": 15,
+      "dex": 16,
+      "con": 13,
+      "int": 12,
+      "wis": 10,
+      "cha": 9
+    },
+    "hp": {
+      "current": 11,
+      "max": 11
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CON",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nМова напівросликів",
+    "customProficiencies": "Важкі обладунки, Середні обладунки, Легкі обладунки, Щит\nІгровий набір, Наземний транспорт\nПроста зброя, Бойова зброя",
+    "customEquipment": "Знак рангу x1\nТрофей від переможеного ворога x1\nНабір для гри в кості або гральні карти x1\nЗвичайний одяг x1",
+    "race": "HALFLING_2014",
+    "subrace": null,
+    "raceVariants": [
+      "HALFLING_MARK_OF_HOSPITALITY_EBERRON"
+    ],
+    "class": "FIGHTER_2014",
+    "subclass": null,
+    "background": "SOLDIER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Brave",
+      "Fighting Style",
+      "Lucky",
+      "Nimbleness",
+      "Second Wind"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "INTIMIDATION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "HALF_ELF_MARK_OF_DETECTION_EBERRON": {
+    "scores": {
+      "str": 15,
+      "dex": 14,
+      "con": 13,
+      "int": 13,
+      "wis": 10,
+      "cha": 10
+    },
+    "hp": {
+      "current": 11,
+      "max": 11
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CON",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nЕльфійська\nОбери ще 1",
+    "customProficiencies": "Важкі обладунки, Середні обладунки, Легкі обладунки, Щит\nІгровий набір, Наземний транспорт\nПроста зброя, Бойова зброя",
+    "customEquipment": "Знак рангу x1\nТрофей від переможеного ворога x1\nНабір для гри в кості або гральні карти x1\nЗвичайний одяг x1",
+    "race": "HALF_ELF_2014",
+    "subrace": null,
+    "raceVariants": [
+      "HALF_ELF_MARK_OF_DETECTION_EBERRON"
+    ],
+    "class": "FIGHTER_2014",
+    "subclass": null,
+    "background": "SOLDIER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Darkvision",
+      "Fey Ancestry",
+      "Fighting Style",
+      "Second Wind"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "INTIMIDATION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "HALF_ELF_MARK_OF_STORM_EBERRON": {
+    "scores": {
+      "str": 15,
+      "dex": 15,
+      "con": 13,
+      "int": 12,
+      "wis": 10,
+      "cha": 10
+    },
+    "hp": {
+      "current": 11,
+      "max": 11
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CON",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nЕльфійська\nОбери ще 1",
+    "customProficiencies": "Важкі обладунки, Середні обладунки, Легкі обладунки, Щит\nІгровий набір, Наземний транспорт\nПроста зброя, Бойова зброя",
+    "customEquipment": "Знак рангу x1\nТрофей від переможеного ворога x1\nНабір для гри в кості або гральні карти x1\nЗвичайний одяг x1",
+    "race": "HALF_ELF_2014",
+    "subrace": null,
+    "raceVariants": [
+      "HALF_ELF_MARK_OF_STORM_EBERRON"
+    ],
+    "class": "FIGHTER_2014",
+    "subclass": null,
+    "background": "SOLDIER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Darkvision",
+      "Fey Ancestry",
+      "Fighting Style",
+      "Second Wind"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "INTIMIDATION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "HALF_ORC_MARK_OF_FINDING_EBERRON": {
+    "scores": {
+      "str": 16,
+      "dex": 14,
+      "con": 13,
+      "int": 12,
+      "wis": 12,
+      "cha": 8
+    },
+    "hp": {
+      "current": 11,
+      "max": 11
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CON",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nОркська",
+    "customProficiencies": "Важкі обладунки, Середні обладунки, Легкі обладунки, Щит\nІгровий набір, Наземний транспорт\nПроста зброя, Бойова зброя",
+    "customEquipment": "Знак рангу x1\nТрофей від переможеного ворога x1\nНабір для гри в кості або гральні карти x1\nЗвичайний одяг x1",
+    "race": "HALF_ORC_2014",
+    "subrace": null,
+    "raceVariants": [
+      "HALF_ORC_MARK_OF_FINDING_EBERRON"
+    ],
+    "class": "FIGHTER_2014",
+    "subclass": null,
+    "background": "SOLDIER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Darkvision",
+      "Fighting Style",
+      "Menacing",
+      "Relentless Endurance",
+      "Savage Attacks",
+      "Second Wind"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "INTIMIDATION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "HUMAN_MARK_OF_FINDING_EBERRON": {
+    "scores": {
+      "str": 15,
+      "dex": 14,
+      "con": 14,
+      "int": 12,
+      "wis": 12,
+      "cha": 8
+    },
+    "hp": {
+      "current": 12,
+      "max": 12
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CON",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1",
+    "customProficiencies": "Важкі обладунки, Середні обладунки, Легкі обладунки, Щит\nІгровий набір, Наземний транспорт\nПроста зброя, Бойова зброя",
+    "customEquipment": "Знак рангу x1\nТрофей від переможеного ворога x1\nНабір для гри в кості або гральні карти x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [
+      "HUMAN_MARK_OF_FINDING_EBERRON"
+    ],
+    "class": "FIGHTER_2014",
+    "subclass": null,
+    "background": "SOLDIER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Fighting Style",
+      "Second Wind"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "INTIMIDATION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "HUMAN_MARK_OF_HANDLING_EBERRON": {
+    "scores": {
+      "str": 15,
+      "dex": 14,
+      "con": 13,
+      "int": 12,
+      "wis": 12,
+      "cha": 9
+    },
+    "hp": {
+      "current": 11,
+      "max": 11
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CON",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1",
+    "customProficiencies": "Важкі обладунки, Середні обладунки, Легкі обладунки, Щит\nІгровий набір, Наземний транспорт\nПроста зброя, Бойова зброя",
+    "customEquipment": "Знак рангу x1\nТрофей від переможеного ворога x1\nНабір для гри в кості або гральні карти x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [
+      "HUMAN_MARK_OF_HANDLING_EBERRON"
+    ],
+    "class": "FIGHTER_2014",
+    "subclass": null,
+    "background": "SOLDIER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Fighting Style",
+      "Second Wind"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "INTIMIDATION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "HUMAN_MARK_OF_MAKING_EBERRON": {
+    "scores": {
+      "str": 15,
+      "dex": 15,
+      "con": 13,
+      "int": 14,
+      "wis": 10,
+      "cha": 8
+    },
+    "hp": {
+      "current": 11,
+      "max": 11
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CON",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1",
+    "customProficiencies": "Важкі обладунки, Середні обладунки, Легкі обладунки, Щит\nІгровий набір, Наземний транспорт\nПроста зброя, Бойова зброя",
+    "customEquipment": "Знак рангу x1\nТрофей від переможеного ворога x1\nНабір для гри в кості або гральні карти x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [
+      "HUMAN_MARK_OF_MAKING_EBERRON"
+    ],
+    "class": "FIGHTER_2014",
+    "subclass": null,
+    "background": "SOLDIER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Fighting Style",
+      "Second Wind"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "INTIMIDATION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "HUMAN_MARK_OF_PASSAGE_EBERRON": {
+    "scores": {
+      "str": 15,
+      "dex": 16,
+      "con": 13,
+      "int": 13,
+      "wis": 10,
+      "cha": 8
+    },
+    "hp": {
+      "current": 11,
+      "max": 11
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CON",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1",
+    "customProficiencies": "Важкі обладунки, Середні обладунки, Легкі обладунки, Щит\nІгровий набір, Наземний транспорт\nПроста зброя, Бойова зброя",
+    "customEquipment": "Знак рангу x1\nТрофей від переможеного ворога x1\nНабір для гри в кості або гральні карти x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [
+      "HUMAN_MARK_OF_PASSAGE_EBERRON"
+    ],
+    "class": "FIGHTER_2014",
+    "subclass": null,
+    "background": "SOLDIER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Fighting Style",
+      "Second Wind"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "INTIMIDATION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "HUMAN_MARK_OF_SENTINEL_EBERRON": {
+    "scores": {
+      "str": 15,
+      "dex": 14,
+      "con": 15,
+      "int": 12,
+      "wis": 11,
+      "cha": 8
+    },
+    "hp": {
+      "current": 12,
+      "max": 12
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CON",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1",
+    "customProficiencies": "Важкі обладунки, Середні обладунки, Легкі обладунки, Щит\nІгровий набір, Наземний транспорт\nПроста зброя, Бойова зброя",
+    "customEquipment": "Знак рангу x1\nТрофей від переможеного ворога x1\nНабір для гри в кості або гральні карти x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [
+      "HUMAN_MARK_OF_SENTINEL_EBERRON"
+    ],
+    "class": "FIGHTER_2014",
+    "subclass": null,
+    "background": "SOLDIER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Fighting Style",
+      "Second Wind"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "INTIMIDATION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "HUMAN_VARIANT": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 13,
+      "int": 12,
+      "wis": 10,
+      "cha": 8
+    },
+    "hp": {
+      "current": 11,
+      "max": 11
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CON",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1",
+    "customProficiencies": "Важкі обладунки, Середні обладунки, Легкі обладунки, Щит\nІгровий набір, Наземний транспорт\nПроста зброя, Бойова зброя",
+    "customEquipment": "Знак рангу x1\nТрофей від переможеного ворога x1\nНабір для гри в кості або гральні карти x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [
+      "HUMAN_VARIANT"
+    ],
+    "class": "FIGHTER_2014",
+    "subclass": null,
+    "background": "SOLDIER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Fighting Style",
+      "Second Wind"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "INTIMIDATION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "TIEFLING_ASMODEUS": {
+    "scores": {
+      "str": 15,
+      "dex": 14,
+      "con": 13,
+      "int": 13,
+      "wis": 10,
+      "cha": 10
+    },
+    "hp": {
+      "current": 11,
+      "max": 11
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CON",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nПекельна",
+    "customProficiencies": "Важкі обладунки, Середні обладунки, Легкі обладунки, Щит\nІгровий набір, Наземний транспорт\nПроста зброя, Бойова зброя",
+    "customEquipment": "Знак рангу x1\nТрофей від переможеного ворога x1\nНабір для гри в кості або гральні карти x1\nЗвичайний одяг x1",
+    "race": "TIEFLING_2014",
+    "subrace": null,
+    "raceVariants": [
+      "TIEFLING_ASMODEUS"
+    ],
+    "class": "FIGHTER_2014",
+    "subclass": null,
+    "background": "SOLDIER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Darkvision",
+      "Fighting Style",
+      "Hellish Resistance",
+      "Infernal Legacy",
+      "Second Wind"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "INTIMIDATION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "TIEFLING_BAALZEBUL": {
+    "scores": {
+      "str": 15,
+      "dex": 14,
+      "con": 13,
+      "int": 13,
+      "wis": 10,
+      "cha": 10
+    },
+    "hp": {
+      "current": 11,
+      "max": 11
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CON",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nПекельна",
+    "customProficiencies": "Важкі обладунки, Середні обладунки, Легкі обладунки, Щит\nІгровий набір, Наземний транспорт\nПроста зброя, Бойова зброя",
+    "customEquipment": "Знак рангу x1\nТрофей від переможеного ворога x1\nНабір для гри в кості або гральні карти x1\nЗвичайний одяг x1",
+    "race": "TIEFLING_2014",
+    "subrace": null,
+    "raceVariants": [
+      "TIEFLING_BAALZEBUL"
+    ],
+    "class": "FIGHTER_2014",
+    "subclass": null,
+    "background": "SOLDIER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Darkvision",
+      "Fighting Style",
+      "Hellish Resistance",
+      "Infernal Legacy",
+      "Second Wind"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "INTIMIDATION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "TIEFLING_DISPATER": {
+    "scores": {
+      "str": 15,
+      "dex": 15,
+      "con": 13,
+      "int": 12,
+      "wis": 10,
+      "cha": 10
+    },
+    "hp": {
+      "current": 11,
+      "max": 11
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CON",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nПекельна",
+    "customProficiencies": "Важкі обладунки, Середні обладунки, Легкі обладунки, Щит\nІгровий набір, Наземний транспорт\nПроста зброя, Бойова зброя",
+    "customEquipment": "Знак рангу x1\nТрофей від переможеного ворога x1\nНабір для гри в кості або гральні карти x1\nЗвичайний одяг x1",
+    "race": "TIEFLING_2014",
+    "subrace": null,
+    "raceVariants": [
+      "TIEFLING_DISPATER"
+    ],
+    "class": "FIGHTER_2014",
+    "subclass": null,
+    "background": "SOLDIER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Darkvision",
+      "Fighting Style",
+      "Hellish Resistance",
+      "Infernal Legacy",
+      "Second Wind"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "INTIMIDATION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "TIEFLING_FIERNA": {
+    "scores": {
+      "str": 15,
+      "dex": 14,
+      "con": 13,
+      "int": 12,
+      "wis": 11,
+      "cha": 10
+    },
+    "hp": {
+      "current": 11,
+      "max": 11
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CON",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nПекельна",
+    "customProficiencies": "Важкі обладунки, Середні обладунки, Легкі обладунки, Щит\nІгровий набір, Наземний транспорт\nПроста зброя, Бойова зброя",
+    "customEquipment": "Знак рангу x1\nТрофей від переможеного ворога x1\nНабір для гри в кості або гральні карти x1\nЗвичайний одяг x1",
+    "race": "TIEFLING_2014",
+    "subrace": null,
+    "raceVariants": [
+      "TIEFLING_FIERNA"
+    ],
+    "class": "FIGHTER_2014",
+    "subclass": null,
+    "background": "SOLDIER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Darkvision",
+      "Fighting Style",
+      "Hellish Resistance",
+      "Infernal Legacy",
+      "Second Wind"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "INTIMIDATION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "TIEFLING_GLASYA": {
+    "scores": {
+      "str": 15,
+      "dex": 15,
+      "con": 13,
+      "int": 12,
+      "wis": 10,
+      "cha": 10
+    },
+    "hp": {
+      "current": 11,
+      "max": 11
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CON",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nПекельна",
+    "customProficiencies": "Важкі обладунки, Середні обладунки, Легкі обладунки, Щит\nІгровий набір, Наземний транспорт\nПроста зброя, Бойова зброя",
+    "customEquipment": "Знак рангу x1\nТрофей від переможеного ворога x1\nНабір для гри в кості або гральні карти x1\nЗвичайний одяг x1",
+    "race": "TIEFLING_2014",
+    "subrace": null,
+    "raceVariants": [
+      "TIEFLING_GLASYA"
+    ],
+    "class": "FIGHTER_2014",
+    "subclass": null,
+    "background": "SOLDIER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Darkvision",
+      "Fighting Style",
+      "Hellish Resistance",
+      "Infernal Legacy",
+      "Second Wind"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "INTIMIDATION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "TIEFLING_LEVISTUS": {
+    "scores": {
+      "str": 15,
+      "dex": 14,
+      "con": 14,
+      "int": 12,
+      "wis": 10,
+      "cha": 10
+    },
+    "hp": {
+      "current": 12,
+      "max": 12
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CON",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nПекельна",
+    "customProficiencies": "Важкі обладунки, Середні обладунки, Легкі обладунки, Щит\nІгровий набір, Наземний транспорт\nПроста зброя, Бойова зброя",
+    "customEquipment": "Знак рангу x1\nТрофей від переможеного ворога x1\nНабір для гри в кості або гральні карти x1\nЗвичайний одяг x1",
+    "race": "TIEFLING_2014",
+    "subrace": null,
+    "raceVariants": [
+      "TIEFLING_LEVISTUS"
+    ],
+    "class": "FIGHTER_2014",
+    "subclass": null,
+    "background": "SOLDIER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Darkvision",
+      "Fighting Style",
+      "Hellish Resistance",
+      "Infernal Legacy",
+      "Second Wind"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "INTIMIDATION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "TIEFLING_MAMMON": {
+    "scores": {
+      "str": 15,
+      "dex": 14,
+      "con": 13,
+      "int": 13,
+      "wis": 10,
+      "cha": 10
+    },
+    "hp": {
+      "current": 11,
+      "max": 11
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CON",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nПекельна",
+    "customProficiencies": "Важкі обладунки, Середні обладунки, Легкі обладунки, Щит\nІгровий набір, Наземний транспорт\nПроста зброя, Бойова зброя",
+    "customEquipment": "Знак рангу x1\nТрофей від переможеного ворога x1\nНабір для гри в кості або гральні карти x1\nЗвичайний одяг x1",
+    "race": "TIEFLING_2014",
+    "subrace": null,
+    "raceVariants": [
+      "TIEFLING_MAMMON"
+    ],
+    "class": "FIGHTER_2014",
+    "subclass": null,
+    "background": "SOLDIER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Darkvision",
+      "Fighting Style",
+      "Hellish Resistance",
+      "Infernal Legacy",
+      "Second Wind"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "INTIMIDATION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "TIEFLING_MEPHISTOPHELES": {
+    "scores": {
+      "str": 15,
+      "dex": 14,
+      "con": 13,
+      "int": 13,
+      "wis": 10,
+      "cha": 10
+    },
+    "hp": {
+      "current": 11,
+      "max": 11
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CON",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nПекельна",
+    "customProficiencies": "Важкі обладунки, Середні обладунки, Легкі обладунки, Щит\nІгровий набір, Наземний транспорт\nПроста зброя, Бойова зброя",
+    "customEquipment": "Знак рангу x1\nТрофей від переможеного ворога x1\nНабір для гри в кості або гральні карти x1\nЗвичайний одяг x1",
+    "race": "TIEFLING_2014",
+    "subrace": null,
+    "raceVariants": [
+      "TIEFLING_MEPHISTOPHELES"
+    ],
+    "class": "FIGHTER_2014",
+    "subclass": null,
+    "background": "SOLDIER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Darkvision",
+      "Fighting Style",
+      "Hellish Resistance",
+      "Infernal Legacy",
+      "Second Wind"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "INTIMIDATION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "TIEFLING_VARIANT_DEVILS_TONGUE_SCAG": {
+    "scores": {
+      "str": 15,
+      "dex": 14,
+      "con": 13,
+      "int": 13,
+      "wis": 10,
+      "cha": 10
+    },
+    "hp": {
+      "current": 11,
+      "max": 11
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CON",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nПекельна",
+    "customProficiencies": "Важкі обладунки, Середні обладунки, Легкі обладунки, Щит\nІгровий набір, Наземний транспорт\nПроста зброя, Бойова зброя",
+    "customEquipment": "Знак рангу x1\nТрофей від переможеного ворога x1\nНабір для гри в кості або гральні карти x1\nЗвичайний одяг x1",
+    "race": "TIEFLING_2014",
+    "subrace": null,
+    "raceVariants": [
+      "TIEFLING_VARIANT_DEVILS_TONGUE_SCAG"
+    ],
+    "class": "FIGHTER_2014",
+    "subclass": null,
+    "background": "SOLDIER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Darkvision",
+      "Fighting Style",
+      "Hellish Resistance",
+      "Infernal Legacy",
+      "Second Wind"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "INTIMIDATION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "TIEFLING_VARIANT_HELLFIRE_SCAG": {
+    "scores": {
+      "str": 15,
+      "dex": 14,
+      "con": 13,
+      "int": 13,
+      "wis": 10,
+      "cha": 10
+    },
+    "hp": {
+      "current": 11,
+      "max": 11
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CON",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nПекельна",
+    "customProficiencies": "Важкі обладунки, Середні обладунки, Легкі обладунки, Щит\nІгровий набір, Наземний транспорт\nПроста зброя, Бойова зброя",
+    "customEquipment": "Знак рангу x1\nТрофей від переможеного ворога x1\nНабір для гри в кості або гральні карти x1\nЗвичайний одяг x1",
+    "race": "TIEFLING_2014",
+    "subrace": null,
+    "raceVariants": [
+      "TIEFLING_VARIANT_HELLFIRE_SCAG"
+    ],
+    "class": "FIGHTER_2014",
+    "subclass": null,
+    "background": "SOLDIER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Darkvision",
+      "Fighting Style",
+      "Hellish Resistance",
+      "Infernal Legacy",
+      "Second Wind"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "INTIMIDATION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "TIEFLING_VARIANT_WINGED_SCAG": {
+    "scores": {
+      "str": 15,
+      "dex": 14,
+      "con": 13,
+      "int": 13,
+      "wis": 10,
+      "cha": 10
+    },
+    "hp": {
+      "current": 11,
+      "max": 11
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CON",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nПекельна",
+    "customProficiencies": "Важкі обладунки, Середні обладунки, Легкі обладунки, Щит\nІгровий набір, Наземний транспорт\nПроста зброя, Бойова зброя",
+    "customEquipment": "Знак рангу x1\nТрофей від переможеного ворога x1\nНабір для гри в кості або гральні карти x1\nЗвичайний одяг x1",
+    "race": "TIEFLING_2014",
+    "subrace": null,
+    "raceVariants": [
+      "TIEFLING_VARIANT_WINGED_SCAG"
+    ],
+    "class": "FIGHTER_2014",
+    "subclass": null,
+    "background": "SOLDIER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Darkvision",
+      "Fighting Style",
+      "Hellish Resistance",
+      "Infernal Legacy",
+      "Second Wind"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "INTIMIDATION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "TIEFLING_ZARIEL": {
+    "scores": {
+      "str": 16,
+      "dex": 14,
+      "con": 13,
+      "int": 12,
+      "wis": 10,
+      "cha": 10
+    },
+    "hp": {
+      "current": 11,
+      "max": 11
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CON",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nПекельна",
+    "customProficiencies": "Важкі обладунки, Середні обладунки, Легкі обладунки, Щит\nІгровий набір, Наземний транспорт\nПроста зброя, Бойова зброя",
+    "customEquipment": "Знак рангу x1\nТрофей від переможеного ворога x1\nНабір для гри в кості або гральні карти x1\nЗвичайний одяг x1",
+    "race": "TIEFLING_2014",
+    "subrace": null,
+    "raceVariants": [
+      "TIEFLING_ZARIEL"
+    ],
+    "class": "FIGHTER_2014",
+    "subclass": null,
+    "background": "SOLDIER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Darkvision",
+      "Fighting Style",
+      "Hellish Resistance",
+      "Infernal Legacy",
+      "Second Wind"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "INTIMIDATION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  }
+}

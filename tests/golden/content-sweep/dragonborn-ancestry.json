@@ -1,0 +1,682 @@
+{
+  "Бронзовий дракон": {
+    "scores": {
+      "str": 17,
+      "dex": 14,
+      "con": 13,
+      "int": 12,
+      "wis": 10,
+      "cha": 9
+    },
+    "hp": {
+      "current": 11,
+      "max": 11
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CON",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nДраконяча",
+    "customProficiencies": "Важкі обладунки, Середні обладунки, Легкі обладунки, Щит\nІгровий набір, Наземний транспорт\nПроста зброя, Бойова зброя",
+    "customEquipment": "Знак рангу x1\nТрофей від переможеного ворога x1\nНабір для гри в кості або гральні карти x1\nЗвичайний одяг x1",
+    "race": "DRAGONBORN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "FIGHTER_2014",
+    "subclass": null,
+    "background": "SOLDIER",
+    "raceChoiceOptions": [
+      "Родовід дракона:Бронзовий дракон"
+    ],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Breath Weapon (Lightning - Line)",
+      "Draconic Ancestry (Bronze)",
+      "Draconic Resistance",
+      "Fighting Style",
+      "Second Wind"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "INTIMIDATION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "Білий дракон": {
+    "scores": {
+      "str": 17,
+      "dex": 14,
+      "con": 13,
+      "int": 12,
+      "wis": 10,
+      "cha": 9
+    },
+    "hp": {
+      "current": 11,
+      "max": 11
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CON",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nДраконяча",
+    "customProficiencies": "Важкі обладунки, Середні обладунки, Легкі обладунки, Щит\nІгровий набір, Наземний транспорт\nПроста зброя, Бойова зброя",
+    "customEquipment": "Знак рангу x1\nТрофей від переможеного ворога x1\nНабір для гри в кості або гральні карти x1\nЗвичайний одяг x1",
+    "race": "DRAGONBORN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "FIGHTER_2014",
+    "subclass": null,
+    "background": "SOLDIER",
+    "raceChoiceOptions": [
+      "Родовід дракона:Білий дракон"
+    ],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Breath Weapon (Cold - Cone)",
+      "Draconic Ancestry (White)",
+      "Draconic Resistance",
+      "Fighting Style",
+      "Second Wind"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "INTIMIDATION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "Зелений дракон": {
+    "scores": {
+      "str": 17,
+      "dex": 14,
+      "con": 13,
+      "int": 12,
+      "wis": 10,
+      "cha": 9
+    },
+    "hp": {
+      "current": 11,
+      "max": 11
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CON",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nДраконяча",
+    "customProficiencies": "Важкі обладунки, Середні обладунки, Легкі обладунки, Щит\nІгровий набір, Наземний транспорт\nПроста зброя, Бойова зброя",
+    "customEquipment": "Знак рангу x1\nТрофей від переможеного ворога x1\nНабір для гри в кості або гральні карти x1\nЗвичайний одяг x1",
+    "race": "DRAGONBORN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "FIGHTER_2014",
+    "subclass": null,
+    "background": "SOLDIER",
+    "raceChoiceOptions": [
+      "Родовід дракона:Зелений дракон"
+    ],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Breath Weapon (Poison - Cone)",
+      "Draconic Ancestry (Green)",
+      "Draconic Resistance",
+      "Fighting Style",
+      "Second Wind"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "INTIMIDATION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "Золотий дракон": {
+    "scores": {
+      "str": 17,
+      "dex": 14,
+      "con": 13,
+      "int": 12,
+      "wis": 10,
+      "cha": 9
+    },
+    "hp": {
+      "current": 11,
+      "max": 11
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CON",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nДраконяча",
+    "customProficiencies": "Важкі обладунки, Середні обладунки, Легкі обладунки, Щит\nІгровий набір, Наземний транспорт\nПроста зброя, Бойова зброя",
+    "customEquipment": "Знак рангу x1\nТрофей від переможеного ворога x1\nНабір для гри в кості або гральні карти x1\nЗвичайний одяг x1",
+    "race": "DRAGONBORN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "FIGHTER_2014",
+    "subclass": null,
+    "background": "SOLDIER",
+    "raceChoiceOptions": [
+      "Родовід дракона:Золотий дракон"
+    ],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Breath Weapon (Fire - Cone)",
+      "Draconic Ancestry (Gold)",
+      "Draconic Resistance",
+      "Fighting Style",
+      "Second Wind"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "INTIMIDATION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "Латунний дракон": {
+    "scores": {
+      "str": 17,
+      "dex": 14,
+      "con": 13,
+      "int": 12,
+      "wis": 10,
+      "cha": 9
+    },
+    "hp": {
+      "current": 11,
+      "max": 11
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CON",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nДраконяча",
+    "customProficiencies": "Важкі обладунки, Середні обладунки, Легкі обладунки, Щит\nІгровий набір, Наземний транспорт\nПроста зброя, Бойова зброя",
+    "customEquipment": "Знак рангу x1\nТрофей від переможеного ворога x1\nНабір для гри в кості або гральні карти x1\nЗвичайний одяг x1",
+    "race": "DRAGONBORN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "FIGHTER_2014",
+    "subclass": null,
+    "background": "SOLDIER",
+    "raceChoiceOptions": [
+      "Родовід дракона:Латунний дракон"
+    ],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Breath Weapon (Fire - Line)",
+      "Draconic Ancestry (Brass)",
+      "Draconic Resistance",
+      "Fighting Style",
+      "Second Wind"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "INTIMIDATION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "Мідний дракон": {
+    "scores": {
+      "str": 17,
+      "dex": 14,
+      "con": 13,
+      "int": 12,
+      "wis": 10,
+      "cha": 9
+    },
+    "hp": {
+      "current": 11,
+      "max": 11
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CON",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nДраконяча",
+    "customProficiencies": "Важкі обладунки, Середні обладунки, Легкі обладунки, Щит\nІгровий набір, Наземний транспорт\nПроста зброя, Бойова зброя",
+    "customEquipment": "Знак рангу x1\nТрофей від переможеного ворога x1\nНабір для гри в кості або гральні карти x1\nЗвичайний одяг x1",
+    "race": "DRAGONBORN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "FIGHTER_2014",
+    "subclass": null,
+    "background": "SOLDIER",
+    "raceChoiceOptions": [
+      "Родовід дракона:Мідний дракон"
+    ],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Breath Weapon (Acid - Line)",
+      "Draconic Ancestry (Copper)",
+      "Draconic Resistance",
+      "Fighting Style",
+      "Second Wind"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "INTIMIDATION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "Синій дракон": {
+    "scores": {
+      "str": 17,
+      "dex": 14,
+      "con": 13,
+      "int": 12,
+      "wis": 10,
+      "cha": 9
+    },
+    "hp": {
+      "current": 11,
+      "max": 11
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CON",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nДраконяча",
+    "customProficiencies": "Важкі обладунки, Середні обладунки, Легкі обладунки, Щит\nІгровий набір, Наземний транспорт\nПроста зброя, Бойова зброя",
+    "customEquipment": "Знак рангу x1\nТрофей від переможеного ворога x1\nНабір для гри в кості або гральні карти x1\nЗвичайний одяг x1",
+    "race": "DRAGONBORN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "FIGHTER_2014",
+    "subclass": null,
+    "background": "SOLDIER",
+    "raceChoiceOptions": [
+      "Родовід дракона:Синій дракон"
+    ],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Breath Weapon (Lightning - Line)",
+      "Draconic Ancestry (Blue)",
+      "Draconic Resistance",
+      "Fighting Style",
+      "Second Wind"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "INTIMIDATION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "Срібний дракон": {
+    "scores": {
+      "str": 17,
+      "dex": 14,
+      "con": 13,
+      "int": 12,
+      "wis": 10,
+      "cha": 9
+    },
+    "hp": {
+      "current": 11,
+      "max": 11
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CON",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nДраконяча",
+    "customProficiencies": "Важкі обладунки, Середні обладунки, Легкі обладунки, Щит\nІгровий набір, Наземний транспорт\nПроста зброя, Бойова зброя",
+    "customEquipment": "Знак рангу x1\nТрофей від переможеного ворога x1\nНабір для гри в кості або гральні карти x1\nЗвичайний одяг x1",
+    "race": "DRAGONBORN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "FIGHTER_2014",
+    "subclass": null,
+    "background": "SOLDIER",
+    "raceChoiceOptions": [
+      "Родовід дракона:Срібний дракон"
+    ],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Breath Weapon (Cold - Cone)",
+      "Draconic Ancestry (Silver)",
+      "Draconic Resistance",
+      "Fighting Style",
+      "Second Wind"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "INTIMIDATION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "Червоний дракон": {
+    "scores": {
+      "str": 17,
+      "dex": 14,
+      "con": 13,
+      "int": 12,
+      "wis": 10,
+      "cha": 9
+    },
+    "hp": {
+      "current": 11,
+      "max": 11
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CON",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nДраконяча",
+    "customProficiencies": "Важкі обладунки, Середні обладунки, Легкі обладунки, Щит\nІгровий набір, Наземний транспорт\nПроста зброя, Бойова зброя",
+    "customEquipment": "Знак рангу x1\nТрофей від переможеного ворога x1\nНабір для гри в кості або гральні карти x1\nЗвичайний одяг x1",
+    "race": "DRAGONBORN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "FIGHTER_2014",
+    "subclass": null,
+    "background": "SOLDIER",
+    "raceChoiceOptions": [
+      "Родовід дракона:Червоний дракон"
+    ],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Breath Weapon (Fire - Cone)",
+      "Draconic Ancestry (Red)",
+      "Draconic Resistance",
+      "Fighting Style",
+      "Second Wind"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "INTIMIDATION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "Чорний дракон": {
+    "scores": {
+      "str": 17,
+      "dex": 14,
+      "con": 13,
+      "int": 12,
+      "wis": 10,
+      "cha": 9
+    },
+    "hp": {
+      "current": 11,
+      "max": 11
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CON",
+      "STR"
+    ],
+    "customLanguagesKnown": "Загальна\nДраконяча",
+    "customProficiencies": "Важкі обладунки, Середні обладунки, Легкі обладунки, Щит\nІгровий набір, Наземний транспорт\nПроста зброя, Бойова зброя",
+    "customEquipment": "Знак рангу x1\nТрофей від переможеного ворога x1\nНабір для гри в кості або гральні карти x1\nЗвичайний одяг x1",
+    "race": "DRAGONBORN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "FIGHTER_2014",
+    "subclass": null,
+    "background": "SOLDIER",
+    "raceChoiceOptions": [
+      "Родовід дракона:Чорний дракон"
+    ],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Breath Weapon (Acid - Line)",
+      "Draconic Ancestry (Black)",
+      "Draconic Resistance",
+      "Fighting Style",
+      "Second Wind"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "INTIMIDATION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  }
+}

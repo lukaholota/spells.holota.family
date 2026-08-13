@@ -1,0 +1,5669 @@
+{
+  "ACOLYTE": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "15",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nПроста зброя",
+    "customEquipment": "Священний символ x1\nМолитовник або молитовне колесо x1\nПалички ладану x5\nРитуальний одяг x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "ACOLYTE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "INSIGHT:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "ANTHROPOLOGIST": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nПроста зброя",
+    "customEquipment": "Шкіряний журнал x1\nПляшечка чорнила x1\nПеро x1\nДорожній одяг x1\nТрінкет з далекої землі x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "ANTHROPOLOGIST",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "INSIGHT:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "ARCHAEOLOGIST": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "25",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nІнструменти картографа, Інструменти навігатора\nПроста зброя",
+    "customEquipment": "Дерев'яний футляр з картою руїн x1\nРучний ліхтар x1\nКірка x1\nДорожній одяг x1\nЛопата x1\nНамет на дві особи x1\nТрінкет з розкопок x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "ARCHAEOLOGIST",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "HISTORY:PROFICIENT",
+      "SURVIVAL:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "ARTISAN_2024": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "32",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nІнструменти ремісника\nПроста зброя",
+    "customEquipment": "Ремісничі інструменти (на вибір) x1\nДорожній одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "ARTISAN_2024",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "INVESTIGATION:PROFICIENT",
+      "PERSUASION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "ASTRAL_DRIFTER": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nПроста зброя",
+    "customEquipment": "Щоденник x1\nПляшечка чорнила x1\nПеро x1\nДорожній одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "ASTRAL_DRIFTER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "INSIGHT:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "ATHLETE": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nНаземний транспорт\nПроста зброя",
+    "customEquipment": "Бронзовий диск або шкіряний м’яч x1\nПодарунок від шанувальника x1\nДорожній одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "ATHLETE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "ACROBATICS:PROFICIENT",
+      "ATHLETICS:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "AZORIUS_FUNCTIONARY": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nПроста зброя",
+    "customEquipment": "Інсигнія Азоріусу x1\nСувій з текстом закону x1\nПляшечка синього чорнила x1\nПеро x1\nГарний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "AZORIUS_FUNCTIONARY",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "INSIGHT:PROFICIENT",
+      "INTIMIDATION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "BOROS_LEGIONNAIRE": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nІгровий набір, Наземний транспорт\nПроста зброя",
+    "customEquipment": "Інсигнія Боросу x1\nТрофей від переможеного ворога x1\nНабір для гри x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "BOROS_LEGIONNAIRE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "INTIMIDATION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "CHARLATAN": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "15",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nНабір для гриму, Набір фальшивомонетника\nПроста зброя",
+    "customEquipment": "Гарний одяг x1\nНабір для маскування x1\nІнструменти шахрая (флакони, підроблені кості, марковані карти, фальшива печатка) x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "CHARLATAN",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "DECEPTION:PROFICIENT",
+      "SLEIGHT_OF_HAND:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "CHARLATAN_2024": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "15",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nНабір фальшивомонетника\nПроста зброя",
+    "customEquipment": "Набір для підробки x1\nГарний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "CHARLATAN_2024",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "DECEPTION:PROFICIENT",
+      "SLEIGHT_OF_HAND:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "CITY_WATCH": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nПроста зброя",
+    "customEquipment": "Уніформа міської варти x1\nРіг x1\nНаручники x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "CITY_WATCH",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "INSIGHT:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "CLAN_CRAFTER": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "5",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nІнструменти ремісника\nПроста зброя",
+    "customEquipment": "Ремісничі інструменти (на вибір) x1\nНаконечник від зламаного кинджала клану x1\nДорожній одяг x1\nГема вартістю 10 зм x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "CLAN_CRAFTER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "HISTORY:PROFICIENT",
+      "INSIGHT:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "CLOISTERED_SCHOLAR": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nПроста зброя",
+    "customEquipment": "Звичайний одяг вченого x1\nПляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від колеги з питанням x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "CLOISTERED_SCHOLAR",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "HISTORY:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "COURTIER": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "5",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nПроста зброя",
+    "customEquipment": "Гарний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "COURTIER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "INSIGHT:PROFICIENT",
+      "PERSUASION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "CRIMINAL": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "15",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nІгровий набір, Інструменти злодія\nПроста зброя",
+    "customEquipment": "Ломик x1\nТемний звичайний одяг з капюшоном x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "CRIMINAL",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "DECEPTION:PROFICIENT",
+      "STEALTH:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "CRIMINAL_2024": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "16",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nІнструменти злодія\nПроста зброя",
+    "customEquipment": "Ломик x1\nДорожній одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "CRIMINAL_2024",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "SLEIGHT_OF_HAND:PROFICIENT",
+      "STEALTH:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "CUSTOM": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "0",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nПроста зброя",
+    "customEquipment": "",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "CUSTOM",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [],
+    "weapons": [],
+    "armors": []
+  },
+  "DIMIR_OPERATIVE": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nНабір для гриму\nПроста зброя",
+    "customEquipment": "Три комплекти одягу для різних особистостей x3\nНабір для маскування x1\nІнсигнія Діміру x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "DIMIR_OPERATIVE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "DECEPTION:PROFICIENT",
+      "STEALTH:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "ENTERTAINER": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "15",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nНабір для гриму, Музичний інструмент\nПроста зброя",
+    "customEquipment": "Музичний інструмент (на вибір) x1\nПодарунок від шанувальника (любовний лист, локон волосся або якась дрібничка) x1\nКостюм x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "ENTERTAINER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "ACROBATICS:PROFICIENT",
+      "PERFORMANCE:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "ENTERTAINER_2024": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "11",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nМузичний інструмент\nПроста зброя",
+    "customEquipment": "Музичний інструмент (на вибір) x1\nКостюм x2\nДорожній одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "ENTERTAINER_2024",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "ACROBATICS:PROFICIENT",
+      "PERFORMANCE:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "FACELESS": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nНабір для гриму\nПроста зброя",
+    "customEquipment": "Набір для маскування x1\nКостюм або друга персона x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "FACELESS",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "DECEPTION:PROFICIENT",
+      "INTIMIDATION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "FACTION_AGENT": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "15",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nПроста зброя",
+    "customEquipment": "Значок або емблема фракції x1\nКопія священного тексту або кодексу x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "FACTION_AGENT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "INSIGHT:PROFICIENT",
+      "PERSUASION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "FAILED_MERCHANT": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nІнструменти ремісника\nПроста зброя",
+    "customEquipment": "Ремісничі інструменти x1\nДорожній одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "FAILED_MERCHANT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "INVESTIGATION:PROFICIENT",
+      "PERSUASION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "FARMER_2024": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "30",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nІнструменти ремісника\nПроста зброя",
+    "customEquipment": "Серп x1\nТеслярські інструменти x1\nНабір цілителя x10\nЗалізний казан x1\nЛопата x1\nДорожній одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "FARMER_2024",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "ANIMAL_HANDLING:PROFICIENT",
+      "NATURE:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "FAR_TRAVELER": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "5",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nМузичний інструмент\nПроста зброя",
+    "customEquipment": "Дорожній одяг x1\nМузичний інструмент або ігровий набір x1\nПогано намальована карта рідної землі x1\nМаленький шматок ювелірних виробів (10 зм) x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "FAR_TRAVELER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "INSIGHT:PROFICIENT",
+      "PERCEPTION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "FEYLOST": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "8",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nМузичний інструмент\nПроста зброя",
+    "customEquipment": "Музичний інструмент x1\nТри трінкети x3\nДорожній одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "FEYLOST",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "DECEPTION:PROFICIENT",
+      "SURVIVAL:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "FISHER": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nРибальське спорядження\nПроста зброя",
+    "customEquipment": "Риболовна снасть x1\nДорожній одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "FISHER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "HISTORY:PROFICIENT",
+      "SURVIVAL:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "FOLK_HERO": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nІнструменти ремісника, Наземний транспорт\nПроста зброя",
+    "customEquipment": "Ремісничі інструменти (на вибір) x1\nЛопата x1\nЗалізний казан x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "FOLK_HERO",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "ANIMAL_HANDLING:PROFICIENT",
+      "SURVIVAL:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "GAMBLER": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "15",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nІгровий набір\nПроста зброя",
+    "customEquipment": "Набір для азартних ігор x1\nТалісман на удачу x1\nГарний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "GAMBLER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "DECEPTION:PROFICIENT",
+      "INSIGHT:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "GATE_WARDEN": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nПроста зброя",
+    "customEquipment": "Кільце з ключами до невідомих замків x1\nЧиста книга x1\nПеро x1\nЧорне чорнило x1\nДорожній одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "GATE_WARDEN",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "PERSUASION:PROFICIENT",
+      "SURVIVAL:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "GIANT_FOUNDLING": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nПроста зброя",
+    "customEquipment": "Рюкзак x1\nДорожній одяг x1\nМаленький камінь або гілочка з дому x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "GIANT_FOUNDLING",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "INTIMIDATION:PROFICIENT",
+      "SURVIVAL:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "GLADIATOR": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "15",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nНабір для гриму, Музичний інструмент\nПроста зброя",
+    "customEquipment": "Музичний інструмент (на вибір) x1\nПодарунок від шанувальника x1\nНезвичайна зброя (тризубець або сітка) x1\nКостюм x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "GLADIATOR",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "ACROBATICS:PROFICIENT",
+      "PERFORMANCE:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "GOLGARI_AGENT": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nНабір отруйника\nПроста зброя",
+    "customEquipment": "Інсигнія Голгарі x1\nНабір труїв x1\nДомашній крихітний жучок x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "GOLGARI_AGENT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "NATURE:PROFICIENT",
+      "SURVIVAL:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "GRINNER": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "15",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nНабір для гриму, Музичний інструмент\nПроста зброя",
+    "customEquipment": "Набір для маскування x1\nМузичний інструмент x1\nСигнет з емблемою Golden Grin x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "GRINNER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "DECEPTION:PROFICIENT",
+      "PERFORMANCE:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "GRUUL_ANARCH": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nНабір травника\nПроста зброя",
+    "customEquipment": "Інсигнія Груулу x1\nНабір травника x1\nМисливська пастка x1\nТрофей від тварини x1\nДорожній одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "GRUUL_ANARCH",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "ANIMAL_HANDLING:PROFICIENT",
+      "ATHLETICS:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "GUARD_2024": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "12",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nІгровий набір\nПроста зброя",
+    "customEquipment": "Спис x1\nЛегкий арбалет x1\nБолти x20\nНабір для гри x1\nЛіхтар з капюшоном x1\nНаручники x1\nСагайдак x1\nДорожній одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "GUARD_2024",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "PERCEPTION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "GUIDE_2024": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "3",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nІнструменти навігатора\nПроста зброя",
+    "customEquipment": "Короткий лук x1\nСтріли x20\nКартографічні інструменти x1\nСпальний мішок x1\nСагайдак x1\nНамет x1\nДорожній одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "GUIDE_2024",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "STEALTH:PROFICIENT",
+      "SURVIVAL:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "GUILD_ARTISAN": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "15",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nІнструменти ремісника\nПроста зброя",
+    "customEquipment": "Ремісничі інструменти (на вибір) x1\nЛист-рекомендація від гільдії x1\nДорожній одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "GUILD_ARTISAN",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "INSIGHT:PROFICIENT",
+      "PERSUASION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "GUILD_MERCHANT": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "15",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nІнструменти навігатора\nПроста зброя",
+    "customEquipment": "Навігаційні інструменти x1\nЛист-рекомендація від гільдії x1\nДорожній одяг x1\nМул і віз (опціонально) x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "GUILD_MERCHANT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "INSIGHT:PROFICIENT",
+      "PERSUASION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "HAUNTED_ONE": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "0",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nПроста зброя",
+    "customEquipment": "Сундук x1\nЛом x1\nМолоток x1\nДерев’яні кілки x3\nСвяте символічне зображення x1\nФляга святої води x1\nНабір кайданів x1\nСталева дзеркальце x1\nФляга олії x1\nНабір для розпалювання вогню x1\nФакели x3\nТрінкет особливого значення x1\nЗвичайний одяг x1\nsp x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "HAUNTED_ONE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "INVESTIGATION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "HERMIT": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "5",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nНабір травника\nПроста зброя",
+    "customEquipment": "Футляр для свитків з нотатками x1\nЗимова ковдра x1\nЗвичайний одяг x1\nНабір травника x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "HERMIT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "MEDICINE:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "HERMIT_2024": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "16",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nНабір травника\nПроста зброя",
+    "customEquipment": "Посох x1\nНабір травника x1\nСпальний мішок x1\nКнига (філософія) x1\nЛампа x1\nОлія x3\nДорожній одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "HERMIT_2024",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "MEDICINE:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "HOUSE_AGENT": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "20",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nІнструменти ремісника\nПроста зброя",
+    "customEquipment": "Набір ремісничих інструментів x1\nІдентифікаційні папери Дому x1\nГарний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "HOUSE_AGENT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "INVESTIGATION:PROFICIENT",
+      "PERSUASION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "INHERITOR": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "15",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nІгровий набір\nПроста зброя",
+    "customEquipment": "Спадщина (на вибір) x1\nДорожній одяг x1\nІгровий набір або музичний інструмент x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "INHERITOR",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "RELIGION:PROFICIENT",
+      "SURVIVAL:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "INVESTIGATOR": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nПроста зброя",
+    "customEquipment": "Уніформа x1\nРіг x1\nНаручники x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "INVESTIGATOR",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "INSIGHT:PROFICIENT",
+      "INVESTIGATION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "IZZET_ENGINEER": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nІнструменти ремісника\nПроста зброя",
+    "customEquipment": "Інсигнія Іззету x1\nОдин ремісничий інструмент x1\nОбгоріла книга записів x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "IZZET_ENGINEER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "INVESTIGATION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "KNIGHT": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "25",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nІгровий набір\nПроста зброя",
+    "customEquipment": "Гарний одяг x1\nПерстень-печатка x1\nСвиток з родоводом x1\nБанер або герб x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "KNIGHT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "HISTORY:PROFICIENT",
+      "PERSUASION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "KNIGHT_OF_SOLAMNIA": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nМузичний інструмент\nПроста зброя",
+    "customEquipment": "Інсигнія рангу x1\nНабір дорожнього одягу x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "KNIGHT_OF_SOLAMNIA",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "SURVIVAL:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "KNIGHT_OF_THE_ORDER": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nІгровий набір\nПроста зброя",
+    "customEquipment": "Дорожній одяг x1\nПерстень-печатка ордену x1\nБанер або інший символ ордену x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "KNIGHT_OF_THE_ORDER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "PERSUASION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "LOREHOLD_STUDENT": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "15",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nІнструменти ремісника\nПроста зброя",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМолоток x1\nКнига історії x1\nШкільна форма x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "LOREHOLD_STUDENT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "HISTORY:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "MAGE_OF_HIGH_SORCERY": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nПроста зброя",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nЗвичайна роба x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "MAGE_OF_HIGH_SORCERY",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "MARINE": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nНаземний транспорт, Водний транспорт\nПроста зброя",
+    "customEquipment": "Кинджал x1\nЗнак рангу x1\nНабір кісток або гральні карти x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "MARINE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "SURVIVAL:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "MERCENARY_VETERAN": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nІгровий набір, Наземний транспорт\nПроста зброя",
+    "customEquipment": "Уніформа найманця x1\nІнсигнія компанії x1\nНабір для гри в кості або гральні карти x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "MERCENARY_VETERAN",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "PERSUASION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "MERCHANT_2024": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "22",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nІнструменти навігатора\nПроста зброя",
+    "customEquipment": "Навігаційні інструменти x1\nДорожній одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "MERCHANT_2024",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "ANIMAL_HANDLING:PROFICIENT",
+      "PERSUASION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "NOBLE": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "25",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nІгровий набір\nПроста зброя",
+    "customEquipment": "Гарний одяг x1\nПерстень-печатка x1\nСвиток з родоводом x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "NOBLE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "HISTORY:PROFICIENT",
+      "PERSUASION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "NOBLE_2024": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "29",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nІгровий набір\nПроста зброя",
+    "customEquipment": "Набір для гри x1\nГарний одяг x1\nПарфуми x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "NOBLE_2024",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "HISTORY:PROFICIENT",
+      "PERSUASION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "ORZHOV_REPRESENTATIVE": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nІнструменти ювеліра\nПроста зброя",
+    "customEquipment": "Інсигнія Оржова x1\nВаги ювеліра x1\nГарний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "ORZHOV_REPRESENTATIVE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "INTIMIDATION:PROFICIENT",
+      "RELIGION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "OUTLANDER": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nМузичний інструмент\nПроста зброя",
+    "customEquipment": "Посох x1\nМисливська пастка x1\nТрофей від убитої тварини x1\nДорожній одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "OUTLANDER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "SURVIVAL:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "PIRATE": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nІнструменти навігатора, Водний транспорт\nПроста зброя",
+    "customEquipment": "Шпилька для канатів (дубинка) x1\nШовкова мотузка (50 футів) x1\nТалісман на удачу x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "PIRATE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "PERCEPTION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "PLAINTIFF": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "20",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nПроста зброя",
+    "customEquipment": "Гарний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "PLAINTIFF",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "MEDICINE:PROFICIENT",
+      "PERSUASION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "PLANAR_PHILOSOPHER": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nПроста зброя",
+    "customEquipment": "Ключ від порталу x1\nМаніфест вашої філософії x1\nЗвичайний одяг у стилі фракції x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "PLANAR_PHILOSOPHER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "PERSUASION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "PRISMARI_STUDENT": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nІнструменти ремісника, Музичний інструмент\nПроста зброя",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nОдин артефакт мистецтва x1\nШкільна форма x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "PRISMARI_STUDENT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "ACROBATICS:PROFICIENT",
+      "PERFORMANCE:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "QUANDRIX_STUDENT": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "15",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nІнструменти ремісника\nПроста зброя",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nРахівниця x1\nКнига аркан теорії x1\nШкільна форма x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "QUANDRIX_STUDENT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "NATURE:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "RAKDOS_CULTIST": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nМузичний інструмент\nПроста зброя",
+    "customEquipment": "Інсигнія Ракдоса x1\nМузичний інструмент x1\nКостюм x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "RAKDOS_CULTIST",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "ACROBATICS:PROFICIENT",
+      "PERFORMANCE:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "REWARDED": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "18",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nІгровий набір\nПроста зброя",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nПапір (чисті аркуші) x5\nІгровий набір (на вибір) x1\nПерстень-печатка x1\nГарний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "REWARDED",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "INSIGHT:PROFICIENT",
+      "PERSUASION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "RIVAL_INTERN": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nІнструменти ремісника\nПроста зброя",
+    "customEquipment": "Набір інструментів x1\nГарний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "RIVAL_INTERN",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "HISTORY:PROFICIENT",
+      "INVESTIGATION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "RUINED": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "13",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nІгровий набір\nПроста зброя",
+    "customEquipment": "Тріснутий пісочний годинник x1\nІржаві кайдани x1\nНапівпорожня пляшка x1\nМисливська пастка x1\nІгровий набір (на вибір) x1\nДорожній одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "RUINED",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "STEALTH:PROFICIENT",
+      "SURVIVAL:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "RUNE_CARVER": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nІнструменти ремісника\nПроста зброя",
+    "customEquipment": "Інструменти ремісника (на вибір) x1\nМаленький ніж x1\nТочильний камінь x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "RUNE_CARVER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "HISTORY:PROFICIENT",
+      "PERCEPTION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "SAGE": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nПроста зброя",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nМаленький ніж x1\nЛист від мертвого колеги з питанням, на яке ти ще не відповів x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "SAGE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "SAGE_2024": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "8",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nІнструменти ремісника\nПроста зброя",
+    "customEquipment": "Каліграфічний набір x1\nКнига (історія) x1\nПергамент x8\nДорожній одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "SAGE_2024",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "HISTORY:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "SAILOR": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nІнструменти навігатора, Водний транспорт\nПроста зброя",
+    "customEquipment": "Шпилька для канатів (дубинка) x1\nШовкова мотузка (50 футів) x1\nТалісман на удачу x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "SAILOR",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "PERCEPTION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "SAILOR_2024": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "14",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nІнструменти навігатора\nПроста зброя",
+    "customEquipment": "Дубинка x1\nНавігаційні інструменти x1\nКонопляна мотузка (50 футів) x1\nТалісман удачі x1\nДорожній одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "SAILOR_2024",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "PERCEPTION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "SCRIBE_2024": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "23",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nІнструменти ремісника\nПроста зброя",
+    "customEquipment": "Каліграфічний набір x1\nГарний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "SCRIBE_2024",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "INVESTIGATION:PROFICIENT",
+      "PERCEPTION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "SELESNYA_INITIATE": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "5",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nНабір травника\nПроста зброя",
+    "customEquipment": "Інсигнія Селесніі x1\nНабір травника x1\nДорожній одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "SELESNYA_INITIATE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "NATURE:PROFICIENT",
+      "PERSUASION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "SHIPWRIGHT": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nІнструменти ремісника, Водний транспорт\nПроста зброя",
+    "customEquipment": "Теслярські інструменти x1\nДорожній одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "SHIPWRIGHT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "HISTORY:PROFICIENT",
+      "PERCEPTION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "SILVERQUILL_STUDENT": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "15",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nПроста зброя",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nКнига поезії x1\nТом історії x1\nШкільна форма x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "SILVERQUILL_STUDENT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "INTIMIDATION:PROFICIENT",
+      "PERSUASION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "SIMIC_SCIENTIST": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 2",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nНабір травника\nПроста зброя",
+    "customEquipment": "Інсигнія Сіміку x1\nНабір травника x1\nКнига нотаток x1\nПляшечка чорнила x1\nПеро x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "SIMIC_SCIENTIST",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "ARCANA:PROFICIENT",
+      "MEDICINE:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "SMUGGLER": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "15",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nВодний транспорт\nПроста зброя",
+    "customEquipment": "Дубинка x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "SMUGGLER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "DECEPTION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "SOLDIER": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nІгровий набір, Наземний транспорт\nПроста зброя",
+    "customEquipment": "Знак рангу x1\nТрофей від переможеного ворога x1\nНабір для гри в кості або гральні карти x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "SOLDIER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "INTIMIDATION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "SOLDIER_2024": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "14",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nІгровий набір\nПроста зброя",
+    "customEquipment": "Спис x1\nКороткий лук x1\nСтріли x20\nНабір для гри x1\nЛіхтар з капюшоном x1\nСагайдак x1\nДорожній одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "SOLDIER_2024",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "INTIMIDATION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "SPY": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "15",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nІгровий набір, Інструменти злодія\nПроста зброя",
+    "customEquipment": "Ломик x1\nТемний звичайний одяг з капюшоном x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "SPY",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "DECEPTION:PROFICIENT",
+      "STEALTH:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "URBAN_BOUNTY_HUNTER": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "20",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nІгровий набір, Музичний інструмент, Інструменти злодія\nПроста зброя",
+    "customEquipment": "Відповідний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "URBAN_BOUNTY_HUNTER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "DECEPTION:PROFICIENT",
+      "INSIGHT:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "URCHIN": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nНабір для гриму, Інструменти злодія\nПроста зброя",
+    "customEquipment": "Маленький ніж x1\nКарта міста, де виріс x1\nДомашня миша (буквально) x1\nЗначок на пам'ять від батьків x1\nЗвичайний одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "URCHIN",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "SLEIGHT_OF_HAND:PROFICIENT",
+      "STEALTH:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "UTHGARDT_TRIBE_MEMBER": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nІнструменти ремісника, Музичний інструмент\nПроста зброя",
+    "customEquipment": "Мисливська пастка x1\nТотем або татуювання племені x1\nДорожній одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "UTHGARDT_TRIBE_MEMBER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "SURVIVAL:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "VOLSTRUCKER_AGENT": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nНабір отруйника\nПроста зброя",
+    "customEquipment": "Звичайний одяг x1\nЧорний плащ з капюшоном x1\nНабір для отруєння x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "VOLSTRUCKER_AGENT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "DECEPTION:PROFICIENT",
+      "STEALTH:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "WATERDHAVIAN_NOBLE": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "20",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nІгровий набір, Музичний інструмент\nПроста зброя",
+    "customEquipment": "Гарний одяг x1\nПерстень-печатка x1\nСвиток з родоводом x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "WATERDHAVIAN_NOBLE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "HISTORY:PROFICIENT",
+      "PERSUASION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "WAYFARER_2024": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "16",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nІнструменти злодія\nПроста зброя",
+    "customEquipment": "Інструменти злодія x1\nКарта регіону x1\nСпальний мішок x1\nДорожній одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "WAYFARER_2024",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "INSIGHT:PROFICIENT",
+      "STEALTH:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "WILDSPACER": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "10",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nІнструменти навігатора, Водний транспорт\nПроста зброя",
+    "customEquipment": "Шпилька для канатів (дубинка) x1\nНавігаційні інструменти x1\nДорожній одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "WILDSPACER",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "ATHLETICS:PROFICIENT",
+      "SURVIVAL:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "WITCHLIGHT_HAND": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "8",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nНабір для гриму, Музичний інструмент\nПроста зброя",
+    "customEquipment": "Набір для маскування або музичний інструмент x1\nФестивальна сувенірна маска x1\nДорожній одяг x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "WITCHLIGHT_HAND",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "PERFORMANCE:PROFICIENT",
+      "SLEIGHT_OF_HAND:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  },
+  "WITHERBLOOM_STUDENT": {
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "15",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Щит\nНабір травника\nПроста зброя",
+    "customEquipment": "Пляшечка чорнила x1\nПеро x1\nНабір травника x1\nЗалізний казан x1\nШкільна форма x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "CLERIC_2014",
+    "subclass": null,
+    "background": "WITHERBLOOM_STUDENT",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Domain",
+      "Spellcasting (Cleric)"
+    ],
+    "feats": [],
+    "skills": [
+      "NATURE:PROFICIENT",
+      "SURVIVAL:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": []
+  }
+}
