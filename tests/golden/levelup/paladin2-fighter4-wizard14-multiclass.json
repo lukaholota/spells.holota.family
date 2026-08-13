@@ -1,0 +1,1844 @@
+[
+  {
+    "level": 1,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 12,
+      "max": 12
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "25",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Важкі обладунки, Щит\nІгровий набір\nПроста зброя, Бойова зброя",
+    "customEquipment": "Гарний одяг x1\nПерстень-печатка x1\nСвиток з родоводом x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "PALADIN_2014",
+    "subclass": null,
+    "background": "NOBLE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Sense",
+      "Lay on Hands"
+    ],
+    "feats": [],
+    "skills": [
+      "HISTORY:PROFICIENT",
+      "PERSUASION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 2,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 20,
+      "max": 20
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "25",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Важкі обладунки, Щит\nІгровий набір\nПроста зброя, Бойова зброя",
+    "customEquipment": "Гарний одяг x1\nПерстень-печатка x1\nСвиток з родоводом x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "PALADIN_2014",
+    "subclass": null,
+    "background": "NOBLE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Dueling"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Divine Sense",
+      "Divine Smite",
+      "Dueling",
+      "Fighting Style",
+      "Lay on Hands",
+      "Spellcasting (Paladin)"
+    ],
+    "feats": [],
+    "skills": [
+      "HISTORY:PROFICIENT",
+      "PERSUASION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 3,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 28,
+      "max": 28
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "25",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Важкі обладунки, Щит\nІгровий набір\nПроста зброя, Бойова зброя",
+    "customEquipment": "Гарний одяг x1\nПерстень-печатка x1\nСвиток з родоводом x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "PALADIN_2014",
+    "subclass": null,
+    "background": "NOBLE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Archery",
+      "Dueling"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Archery",
+      "Divine Sense",
+      "Divine Smite",
+      "Dueling",
+      "Fighting Style",
+      "Lay on Hands",
+      "Second Wind",
+      "Spellcasting (Paladin)"
+    ],
+    "feats": [],
+    "skills": [
+      "HISTORY:PROFICIENT",
+      "PERSUASION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [
+      {
+        "class": "FIGHTER_2014",
+        "subclass": null,
+        "classLevel": 1
+      }
+    ],
+    "infusions": []
+  },
+  {
+    "level": 4,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 36,
+      "max": 36
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "25",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Важкі обладунки, Щит\nІгровий набір\nПроста зброя, Бойова зброя",
+    "customEquipment": "Гарний одяг x1\nПерстень-печатка x1\nСвиток з родоводом x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "PALADIN_2014",
+    "subclass": null,
+    "background": "NOBLE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Archery",
+      "Dueling"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Action Surge",
+      "Archery",
+      "Divine Sense",
+      "Divine Smite",
+      "Dueling",
+      "Fighting Style",
+      "Lay on Hands",
+      "Second Wind",
+      "Spellcasting (Paladin)"
+    ],
+    "feats": [],
+    "skills": [
+      "HISTORY:PROFICIENT",
+      "PERSUASION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [
+      {
+        "class": "FIGHTER_2014",
+        "subclass": null,
+        "classLevel": 2
+      }
+    ],
+    "infusions": []
+  },
+  {
+    "level": 5,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 44,
+      "max": 44
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "25",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Важкі обладунки, Щит\nІгровий набір\nПроста зброя, Бойова зброя",
+    "customEquipment": "Гарний одяг x1\nПерстень-печатка x1\nСвиток з родоводом x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "PALADIN_2014",
+    "subclass": null,
+    "background": "NOBLE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Archery",
+      "Dueling"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Action Surge",
+      "Archery",
+      "Divine Sense",
+      "Divine Smite",
+      "Dueling",
+      "Fighting Style",
+      "Lay on Hands",
+      "Martial Archetype",
+      "Second Wind",
+      "Spellcasting (Eldritch Knight)",
+      "Spellcasting (Paladin)",
+      "Weapon Bond"
+    ],
+    "feats": [],
+    "skills": [
+      "HISTORY:PROFICIENT",
+      "PERSUASION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [
+      {
+        "class": "FIGHTER_2014",
+        "subclass": "ELDRITCH_KNIGHT",
+        "classLevel": 3
+      }
+    ],
+    "infusions": []
+  },
+  {
+    "level": 6,
+    "scores": {
+      "str": 17,
+      "dex": 15,
+      "con": 14,
+      "int": 14,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 52,
+      "max": 52
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "25",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Важкі обладунки, Щит\nІгровий набір\nПроста зброя, Бойова зброя",
+    "customEquipment": "Гарний одяг x1\nПерстень-печатка x1\nСвиток з родоводом x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "PALADIN_2014",
+    "subclass": null,
+    "background": "NOBLE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Archery",
+      "Dueling"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Action Surge",
+      "Archery",
+      "Divine Sense",
+      "Divine Smite",
+      "Dueling",
+      "Fighting Style",
+      "Lay on Hands",
+      "Martial Archetype",
+      "Second Wind",
+      "Spellcasting (Eldritch Knight)",
+      "Spellcasting (Paladin)",
+      "Weapon Bond"
+    ],
+    "feats": [],
+    "skills": [
+      "HISTORY:PROFICIENT",
+      "PERSUASION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [
+      {
+        "class": "FIGHTER_2014",
+        "subclass": "ELDRITCH_KNIGHT",
+        "classLevel": 4
+      }
+    ],
+    "infusions": []
+  },
+  {
+    "level": 7,
+    "scores": {
+      "str": 17,
+      "dex": 15,
+      "con": 14,
+      "int": 14,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 58,
+      "max": 58
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "25",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Важкі обладунки, Щит\nІгровий набір\nПроста зброя, Бойова зброя",
+    "customEquipment": "Гарний одяг x1\nПерстень-печатка x1\nСвиток з родоводом x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "PALADIN_2014",
+    "subclass": null,
+    "background": "NOBLE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Archery",
+      "Dueling"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Action Surge",
+      "Arcane Recovery",
+      "Archery",
+      "Divine Sense",
+      "Divine Smite",
+      "Dueling",
+      "Fighting Style",
+      "Lay on Hands",
+      "Martial Archetype",
+      "Second Wind",
+      "Spellcasting",
+      "Spellcasting (Eldritch Knight)",
+      "Spellcasting (Paladin)",
+      "Spellcasting (Wizard)",
+      "Weapon Bond"
+    ],
+    "feats": [],
+    "skills": [
+      "HISTORY:PROFICIENT",
+      "PERSUASION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [
+      {
+        "class": "FIGHTER_2014",
+        "subclass": "ELDRITCH_KNIGHT",
+        "classLevel": 4
+      },
+      {
+        "class": "WIZARD_2014",
+        "subclass": null,
+        "classLevel": 1
+      }
+    ],
+    "infusions": []
+  },
+  {
+    "level": 8,
+    "scores": {
+      "str": 17,
+      "dex": 15,
+      "con": 14,
+      "int": 14,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 64,
+      "max": 64
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "25",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Важкі обладунки, Щит\nІгровий набір\nПроста зброя, Бойова зброя",
+    "customEquipment": "Гарний одяг x1\nПерстень-печатка x1\nСвиток з родоводом x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "PALADIN_2014",
+    "subclass": null,
+    "background": "NOBLE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Archery",
+      "Dueling"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Action Surge",
+      "Arcane Recovery",
+      "Arcane Tradition",
+      "Archery",
+      "Divine Sense",
+      "Divine Smite",
+      "Dueling",
+      "Evocation Savant",
+      "Fighting Style",
+      "Lay on Hands",
+      "Martial Archetype",
+      "Sculpt Spells",
+      "Second Wind",
+      "Spellcasting",
+      "Spellcasting (Eldritch Knight)",
+      "Spellcasting (Paladin)",
+      "Spellcasting (Wizard)",
+      "Weapon Bond"
+    ],
+    "feats": [],
+    "skills": [
+      "HISTORY:PROFICIENT",
+      "PERSUASION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [
+      {
+        "class": "FIGHTER_2014",
+        "subclass": "ELDRITCH_KNIGHT",
+        "classLevel": 4
+      },
+      {
+        "class": "WIZARD_2014",
+        "subclass": "SCHOOL_OF_EVOCATION",
+        "classLevel": 2
+      }
+    ],
+    "infusions": []
+  },
+  {
+    "level": 9,
+    "scores": {
+      "str": 17,
+      "dex": 15,
+      "con": 14,
+      "int": 14,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 70,
+      "max": 70
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "25",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Важкі обладунки, Щит\nІгровий набір\nПроста зброя, Бойова зброя",
+    "customEquipment": "Гарний одяг x1\nПерстень-печатка x1\nСвиток з родоводом x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "PALADIN_2014",
+    "subclass": null,
+    "background": "NOBLE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Archery",
+      "Dueling"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Action Surge",
+      "Arcane Recovery",
+      "Arcane Tradition",
+      "Archery",
+      "Divine Sense",
+      "Divine Smite",
+      "Dueling",
+      "Evocation Savant",
+      "Fighting Style",
+      "Lay on Hands",
+      "Martial Archetype",
+      "Sculpt Spells",
+      "Second Wind",
+      "Spellcasting",
+      "Spellcasting (Eldritch Knight)",
+      "Spellcasting (Paladin)",
+      "Spellcasting (Wizard)",
+      "Weapon Bond"
+    ],
+    "feats": [],
+    "skills": [
+      "HISTORY:PROFICIENT",
+      "PERSUASION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [
+      {
+        "class": "FIGHTER_2014",
+        "subclass": "ELDRITCH_KNIGHT",
+        "classLevel": 4
+      },
+      {
+        "class": "WIZARD_2014",
+        "subclass": "SCHOOL_OF_EVOCATION",
+        "classLevel": 3
+      }
+    ],
+    "infusions": []
+  },
+  {
+    "level": 10,
+    "scores": {
+      "str": 17,
+      "dex": 15,
+      "con": 14,
+      "int": 15,
+      "wis": 12,
+      "cha": 9
+    },
+    "hp": {
+      "current": 76,
+      "max": 76
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "25",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Важкі обладунки, Щит\nІгровий набір\nПроста зброя, Бойова зброя",
+    "customEquipment": "Гарний одяг x1\nПерстень-печатка x1\nСвиток з родоводом x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "PALADIN_2014",
+    "subclass": null,
+    "background": "NOBLE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Archery",
+      "Dueling"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Action Surge",
+      "Arcane Recovery",
+      "Arcane Tradition",
+      "Archery",
+      "Divine Sense",
+      "Divine Smite",
+      "Dueling",
+      "Evocation Savant",
+      "Fighting Style",
+      "Lay on Hands",
+      "Martial Archetype",
+      "Sculpt Spells",
+      "Second Wind",
+      "Spellcasting",
+      "Spellcasting (Eldritch Knight)",
+      "Spellcasting (Paladin)",
+      "Spellcasting (Wizard)",
+      "Weapon Bond"
+    ],
+    "feats": [],
+    "skills": [
+      "HISTORY:PROFICIENT",
+      "PERSUASION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [
+      {
+        "class": "FIGHTER_2014",
+        "subclass": "ELDRITCH_KNIGHT",
+        "classLevel": 4
+      },
+      {
+        "class": "WIZARD_2014",
+        "subclass": "SCHOOL_OF_EVOCATION",
+        "classLevel": 4
+      }
+    ],
+    "infusions": []
+  },
+  {
+    "level": 11,
+    "scores": {
+      "str": 17,
+      "dex": 15,
+      "con": 14,
+      "int": 15,
+      "wis": 12,
+      "cha": 9
+    },
+    "hp": {
+      "current": 82,
+      "max": 82
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "25",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        3,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Важкі обладунки, Щит\nІгровий набір\nПроста зброя, Бойова зброя",
+    "customEquipment": "Гарний одяг x1\nПерстень-печатка x1\nСвиток з родоводом x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "PALADIN_2014",
+    "subclass": null,
+    "background": "NOBLE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Archery",
+      "Dueling"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Action Surge",
+      "Arcane Recovery",
+      "Arcane Tradition",
+      "Archery",
+      "Divine Sense",
+      "Divine Smite",
+      "Dueling",
+      "Evocation Savant",
+      "Fighting Style",
+      "Lay on Hands",
+      "Martial Archetype",
+      "Sculpt Spells",
+      "Second Wind",
+      "Spellcasting",
+      "Spellcasting (Eldritch Knight)",
+      "Spellcasting (Paladin)",
+      "Spellcasting (Wizard)",
+      "Weapon Bond"
+    ],
+    "feats": [],
+    "skills": [
+      "HISTORY:PROFICIENT",
+      "PERSUASION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [
+      {
+        "class": "FIGHTER_2014",
+        "subclass": "ELDRITCH_KNIGHT",
+        "classLevel": 4
+      },
+      {
+        "class": "WIZARD_2014",
+        "subclass": "SCHOOL_OF_EVOCATION",
+        "classLevel": 5
+      }
+    ],
+    "infusions": []
+  },
+  {
+    "level": 12,
+    "scores": {
+      "str": 17,
+      "dex": 15,
+      "con": 14,
+      "int": 15,
+      "wis": 12,
+      "cha": 9
+    },
+    "hp": {
+      "current": 88,
+      "max": 88
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "25",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        3,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Важкі обладунки, Щит\nІгровий набір\nПроста зброя, Бойова зброя",
+    "customEquipment": "Гарний одяг x1\nПерстень-печатка x1\nСвиток з родоводом x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "PALADIN_2014",
+    "subclass": null,
+    "background": "NOBLE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Archery",
+      "Dueling"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Action Surge",
+      "Arcane Recovery",
+      "Arcane Tradition",
+      "Archery",
+      "Divine Sense",
+      "Divine Smite",
+      "Dueling",
+      "Evocation Savant",
+      "Fighting Style",
+      "Lay on Hands",
+      "Martial Archetype",
+      "Potent Cantrip (Evocation)",
+      "Sculpt Spells",
+      "Second Wind",
+      "Spellcasting",
+      "Spellcasting (Eldritch Knight)",
+      "Spellcasting (Paladin)",
+      "Spellcasting (Wizard)",
+      "Weapon Bond"
+    ],
+    "feats": [],
+    "skills": [
+      "HISTORY:PROFICIENT",
+      "PERSUASION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [
+      {
+        "class": "FIGHTER_2014",
+        "subclass": "ELDRITCH_KNIGHT",
+        "classLevel": 4
+      },
+      {
+        "class": "WIZARD_2014",
+        "subclass": "SCHOOL_OF_EVOCATION",
+        "classLevel": 6
+      }
+    ],
+    "infusions": []
+  },
+  {
+    "level": 13,
+    "scores": {
+      "str": 17,
+      "dex": 15,
+      "con": 14,
+      "int": 15,
+      "wis": 12,
+      "cha": 9
+    },
+    "hp": {
+      "current": 94,
+      "max": 94
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "25",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        3,
+        3,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Важкі обладунки, Щит\nІгровий набір\nПроста зброя, Бойова зброя",
+    "customEquipment": "Гарний одяг x1\nПерстень-печатка x1\nСвиток з родоводом x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "PALADIN_2014",
+    "subclass": null,
+    "background": "NOBLE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Archery",
+      "Dueling"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Action Surge",
+      "Arcane Recovery",
+      "Arcane Tradition",
+      "Archery",
+      "Divine Sense",
+      "Divine Smite",
+      "Dueling",
+      "Evocation Savant",
+      "Fighting Style",
+      "Lay on Hands",
+      "Martial Archetype",
+      "Potent Cantrip (Evocation)",
+      "Sculpt Spells",
+      "Second Wind",
+      "Spellcasting",
+      "Spellcasting (Eldritch Knight)",
+      "Spellcasting (Paladin)",
+      "Spellcasting (Wizard)",
+      "Weapon Bond"
+    ],
+    "feats": [],
+    "skills": [
+      "HISTORY:PROFICIENT",
+      "PERSUASION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [
+      {
+        "class": "FIGHTER_2014",
+        "subclass": "ELDRITCH_KNIGHT",
+        "classLevel": 4
+      },
+      {
+        "class": "WIZARD_2014",
+        "subclass": "SCHOOL_OF_EVOCATION",
+        "classLevel": 7
+      }
+    ],
+    "infusions": []
+  },
+  {
+    "level": 14,
+    "scores": {
+      "str": 17,
+      "dex": 15,
+      "con": 14,
+      "int": 16,
+      "wis": 13,
+      "cha": 9
+    },
+    "hp": {
+      "current": 100,
+      "max": 100
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "25",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        3,
+        3,
+        2,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Важкі обладунки, Щит\nІгровий набір\nПроста зброя, Бойова зброя",
+    "customEquipment": "Гарний одяг x1\nПерстень-печатка x1\nСвиток з родоводом x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "PALADIN_2014",
+    "subclass": null,
+    "background": "NOBLE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Archery",
+      "Dueling"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Action Surge",
+      "Arcane Recovery",
+      "Arcane Tradition",
+      "Archery",
+      "Divine Sense",
+      "Divine Smite",
+      "Dueling",
+      "Evocation Savant",
+      "Fighting Style",
+      "Lay on Hands",
+      "Martial Archetype",
+      "Potent Cantrip (Evocation)",
+      "Sculpt Spells",
+      "Second Wind",
+      "Spellcasting",
+      "Spellcasting (Eldritch Knight)",
+      "Spellcasting (Paladin)",
+      "Spellcasting (Wizard)",
+      "Weapon Bond"
+    ],
+    "feats": [],
+    "skills": [
+      "HISTORY:PROFICIENT",
+      "PERSUASION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [
+      {
+        "class": "FIGHTER_2014",
+        "subclass": "ELDRITCH_KNIGHT",
+        "classLevel": 4
+      },
+      {
+        "class": "WIZARD_2014",
+        "subclass": "SCHOOL_OF_EVOCATION",
+        "classLevel": 8
+      }
+    ],
+    "infusions": []
+  },
+  {
+    "level": 15,
+    "scores": {
+      "str": 17,
+      "dex": 15,
+      "con": 14,
+      "int": 16,
+      "wis": 13,
+      "cha": 9
+    },
+    "hp": {
+      "current": 106,
+      "max": 106
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "25",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        3,
+        3,
+        2,
+        1,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Важкі обладунки, Щит\nІгровий набір\nПроста зброя, Бойова зброя",
+    "customEquipment": "Гарний одяг x1\nПерстень-печатка x1\nСвиток з родоводом x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "PALADIN_2014",
+    "subclass": null,
+    "background": "NOBLE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Archery",
+      "Dueling"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Action Surge",
+      "Arcane Recovery",
+      "Arcane Tradition",
+      "Archery",
+      "Divine Sense",
+      "Divine Smite",
+      "Dueling",
+      "Evocation Savant",
+      "Fighting Style",
+      "Lay on Hands",
+      "Martial Archetype",
+      "Potent Cantrip (Evocation)",
+      "Sculpt Spells",
+      "Second Wind",
+      "Spellcasting",
+      "Spellcasting (Eldritch Knight)",
+      "Spellcasting (Paladin)",
+      "Spellcasting (Wizard)",
+      "Weapon Bond"
+    ],
+    "feats": [],
+    "skills": [
+      "HISTORY:PROFICIENT",
+      "PERSUASION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [
+      {
+        "class": "FIGHTER_2014",
+        "subclass": "ELDRITCH_KNIGHT",
+        "classLevel": 4
+      },
+      {
+        "class": "WIZARD_2014",
+        "subclass": "SCHOOL_OF_EVOCATION",
+        "classLevel": 9
+      }
+    ],
+    "infusions": []
+  },
+  {
+    "level": 16,
+    "scores": {
+      "str": 17,
+      "dex": 15,
+      "con": 14,
+      "int": 16,
+      "wis": 13,
+      "cha": 9
+    },
+    "hp": {
+      "current": 112,
+      "max": 112
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "25",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        3,
+        3,
+        2,
+        1,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Важкі обладунки, Щит\nІгровий набір\nПроста зброя, Бойова зброя",
+    "customEquipment": "Гарний одяг x1\nПерстень-печатка x1\nСвиток з родоводом x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "PALADIN_2014",
+    "subclass": null,
+    "background": "NOBLE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Archery",
+      "Dueling"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Action Surge",
+      "Arcane Recovery",
+      "Arcane Tradition",
+      "Archery",
+      "Divine Sense",
+      "Divine Smite",
+      "Dueling",
+      "Empowered Evocation",
+      "Evocation Savant",
+      "Fighting Style",
+      "Lay on Hands",
+      "Martial Archetype",
+      "Potent Cantrip (Evocation)",
+      "Sculpt Spells",
+      "Second Wind",
+      "Spellcasting",
+      "Spellcasting (Eldritch Knight)",
+      "Spellcasting (Paladin)",
+      "Spellcasting (Wizard)",
+      "Weapon Bond"
+    ],
+    "feats": [],
+    "skills": [
+      "HISTORY:PROFICIENT",
+      "PERSUASION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [
+      {
+        "class": "FIGHTER_2014",
+        "subclass": "ELDRITCH_KNIGHT",
+        "classLevel": 4
+      },
+      {
+        "class": "WIZARD_2014",
+        "subclass": "SCHOOL_OF_EVOCATION",
+        "classLevel": 10
+      }
+    ],
+    "infusions": []
+  },
+  {
+    "level": 17,
+    "scores": {
+      "str": 17,
+      "dex": 15,
+      "con": 14,
+      "int": 16,
+      "wis": 13,
+      "cha": 9
+    },
+    "hp": {
+      "current": 118,
+      "max": 118
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "25",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        3,
+        3,
+        2,
+        1,
+        1,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Важкі обладунки, Щит\nІгровий набір\nПроста зброя, Бойова зброя",
+    "customEquipment": "Гарний одяг x1\nПерстень-печатка x1\nСвиток з родоводом x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "PALADIN_2014",
+    "subclass": null,
+    "background": "NOBLE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Archery",
+      "Dueling"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Action Surge",
+      "Arcane Recovery",
+      "Arcane Tradition",
+      "Archery",
+      "Divine Sense",
+      "Divine Smite",
+      "Dueling",
+      "Empowered Evocation",
+      "Evocation Savant",
+      "Fighting Style",
+      "Lay on Hands",
+      "Martial Archetype",
+      "Potent Cantrip (Evocation)",
+      "Sculpt Spells",
+      "Second Wind",
+      "Spellcasting",
+      "Spellcasting (Eldritch Knight)",
+      "Spellcasting (Paladin)",
+      "Spellcasting (Wizard)",
+      "Weapon Bond"
+    ],
+    "feats": [],
+    "skills": [
+      "HISTORY:PROFICIENT",
+      "PERSUASION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [
+      {
+        "class": "FIGHTER_2014",
+        "subclass": "ELDRITCH_KNIGHT",
+        "classLevel": 4
+      },
+      {
+        "class": "WIZARD_2014",
+        "subclass": "SCHOOL_OF_EVOCATION",
+        "classLevel": 11
+      }
+    ],
+    "infusions": []
+  },
+  {
+    "level": 18,
+    "scores": {
+      "str": 17,
+      "dex": 15,
+      "con": 14,
+      "int": 17,
+      "wis": 14,
+      "cha": 9
+    },
+    "hp": {
+      "current": 124,
+      "max": 124
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "25",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        3,
+        3,
+        2,
+        1,
+        1,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Важкі обладунки, Щит\nІгровий набір\nПроста зброя, Бойова зброя",
+    "customEquipment": "Гарний одяг x1\nПерстень-печатка x1\nСвиток з родоводом x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "PALADIN_2014",
+    "subclass": null,
+    "background": "NOBLE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Archery",
+      "Dueling"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Action Surge",
+      "Arcane Recovery",
+      "Arcane Tradition",
+      "Archery",
+      "Divine Sense",
+      "Divine Smite",
+      "Dueling",
+      "Empowered Evocation",
+      "Evocation Savant",
+      "Fighting Style",
+      "Lay on Hands",
+      "Martial Archetype",
+      "Potent Cantrip (Evocation)",
+      "Sculpt Spells",
+      "Second Wind",
+      "Spellcasting",
+      "Spellcasting (Eldritch Knight)",
+      "Spellcasting (Paladin)",
+      "Spellcasting (Wizard)",
+      "Weapon Bond"
+    ],
+    "feats": [],
+    "skills": [
+      "HISTORY:PROFICIENT",
+      "PERSUASION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [
+      {
+        "class": "FIGHTER_2014",
+        "subclass": "ELDRITCH_KNIGHT",
+        "classLevel": 4
+      },
+      {
+        "class": "WIZARD_2014",
+        "subclass": "SCHOOL_OF_EVOCATION",
+        "classLevel": 12
+      }
+    ],
+    "infusions": []
+  },
+  {
+    "level": 19,
+    "scores": {
+      "str": 17,
+      "dex": 15,
+      "con": 14,
+      "int": 17,
+      "wis": 14,
+      "cha": 9
+    },
+    "hp": {
+      "current": 130,
+      "max": 130
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "25",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        3,
+        3,
+        2,
+        1,
+        1,
+        1,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Важкі обладунки, Щит\nІгровий набір\nПроста зброя, Бойова зброя",
+    "customEquipment": "Гарний одяг x1\nПерстень-печатка x1\nСвиток з родоводом x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "PALADIN_2014",
+    "subclass": null,
+    "background": "NOBLE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Archery",
+      "Dueling"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Action Surge",
+      "Arcane Recovery",
+      "Arcane Tradition",
+      "Archery",
+      "Divine Sense",
+      "Divine Smite",
+      "Dueling",
+      "Empowered Evocation",
+      "Evocation Savant",
+      "Fighting Style",
+      "Lay on Hands",
+      "Martial Archetype",
+      "Potent Cantrip (Evocation)",
+      "Sculpt Spells",
+      "Second Wind",
+      "Spellcasting",
+      "Spellcasting (Eldritch Knight)",
+      "Spellcasting (Paladin)",
+      "Spellcasting (Wizard)",
+      "Weapon Bond"
+    ],
+    "feats": [],
+    "skills": [
+      "HISTORY:PROFICIENT",
+      "PERSUASION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [
+      {
+        "class": "FIGHTER_2014",
+        "subclass": "ELDRITCH_KNIGHT",
+        "classLevel": 4
+      },
+      {
+        "class": "WIZARD_2014",
+        "subclass": "SCHOOL_OF_EVOCATION",
+        "classLevel": 13
+      }
+    ],
+    "infusions": []
+  },
+  {
+    "level": 20,
+    "scores": {
+      "str": 17,
+      "dex": 15,
+      "con": 14,
+      "int": 17,
+      "wis": 14,
+      "cha": 9
+    },
+    "hp": {
+      "current": 136,
+      "max": 136
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "25",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        4,
+        3,
+        3,
+        3,
+        2,
+        1,
+        1,
+        1,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "CHA",
+      "WIS"
+    ],
+    "customLanguagesKnown": "Загальна\nОбери ще 1\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки, Середні обладунки, Важкі обладунки, Щит\nІгровий набір\nПроста зброя, Бойова зброя",
+    "customEquipment": "Гарний одяг x1\nПерстень-печатка x1\nСвиток з родоводом x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "PALADIN_2014",
+    "subclass": null,
+    "background": "NOBLE",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Archery",
+      "Dueling"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Action Surge",
+      "Arcane Recovery",
+      "Arcane Tradition",
+      "Archery",
+      "Divine Sense",
+      "Divine Smite",
+      "Dueling",
+      "Empowered Evocation",
+      "Evocation Savant",
+      "Fighting Style",
+      "Lay on Hands",
+      "Martial Archetype",
+      "Overchannel",
+      "Potent Cantrip (Evocation)",
+      "Sculpt Spells",
+      "Second Wind",
+      "Spellcasting",
+      "Spellcasting (Eldritch Knight)",
+      "Spellcasting (Paladin)",
+      "Spellcasting (Wizard)",
+      "Weapon Bond"
+    ],
+    "feats": [],
+    "skills": [
+      "HISTORY:PROFICIENT",
+      "PERSUASION:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [
+      {
+        "class": "FIGHTER_2014",
+        "subclass": "ELDRITCH_KNIGHT",
+        "classLevel": 4
+      },
+      {
+        "class": "WIZARD_2014",
+        "subclass": "SCHOOL_OF_EVOCATION",
+        "classLevel": 14
+      }
+    ],
+    "infusions": []
+  }
+]

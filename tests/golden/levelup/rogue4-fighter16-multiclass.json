@@ -1,0 +1,1864 @@
+[
+  {
+    "level": 1,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 10,
+      "max": 10
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "15",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "DEX",
+      "INT"
+    ],
+    "customLanguagesKnown": "Загальна\nЗлодійський жаргон\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nІнструменти злодія\nІгровий набір, Інструменти злодія\nПроста зброя",
+    "customEquipment": "Ломик x1\nТемний звичайний одяг з капюшоном x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "ROGUE_2014",
+    "subclass": null,
+    "background": "CRIMINAL",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Expertise",
+      "Sneak Attack",
+      "Thieves' Cant"
+    ],
+    "feats": [],
+    "skills": [
+      "DECEPTION:PROFICIENT",
+      "STEALTH:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 2,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 17,
+      "max": 17
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "15",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "DEX",
+      "INT"
+    ],
+    "customLanguagesKnown": "Загальна\nЗлодійський жаргон\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nІнструменти злодія\nІгровий набір, Інструменти злодія\nПроста зброя",
+    "customEquipment": "Ломик x1\nТемний звичайний одяг з капюшоном x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "ROGUE_2014",
+    "subclass": null,
+    "background": "CRIMINAL",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Cunning Action",
+      "Expertise",
+      "Sneak Attack",
+      "Thieves' Cant"
+    ],
+    "feats": [],
+    "skills": [
+      "DECEPTION:PROFICIENT",
+      "STEALTH:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 3,
+    "scores": {
+      "str": 16,
+      "dex": 15,
+      "con": 14,
+      "int": 13,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 24,
+      "max": 24
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "15",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "DEX",
+      "INT"
+    ],
+    "customLanguagesKnown": "Загальна\nЗлодійський жаргон\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nІнструменти злодія\nІгровий набір, Інструменти злодія\nПроста зброя\nНабір для гриму, Набір отруйника",
+    "customEquipment": "Ломик x1\nТемний звичайний одяг з капюшоном x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "ROGUE_2014",
+    "subclass": "ASSASSIN",
+    "background": "CRIMINAL",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Assassinate",
+      "Bonus Proficiencies (Assassin)",
+      "Cunning Action",
+      "Expertise",
+      "Roguish Archetype",
+      "Sneak Attack",
+      "Thieves' Cant"
+    ],
+    "feats": [],
+    "skills": [
+      "DECEPTION:PROFICIENT",
+      "STEALTH:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 4,
+    "scores": {
+      "str": 16,
+      "dex": 16,
+      "con": 14,
+      "int": 14,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 31,
+      "max": 31
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "15",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "DEX",
+      "INT"
+    ],
+    "customLanguagesKnown": "Загальна\nЗлодійський жаргон\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nІнструменти злодія\nІгровий набір, Інструменти злодія\nПроста зброя\nНабір для гриму, Набір отруйника",
+    "customEquipment": "Ломик x1\nТемний звичайний одяг з капюшоном x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "ROGUE_2014",
+    "subclass": "ASSASSIN",
+    "background": "CRIMINAL",
+    "raceChoiceOptions": [],
+    "choiceOptions": [],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Assassinate",
+      "Bonus Proficiencies (Assassin)",
+      "Cunning Action",
+      "Expertise",
+      "Roguish Archetype",
+      "Sneak Attack",
+      "Thieves' Cant"
+    ],
+    "feats": [],
+    "skills": [
+      "DECEPTION:PROFICIENT",
+      "STEALTH:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [],
+    "infusions": []
+  },
+  {
+    "level": 5,
+    "scores": {
+      "str": 16,
+      "dex": 16,
+      "con": 14,
+      "int": 14,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 39,
+      "max": 39
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "15",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "DEX",
+      "INT"
+    ],
+    "customLanguagesKnown": "Загальна\nЗлодійський жаргон\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nІнструменти злодія\nІгровий набір, Інструменти злодія\nПроста зброя\nНабір для гриму, Набір отруйника",
+    "customEquipment": "Ломик x1\nТемний звичайний одяг з капюшоном x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "ROGUE_2014",
+    "subclass": "ASSASSIN",
+    "background": "CRIMINAL",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Dueling"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Assassinate",
+      "Bonus Proficiencies (Assassin)",
+      "Cunning Action",
+      "Dueling",
+      "Expertise",
+      "Fighting Style",
+      "Roguish Archetype",
+      "Second Wind",
+      "Sneak Attack",
+      "Thieves' Cant"
+    ],
+    "feats": [],
+    "skills": [
+      "DECEPTION:PROFICIENT",
+      "STEALTH:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [
+      {
+        "class": "FIGHTER_2014",
+        "subclass": null,
+        "classLevel": 1
+      }
+    ],
+    "infusions": []
+  },
+  {
+    "level": 6,
+    "scores": {
+      "str": 16,
+      "dex": 16,
+      "con": 14,
+      "int": 14,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 47,
+      "max": 47
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "15",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "DEX",
+      "INT"
+    ],
+    "customLanguagesKnown": "Загальна\nЗлодійський жаргон\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nІнструменти злодія\nІгровий набір, Інструменти злодія\nПроста зброя\nНабір для гриму, Набір отруйника",
+    "customEquipment": "Ломик x1\nТемний звичайний одяг з капюшоном x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "ROGUE_2014",
+    "subclass": "ASSASSIN",
+    "background": "CRIMINAL",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Dueling"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Action Surge",
+      "Assassinate",
+      "Bonus Proficiencies (Assassin)",
+      "Cunning Action",
+      "Dueling",
+      "Expertise",
+      "Fighting Style",
+      "Roguish Archetype",
+      "Second Wind",
+      "Sneak Attack",
+      "Thieves' Cant"
+    ],
+    "feats": [],
+    "skills": [
+      "DECEPTION:PROFICIENT",
+      "STEALTH:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [
+      {
+        "class": "FIGHTER_2014",
+        "subclass": null,
+        "classLevel": 2
+      }
+    ],
+    "infusions": []
+  },
+  {
+    "level": 7,
+    "scores": {
+      "str": 16,
+      "dex": 16,
+      "con": 14,
+      "int": 14,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 55,
+      "max": 55
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "15",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "DEX",
+      "INT"
+    ],
+    "customLanguagesKnown": "Загальна\nЗлодійський жаргон\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nІнструменти злодія\nІгровий набір, Інструменти злодія\nПроста зброя\nНабір для гриму, Набір отруйника",
+    "customEquipment": "Ломик x1\nТемний звичайний одяг з капюшоном x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "ROGUE_2014",
+    "subclass": "ASSASSIN",
+    "background": "CRIMINAL",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Dueling",
+      "Precision Attack (Maneuver)",
+      "Riposte (Maneuver)",
+      "Trip Attack (Maneuver)"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Action Surge",
+      "Assassinate",
+      "Bonus Proficiencies (Assassin)",
+      "Combat Superiority",
+      "Cunning Action",
+      "Dueling",
+      "Expertise",
+      "Fighting Style",
+      "Martial Archetype",
+      "Precision Attack",
+      "Riposte",
+      "Roguish Archetype",
+      "Second Wind",
+      "Sneak Attack",
+      "Student of War",
+      "Thieves' Cant",
+      "Trip Attack"
+    ],
+    "feats": [],
+    "skills": [
+      "DECEPTION:PROFICIENT",
+      "STEALTH:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [
+      {
+        "class": "FIGHTER_2014",
+        "subclass": "BATTLE_MASTER",
+        "classLevel": 3
+      }
+    ],
+    "infusions": []
+  },
+  {
+    "level": 8,
+    "scores": {
+      "str": 17,
+      "dex": 16,
+      "con": 15,
+      "int": 14,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 63,
+      "max": 63
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "15",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "DEX",
+      "INT"
+    ],
+    "customLanguagesKnown": "Загальна\nЗлодійський жаргон\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nІнструменти злодія\nІгровий набір, Інструменти злодія\nПроста зброя\nНабір для гриму, Набір отруйника",
+    "customEquipment": "Ломик x1\nТемний звичайний одяг з капюшоном x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "ROGUE_2014",
+    "subclass": "ASSASSIN",
+    "background": "CRIMINAL",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Dueling",
+      "Precision Attack (Maneuver)",
+      "Riposte (Maneuver)",
+      "Trip Attack (Maneuver)"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Action Surge",
+      "Assassinate",
+      "Bonus Proficiencies (Assassin)",
+      "Combat Superiority",
+      "Cunning Action",
+      "Dueling",
+      "Expertise",
+      "Fighting Style",
+      "Martial Archetype",
+      "Precision Attack",
+      "Riposte",
+      "Roguish Archetype",
+      "Second Wind",
+      "Sneak Attack",
+      "Student of War",
+      "Thieves' Cant",
+      "Trip Attack"
+    ],
+    "feats": [],
+    "skills": [
+      "DECEPTION:PROFICIENT",
+      "STEALTH:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [
+      {
+        "class": "FIGHTER_2014",
+        "subclass": "BATTLE_MASTER",
+        "classLevel": 4
+      }
+    ],
+    "infusions": []
+  },
+  {
+    "level": 9,
+    "scores": {
+      "str": 17,
+      "dex": 16,
+      "con": 15,
+      "int": 14,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 71,
+      "max": 71
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "15",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "DEX",
+      "INT"
+    ],
+    "customLanguagesKnown": "Загальна\nЗлодійський жаргон\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nІнструменти злодія\nІгровий набір, Інструменти злодія\nПроста зброя\nНабір для гриму, Набір отруйника",
+    "customEquipment": "Ломик x1\nТемний звичайний одяг з капюшоном x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "ROGUE_2014",
+    "subclass": "ASSASSIN",
+    "background": "CRIMINAL",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Dueling",
+      "Precision Attack (Maneuver)",
+      "Riposte (Maneuver)",
+      "Trip Attack (Maneuver)"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Action Surge",
+      "Assassinate",
+      "Bonus Proficiencies (Assassin)",
+      "Combat Superiority",
+      "Cunning Action",
+      "Dueling",
+      "Expertise",
+      "Extra Attack",
+      "Fighting Style",
+      "Martial Archetype",
+      "Precision Attack",
+      "Riposte",
+      "Roguish Archetype",
+      "Second Wind",
+      "Sneak Attack",
+      "Student of War",
+      "Thieves' Cant",
+      "Trip Attack"
+    ],
+    "feats": [],
+    "skills": [
+      "DECEPTION:PROFICIENT",
+      "STEALTH:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [
+      {
+        "class": "FIGHTER_2014",
+        "subclass": "BATTLE_MASTER",
+        "classLevel": 5
+      }
+    ],
+    "infusions": []
+  },
+  {
+    "level": 10,
+    "scores": {
+      "str": 18,
+      "dex": 16,
+      "con": 16,
+      "int": 14,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 89,
+      "max": 89
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "15",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "DEX",
+      "INT"
+    ],
+    "customLanguagesKnown": "Загальна\nЗлодійський жаргон\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nІнструменти злодія\nІгровий набір, Інструменти злодія\nПроста зброя\nНабір для гриму, Набір отруйника",
+    "customEquipment": "Ломик x1\nТемний звичайний одяг з капюшоном x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "ROGUE_2014",
+    "subclass": "ASSASSIN",
+    "background": "CRIMINAL",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Dueling",
+      "Precision Attack (Maneuver)",
+      "Riposte (Maneuver)",
+      "Trip Attack (Maneuver)"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Action Surge",
+      "Assassinate",
+      "Bonus Proficiencies (Assassin)",
+      "Combat Superiority",
+      "Cunning Action",
+      "Dueling",
+      "Expertise",
+      "Extra Attack",
+      "Fighting Style",
+      "Martial Archetype",
+      "Precision Attack",
+      "Riposte",
+      "Roguish Archetype",
+      "Second Wind",
+      "Sneak Attack",
+      "Student of War",
+      "Thieves' Cant",
+      "Trip Attack"
+    ],
+    "feats": [],
+    "skills": [
+      "DECEPTION:PROFICIENT",
+      "STEALTH:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [
+      {
+        "class": "FIGHTER_2014",
+        "subclass": "BATTLE_MASTER",
+        "classLevel": 6
+      }
+    ],
+    "infusions": []
+  },
+  {
+    "level": 11,
+    "scores": {
+      "str": 18,
+      "dex": 16,
+      "con": 16,
+      "int": 14,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 98,
+      "max": 98
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "15",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "DEX",
+      "INT"
+    ],
+    "customLanguagesKnown": "Загальна\nЗлодійський жаргон\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nІнструменти злодія\nІгровий набір, Інструменти злодія\nПроста зброя\nНабір для гриму, Набір отруйника",
+    "customEquipment": "Ломик x1\nТемний звичайний одяг з капюшоном x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "ROGUE_2014",
+    "subclass": "ASSASSIN",
+    "background": "CRIMINAL",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Dueling",
+      "Disarming Attack (Maneuver)",
+      "Menacing Attack (Maneuver)",
+      "Precision Attack (Maneuver)",
+      "Riposte (Maneuver)",
+      "Trip Attack (Maneuver)"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Action Surge",
+      "Assassinate",
+      "Bonus Proficiencies (Assassin)",
+      "Combat Superiority",
+      "Cunning Action",
+      "Disarming Attack",
+      "Dueling",
+      "Expertise",
+      "Extra Attack",
+      "Fighting Style",
+      "Know Your Enemy",
+      "Martial Archetype",
+      "Menacing Attack",
+      "Precision Attack",
+      "Riposte",
+      "Roguish Archetype",
+      "Second Wind",
+      "Sneak Attack",
+      "Student of War",
+      "Thieves' Cant",
+      "Trip Attack"
+    ],
+    "feats": [],
+    "skills": [
+      "DECEPTION:PROFICIENT",
+      "STEALTH:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [
+      {
+        "class": "FIGHTER_2014",
+        "subclass": "BATTLE_MASTER",
+        "classLevel": 7
+      }
+    ],
+    "infusions": []
+  },
+  {
+    "level": 12,
+    "scores": {
+      "str": 19,
+      "dex": 16,
+      "con": 17,
+      "int": 14,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 107,
+      "max": 107
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "15",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "DEX",
+      "INT"
+    ],
+    "customLanguagesKnown": "Загальна\nЗлодійський жаргон\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nІнструменти злодія\nІгровий набір, Інструменти злодія\nПроста зброя\nНабір для гриму, Набір отруйника",
+    "customEquipment": "Ломик x1\nТемний звичайний одяг з капюшоном x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "ROGUE_2014",
+    "subclass": "ASSASSIN",
+    "background": "CRIMINAL",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Dueling",
+      "Disarming Attack (Maneuver)",
+      "Menacing Attack (Maneuver)",
+      "Precision Attack (Maneuver)",
+      "Riposte (Maneuver)",
+      "Trip Attack (Maneuver)"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Action Surge",
+      "Assassinate",
+      "Bonus Proficiencies (Assassin)",
+      "Combat Superiority",
+      "Cunning Action",
+      "Disarming Attack",
+      "Dueling",
+      "Expertise",
+      "Extra Attack",
+      "Fighting Style",
+      "Know Your Enemy",
+      "Martial Archetype",
+      "Menacing Attack",
+      "Precision Attack",
+      "Riposte",
+      "Roguish Archetype",
+      "Second Wind",
+      "Sneak Attack",
+      "Student of War",
+      "Thieves' Cant",
+      "Trip Attack"
+    ],
+    "feats": [],
+    "skills": [
+      "DECEPTION:PROFICIENT",
+      "STEALTH:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [
+      {
+        "class": "FIGHTER_2014",
+        "subclass": "BATTLE_MASTER",
+        "classLevel": 8
+      }
+    ],
+    "infusions": []
+  },
+  {
+    "level": 13,
+    "scores": {
+      "str": 19,
+      "dex": 16,
+      "con": 17,
+      "int": 14,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 116,
+      "max": 116
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "15",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "DEX",
+      "INT"
+    ],
+    "customLanguagesKnown": "Загальна\nЗлодійський жаргон\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nІнструменти злодія\nІгровий набір, Інструменти злодія\nПроста зброя\nНабір для гриму, Набір отруйника",
+    "customEquipment": "Ломик x1\nТемний звичайний одяг з капюшоном x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "ROGUE_2014",
+    "subclass": "ASSASSIN",
+    "background": "CRIMINAL",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Dueling",
+      "Disarming Attack (Maneuver)",
+      "Menacing Attack (Maneuver)",
+      "Precision Attack (Maneuver)",
+      "Riposte (Maneuver)",
+      "Trip Attack (Maneuver)"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Action Surge",
+      "Assassinate",
+      "Bonus Proficiencies (Assassin)",
+      "Combat Superiority",
+      "Cunning Action",
+      "Disarming Attack",
+      "Dueling",
+      "Expertise",
+      "Extra Attack",
+      "Fighting Style",
+      "Indomitable",
+      "Know Your Enemy",
+      "Martial Archetype",
+      "Menacing Attack",
+      "Precision Attack",
+      "Riposte",
+      "Roguish Archetype",
+      "Second Wind",
+      "Sneak Attack",
+      "Student of War",
+      "Thieves' Cant",
+      "Trip Attack"
+    ],
+    "feats": [],
+    "skills": [
+      "DECEPTION:PROFICIENT",
+      "STEALTH:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [
+      {
+        "class": "FIGHTER_2014",
+        "subclass": "BATTLE_MASTER",
+        "classLevel": 9
+      }
+    ],
+    "infusions": []
+  },
+  {
+    "level": 14,
+    "scores": {
+      "str": 19,
+      "dex": 16,
+      "con": 17,
+      "int": 14,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 125,
+      "max": 125
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "15",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "DEX",
+      "INT"
+    ],
+    "customLanguagesKnown": "Загальна\nЗлодійський жаргон\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nІнструменти злодія\nІгровий набір, Інструменти злодія\nПроста зброя\nНабір для гриму, Набір отруйника",
+    "customEquipment": "Ломик x1\nТемний звичайний одяг з капюшоном x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "ROGUE_2014",
+    "subclass": "ASSASSIN",
+    "background": "CRIMINAL",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Dueling",
+      "Disarming Attack (Maneuver)",
+      "Evasive Footwork (Maneuver)",
+      "Menacing Attack (Maneuver)",
+      "Parry (Maneuver)",
+      "Precision Attack (Maneuver)",
+      "Riposte (Maneuver)",
+      "Trip Attack (Maneuver)"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Action Surge",
+      "Assassinate",
+      "Bonus Proficiencies (Assassin)",
+      "Combat Superiority",
+      "Cunning Action",
+      "Disarming Attack",
+      "Dueling",
+      "Evasive Footwork",
+      "Expertise",
+      "Extra Attack",
+      "Fighting Style",
+      "Improved Combat Superiority",
+      "Indomitable",
+      "Know Your Enemy",
+      "Martial Archetype",
+      "Menacing Attack",
+      "Parry",
+      "Precision Attack",
+      "Riposte",
+      "Roguish Archetype",
+      "Second Wind",
+      "Sneak Attack",
+      "Student of War",
+      "Thieves' Cant",
+      "Trip Attack"
+    ],
+    "feats": [],
+    "skills": [
+      "DECEPTION:PROFICIENT",
+      "STEALTH:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [
+      {
+        "class": "FIGHTER_2014",
+        "subclass": "BATTLE_MASTER",
+        "classLevel": 10
+      }
+    ],
+    "infusions": []
+  },
+  {
+    "level": 15,
+    "scores": {
+      "str": 19,
+      "dex": 16,
+      "con": 17,
+      "int": 14,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 134,
+      "max": 134
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "15",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "DEX",
+      "INT"
+    ],
+    "customLanguagesKnown": "Загальна\nЗлодійський жаргон\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nІнструменти злодія\nІгровий набір, Інструменти злодія\nПроста зброя\nНабір для гриму, Набір отруйника",
+    "customEquipment": "Ломик x1\nТемний звичайний одяг з капюшоном x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "ROGUE_2014",
+    "subclass": "ASSASSIN",
+    "background": "CRIMINAL",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Dueling",
+      "Disarming Attack (Maneuver)",
+      "Evasive Footwork (Maneuver)",
+      "Menacing Attack (Maneuver)",
+      "Parry (Maneuver)",
+      "Precision Attack (Maneuver)",
+      "Riposte (Maneuver)",
+      "Trip Attack (Maneuver)"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Action Surge",
+      "Assassinate",
+      "Bonus Proficiencies (Assassin)",
+      "Combat Superiority",
+      "Cunning Action",
+      "Disarming Attack",
+      "Dueling",
+      "Evasive Footwork",
+      "Expertise",
+      "Extra Attack",
+      "Fighting Style",
+      "Improved Combat Superiority",
+      "Indomitable",
+      "Know Your Enemy",
+      "Martial Archetype",
+      "Menacing Attack",
+      "Parry",
+      "Precision Attack",
+      "Riposte",
+      "Roguish Archetype",
+      "Second Wind",
+      "Sneak Attack",
+      "Student of War",
+      "Thieves' Cant",
+      "Trip Attack"
+    ],
+    "feats": [],
+    "skills": [
+      "DECEPTION:PROFICIENT",
+      "STEALTH:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [
+      {
+        "class": "FIGHTER_2014",
+        "subclass": "BATTLE_MASTER",
+        "classLevel": 11
+      }
+    ],
+    "infusions": []
+  },
+  {
+    "level": 16,
+    "scores": {
+      "str": 20,
+      "dex": 16,
+      "con": 18,
+      "int": 14,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 159,
+      "max": 159
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "15",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "DEX",
+      "INT"
+    ],
+    "customLanguagesKnown": "Загальна\nЗлодійський жаргон\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nІнструменти злодія\nІгровий набір, Інструменти злодія\nПроста зброя\nНабір для гриму, Набір отруйника",
+    "customEquipment": "Ломик x1\nТемний звичайний одяг з капюшоном x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "ROGUE_2014",
+    "subclass": "ASSASSIN",
+    "background": "CRIMINAL",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Dueling",
+      "Disarming Attack (Maneuver)",
+      "Evasive Footwork (Maneuver)",
+      "Menacing Attack (Maneuver)",
+      "Parry (Maneuver)",
+      "Precision Attack (Maneuver)",
+      "Riposte (Maneuver)",
+      "Trip Attack (Maneuver)"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Action Surge",
+      "Assassinate",
+      "Bonus Proficiencies (Assassin)",
+      "Combat Superiority",
+      "Cunning Action",
+      "Disarming Attack",
+      "Dueling",
+      "Evasive Footwork",
+      "Expertise",
+      "Extra Attack",
+      "Fighting Style",
+      "Improved Combat Superiority",
+      "Indomitable",
+      "Know Your Enemy",
+      "Martial Archetype",
+      "Menacing Attack",
+      "Parry",
+      "Precision Attack",
+      "Riposte",
+      "Roguish Archetype",
+      "Second Wind",
+      "Sneak Attack",
+      "Student of War",
+      "Thieves' Cant",
+      "Trip Attack"
+    ],
+    "feats": [],
+    "skills": [
+      "DECEPTION:PROFICIENT",
+      "STEALTH:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [
+      {
+        "class": "FIGHTER_2014",
+        "subclass": "BATTLE_MASTER",
+        "classLevel": 12
+      }
+    ],
+    "infusions": []
+  },
+  {
+    "level": 17,
+    "scores": {
+      "str": 20,
+      "dex": 16,
+      "con": 18,
+      "int": 14,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 169,
+      "max": 169
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "15",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "DEX",
+      "INT"
+    ],
+    "customLanguagesKnown": "Загальна\nЗлодійський жаргон\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nІнструменти злодія\nІгровий набір, Інструменти злодія\nПроста зброя\nНабір для гриму, Набір отруйника",
+    "customEquipment": "Ломик x1\nТемний звичайний одяг з капюшоном x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "ROGUE_2014",
+    "subclass": "ASSASSIN",
+    "background": "CRIMINAL",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Dueling",
+      "Disarming Attack (Maneuver)",
+      "Evasive Footwork (Maneuver)",
+      "Menacing Attack (Maneuver)",
+      "Parry (Maneuver)",
+      "Precision Attack (Maneuver)",
+      "Riposte (Maneuver)",
+      "Trip Attack (Maneuver)"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Action Surge",
+      "Assassinate",
+      "Bonus Proficiencies (Assassin)",
+      "Combat Superiority",
+      "Cunning Action",
+      "Disarming Attack",
+      "Dueling",
+      "Evasive Footwork",
+      "Expertise",
+      "Extra Attack",
+      "Fighting Style",
+      "Improved Combat Superiority",
+      "Indomitable",
+      "Know Your Enemy",
+      "Martial Archetype",
+      "Menacing Attack",
+      "Parry",
+      "Precision Attack",
+      "Riposte",
+      "Roguish Archetype",
+      "Second Wind",
+      "Sneak Attack",
+      "Student of War",
+      "Thieves' Cant",
+      "Trip Attack"
+    ],
+    "feats": [],
+    "skills": [
+      "DECEPTION:PROFICIENT",
+      "STEALTH:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [
+      {
+        "class": "FIGHTER_2014",
+        "subclass": "BATTLE_MASTER",
+        "classLevel": 13
+      }
+    ],
+    "infusions": []
+  },
+  {
+    "level": 18,
+    "scores": {
+      "str": 20,
+      "dex": 16,
+      "con": 19,
+      "int": 14,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 179,
+      "max": 179
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "15",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "DEX",
+      "INT"
+    ],
+    "customLanguagesKnown": "Загальна\nЗлодійський жаргон\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nІнструменти злодія\nІгровий набір, Інструменти злодія\nПроста зброя\nНабір для гриму, Набір отруйника",
+    "customEquipment": "Ломик x1\nТемний звичайний одяг з капюшоном x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "ROGUE_2014",
+    "subclass": "ASSASSIN",
+    "background": "CRIMINAL",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Dueling",
+      "Disarming Attack (Maneuver)",
+      "Evasive Footwork (Maneuver)",
+      "Menacing Attack (Maneuver)",
+      "Parry (Maneuver)",
+      "Precision Attack (Maneuver)",
+      "Riposte (Maneuver)",
+      "Trip Attack (Maneuver)"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Action Surge",
+      "Assassinate",
+      "Bonus Proficiencies (Assassin)",
+      "Combat Superiority",
+      "Cunning Action",
+      "Disarming Attack",
+      "Dueling",
+      "Evasive Footwork",
+      "Expertise",
+      "Extra Attack",
+      "Fighting Style",
+      "Improved Combat Superiority",
+      "Indomitable",
+      "Know Your Enemy",
+      "Martial Archetype",
+      "Menacing Attack",
+      "Parry",
+      "Precision Attack",
+      "Riposte",
+      "Roguish Archetype",
+      "Second Wind",
+      "Sneak Attack",
+      "Student of War",
+      "Thieves' Cant",
+      "Trip Attack"
+    ],
+    "feats": [],
+    "skills": [
+      "DECEPTION:PROFICIENT",
+      "STEALTH:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [
+      {
+        "class": "FIGHTER_2014",
+        "subclass": "BATTLE_MASTER",
+        "classLevel": 14
+      }
+    ],
+    "infusions": []
+  },
+  {
+    "level": 19,
+    "scores": {
+      "str": 20,
+      "dex": 16,
+      "con": 19,
+      "int": 14,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 189,
+      "max": 189
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "15",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "DEX",
+      "INT"
+    ],
+    "customLanguagesKnown": "Загальна\nЗлодійський жаргон\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nІнструменти злодія\nІгровий набір, Інструменти злодія\nПроста зброя\nНабір для гриму, Набір отруйника",
+    "customEquipment": "Ломик x1\nТемний звичайний одяг з капюшоном x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "ROGUE_2014",
+    "subclass": "ASSASSIN",
+    "background": "CRIMINAL",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Dueling",
+      "Disarming Attack (Maneuver)",
+      "Evasive Footwork (Maneuver)",
+      "Feinting Attack (Maneuver)",
+      "Goading Attack (Maneuver)",
+      "Menacing Attack (Maneuver)",
+      "Parry (Maneuver)",
+      "Precision Attack (Maneuver)",
+      "Riposte (Maneuver)",
+      "Trip Attack (Maneuver)"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Action Surge",
+      "Assassinate",
+      "Bonus Proficiencies (Assassin)",
+      "Combat Superiority",
+      "Cunning Action",
+      "Disarming Attack",
+      "Dueling",
+      "Evasive Footwork",
+      "Expertise",
+      "Extra Attack",
+      "Feinting Attack",
+      "Fighting Style",
+      "Goading Attack",
+      "Improved Combat Superiority",
+      "Indomitable",
+      "Know Your Enemy",
+      "Martial Archetype",
+      "Menacing Attack",
+      "Parry",
+      "Precision Attack",
+      "Relentless (Battle Master)",
+      "Riposte",
+      "Roguish Archetype",
+      "Second Wind",
+      "Sneak Attack",
+      "Student of War",
+      "Thieves' Cant",
+      "Trip Attack"
+    ],
+    "feats": [],
+    "skills": [
+      "DECEPTION:PROFICIENT",
+      "STEALTH:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [
+      {
+        "class": "FIGHTER_2014",
+        "subclass": "BATTLE_MASTER",
+        "classLevel": 15
+      }
+    ],
+    "infusions": []
+  },
+  {
+    "level": 20,
+    "scores": {
+      "str": 20,
+      "dex": 16,
+      "con": 20,
+      "int": 14,
+      "wis": 11,
+      "cha": 9
+    },
+    "hp": {
+      "current": 219,
+      "max": 219
+    },
+    "raceStaticAcBonus": 0,
+    "money": {
+      "cp": "0",
+      "sp": "0",
+      "ep": "0",
+      "gp": "15",
+      "pp": "0"
+    },
+    "spellSlots": {
+      "current": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pact": 0
+    },
+    "additionalSaveProficiencies": [
+      "DEX",
+      "INT"
+    ],
+    "customLanguagesKnown": "Загальна\nЗлодійський жаргон\nОбери ще 1",
+    "customProficiencies": "Легкі обладунки\nІнструменти злодія\nІгровий набір, Інструменти злодія\nПроста зброя\nНабір для гриму, Набір отруйника",
+    "customEquipment": "Ломик x1\nТемний звичайний одяг з капюшоном x1",
+    "race": "HUMAN_2014",
+    "subrace": null,
+    "raceVariants": [],
+    "class": "ROGUE_2014",
+    "subclass": "ASSASSIN",
+    "background": "CRIMINAL",
+    "raceChoiceOptions": [],
+    "choiceOptions": [
+      "Dueling",
+      "Disarming Attack (Maneuver)",
+      "Evasive Footwork (Maneuver)",
+      "Feinting Attack (Maneuver)",
+      "Goading Attack (Maneuver)",
+      "Menacing Attack (Maneuver)",
+      "Parry (Maneuver)",
+      "Precision Attack (Maneuver)",
+      "Riposte (Maneuver)",
+      "Trip Attack (Maneuver)"
+    ],
+    "classOptionalFeatures": [],
+    "features": [
+      "Ability Score Improvement",
+      "Action Surge",
+      "Assassinate",
+      "Bonus Proficiencies (Assassin)",
+      "Combat Superiority",
+      "Cunning Action",
+      "Disarming Attack",
+      "Dueling",
+      "Evasive Footwork",
+      "Expertise",
+      "Extra Attack",
+      "Feinting Attack",
+      "Fighting Style",
+      "Goading Attack",
+      "Improved Combat Superiority",
+      "Indomitable",
+      "Know Your Enemy",
+      "Martial Archetype",
+      "Menacing Attack",
+      "Parry",
+      "Precision Attack",
+      "Relentless (Battle Master)",
+      "Riposte",
+      "Roguish Archetype",
+      "Second Wind",
+      "Sneak Attack",
+      "Student of War",
+      "Thieves' Cant",
+      "Trip Attack"
+    ],
+    "feats": [],
+    "skills": [
+      "DECEPTION:PROFICIENT",
+      "STEALTH:PROFICIENT"
+    ],
+    "weapons": [],
+    "armors": [],
+    "multiclasses": [
+      {
+        "class": "FIGHTER_2014",
+        "subclass": "BATTLE_MASTER",
+        "classLevel": 16
+      }
+    ],
+    "infusions": []
+  }
+]
