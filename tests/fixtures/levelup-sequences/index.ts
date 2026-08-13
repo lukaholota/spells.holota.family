@@ -17,6 +17,7 @@ import { sequence as warlock5Sorcerer15Multiclass } from "./warlock5-sorcerer15-
 import { sequence as paladin6Ranger14Multiclass } from "./paladin6-ranger14-multiclass";
 import { sequence as rogue4Fighter16Multiclass } from "./rogue4-fighter16-multiclass";
 import { sequence as paladin2Fighter4Wizard14Multiclass } from "./paladin2-fighter4-wizard14-multiclass";
+import { sequence as fighterStyleReplacement } from "./fighter-style-replacement";
 import type { LevelUpSequence } from "./types";
 
 export const levelUpSequences: LevelUpSequence[] = [
@@ -39,4 +40,5 @@ export const levelUpSequences: LevelUpSequence[] = [
   paladin6Ranger14Multiclass,
   rogue4Fighter16Multiclass,
   paladin2Fighter4Wizard14Multiclass,
+  fighterStyleReplacement,
 ];
