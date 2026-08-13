@@ -1,0 +1,118 @@
+{
+  "wizard": {
+    "afterFirstRestore": {
+      "level": 1,
+      "currentSpellSlots": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "currentPactSlots": 0,
+      "currentHitDice": null,
+      "currentHp": 8,
+      "tempHp": 0,
+      "deathSaveSuccesses": 0,
+      "deathSaveFailures": 0,
+      "isDead": false
+    },
+    "afterSecondRestore": {
+      "level": 1,
+      "currentSpellSlots": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "currentPactSlots": 0,
+      "currentHitDice": null,
+      "currentHp": 8,
+      "tempHp": 0,
+      "deathSaveSuccesses": 0,
+      "deathSaveFailures": 0,
+      "isDead": false
+    }
+  },
+  "warlock": {
+    "afterPactRestore": {
+      "level": 1,
+      "currentSpellSlots": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "currentPactSlots": 1,
+      "currentHitDice": null,
+      "currentHp": 10,
+      "tempHp": 0,
+      "deathSaveSuccesses": 0,
+      "deathSaveFailures": 0,
+      "isDead": false
+    },
+    "afterShortRest": {
+      "level": 1,
+      "currentSpellSlots": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "currentPactSlots": 1,
+      "currentHitDice": {
+        "9": 1
+      },
+      "currentHp": 10,
+      "tempHp": 0,
+      "deathSaveSuccesses": 0,
+      "deathSaveFailures": 0,
+      "isDead": false
+    }
+  },
+  "fighter": {
+    "afterLongRest": {
+      "level": 2,
+      "currentSpellSlots": [
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "currentPactSlots": 0,
+      "currentHitDice": {
+        "1": 2
+      },
+      "currentHp": 12,
+      "tempHp": 0,
+      "deathSaveSuccesses": 0,
+      "deathSaveFailures": 0,
+      "isDead": false
+    },
+    "KNOWN_BUG": "BUG-010"
+  }
+}

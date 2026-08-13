@@ -1,0 +1,52 @@
+{
+  "resource": {
+    "feature": "Second Wind",
+    "spent": {
+      "success": true,
+      "usesRemaining": 0
+    },
+    "afterSpend": {
+      "usesRemaining": 0
+    },
+    "restored": {
+      "success": true,
+      "usesRemaining": 1
+    },
+    "afterManualRestore": {
+      "usesRemaining": 1
+    },
+    "shortRestResult": {
+      "success": true,
+      "hpRestored": 0,
+      "newCurrentHp": 12,
+      "currentHitDice": {
+        "1": 1
+      },
+      "currentPactSlots": 0,
+      "featuresRestored": 1
+    },
+    "afterShortRest": {
+      "usesRemaining": 1
+    }
+  },
+  "modifiers": {
+    "str": 17,
+    "statBonuses": {
+      "STR": 2
+    },
+    "statModifierBonuses": {
+      "STR": 1
+    },
+    "saveBonuses": {
+      "STR": 3
+    },
+    "additionalSaveProficiencies": [
+      "STR",
+      "CON"
+    ],
+    "overrideBaseAC": 15,
+    "acBonuses": {
+      "value": 2
+    }
+  }
+}
