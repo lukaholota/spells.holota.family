@@ -1,6 +1,6 @@
 # KR2.3 — Golden-файли левелапу
 
-**Ціль:** [O2](README.md) · **Статус:** ☐ не розпочато · **Залежить від:** KR2.2
+**Ціль:** [O2](README.md) · **Статус:** 🔄 розвідка зроблена, білди не розпочаті · **Залежить від:** KR2.2
 
 ## Навіщо
 
@@ -46,4 +46,97 @@ tests/golden/levelup/fighter5-warlock3-paladin2.json
 
 ## Журнал
 
-_порожньо_
+**2026-08-13, розвідка (не білди — код ще не написано, це передача контексту наступній сесії,
+щоб не перечитувати 1435 рядків заново).** Контекст закінчувався, тому зупинились одразу після
+розвідки й перед першим білдом. Нижче — все, що знайшов агент-розвідник, стисло.
+
+### Сервер
+
+Лише дві дії в `src/lib/actions/levelup.ts`:
+- `getLevelUpInfo(persId)` — рахує `nextLevel`, `needsSubclass`, `isASILevel`, нові фічі/групи
+  вибору на `nextLevel` (levelup.ts:205-291).
+- `levelUpCharacter(persId, data)` — валідує й пише все в одній `$transaction`
+  (levelup.ts:293-1435). **Немає окремої функції для мультикласу** — `data.levelUpPath`
+  (`"EXISTING"` | `"MULTICLASS"`, levelup.ts:306) вибирає гілку інлайн.
+
+**Мертва паралельна реалізація (не чіпати, не тестувати):** `src/app/api/character/level-up/
+route.ts`, `character-transaction.ts`, `character-transaction-multiclass.ts`, `character-logic.ts`
+(`getLevelUpSteps`, з коментарями `// TODO`, `// Mock stats`), `src/lib/logic/
+progression-resolver.ts`, `src/store/character-store.ts`, другий компонентний дерево
+`src/components/level-up/*`. Ніде не імпортується з `src/app` — перевірено grep. Той самий
+мертвий стуб, що вже сплив у KR2.1 (`character-transaction.ts:17-22`), тільки цього разу ціле
+паралельне дерево файлів, а не один стаб.
+
+### Гілки, важливі для матриці білдів
+
+| Що | Де | Деталь |
+|---|---|---|
+| Рівні ASI | `Class.abilityScoreUpLevels` (DB `Int[]`, дефолт `[4,8,12,16,19]`) | НЕ хардкод — Fighter `[4,6,8,12,14,16,19]`, Rogue `[4,8,10,12,16,19]` в сідах, коректно змодельовано |
+| HP-режими | levelup.ts:562-590 | AVERAGE/RANDOM/MANUAL — сервер довіряє `data.levelUpHpIncrease` як є, лише `Math.max(0, trunc(...))`, без верхньої межі проти `hitDie` |
+| Підклас | levelup.ts:252,592-605 | `needsSubclass = !pers.subclassId && nextLevel >= (currentClass.subclassLevel ?? 3)` — той самий permissive патерн, що character.ts |
+| Choice pools | `src/lib/logic/choicePoolRules.ts` | Invocations/Metamagic/Maneuvers/Arcane Shots/Rune Knight/**Four Elements Disciplines** (`{3:2,6:1,11:1,17:1}`) — саме тут живе те, що з character.ts винесено в KR2.3 |
+| Слоти заклинань | levelup.ts:30-57,1139-1142,1277-1316 | `calculateCasterLevel` сумує `mainLevel + Σ multiclass.classLevel` окремо на caster/pact; застосовується як **дельта** (`applyMaxDeltaToCurrent`), не перезапис — уже витрачені слоти зберігаються |
+
+### Три знахідки, які ПОТРІБНО перевірити емпірично, перш ніж класти в KNOWN-BUGS (за прикладом
+### сьогоднішньої помилки з BUG-004 — спершу дані, потім висновок)
+
+1. **Мультиклас-володіння (PHB 2014 c.164, скорочений список) взагалі не змодельовані.**
+   `Class.armorProficiencies/weaponProficiencies/toolProficiencies/skillProficiencies` ніде не
+   читаються в `levelup.ts` (grep підтверджує). Персонаж, що мультикласується в новий клас,
+   імовірно отримує **нуль** володінь від нього — ні повного набору, ні мультикласового
+   скороченого. Це не «сервер довіряє UI» (як BUG-001..003) — це «розрахунок відсутній узагалі»,
+   такого ж штибу, як спершу здавався BUG-004. **Перед тим як писати запис у KNOWN-BUGS —
+   зробити golden-білд Fighter→Wizard мультиклас і подивитись `customProficiencies` в golden
+   напряму.**
+2. **`Class.multiclassReqs` (мінімальні характеристики для мультиклас) перевіряється лише
+   клієнтом** (`LevelUpWizard.tsx:650-671`, фільтрує список класів у дропдауні), у
+   `levelup.ts` — нуль згадок. Те саме сімейство, що BUG-001..003 (UI-only guard) — ймовірно
+   так само «прийнято», але власника варто спитати саме про це окремо, бо це геймплейне
+   обмеження (мінімальні характеристики), а не просто «який вибір доступний».
+3. **Артифайсер: інфузії обробляються ЛИШЕ на `classLevelAfter === 2`**, хардкод рівно 4 вибори
+   (levelup.ts:1357-1399). У PHB/TCoE кількість інфузій зростає на 6/10/14/18 рівнях — жодної
+   гілки для цього не знайдено. Якщо підтвердиться емпірично (білд Артифайсера 1→18) — це
+   реальний, конкретний баг, не «дизайн-рішення».
+
+### Дрібніші знахідки (нижчий пріоритет, але занотовано)
+
+- ASI/skill-легасі-парсинг дубльований і в levelup.ts (:500-536), як і в character.ts — але тут
+  DB-шлях (`effectKind`) реально заповнений у сідах (`featChoiceOptionSeed.ts:41-99`), тож
+  легасі-фолбек імовірно мертвий код, не активний баг. Вартий одного golden-кейсу з
+  `effectKind=null` навмисно, щоб довести, працює він чи ні — не вартий термінового расследування.
+- `createCharacterSnapshot` викликається зсередини transaction `levelUpCharacter`, але власним
+  `prisma`, не `tx` — не атомарно зі зовнішньою транзакцією, помилка не перевіряється
+  (levelup.ts:1147, snapshot-actions.ts:16,37). Ризик: відкат зовнішньої транзакції не відкотить
+  знімок.
+- Немає `revalidatePath` в levelup.ts (на відміну від character.ts) — ризик застарілого кешу
+  `/char/[id]` після левелапу.
+- `prisma/seed/featChoiceOptionSeed_OLD.ts` існує, але не імпортується в `prisma/seed.ts` —
+  мертвий сідовий файл, той самий запах, що дублікати з BUG-004. Не чіпати, не воскрешати.
+
+### Механіка тестування (важливо, інакше імпорт `levelup.ts` впаде)
+
+- `auth()` мокається так само, як у `creation.test.ts`.
+- **Відмінність:** `levelup.ts:7` викликає `unstable_cache` з `"next/cache"` на рівні модуля
+  (тричі, :100,142,163). Наявний мок `vi.mock("next/cache", () => ({ revalidatePath: vi.fn()
+  }))` замінює весь модуль без `unstable_cache` — імпорт `levelup.ts` впаде. Потрібно:
+  `vi.mock("next/cache", () => ({ revalidatePath: vi.fn(), unstable_cache: (fn: any) => fn }))`.
+- `levelUpCharacter` вимагає ІСНУЮЧОГО `Pers`. Найчистіший спосіб у тесті: викликати вже
+  змокану `createCharacter` (як у `creation.test.ts`) через один з фікстур-білдів
+  `tests/fixtures/builds/`, узяти `persId`, далі викликати `levelUpCharacter(persId, data)`.
+- Що записується в БД (для розширення `normalizeForGolden`, **вже зроблено** 2026-08-13:
+  `pers.level`, `multiclasses`, `infusions` додані в `tests/helpers/normalize-golden.ts`) —
+  повний список у звіті розвідки, ключове: `PersMulticlass` (create або update), `PersInfusion`
+  (лише рівень 2 Артифайсера), `PersFeature` (deleteMany replaced → createMany нові).
+
+### План для наступної сесії (не виконано, лише накреслено)
+
+1. Написати `tests/helpers/levelup-form.ts` (аналог `build-form.ts`, мінімальний
+   `levelUpCharacter`-payload з дефолтами: HP=AVERAGE, без ASI/feat вибору).
+2. Написати `tests/golden/levelup/` харнес — по аналогії з `creation.test.ts`, але з циклом:
+   `createCharacter` → 20× `levelUpCharacter`, знімок golden **на кожному рівні** (масив, не
+   один фінальний стан) — формат уже описаний вище в цьому файлі («Формат»).
+3. Спершу ОДИН клас (Fighter — має додаткові ASI, підклас на 3, заміну бойового стилю) від 1 до
+   20, щоб довести пайплайн, за зразком того, як `human-fighter-soldier` був першим у KR2.1.
+4. Одразу після — Artificer 1→18 і Fighter→Wizard мультиклас, щоб емпірично перевірити три
+   знахідки вище, ПЕРЕД тим як писати KNOWN-BUGS (урок сьогоднішньої ночі: спершу дані).
+5. Далі решта 11 класів + 4 мультикласові послідовності з таблиці нижче в цьому файлі.
