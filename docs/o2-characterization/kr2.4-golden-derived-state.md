@@ -1,6 +1,6 @@
 # KR2.4 — Golden для похідного стану
 
-**Ціль:** [O2](README.md) · **Статус:** 🔄 в роботі · **Залежить від:** KR2.2
+**Ціль:** [O2](README.md) · **Статус:** ✅ завершено 2026-08-13 · **Залежить від:** KR2.2
 
 ## Навіщо
 
@@ -12,7 +12,7 @@
 ## Готово, коли
 
 - [x] короткий і довгий відпочинок — golden для pooled resources класів із різним відновленням
-- [ ] витрата й відновлення слотів, включно з пактовими (Warlock відновлює на короткому)
+- [x] витрата й відновлення слотів, включно з пактовими (Warlock відновлює на короткому)
 - [x] розрахунок AC — усі типи бонусів (`FULL` / `MAX2` / `NONE`), броня + щит + фічі + предмети
 - [x] використання фіч і їхнє відновлення (`feature-resources.ts`), включно з pooled resources
 - [x] бонуси до атаки й шкоди від фіч і магічних предметів
@@ -94,3 +94,15 @@ Eldritch Knight 6 (2) і Paladin 2 / Wizard 3 / Eldritch Knight 3 (5): long rest
 тимчасові `expectedPoolMaximum: 4`, Dueling damage `4` і half-caster level `4` дали відповідно
 golden diff `3 ≠ 4`, assertion `5 ≠ 4` і golden diff `3 ≠ 4`; точні значення відновлено.
 Фінальний прогін без `UPDATE_GOLDEN`: 3 файли / 3 тести, 26.37 с, зелений.
+
+**2026-08-13, завершено решту pooled resources.** `pooled-resources.test.ts` розширено шістьма
+реальними class/subclass-кейсами, кожен проходить витрату, ручне відновлення та відповідний
+відпочинок: Bard 3 / College of Lore (`BARDIC_INSPIRATION`, long), Moon Druid 10 (`WILD_SHAPE`,
+short), Life Cleric 6 (`CHANNEL_DIVINITY`, short), Battle Master 3 (`SUPERIORITY_DICE`, short),
+Arcane Archer 3 (`ARCANE_SHOT`, short), Soulknife 3 (`PSIONIC_ENERGY`, long). Wild Shape,
+Superiority Dice, Arcane Shot і Bardic Inspiration фіксують очікувану поточну поведінку. Cleric
+manual restore (1 замість 2) та Psionic Energy (1 замість 4) емпірично розширили доказову базу
+вже наявного BUG-011; новий ID не створювався. Golden згенеровано через `UPDATE_GOLDEN=1`.
+Контрольована зміна `PSIONIC_ENERGY expectedPoolMaximum` 4 → 5 дала golden diff і 1/1 червоний
+(exit 1); значення відновлено. Чистий прогін без прапорця: 1 файл / 1 тест, 35.27 с, зелений.
+Усі пункти «Готово, коли» тепер чесно виконані; KR2.4 закрито.

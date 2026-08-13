@@ -1,11 +1,11 @@
 import fs from "node:fs";
 import path from "node:path";
 import { afterAll, beforeEach, describe, expect, it, vi } from "vitest";
-import { BackgroundCategory, Classes, Races } from "@prisma/client";
+import { BackgroundCategory, Classes, Races, Subclasses } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
 import { disconnectDatabase, resetUserData } from "../../user-data";
 import { minimalForm } from "../../helpers/build-form";
-import { backgroundByName, classByName, raceByName } from "../../helpers/seed-lookup";
+import { backgroundByName, classByName, raceByName, subclassByName } from "../../helpers/seed-lookup";
 
 vi.mock("@/lib/auth", () => ({ auth: vi.fn() }));
 vi.mock("next/cache", () => ({ revalidatePath: vi.fn() }));
@@ -18,11 +18,84 @@ import { longRest, shortRest } from "@/lib/actions/rest-actions";
 const GOLDEN_PATH = path.join(__dirname, "pooled-resources.json");
 const UPDATE_GOLDEN = process.env.UPDATE_GOLDEN === "1";
 
+type RemainingPoolCase = {
+  key: string;
+  className: Classes;
+  subclassName: Subclasses;
+  level: number;
+  featureName: string;
+  poolKey: string;
+  rest: "short" | "long";
+  expectedPoolMaximum?: number;
+  knownBug?: string;
+};
+
+const REMAINING_POOL_CASES: readonly RemainingPoolCase[] = [
+  {
+    key: "bardicInspiration",
+    className: Classes.BARD_2014,
+    subclassName: Subclasses.COLLEGE_OF_LORE,
+    level: 3,
+    featureName: "Cutting Words",
+    poolKey: "BARDIC_INSPIRATION",
+    rest: "long",
+  },
+  {
+    key: "wildShape",
+    className: Classes.DRUID_2014,
+    subclassName: Subclasses.CIRCLE_OF_THE_MOON,
+    level: 10,
+    featureName: "Elemental Wild Shape",
+    poolKey: "WILD_SHAPE",
+    rest: "short",
+  },
+  {
+    key: "channelDivinity",
+    className: Classes.CLERIC_2014,
+    subclassName: Subclasses.LIFE_DOMAIN,
+    level: 6,
+    featureName: "Channel Divinity: Preserve Life",
+    poolKey: "CHANNEL_DIVINITY",
+    rest: "short",
+    expectedPoolMaximum: 2,
+    knownBug: "BUG-011",
+  },
+  {
+    key: "superiorityDice",
+    className: Classes.FIGHTER_2014,
+    subclassName: Subclasses.BATTLE_MASTER,
+    level: 3,
+    featureName: "Precision Attack",
+    poolKey: "SUPERIORITY_DICE",
+    rest: "short",
+  },
+  {
+    key: "arcaneShot",
+    className: Classes.FIGHTER_2014,
+    subclassName: Subclasses.ARCANE_ARCHER,
+    level: 3,
+    featureName: "Banishing Arrow",
+    poolKey: "ARCANE_SHOT",
+    rest: "short",
+  },
+  {
+    key: "psionicEnergy",
+    className: Classes.ROGUE_2014,
+    subclassName: Subclasses.SOULKNIFE,
+    level: 3,
+    featureName: "Psi-Bolstered Knack",
+    poolKey: "PSIONIC_ENERGY",
+    rest: "long",
+    expectedPoolMaximum: 4,
+    knownBug: "BUG-011",
+  },
+];
+
 beforeEach(resetUserData);
 afterAll(disconnectDatabase);
 
 describe("KR2.4 — golden для pooled feature resources", () => {
-  it("фіксує KI на short rest та Sorcery Points на long rest", async () => {
+  it("фіксує всі pooled resources на manual restore і відповідному rest", async () => {
     const [quickenedHealing, quickenedSpell] = await Promise.all([
       prisma.feature.findUniqueOrThrow({ where: { engName: "Quickened Healing" } }),
       prisma.feature.findUniqueOrThrow({ where: { engName: "Quickened Spell" } }),
@@ -40,6 +113,7 @@ describe("KR2.4 — golden для pooled feature resources", () => {
       "SORCERY_POINTS",
       "long",
     );
+    const remainingPools = await exerciseRemainingPools();
     const actual = {
       monk,
       sorcerer: {
@@ -47,6 +121,7 @@ describe("KR2.4 — golden для pooled feature resources", () => {
         expectedPoolMaximum: 3,
         KNOWN_BUG: "BUG-011",
       },
+      ...remainingPools,
     };
 
     if (UPDATE_GOLDEN) {
@@ -55,10 +130,35 @@ describe("KR2.4 — golden для pooled feature resources", () => {
     }
 
     expect(actual).toEqual(JSON.parse(fs.readFileSync(GOLDEN_PATH, "utf-8")));
-  }, 30_000);
+  }, 120_000);
 });
 
-async function createOwnedCharacter(emailPrefix: string, className: Classes, level: number): Promise<number> {
+async function exerciseRemainingPools() {
+  const results: Record<string, unknown> = {};
+
+  for (const poolCase of REMAINING_POOL_CASES) {
+    const [feature, persId] = await Promise.all([
+      prisma.feature.findUniqueOrThrow({ where: { engName: poolCase.featureName } }),
+      createOwnedCharacter(poolCase.key, poolCase.className, poolCase.level, poolCase.subclassName),
+    ]);
+    const resource = await exercisePool(persId, feature.featureId, poolCase.poolKey, poolCase.rest);
+
+    results[poolCase.key] = {
+      ...resource,
+      ...(poolCase.expectedPoolMaximum === undefined ? {} : { expectedPoolMaximum: poolCase.expectedPoolMaximum }),
+      ...(poolCase.knownBug === undefined ? {} : { KNOWN_BUG: poolCase.knownBug }),
+    };
+  }
+
+  return results;
+}
+
+async function createOwnedCharacter(
+  emailPrefix: string,
+  className: Classes,
+  level: number,
+  subclassName?: Subclasses,
+): Promise<number> {
   const user = await prisma.user.create({
     data: { email: `${emailPrefix}-pooled-resources@golden.test`, name: "Golden Test User" },
   });
@@ -69,12 +169,16 @@ async function createOwnedCharacter(emailPrefix: string, className: Classes, lev
     classByName(className),
     backgroundByName(BackgroundCategory.SAGE),
   ]);
+  const subclass = subclassName ? await subclassByName(characterClass.classId, subclassName) : null;
   const result = await createCharacter(
     minimalForm({ raceId: race.raceId, classId: characterClass.classId, backgroundId: background.backgroundId }),
   );
   if ("error" in result) throw new Error(`${emailPrefix}: createCharacter повернув ${result.error}`);
 
-  await prisma.pers.update({ where: { persId: result.persId }, data: { level } });
+  await prisma.pers.update({
+    where: { persId: result.persId },
+    data: { level, ...(subclass ? { subclassId: subclass.subclassId } : {}) },
+  });
   return result.persId;
 }
 

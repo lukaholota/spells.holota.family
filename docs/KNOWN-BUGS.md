@@ -252,7 +252,7 @@ UI)
 **Знайдено:** KR2.4, 2026-08-13, golden `tests/golden/derived-state/rest-and-slots.json`
 **Статус:** відкрито
 
-### BUG-011 — pooled Sorcery Points беруть максимум із чужої фічі, тому можуть стати невитрачуваними
+### BUG-011 — pooled resources беруть максимум із глобальної чужої фічі
 
 **Де:** `src/lib/actions/feature-uses.ts` (`spendFeatureUse`/`restoreFeatureUse`) і
 `src/lib/actions/rest-actions.ts` (`shortRest`/`longRest`) — provider для `usesPoolKey` шукається
@@ -263,12 +263,19 @@ Spell коштує 2, отже перша витрата залишає 1, а lo
 максимум на 3 рівні дорівнює 3 незалежно від інших content-рядків із таким самим ключем
 **Є:** на реальних даних `findFirst` обирає `Storm Rune` (featureId 8385, 1 use, short rest), а не
 `Font of Magic` (featureId 4840, рівень Sorcerer). Пул створюється з 1; Quickened Spell з ціною 2
-повертає успіх, але не витрачає нічого (`current < cost`), ручне відновлення й long rest лишають 1
-**Наслідок:** Sorcerer може мати неправильний спільний ресурс; щонайменше на 3 рівні Quickened Spell
-фактично неможливо витратити через UI-трекер, а short/long rest відновлюють не класовий максимум.
-Та сама конструкція загрожує кожному pool key, де кілька фіч-претендентів мають власні ліміти
+повертає успіх, але не витрачає нічого (`current < cost`), ручне відновлення й long rest лишають 1.
+Розширений golden підтвердив, що це не Sorcerer-специфічно: у Cleric 6 `Preserve Life` ручно
+ініціалізує/відновлює `CHANNEL_DIVINITY` лише до 1 замість 2, тоді як той самий short rest повертає
+2; у Soulknife 3 `Psi-Bolstered Knack` створює й після long rest лишає `PSIONIC_ENERGY` на 1 замість
+4 (2 × proficiency bonus). Moon Druid 10 / `Elemental Wild Shape` у цій самій перевірці коректно
+отримує 2, тому баг залежить від фактичного безсортувального вибору provider-а, а не від кожного
+ключа неминуче.
+**Наслідок:** будь-який pooled resource з кількома content-претендентами може мати неправильний
+максимум, невитрачувану дію або відновлюватися по-різному через manual restore і rest. Уже
+підтверджено Sorcery Points, Channel Divinity і Psionic Energy.
 **Знайдено:** KR2.4, 2026-08-13, golden
-`tests/golden/derived-state/pooled-resources.json` (Sorcerer) і read-only DB-перевіркою provider
+`tests/golden/derived-state/pooled-resources.json` (Sorcerer, Cleric, Soulknife) і read-only
+DB-перевіркою provider-ів
 **Статус:** відкрито
 
 ## Виправлені

@@ -83,5 +83,247 @@
     },
     "expectedPoolMaximum": 3,
     "KNOWN_BUG": "BUG-011"
+  },
+  "bardicInspiration": {
+    "feature": {
+      "engName": "Cutting Words",
+      "usePrice": 1
+    },
+    "spent": {
+      "success": true,
+      "usesRemaining": 0
+    },
+    "afterSpend": {
+      "poolKey": "BARDIC_INSPIRATION",
+      "usesRemaining": 0
+    },
+    "restored": {
+      "success": true,
+      "usesRemaining": 1
+    },
+    "afterManualRestore": {
+      "poolKey": "BARDIC_INSPIRATION",
+      "usesRemaining": 1
+    },
+    "restResult": {
+      "success": true,
+      "newCurrentHp": 10,
+      "currentHitDice": {
+        "68": 3
+      },
+      "currentSpellSlots": [
+        4,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "currentPactSlots": 0,
+      "spellSlotsRestored": true,
+      "featuresRestored": 2
+    },
+    "afterRest": {
+      "poolKey": "BARDIC_INSPIRATION",
+      "usesRemaining": 1
+    }
+  },
+  "wildShape": {
+    "feature": {
+      "engName": "Elemental Wild Shape",
+      "usePrice": 2
+    },
+    "spent": {
+      "success": true,
+      "usesRemaining": 0
+    },
+    "afterSpend": {
+      "poolKey": "WILD_SHAPE",
+      "usesRemaining": 0
+    },
+    "restored": {
+      "success": true,
+      "usesRemaining": 2
+    },
+    "afterManualRestore": {
+      "poolKey": "WILD_SHAPE",
+      "usesRemaining": 2
+    },
+    "restResult": {
+      "success": true,
+      "hpRestored": 0,
+      "newCurrentHp": 10,
+      "currentHitDice": {
+        "70": 10
+      },
+      "currentPactSlots": 0,
+      "featuresRestored": 1
+    },
+    "afterRest": {
+      "poolKey": "WILD_SHAPE",
+      "usesRemaining": 2
+    }
+  },
+  "channelDivinity": {
+    "feature": {
+      "engName": "Channel Divinity: Preserve Life",
+      "usePrice": 1
+    },
+    "spent": {
+      "success": true,
+      "usesRemaining": 0
+    },
+    "afterSpend": {
+      "poolKey": "CHANNEL_DIVINITY",
+      "usesRemaining": 0
+    },
+    "restored": {
+      "success": true,
+      "usesRemaining": 1
+    },
+    "afterManualRestore": {
+      "poolKey": "CHANNEL_DIVINITY",
+      "usesRemaining": 1
+    },
+    "restResult": {
+      "success": true,
+      "hpRestored": 0,
+      "newCurrentHp": 10,
+      "currentHitDice": {
+        "69": 6
+      },
+      "currentPactSlots": 0,
+      "featuresRestored": 1
+    },
+    "afterRest": {
+      "poolKey": "CHANNEL_DIVINITY",
+      "usesRemaining": 2
+    },
+    "expectedPoolMaximum": 2,
+    "KNOWN_BUG": "BUG-011"
+  },
+  "superiorityDice": {
+    "feature": {
+      "engName": "Precision Attack",
+      "usePrice": 1
+    },
+    "spent": {
+      "success": true,
+      "usesRemaining": 3
+    },
+    "afterSpend": {
+      "poolKey": "SUPERIORITY_DICE",
+      "usesRemaining": 3
+    },
+    "restored": {
+      "success": true,
+      "usesRemaining": 4
+    },
+    "afterManualRestore": {
+      "poolKey": "SUPERIORITY_DICE",
+      "usesRemaining": 4
+    },
+    "restResult": {
+      "success": true,
+      "hpRestored": 0,
+      "newCurrentHp": 12,
+      "currentHitDice": {
+        "1": 3
+      },
+      "currentPactSlots": 0,
+      "featuresRestored": 2
+    },
+    "afterRest": {
+      "poolKey": "SUPERIORITY_DICE",
+      "usesRemaining": 4
+    }
+  },
+  "arcaneShot": {
+    "feature": {
+      "engName": "Banishing Arrow",
+      "usePrice": 1
+    },
+    "spent": {
+      "success": true,
+      "usesRemaining": 1
+    },
+    "afterSpend": {
+      "poolKey": "ARCANE_SHOT",
+      "usesRemaining": 1
+    },
+    "restored": {
+      "success": true,
+      "usesRemaining": 2
+    },
+    "afterManualRestore": {
+      "poolKey": "ARCANE_SHOT",
+      "usesRemaining": 2
+    },
+    "restResult": {
+      "success": true,
+      "hpRestored": 0,
+      "newCurrentHp": 12,
+      "currentHitDice": {
+        "1": 3
+      },
+      "currentPactSlots": 0,
+      "featuresRestored": 2
+    },
+    "afterRest": {
+      "poolKey": "ARCANE_SHOT",
+      "usesRemaining": 2
+    }
+  },
+  "psionicEnergy": {
+    "feature": {
+      "engName": "Psi-Bolstered Knack",
+      "usePrice": 1
+    },
+    "spent": {
+      "success": true,
+      "usesRemaining": 0
+    },
+    "afterSpend": {
+      "poolKey": "PSIONIC_ENERGY",
+      "usesRemaining": 0
+    },
+    "restored": {
+      "success": true,
+      "usesRemaining": 1
+    },
+    "afterManualRestore": {
+      "poolKey": "PSIONIC_ENERGY",
+      "usesRemaining": 1
+    },
+    "restResult": {
+      "success": true,
+      "newCurrentHp": 10,
+      "currentHitDice": {
+        "8": 3
+      },
+      "currentSpellSlots": [
+        4,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "currentPactSlots": 0,
+      "spellSlotsRestored": true,
+      "featuresRestored": 1
+    },
+    "afterRest": {
+      "poolKey": "PSIONIC_ENERGY",
+      "usesRemaining": 1
+    },
+    "expectedPoolMaximum": 4,
+    "KNOWN_BUG": "BUG-011"
   }
 }
