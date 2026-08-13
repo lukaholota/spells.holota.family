@@ -1,6 +1,6 @@
 # KR2.5 — Тести на правила PHB 2014
 
-**Ціль:** [O2](README.md) · **Статус:** ☐ не розпочато · **Залежить від:** KR2.2
+**Ціль:** [O2](README.md) · **Статус:** 🔄 в роботі · **Залежить від:** KR2.2
 
 ## Навіщо
 
@@ -62,4 +62,10 @@ it("половинний кастер додає level/2 округлене вн
 
 ## Журнал
 
-_порожньо_
+**2026-08-13, старт і розвідка BUG-001…011.** Реєстр розділено за природою проблеми: BUG-001/002/003 — прийнята власником довіра сервера до UI; BUG-004/005 — мертві або не застосовні для character-sheet дані; BUG-006/007/010/011 — фактичні розрахункові розбіжності; BUG-008/009 — відкриті рішення про server-side validation. Найвищий практичний вплив у вже підтверджених розрахункових багів має BUG-010: кожен некастер і багато multiclass-персонажів після long rest отримують стандартні слоти за загальним рівнем.
+
+Мінімальні наступні rules-перевірки: BUG-001/002/003 не потребують нових tests, бо це вже прийнята policy «UI — джерело істини» і golden-и фіксують дозволені сервером дані; BUG-004/005 — content-data debt, не rules calculation для character sheet; BUG-006 — Wizard → Fighter, assertion на PHB-164 скорочений набір armor/weapon proficiencies; BUG-007 — Artificer на рівнях 2/6/10/14/18, assertion на ріст `persInfusions` за таблицею TCoE; BUG-008 — Fighter STR 15 / CHA 8 → Paladin має бути rejected за PHB 163-164, але test лишається `it.todo` до рішення власника; BUG-009 — paired creation/multiclass Ranger 1 з порожніми двома обов'язковими виборами, також `it.todo` до рішення, яку з двох поведінок вважати правилом сервера; BUG-011 — Sorcerer 3 після Quickened Spell/long rest має пул Sorcery Points 3 за PHB 101.
+
+Додано окремий від golden `tests/rules/spell-slots.test.ts`: green assertions для full-caster і правила округлення multiclass caster level, а також `it.fails` для BUG-010. Останній стверджує PHB 2014, с. 164-165: Fighter 2 не має стандартних слотів після long rest. Поточний `longRest` передає загальний `pers.level` у таблицю слотів, тож assertion має падати; golden `rest-and-slots.json` лишається без змін і фіксує фактичні `[3, 0, …]`.
+
+Перевірка: `bunx vitest run tests/rules/spell-slots.test.ts --reporter=verbose` — 2 passed, 1 expected fail (3), 3.06 с; `bun run lint` — 0 errors, старі 368 warnings; `bunx tsc --noEmit` — лише відома стара помилка `tests/fixtures/builds/custom-asi-system.ts:20` (string замість number), нових немає. Production-код і golden-и не змінювались.
