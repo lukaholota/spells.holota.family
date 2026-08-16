@@ -1,4 +1,4 @@
-import { PrismaClient, Feats, Ability, Skills, DamageType, Classes, Prisma } from "@prisma/client";
+import { PrismaClient, Feats, Ability, Skills, DamageType, Classes, Prisma, Ruleset } from "@prisma/client";
 import { 
   damageTypeTranslations, 
   engEnumSkills, 
@@ -8,6 +8,8 @@ import {
 } from "../../src/lib/refs/translation";
 import { translateValue } from "../../src/lib/components/characterCreator/infoUtils";
 import { CHOICE_GROUPS } from "./helpers/groupNames";
+
+const ACTIVE_RULESET: Ruleset = "RULES_2014";
 
 export const seedFeatChoiceOptions = async (prisma: PrismaClient) => {
   console.log('⚔️ Додаємо опції вибору для рис (Feats)...');
@@ -25,7 +27,7 @@ export const seedFeatChoiceOptions = async (prisma: PrismaClient) => {
    * Helper to find feat by enum value
    */
   const findFeat = async (name: Feats) => {
-    const feat = await prisma.feat.findUnique({ where: { name } });
+    const feat = await prisma.feat.findUnique({ where: { name_ruleset: { name, ruleset: ACTIVE_RULESET } } });
     if (!feat) console.warn(`⚠️ Feat ${name} not found!`);
     return feat;
   };

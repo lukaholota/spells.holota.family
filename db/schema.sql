@@ -4,12 +4,13 @@
 
 \restrict spellsSchemaBaseline
 
--- Dumped from database version 16.1 (Debian 16.1-1.pgdg120+1)
--- Dumped by pg_dump version 16.11 (Homebrew)
+-- Dumped from database version 17.11 (Debian 17.11-0+deb13u1)
+-- Dumped by pg_dump version 17.11 (Homebrew)
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
 SET idle_in_transaction_session_timeout = 0;
+SET transaction_timeout = 0;
 SET client_encoding = 'UTF8';
 SET standard_conforming_strings = on;
 SELECT pg_catalog.set_config('search_path', '', false);
@@ -616,6 +617,16 @@ CREATE TYPE public."RestType" AS ENUM (
 
 
 --
+-- Name: Ruleset; Type: TYPE; Schema: public; Owner: -
+--
+
+CREATE TYPE public."Ruleset" AS ENUM (
+    'RULES_2014',
+    'RULES_2024'
+);
+
+
+--
 -- Name: Size; Type: TYPE; Schema: public; Owner: -
 --
 
@@ -1044,6 +1055,22 @@ CREATE TYPE public."WeaponCategory" AS ENUM (
 
 
 --
+-- Name: WeaponMastery; Type: TYPE; Schema: public; Owner: -
+--
+
+CREATE TYPE public."WeaponMastery" AS ENUM (
+    'CLEAVE',
+    'GRAZE',
+    'NICK',
+    'PUSH',
+    'SAP',
+    'SLOW',
+    'TOPPLE',
+    'VEX'
+);
+
+
+--
 -- Name: WeaponProperty; Type: TYPE; Schema: public; Owner: -
 --
 
@@ -1086,7 +1113,8 @@ SET default_table_access_method = heap;
 CREATE TABLE public.choice_option_feature (
     option_feature_id integer NOT NULL,
     option_id integer NOT NULL,
-    feature_id integer NOT NULL
+    feature_id integer NOT NULL,
+    ruleset public."Ruleset" DEFAULT 'RULES_2014'::public."Ruleset" NOT NULL
 );
 
 
@@ -1292,7 +1320,8 @@ CREATE TABLE public.armor (
     strength_req integer,
     stealth_disadvantage boolean DEFAULT false NOT NULL,
     ability_bonuses public."Ability"[] DEFAULT ARRAY['DEX'::public."Ability"],
-    ability_bonus_type public."AbilityBonusType" DEFAULT 'FULL'::public."AbilityBonusType" NOT NULL
+    ability_bonus_type public."AbilityBonusType" DEFAULT 'FULL'::public."AbilityBonusType" NOT NULL,
+    ruleset public."Ruleset" DEFAULT 'RULES_2014'::public."Ruleset" NOT NULL
 );
 
 
@@ -1329,7 +1358,11 @@ CREATE TABLE public.background (
     items jsonb,
     description text,
     "specialAbilityName" text,
-    skill_proficiencies jsonb
+    skill_proficiencies jsonb,
+    ruleset public."Ruleset" DEFAULT 'RULES_2014'::public."Ruleset" NOT NULL,
+    ability_options public."Ability"[] DEFAULT '{}'::public."Ability"[] NOT NULL,
+    origin_feat_id integer,
+    grants_gold_instead integer
 );
 
 
@@ -1366,7 +1399,8 @@ CREATE TABLE public.choice_option (
     effect_ability public."Ability",
     effect_amount integer,
     effect_kind public."ChoiceOptionEffectKind",
-    effect_skill public."Skills"
+    effect_skill public."Skills",
+    ruleset public."Ruleset" DEFAULT 'RULES_2014'::public."Ruleset" NOT NULL
 );
 
 
@@ -1415,7 +1449,9 @@ CREATE TABLE public.class (
     eng_name public."Classes" NOT NULL,
     "multiclassReqs" jsonb NOT NULL,
     weapon_proficiencies_special jsonb,
-    sort_order integer DEFAULT 999 NOT NULL
+    sort_order integer DEFAULT 999 NOT NULL,
+    ruleset public."Ruleset" DEFAULT 'RULES_2014'::public."Ruleset" NOT NULL,
+    epic_boon_level integer
 );
 
 
@@ -1427,7 +1463,8 @@ CREATE TABLE public.class_choice_option (
     option_id integer NOT NULL,
     choice_option_id integer NOT NULL,
     class_id integer NOT NULL,
-    levels_granted integer[]
+    levels_granted integer[],
+    ruleset public."Ruleset" DEFAULT 'RULES_2014'::public."Ruleset" NOT NULL
 );
 
 
@@ -1484,7 +1521,8 @@ CREATE TABLE public.class_feature (
     display_order integer DEFAULT 0 NOT NULL,
     mechanic_description text,
     mechanic_metadata jsonb,
-    mechanic_type public."FeatureMechanic" DEFAULT 'PASSIVE'::public."FeatureMechanic" NOT NULL
+    mechanic_type public."FeatureMechanic" DEFAULT 'PASSIVE'::public."FeatureMechanic" NOT NULL,
+    ruleset public."Ruleset" DEFAULT 'RULES_2014'::public."Ruleset" NOT NULL
 );
 
 
@@ -1522,7 +1560,8 @@ CREATE TABLE public.class_optional_feature (
     replaces_invocation boolean,
     title character varying(100),
     prerequisites jsonb,
-    seed_index integer DEFAULT 0 NOT NULL
+    seed_index integer DEFAULT 0 NOT NULL,
+    ruleset public."Ruleset" DEFAULT 'RULES_2014'::public."Ruleset" NOT NULL
 );
 
 
@@ -1552,7 +1591,8 @@ ALTER SEQUENCE public.class_optional_feature_option_feature_id_seq OWNED BY publ
 
 CREATE TABLE public.class_optional_feature_replaces_feature (
     class_optional_feature_id integer NOT NULL,
-    replaced_feature_id integer NOT NULL
+    replaced_feature_id integer NOT NULL,
+    ruleset public."Ruleset" DEFAULT 'RULES_2014'::public."Ruleset" NOT NULL
 );
 
 
@@ -1576,7 +1616,8 @@ CREATE TABLE public.class_starting_equipment_option (
     weapon_count integer DEFAULT 1 NOT NULL,
     description text,
     item text,
-    seed_index integer DEFAULT 0 NOT NULL
+    seed_index integer DEFAULT 0 NOT NULL,
+    ruleset public."Ruleset" DEFAULT 'RULES_2014'::public."Ruleset" NOT NULL
 );
 
 
@@ -1637,7 +1678,8 @@ CREATE TABLE public.creature (
     lair_actions character varying,
     lair_info character varying,
     region_effects character varying,
-    xp character varying
+    xp character varying,
+    ruleset public."Ruleset" DEFAULT 'RULES_2014'::public."Ruleset" NOT NULL
 );
 
 
@@ -1669,7 +1711,8 @@ CREATE TABLE public.equipment_pack (
     equipment_pack_id integer NOT NULL,
     name public."EquipmentPackCategory" NOT NULL,
     description text NOT NULL,
-    items jsonb NOT NULL
+    items jsonb NOT NULL,
+    ruleset public."Ruleset" DEFAULT 'RULES_2014'::public."Ruleset" NOT NULL
 );
 
 
@@ -1720,7 +1763,10 @@ CREATE TABLE public.feat (
     source public."Source" DEFAULT 'PHB'::public."Source" NOT NULL,
     subrace_restriction public."Subraces"[] DEFAULT ARRAY[]::public."Subraces"[],
     updated_at timestamp(3) without time zone NOT NULL,
-    name public."Feats" NOT NULL
+    name public."Feats" NOT NULL,
+    ruleset public."Ruleset" DEFAULT 'RULES_2014'::public."Ruleset" NOT NULL,
+    category public."FeatCategory",
+    is_repeatable boolean DEFAULT false NOT NULL
 );
 
 
@@ -1731,7 +1777,8 @@ CREATE TABLE public.feat (
 CREATE TABLE public.feat_choice_option (
     option_id integer NOT NULL,
     feat_id integer NOT NULL,
-    choice_option_id integer NOT NULL
+    choice_option_id integer NOT NULL,
+    ruleset public."Ruleset" DEFAULT 'RULES_2014'::public."Ruleset" NOT NULL
 );
 
 
@@ -1820,7 +1867,8 @@ CREATE TABLE public.feature (
     armor_proficiencies public."ArmorType"[] DEFAULT ARRAY[]::public."ArmorType"[],
     weapon_proficiencies jsonb,
     weapon_proficiencies_special jsonb,
-    tool_proficiencies public."ToolCategory"[] DEFAULT ARRAY[]::public."ToolCategory"[]
+    tool_proficiencies public."ToolCategory"[] DEFAULT ARRAY[]::public."ToolCategory"[],
+    ruleset public."Ruleset" DEFAULT 'RULES_2014'::public."Ruleset" NOT NULL
 );
 
 
@@ -1852,7 +1900,8 @@ CREATE TABLE public.fighting_style (
     id integer NOT NULL,
     name text NOT NULL,
     eng_name text NOT NULL,
-    description text NOT NULL
+    description text NOT NULL,
+    ruleset public."Ruleset" DEFAULT 'RULES_2014'::public."Ruleset" NOT NULL
 );
 
 
@@ -1898,7 +1947,8 @@ CREATE TABLE public.infusion (
     replicated_magic_item_id integer,
     creates_homunculus boolean,
     feature_id integer,
-    bonus_to_ac integer
+    bonus_to_ac integer,
+    ruleset public."Ruleset" DEFAULT 'RULES_2014'::public."Ruleset" NOT NULL
 );
 
 
@@ -1940,7 +1990,8 @@ CREATE TABLE public.magic_item (
     bonus_to_ac integer,
     bonus_to_ranged_damage integer,
     bonus_to_saving_throws jsonb,
-    no_armor_or_shield_for_ac_bonus boolean
+    no_armor_or_shield_for_ac_bonus boolean,
+    ruleset public."Ruleset" DEFAULT 'RULES_2014'::public."Ruleset" NOT NULL
 );
 
 
@@ -2041,7 +2092,8 @@ CREATE TABLE public.pers (
     override_base_ac integer,
     race_static_ac_bonus integer DEFAULT 0 NOT NULL,
     folder_id integer,
-    is_pinned boolean DEFAULT false NOT NULL
+    is_pinned boolean DEFAULT false NOT NULL,
+    ruleset public."Ruleset" DEFAULT 'RULES_2014'::public."Ruleset" NOT NULL
 );
 
 
@@ -2643,7 +2695,8 @@ CREATE TABLE public.race (
     ac jsonb,
     tool_proficiencies jsonb,
     weapon_proficiencies jsonb,
-    sort_order integer DEFAULT 999 NOT NULL
+    sort_order integer DEFAULT 999 NOT NULL,
+    ruleset public."Ruleset" DEFAULT 'RULES_2014'::public."Ruleset" NOT NULL
 );
 
 
@@ -2664,7 +2717,8 @@ CREATE TABLE public.race_choice_option (
     modifies_speed integer,
     asi jsonb,
     languages public."Language"[] DEFAULT ARRAY[]::public."Language"[],
-    skill_proficiencies jsonb
+    skill_proficiencies jsonb,
+    ruleset public."Ruleset" DEFAULT 'RULES_2014'::public."Ruleset" NOT NULL
 );
 
 
@@ -2695,7 +2749,8 @@ ALTER SEQUENCE public.race_choice_option_option_id_seq OWNED BY public.race_choi
 CREATE TABLE public.race_choice_option_trait (
     race_choice_option_trait_id integer NOT NULL,
     option_id integer NOT NULL,
-    feature_id integer NOT NULL
+    feature_id integer NOT NULL,
+    ruleset public."Ruleset" DEFAULT 'RULES_2014'::public."Ruleset" NOT NULL
 );
 
 
@@ -2746,7 +2801,8 @@ ALTER SEQUENCE public.race_race_id_seq OWNED BY public.race.race_id;
 CREATE TABLE public.race_trait (
     race_trait_id integer NOT NULL,
     race_id integer NOT NULL,
-    feature_id integer NOT NULL
+    feature_id integer NOT NULL,
+    ruleset public."Ruleset" DEFAULT 'RULES_2014'::public."Ruleset" NOT NULL
 );
 
 
@@ -2782,7 +2838,8 @@ CREATE TABLE public.race_variant (
     exclusivity_group text,
     overrides_race_asi jsonb NOT NULL,
     overrides_race_speed integer,
-    overrides_flight_speed integer
+    overrides_flight_speed integer,
+    ruleset public."Ruleset" DEFAULT 'RULES_2014'::public."Ruleset" NOT NULL
 );
 
 
@@ -2813,7 +2870,8 @@ ALTER SEQUENCE public.race_variant_race_variant_id_seq OWNED BY public.race_vari
 CREATE TABLE public.race_variant_trait (
     race_variant_trait_id integer NOT NULL,
     race_variant_id integer NOT NULL,
-    feature_id integer NOT NULL
+    feature_id integer NOT NULL,
+    ruleset public."Ruleset" DEFAULT 'RULES_2014'::public."Ruleset" NOT NULL
 );
 
 
@@ -2854,7 +2912,8 @@ CREATE TABLE public.spell (
     has_concentration character varying,
     source public."Source" DEFAULT 'PHB'::public."Source" NOT NULL,
     level integer NOT NULL,
-    eng_name character varying(255) NOT NULL
+    eng_name character varying(255) NOT NULL,
+    ruleset public."Ruleset" DEFAULT 'RULES_2014'::public."Ruleset" NOT NULL
 );
 
 
@@ -2865,7 +2924,8 @@ CREATE TABLE public.spell (
 CREATE TABLE public.spell_classes (
     class_id integer NOT NULL,
     spell_id integer NOT NULL,
-    class_name character varying(255) NOT NULL
+    class_name character varying(255) NOT NULL,
+    ruleset public."Ruleset" DEFAULT 'RULES_2014'::public."Ruleset" NOT NULL
 );
 
 
@@ -2896,7 +2956,8 @@ ALTER SEQUENCE public.spell_classes_class_id_seq OWNED BY public.spell_classes.c
 CREATE TABLE public.spell_races (
     spell_id integer,
     race_id integer NOT NULL,
-    race_name character varying
+    race_name character varying,
+    ruleset public."Ruleset" DEFAULT 'RULES_2014'::public."Ruleset" NOT NULL
 );
 
 
@@ -2957,7 +3018,8 @@ CREATE TABLE public.subclass (
     spellcasting_type public."SpellcastingType" DEFAULT 'NONE'::public."SpellcastingType" NOT NULL,
     name public."Subclasses" NOT NULL,
     armor_proficiencies public."ArmorType"[] DEFAULT ARRAY[]::public."ArmorType"[],
-    weapon_proficiencies jsonb
+    weapon_proficiencies jsonb,
+    ruleset public."Ruleset" DEFAULT 'RULES_2014'::public."Ruleset" NOT NULL
 );
 
 
@@ -2969,7 +3031,8 @@ CREATE TABLE public.subclass_choice_option (
     option_id integer NOT NULL,
     subclass_id integer NOT NULL,
     choice_option_id integer NOT NULL,
-    levels_granted integer[]
+    levels_granted integer[],
+    ruleset public."Ruleset" DEFAULT 'RULES_2014'::public."Ruleset" NOT NULL
 );
 
 
@@ -3002,7 +3065,8 @@ CREATE TABLE public.subclass_feature (
     subclass_id integer NOT NULL,
     feature_id integer NOT NULL,
     level_granted integer NOT NULL,
-    grants_spell_slots boolean DEFAULT false NOT NULL
+    grants_spell_slots boolean DEFAULT false NOT NULL,
+    ruleset public."Ruleset" DEFAULT 'RULES_2014'::public."Ruleset" NOT NULL
 );
 
 
@@ -3067,7 +3131,8 @@ CREATE TABLE public.subrace (
     weapon_proficiencies jsonb,
     cantrip_to_choose_count integer DEFAULT 0 NOT NULL,
     flight_speed integer,
-    swim_speed integer
+    swim_speed integer,
+    ruleset public."Ruleset" DEFAULT 'RULES_2014'::public."Ruleset" NOT NULL
 );
 
 
@@ -3098,7 +3163,8 @@ ALTER SEQUENCE public.subrace_subrace_id_seq OWNED BY public.subrace.subrace_id;
 CREATE TABLE public.subrace_trait (
     subrace_trait_id integer NOT NULL,
     subrace_id integer NOT NULL,
-    feature_id integer NOT NULL
+    feature_id integer NOT NULL,
+    ruleset public."Ruleset" DEFAULT 'RULES_2014'::public."Ruleset" NOT NULL
 );
 
 
@@ -3171,7 +3237,9 @@ CREATE TABLE public.weapon (
     long_range integer,
     is_ranged boolean DEFAULT false NOT NULL,
     is_additional boolean DEFAULT false NOT NULL,
-    sort_order integer DEFAULT 999 NOT NULL
+    sort_order integer DEFAULT 999 NOT NULL,
+    ruleset public."Ruleset" DEFAULT 'RULES_2014'::public."Ruleset" NOT NULL,
+    mastery public."WeaponMastery"
 );
 
 
@@ -3673,6 +3741,14 @@ ALTER TABLE ONLY public.armor
 
 
 --
+-- Name: background background_name_ruleset_key; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.background
+    ADD CONSTRAINT background_name_ruleset_key UNIQUE (name, ruleset);
+
+
+--
 -- Name: background background_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -3702,6 +3778,14 @@ ALTER TABLE ONLY public.choice_option
 
 ALTER TABLE ONLY public.class_choice_option
     ADD CONSTRAINT class_choice_option_pkey PRIMARY KEY (option_id);
+
+
+--
+-- Name: class class_eng_name_ruleset_key; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.class
+    ADD CONSTRAINT class_eng_name_ruleset_key UNIQUE (eng_name, ruleset);
 
 
 --
@@ -3766,6 +3850,14 @@ ALTER TABLE ONLY public.equipment_pack
 
 ALTER TABLE ONLY public.feat_choice_option
     ADD CONSTRAINT feat_choice_option_pkey PRIMARY KEY (option_id);
+
+
+--
+-- Name: feat feat_name_ruleset_key; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.feat
+    ADD CONSTRAINT feat_name_ruleset_key UNIQUE (name, ruleset);
 
 
 --
@@ -3961,6 +4053,14 @@ ALTER TABLE ONLY public.race_choice_option_trait
 
 
 --
+-- Name: race race_name_ruleset_key; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.race
+    ADD CONSTRAINT race_name_ruleset_key UNIQUE (name, ruleset);
+
+
+--
 -- Name: race race_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -3998,6 +4098,22 @@ ALTER TABLE ONLY public.race_variant_trait
 
 ALTER TABLE ONLY public.spell_classes
     ADD CONSTRAINT spell_classes_pkey PRIMARY KEY (class_id);
+
+
+--
+-- Name: spell spell_eng_name_ruleset_key; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.spell
+    ADD CONSTRAINT spell_eng_name_ruleset_key UNIQUE (eng_name, ruleset);
+
+
+--
+-- Name: spell spell_name_ruleset_key; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.spell
+    ADD CONSTRAINT spell_name_ruleset_key UNIQUE (name, ruleset);
 
 
 --
@@ -4041,6 +4157,14 @@ ALTER TABLE ONLY public.subclass
 
 
 --
+-- Name: subrace subrace_name_ruleset_key; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.subrace
+    ADD CONSTRAINT subrace_name_ruleset_key UNIQUE (name, ruleset);
+
+
+--
 -- Name: subrace subrace_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -4057,19 +4181,19 @@ ALTER TABLE ONLY public.subrace_trait
 
 
 --
--- Name: spell unique_names; Type: CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.spell
-    ADD CONSTRAINT unique_names UNIQUE (name);
-
-
---
 -- Name: user user_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public."user"
     ADD CONSTRAINT user_pkey PRIMARY KEY (user_id);
+
+
+--
+-- Name: weapon weapon_name_ruleset_key; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.weapon
+    ADD CONSTRAINT weapon_name_ruleset_key UNIQUE (name, ruleset);
 
 
 --
@@ -4186,13 +4310,6 @@ CREATE UNIQUE INDEX armor_name_key ON public.armor USING btree (name);
 
 
 --
--- Name: background_name_key; Type: INDEX; Schema: public; Owner: -
---
-
-CREATE UNIQUE INDEX background_name_key ON public.background USING btree (name);
-
-
---
 -- Name: choice_option_option_name_eng_key; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -4204,13 +4321,6 @@ CREATE UNIQUE INDEX choice_option_option_name_eng_key ON public.choice_option US
 --
 
 CREATE UNIQUE INDEX class_choice_option_class_id_choice_option_id_key ON public.class_choice_option USING btree (class_id, choice_option_id);
-
-
---
--- Name: class_eng_name_key; Type: INDEX; Schema: public; Owner: -
---
-
-CREATE UNIQUE INDEX class_eng_name_key ON public.class USING btree (eng_name);
 
 
 --
@@ -4267,13 +4377,6 @@ CREATE UNIQUE INDEX equipment_pack_name_key ON public.equipment_pack USING btree
 --
 
 CREATE UNIQUE INDEX feat_choice_option_feat_id_choice_option_id_key ON public.feat_choice_option USING btree (feat_id, choice_option_id);
-
-
---
--- Name: feat_name_key; Type: INDEX; Schema: public; Owner: -
---
-
-CREATE UNIQUE INDEX feat_name_key ON public.feat USING btree (name);
 
 
 --
@@ -4459,24 +4562,10 @@ CREATE UNIQUE INDEX race_choice_option_race_id_subrace_id_choice_group_name_opt_
 
 
 --
--- Name: race_name_key; Type: INDEX; Schema: public; Owner: -
---
-
-CREATE UNIQUE INDEX race_name_key ON public.race USING btree (name);
-
-
---
 -- Name: race_variant_trait_race_variant_id_feature_id_key; Type: INDEX; Schema: public; Owner: -
 --
 
 CREATE UNIQUE INDEX race_variant_trait_race_variant_id_feature_id_key ON public.race_variant_trait USING btree (race_variant_id, feature_id);
-
-
---
--- Name: spell_eng_name_key; Type: INDEX; Schema: public; Owner: -
---
-
-CREATE UNIQUE INDEX spell_eng_name_key ON public.spell USING btree (eng_name);
 
 
 --
@@ -4501,13 +4590,6 @@ CREATE UNIQUE INDEX subclass_feature_subclass_id_feature_id_key ON public.subcla
 
 
 --
--- Name: subrace_name_key; Type: INDEX; Schema: public; Owner: -
---
-
-CREATE UNIQUE INDEX subrace_name_key ON public.subrace USING btree (name);
-
-
---
 -- Name: subrace_trait_subrace_id_feature_id_key; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -4519,13 +4601,6 @@ CREATE UNIQUE INDEX subrace_trait_subrace_id_feature_id_key ON public.subrace_tr
 --
 
 CREATE UNIQUE INDEX user_email_key ON public."user" USING btree (email);
-
-
---
--- Name: weapon_name_key; Type: INDEX; Schema: public; Owner: -
---
-
-CREATE UNIQUE INDEX weapon_name_key ON public.weapon USING btree (name);
 
 
 --
@@ -4742,6 +4817,14 @@ ALTER TABLE ONLY public."_SubraceReplacingFeature"
 
 ALTER TABLE ONLY public.account
     ADD CONSTRAINT account_user_id_fkey FOREIGN KEY (user_id) REFERENCES public."user"(user_id) ON UPDATE CASCADE ON DELETE CASCADE;
+
+
+--
+-- Name: background background_origin_feat_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.background
+    ADD CONSTRAINT background_origin_feat_id_fkey FOREIGN KEY (origin_feat_id) REFERENCES public.feat(feat_id);
 
 
 --

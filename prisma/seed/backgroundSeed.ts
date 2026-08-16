@@ -1,4 +1,6 @@
-import { PrismaClient, BackgroundCategory, ToolCategory, Skills, Source, Prisma, Feats } from "@prisma/client";
+import { PrismaClient, BackgroundCategory, ToolCategory, Skills, Source, Prisma, Feats, Ruleset } from "@prisma/client";
+
+const ACTIVE_RULESET: Ruleset = "RULES_2014";
 
 export const seedBackground = async (prisma: PrismaClient) => {
     console.log('Seeding backgrounds...')
@@ -734,7 +736,7 @@ export const seedBackground = async (prisma: PrismaClient) => {
             specialAbilityName: 'Історичні Знання',
             description: 'Як студент Лорхолда, ти маєш доступ до архівів коледжу та можеш досліджувати історичні записи. Інші історики та археологи визнають твою освіту. Твоє розуміння минулого дає тобі унікальний погляд на сучасні події.',
             gainsFeats: {
-                connect: [{ name: Feats.STRIXHAVEN_INITIATE_LOREHOLD }]
+                connect: [{ name_ruleset: { name: Feats.STRIXHAVEN_INITIATE_LOREHOLD, ruleset: ACTIVE_RULESET } }]
             }
         },
         {
@@ -753,7 +755,7 @@ export const seedBackground = async (prisma: PrismaClient) => {
             specialAbilityName: 'Артистична Експресія',
             description: 'Твоя освіта в Прізмарі дала тобі розуміння мистецтва та магії. Ти можеш виступати в коледжі та маєш доступ до студій та творчих просторів. Твоя здатність поєднувати магію та мистецтво створює вражаючі результати.',
             gainsFeats: {
-                connect: [{ name: Feats.STRIXHAVEN_INITIATE_PRISMARI }]
+                connect: [{ name_ruleset: { name: Feats.STRIXHAVEN_INITIATE_PRISMARI, ruleset: ACTIVE_RULESET } }]
             }
         },
         {
@@ -773,7 +775,7 @@ export const seedBackground = async (prisma: PrismaClient) => {
             specialAbilityName: 'Математична Точність',
             description: 'Твоє навчання в Квандриксі дало тобі глибоке розуміння математики та природних законів. Ти маєш доступ до наукових лабораторій та бібліотек коледжу. Твоє розуміння патернів та чисел дає тобі перевагу в аналітичних задачах.',
             gainsFeats: {
-                connect: [{ name: Feats.STRIXHAVEN_INITIATE_QUANDRIX }]
+                connect: [{ name_ruleset: { name: Feats.STRIXHAVEN_INITIATE_QUANDRIX, ruleset: ACTIVE_RULESET } }]
             }
         },
         {
@@ -792,7 +794,7 @@ export const seedBackground = async (prisma: PrismaClient) => {
             specialAbilityName: 'Риторична Майстерність',
             description: 'Як студент Срібного Пера, ти навчений мистецтву переконання та красномовства. Твої слова мають вагу, і ти маєш доступ до літературних ресурсів коледжу. Твоя здатність формулювати аргументи та впливати на інших високо цінується.',
             gainsFeats: {
-                connect: [{ name: Feats.STRIXHAVEN_INITIATE_SILVERQUILL }]
+                connect: [{ name_ruleset: { name: Feats.STRIXHAVEN_INITIATE_SILVERQUILL, ruleset: ACTIVE_RULESET } }]
             }
         },
         {
@@ -812,7 +814,7 @@ export const seedBackground = async (prisma: PrismaClient) => {
             specialAbilityName: 'Знання Життя та Смерті',
             description: 'Твоє навчання в Візерблум дало тобі розуміння життєвої сили та некромантії. Ти маєш доступ до ботанічних садів, алхімічних лабораторій та гербаріїв. Твоє розуміння балансу між життям та смертю дає тобі унікальні можливості.',
             gainsFeats: {
-                connect: [{ name: Feats.STRIXHAVEN_INITIATE_WITHERBLOOM }]
+                connect: [{ name_ruleset: { name: Feats.STRIXHAVEN_INITIATE_WITHERBLOOM, ruleset: ACTIVE_RULESET } }]
             }
         },
         {
@@ -830,7 +832,7 @@ export const seedBackground = async (prisma: PrismaClient) => {
             specialAbilityName: 'Божественне Прозріння',
             description: 'Твої подорожі астральним планом дали тобі унікальний погляд на мультивсесвіт. Час від часу ти отримуєш прозріння або видіння, які можуть вказати шлях або попередити про небезпеку. Твій досвід у астральній площині змінив твоє сприйняття реальності.',
             gainsFeats: {
-                connect: [{ name: Feats.MAGIC_INITIATE }]
+                connect: [{ name_ruleset: { name: Feats.MAGIC_INITIATE, ruleset: ACTIVE_RULESET } }]
             }
         },
         {
@@ -956,7 +958,7 @@ export const seedBackground = async (prisma: PrismaClient) => {
             specialAbilityName: 'Адаптація до Дикого Простору',
             description: 'Твої подорожі диким простором дали тобі знання про різні світи та космічні явища. Інші космічні мандрівники визнають тебе як досвідченого подорожнього та можуть поділитися інформацією.\n\n**Адаптація до Дикого Простору (Wildspace Adaptation):** Ви отримуєте рису «Здоровань». Крім того, ви навчилися пристосовуватися до нульової гравітації. Перебування в невагомості не дає вам перешкоди на кидки атак ближнього бою.',
             gainsFeats: {
-                connect: [{ name: Feats.TOUGH }]
+                connect: [{ name_ruleset: { name: Feats.TOUGH, ruleset: ACTIVE_RULESET } }]
             }
         },
         {
@@ -988,7 +990,7 @@ export const seedBackground = async (prisma: PrismaClient) => {
             specialAbilityName: 'Лицарський Кодекс',
             description: 'Як лицар Соламнії, ти зв\'язаний клятвою честі та маєш повагу серед тих, хто знає про лицарів. Інші лицарі та ті, хто поважає закон, надають тобі допомогу та підтримку. Твоя відданість честі та справедливості визначає твої дії.',
             gainsFeats: {
-                connect: [{ name: Feats.SQUIRE_OF_SOLAMNIA }]
+                connect: [{ name_ruleset: { name: Feats.SQUIRE_OF_SOLAMNIA, ruleset: ACTIVE_RULESET } }]
             }
         },
         {
@@ -1005,7 +1007,7 @@ export const seedBackground = async (prisma: PrismaClient) => {
             specialAbilityName: 'Високе Чаклунство',
             description: 'Твоє навчання в Ордені Високого Чаклунства дало тобі глибоке розуміння магії. Ти маєш доступ до бібліотек та ресурсів ордену, а інші чарівники визнають твою освіту. Твоє розуміння архіканних мистецтв виділяє тебе серед звичайних чарівників. \n\n **Надає рису** "Посвячений у Високе Чародійство"',
             gainsFeats: {
-                connect: [{ name: Feats.INITIATE_OF_HIGH_SORCERY }]
+                connect: [{ name_ruleset: { name: Feats.INITIATE_OF_HIGH_SORCERY, ruleset: ACTIVE_RULESET } }]
             }
         },
         {
@@ -1271,9 +1273,9 @@ export const seedBackground = async (prisma: PrismaClient) => {
             description: 'Незалежно від обставин, ви залишили щоденні злидні свого колишнього життя позаду на користь життя, сповненого пригод та азарту. Ваші колишні борги сплачено, обов’язки, які ви вважали неминучими, залишилися в минулому, або ви раптом опанували рідкісні та незвичайні навички, невідомі звичайним людям.\n\n**Прихильність Удачі (Fortune’s Favor):** Ви отримуєте одну з наступних рис на свій вибір: Щасливчик, Умілець або Посвячений у магію.',
             gainsFeats: {
                 connect: [
-                    { name: Feats.LUCKY },
-                    { name: Feats.SKILLED },
-                    { name: Feats.MAGIC_INITIATE }
+                    { name_ruleset: { name: Feats.LUCKY, ruleset: ACTIVE_RULESET } },
+                    { name_ruleset: { name: Feats.SKILLED, ruleset: ACTIVE_RULESET } },
+                    { name_ruleset: { name: Feats.MAGIC_INITIATE, ruleset: ACTIVE_RULESET } }
                 ]
             }
         },
@@ -1296,9 +1298,9 @@ export const seedBackground = async (prisma: PrismaClient) => {
             description: 'Все йшло так добре! Ви жили в розкоші, любові та комфорті, коли раптом втратили все. Можливо, вас підставили за злочини, яких ви не вчиняли, і ви втратили свою репутацію, статки та кар’єру.\n\n**Вцілілий (Still Standing):** Ви отримуєте одну з наступних рис на свій вибір: Пильний, Умілець або Здоровань.',
             gainsFeats: {
                 connect: [
-                    { name: Feats.SKILLED },
-                    { name: Feats.TOUGH },
-                    { name: Feats.ALERT }
+                    { name_ruleset: { name: Feats.SKILLED, ruleset: ACTIVE_RULESET } },
+                    { name_ruleset: { name: Feats.TOUGH, ruleset: ACTIVE_RULESET } },
+                    { name_ruleset: { name: Feats.ALERT, ruleset: ACTIVE_RULESET } }
                 ]
             }
         },
@@ -1316,7 +1318,7 @@ export const seedBackground = async (prisma: PrismaClient) => {
             specialAbilityName: 'Удар Велетнів',
             description: 'Щось у вашому оточенні — можливо, їжа чи вода, яка вас підтримувала, стихійна магія, властива місцю вашого дому, або якесь зелене благословення росту, накладене на вас — спричинило те, що ви виросли до вражаючих розмірів для свого роду.\n\n**Удар Велетнів (Strike of the Giants):** Ви отримуєте рису «Удар Велетнів».',
             gainsFeats: {
-                connect: [{ name: Feats.STRIKE_OF_THE_GIANTS }]
+                connect: [{ name_ruleset: { name: Feats.STRIKE_OF_THE_GIANTS, ruleset: ACTIVE_RULESET } }]
             }
         },
         {
@@ -1335,7 +1337,7 @@ export const seedBackground = async (prisma: PrismaClient) => {
             specialAbilityName: 'Різьбяр Рун',
             description: 'Кожен різьбяр рун має свій унікальний стиль і улюблений матеріал. Наукові пошуки, стародавні таємниці або фатальна зустріч можуть надихнути персонажа піти шляхом таємниць різьбяра рун.\n\n**Різьбяр Рун (Rune Shaper):** Ви отримуєте рису «Різьбяр Рун».',
             gainsFeats: {
-                connect: [{ name: Feats.RUNE_SHAPER }]
+                connect: [{ name_ruleset: { name: Feats.RUNE_SHAPER, ruleset: ACTIVE_RULESET } }]
             }
         },
         {
@@ -1354,7 +1356,7 @@ export const seedBackground = async (prisma: PrismaClient) => {
             specialAbilityName: 'Планарне Вливання',
             description: 'Ви провели значну кількість часу в місці, що перебуває під впливом потужних планарних сил або порталу до іншого плану існування. Ви звикли до досвіду, який змусив би інших здригатися від жаху або бути зачарованими потойбічною красою.\n\n**Планарне Вливання (Planar Infusion):** Ви отримуєте рису «Нащадок Зовнішніх Планів».',
             gainsFeats: {
-                connect: [{ name: Feats.SCION_OF_THE_OUTER_PLANES }]
+                connect: [{ name_ruleset: { name: Feats.SCION_OF_THE_OUTER_PLANES, ruleset: ACTIVE_RULESET } }]
             }
         },
         {
@@ -1371,7 +1373,7 @@ export const seedBackground = async (prisma: PrismaClient) => {
             specialAbilityName: 'Переконання',
             description: 'Ви притримуєтеся філософії, яка прагне зрозуміти природу планів або певну приховану істину мультивсесвіту. Ви черпаєте силу зі своїх переконань і, можливо, з мережі однодумців.\n\n**Переконання (Conviction):** Ви отримуєте рису «Нащадок Зовнішніх Планів».',
             gainsFeats: {
-                connect: [{ name: Feats.SCION_OF_THE_OUTER_PLANES }]
+                connect: [{ name_ruleset: { name: Feats.SCION_OF_THE_OUTER_PLANES, ruleset: ACTIVE_RULESET } }]
             }
         },
         {
@@ -1390,7 +1392,7 @@ export const seedBackground = async (prisma: PrismaClient) => {
     for (const backgroundData of backgrounds) {
         const { gainsFeats, ...rest } = backgroundData as any;
         await (prisma.background as any).upsert({
-            where: { name: rest.name },
+            where: { name_ruleset: { name: rest.name, ruleset: ACTIVE_RULESET } },
             update: {
                 ...rest,
                 gainsFeats: (gainsFeats as any)?.connect ? {

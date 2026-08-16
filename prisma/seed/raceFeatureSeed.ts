@@ -3,11 +3,14 @@ import {
   FeatureDisplayType,
   RestType,
   Prisma,
+  Ruleset,
 } from "@prisma/client";
 import {
   normalizeFeatureCreateInput,
   type SeedFeatureCreateInput,
 } from "./helpers/featureDisplayType";
+
+const ACTIVE_RULESET: Ruleset = "RULES_2014";
 
 export const seedRaceFeatures = async (prisma: PrismaClient) => {
   console.log("🌟 Додаємо базові расові фічі...");
@@ -284,9 +287,9 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
       limitedUsesPer: RestType.LONG_REST,
       givesSpells: {
         connect: [
-          { engName: "Thaumaturgy" },
-          { engName: "Hellish Rebuke" },
-          { engName: "Darkness" },
+          { engName_ruleset: { engName: "Thaumaturgy", ruleset: ACTIVE_RULESET } },
+          { engName_ruleset: { engName: "Hellish Rebuke", ruleset: ACTIVE_RULESET } },
+          { engName_ruleset: { engName: "Darkness", ruleset: ACTIVE_RULESET } },
         ],
       },
     },
@@ -399,7 +402,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
       limitedUsesPer: RestType.LONG_REST,
       usesCount: 1,
       givesSpells: {
-        connect: [{ engName: "Gust of Wind" }],
+        connect: [{ engName_ruleset: { engName: "Gust of Wind", ruleset: ACTIVE_RULESET } }],
       },
     },
 
@@ -421,7 +424,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
       shortDescription: "замовляння Світло [Light]",
       displayType: [FeatureDisplayType.PASSIVE],
       givesSpells: {
-        connect: [{ engName: "Light" }],
+        connect: [{ engName_ruleset: { engName: "Light", ruleset: ACTIVE_RULESET } }],
       },
     },
 
@@ -522,7 +525,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
       displayType: [FeatureDisplayType.PASSIVE],
       limitedUsesPer: RestType.LONG_REST,
       givesSpells: {
-        connect: [{ engName: "Disguise Self" }, { engName: "Nondetection" }],
+        connect: [{ engName_ruleset: { engName: "Disguise Self", ruleset: ACTIVE_RULESET } }, { engName_ruleset: { engName: "Nondetection", ruleset: ACTIVE_RULESET } }],
       },
     },
     {
@@ -565,7 +568,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
       displayType: [FeatureDisplayType.PASSIVE],
       limitedUsesPer: RestType.LONG_REST,
       givesSpells: {
-        connect: [{ engName: "Enlarge/Reduce" }, { engName: "Invisibility" }],
+        connect: [{ engName_ruleset: { engName: "Enlarge/Reduce", ruleset: ACTIVE_RULESET } }, { engName_ruleset: { engName: "Invisibility", ruleset: ACTIVE_RULESET } }],
       },
     },
     {
@@ -601,9 +604,9 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
       limitedUsesPer: RestType.LONG_REST,
       givesSpells: {
         connect: [
-          { engName: "Druidcraft" },
-          { engName: "Faerie Fire" },
-          { engName: "Enlarge/Reduce" },
+          { engName_ruleset: { engName: "Druidcraft", ruleset: ACTIVE_RULESET } },
+          { engName_ruleset: { engName: "Faerie Fire", ruleset: ACTIVE_RULESET } },
+          { engName_ruleset: { engName: "Enlarge/Reduce", ruleset: ACTIVE_RULESET } },
         ],
       },
     },
@@ -637,7 +640,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
       displayType: [FeatureDisplayType.PASSIVE],
       limitedUsesPer: RestType.LONG_REST,
       givesSpells: {
-        connect: [{ engName: "Detect Magic" }, { engName: "Disguise Self" }],
+        connect: [{ engName_ruleset: { engName: "Detect Magic", ruleset: ACTIVE_RULESET } }, { engName_ruleset: { engName: "Disguise Self", ruleset: ACTIVE_RULESET } }],
       },
     },
     {
@@ -662,9 +665,9 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
       limitedUsesPer: RestType.LONG_REST,
       givesSpells: {
         connect: [
-          { engName: "Shocking Grasp" },
-          { engName: "Feather Fall" },
-          { engName: "Levitate" },
+          { engName_ruleset: { engName: "Shocking Grasp", ruleset: ACTIVE_RULESET } },
+          { engName_ruleset: { engName: "Feather Fall", ruleset: ACTIVE_RULESET } },
+          { engName_ruleset: { engName: "Levitate", ruleset: ACTIVE_RULESET } },
         ],
       },
     },
@@ -696,7 +699,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
       limitedUsesPer: RestType.LONG_REST,
       usesCountDependsOnProficiencyBonus: true, // Додаємо ✅
       givesSpells: {
-        connect: [{ engName: "Blade Ward" }, { engName: "Pass without Trace" }],
+        connect: [{ engName_ruleset: { engName: "Blade Ward", ruleset: ACTIVE_RULESET } }, { engName_ruleset: { engName: "Pass without Trace", ruleset: ACTIVE_RULESET } }],
       },
     },
     {
@@ -720,9 +723,9 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
       limitedUsesPer: RestType.LONG_REST,
       givesSpells: {
         connect: [
-          { engName: "Produce Flame" },
-          { engName: "Burning Hands" },
-          { engName: "Flaming Sphere" },
+          { engName_ruleset: { engName: "Produce Flame", ruleset: ACTIVE_RULESET } },
+          { engName_ruleset: { engName: "Burning Hands", ruleset: ACTIVE_RULESET } },
+          { engName_ruleset: { engName: "Flaming Sphere", ruleset: ACTIVE_RULESET } },
         ],
       },
     },
@@ -739,9 +742,9 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
       limitedUsesPer: RestType.LONG_REST,
       givesSpells: {
         connect: [
-          { engName: "Shape Water" },
-          { engName: "Create or Destroy Water" },
-          { engName: "Water Breathing" },
+          { engName_ruleset: { engName: "Shape Water", ruleset: ACTIVE_RULESET } },
+          { engName_ruleset: { engName: "Create or Destroy Water", ruleset: ACTIVE_RULESET } },
+          { engName_ruleset: { engName: "Water Breathing", ruleset: ACTIVE_RULESET } },
         ],
       },
     },
@@ -772,9 +775,9 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
       limitedUsesPer: RestType.LONG_REST,
       givesSpells: {
         connect: [
-          { engName: "Mage Hand" },
-          { engName: "Jump" },
-          { engName: "Misty Step" },
+          { engName_ruleset: { engName: "Mage Hand", ruleset: ACTIVE_RULESET } },
+          { engName_ruleset: { engName: "Jump", ruleset: ACTIVE_RULESET } },
+          { engName_ruleset: { engName: "Misty Step", ruleset: ACTIVE_RULESET } },
         ],
       },
     },
@@ -806,9 +809,9 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
       limitedUsesPer: RestType.LONG_REST,
       givesSpells: {
         connect: [
-          { engName: "Mage Hand" },
-          { engName: "Shield" },
-          { engName: "Detect Thoughts" },
+          { engName_ruleset: { engName: "Mage Hand", ruleset: ACTIVE_RULESET } },
+          { engName_ruleset: { engName: "Shield", ruleset: ACTIVE_RULESET } },
+          { engName_ruleset: { engName: "Detect Thoughts", ruleset: ACTIVE_RULESET } },
         ],
       },
     },
@@ -1221,9 +1224,9 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
       limitedUsesPer: RestType.LONG_REST,
       givesSpells: {
         connect: [
-          { engName: "Fog Cloud" },
-          { engName: "Gust of Wind" },
-          { engName: "Water Walk" },
+          { engName_ruleset: { engName: "Fog Cloud", ruleset: ACTIVE_RULESET } },
+          { engName_ruleset: { engName: "Gust of Wind", ruleset: ACTIVE_RULESET } },
+          { engName_ruleset: { engName: "Water Walk", ruleset: ACTIVE_RULESET } },
         ],
       },
     },
@@ -1266,9 +1269,9 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
       usesCount: 1,
       givesSpells: {
         connect: [
-          { engName: "Poison Spray" },
-          { engName: "Animal Friendship" },
-          { engName: "Suggestion" },
+          { engName_ruleset: { engName: "Poison Spray", ruleset: ACTIVE_RULESET } },
+          { engName_ruleset: { engName: "Animal Friendship", ruleset: ACTIVE_RULESET } },
+          { engName_ruleset: { engName: "Suggestion", ruleset: ACTIVE_RULESET } },
         ],
       },
     },
@@ -1856,7 +1859,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
       displayType: [FeatureDisplayType.PASSIVE],
       limitedUsesPer: RestType.LONG_REST,
       givesSpells: {
-        connect: [{ engName: "Disguise Self" }, { engName: "Hex" }],
+        connect: [{ engName_ruleset: { engName: "Disguise Self", ruleset: ACTIVE_RULESET } }, { engName_ruleset: { engName: "Hex", ruleset: ACTIVE_RULESET } }],
       },
     },
 
@@ -1905,9 +1908,9 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
       limitedUsesPer: RestType.LONG_REST,
       givesSpells: {
         connect: [
-          { engName: "Thaumaturgy" },
-          { engName: "Hellish Rebuke" },
-          { engName: "Darkness" },
+          { engName_ruleset: { engName: "Thaumaturgy", ruleset: ACTIVE_RULESET } },
+          { engName_ruleset: { engName: "Hellish Rebuke", ruleset: ACTIVE_RULESET } },
+          { engName_ruleset: { engName: "Darkness", ruleset: ACTIVE_RULESET } },
         ],
       },
     },
@@ -1924,9 +1927,9 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
       limitedUsesPer: RestType.LONG_REST,
       givesSpells: {
         connect: [
-          { engName: "Thaumaturgy" },
-          { engName: "Ray of Sickness" },
-          { engName: "Crown of Madness" },
+          { engName_ruleset: { engName: "Thaumaturgy", ruleset: ACTIVE_RULESET } },
+          { engName_ruleset: { engName: "Ray of Sickness", ruleset: ACTIVE_RULESET } },
+          { engName_ruleset: { engName: "Crown of Madness", ruleset: ACTIVE_RULESET } },
         ],
       },
     },
@@ -1942,9 +1945,9 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
       limitedUsesPer: RestType.LONG_REST,
       givesSpells: {
         connect: [
-          { engName: "Thaumaturgy" },
-          { engName: "Disguise Self" },
-          { engName: "Detect Thoughts" },
+          { engName_ruleset: { engName: "Thaumaturgy", ruleset: ACTIVE_RULESET } },
+          { engName_ruleset: { engName: "Disguise Self", ruleset: ACTIVE_RULESET } },
+          { engName_ruleset: { engName: "Detect Thoughts", ruleset: ACTIVE_RULESET } },
         ],
       },
     },
@@ -1960,9 +1963,9 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
       limitedUsesPer: RestType.LONG_REST,
       givesSpells: {
         connect: [
-          { engName: "Friends" },
-          { engName: "Charm Person" },
-          { engName: "Suggestion" },
+          { engName_ruleset: { engName: "Friends", ruleset: ACTIVE_RULESET } },
+          { engName_ruleset: { engName: "Charm Person", ruleset: ACTIVE_RULESET } },
+          { engName_ruleset: { engName: "Suggestion", ruleset: ACTIVE_RULESET } },
         ],
       },
     },
@@ -1978,9 +1981,9 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
       limitedUsesPer: RestType.LONG_REST,
       givesSpells: {
         connect: [
-          { engName: "Minor Illusion" },
-          { engName: "Disguise Self" },
-          { engName: "Invisibility" },
+          { engName_ruleset: { engName: "Minor Illusion", ruleset: ACTIVE_RULESET } },
+          { engName_ruleset: { engName: "Disguise Self", ruleset: ACTIVE_RULESET } },
+          { engName_ruleset: { engName: "Invisibility", ruleset: ACTIVE_RULESET } },
         ],
       },
     },
@@ -1996,9 +1999,9 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
       limitedUsesPer: RestType.LONG_REST,
       givesSpells: {
         connect: [
-          { engName: "Ray of Frost" },
-          { engName: "Armor of Agathys" },
-          { engName: "Darkness" },
+          { engName_ruleset: { engName: "Ray of Frost", ruleset: ACTIVE_RULESET } },
+          { engName_ruleset: { engName: "Armor of Agathys", ruleset: ACTIVE_RULESET } },
+          { engName_ruleset: { engName: "Darkness", ruleset: ACTIVE_RULESET } },
         ],
       },
     },
@@ -2015,9 +2018,9 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
       limitedUsesPer: RestType.LONG_REST,
       givesSpells: {
         connect: [
-          { engName: "Mage Hand" },
-          { engName: "Tenser's Floating Disk" },
-          { engName: "Arcane Lock" },
+          { engName_ruleset: { engName: "Mage Hand", ruleset: ACTIVE_RULESET } },
+          { engName_ruleset: { engName: "Tenser's Floating Disk", ruleset: ACTIVE_RULESET } },
+          { engName_ruleset: { engName: "Arcane Lock", ruleset: ACTIVE_RULESET } },
         ],
       },
     },
@@ -2033,9 +2036,9 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
       limitedUsesPer: RestType.LONG_REST,
       givesSpells: {
         connect: [
-          { engName: "Mage Hand" },
-          { engName: "Burning Hands" },
-          { engName: "Flame Blade" },
+          { engName_ruleset: { engName: "Mage Hand", ruleset: ACTIVE_RULESET } },
+          { engName_ruleset: { engName: "Burning Hands", ruleset: ACTIVE_RULESET } },
+          { engName_ruleset: { engName: "Flame Blade", ruleset: ACTIVE_RULESET } },
         ],
       },
     },
@@ -2051,9 +2054,9 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
       limitedUsesPer: RestType.LONG_REST,
       givesSpells: {
         connect: [
-          { engName: "Thaumaturgy" },
-          { engName: "Searing Smite" },
-          { engName: "Branding Smite" },
+          { engName_ruleset: { engName: "Thaumaturgy", ruleset: ACTIVE_RULESET } },
+          { engName_ruleset: { engName: "Searing Smite", ruleset: ACTIVE_RULESET } },
+          { engName_ruleset: { engName: "Branding Smite", ruleset: ACTIVE_RULESET } },
         ],
       },
     },
@@ -2072,9 +2075,9 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
       limitedUsesPer: RestType.LONG_REST,
       givesSpells: {
         connect: [
-          { engName: "Vicious Mockery" },
-          { engName: "Charm Person" },
-          { engName: "Enthrall" },
+          { engName_ruleset: { engName: "Vicious Mockery", ruleset: ACTIVE_RULESET } },
+          { engName_ruleset: { engName: "Charm Person", ruleset: ACTIVE_RULESET } },
+          { engName_ruleset: { engName: "Enthrall", ruleset: ACTIVE_RULESET } },
         ],
       },
     },
@@ -2090,9 +2093,9 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
       limitedUsesPer: RestType.LONG_REST,
       givesSpells: {
         connect: [
-          { engName: "Thaumaturgy" },
-          { engName: "Burning Hands" },
-          { engName: "Darkness" },
+          { engName_ruleset: { engName: "Thaumaturgy", ruleset: ACTIVE_RULESET } },
+          { engName_ruleset: { engName: "Burning Hands", ruleset: ACTIVE_RULESET } },
+          { engName_ruleset: { engName: "Darkness", ruleset: ACTIVE_RULESET } },
         ],
       },
     },

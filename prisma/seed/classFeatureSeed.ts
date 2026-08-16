@@ -5,12 +5,15 @@ import {
   Prisma,
   PrismaClient,
   RestType,
+  Ruleset,
   Skills,
 } from "@prisma/client";
 import {
   normalizeFeatureCreateInput,
   type SeedFeatureCreateInput,
 } from "./helpers/featureDisplayType";
+
+const ACTIVE_RULESET: Ruleset = "RULES_2014";
 
 export const seedClassFeatures = async (prisma: PrismaClient) => {
   console.log("🌟 Додаємо класові фічі...");
@@ -641,7 +644,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
       usesPoolKey: "KI",
       usePrice: 8,
       givesSpells: {
-        connect: { engName: "Astral Projection" },
+        connect: { engName_ruleset: { engName: "Astral Projection", ruleset: ACTIVE_RULESET } },
       },
     },
 
@@ -822,11 +825,11 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
       limitedUsesPer: RestType.LONG_REST,
       givesSpells: {
         connect: [
-          { engName: "Speak with Animals" },
-          { engName: "Beast Sense" },
-          { engName: "Speak with Plants" },
-          { engName: "Locate Creature" },
-          { engName: "Commune with Nature" },
+          { engName_ruleset: { engName: "Speak with Animals", ruleset: ACTIVE_RULESET } },
+          { engName_ruleset: { engName: "Beast Sense", ruleset: ACTIVE_RULESET } },
+          { engName_ruleset: { engName: "Speak with Plants", ruleset: ACTIVE_RULESET } },
+          { engName_ruleset: { engName: "Locate Creature", ruleset: ACTIVE_RULESET } },
+          { engName_ruleset: { engName: "Commune with Nature", ruleset: ACTIVE_RULESET } },
         ],
       },
     },
@@ -1308,7 +1311,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
         'Отримай <a href="/spell/1319">Пошук фамільяра [Find Familiar]</a> з особливими формами та атакою реакцією',
       displayType: [FeatureDisplayType.PASSIVE],
       givesSpells: {
-        connect: [{ engName: "Find Familiar" }],
+        connect: [{ engName_ruleset: { engName: "Find Familiar", ruleset: ACTIVE_RULESET } }],
       },
     },
 
@@ -1355,7 +1358,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
         '<a href="/spell/1326">Обладунок мага [Mage Armor]</a> необмежено без слотів',
       displayType: [FeatureDisplayType.PASSIVE],
       givesSpells: {
-        connect: [{ engName: "Mage Armor" }],
+        connect: [{ engName_ruleset: { engName: "Mage Armor", ruleset: ACTIVE_RULESET } }],
       },
     },
 
@@ -1368,7 +1371,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
       shortDescription: "Левітація [Levitate] необмежено на себе",
       displayType: [FeatureDisplayType.PASSIVE],
       givesSpells: {
-        connect: [{ engName: "Levitate" }],
+        connect: [{ engName_ruleset: { engName: "Levitate", ruleset: ACTIVE_RULESET } }],
       },
     },
 
@@ -1393,7 +1396,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
       shortDescription: "Розмова з тваринами [Speak with Animals] необмежено",
       displayType: [FeatureDisplayType.PASSIVE, FeatureDisplayType.ACTION],
       givesSpells: {
-        connect: [{ engName: "Speak with Animals" }],
+        connect: [{ engName_ruleset: { engName: "Speak with Animals", ruleset: ACTIVE_RULESET } }],
       },
     },
 
@@ -1417,7 +1420,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
         '<a href="/spell/1045">Виявлення магії [Detect Magic]</a> необмежено',
       displayType: [FeatureDisplayType.PASSIVE, FeatureDisplayType.ACTION],
       givesSpells: {
-        connect: [{ engName: "Detect Magic" }],
+        connect: [{ engName_ruleset: { engName: "Detect Magic", ruleset: ACTIVE_RULESET } }],
       },
     },
 
@@ -1472,7 +1475,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
         '<a href="/spell/1332">Маскування [Disguise Self]</a> необмежено',
       displayType: [FeatureDisplayType.PASSIVE, FeatureDisplayType.ACTION],
       givesSpells: {
-        connect: [{ engName: "Disguise Self" }],
+        connect: [{ engName_ruleset: { engName: "Disguise Self", ruleset: ACTIVE_RULESET } }],
       },
     },
 
@@ -1486,7 +1489,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
         '<a href="/spell/1330">Мовчазний образ [Silent Image]</a> необмежено',
       displayType: [FeatureDisplayType.PASSIVE, FeatureDisplayType.ACTION],
       givesSpells: {
-        connect: [{ engName: "Silent Image" }],
+        connect: [{ engName_ruleset: { engName: "Silent Image", ruleset: ACTIVE_RULESET } }],
       },
     },
 
@@ -1513,7 +1516,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
       limitedUsesPer: RestType.LONG_REST,
       usesCount: 1,
       givesSpells: {
-        connect: [{ engName: "Polymorph" }],
+        connect: [{ engName_ruleset: { engName: "Polymorph", ruleset: ACTIVE_RULESET } }],
       },
     },
 
@@ -1529,7 +1532,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
       limitedUsesPer: RestType.LONG_REST,
       usesCount: 1,
       givesSpells: {
-        connect: [{ engName: "Bestow Curse" }],
+        connect: [{ engName_ruleset: { engName: "Bestow Curse", ruleset: ACTIVE_RULESET } }],
       },
     },
 
@@ -1553,7 +1556,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
         '<a href="/spell/1205">Арканне око [Arcane Eye]</a> необмежено',
       displayType: [FeatureDisplayType.PASSIVE, FeatureDisplayType.ACTION],
       givesSpells: {
-        connect: [{ engName: "Arcane Eye" }],
+        connect: [{ engName_ruleset: { engName: "Arcane Eye", ruleset: ACTIVE_RULESET } }],
       },
     },
 
@@ -1577,7 +1580,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
         '<a href="/spell/1215">Розмова з мертвими [Speak with Dead]</a> необмежено',
       displayType: [FeatureDisplayType.PASSIVE, FeatureDisplayType.ACTION],
       givesSpells: {
-        connect: [{ engName: "Speak with Dead" }],
+        connect: [{ engName_ruleset: { engName: "Speak with Dead", ruleset: ACTIVE_RULESET } }],
       },
     },
 
@@ -1602,7 +1605,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
         '<a href="/spell/1307">Стрибок [Jump]</a> необмежено на себе',
       displayType: [FeatureDisplayType.PASSIVE, FeatureDisplayType.ACTION],
       givesSpells: {
-        connect: [{ engName: "Jump" }],
+        connect: [{ engName_ruleset: { engName: "Jump", ruleset: ACTIVE_RULESET } }],
       },
     },
 
@@ -1618,7 +1621,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
       limitedUsesPer: RestType.LONG_REST,
       usesCount: 1,
       givesSpells: {
-        connect: [{ engName: "Water Breathing" }],
+        connect: [{ engName_ruleset: { engName: "Water Breathing", ruleset: ACTIVE_RULESET } }],
       },
     },
 
@@ -1664,7 +1667,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
         '<a href="/spell/1304">Удаване життя [False Life]</a> необмежено на себе',
       displayType: [FeatureDisplayType.PASSIVE],
       givesSpells: {
-        connect: [{ engName: "False Life" }],
+        connect: [{ engName_ruleset: { engName: "False Life", ruleset: ACTIVE_RULESET } }],
       },
     },
 
@@ -1700,7 +1703,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
         '<a href="/spell/1276">Невидимість [Invisibility]</a> необмежено на себе',
       displayType: [FeatureDisplayType.PASSIVE, FeatureDisplayType.ACTION],
       givesSpells: {
-        connect: [{ engName: "Invisibility" }],
+        connect: [{ engName_ruleset: { engName: "Invisibility", ruleset: ACTIVE_RULESET } }],
       },
     },
 
@@ -1714,7 +1717,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
         '<a href="/spell/1288">Зміна вигляду [Alter Self]</a> необмежено',
       displayType: [FeatureDisplayType.PASSIVE, FeatureDisplayType.ACTION],
       givesSpells: {
-        connect: [{ engName: "Alter Self" }],
+        connect: [{ engName_ruleset: { engName: "Alter Self", ruleset: ACTIVE_RULESET } }],
       },
     },
 
@@ -1750,7 +1753,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
       limitedUsesPer: RestType.LONG_REST,
       usesCount: 1,
       givesSpells: {
-        connect: [{ engName: "Conjure Elemental" }],
+        connect: [{ engName_ruleset: { engName: "Conjure Elemental", ruleset: ACTIVE_RULESET } }],
       },
     },
 
@@ -1774,7 +1777,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
         '<a href="/spell/1143">Стримування монстра [Hold Monster]</a> необмежено на небожителів/нечисть/елементалів',
       displayType: [FeatureDisplayType.PASSIVE, FeatureDisplayType.ACTION],
       givesSpells: {
-        connect: [{ engName: "Hold Monster" }],
+        connect: [{ engName_ruleset: { engName: "Hold Monster", ruleset: ACTIVE_RULESET } }],
       },
     },
 
@@ -1803,7 +1806,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
       limitedUsesPer: RestType.LONG_REST,
       usesCount: 1,
       givesSpells: {
-        connect: [{ engName: "Freedom of Movement" }],
+        connect: [{ engName_ruleset: { engName: "Freedom of Movement", ruleset: ACTIVE_RULESET } }],
       },
     },
 
@@ -1819,7 +1822,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
       limitedUsesPer: RestType.LONG_REST,
       usesCount: 1,
       givesSpells: {
-        connect: [{ engName: "Compulsion" }],
+        connect: [{ engName_ruleset: { engName: "Compulsion", ruleset: ACTIVE_RULESET } }],
       },
     },
 
@@ -1835,7 +1838,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
       limitedUsesPer: RestType.LONG_REST,
       usesCount: 1,
       givesSpells: {
-        connect: [{ engName: "Confusion" }],
+        connect: [{ engName_ruleset: { engName: "Confusion", ruleset: ACTIVE_RULESET } }],
       },
     },
 
@@ -1851,7 +1854,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
       limitedUsesPer: RestType.LONG_REST,
       usesCount: 1,
       givesSpells: {
-        connect: [{ engName: "Slow" }],
+        connect: [{ engName_ruleset: { engName: "Slow", ruleset: ACTIVE_RULESET } }],
       },
     },
 
@@ -1867,7 +1870,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
       limitedUsesPer: RestType.LONG_REST,
       usesCount: 1,
       givesSpells: {
-        connect: [{ engName: "Bane" }],
+        connect: [{ engName_ruleset: { engName: "Bane", ruleset: ACTIVE_RULESET } }],
       },
     },
 
@@ -1938,7 +1941,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
         'Істоти підписують Книгу Тіней → <a href="/spell/1220">Послання [Sending]</a> без слотів',
       displayType: [FeatureDisplayType.PASSIVE],
       givesSpells: {
-        connect: [{ engName: "Sending" }],
+        connect: [{ engName_ruleset: { engName: "Sending", ruleset: ACTIVE_RULESET } }],
       },
     },
 
@@ -1976,7 +1979,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
       limitedUsesPer: RestType.LONG_REST,
       usesCount: 1,
       givesSpells: {
-        connect: [{ engName: "Animate Dead" }],
+        connect: [{ engName_ruleset: { engName: "Animate Dead", ruleset: ACTIVE_RULESET } }],
       },
     },
 

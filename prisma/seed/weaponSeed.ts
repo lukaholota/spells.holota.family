@@ -1,4 +1,6 @@
-import { PrismaClient, DamageType, Prisma, WeaponCategory, WeaponProperty, WeaponType } from "@prisma/client";
+import { PrismaClient, DamageType, Prisma, Ruleset, WeaponCategory, WeaponProperty, WeaponType } from "@prisma/client";
+
+const ACTIVE_RULESET: Ruleset = "RULES_2014";
 
 export const seedWeapons = async (prisma: PrismaClient) => {
     console.log('Seeding weapons...')
@@ -476,7 +478,7 @@ export const seedWeapons = async (prisma: PrismaClient) => {
 
     for (const weapon of weapons) {
         await prisma.weapon.upsert({
-            where: { name: weapon.name },
+            where: { name_ruleset: { name: weapon.name, ruleset: ACTIVE_RULESET } },
             update: weapon,
             create: weapon
         })

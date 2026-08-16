@@ -1,5 +1,7 @@
-import { Classes, Prisma, PrismaClient } from "@prisma/client";
+import { Classes, Prisma, PrismaClient, Ruleset } from "@prisma/client";
 import ClassOptionalFeatureCreateInput = Prisma.ClassOptionalFeatureCreateInput;
+
+const ACTIVE_RULESET: Ruleset = "RULES_2014";
 
 export const seedClassOptionalFeatures = async (prisma: PrismaClient) => {
     console.log('🌟 Додаємо необов\'язкові класові фічі...')
@@ -11,7 +13,7 @@ export const seedClassOptionalFeatures = async (prisma: PrismaClient) => {
             grantedOnLevels: [4, 6, 8, 12, 14, 16, 19],
             replacesFightingStyle: true,
 
-            class: { connect: { name: Classes.FIGHTER_2014 } }
+            class: { connect: { name_ruleset: { name: Classes.FIGHTER_2014, ruleset: ACTIVE_RULESET } } }
         },
         {
             title: 'Замінити маневр?',
@@ -23,7 +25,7 @@ export const seedClassOptionalFeatures = async (prisma: PrismaClient) => {
                 subclass: 'BATTLE_MASTER'
             },
 
-            class: { connect: { name: Classes.FIGHTER_2014 } }
+            class: { connect: { name_ruleset: { name: Classes.FIGHTER_2014, ruleset: ACTIVE_RULESET } } }
         },
         // Barbarian - Primal Knowledge
         {
@@ -31,13 +33,13 @@ export const seedClassOptionalFeatures = async (prisma: PrismaClient) => {
 
             feature: { connect: { engName: "Primal Knowledge" } },
             grantedOnLevels: [3, 10],
-            class: { connect: { name: Classes.BARBARIAN_2014 } }
+            class: { connect: { name_ruleset: { name: Classes.BARBARIAN_2014, ruleset: ACTIVE_RULESET } } }
         },
         // Barbarian - Instinctive Pounce
         {
             feature: { connect: { engName: "Instinctive Pounce" } },
             grantedOnLevels: [7],
-            class: { connect: { name: Classes.BARBARIAN_2014 } }
+            class: { connect: { name_ruleset: { name: Classes.BARBARIAN_2014, ruleset: ACTIVE_RULESET } } }
         },
 
 
@@ -45,23 +47,23 @@ export const seedClassOptionalFeatures = async (prisma: PrismaClient) => {
         {
             feature: { connect: { engName: "Dedicated Weapon" } },
             grantedOnLevels: [2],
-            class: { connect: { name: Classes.MONK_2014 } }
+            class: { connect: { name_ruleset: { name: Classes.MONK_2014, ruleset: ACTIVE_RULESET } } }
         },
 
         {
             feature: { connect: { engName: "Ki-Fueled Attack" } },
             grantedOnLevels: [3],
-            class: { connect: { name: Classes.MONK_2014 } }
+            class: { connect: { name_ruleset: { name: Classes.MONK_2014, ruleset: ACTIVE_RULESET } } }
         },
         {
             feature: { connect: { engName: "Quickened Healing" } },
             grantedOnLevels: [4],
-            class: { connect: { name: Classes.MONK_2014 } }
+            class: { connect: { name_ruleset: { name: Classes.MONK_2014, ruleset: ACTIVE_RULESET } } }
         },
         {
             feature: { connect: { engName: "Focused Aim" } },
             grantedOnLevels: [5],
-            class: { connect: { name: Classes.MONK_2014 } }
+            class: { connect: { name_ruleset: { name: Classes.MONK_2014, ruleset: ACTIVE_RULESET } } }
         },
 
 
@@ -71,7 +73,7 @@ export const seedClassOptionalFeatures = async (prisma: PrismaClient) => {
         {
             feature: { connect: { engName: "Deft Explorer - Roving" } },
             grantedOnLevels: [6],
-            class: { connect: { name: Classes.RANGER_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.RANGER_2014, ruleset: ACTIVE_RULESET } } },
 
             appearsOnlyIfChoicesTaken: {
                 connect: [
@@ -82,7 +84,7 @@ export const seedClassOptionalFeatures = async (prisma: PrismaClient) => {
         {
             feature: { connect: { engName: "Deft Explorer - Tireless" } },
             grantedOnLevels: [10],
-            class: { connect: { name: Classes.RANGER_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.RANGER_2014, ruleset: ACTIVE_RULESET } } },
 
             appearsOnlyIfChoicesTaken: {
                 connect: [
@@ -97,14 +99,14 @@ export const seedClassOptionalFeatures = async (prisma: PrismaClient) => {
 
             grantedOnLevels: [4, 8, 12, 16, 19],
             replacesFightingStyle: true,
-            class: { connect: { name: Classes.RANGER_2014 } }
+            class: { connect: { name_ruleset: { name: Classes.RANGER_2014, ruleset: ACTIVE_RULESET } } }
         },
 
 // Spellcasting Focus
         {
             feature: { connect: { engName: "Spellcasting Focus (Ranger)" } },
             grantedOnLevels: [2],
-            class: { connect: { name: Classes.RANGER_2014 } }
+            class: { connect: { name_ruleset: { name: Classes.RANGER_2014, ruleset: ACTIVE_RULESET } } }
         },
 
         // PALADIN
@@ -113,7 +115,7 @@ export const seedClassOptionalFeatures = async (prisma: PrismaClient) => {
         // Harness Divine Power
         {
             feature: { connect: { engName: "Harness Divine Power" } },
-            class: { connect: { name: Classes.PALADIN_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.PALADIN_2014, ruleset: ACTIVE_RULESET } } },
             grantedOnLevels: [3, 7, 15],
         },
 
@@ -121,7 +123,7 @@ export const seedClassOptionalFeatures = async (prisma: PrismaClient) => {
         {
             title: 'Замінити бойовий стиль?',
 
-            class: { connect: { name: Classes.PALADIN_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.PALADIN_2014, ruleset: ACTIVE_RULESET } } },
             grantedOnLevels: [4, 8, 12, 16, 19], // На кожному ASI
             replacesFightingStyle: true,
         },
@@ -131,7 +133,7 @@ export const seedClassOptionalFeatures = async (prisma: PrismaClient) => {
 
 
         {
-            class: { connect: { name: Classes.ROGUE_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.ROGUE_2014, ruleset: ACTIVE_RULESET } } },
             grantedOnLevels: [3],
             feature: { connect: { engName: "Steady Aim" } },
         },
@@ -142,7 +144,7 @@ export const seedClassOptionalFeatures = async (prisma: PrismaClient) => {
         {
             title: 'Замінити Потойбічний виклик?',
 
-            class: { connect: { name: Classes.WARLOCK_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.WARLOCK_2014, ruleset: ACTIVE_RULESET } } },
             grantedOnLevels: [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
             replacesInvocation: true,
         },
@@ -151,19 +153,19 @@ export const seedClassOptionalFeatures = async (prisma: PrismaClient) => {
         {
             feature: { connect: { engName: "Magical Guidance" } },
             grantedOnLevels: [5],
-            class: { connect: { name: Classes.SORCERER_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.SORCERER_2014, ruleset: ACTIVE_RULESET } } },
         },
         {
             feature: { connect: { engName: "Sorcerous Versatility" } },
             grantedOnLevels: [4, 8, 12, 16, 19],
-            class: { connect: { name: Classes.SORCERER_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.SORCERER_2014, ruleset: ACTIVE_RULESET } } },
         },
 
         // ===== WIZARD OPTIONALS =====
         {
             feature: { connect: { engName: "Cantrip Formulas" } },
             grantedOnLevels: [3],
-            class: { connect: { name: Classes.WIZARD_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.WIZARD_2014, ruleset: ACTIVE_RULESET } } },
         },
     ]
 

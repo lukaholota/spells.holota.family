@@ -7,9 +7,11 @@ import {
   Races,
   Subraces,
   ArmorType,
+  Ruleset,
 } from "@prisma/client";
 
 // We now pass the prisma client from the main seed.ts
+const ACTIVE_RULESET: Ruleset = "RULES_2014";
 
 interface FeatCreateInput {
   name: Feats;
@@ -1188,7 +1190,7 @@ export async function seedFeats(prisma: PrismaClient) {
     const { grantsFeature, ...rest } = featData;
 
     await prisma.feat.upsert({
-      where: { name: rest.name },
+      where: { name_ruleset: { name: rest.name, ruleset: ACTIVE_RULESET } },
       update: {
         ...(rest as any),
         grantsFeature: grantsFeature

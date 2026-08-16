@@ -4,6 +4,7 @@ import {
     Classes,
     Prisma,
     PrismaClient,
+    Ruleset,
     Skills,
     SpellcastingType,
     ToolCategory,
@@ -11,6 +12,8 @@ import {
     WeaponType
 } from "@prisma/client";
 import ClassCreateInput = Prisma.ClassCreateInput;
+
+const ACTIVE_RULESET: Ruleset = "RULES_2014";
 
 export const seedClasses = async (prisma: PrismaClient) => {
     console.log('Додаємо класи...')
@@ -926,7 +929,7 @@ export const seedClasses = async (prisma: PrismaClient) => {
 
         try {
             const savedClass = await prisma.class.upsert({
-                where: { name: class_.name },
+                where: { name_ruleset: { name: class_.name, ruleset: ACTIVE_RULESET } },
                 update: classData,
                 create: classData
             });

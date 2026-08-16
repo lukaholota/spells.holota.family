@@ -4,6 +4,7 @@ import {
   Classes,
   Prisma,
   PrismaClient,
+  Ruleset,
   SpellcastingType,
   Subclasses,
   WeaponType,
@@ -13,6 +14,8 @@ type SubclassSeed = Omit<Prisma.SubclassCreateInput, "class" | "name"> & {
   name: Subclasses;
   classConnect: Classes;
 };
+
+const ACTIVE_RULESET: Ruleset = "RULES_2014";
 
 export const seedSubclasses = async (prisma: PrismaClient) => {
   console.log("Створюємо підкласи...");
@@ -1174,7 +1177,7 @@ export const seedSubclasses = async (prisma: PrismaClient) => {
   for (const subclass of subclasses) {
     const { classConnect, ...data } = subclass;
     const cls = await prisma.class.findUnique({
-      where: { name: classConnect },
+      where: { name_ruleset: { name: classConnect, ruleset: ACTIVE_RULESET } },
     });
 
     if (!cls) {
@@ -1199,13 +1202,13 @@ export const seedSubclasses = async (prisma: PrismaClient) => {
       update: {
         ...data,
         class: {
-          connect: { name: classConnect },
+          connect: { name_ruleset: { name: classConnect, ruleset: ACTIVE_RULESET } },
         },
       },
       create: {
         ...data,
         class: {
-          connect: { name: classConnect },
+          connect: { name_ruleset: { name: classConnect, ruleset: ACTIVE_RULESET } },
         },
       },
     });

@@ -4,11 +4,14 @@ import {
     Prisma,
     PrismaClient,
     Races,
+    Ruleset,
     Size,
     Skills,
     Source,
     WeaponCategory, WeaponType
 } from "@prisma/client";
+
+const ACTIVE_RULESET: Ruleset = "RULES_2014";
 
 export const seedRaces = async (prisma: PrismaClient) => {
     console.log('🐉 Додаємо раси...')
@@ -1909,7 +1912,7 @@ export const seedRaces = async (prisma: PrismaClient) => {
 
         try {
             const savedRace = await prisma.race.upsert({
-                where: { name: race.name },
+                where: { name_ruleset: { name: race.name, ruleset: ACTIVE_RULESET } },
                 update: raceData,
                 create: raceData
             })

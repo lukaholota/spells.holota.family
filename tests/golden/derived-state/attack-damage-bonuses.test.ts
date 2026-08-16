@@ -1,5 +1,5 @@
 import { afterAll, beforeEach, describe, expect, it, vi } from "vitest";
-import { BackgroundCategory, Classes, Races, WeaponCategory } from "@prisma/client";
+import { BackgroundCategory, Classes, Races, Ruleset, WeaponCategory } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
 import { disconnectDatabase, resetUserData } from "../../user-data";
 import { minimalForm } from "../../helpers/build-form";
@@ -12,6 +12,8 @@ import { auth } from "@/lib/auth";
 import { createCharacter } from "@/lib/actions/character";
 import { getPersById } from "@/lib/actions/pers";
 import { calculateWeaponAttackBonus, calculateWeaponDamageBonus } from "@/lib/logic/bonus-calculator";
+
+const ACTIVE_RULESET: Ruleset = "RULES_2014";
 
 const BONUS_CASES = [
   { name: "Longbow: базова атака й шкода", weapon: WeaponCategory.LONGBOW, features: [], bracers: false, attack: 4, damage: 2 },
@@ -30,8 +32,8 @@ describe("KR2.4 — бонуси атаки й шкоди від фіч і magic
       prisma.feature.findUniqueOrThrow({ where: { engName: "Archery" }, select: { featureId: true } }),
       prisma.feature.findUniqueOrThrow({ where: { engName: "Dueling" }, select: { featureId: true } }),
       prisma.magicItem.findUniqueOrThrow({ where: { engName: "Bracers of Archery" }, select: { magicItemId: true } }),
-      prisma.weapon.findUniqueOrThrow({ where: { name: WeaponCategory.LONGBOW } }),
-      prisma.weapon.findUniqueOrThrow({ where: { name: WeaponCategory.LONGSWORD } }),
+      prisma.weapon.findUniqueOrThrow({ where: { name_ruleset: { name: WeaponCategory.LONGBOW, ruleset: ACTIVE_RULESET } } }),
+      prisma.weapon.findUniqueOrThrow({ where: { name_ruleset: { name: WeaponCategory.LONGSWORD, ruleset: ACTIVE_RULESET } } }),
     ]);
     const featureIds = new Map([["Archery", archery.featureId], ["Dueling", dueling.featureId]]);
     const weaponIds = new Map([[WeaponCategory.LONGBOW, longbow.weaponId], [WeaponCategory.LONGSWORD, longsword.weaponId]]);

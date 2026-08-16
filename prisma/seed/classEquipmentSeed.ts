@@ -1,8 +1,11 @@
 import {
     PrismaClient,
     Prisma,
+    Ruleset,
     WeaponCategory, ArmorCategory, Classes, WeaponType, EquipmentPackCategory
 } from "@prisma/client";
+
+const ACTIVE_RULESET: Ruleset = "RULES_2014";
 
 export const seedClassEquipment = async (prisma: PrismaClient) => {
     console.log('🌟 Додаємо класове спорядження...')
@@ -13,7 +16,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
             choiceGroup: 1,
             option: 'a',
             armor: { connect: { name: ArmorCategory.CHAIN_MAIL } },
-            class: { connect: { name: Classes.FIGHTER_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.FIGHTER_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'кольчуга (16 КБ)'
         },
@@ -21,22 +24,22 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
             choiceGroup: 1,
             option: 'b',
             armor: { connect: { name: ArmorCategory.LEATHER } },
-            class: { connect: { name: Classes.FIGHTER_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.FIGHTER_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'шкіряна (11 + СПР КБ)'
         },
         {
             choiceGroup: 1,
             option: 'b',
-            weapon: { connect: { name: WeaponCategory.LONGBOW } },
-            class: { connect: { name: Classes.FIGHTER_2014 } },
+            weapon: { connect: { name_ruleset: { name: WeaponCategory.LONGBOW, ruleset: ACTIVE_RULESET } } },
+            class: { connect: { name_ruleset: { name: Classes.FIGHTER_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Довгий лук (1к8)'
         },
         {
             choiceGroup: 1,
             option: 'b',
-            class: { connect: { name: Classes.FIGHTER_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.FIGHTER_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 20,
             item: 'Стріли',
             description: '20 стріл'
@@ -50,7 +53,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
             chooseAnyWeapon: true,
             weaponType: WeaponType.MARTIAL_WEAPON,
             weaponCount: 1,
-            class: { connect: { name: Classes.FIGHTER_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.FIGHTER_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Одна бойова зброя на вибір'
         },
@@ -59,7 +62,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
             choiceGroup: 2,
             option: 'a',
             armor: { connect: { name: ArmorCategory.SHIELD } },
-            class: { connect: { name: Classes.FIGHTER_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.FIGHTER_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Щит (+2 до КБ)'
         },
@@ -70,7 +73,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
             chooseAnyWeapon: true,
             weaponType: WeaponType.MARTIAL_WEAPON,
             weaponCount: 2,
-            class: { connect: { name: Classes.FIGHTER_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.FIGHTER_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Дві бойові зброї на вибір'
         },
@@ -80,8 +83,8 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
         {
             choiceGroup: 3,
             option: 'a',
-            weapon: { connect: { name: WeaponCategory.LIGHT_CROSSBOW } },
-            class: { connect: { name: Classes.FIGHTER_2014 } },
+            weapon: { connect: { name_ruleset: { name: WeaponCategory.LIGHT_CROSSBOW, ruleset: ACTIVE_RULESET } } },
+            class: { connect: { name_ruleset: { name: Classes.FIGHTER_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Легкий арбалет (1к8)'
         },
@@ -89,7 +92,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
         {
             choiceGroup: 3,
             option: 'a',
-            class: { connect: { name: Classes.FIGHTER_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.FIGHTER_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 20,
             item: 'Арбалетний болт',
             description: '20 болтів',
@@ -98,8 +101,8 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
         {
             choiceGroup: 3,
             option: 'b',
-            weapon: { connect: { name: WeaponCategory.HANDAXE } },
-            class: { connect: { name: Classes.FIGHTER_2014 } },
+            weapon: { connect: { name_ruleset: { name: WeaponCategory.HANDAXE, ruleset: ACTIVE_RULESET } } },
+            class: { connect: { name_ruleset: { name: Classes.FIGHTER_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 2,
             description: 'Дві ручні сокири (1к6), метальні'
         },
@@ -110,7 +113,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
             choiceGroup: 4,
             option: 'a',
             equipmentPack: { connect: { name: EquipmentPackCategory.DUNGEONEERS_PACK } },
-            class: { connect: { name: Classes.FIGHTER_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.FIGHTER_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Набір дослідника підземель'
         },
@@ -119,7 +122,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
             choiceGroup: 4,
             option: 'b',
             equipmentPack: { connect: { name: EquipmentPackCategory.EXPLORERS_PACK } },
-            class: { connect: { name: Classes.FIGHTER_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.FIGHTER_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Набір мандрівника'
         },
@@ -134,8 +137,8 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
         {
             choiceGroup: 1,
             option: 'a',
-            weapon: { connect: { name: WeaponCategory.GREATAXE } },
-            class: { connect: { name: Classes.BARBARIAN_2014 } },
+            weapon: { connect: { name_ruleset: { name: WeaponCategory.GREATAXE, ruleset: ACTIVE_RULESET } } },
+            class: { connect: { name_ruleset: { name: Classes.BARBARIAN_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Велика сокира (1к12)'
         },
@@ -146,7 +149,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
             chooseAnyWeapon: true,
             weaponType: WeaponType.MARTIAL_WEAPON,
             weaponCount: 1,
-            class: { connect: { name: Classes.BARBARIAN_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.BARBARIAN_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Бойова рукопашна зброя на вибір'
         },
@@ -156,8 +159,8 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
         {
             choiceGroup: 2,
             option: 'a',
-            weapon: { connect: { name: WeaponCategory.HANDAXE } },
-            class: { connect: { name: Classes.BARBARIAN_2014 } },
+            weapon: { connect: { name_ruleset: { name: WeaponCategory.HANDAXE, ruleset: ACTIVE_RULESET } } },
+            class: { connect: { name_ruleset: { name: Classes.BARBARIAN_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 2,
             description: 'Дві ручні сокири (1к6), метальні'
         },
@@ -168,7 +171,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
             chooseAnyWeapon: true,
             weaponType: WeaponType.SIMPLE_WEAPON,
             weaponCount: 1,
-            class: { connect: { name: Classes.BARBARIAN_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.BARBARIAN_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Проста зброя на вибір'
         },
@@ -179,15 +182,15 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
             choiceGroup: 3,
             option: 'a',
             equipmentPack: { connect: { name: EquipmentPackCategory.EXPLORERS_PACK } },
-            class: { connect: { name: Classes.BARBARIAN_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.BARBARIAN_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Набір мандрівника'
         },
         {
             choiceGroup: 3,
             option: 'a',
-            weapon: { connect: { name: WeaponCategory.JAVELIN } },
-            class: { connect: { name: Classes.BARBARIAN_2014 } },
+            weapon: { connect: { name_ruleset: { name: WeaponCategory.JAVELIN, ruleset: ACTIVE_RULESET } } },
+            class: { connect: { name_ruleset: { name: Classes.BARBARIAN_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 4,
             description: '4 списи (1к6), метальні'
         },
@@ -199,8 +202,8 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
         {
             choiceGroup: 1,
             option: 'a',
-            weapon: { connect: { name: WeaponCategory.SHORTSWORD } },
-            class: { connect: { name: Classes.MONK_2014 } },
+            weapon: { connect: { name_ruleset: { name: WeaponCategory.SHORTSWORD, ruleset: ACTIVE_RULESET } } },
+            class: { connect: { name_ruleset: { name: Classes.MONK_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Короткий меч (1к6)'
         },
@@ -211,7 +214,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
             chooseAnyWeapon: true,
             weaponType: WeaponType.SIMPLE_WEAPON,
             weaponCount: 1,
-            class: { connect: { name: Classes.MONK_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.MONK_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Проста зброя на вибір'
         },
@@ -222,7 +225,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
             choiceGroup: 2,
             option: 'a',
             equipmentPack: { connect: { name: EquipmentPackCategory.DUNGEONEERS_PACK } },
-            class: { connect: { name: Classes.MONK_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.MONK_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Набір дослідника підземель'
         },
@@ -231,7 +234,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
             choiceGroup: 2,
             option: 'b',
             equipmentPack: { connect: { name: EquipmentPackCategory.EXPLORERS_PACK } },
-            class: { connect: { name: Classes.MONK_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.MONK_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Набір мандрівника'
         },
@@ -241,8 +244,8 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
         {
             choiceGroup: 3,
             option: 'a',
-            weapon: { connect: { name: WeaponCategory.DART } },
-            class: { connect: { name: Classes.MONK_2014 } },
+            weapon: { connect: { name_ruleset: { name: WeaponCategory.DART, ruleset: ACTIVE_RULESET } } },
+            class: { connect: { name_ruleset: { name: Classes.MONK_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 10,
             description: '10 дротиків (1к4), метальні'
         },
@@ -258,7 +261,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
             choiceGroup: 1,
             option: 'a',
             armor: { connect: { name: ArmorCategory.SCALE_MAIL } },
-            class: { connect: { name: Classes.RANGER_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.RANGER_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Лускова броня (14 + СПР [макс 2] КБ)'
         },
@@ -267,7 +270,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
             choiceGroup: 1,
             option: 'b',
             armor: { connect: { name: ArmorCategory.LEATHER } },
-            class: { connect: { name: Classes.RANGER_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.RANGER_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Шкіряна броня (11 + СПР КБ)'
         },
@@ -277,8 +280,8 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
         {
             choiceGroup: 2,
             option: 'a',
-            weapon: { connect: { name: WeaponCategory.SHORTSWORD } },
-            class: { connect: { name: Classes.RANGER_2014 } },
+            weapon: { connect: { name_ruleset: { name: WeaponCategory.SHORTSWORD, ruleset: ACTIVE_RULESET } } },
+            class: { connect: { name_ruleset: { name: Classes.RANGER_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 2,
             description: 'Два короткі мечі (1к6)'
         },
@@ -289,7 +292,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
             chooseAnyWeapon: true,
             weaponType: WeaponType.SIMPLE_WEAPON,
             weaponCount: 2,
-            class: { connect: { name: Classes.RANGER_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.RANGER_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Дві прості рукопашні зброї на вибір'
         },
@@ -300,7 +303,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
             choiceGroup: 3,
             option: 'a',
             equipmentPack: { connect: { name: EquipmentPackCategory.DUNGEONEERS_PACK } },
-            class: { connect: { name: Classes.RANGER_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.RANGER_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Набір дослідника підземель'
         },
@@ -309,7 +312,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
             choiceGroup: 3,
             option: 'b',
             equipmentPack: { connect: { name: EquipmentPackCategory.EXPLORERS_PACK } },
-            class: { connect: { name: Classes.RANGER_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.RANGER_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Набір мандрівника'
         },
@@ -319,8 +322,8 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
         {
             choiceGroup: 4,
             option: 'a',
-            weapon: { connect: { name: WeaponCategory.LONGBOW } },
-            class: { connect: { name: Classes.RANGER_2014 } },
+            weapon: { connect: { name_ruleset: { name: WeaponCategory.LONGBOW, ruleset: ACTIVE_RULESET } } },
+            class: { connect: { name_ruleset: { name: Classes.RANGER_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Довгий лук (1к8)'
         },
@@ -328,7 +331,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
         {
             choiceGroup: 4,
             option: 'a',
-            class: { connect: { name: Classes.RANGER_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.RANGER_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 20,
             item: 'Стріли',
             description: 'Колчан з 20 стрілами'
@@ -348,7 +351,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
             chooseAnyWeapon: true,
             weaponType: WeaponType.MARTIAL_WEAPON,
             weaponCount: 1,
-            class: { connect: { name: Classes.PALADIN_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.PALADIN_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Бойова зброя на вибір'
         },
@@ -356,7 +359,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
             choiceGroup: 1,
             option: 'a',
             armor: { connect: { name: ArmorCategory.SHIELD } },
-            class: { connect: { name: Classes.PALADIN_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.PALADIN_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Щит (+2 КБ)'
         },
@@ -367,7 +370,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
             chooseAnyWeapon: true,
             weaponType: WeaponType.MARTIAL_WEAPON,
             weaponCount: 2,
-            class: { connect: { name: Classes.PALADIN_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.PALADIN_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Дві бойові зброї на вибір'
         },
@@ -377,8 +380,8 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
         {
             choiceGroup: 2,
             option: 'a',
-            weapon: { connect: { name: WeaponCategory.JAVELIN } },
-            class: { connect: { name: Classes.PALADIN_2014 } },
+            weapon: { connect: { name_ruleset: { name: WeaponCategory.JAVELIN, ruleset: ACTIVE_RULESET } } },
+            class: { connect: { name_ruleset: { name: Classes.PALADIN_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 5,
             description: '5 списів (1к6)'
         },
@@ -389,7 +392,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
             chooseAnyWeapon: true,
             weaponType: WeaponType.SIMPLE_WEAPON,
             weaponCount: 1,
-            class: { connect: { name: Classes.PALADIN_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.PALADIN_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Проста рукопашна зброя на вибір'
         },
@@ -400,7 +403,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
             choiceGroup: 3,
             option: 'a',
             equipmentPack: { connect: { name: EquipmentPackCategory.PRIESTS_PACK } },
-            class: { connect: { name: Classes.PALADIN_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.PALADIN_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Набір священика'
         },
@@ -409,7 +412,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
             choiceGroup: 3,
             option: 'b',
             equipmentPack: { connect: { name: EquipmentPackCategory.EXPLORERS_PACK } },
-            class: { connect: { name: Classes.PALADIN_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.PALADIN_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Набір мандрівника'
         },
@@ -420,7 +423,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
             choiceGroup: 4,
             option: 'a',
             armor: { connect: { name: ArmorCategory.CHAIN_MAIL } },
-            class: { connect: { name: Classes.PALADIN_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.PALADIN_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Кольчуга (16 КБ)'
         },
@@ -428,7 +431,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
         {
             choiceGroup: 4,
             option: 'a',
-            class: { connect: { name: Classes.PALADIN_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.PALADIN_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             item: 'Святий символ',
             description: 'Святий символ (чаротворчий фокус)'
@@ -444,8 +447,8 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
         {
             choiceGroup: 1,
             option: 'a',
-            weapon: { connect: { name: WeaponCategory.RAPIER } },
-            class: { connect: { name: Classes.ROGUE_2014 } },
+            weapon: { connect: { name_ruleset: { name: WeaponCategory.RAPIER, ruleset: ACTIVE_RULESET } } },
+            class: { connect: { name_ruleset: { name: Classes.ROGUE_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Рапіра (1к8, фехтувальна)'
         },
@@ -453,8 +456,8 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
         {
             choiceGroup: 1,
             option: 'b',
-            weapon: { connect: { name: WeaponCategory.SHORTSWORD } },
-            class: { connect: { name: Classes.ROGUE_2014 } },
+            weapon: { connect: { name_ruleset: { name: WeaponCategory.SHORTSWORD, ruleset: ACTIVE_RULESET } } },
+            class: { connect: { name_ruleset: { name: Classes.ROGUE_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Короткий меч (1к6, фехтувальна, легка)'
         },
@@ -464,15 +467,15 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
         {
             choiceGroup: 2,
             option: 'a',
-            weapon: { connect: { name: WeaponCategory.SHORTBOW } },
-            class: { connect: { name: Classes.ROGUE_2014 } },
+            weapon: { connect: { name_ruleset: { name: WeaponCategory.SHORTBOW, ruleset: ACTIVE_RULESET } } },
+            class: { connect: { name_ruleset: { name: Classes.ROGUE_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Короткий лук (1к6)'
         },
         {
             choiceGroup: 2,
             option: 'a',
-            class: { connect: { name: Classes.ROGUE_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.ROGUE_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 20,
             item: 'Стріли',
             description: 'Колчан з 20 стрілами'
@@ -481,8 +484,8 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
         {
             choiceGroup: 2,
             option: 'b',
-            weapon: { connect: { name: WeaponCategory.SHORTSWORD } },
-            class: { connect: { name: Classes.ROGUE_2014 } },
+            weapon: { connect: { name_ruleset: { name: WeaponCategory.SHORTSWORD, ruleset: ACTIVE_RULESET } } },
+            class: { connect: { name_ruleset: { name: Classes.ROGUE_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Короткий меч (1к6, фехтувальна, легка)'
         },
@@ -493,7 +496,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
             choiceGroup: 3,
             option: 'a',
             equipmentPack: { connect: { name: EquipmentPackCategory.BURGLARS_PACK } },
-            class: { connect: { name: Classes.ROGUE_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.ROGUE_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Набір грабіжника'
         },
@@ -502,7 +505,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
             choiceGroup: 3,
             option: 'b',
             equipmentPack: { connect: { name: EquipmentPackCategory.DUNGEONEERS_PACK } },
-            class: { connect: { name: Classes.ROGUE_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.ROGUE_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Набір дослідника підземель'
         },
@@ -511,7 +514,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
             choiceGroup: 3,
             option: 'c',
             equipmentPack: { connect: { name: EquipmentPackCategory.EXPLORERS_PACK } },
-            class: { connect: { name: Classes.ROGUE_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.ROGUE_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Набір мандрівника'
         },
@@ -522,7 +525,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
             choiceGroup: 4,
             option: 'a',
             armor: { connect: { name: ArmorCategory.LEATHER } },
-            class: { connect: { name: Classes.ROGUE_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.ROGUE_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Шкіряна броня (11 + СПР КБ)'
         },
@@ -530,8 +533,8 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
         {
             choiceGroup: 4,
             option: 'a',
-            weapon: { connect: { name: WeaponCategory.DAGGER } },
-            class: { connect: { name: Classes.ROGUE_2014 } },
+            weapon: { connect: { name_ruleset: { name: WeaponCategory.DAGGER, ruleset: ACTIVE_RULESET } } },
+            class: { connect: { name_ruleset: { name: Classes.ROGUE_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 2,
             description: 'Два кинджали (1к4, фехтувальна, легка, метальна)'
         },
@@ -539,7 +542,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
         {
             choiceGroup: 4,
             option: 'a',
-            class: { connect: { name: Classes.ROGUE_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.ROGUE_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             item: 'Інструменти злодія',
             description: 'Інструменти злодія'
@@ -555,15 +558,15 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
         {
             choiceGroup: 1,
             option: 'a',
-            weapon: { connect: { name: WeaponCategory.LIGHT_CROSSBOW } },
-            class: { connect: { name: Classes.WARLOCK_2014 } },
+            weapon: { connect: { name_ruleset: { name: WeaponCategory.LIGHT_CROSSBOW, ruleset: ACTIVE_RULESET } } },
+            class: { connect: { name_ruleset: { name: Classes.WARLOCK_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Легкий арбалет (1к8)'
         },
         {
             choiceGroup: 1,
             option: 'a',
-            class: { connect: { name: Classes.WARLOCK_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.WARLOCK_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 20,
             item: 'Болти',
             description: '20 болтів для арбалета'
@@ -575,7 +578,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
             chooseAnyWeapon: true,
             weaponType: WeaponType.SIMPLE_WEAPON,
             weaponCount: 1,
-            class: { connect: { name: Classes.WARLOCK_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.WARLOCK_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Будь-яка проста зброя на вибір'
         },
@@ -585,7 +588,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
         {
             choiceGroup: 2,
             option: 'a',
-            class: { connect: { name: Classes.WARLOCK_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.WARLOCK_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             item: 'Мішечок компонентів',
             description: 'Мішечок компонентів (component pouch)'
@@ -594,7 +597,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
         {
             choiceGroup: 2,
             option: 'b',
-            class: { connect: { name: Classes.WARLOCK_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.WARLOCK_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             item: 'Окультний фокус (arcane focus)',
             description: 'Окультний фокус (arcane focus)'
@@ -606,7 +609,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
             choiceGroup: 3,
             option: 'a',
             equipmentPack: { connect: { name: EquipmentPackCategory.SCHOLARS_PACK } },
-            class: { connect: { name: Classes.WARLOCK_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.WARLOCK_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Набір вченого'
         },
@@ -615,7 +618,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
             choiceGroup: 3,
             option: 'b',
             equipmentPack: { connect: { name: EquipmentPackCategory.DUNGEONEERS_PACK } },
-            class: { connect: { name: Classes.WARLOCK_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.WARLOCK_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Набір дослідника підземель'
         },
@@ -626,7 +629,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
             choiceGroup: 4,
             option: 'a',
             armor: { connect: { name: ArmorCategory.LEATHER } },
-            class: { connect: { name: Classes.WARLOCK_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.WARLOCK_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Шкіряна броня (11 + СПР КБ)'
         },
@@ -637,7 +640,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
             chooseAnyWeapon: true,
             weaponType: WeaponType.SIMPLE_WEAPON,
             weaponCount: 1,
-            class: { connect: { name: Classes.WARLOCK_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.WARLOCK_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Будь-яка проста зброя'
         },
@@ -645,8 +648,8 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
         {
             choiceGroup: 4,
             option: 'a',
-            weapon: { connect: { name: WeaponCategory.DAGGER } },
-            class: { connect: { name: Classes.WARLOCK_2014 } },
+            weapon: { connect: { name_ruleset: { name: WeaponCategory.DAGGER, ruleset: ACTIVE_RULESET } } },
+            class: { connect: { name_ruleset: { name: Classes.WARLOCK_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 2,
             description: 'Два кинджали (1к4)'
         },
@@ -661,7 +664,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
             chooseAnyWeapon: true,
             weaponType: WeaponType.SIMPLE_WEAPON,
             weaponCount: 2,
-            class: { connect: { name: Classes.ARTIFICER_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.ARTIFICER_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Будь-які дві прості зброї на вибір'
         },
@@ -670,15 +673,15 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
         {
             choiceGroup: 2,
             option: 'a',
-            weapon: { connect: { name: WeaponCategory.LIGHT_CROSSBOW } },
-            class: { connect: { name: Classes.ARTIFICER_2014 } },
+            weapon: { connect: { name_ruleset: { name: WeaponCategory.LIGHT_CROSSBOW, ruleset: ACTIVE_RULESET } } },
+            class: { connect: { name_ruleset: { name: Classes.ARTIFICER_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Легкий арбалет (1к8)'
         },
         {
             choiceGroup: 2,
             option: 'a',
-            class: { connect: { name: Classes.ARTIFICER_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.ARTIFICER_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 20,
             item: 'Болти',
             description: '20 болтів'
@@ -689,7 +692,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
             chooseAnyWeapon: true,
             weaponType: WeaponType.SIMPLE_WEAPON,
             weaponCount: 1,
-            class: { connect: { name: Classes.ARTIFICER_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.ARTIFICER_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Будь-яка проста зброя на вибір'
         },
@@ -699,7 +702,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
             choiceGroup: 3,
             option: 'a',
             armor: { connect: { name: ArmorCategory.STUDDED_LEATHER } },
-            class: { connect: { name: Classes.ARTIFICER_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.ARTIFICER_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Клепана шкіряна броня (12 + СПР КБ)'
         },
@@ -707,7 +710,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
             choiceGroup: 3,
             option: 'b',
             armor: { connect: { name: ArmorCategory.SCALE_MAIL } },
-            class: { connect: { name: Classes.ARTIFICER_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.ARTIFICER_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Лускова броня (14 + СПР [макс 2] КБ)'
         },
@@ -717,14 +720,14 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
             choiceGroup: 4,
             option: 'a',
             equipmentPack: { connect: { name: EquipmentPackCategory.DUNGEONEERS_PACK } },
-            class: { connect: { name: Classes.ARTIFICER_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.ARTIFICER_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Набір дослідника підземель'
         },
         {
             choiceGroup: 4,
             option: 'a',
-            class: { connect: { name: Classes.ARTIFICER_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.ARTIFICER_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             item: 'Інструменти злодія',
             description: 'Інструменти злодія'
@@ -736,15 +739,15 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
         {
             choiceGroup: 1,
             option: 'a',
-            weapon: { connect: { name: WeaponCategory.LIGHT_CROSSBOW } },
-            class: { connect: { name: Classes.SORCERER_2014 } },
+            weapon: { connect: { name_ruleset: { name: WeaponCategory.LIGHT_CROSSBOW, ruleset: ACTIVE_RULESET } } },
+            class: { connect: { name_ruleset: { name: Classes.SORCERER_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Легкий арбалет (1к8)'
         },
         {
             choiceGroup: 1,
             option: 'a',
-            class: { connect: { name: Classes.SORCERER_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.SORCERER_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 20,
             item: 'Арбалетні болти',
             description: '20 арбалетних болтів'
@@ -755,7 +758,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
             chooseAnyWeapon: true,
             weaponType: WeaponType.SIMPLE_WEAPON,
             weaponCount: 1,
-            class: { connect: { name: Classes.SORCERER_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.SORCERER_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Одна проста зброя на вибір'
         },
@@ -765,14 +768,14 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
             choiceGroup: 2,
             option: 'a',
             equipmentPack: { connect: { name: EquipmentPackCategory.COMPONENT_POUCH } },
-            class: { connect: { name: Classes.SORCERER_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.SORCERER_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Сумка з компонентами'
         },
         {
             choiceGroup: 2,
             option: 'b',
-            class: { connect: { name: Classes.SORCERER_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.SORCERER_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             item: 'Арканний фокус',
             description: 'Арканний фокус на вибір'
@@ -783,7 +786,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
             choiceGroup: 3,
             option: 'a',
             equipmentPack: { connect: { name: EquipmentPackCategory.DUNGEONEERS_PACK } },
-            class: { connect: { name: Classes.SORCERER_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.SORCERER_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Набір дослідника підземель'
         },
@@ -791,7 +794,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
             choiceGroup: 3,
             option: 'b',
             equipmentPack: { connect: { name: EquipmentPackCategory.EXPLORERS_PACK } },
-            class: { connect: { name: Classes.SORCERER_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.SORCERER_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Набір мандрівника'
         },
@@ -800,8 +803,8 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
         {
             choiceGroup: 4,
             option: 'a',
-            weapon: { connect: { name: WeaponCategory.DAGGER } },
-            class: { connect: { name: Classes.SORCERER_2014 } },
+            weapon: { connect: { name_ruleset: { name: WeaponCategory.DAGGER, ruleset: ACTIVE_RULESET } } },
+            class: { connect: { name_ruleset: { name: Classes.SORCERER_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 2,
             description: 'Два кинджали'
         },
@@ -811,16 +814,16 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
         {
             choiceGroup: 1,
             option: 'a',
-            weapon: { connect: { name: WeaponCategory.QUARTERSTAFF } },
-            class: { connect: { name: Classes.WIZARD_2014 } },
+            weapon: { connect: { name_ruleset: { name: WeaponCategory.QUARTERSTAFF, ruleset: ACTIVE_RULESET } } },
+            class: { connect: { name_ruleset: { name: Classes.WIZARD_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Бойовий посох (1к6/1к8)'
         },
         {
             choiceGroup: 1,
             option: 'b',
-            weapon: { connect: { name: WeaponCategory.DAGGER } },
-            class: { connect: { name: Classes.WIZARD_2014 } },
+            weapon: { connect: { name_ruleset: { name: WeaponCategory.DAGGER, ruleset: ACTIVE_RULESET } } },
+            class: { connect: { name_ruleset: { name: Classes.WIZARD_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Кинджал (1к4)'
         },
@@ -830,14 +833,14 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
             choiceGroup: 2,
             option: 'a',
             equipmentPack: { connect: { name: EquipmentPackCategory.COMPONENT_POUCH } },
-            class: { connect: { name: Classes.WIZARD_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.WIZARD_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Сумка з компонентами'
         },
         {
             choiceGroup: 2,
             option: 'b',
-            class: { connect: { name: Classes.WIZARD_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.WIZARD_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             item: 'Арканний фокус',
             description: 'Арканний фокус на вибір'
@@ -848,7 +851,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
             choiceGroup: 3,
             option: 'a',
             equipmentPack: { connect: { name: EquipmentPackCategory.SCHOLARS_PACK } },
-            class: { connect: { name: Classes.WIZARD_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.WIZARD_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Набір ученого'
         },
@@ -856,7 +859,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
             choiceGroup: 3,
             option: 'b',
             equipmentPack: { connect: { name: EquipmentPackCategory.EXPLORERS_PACK } },
-            class: { connect: { name: Classes.WIZARD_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.WIZARD_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Набір мандрівника'
         },
@@ -866,15 +869,15 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
             choiceGroup: 4,
             option: 'a',
             equipmentPack: { connect: { name: EquipmentPackCategory.SPELLBOOK } },
-            class: { connect: { name: Classes.WIZARD_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.WIZARD_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Книга Чарів чарівника'
         },
         {
             choiceGroup: 4,
             option: 'a',
-            weapon: { connect: { name: WeaponCategory.DAGGER } },
-            class: { connect: { name: Classes.WIZARD_2014 } },
+            weapon: { connect: { name_ruleset: { name: WeaponCategory.DAGGER, ruleset: ACTIVE_RULESET } } },
+            class: { connect: { name_ruleset: { name: Classes.WIZARD_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Кинджал (1к4)'
         },
@@ -891,7 +894,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
             choiceGroup: 1,
             option: 'a',
             armor: { connect: { name: ArmorCategory.SHIELD } },
-            class: { connect: { name: Classes.DRUID_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.DRUID_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Дерев’яний щит (+2 КБ)'
         },
@@ -901,7 +904,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
             chooseAnyWeapon: true,
             weaponType: WeaponType.SIMPLE_WEAPON,
             weaponCount: 1,
-            class: { connect: { name: Classes.DRUID_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.DRUID_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Будь-яка проста зброя на вибір'
         },
@@ -910,8 +913,8 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
         {
             choiceGroup: 2,
             option: 'a',
-            weapon: { connect: { name: WeaponCategory.SCIMITAR } },
-            class: { connect: { name: Classes.DRUID_2014 } },
+            weapon: { connect: { name_ruleset: { name: WeaponCategory.SCIMITAR, ruleset: ACTIVE_RULESET } } },
+            class: { connect: { name_ruleset: { name: Classes.DRUID_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Шабля (1к6, фехтувальна, легка)'
         },
@@ -921,7 +924,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
             chooseAnyWeapon: true,
             weaponType: WeaponType.SIMPLE_WEAPON,
             weaponCount: 1,
-            class: { connect: { name: Classes.DRUID_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.DRUID_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Будь-яка проста рукопашна зброя на вибір'
         },
@@ -931,7 +934,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
             choiceGroup: 3,
             option: 'a',
             armor: { connect: { name: ArmorCategory.LEATHER } },
-            class: { connect: { name: Classes.DRUID_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.DRUID_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Шкіряна броня (11 + СПР КБ)'
         },
@@ -939,14 +942,14 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
             choiceGroup: 3,
             option: 'a',
             equipmentPack: { connect: { name: EquipmentPackCategory.EXPLORERS_PACK } },
-            class: { connect: { name: Classes.DRUID_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.DRUID_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Набір мандрівника'
         },
         {
             choiceGroup: 3,
             option: 'a',
-            class: { connect: { name: Classes.DRUID_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.DRUID_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             item: 'Друїдичний фокус',
             description: 'Друїдичний фокус (druidic focus)'
@@ -964,16 +967,16 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
         {
             choiceGroup: 1,
             option: 'a',
-            weapon: { connect: { name: WeaponCategory.RAPIER } },
-            class: { connect: { name: Classes.BARD_2014 } },
+            weapon: { connect: { name_ruleset: { name: WeaponCategory.RAPIER, ruleset: ACTIVE_RULESET } } },
+            class: { connect: { name_ruleset: { name: Classes.BARD_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Рапіра (1к8, фехтувальна)'
         },
         {
             choiceGroup: 1,
             option: 'b',
-            weapon: { connect: { name: WeaponCategory.LONGSWORD } },
-            class: { connect: { name: Classes.BARD_2014 } },
+            weapon: { connect: { name_ruleset: { name: WeaponCategory.LONGSWORD, ruleset: ACTIVE_RULESET } } },
+            class: { connect: { name_ruleset: { name: Classes.BARD_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Довгий меч (1к8/1к10)'
         },
@@ -983,7 +986,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
             chooseAnyWeapon: true,
             weaponType: WeaponType.SIMPLE_WEAPON,
             weaponCount: 1,
-            class: { connect: { name: Classes.BARD_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.BARD_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Будь-яка проста зброя на вибір'
         },
@@ -993,7 +996,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
             choiceGroup: 2,
             option: 'a',
             equipmentPack: { connect: { name: EquipmentPackCategory.DIPLOMATS_PACK } },
-            class: { connect: { name: Classes.BARD_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.BARD_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Набір дипломата'
         },
@@ -1001,7 +1004,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
             choiceGroup: 2,
             option: 'b',
             equipmentPack: { connect: { name: EquipmentPackCategory.ENTERTAINERS_PACK } },
-            class: { connect: { name: Classes.BARD_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.BARD_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Набір артиста'
         },
@@ -1010,7 +1013,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
         {
             choiceGroup: 3,
             option: 'a',
-            class: { connect: { name: Classes.BARD_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.BARD_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             item: 'Лютня',
             description: 'Лютня'
@@ -1018,7 +1021,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
         {
             choiceGroup: 3,
             option: 'b',
-            class: { connect: { name: Classes.BARD_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.BARD_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             item: 'Музичний інструмент',
             description: 'Будь-який інший музичний інструмент'
@@ -1029,15 +1032,15 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
             choiceGroup: 4,
             option: 'a',
             armor: { connect: { name: ArmorCategory.LEATHER } },
-            class: { connect: { name: Classes.BARD_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.BARD_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Шкіряна броня (11 + СПР КБ)'
         },
         {
             choiceGroup: 4,
             option: 'a',
-            weapon: { connect: { name: WeaponCategory.DAGGER } },
-            class: { connect: { name: Classes.BARD_2014 } },
+            weapon: { connect: { name_ruleset: { name: WeaponCategory.DAGGER, ruleset: ACTIVE_RULESET } } },
+            class: { connect: { name_ruleset: { name: Classes.BARD_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Кинджал (1к4, фехтувальна, легка, метальна)'
         },
@@ -1055,16 +1058,16 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
         {
             choiceGroup: 1,
             option: 'a',
-            weapon: { connect: { name: WeaponCategory.MACE } },
-            class: { connect: { name: Classes.CLERIC_2014 } },
+            weapon: { connect: { name_ruleset: { name: WeaponCategory.MACE, ruleset: ACTIVE_RULESET } } },
+            class: { connect: { name_ruleset: { name: Classes.CLERIC_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Булава (1к6)'
         },
         {
             choiceGroup: 1,
             option: 'b',
-            weapon: { connect: { name: WeaponCategory.WARHAMMER } },
-            class: { connect: { name: Classes.CLERIC_2014 } },
+            weapon: { connect: { name_ruleset: { name: WeaponCategory.WARHAMMER, ruleset: ACTIVE_RULESET } } },
+            class: { connect: { name_ruleset: { name: Classes.CLERIC_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Бойовий молот (1к8/1к10) — якщо є володіння'
         },
@@ -1074,7 +1077,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
             choiceGroup: 2,
             option: 'a',
             armor: { connect: { name: ArmorCategory.SCALE_MAIL } },
-            class: { connect: { name: Classes.CLERIC_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.CLERIC_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Лускова броня (14 + СПР [макс 2] КБ)'
         },
@@ -1082,7 +1085,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
             choiceGroup: 2,
             option: 'b',
             armor: { connect: { name: ArmorCategory.LEATHER } },
-            class: { connect: { name: Classes.CLERIC_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.CLERIC_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Шкіряна броня (11 + СПР КБ)'
         },
@@ -1090,7 +1093,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
             choiceGroup: 2,
             option: 'c',
             armor: { connect: { name: ArmorCategory.CHAIN_MAIL } },
-            class: { connect: { name: Classes.CLERIC_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.CLERIC_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Кольчуга (16 КБ) — якщо є володіння'
         },
@@ -1099,15 +1102,15 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
         {
             choiceGroup: 3,
             option: 'a',
-            weapon: { connect: { name: WeaponCategory.LIGHT_CROSSBOW } },
-            class: { connect: { name: Classes.CLERIC_2014 } },
+            weapon: { connect: { name_ruleset: { name: WeaponCategory.LIGHT_CROSSBOW, ruleset: ACTIVE_RULESET } } },
+            class: { connect: { name_ruleset: { name: Classes.CLERIC_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Легкий арбалет (1к8)'
         },
         {
             choiceGroup: 3,
             option: 'a',
-            class: { connect: { name: Classes.CLERIC_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.CLERIC_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 20,
             item: 'Болти',
             description: '20 болтів для арбалета'
@@ -1118,7 +1121,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
             chooseAnyWeapon: true,
             weaponType: WeaponType.SIMPLE_WEAPON,
             weaponCount: 1,
-            class: { connect: { name: Classes.CLERIC_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.CLERIC_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Будь-яка проста зброя на вибір'
         },
@@ -1128,7 +1131,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
             choiceGroup: 4,
             option: 'a',
             equipmentPack: { connect: { name: EquipmentPackCategory.PRIESTS_PACK } },
-            class: { connect: { name: Classes.CLERIC_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.CLERIC_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Набір священика'
         },
@@ -1136,7 +1139,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
             choiceGroup: 4,
             option: 'b',
             equipmentPack: { connect: { name: EquipmentPackCategory.EXPLORERS_PACK } },
-            class: { connect: { name: Classes.CLERIC_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.CLERIC_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Набір мандрівника'
         },
@@ -1146,14 +1149,14 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
             choiceGroup: 5,
             option: 'a',
             armor: { connect: { name: ArmorCategory.SHIELD } },
-            class: { connect: { name: Classes.CLERIC_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.CLERIC_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Щит (+2 до КБ)'
         },
         {
             choiceGroup: 5,
             option: 'a',
-            class: { connect: { name: Classes.CLERIC_2014 } },
+            class: { connect: { name_ruleset: { name: Classes.CLERIC_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             item: 'Святий символ',
             description: 'Святий символ (holy symbol)'

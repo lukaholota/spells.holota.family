@@ -1,4 +1,6 @@
-import { ItemRarity, MagicItemType, Prisma, PrismaClient } from "@prisma/client"
+import { ItemRarity, MagicItemType, Prisma, PrismaClient, Ruleset } from "@prisma/client"
+
+const ACTIVE_RULESET: Ruleset = "RULES_2014"
 
 export const seedMagicItems = async ( prisma: PrismaClient ) => {
     console.log( '🧪 Додаємо магічні предмети (200+) з Wikidot...' )
@@ -77,7 +79,7 @@ export const seedMagicItems = async ( prisma: PrismaClient ) => {
             description: 'Коли ви випиваєте це зілля, ви отримуєте ефект заклинання <a href="/spell/1219">Прискорення [Haste]</a> на 1 хвилину (концентрація не потрібна). Жовта рідина цього зілля має чорні смуги, що самі по собі кружляють у ній.',
             shortDescription: 'Ефект Haste на 1 хвилину (без концентрації)',
             requiresAttunement: false,
-            givesSpells: { connect: [{ engName: 'Haste' }] } // Optional linking
+            givesSpells: { connect: [{ engName_ruleset: { engName: 'Haste', ruleset: ACTIVE_RULESET } }] } // Optional linking
         },
         {
             name: 'Зілля дихання водою [Potion of Water Breathing]',
@@ -136,7 +138,7 @@ export const seedMagicItems = async ( prisma: PrismaClient ) => {
             description: 'Поки ви носите цей перстень, ви можете накладати заклинання <a href="/spell/1307">Стрибок [Jump]</a> на себе за бажанням, бонусною дією.',
             shortDescription: 'Заклинання Jump на себе бонусною дією (at will)',
             requiresAttunement: true,
-             givesSpells: { connect: [{ engName: 'Jump' }] }
+             givesSpells: { connect: [{ engName_ruleset: { engName: 'Jump', ruleset: ACTIVE_RULESET } }] }
         },
 
         // --- WEAPONS ---
@@ -245,7 +247,7 @@ export const seedMagicItems = async ( prisma: PrismaClient ) => {
             description: 'Поки ви носите цей шолом, ви можете використовувати дію, щоб накласти заклинання <a href="/spell/1297">Виявлення думок [Detect Thoughts]</a> (СК ряткидка 13). Поки ви підтримуєте концентрацію на цьому заклинанні, ви можете використовувати бонусну дію, щоб надіслати телепатичне повідомлення істоті, на якій ви сфокусувались. Істота може відповісти - використовуючи свою бонусну дію, щоб зробити це - поки ви сфокусовані на ній.\n\nПоки ви сфокусовані на істоті за допомогою заклинання *Виявлення думок*, ви можете використати дію, щоб накласти заклинання <a href="/spell/1277">Навіювання [Suggestion]</a> (СК ряткидка 13) з шолома на цю істоту. Якщо істота досягає успіху в ряткидку проти *Навіювання*, вона не може бути ціллю *Навіювання* з цього шолома протягом 24 годин.',
             shortDescription: 'Дозволяє Detect Thoughts та Suggestion',
             requiresAttunement: true,
-            givesSpells: { connect: [{ engName: 'Detect Thoughts' }, { engName: 'Suggestion' }] }
+            givesSpells: { connect: [{ engName_ruleset: { engName: 'Detect Thoughts', ruleset: ACTIVE_RULESET } }, { engName_ruleset: { engName: 'Suggestion', ruleset: ACTIVE_RULESET } }] }
         },
 
         // --- WONDERIOUS ITEMS ---
@@ -464,7 +466,7 @@ export const seedMagicItems = async ( prisma: PrismaClient ) => {
             shortDescription: '+1 КБ, заклинання Mage Armor/Shield',
             requiresAttunement: true,
             bonusToAC: 1,
-            givesSpells: { connect: [{ engName: 'Mage Armor' }, { engName: 'Shield' }] }
+            givesSpells: { connect: [{ engName_ruleset: { engName: 'Mage Armor', ruleset: ACTIVE_RULESET } }, { engName_ruleset: { engName: 'Shield', ruleset: ACTIVE_RULESET } }] }
         },
         {
             name: 'Жезл магічних снарядів [Wand of Magic Missiles]',
@@ -474,7 +476,7 @@ export const seedMagicItems = async ( prisma: PrismaClient ) => {
             description: 'Цей жезл має 7 зарядів. Поки ви тримаєте його, ви можете використати дію, щоб витратити 1 або більше зарядів, щоб накласти заклинання <a href="/spell/1333">Магічна стріла [Magic Missile]</a> з нього. За 1 заряд ви накладаєте заклинання 1-го рівня. Ви можете збільшити рівень заклинання на один за кожен додатковий витрачений заряд.\n\nЖезл відновлює 1к6 + 1 витрачених зарядів щодня на світанку. Якщо ви витрачаєте останній заряд жезла, киньте к20. На 1 жезл розсипається на попіл і знищується.',
             shortDescription: '7 зарядів: Magic Missile (1+ рівень)',
             requiresAttunement: false,
-             givesSpells: { connect: [{ engName: 'Magic Missile' }] }
+             givesSpells: { connect: [{ engName_ruleset: { engName: 'Magic Missile', ruleset: ACTIVE_RULESET } }] }
         }
         
 , // --- BATCH 1 (A-M) ---
@@ -667,7 +669,7 @@ export const seedMagicItems = async ( prisma: PrismaClient ) => {
              description: 'Цей плащ пахне ледь вловимим запахом сірки. Поки ви його носите, ви можете використовувати дію, щоб накласти заклинання <a href="/spell/1196">Переміщення [Dimension Door]</a>. Цю властивість не можна використати знову до наступного світанку. Коли ви зникаєте, ви залишаєте за собою хмару диму, і з\'являєтеся в такій же хмарі диму в пункті призначення.',
              shortDescription: 'Dimension Door 1 раз/день',
              requiresAttunement: false,
-             givesSpells: { connect: [{ engName: 'Dimension Door' }] }
+             givesSpells: { connect: [{ engName_ruleset: { engName: 'Dimension Door', ruleset: ACTIVE_RULESET } }] }
         },
         {
             name: 'Килим-літак [Carpet of Flying]',
@@ -695,7 +697,7 @@ export const seedMagicItems = async ( prisma: PrismaClient ) => {
              description: 'Поки ви носите цей обруч, ви можете використати дію, щоб накласти з нього заклинання <a href="/spell/1256">Палючий промінь [Scorching Ray]</a> з бонусом +5 до кидків атаки. Цю властивість обруча не можна використати знову до наступного світанку.',
              shortDescription: 'Scorching Ray (+5 атака) 1 раз/день',
              requiresAttunement: false,
-             givesSpells: { connect: [{ engName: 'Scorching Ray' }] }
+             givesSpells: { connect: [{ engName_ruleset: { engName: 'Scorching Ray', ruleset: ACTIVE_RULESET } }] }
         },
         {
              name: 'Плащ павука [Cloak of Arachnida]',
@@ -705,7 +707,7 @@ export const seedMagicItems = async ( prisma: PrismaClient ) => {
              description: 'Цей тонкий одяг зроблений з чорного шовку з вишитим срібним візерунком павутини. Поки ви його носите, ви отримуєте наступні переваги:\n• Ви маєте опір до урону отрутою.\n• Ви маєте швидкість лазіння, що дорівнює вашій швидкості ходьби.\n• Ви можете рухатися вгору, вниз і по вертикальних поверхнях і стелях, залишаючи руки вільними.\n• Ви не можете потрапити в павутину (навіть магічну) і можете рухатися через павутину, як через звичайну місцевість.\n• Ви можете дією накласти заклинання <a href="/spell/1273">Павутина [Web]</a> (СК ряткидка 13). Павутина, створена плащем, заповнює подвійну нормальну площу. Цю властивість плаща не можна використати знову до наступного світанку.',
              shortDescription: 'Опір отруті, лазіння по стінах, Web 1 раз/день',
              requiresAttunement: true,
-             givesSpells: { connect: [{ engName: 'Web' }] }
+             givesSpells: { connect: [{ engName_ruleset: { engName: 'Web', ruleset: ACTIVE_RULESET } }] }
         },
         {
             name: 'Плащ зміщення [Cloak of Displacement]',
@@ -733,7 +735,7 @@ export const seedMagicItems = async ( prisma: PrismaClient ) => {
              description: 'Типова кришталева куля має діаметр близько 6 дюймів. Поки ви торкаєтеся її, ви можете накласти заклинання <a href="/spell/1144">Стеження [Scrying]</a> (СК ряткидка 17).',
              shortDescription: 'Scrying (СК 17)',
              requiresAttunement: true,
-             givesSpells: { connect: [{ engName: 'Scrying' }] }
+             givesSpells: { connect: [{ engName_ruleset: { engName: 'Scrying', ruleset: ACTIVE_RULESET } }] }
         },
         {
             name: 'Куб сили [Cube of Force]',
@@ -977,7 +979,7 @@ export const seedMagicItems = async ( prisma: PrismaClient ) => {
              description: 'Поки ви носите цей капелюх, ви можете використовувати дію, щоб накласти з нього заклинання <a href="/spell/1332">Маскування [Disguise Self]</a> за бажанням. Заклинання закінчується, якщо капелюх знімають.',
              shortDescription: 'Disguise Self (необмежено)',
              requiresAttunement: true,
-             givesSpells: { connect: [{ engName: 'Disguise Self' }] }
+             givesSpells: { connect: [{ engName_ruleset: { engName: 'Disguise Self', ruleset: ACTIVE_RULESET } }] }
         },
         {
             name: 'Обруч інтелекту [Headband of Intellect]',
@@ -1033,7 +1035,7 @@ export const seedMagicItems = async ( prisma: PrismaClient ) => {
             description: 'Цей медальйон має 3 заряди. Поки ви його носите, ви можете використати дію і витратити 1 заряд, щоб накласти з нього заклинання <a href="/spell/1297">Виявлення думок [Detect Thoughts]</a> (СК ряткидка 13). Медальйон відновлює 1к3 використаних зарядів щодня на світанку.',
             shortDescription: 'Detect Thoughts (3 заряди)',
             requiresAttunement: true,
-             givesSpells: { connect: [{ engName: 'Detect Thoughts' }] }
+             givesSpells: { connect: [{ engName_ruleset: { engName: 'Detect Thoughts', ruleset: ACTIVE_RULESET } }] }
         },
         {
             name: 'Намисто адаптації [Necklace of Adaptation]',
@@ -1270,7 +1272,7 @@ export const seedMagicItems = async ( prisma: PrismaClient ) => {
             description: 'Поки ви тримаєте цей посох, ви можете використати дію, щоб витратити 1 заряд і накласти заклинання <a href="/spell/1318">Чарування особи [Charm Person]</a>, <a href="/spell/1329">Наказ [Command]</a> або <a href="/spell/1315">Розуміння мов [Comprehend Languages]</a>, використовуючи вашу СК ряткидка заклинань. Посох має 10 зарядів і відновлює 1к8+2 зарядів на світанку. Якщо ви провалюєте ряткидок від заклинання Навіювання, ви можете перетворити провал на успішний ряткидок, витративши 1 заряд.',
             shortDescription: 'Charm/Command/Comprehend Languages',
             requiresAttunement: true,
-            givesSpells: { connect: [{engName: 'Charm Person'}, {engName: 'Command'}, {engName: 'Comprehend Languages'}] }
+            givesSpells: { connect: [{ engName_ruleset: { engName: 'Charm Person', ruleset: ACTIVE_RULESET } }, { engName_ruleset: { engName: 'Command', ruleset: ACTIVE_RULESET } }, { engName_ruleset: { engName: 'Comprehend Languages', ruleset: ACTIVE_RULESET } }] }
         },
         {
             name: 'Посох вогню [Staff of Fire]',
@@ -1280,7 +1282,7 @@ export const seedMagicItems = async ( prisma: PrismaClient ) => {
             description: 'Ви маєте опір до урону вогнем, поки тримаєте цей посох. Посох має 10 зарядів. Ви можете використати дію, щоб накласти одне з наступних заклинань:\n• <a href="/spell/1321">Вогняні долоні [Burning Hands]</a> (1 заряд)\n• <a href="/spell/1246">Вогняна куля [Fireball]</a> (3 заряди)\n• <a href="/spell/1181">Стіна вогню [Wall of Fire]</a> (4 заряди)\n\nПосох відновлює 1к6+4 зарядів на світанку.',
             shortDescription: 'Вогняні заклинання',
             requiresAttunement: true,
-            givesSpells: { connect: [{engName: 'Fireball'}, {engName: 'Burning Hands'}, {engName: 'Wall of Fire'}] }
+            givesSpells: { connect: [{ engName_ruleset: { engName: 'Fireball', ruleset: ACTIVE_RULESET } }, { engName_ruleset: { engName: 'Burning Hands', ruleset: ACTIVE_RULESET } }, { engName_ruleset: { engName: 'Wall of Fire', ruleset: ACTIVE_RULESET } }] }
         },
          {
             name: 'Посох зцілення [Staff of Healing]',
@@ -1290,7 +1292,7 @@ export const seedMagicItems = async ( prisma: PrismaClient ) => {
             description: 'Цей посох має 10 зарядів. Поки ви тримаєте його, ви можете використати дію, щоб витратити 1 або більше зарядів і накласти одне з наступних заклинань:\n• <a href="/spell/1334">Лікування ран [Cure Wounds]</a> (1 заряд на рівень заклинання, до 4-го)\n• <a href="/spell/1281">Мале відновлення [Lesser Restoration]</a> (2 заряди)\n• <a href="/spell/1161">Масове лікування ран [Mass Cure Wounds]</a> (5 зарядів)\n\nПосох відновлює 1к6+4 зарядів на світанку.',
             shortDescription: 'Зцілюючі заклинання',
             requiresAttunement: true,
-             givesSpells: { connect: [{engName: 'Cure Wounds'}, {engName: 'Lesser Restoration'}, {engName: 'Mass Cure Wounds'}] }
+             givesSpells: { connect: [{ engName_ruleset: { engName: 'Cure Wounds', ruleset: ACTIVE_RULESET } }, { engName_ruleset: { engName: 'Lesser Restoration', ruleset: ACTIVE_RULESET } }, { engName_ruleset: { engName: 'Mass Cure Wounds', ruleset: ACTIVE_RULESET } }] }
         },
          {
              name: 'Посох сили [Staff of Power]',
@@ -1411,7 +1413,7 @@ export const seedMagicItems = async ( prisma: PrismaClient ) => {
             description: 'Цей жезл має 7 зарядів. Поки ви тримаєте його, ви можете використати дію, щоб витратити частину його зарядів і накласти одне з наступних заклинань (СК ряткидка 17): <a href="/spell/1254">Утримання особи [Hold Person]</a> (2 заряди) або <a href="/spell/1143">Утримання чудовиська [Hold Monster]</a> (5 зарядів).\n\nЖезл відновлює 1к6 + 1 використаних зарядів щодня на світанку. Якщо ви витрачаєте останній заряд, киньте к20. Якщо випадає 1, жезл розсипається в попіл і знищується.',
             shortDescription: 'Утримання (Person/Monster)',
             requiresAttunement: true,
-            givesSpells: { connect: [{engName: 'Hold Person'}, {engName: 'Hold Monster'}] }
+            givesSpells: { connect: [{ engName_ruleset: { engName: 'Hold Person', ruleset: ACTIVE_RULESET } }, { engName_ruleset: { engName: 'Hold Monster', ruleset: ACTIVE_RULESET } }] }
         },
         {
             name: 'Жезл виявлення ворогів [Wand of Enemy Detection]',
@@ -1439,7 +1441,7 @@ export const seedMagicItems = async ( prisma: PrismaClient ) => {
             description: 'Цей жезл має 7 зарядів. Поки ви тримаєте його, ви можете використати дію, щоб витратити 1 або більше зарядів і накласти заклинання <a href="/spell/1246">Вогняна куля [Fireball]</a> (СК ряткидка 15) з нього. За 1 заряд ви накладаєте версію заклинання 3-го рівня. Ви можете збільшити рівень заклинання на один за кожен додатковий витрачений заряд.\n\nЖезл відновлює 1к6 + 1 використаних зарядів щодня на світанку. Якщо ви витрачаєте останній заряд, киньте к20. Якщо випадає 1, жезл розсипається в попіл і знищується.',
             shortDescription: 'Fireball (7 зарядів)',
             requiresAttunement: true,
-            givesSpells: { connect: [{engName: 'Fireball'}] }
+            givesSpells: { connect: [{ engName_ruleset: { engName: 'Fireball', ruleset: ACTIVE_RULESET } }] }
         },
         {
             name: 'Жезл блискавок [Wand of Lightning Bolts]',
@@ -1449,7 +1451,7 @@ export const seedMagicItems = async ( prisma: PrismaClient ) => {
             description: 'Цей жезл має 7 зарядів. Поки ви тримаєте його, ви можете використати дію, щоб витратити 1 або більше зарядів і накласти заклинання <a href="/spell/1237">Блискавка [Lightning Bolt]</a> (СК ряткидка 15) з нього. За 1 заряд ви накладаєте версію заклинання 3-го рівня. Ви можете збільшити рівень заклинання на один за кожен додатковий витрачений заряд.\n\nЖезл відновлює 1к6 + 1 використаних зарядів щодня на світанку. Якщо ви витрачаєте останній заряд, киньте к20. Якщо випадає 1, жезл розсипається в попіл і знищується.',
             shortDescription: 'Lightning Bolt (7 зарядів)',
             requiresAttunement: true,
-            givesSpells: { connect: [{engName: 'Lightning Bolt'}] }
+            givesSpells: { connect: [{ engName_ruleset: { engName: 'Lightning Bolt', ruleset: ACTIVE_RULESET } }] }
         },
          {
             name: 'Жезл паралічу [Wand of Paralysis]',
@@ -1468,7 +1470,7 @@ export const seedMagicItems = async ( prisma: PrismaClient ) => {
             description: 'Цей жезл має 7 зарядів. Поки ви тримаєте його, ви можете використати дію, щоб витратити 1 заряд і накласти заклинання <a href="/spell/1189">Перетворення [Polymorph]</a> (СК ряткидка 15) з нього.\n\nЖезл відновлює 1к6 + 1 використаних зарядів щодня на світанку. Якщо ви витрачаєте останній заряд, киньте к20. Якщо випадає 1, жезл розсипається в попіл і знищується.',
             shortDescription: 'Polymorph (7 зарядів)',
             requiresAttunement: true,
-            givesSpells: { connect: [{engName: 'Polymorph'}] }
+            givesSpells: { connect: [{ engName_ruleset: { engName: 'Polymorph', ruleset: ACTIVE_RULESET } }] }
         },
         {
             name: 'Жезл бойового мага +1 [Wand of the War Mage +1]',
@@ -1487,7 +1489,7 @@ export const seedMagicItems = async ( prisma: PrismaClient ) => {
             description: 'Цей жезл має 7 зарядів. Поки ви тримаєте його, ви можете використати дію, щоб витратити 1 заряд і накласти заклинання <a href="/spell/1273">Павутина [Web]</a> (СК ряткидка 15) з нього.\n\nЖезл відновлює 1к6 + 1 використаних зарядів щодня на світанку. Якщо ви витрачаєте останній заряд, киньте к20. Якщо випадає 1, жезл розсипається в попіл і знищується.',
             shortDescription: 'Web (7 зарядів)',
             requiresAttunement: true,
-            givesSpells: { connect: [{engName: 'Web'}] }
+            givesSpells: { connect: [{ engName_ruleset: { engName: 'Web', ruleset: ACTIVE_RULESET } }] }
         },
         {
             name: 'Жезл див [Wand of Wonder]',
@@ -1946,7 +1948,7 @@ export const seedMagicItems = async ( prisma: PrismaClient ) => {
             description: 'Поки ви носите цей перстень, ви можете накладати заклинання <a href="/spell/1139">Телекінез [Telekinesis]</a> за бажанням, але можете націлюватися тільки на об\'єкти, яких не носять і не несуть.',
             shortDescription: 'Телекінез за бажанням',
             requiresAttunement: true,
-            givesSpells: { connect: [{ engName: 'Telekinesis' }] }
+            givesSpells: { connect: [{ engName_ruleset: { engName: 'Telekinesis', ruleset: ACTIVE_RULESET } }] }
         },
         {
             name: 'Перстень рентгенівського зору [Ring of X-ray Vision]',
@@ -1974,7 +1976,7 @@ export const seedMagicItems = async ( prisma: PrismaClient ) => {
             description: 'Це намисто має 1к4 + 2 магічні намистини. Ви можете використовувати бонус дію, щоб накласти одне з наступних заклинань, залежно від типу намистини (СК ряткидка 15):\n• Благословення (Bless): <a href="/spell/1044">Благословення [Bless]</a>\n• Лікування (Curing): <a href="/spell/1334">Лікування ран [Cure Wounds]</a> (2-й рівень) або <a href="/spell/1281">Мале відновлення [Lesser Restoration]</a>\n• Прихильність (Favor): <a href="/spell/1173">Велика поновлення [Greater Restoration]</a>\n• Удар (Smiting): <a href="/spell/1252">Тавруючий каральний удар [Branding Smite]</a>\n• Виклик (Summoning): <a href="/spell/1120">Планарний союзник [Planar Ally]</a>\n• Вітер (Wind): <a href="/spell/1117">Ходіння вітром [Wind Walk]</a>\n\nПісля використання намистини її магія втрачається, але відновлюється на світанку.',
             shortDescription: 'Швидкі божественні заклинання',
             requiresAttunement: true,
-            givesSpells: { connect: [{ engName: 'Bless' }, { engName: 'Cure Wounds' }, { engName: 'Lesser Restoration' }, { engName: 'Greater Restoration' }, { engName: 'Branding Smite' }, { engName: 'Planar Ally' }, { engName: 'Wind Walk' }] }
+            givesSpells: { connect: [{ engName_ruleset: { engName: 'Bless', ruleset: ACTIVE_RULESET } }, { engName_ruleset: { engName: 'Cure Wounds', ruleset: ACTIVE_RULESET } }, { engName_ruleset: { engName: 'Lesser Restoration', ruleset: ACTIVE_RULESET } }, { engName_ruleset: { engName: 'Greater Restoration', ruleset: ACTIVE_RULESET } }, { engName_ruleset: { engName: 'Branding Smite', ruleset: ACTIVE_RULESET } }, { engName_ruleset: { engName: 'Planar Ally', ruleset: ACTIVE_RULESET } }, { engName_ruleset: { engName: 'Wind Walk', ruleset: ACTIVE_RULESET } }] }
         },
         // --- BATCH 4 (Final Extras) ---
         {
@@ -2012,7 +2014,7 @@ export const seedMagicItems = async ( prisma: PrismaClient ) => {
             description: 'Поки ви носите цей шолом, ви можете використати дію, щоб накласти заклинання <a href="/spell/1315">Розуміння мов [Comprehend Languages]</a> з нього за бажанням.',
             shortDescription: 'Comprehend Languages за бажанням',
             requiresAttunement: false,
-            givesSpells: { connect: [{ engName: 'Comprehend Languages' }] }
+            givesSpells: { connect: [{ engName_ruleset: { engName: 'Comprehend Languages', ruleset: ACTIVE_RULESET } }] }
         },
         {
             name: 'Шолом телепортації [Helm of Teleportation]',
@@ -2022,7 +2024,7 @@ export const seedMagicItems = async ( prisma: PrismaClient ) => {
             description: 'Цей шолом має 3 заряди. Поки ви носите його, ви можете використати дію, щоб витратити 1 заряд і накласти заклинання <a href="/spell/1088">Телепортація [Teleport]</a> з нього. Шолом відновлює 1к3 витрачених зарядів щодня на світанку.',
             shortDescription: 'Teleport (3 заряди)',
             requiresAttunement: true,
-            givesSpells: { connect: [{ engName: 'Teleport' }] }
+            givesSpells: { connect: [{ engName_ruleset: { engName: 'Teleport', ruleset: ACTIVE_RULESET } }] }
         },
         {
             name: 'Ріг вибуху [Horn of Blasting]',

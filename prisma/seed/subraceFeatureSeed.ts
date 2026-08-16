@@ -3,11 +3,14 @@ import {
   FeatureDisplayType,
   RestType,
   Prisma,
+  Ruleset,
 } from "@prisma/client";
 import {
   normalizeFeatureCreateInput,
   type SeedFeatureCreateInput,
 } from "./helpers/featureDisplayType";
+
+const ACTIVE_RULESET: Ruleset = "RULES_2014";
 
 export const seedSubraceFeatures = async (prisma: PrismaClient) => {
   console.log("🌟 Додаємо фічі підрас...");
@@ -59,9 +62,9 @@ export const seedSubraceFeatures = async (prisma: PrismaClient) => {
       limitedUsesPer: RestType.LONG_REST,
       givesSpells: {
         connect: [
-          { engName: "Dancing Lights" },
-          { engName: "Faerie Fire" },
-          { engName: "Darkness" },
+          { engName_ruleset: { engName: "Dancing Lights", ruleset: ACTIVE_RULESET } },
+          { engName_ruleset: { engName: "Faerie Fire", ruleset: ACTIVE_RULESET } },
+          { engName_ruleset: { engName: "Darkness", ruleset: ACTIVE_RULESET } },
         ],
       },
     },
@@ -85,7 +88,7 @@ export const seedSubraceFeatures = async (prisma: PrismaClient) => {
       limitedUsesPer: RestType.SHORT_REST,
       usesCount: 1,
       givesSpells: {
-        connect: [{ engName: "Misty Step" }],
+        connect: [{ engName_ruleset: { engName: "Misty Step", ruleset: ACTIVE_RULESET } }],
       },
     },
 
@@ -146,9 +149,9 @@ export const seedSubraceFeatures = async (prisma: PrismaClient) => {
       limitedUsesPer: RestType.LONG_REST,
       givesSpells: {
         connect: [
-          { engName: "Light" },
-          { engName: "Sleep" },
-          { engName: "Invisibility" },
+          { engName_ruleset: { engName: "Light", ruleset: ACTIVE_RULESET } },
+          { engName_ruleset: { engName: "Sleep", ruleset: ACTIVE_RULESET } },
+          { engName_ruleset: { engName: "Invisibility", ruleset: ACTIVE_RULESET } },
         ],
       },
     },
@@ -218,7 +221,7 @@ export const seedSubraceFeatures = async (prisma: PrismaClient) => {
       displayType: [FeatureDisplayType.PASSIVE],
       limitedUsesPer: RestType.LONG_REST,
       givesSpells: {
-        connect: [{ engName: "Enlarge/Reduce" }, { engName: "Invisibility" }],
+        connect: [{ engName_ruleset: { engName: "Enlarge/Reduce", ruleset: ACTIVE_RULESET } }, { engName_ruleset: { engName: "Invisibility", ruleset: ACTIVE_RULESET } }],
       },
     },
 
@@ -265,7 +268,7 @@ export const seedSubraceFeatures = async (prisma: PrismaClient) => {
       shortDescription: "Замовляння Мала ілюзія [Minor Illusion]",
       displayType: [FeatureDisplayType.PASSIVE],
       givesSpells: {
-        connect: [{ engName: "Minor Illusion" }],
+        connect: [{ engName_ruleset: { engName: "Minor Illusion", ruleset: ACTIVE_RULESET } }],
       },
     },
     {

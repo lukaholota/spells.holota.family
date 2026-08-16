@@ -1,4 +1,6 @@
-import { PrismaClient, Subraces, Source, Races, Language, WeaponCategory, ArmorType } from "@prisma/client";
+import { PrismaClient, Subraces, Source, Races, Language, WeaponCategory, ArmorType, Ruleset } from "@prisma/client";
+
+const ACTIVE_RULESET: Ruleset = "RULES_2014";
 
 export const seedSubraces = async (prisma: PrismaClient) => {
     console.log('🧝 Додаємо підраси Ельфів...');
@@ -230,7 +232,7 @@ export const seedSubraces = async (prisma: PrismaClient) => {
         const { traitEngNames, ...subraceData } = subrace as any;
 
         const saved = await prisma.subrace.upsert({
-            where: { name: subraceData.name },
+            where: { name_ruleset: { name: subraceData.name, ruleset: ACTIVE_RULESET } },
             update: subraceData,
             create: subraceData
         });
