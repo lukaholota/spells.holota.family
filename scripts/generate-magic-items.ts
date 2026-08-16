@@ -3,7 +3,7 @@
  * Run: npx tsx scripts/generate-magic-items.ts
  */
 
-import { PrismaClient } from '@prisma/client';
+import { PrismaClient, Ruleset } from '@prisma/client';
 import { PrismaPg } from '@prisma/adapter-pg';
 import { Pool } from 'pg';
 import { writeFileSync, mkdirSync } from 'fs';
@@ -15,43 +15,50 @@ dotenv.config();
 
 const OUTPUT_PATH = join(process.cwd(), 'src/lib/generated/magicItems.json');
 
+// KR6.3: hardcoded until the edition switch (O6 Крок 5) lets pers.ruleset drive this.
+export const ACTIVE_RULESET: Ruleset = "RULES_2014";
+
+export function buildMagicItemsForGenerationQuery() {
+  return {
+    where: { ruleset: ACTIVE_RULESET },
+    orderBy: [{ name: 'asc' as const }],
+    // Select all fields we need for the UI and search
+    select: {
+      magicItemId: true,
+      name: true,
+      itemType: true,
+      rarity: true,
+      requiresAttunement: true,
+      engName: true,
+      description: true,
+      shortDescription: true,
+      weaponProficiencies: true,
+      weaponProficienciesSpecial: true,
+      bonusToAC: true,
+      bonusToRangedDamage: true,
+      bonusToSavingThrows: true,
+      noArmorOrShieldForACBonus: true,
+      givesSpells: {
+        select: {
+          spellId: true,
+          name: true,
+          engName: true,
+          level: true,
+        },
+      },
+    },
+  };
+}
+
 async function main() {
   console.log('🔮 Generating magicItems.json from database...');
-  
+
   const pool = new Pool({ connectionString: process.env.DATABASE_URL });
   const adapter = new PrismaPg(pool);
   const prisma = new PrismaClient({ adapter });
-  
+
   try {
-    const magicItems = await prisma.magicItem.findMany({
-      orderBy: [{ name: 'asc' }],
-      // Select all fields we need for the UI and search
-      select: {
-          magicItemId: true,
-          name: true,
-          itemType: true,
-          rarity: true,
-          requiresAttunement: true,
-          engName: true,
-          description: true,
-          shortDescription: true,
-          weaponProficiencies: true,
-          weaponProficienciesSpecial: true,
-          bonusToAC: true,
-          bonusToRangedDamage: true,
-          bonusToSavingThrows: true,
-          noArmorOrShieldForACBonus: true,
-          givesSpells: {
-              select: {
-                  spellId: true,
-                  name: true,
-                  engName: true,
-                  level: true,
-                  // shortDescription: true, // Spell model might not have this or it's not needed
-              }
-          }
-      },
-    });
+    const magicItems = await prisma.magicItem.findMany(buildMagicItemsForGenerationQuery());
 
     // Transform to stable format if needed, but mostly direct dump
     const data = magicItems.map((item) => ({
@@ -78,5 +85,7 @@ async function main() {
   }
 }
 
-main();
+if (import.meta.url === `file://${process.argv[1]}`) {
+  main();
+}
 

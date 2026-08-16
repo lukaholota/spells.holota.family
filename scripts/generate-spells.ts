@@ -7,7 +7,7 @@
  * can proceed without database access.
  */
 
-import { PrismaClient } from '@prisma/client';
+import { PrismaClient, Ruleset } from '@prisma/client';
 import { PrismaPg } from '@prisma/adapter-pg';
 import { Pool } from 'pg';
 import { writeFileSync, mkdirSync } from 'fs';
@@ -19,34 +19,42 @@ dotenv.config();
 
 const OUTPUT_PATH = join(process.cwd(), 'src/lib/generated/spells.json');
 
+// KR6.3: hardcoded until the edition switch (O6 Крок 5) lets pers.ruleset drive this.
+export const ACTIVE_RULESET: Ruleset = "RULES_2014";
+
+export function buildSpellsForGenerationQuery() {
+  return {
+    where: { ruleset: ACTIVE_RULESET },
+    orderBy: [{ level: 'asc' as const }, { name: 'asc' as const }],
+    select: {
+      spellId: true,
+      name: true,
+      engName: true,
+      level: true,
+      school: true,
+      castingTime: true,
+      duration: true,
+      range: true,
+      components: true,
+      description: true,
+      source: true,
+      hasRitual: true,
+      hasConcentration: true,
+      spellClasses: { select: { className: true } },
+      spellRaces: { select: { raceName: true } },
+    },
+  };
+}
+
 async function main() {
   console.log('🔮 Generating spells.json from database...');
-  
+
   const pool = new Pool({ connectionString: process.env.DATABASE_URL });
   const adapter = new PrismaPg(pool);
   const prisma = new PrismaClient({ adapter });
-  
+
   try {
-    const spells = await prisma.spell.findMany({
-      orderBy: [{ level: 'asc' }, { name: 'asc' }],
-      select: {
-        spellId: true,
-        name: true,
-        engName: true,
-        level: true,
-        school: true,
-        castingTime: true,
-        duration: true,
-        range: true,
-        components: true,
-        description: true,
-        source: true,
-        hasRitual: true,
-        hasConcentration: true,
-        spellClasses: { select: { className: true } },
-        spellRaces: { select: { raceName: true } },
-      },
-    });
+    const spells = await prisma.spell.findMany(buildSpellsForGenerationQuery());
 
     // Transform to stable format
     const data = spells.map((s) => ({
@@ -83,5 +91,7 @@ async function main() {
   }
 }
 
-main();
+if (import.meta.url === `file://${process.argv[1]}`) {
+  main();
+}
 
