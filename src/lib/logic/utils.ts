@@ -1,9 +1,12 @@
+import { calculateAbilityModifier } from "@/rules/abilities";
+import { calculateProficiencyBonus } from "@/rules/proficiency";
+
 export function getAbilityMod(score: number): number {
-  return Math.floor((score - 10) / 2);
+  return calculateAbilityModifier(score);
 }
 
 export function getProficiencyBonus(level: number): number {
-  return Math.ceil(level / 4) + 1;
+  return calculateProficiencyBonus(level);
 }
 
 export function formatModifier(mod: number): string {

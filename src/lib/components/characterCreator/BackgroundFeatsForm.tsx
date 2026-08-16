@@ -3,16 +3,10 @@
 import { useStepForm } from "@/hooks/useStepForm";
 import { backgroundFeatSchema } from "@/lib/zod/schemas/persCreateSchema";
 import { Feat } from "@prisma/client";
-import { Card, CardContent } from "@/components/ui/card";
-import clsx from "clsx";
 import { useEffect, useMemo, useState } from "react";
 import { usePersFormStore } from "@/lib/stores/persFormStore";
-import { SourceBadge } from "@/lib/components/characterCreator/SourceBadge";
+import { FeatPicker } from "@/lib/components/characterCreator/FeatPicker";
 import { featTranslations } from "@/lib/refs/translation";
-import { FeatInfoModal } from "@/lib/components/characterCreator/modals/FeatInfoModal";
-import { Input } from "@/components/ui/input";
-import { Search, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
 
 import { normalizeRaceASI } from "@/lib/components/characterCreator/infoUtils";
 import { RaceI, RaceASI, PersPrisma } from "@/lib/types/model-types";
@@ -207,73 +201,15 @@ export const BackgroundFeatsForm = ({ feats, formId, onNextDisabledChange, race,
         <p className="text-sm text-slate-400">Додаткова риса для вашого персонажа</p>
       </div>
 
-      <div className="glass-panel border-gradient-rpg rounded-xl p-3 sm:p-4">
-        <div className="relative w-full">
-            <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-500" />
-            <Input
-              type="search"
-              value={search || ""}
-              onChange={(e) => form.setValue("backgroundFeatSearch", e.target.value)}
-              placeholder="Пошук риси"
-              className="h-10 border-white/10 bg-white/5 pl-9 pr-10 text-sm text-slate-100 placeholder:text-slate-400 focus-visible:ring-cyan-400/30"
-            />
-             {search && (
-              <Button
-                type="button"
-                variant="ghost"
-                size="icon"
-                className="absolute right-1.5 top-1/2 h-7 w-7 -translate-y-1/2 text-slate-400 hover:text-white"
-                onClick={() => form.setValue("backgroundFeatSearch", '')}
-              >
-                <X className="h-4 w-4" />
-              </Button>
-            )}
-        </div>
-      </div>
-
-      <div className="grid gap-3 sm:grid-cols-2">
-        {filteredFeats.map((feat) => {
-          const name = featTranslations[feat.name] ?? feat.name;
-          const prereq = featPrereqs.get(feat.featId);
-          const isMet = prereq?.met ?? true;
-          const showUnavailable = !isMet && feat.featId !== chosenFeatId;
-          return (
-          <Card
-            key={feat.featId}
-            className={clsx(
-              "glass-card cursor-pointer transition-all duration-200 relative",
-              feat.featId === chosenFeatId && "glass-active",
-              showUnavailable && "border-rose-500/30 opacity-70"
-            )}
-            onClick={(e) => {
-              if ((e.target as HTMLElement | null)?.closest?.('[data-stop-card-click]')) return;
-              selectFeat(feat);
-            }}
-          >
-            <CardContent className="relative flex items-center justify-between p-4">
-              {showUnavailable ? (
-                <div className="pointer-events-none absolute inset-0 bg-black/25" />
-              ) : null}
-              <FeatInfoModal feat={feat} triggerClassName="-right-4 -top-4 sm:-right-5 sm:-top-5" />
-              <div>
-                <div className="text-lg font-semibold text-white">{name}</div>
-                <div className="text-xs text-slate-400">{feat.engName}</div>
-                {!isMet && prereq?.reason ? (
-                  <div className="mt-2 text-[10px] text-rose-400 font-medium bg-rose-500/10 px-1.5 py-0.5 rounded border border-rose-500/20">
-                    {prereq.reason}
-                  </div>
-                ) : null}
-              </div>
-              <SourceBadge code={feat.source} active={feat.featId === chosenFeatId} />
-            </CardContent>
-          </Card>
-        )})}
-        {filteredFeats.length === 0 && (
-          <div className="col-span-full py-12 text-center text-slate-500 text-sm">
-            Риси не знайдено
-          </div>
-        )}
-      </div>
+      <FeatPicker
+        feats={filteredFeats}
+        selectedFeatId={chosenFeatId}
+        search={search}
+        prerequisiteByFeatId={featPrereqs}
+        onSearchChange={(nextSearch) => form.setValue("backgroundFeatSearch", nextSearch)}
+        onSelectFeat={selectFeat}
+        emptyState={<div className="col-span-full py-12 text-center text-slate-500 text-sm">Риси не знайдено</div>}
+      />
 
       <PrerequisiteConfirmationDialog
         open={confirmOpen}
@@ -301,4 +237,3 @@ export const BackgroundFeatsForm = ({ feats, formId, onNextDisabledChange, race,
 };
 
 export default BackgroundFeatsForm;
-

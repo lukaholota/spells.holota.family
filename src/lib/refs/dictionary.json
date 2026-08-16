@@ -112,7 +112,6 @@
       "unconscious": "Непритомний"
     },
     "alignments": {
-
       "lawfulGood": "Законно добрий",
       "alignment": "Світогляд",
       "neutralGood": "Нейтрально добрий",
@@ -305,6 +304,86 @@
       "grapple": "Захоплення",
       "shove": "Штовхання",
       "opportunityAttack": "Принагідна атака"
+    },
+    "rules2024": {
+      "coreConceptTerms": {
+        "weaponMastery": "Майстерність зброї",
+        "originFeat": "Риса Походження",
+        "epicBoon": "Епічний Дар",
+        "species": "Вид",
+        "d20Test": "Перевірка к20",
+        "magicAction": "Магічна дія",
+        "emanation": "Випромінювання",
+        "bloodied": "Закривавлений",
+        "psionicEnergyDie": "Кубик Псіонічної Енергії",
+        "studyAction": "Дія Вивчення",
+        "utilizeAction": "Дія Застосування",
+        "focusPoint": "Очко Зосередження",
+        "lightlyObscured": "Легка заслоненість",
+        "heavilyObscured": "Значна заслоненість",
+        "sentience": "Свідомість",
+        "randomProperties": "Випадкові властивості",
+        "bastion": "Бастіон"
+      },
+      "weaponMasteryProperties": {
+        "cleave": "Розмах",
+        "graze": "Черкання",
+        "nick": "Кидок",
+        "push": "Поштовх",
+        "sap": "Виснаження",
+        "slow": "Уповільнення (властивість зброї)",
+        "topple": "Повалення",
+        "vex": "Знервування"
+      },
+      "newFeatNames": {
+        "abilityScoreImprovement": "Покращення Характеристик",
+        "crafter": "Ремісник",
+        "musician": "Музикант",
+        "martialWeaponTraining": "Тренування з Бойовою Зброєю",
+        "speedy": "Швидкий"
+      },
+      "epicBoonNames": {
+        "boonOfCombatProwess": "Дар Бойової Майстерності",
+        "boonOfDimensionalTravel": "Дар Мандрів Вимірами",
+        "boonOfEnergyResistance": "Дар Опору Стихіям",
+        "boonOfFate": "Дар Долі",
+        "boonOfFortitude": "Дар Витривалості",
+        "boonOfIrresistibleOffense": "Дар Незворотного Нападу",
+        "boonOfRecovery": "Дар Відновлення",
+        "boonOfSkill": "Дар Майстерності",
+        "boonOfSpeed": "Дар Швидкості",
+        "boonOfSpellRecall": "Дар Пригадування Заклинань",
+        "boonOfTheNightSpirit": "Дар Духу Ночі",
+        "boonOfTruesight": "Дар Істинного Зору"
+      },
+      "renamedSubclassNames": {
+        "note": "2024 перейменувало підклас-конвенції в 5 групах; корінь перекладу успадкований з 2014, де можливо",
+        "warriorOfMercy": "Войовник Милосердя",
+        "warriorOfShadow": "Войовник Тіні",
+        "warriorOfTheElements": "Войовник Стихій",
+        "warriorOfTheOpenHand": "Войовник Відкритої Долоні",
+        "beastMaster": "Звіролов",
+        "gloomStalker": "Сутінковий Мисливець",
+        "hunter": "Мисливець",
+        "aberrantSorcery": "Абераційна Магія",
+        "clockworkSorcery": "Механічна Магія",
+        "draconicSorcery": "Драконяча Магія",
+        "wildMagicSorcery": "Дика Магія",
+        "archfeyPatron": "Патрон-Архіфея",
+        "celestialPatron": "Патрон-Небожитель",
+        "fiendPatron": "Патрон-Почвара",
+        "greatOldOnePatron": "Патрон-Прадавній",
+        "abjurer": "Заборонець",
+        "diviner": "Провидець",
+        "evoker": "Заклинач Стихій",
+        "illusionist": "Ілюзіоніст"
+      },
+      "newSubclassNames": {
+        "collegeOfDance": "Колегія Танцю",
+        "pathOfTheWildHeart": "Шлях Дикого Серця",
+        "pathOfTheWorldTree": "Шлях Світового Дерева",
+        "circleOfTheSea": "Коло Моря"
+      }
     }
   },
   "SPELLS": [

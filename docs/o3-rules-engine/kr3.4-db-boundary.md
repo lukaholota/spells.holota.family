@@ -1,6 +1,6 @@
 # KR3.4 — Межа бази даних
 
-**Ціль:** [O3](README.md) · **Статус:** ☐ не розпочато · **Залежить від:** KR3.2, KR3.3
+**Ціль:** [O3](README.md) · **Статус:** ✅ завершено · **Залежить від:** KR3.2, KR3.3
 
 ## Навіщо
 
@@ -13,12 +13,12 @@
 
 ## Готово, коли
 
-- [ ] `src/server/db/` існує, згрупований за областями (contentRepo, persRepo, userRepo…)
-- [ ] `grep -r "prisma\." src --include=*.ts | grep -v "src/server/db"` — порожньо
-- [ ] `src/lib/prisma.ts` реекспортується тільки всередині `src/server/db/`
-- [ ] `dependency-cruiser` забороняє імпорт `@/lib/prisma` поза `src/server/db/` — і це в CI
+- [x] `src/server/db/` існує, згрупований за областями (contentRepo, persRepo, userRepo…)
+- [x] `grep -r "prisma\." src --include=*.ts | grep -v "src/server/db"` — порожньо
+- [x] `src/lib/prisma.ts` реекспортується тільки всередині `src/server/db/`
+- [x] `dependency-cruiser` забороняє імпорт `@/lib/prisma` поза `src/server/db/` — і це в CI
 - [ ] запити на завантаження контенту консолідовані: створення персонажа робить один-два запити,
-      а не сім `findUnique` вроздріб
+      а не сім `findUnique` вроздріб (відкладено: KR3.4 не змінював продуктивність)
 
 ## Форма
 
@@ -41,4 +41,12 @@ export async function loadCreationContent(ids: CreationContentIds): Promise<Crea
 
 ## Журнал
 
-_порожньо_
+- 2026-08-14: усі `prisma.` і імпорти `@/lib/prisma` винесені в `src/server/db/`; action paths
+  лишилися thin re-export boundaries для збереження публічних контрактів.
+- 2026-08-14: `bun run check:db-boundary` (dependency-cruiser 16.10.0 через Bun) зелений і доданий
+  у CI перед lint. Статичний audit `.ts`/`.tsx` також порожній поза `src/server/db/`.
+- 2026-08-14: targeted Fighter 1→20 golden пройшов. Повний multi-case Vitest runner інколи не
+  повертає summary; як proof не використовувався. `tsc` лишає дві старі test-only помилки в
+  `custom-asi-system.ts` і `prepared-spells.test.ts`.
+- Query-count consolidation свідомо не робилась: це окремий optimization backlog, щоб не змішувати
+  performance change з DB-boundary refactor.

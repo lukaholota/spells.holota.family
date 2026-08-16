@@ -1,7 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
 import { auth } from "@/lib/auth";
-import { prisma } from "@/lib/prisma";
-import { SpellOrigin } from "@prisma/client";
+import {
+  attachManualSpell,
+  findCharacterOwnerId,
+  isSpellAttached,
+  removeSpellFromCharacter,
+  spellExists,
+} from "@/server/db/character-api";
+import { findUserIdByEmail } from "@/server/db/users";
 
 /**
  * POST /api/characters/[characterId]/spells
@@ -33,40 +39,27 @@ export async function POST(
   }
 
   // Verify user owns this character
-  const user = await prisma.user.findUnique({
-    where: { email: session.user.email },
-    select: { id: true },
-  });
+  const userId = await findUserIdByEmail(session.user.email);
 
-  if (!user) {
+  if (userId === null) {
     return NextResponse.json({ error: "User not found" }, { status: 404 });
   }
 
-  const character = await prisma.pers.findUnique({
-    where: { persId },
-    select: { userId: true },
-  });
+  const characterOwnerId = await findCharacterOwnerId(persId);
 
-  if (!character || character.userId !== user.id) {
+  if (characterOwnerId === null || characterOwnerId !== userId) {
     return NextResponse.json({ error: "Character not found or access denied" }, { status: 403 });
   }
 
   // Check if spell exists
-  const spell = await prisma.spell.findUnique({
-    where: { spellId },
-    select: { spellId: true },
-  });
+  const spellFound = await spellExists(spellId);
 
-  if (!spell) {
+  if (!spellFound) {
     return NextResponse.json({ error: "Spell not found" }, { status: 404 });
   }
 
   // Check if already attached
-  const existing = await prisma.persSpell.findUnique({
-    where: {
-      persId_spellId: { persId, spellId },
-    },
-  });
+  const existing = await isSpellAttached(persId, spellId);
 
   if (existing) {
     return NextResponse.json({ 
@@ -77,14 +70,7 @@ export async function POST(
   }
 
   // Add spell to character
-  await prisma.persSpell.create({
-    data: {
-      persId,
-      spellId,
-      learnedAtLevel: 0,
-      origin: SpellOrigin.MANUAL,
-    },
-  });
+  await attachManualSpell(persId, spellId);
 
   return NextResponse.json({ success: true, added: true });
 }
@@ -119,28 +105,20 @@ export async function DELETE(
   }
 
   // Verify user owns this character
-  const user = await prisma.user.findUnique({
-    where: { email: session.user.email },
-    select: { id: true },
-  });
+  const userId = await findUserIdByEmail(session.user.email);
 
-  if (!user) {
+  if (userId === null) {
     return NextResponse.json({ error: "User not found" }, { status: 404 });
   }
 
-  const character = await prisma.pers.findUnique({
-    where: { persId },
-    select: { userId: true },
-  });
+  const characterOwnerId = await findCharacterOwnerId(persId);
 
-  if (!character || character.userId !== user.id) {
+  if (characterOwnerId === null || characterOwnerId !== userId) {
     return NextResponse.json({ error: "Character not found or access denied" }, { status: 403 });
   }
 
   // Remove spell from character
-  await prisma.persSpell.deleteMany({
-    where: { persId, spellId },
-  });
+  await removeSpellFromCharacter(persId, spellId);
 
   return NextResponse.json({ success: true, removed: true });
 }

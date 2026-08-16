@@ -1,8 +1,9 @@
 "use server";
 
 import { auth } from "@/lib/auth";
-import { prisma } from "@/lib/prisma";
 import { canEditPers } from "@/lib/actions/pers";
+import { findCombatState, saveCombatState } from "@/server/db/combat-state";
+import { findUserIdByEmail } from "@/server/db/users";
 import { revalidatePath } from "next/cache";
 
 type HpMode = "damage" | "heal" | "temp";
@@ -17,28 +18,13 @@ async function assertOwnsPers(persId: number) {
   const session = await auth();
   if (!session?.user?.email) return { ok: false as const, error: "Не авторизовано" };
 
-  const user = await prisma.user.findUnique({
-    where: { email: session.user.email },
-    select: { id: true },
-  });
-  if (!user) return { ok: false as const, error: "Користувача не знайдено" };
+  const userId = await findUserIdByEmail(session.user.email);
+  if (!userId) return { ok: false as const, error: "Користувача не знайдено" };
 
-  const pers = await prisma.pers.findUnique({
-    where: { persId },
-    select: {
-      persId: true,
-      userId: true,
-      currentHp: true,
-      maxHp: true,
-      tempHp: true,
-      deathSaveSuccesses: true,
-      deathSaveFailures: true,
-      isDead: true,
-    },
-  });
+  const pers = await findCombatState(persId);
 
   if (!pers) return { ok: false as const, error: "Немає доступу до персонажа" };
-  const canEdit = await canEditPers(persId, user.id);
+  const canEdit = await canEditPers(persId, userId);
   if (!canEdit) return { ok: false as const, error: "Немає доступу до персонажа" };
   return { ok: true as const, pers };
 }
@@ -83,27 +69,12 @@ export async function applyHpChange({
   // If character is back above 0 HP, clear death saves and dead flag.
   const clearsDeath = nextHp > 0;
 
-  const updated = await prisma.pers.update({
-    where: { persId },
-    data: {
-      currentHp: nextHp,
-      tempHp: nextTemp,
-      ...(clearsDeath
-        ? {
-            deathSaveSuccesses: 0,
-            deathSaveFailures: 0,
-            isDead: false,
-          }
-        : {}),
-    },
-    select: {
-      currentHp: true,
-      tempHp: true,
-      maxHp: true,
-      deathSaveSuccesses: true,
-      deathSaveFailures: true,
-      isDead: true,
-    },
+  const updated = await saveCombatState(persId, {
+    currentHp: nextHp,
+    tempHp: nextTemp,
+    ...(clearsDeath
+      ? { deathSaveSuccesses: 0, deathSaveFailures: 0, isDead: false }
+      : {}),
   });
 
   revalidatePath(`/char/${persId}`);
@@ -132,13 +103,9 @@ export async function setDeathSaves({
 
   // If dead, don't auto-revive via saves.
   if (owned.pers.isDead) {
-    const updated = await prisma.pers.update({
-      where: { persId },
-      data: {
-        deathSaveSuccesses: nextSuccess,
-        deathSaveFailures: nextFail,
-      },
-      select: { currentHp: true, deathSaveSuccesses: true, deathSaveFailures: true, isDead: true },
+    const updated = await saveCombatState(persId, {
+      deathSaveSuccesses: nextSuccess,
+      deathSaveFailures: nextFail,
     });
 
     revalidatePath(`/char/${persId}`);
@@ -148,15 +115,11 @@ export async function setDeathSaves({
 
   // 3 successes => stabilize to 1 HP
   if (nextSuccess >= 3) {
-    const updated = await prisma.pers.update({
-      where: { persId },
-      data: {
-        currentHp: 1,
-        deathSaveSuccesses: 0,
-        deathSaveFailures: 0,
-        isDead: false,
-      },
-      select: { currentHp: true, deathSaveSuccesses: true, deathSaveFailures: true, isDead: true },
+    const updated = await saveCombatState(persId, {
+      currentHp: 1,
+      deathSaveSuccesses: 0,
+      deathSaveFailures: 0,
+      isDead: false,
     });
 
     revalidatePath(`/char/${persId}`);
@@ -166,14 +129,10 @@ export async function setDeathSaves({
 
   // 3 failures => dead
   if (nextFail >= 3) {
-    const updated = await prisma.pers.update({
-      where: { persId },
-      data: {
-        deathSaveSuccesses: nextSuccess,
-        deathSaveFailures: nextFail,
-        isDead: true,
-      },
-      select: { currentHp: true, deathSaveSuccesses: true, deathSaveFailures: true, isDead: true },
+    const updated = await saveCombatState(persId, {
+      deathSaveSuccesses: nextSuccess,
+      deathSaveFailures: nextFail,
+      isDead: true,
     });
 
     revalidatePath(`/char/${persId}`);
@@ -181,13 +140,9 @@ export async function setDeathSaves({
     return { success: true, ...updated };
   }
 
-  const updated = await prisma.pers.update({
-    where: { persId },
-    data: {
-      deathSaveSuccesses: nextSuccess,
-      deathSaveFailures: nextFail,
-    },
-    select: { currentHp: true, deathSaveSuccesses: true, deathSaveFailures: true, isDead: true },
+  const updated = await saveCombatState(persId, {
+    deathSaveSuccesses: nextSuccess,
+    deathSaveFailures: nextFail,
   });
 
   revalidatePath(`/char/${persId}`);
@@ -206,15 +161,11 @@ export async function reviveCharacter({
   const owned = await assertOwnsPers(persId);
   if (!owned.ok) return { success: false, error: owned.error };
 
-  const updated = await prisma.pers.update({
-    where: { persId },
-    data: {
-      currentHp: 1,
-      deathSaveSuccesses: 0,
-      deathSaveFailures: 0,
-      isDead: false,
-    },
-    select: { currentHp: true, deathSaveSuccesses: true, deathSaveFailures: true, isDead: true },
+  const updated = await saveCombatState(persId, {
+    currentHp: 1,
+    deathSaveSuccesses: 0,
+    deathSaveFailures: 0,
+    isDead: false,
   });
 
   revalidatePath(`/char/${persId}`);
@@ -240,27 +191,12 @@ export async function updateHpDirectly({
   const nextCur = Math.max(0, Math.min(nextMax, clampInt(currentHp, 0)));
   const clearsDeath = nextCur > 0;
 
-  const updated = await prisma.pers.update({
-    where: { persId },
-    data: {
-      currentHp: nextCur,
-      maxHp: nextMax,
-      ...(clearsDeath
-        ? {
-            deathSaveSuccesses: 0,
-            deathSaveFailures: 0,
-            isDead: false,
-          }
-        : {}),
-    },
-    select: {
-      currentHp: true,
-      tempHp: true,
-      maxHp: true,
-      deathSaveSuccesses: true,
-      deathSaveFailures: true,
-      isDead: true,
-    },
+  const updated = await saveCombatState(persId, {
+    currentHp: nextCur,
+    maxHp: nextMax,
+    ...(clearsDeath
+      ? { deathSaveSuccesses: 0, deathSaveFailures: 0, isDead: false }
+      : {}),
   });
 
   revalidatePath(`/char/${persId}`);

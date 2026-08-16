@@ -1,15 +1,12 @@
 'use server';
 
-import { prisma } from '@/lib/prisma';
+import { findPersLevelUpTarget } from '@/server/db/progression-content';
 import { ProgressionResolver } from '@/lib/logic/progression-resolver';
 
 export async function getLevelUpSteps(persId: number, classId?: number) {
   console.log(`🔍 Getting Level-Up steps for persId=${persId}`);
 
-  const pers = await prisma.pers.findUnique({
-    where: { persId },
-    include: { class: true },
-  });
+  const pers = await findPersLevelUpTarget(persId);
 
   if (!pers) {
     return { error: 'Character not found' };

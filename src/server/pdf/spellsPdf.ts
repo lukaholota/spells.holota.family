@@ -1,4 +1,4 @@
-import { prisma } from "@/lib/prisma";
+import { loadPrintableSpells } from "@/server/db/print-content";
 import { getFontsCss, generatePdfFromHtml } from "./pdfUtils";
 import type { PdfLogContext } from "./pdfUtils";
 
@@ -30,29 +30,13 @@ export async function generateSpellsPdfBytes(spellIds: number[], logCtx: PdfLogC
     throw new Error("spellIds must be a non-empty array");
   }
 
-  const spells = await prisma.spell.findMany({
-    where: { spellId: { in: spellIds } },
-    orderBy: [{ level: "asc" }, { name: "asc" }],
-    select: {
-      spellId: true,
-      name: true,
-      level: true,
-      school: true,
-      castingTime: true,
-      range: true,
-      duration: true,
-      components: true,
-      description: true,
-      source: true,
-    },
-  });
+  const spells = await loadPrintableSpells(spellIds);
 
   const sections = await Promise.all(
     spells.map(async (s) => {
       const descriptionHtml = await markdownToHtml(s.description);
       return {
         ...s,
-        source: String(s.source),
         descriptionHtml,
       };
     })

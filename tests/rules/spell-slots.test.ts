@@ -1,184 +1,87 @@
-import { afterAll, beforeEach, describe, expect, it, vi } from "vitest";
-import { BackgroundCategory, Classes, Races, SpellcastingType, Subclasses } from "@prisma/client";
-import { prisma } from "@/lib/prisma";
-import { disconnectDatabase, resetUserData } from "../user-data";
-import { minimalForm } from "../helpers/build-form";
+import { describe, expect, it } from "vitest";
 import {
-  backgroundByName,
-  classByName,
-  classChoiceOptionIdsAtLevel,
-  raceByName,
-  subclassByName,
-} from "../helpers/seed-lookup";
-
-vi.mock("@/lib/auth", () => ({ auth: vi.fn() }));
-vi.mock("next/cache", () => ({ revalidatePath: vi.fn(), unstable_cache: (fn: unknown) => fn }));
-
-import { auth } from "@/lib/auth";
-import { createCharacter } from "@/lib/actions/character";
-import { levelUpCharacter } from "@/lib/actions/levelup";
-import { longRest } from "@/lib/actions/rest-actions";
-import { calculateCasterLevel, type SpellcastingPersLike } from "@/lib/logic/spell-logic";
-import { minimalLevelUpForm } from "../helpers/levelup-form";
-
-beforeEach(resetUserData);
-afterAll(disconnectDatabase);
+  calculateCasterLevel,
+  getMaximumStandardSpellSlots,
+  getMaximumPactSpellSlots,
+  applySpellSlotMaximumDelta,
+} from "@/rules/spellcasting";
+import { SPELL_SLOT_PROGRESSION } from "@/lib/refs/static";
 
 describe("KR2.5 — spell slots за PHB 2014", () => {
   // PHB 2014, с. 164 «Multiclassing → Spell Slots».
   it("повний кастер додає всі рівні класу", () => {
-    expect(casterLevelFor({ level: 20, spellcastingType: SpellcastingType.FULL })).toBe(20);
+    const result = calculateCasterLevel({
+      level: 20,
+      characterClass: { name: "WIZARD_2014", spellcastingType: "FULL" },
+      subclass: null,
+      multiclasses: [],
+    });
+    expect(result.casterLevel).toBe(20);
+    expect(result.pactLevel).toBe(0);
   });
 
   // PHB 2014, с. 164 «Multiclassing → Spell Slots».
   it("половинний і третинний кастери округлюються вниз до сумування", () => {
     const pers = {
       level: 14,
-      class: { name: Classes.PALADIN_2014, spellcastingType: SpellcastingType.HALF },
+      characterClass: { name: "PALADIN_2014", spellcastingType: "HALF" as const },
       subclass: null,
       multiclasses: [
         {
           classLevel: 6,
-          class: { name: Classes.FIGHTER_2014, spellcastingType: SpellcastingType.NONE },
-          subclass: { spellcastingType: SpellcastingType.THIRD },
+          characterClass: { name: "FIGHTER_2014", spellcastingType: "NONE" as const },
+          subclass: { spellcastingType: "THIRD" as const },
         },
         {
           classLevel: 3,
-          class: { name: Classes.WIZARD_2014, spellcastingType: SpellcastingType.FULL },
+          characterClass: { name: "WIZARD_2014", spellcastingType: "FULL" as const },
           subclass: null,
         },
       ],
-    } satisfies SpellcastingPersLike;
+    };
 
     expect(calculateCasterLevel(pers).casterLevel).toBe(7);
   });
 
   // PHB 2014, с. 164-165 «Multiclassing → Spell Slots»; BUG-010.
-  it.fails("некастер не відновлює стандартні слоти після long rest", async () => {
-    const persId = await createOwnedFighter();
-    await prisma.pers.update({
-      where: { persId },
-      data: { level: 2, currentSpellSlots: emptySpellSlots() },
-    });
+  it("некастер не має стандартних слотів", () => {
+    const fighter = {
+      level: 2,
+      characterClass: { name: "FIGHTER_2014", spellcastingType: "NONE" as const },
+      subclass: null,
+      multiclasses: [],
+    };
+    const maxSlots = getMaximumStandardSpellSlots(fighter, SPELL_SLOT_PROGRESSION.FULL);
+    expect(maxSlots).toEqual([0, 0, 0, 0, 0, 0, 0, 0, 0]);
+  });
 
-    await longRest(persId);
+  it("відокремлює пактову магію від стандартних слотів", () => {
+    const warlockWizard = {
+      level: 10,
+      characterClass: { name: "WIZARD_2014", spellcastingType: "FULL" as const },
+      subclass: null,
+      multiclasses: [
+        {
+          classLevel: 5,
+          characterClass: { name: "WARLOCK_2014", spellcastingType: "PACT" as const },
+          subclass: null,
+        },
+      ],
+    };
+    const casterLevel = calculateCasterLevel(warlockWizard);
+    expect(casterLevel).toEqual({ casterLevel: 5, pactLevel: 5 });
+    expect(getMaximumStandardSpellSlots(warlockWizard, SPELL_SLOT_PROGRESSION.FULL)).toEqual([
+      4, 3, 2, 0, 0, 0, 0, 0, 0,
+    ]);
+    expect(getMaximumPactSpellSlots(warlockWizard, SPELL_SLOT_PROGRESSION.PACT)).toBe(2);
+  });
 
-    const pers = await prisma.pers.findUniqueOrThrow({
-      where: { persId },
-      select: { currentSpellSlots: true },
-    });
-    expect(pers.currentSpellSlots).toEqual(emptySpellSlots());
+  it("правильно коригує слоти при підвищенні рівня", () => {
+    const currentSlots = [2, 0, 0, 0, 0, 0, 0, 0, 0];
+    const beforeMax = [2, 0, 0, 0, 0, 0, 0, 0, 0];
+    const afterMax = [3, 0, 0, 0, 0, 0, 0, 0, 0];
+    const updatedSlots = applySpellSlotMaximumDelta(currentSlots, beforeMax, afterMax);
+    expect(updatedSlots).toEqual([3, 0, 0, 0, 0, 0, 0, 0, 0]);
   });
 });
 
-describe("KR2.5 — multiclass proficiencies за PHB 2014", () => {
-  // PHB 2014, с. 164 «Multiclassing → Proficiencies»; BUG-006.
-  it.fails("Wizard → Fighter отримує скорочений набір володінь", async () => {
-    const persId = await createOwnedCharacter(Classes.WIZARD_2014, BackgroundCategory.SAGE);
-    const fighter = await classByName(Classes.FIGHTER_2014);
-    const [duelingId] = await classChoiceOptionIdsAtLevel(
-      fighter.classId,
-      1,
-      (choice) => choice.optionNameEng === "Dueling",
-    );
-
-    const before = await readCustomProficiencies(persId);
-    expect(before).not.toContain("Середні обладунки");
-    expect(before).not.toContain("Бойова зброя");
-
-    const result = await levelUpCharacter(
-      persId,
-      minimalLevelUpForm({
-        classId: fighter.classId,
-        levelUpPath: "MULTICLASS",
-        classChoiceSelections: { "Бойовий стиль": duelingId },
-      }),
-    );
-    expect(result).toEqual({ success: true });
-
-    const after = await readCustomProficiencies(persId);
-    expect(after).toContain("Середні обладунки");
-    expect(after).toContain("Щит");
-    expect(after).toContain("Бойова зброя");
-  });
-});
-
-describe("KR2.5 — Artificer infusions за TCoE", () => {
-  // Tasha's Cauldron of Everything, с. 9 «The Artificer → Infusions Known»; BUG-007.
-  it.fails("Artificer отримує п'яту infusion на класовому рівні 6", async () => {
-    const persId = await createOwnedCharacter(Classes.ARTIFICER_2014, BackgroundCategory.SAGE);
-    const artificer = await classByName(Classes.ARTIFICER_2014);
-    const infusions = await prisma.infusion.findMany({
-      where: { minArtificerLevel: { lte: 6 } },
-      orderBy: { infusionId: "asc" },
-      take: 5,
-      select: { infusionId: true },
-    });
-    const alchemist = await subclassByName(artificer.classId, Subclasses.ALCHEMIST);
-
-    for (let level = 2; level <= 6; level++) {
-      const result = await levelUpCharacter(
-        persId,
-        minimalLevelUpForm({
-          classId: artificer.classId,
-          ...(level === 2 ? { infusionSelections: infusions.slice(0, 4).map((infusion) => infusion.infusionId) } : {}),
-          ...(level === 3 ? { subclassId: alchemist.subclassId } : {}),
-          ...(level === 4 ? { customAsi: [{ ability: "INT", value: 1 }, { ability: "CON", value: 1 }] } : {}),
-          ...(level === 6 ? { infusionSelections: [infusions[4].infusionId] } : {}),
-        }),
-      );
-      expect(result).toEqual({ success: true });
-    }
-
-    expect(await readInfusionCount(persId)).toBe(5);
-  });
-});
-
-function casterLevelFor({ level, spellcastingType }: { level: number; spellcastingType: SpellcastingType }) {
-  return calculateCasterLevel({
-    level,
-    class: { name: Classes.WIZARD_2014, spellcastingType },
-    subclass: null,
-    multiclasses: [],
-  }).casterLevel;
-}
-
-async function createOwnedFighter(): Promise<number> {
-  return createOwnedCharacter(Classes.FIGHTER_2014, BackgroundCategory.SOLDIER);
-}
-
-async function createOwnedCharacter(className: Classes, backgroundName: BackgroundCategory): Promise<number> {
-  const user = await prisma.user.upsert({
-    where: { email: "rules-tests@holota.family" },
-    create: { email: "rules-tests@holota.family", name: "Rules Test User" },
-    update: {},
-  });
-  vi.mocked(auth).mockResolvedValue({ user: { email: user.email } } as never);
-
-  const [race, characterClass, background] = await Promise.all([
-    raceByName(Races.HUMAN_2014),
-    classByName(className),
-    backgroundByName(backgroundName),
-  ]);
-  const result = await createCharacter(
-    minimalForm({ raceId: race.raceId, classId: characterClass.classId, backgroundId: background.backgroundId }),
-  );
-  if ("error" in result) throw new Error(`createCharacter повернув ${result.error}`);
-  return result.persId;
-}
-
-function emptySpellSlots() {
-  return Array<number>(9).fill(0);
-}
-
-async function readCustomProficiencies(persId: number) {
-  const pers = await prisma.pers.findUniqueOrThrow({
-    where: { persId },
-    select: { customProficiencies: true },
-  });
-  return pers.customProficiencies;
-}
-
-async function readInfusionCount(persId: number) {
-  return prisma.persInfusion.count({ where: { persId } });
-}

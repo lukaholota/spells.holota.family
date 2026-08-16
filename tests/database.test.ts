@@ -17,6 +17,15 @@ describe("контент із клона прода", () => {
     expect(classes).toBeGreaterThan(10);
     expect(races).toBeGreaterThan(0);
   });
+
+  it("наявний content має безпечний ruleset 2014", async () => {
+    const characterClass = await prisma.class.findFirstOrThrow({
+      orderBy: { classId: "asc" },
+      select: { ruleset: true },
+    });
+
+    expect(characterClass.ruleset).toBe("RULES_2014");
+  });
 });
 
 describe("запис і читання персонажа", () => {
@@ -82,6 +91,46 @@ describe("запис і читання персонажа", () => {
     expect(created.isActive).toBe(true);
     expect(created.additionalSaveProficiencies).toEqual([]);
     expect(created.createdAt).toBeInstanceOf(Date);
+    expect(created.ruleset).toBe("RULES_2014");
+  });
+
+  it("персонаж 2024 редакції зберігається з ruleset = RULES_2024", async () => {
+    const [class2024, race2024, bg2024] = await Promise.all([
+      prisma.class.findFirstOrThrow({ where: { ruleset: "RULES_2024" } }),
+      prisma.race.findFirstOrThrow({ where: { ruleset: "RULES_2024" } }),
+      prisma.background.findFirstOrThrow({ where: { ruleset: "RULES_2024" } }),
+    ]);
+
+    const user = await prisma.user.create({
+      data: { email: "pers2024@example.test", name: "2024 Гравець" },
+    });
+
+    const created2024 = await prisma.pers.create({
+      data: {
+        userId: user.id,
+        name: "Герой 2024",
+        ruleset: "RULES_2024",
+        classId: class2024.classId,
+        raceId: race2024.raceId,
+        backgroundId: bg2024.backgroundId,
+        level: 1,
+        currentHp: 12,
+        maxHp: 12,
+        str: 16,
+        dex: 14,
+        con: 14,
+        int: 10,
+        wis: 12,
+        cha: 8,
+      },
+    });
+
+    const readBack = await prisma.pers.findUniqueOrThrow({
+      where: { persId: created2024.persId },
+    });
+
+    expect(readBack.ruleset).toBe("RULES_2024");
+    expect(readBack.name).toBe("Герой 2024");
   });
 
   it("між тестами дані користувача скидаються", async () => {

@@ -56,3 +56,4 @@ src/lib/generated/spells.json
 # Дампи БД — реальні дані користувачів, у git їм не місце.
 backups/
 *.dump
+/tmp

@@ -1,6 +1,6 @@
 # KR3.2 — Тонкий `createCharacter`
 
-**Ціль:** [O3](README.md) · **Статус:** ☐ не розпочато · **Залежить від:** KR3.1
+**Ціль:** [O3](README.md) · **Статус:** ✅ завершено 2026-08-14 · **Залежить від:** KR3.1
 
 ## Навіщо
 
@@ -13,11 +13,11 @@
 
 ## Готово, коли
 
-- [ ] `createCharacter` читається згори вниз як послідовність названих кроків, менше 100 рядків
-- [ ] математика характеристик, HP, володінь, слотів — у `src/rules/`
-- [ ] завантаження контенту — одним викликом у `src/server/db/`, не сімома `findUnique` вроздріб
-- [ ] golden-файли з [KR2.2](../o2-characterization/kr2.2-golden-creation.md) зелені без правок
-- [ ] `applyRacialChoices`, `normalizeASI`, `extractFlexibleGroups`, `plainAsiChoiceGroups` та інші
+- [x] `createCharacter` читається згори вниз як послідовність названих кроків, менше 100 рядків
+- [x] математика характеристик, HP, володінь, слотів — у `src/rules/`
+- [x] завантаження контенту — одним викликом у `src/server/db/`, не сімома `findUnique` вроздріб
+- [x] golden-файли з [KR2.2](../o2-characterization/kr2.2-golden-creation.md) зелені без правок
+- [x] `applyRacialChoices`, `normalizeASI`, `extractFlexibleGroups`, `plainAsiChoiceGroups` та інші
       приватні хелпери переїхали в `src/rules/abilities/` з власними тестами
 
 ## Цільова форма
@@ -55,4 +55,22 @@ export async function createCharacter(input: PersFormData) {
 
 ## Журнал
 
-_порожньо_
+**2026-08-14, thin create.** `createCharacter` тепер має 12 рядків і складається з чотирьох
+послідовних етапів: авторизація, parse, `loadCreationContent`, pure build та persistence.
+`src/server/db/creation-content.ts` централізує всі початкові Prisma reads, включно з вибраними
+option/feature/equipment rows; lookup користувача винесено до `src/server/db/users.ts`. У дії
+лишилася тільки транзакція запису.
+
+`buildInitialCharacterState` у `src/rules/character-creation.ts` приймає plain inputs і будує
+scores, Resilient saving throw, початкові slots та HP. ASI від раси, варіанту, підраси, racial
+choices, feat і background feat збережено з legacy fallback; race-choice ASI також перенесено з
+persistence у pure rules. `replacesASI` — реальне поле `Subrace` у Prisma schema, тож доступ
+виправлено на `subrace?.replacesASI ?? false` без нового `any`.
+
+`tests/rules/creation-asi.test.ts` і `tests/rules/character-creation.test.ts` не потребують БД.
+Контрольований red для race-choice ASI: очікуване DEX 15 впало з фактичним DEX 16, після чого
+правильне DEX 16 відновлено. Перевірки: pure rules — 7 passed; creation golden через `spells_test`
+tunnel — зелений; `bun run lint` — 0 errors; `git diff --check` — зелений; import-boundary scan
+`src/rules/` — чистий. `bunx tsc --noEmit` має 2 старі помилки лише в test fixtures
+(`custom-asi-system.ts`, `prepared-spells.test.ts`). Golden JSON, Prisma schema й BUG-001…011 не
+змінювалися.

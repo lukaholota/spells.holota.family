@@ -19,12 +19,12 @@
 
 | KR | Про що | Статус |
 |---|---|---|
-| [KR3.1](kr3.1-rules-module.md) | `src/rules/` існує, чистий, покритий тестами | ☐ |
-| [KR3.2](kr3.2-thin-create.md) | `createCharacter` менший за 100 рядків | ☐ |
-| [KR3.3](kr3.3-thin-levelup.md) | `levelUpCharacter` менший за 100 рядків | ☐ |
-| [KR3.4](kr3.4-db-boundary.md) | Жодного `prisma.` поза `src/server/db/` | ☐ |
-| [KR3.5](kr3.5-coverage.md) | Покриття `src/rules/` ≥ 80%, golden не зрушили | ☐ |
-| [KR3.6](kr3.6-kill-any.md) | Нуль `as any` у `src/rules/` і `src/server/db/` | ☐ |
+| [KR3.1](kr3.1-rules-module.md) | `src/rules/` існує, чистий, покритий тестами | ✅ |
+| [KR3.2](kr3.2-thin-create.md) | `createCharacter` менший за 100 рядків | ✅ |
+| [KR3.3](kr3.3-thin-levelup.md) | `levelUpCharacter` менший за 100 рядків | ✅ |
+| [KR3.4](kr3.4-db-boundary.md) | Жодного `prisma.` поза `src/server/db/` | ✅ |
+| [KR3.5](kr3.5-coverage.md) | Покриття `src/rules/` ≥ 80%, golden не зрушили | ✅ |
+| [KR3.6](kr3.6-kill-any.md) | Нуль `as any` у `src/rules/` і `src/server/db/` | ✅ |
 
 ## Правила цього етапу
 

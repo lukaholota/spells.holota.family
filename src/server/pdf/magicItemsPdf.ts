@@ -1,4 +1,4 @@
-import { prisma } from "@/lib/prisma";
+import { loadPrintableMagicItems, type PrintableMagicItem } from "@/server/db/print-content";
 import { getFontsCss, generatePdfFromHtml } from "./pdfUtils";
 import type { PdfLogContext } from "./pdfUtils";
 
@@ -6,8 +6,6 @@ import { remark } from "remark";
 import remarkGfm from "remark-gfm";
 import remarkHtml from "remark-html";
 import remarkBreaks from "remark-breaks";
-
-import { MagicItemType, ItemRarity } from "@prisma/client";
 
 async function markdownToHtml(markdown: string) {
   const file = await remark().use(remarkGfm).use(remarkBreaks).use(remarkHtml, { sanitize: false }).process(markdown);
@@ -23,8 +21,8 @@ function escapeHtml(text: string) {
     .replaceAll("'", "&#39;");
 }
 
-function translateRarity(rarity: ItemRarity) {
-  const map: Partial<Record<ItemRarity, string>> = {
+function translateRarity(rarity: PrintableMagicItem["rarity"]) {
+  const map: Partial<Record<PrintableMagicItem["rarity"], string>> = {
     COMMON: "Звичайний",
     UNCOMMON: "Незвичайний",
     RARE: "Рідкісний",
@@ -35,8 +33,8 @@ function translateRarity(rarity: ItemRarity) {
   return map[rarity] || rarity;
 }
 
-function translateType(type: MagicItemType) {
-  const map: Partial<Record<MagicItemType, string>> = {
+function translateType(type: PrintableMagicItem["itemType"]) {
+  const map: Partial<Record<PrintableMagicItem["itemType"], string>> = {
     ARMOR: "Обладунок",
     POTION: "Зілля",
     RING: "Кільце",
@@ -55,10 +53,7 @@ export async function generateMagicItemsPdfBytes(magicItemIds: number[], logCtx:
     throw new Error("magicItemIds must be a non-empty array");
   }
 
-  const items = await prisma.magicItem.findMany({
-    where: { magicItemId: { in: magicItemIds } },
-    orderBy: { name: "asc" },
-  });
+  const items = await loadPrintableMagicItems(magicItemIds);
 
   const sections = await Promise.all(
     items.map(async (item) => {

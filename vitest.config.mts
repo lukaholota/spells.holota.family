@@ -5,12 +5,17 @@ export default defineConfig({
   resolve: { alias: { "@": fileURLToPath(new URL("./src", import.meta.url)) } },
   test: {
     environment: "node",
-    include: ["src/**/*.test.ts", "tests/**/*.test.ts"],
+    include: [
+      "src/**/*.test.ts",
+      "tests/rules/**/*.test.ts",
+      "tests/content/**/*.test.ts",
+      "tests/golden/levelup/**/*.test.ts",
+      "tests/database.test.ts",
+    ],
     setupFiles: ["tests/setup.ts"],
-    // DB-touching test files TRUNCATE the same spells_test between tests (tests/user-data.ts).
-    // With >1 such file, Vitest's default parallel-file execution races those truncations against
-    // each other — a test in one file can wipe the user a test in another file just created.
-    // Same failure class as Р8 in docs/DECISIONS.md, just local instead of CI-vs-local.
-    fileParallelism: false,
+    // Only tests/database.test.ts touches spells_test DB, all other tests are pure in-memory.
+    fileParallelism: true,
   },
 });
+
+

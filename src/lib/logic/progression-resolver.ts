@@ -1,4 +1,8 @@
-import { prisma } from '@/lib/prisma';
+import {
+  loadFightingStyleOptions,
+  loadProgressionFeatures,
+  loadProgressionSubclasses,
+} from '@/server/db/progression-content';
 import { FeatureMechanic } from '@prisma/client';
 import { LevelUpStep, Stats } from '@/types/character-flow';
 
@@ -46,18 +50,7 @@ export class ProgressionResolver {
     const steps: LevelUpStep[] = [];
 
     // 1. Отримуємо фічі для цього рівня з БД
-    const features = await prisma.classFeature.findMany({
-      where: {
-        classId,
-        levelGranted: newLevel,
-      },
-      include: {
-        feature: true,
-      },
-      orderBy: {
-        displayOrder: 'asc',
-      },
-    });
+    const features = await loadProgressionFeatures(classId, newLevel);
 
     console.log(`🔍 Found ${features.length} features for ${className} Level ${newLevel}`);
 
@@ -80,7 +73,7 @@ export class ProgressionResolver {
 
         case FeatureMechanic.CHOICE_SPECIFIC:
           if (f.mechanicMetadata) {
-             const meta = f.mechanicMetadata as any;
+             const meta = f.mechanicMetadata as { options_source?: unknown };
              if (meta.options_source === 'fighting_styles') {
                 steps.push(await this.createFightingStyleStep());
              }
@@ -109,9 +102,7 @@ export class ProgressionResolver {
 
   private static async createSubclassStep(classId: number, className: string, level: number) {
     // Отримуємо доступні підкласи
-    const subclasses = await prisma.subclass.findMany({
-      where: { classId },
-    });
+    const subclasses = await loadProgressionSubclasses(classId);
 
     return {
       type: 'SELECT_SUBCLASS' as const,
@@ -120,8 +111,8 @@ export class ProgressionResolver {
       classNameEng: className,
       level,
       options: subclasses.map(s => ({
-        id: s.subclassId,
-        name: s.name.toString(),
+        id: s.id,
+        name: s.name,
         description: s.description || '',
       })),
       isRequired: true,
@@ -138,7 +129,7 @@ export class ProgressionResolver {
   }
 
   private static async createFightingStyleStep() {
-      const styles = await prisma.fightingStyle.findMany();
+      const styles = await loadFightingStyleOptions();
       return {
           type: 'CHOOSE_OPTIONAL_FEATURE' as const,
           featureId: 'fighting_style',

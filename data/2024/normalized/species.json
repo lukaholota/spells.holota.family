@@ -1,0 +1,375 @@
+[
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Aasimar",
+    "name": "Аасимар",
+    "shortDescription": "Смертні, що несуть у душі іскру Верхніх Планів і можуть перетворюватися на небесних істот.",
+    "description": "Аасимари — смертні, що несуть у своїх душах іскру Верхніх Планів. Байдуже, походять вони від ангельської істоти чи були наповнені небесною силою, вони можуть роздмухати цю іскру, щоб принести світло, зцілення й небесну лють. Аасимари можуть народжуватися серед будь-якого народу смертних.",
+    "creatureType": "Humanoid",
+    "size": [
+      "MEDIUM",
+      "SMALL"
+    ],
+    "speed": 30,
+    "ASI": {},
+    "traits": [
+      {
+        "engName": "Celestial Resistance",
+        "name": "Небесний опір",
+        "descriptionEng": "You have Resistance to Necrotic damage and Radiant damage."
+      },
+      {
+        "engName": "Darkvision",
+        "name": "Темнозір",
+        "descriptionEng": "You have Darkvision with a range of 60 feet."
+      },
+      {
+        "engName": "Healing Hands",
+        "name": "Цілющі руки",
+        "descriptionEng": "As a Magic action, you touch a creature and roll a number of d4s equal to your Proficiency Bonus. The creature regains a number of Hit Points equal to the total rolled. Once you use this trait, you can't use it again until you finish a Long Rest."
+      },
+      {
+        "engName": "Light Bearer",
+        "name": "Світлоносець",
+        "descriptionEng": "You know the Light cantrip. Charisma is your spellcasting ability for it."
+      },
+      {
+        "engName": "Celestial Revelation",
+        "name": "Небесне одкровення",
+        "descriptionEng": "When you reach character level 3, you can transform as a Bonus Action using one of the options below (choose the option each time you transform). The transformation lasts for 1 minute or until you end it (no action required). Once you transform, you can’t do so again until you finish a Long Rest."
+      },
+      {
+        "engName": "Inner Radiance",
+        "name": "Внутрішнє сяйво",
+        "descriptionEng": "Searing light temporarily radiates from your eyes and mouth. For the duration, you shed Bright Light in a 10-foot radius and Dim Light for an additional 10 feet, and at the end of each of your turns, each creature within 10 feet of you takes Radiant damage equal to your Proficiency Bonus."
+      },
+      {
+        "engName": "Necrotic Shroud",
+        "name": "Некротичне покривало",
+        "descriptionEng": "Your eyes briefly become pools of darkness, and flightless wings sprout from your back temporarily. Creatures other than your allies within 10 feet of you must succeed on a Charisma saving throw (DC 8 plus your Charisma modifier and Proficiency Bonus) or have the Frightened condition until the end of your next turn. Once on each of your turns before the transformation ends, you can deal extra damage to one target when you deal damage to it with an attack or a spell. The extra damage equals your Proficiency Bonus, and the extra damage’s type is either Necrotic for Necrotic Shroud or Radiant for Heavenly Wings and Inner Radiance. Here are the transformation options: Heavenly Wings. Two spectral wings sprout from your back temporarily. Until the transformation ends, you have a Fly Speed equal to your Speed."
+      }
+    ],
+    "source": "PHB_2024"
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Dragonborn",
+    "name": "Дракононароджений",
+    "shortDescription": "Нащадки драконів із вродженою здатністю до подиху стихійної енергії.",
+    "description": "Предки дракононароджених вилупилися з яєць хроматичних і металевих драконів. Одна легенда стверджує, що ці яйця благословили драконячі боги Бахамут і Тіамат, які прагнули заселити мультивсесвіт народом, створеним за їхнім образом. Інша легенда каже, що дракони створили перших дракононароджених.",
+    "creatureType": "Humanoid",
+    "size": [
+      "MEDIUM"
+    ],
+    "speed": 30,
+    "ASI": {},
+    "traits": [
+      {
+        "engName": "Draconic Ancestry",
+        "name": "Драконяче походження",
+        "descriptionEng": "Your lineage stems from a dragon progenitor. Choose the kind of dragon from the Draconic Ancestors table. Your choice affects your Breath Weapon and Damage Resistance traits as well as your appearance."
+      },
+      {
+        "engName": "Breath Weapon",
+        "name": "Подих",
+        "descriptionEng": "When you take the Attack action on your turn, you can replace one of your attacks with an exhalation of magical energy in either a 15-foot Cone or a 30-foot Line that is 5 feet wide (choose the shape each time). Each creature in that area must make a Dexterity saving throw (DC 8 plus your Constitution modifier and Proficiency Bonus). On a failed save, a creature takes 1d10 damage of the type determined by your Draconic Ancestry trait. On a successful save, a creature takes half as much damage. This damage increases by 1d10 when you reach character levels 5 (2d10), 11 (3d10), and 17 (4d10)."
+      },
+      {
+        "engName": "Damage Resistance",
+        "name": "Опір шкоді",
+        "descriptionEng": "You have Resistance to the damage type determined by your Draconic Ancestry trait."
+      },
+      {
+        "engName": "Darkvision",
+        "name": "Темнозір",
+        "descriptionEng": "You have Darkvision with a range of 60 feet."
+      },
+      {
+        "engName": "Draconic Flight",
+        "name": "Драконячий політ",
+        "descriptionEng": "When you reach character level 5, you can channel draconic magic to give yourself temporary flight. As a Bonus Action, you sprout spectral wings on your back that last for 10 minutes or until you retract the wings (no action required) or have the Incapacitated condition. During that time, you have a Fly Speed equal to your Speed. Your wings appear to be made of the same energy as your Breath Weapon. Once you use this trait, you can't use it again until you finish a Long Rest. You can use this Breath Weapon a number of times equal to your Proficiency Bonus, and you regain all expended uses when you finish a Long Rest."
+      }
+    ],
+    "source": "PHB_2024"
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Dwarf",
+    "name": "Дворф",
+    "shortDescription": "Стійкий підземний народ зі спорідненістю до каменю й металу.",
+    "description": "Дворфів підняло із землі в давні часи божество кузні. Зване різними іменами на різних світах — Морадін, Реоркс та інші — це божество наділило дворфів спорідненістю до каменю й металу, а також до життя під землею. Воно ж зробило їх стійкими, мов гори, з тривалістю життя близько 350 років.",
+    "creatureType": "Humanoid",
+    "size": [
+      "MEDIUM"
+    ],
+    "speed": 30,
+    "ASI": {},
+    "traits": [
+      {
+        "engName": "Darkvision",
+        "name": "Темнозір",
+        "descriptionEng": "You have Darkvision with a range of 120 feet."
+      },
+      {
+        "engName": "Dwarven Resilience",
+        "name": "Дворфська стійкість",
+        "descriptionEng": "You have Resistance to Poison damage. You also have Advantage on saving throws you make to avoid or end the Poisoned condition."
+      },
+      {
+        "engName": "Dwarven Toughness",
+        "name": "Дворфська витривалість",
+        "descriptionEng": "Your Hit Point maximum increases by 1, and it increases by 1 again whenever you gain a level."
+      },
+      {
+        "engName": "Stonecunning",
+        "name": "Каменярство",
+        "descriptionEng": "As a Bonus Action, you gain Tremorsense with a range of 60 feet for 10 minutes. You must be on a stone surface or touching a stone surface to use this Tremorsense. The stone can be natural or worked. You can use this Bonus Action a number of times equal to your Proficiency Bonus, and you regain all expended uses when you finish a Long Rest."
+      }
+    ],
+    "source": "PHB_2024"
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Elf",
+    "name": "Ельф",
+    "shortDescription": "Витончений довговічний народ із вродженою чарівністю та зв'язком із феями.",
+    "description": "Створені богом Корелоном, перші ельфи могли вільно змінювати свою форму. Вони втратили цю здатність, коли Корелон прокляв їх за змову з божеством Лолт, яка намагалася — і не змогла — узурпувати владу Корелона.",
+    "creatureType": "Humanoid",
+    "size": [
+      "MEDIUM"
+    ],
+    "speed": 30,
+    "ASI": {},
+    "traits": [
+      {
+        "engName": "Darkvision",
+        "name": "Темнозір",
+        "descriptionEng": "You have Darkvision with a range of 60 feet."
+      },
+      {
+        "engName": "Elven Lineage",
+        "name": "Ельфійський родовід",
+        "descriptionEng": "You are part of a lineage that grants you supernatural abilities. Choose a lineage from the Elven Lineages table. You gain the level 1 benefit of that lineage."
+      },
+      {
+        "engName": "Fey Ancestry",
+        "name": "Фейське походження",
+        "descriptionEng": "You have Advantage on saving throws you make to avoid or end the Charmed condition."
+      },
+      {
+        "engName": "Keen Senses",
+        "name": "Гострі чуття",
+        "descriptionEng": "You have proficiency in the Insight, Perception, or Survival skill."
+      },
+      {
+        "engName": "Trance",
+        "name": "Транс",
+        "descriptionEng": "You don't need to sleep, and magic can't put you to sleep. You can finish a Long Rest in 4 hours if you spend those hours in a trancelike meditation, during which you retain consciousness. When you reach character levels 3 and 5, you learn a higher-level spell, as shown on the table. You always have that spell prepared. You can cast it once without a spell slot, and you regain the ability to cast it in that way when you finish a Long Rest. You can also cast the spell using any spell slots you have of the appropriate level. Intelligence, Wisdom, or Charisma is your spellcasting ability for the spells you cast with this trait (choose the ability when you select the lineage)."
+      }
+    ],
+    "source": "PHB_2024"
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Gnome",
+    "name": "Гном",
+    "shortDescription": "Магічний народ винахідників та ілюзіоністів із хитрим розумом.",
+    "description": "Гноми — магічний народ, створений богами винаходів, ілюзій і підземного життя. Найдавніших гномів рідко бачили інші народи через їхню потайливу вдачу та схильність жити в лісах і норах. Чого їм бракувало в зрості, вони надолужували кмітливістю.",
+    "creatureType": "Humanoid",
+    "size": [
+      "SMALL"
+    ],
+    "speed": 30,
+    "ASI": {},
+    "traits": [
+      {
+        "engName": "Darkvision",
+        "name": "Темнозір",
+        "descriptionEng": "You have Darkvision with a range of 60 feet."
+      },
+      {
+        "engName": "Gnomish Cunning",
+        "name": "Гномська хитрість",
+        "descriptionEng": "You have Advantage on Intelligence, Wisdom, and Charisma saving throws."
+      },
+      {
+        "engName": "Gnomish Lineage",
+        "name": "Гномський родовід",
+        "descriptionEng": "You are part of a lineage that grants you supernatural abilities. Choose one of the following options; whichever one you choose, Intelligence, Wisdom, or Charisma is your spellcasting ability for the spells you cast with this trait (choose the ability when you select the lineage):"
+      },
+      {
+        "engName": "Forest Gnome",
+        "name": "Лісовий гном",
+        "descriptionEng": "You know the Minor Illusion cantrip. You also always have the Speak with Animals spell prepared. You can cast it without a spell slot a number of times equal to your Proficiency Bonus, and you regain all expended uses when you finish a Long Rest. You can also use any spell slots you have to cast the spell."
+      },
+      {
+        "engName": "Rock Gnome",
+        "name": "Скельний гном",
+        "descriptionEng": "You know the Mending and Prestidigitation cantrips. In addition, you can spend 10 minutes casting Prestidigitation to create a Tiny clockwork device (AC 5,1 HP), such as a toy, fire starter, or music box. When you create the device, you determine its function by choosing one effect from Prestidigitation; the device produces that effect whenever you or another creature takes a Bonus Action to activate it with a touch. If the chosen effect has options within it, you choose one of those options for the device when you create it. For example, if you choose the spell's ignite-extinguish effect, you determine whether the device ignites or extinguishes fire; the device doesn't do both. You can have three such devices in existence at a time, and each falls apart 8 hours after its creation or when you dismantle it with a touch as a Utilize action."
+      }
+    ],
+    "source": "PHB_2024"
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Goliath",
+    "name": "Голіат",
+    "shortDescription": "Далекі нащадки велетнів із могутньою статурою й надприродними дарами предків.",
+    "description": "Височіючи над більшістю народів, голіати — далекі нащадки велетнів. Кожен голіат несе в собі прихильність перших велетнів — прихильність, що проявляється в різних надприродних дарах, зокрема здатності швидко рости й тимчасово наближатися до зросту своїх гігантських родичів.",
+    "creatureType": "Humanoid",
+    "size": [
+      "MEDIUM"
+    ],
+    "speed": 35,
+    "ASI": {},
+    "traits": [
+      {
+        "engName": "Giant Ancestry",
+        "name": "Велетенське походження",
+        "descriptionEng": "You are descended from Giants. Choose one of the following benefits - a supernatural boon from your ancestry; you can use the chosen benefit a number of times equal to your Proficiency Bonus, and you regain all expended uses when you finish a Long Rest:"
+      },
+      {
+        "engName": "Large Form",
+        "name": "Велика форма",
+        "descriptionEng": "Starting at character level 5, you can change your size to Large as a Bonus Action if you're in a big enough space. This transformation lasts for 10 minutes or until you end it (no action required). For that duration, you have Advantage on Strength checks, and your Speed increases by 10 feet. Once you use this trait, you can't use it again until you finish a Long Rest."
+      },
+      {
+        "engName": "Powerful Build",
+        "name": "Могутня статура",
+        "descriptionEng": "You have Advantage on any ability check you make to end the Grappled condition. You also count as one size larger when determining your carrying capacity."
+      }
+    ],
+    "source": "PHB_2024"
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Halfling",
+    "name": "Напіврослик",
+    "shortDescription": "Невисокий, вдачливий народ із тягою до затишку та несподіваною сміливістю.",
+    "description": "Плекані й направлювані богами, що цінують життя, дім і домашнє вогнище, напіврослики тяжіють до мирних сільських прихистків, де сім'я та громада формують їхнє життя. Утім, багато напівросликів мають хоробрий і авантюрний дух, що веде їх у мандри відкриттів.",
+    "creatureType": "Humanoid",
+    "size": [
+      "SMALL"
+    ],
+    "speed": 30,
+    "ASI": {},
+    "traits": [
+      {
+        "engName": "Brave",
+        "name": "Хоробрість",
+        "descriptionEng": "You have Advantage on saving throws you make to avoid or end the Frightened condition."
+      },
+      {
+        "engName": "Halfling Nimbleness",
+        "name": "Швидкість напівросликів",
+        "descriptionEng": "You can move through the space of any creature that is a size larger than you, but you can't stop in the same space."
+      },
+      {
+        "engName": "Luck",
+        "name": "Удача",
+        "descriptionEng": "When you roll a 1 on the d20 of a D20 Test, you can reroll the die, and you must use the new roll."
+      },
+      {
+        "engName": "Naturally Stealthy",
+        "name": "Природна непомітність",
+        "descriptionEng": "You can take the Hide action even when you are obscured only by a creature that is at least one size larger than you."
+      }
+    ],
+    "source": "PHB_2024"
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Human",
+    "name": "Людина",
+    "shortDescription": "Найпоширеніший і найрізноманітніший народ мультивсесвіту, відомий амбітністю.",
+    "description": "Люди трапляються по всьому мультивсесвіту — такі ж різноманітні, як і численні, — і прагнуть досягти якомога більшого за відведені їм роки. Їхню амбітність і винахідливість поважають, хвалять і бояться на багатьох світах.",
+    "creatureType": "Humanoid",
+    "size": [
+      "MEDIUM",
+      "SMALL"
+    ],
+    "speed": 30,
+    "ASI": {},
+    "traits": [
+      {
+        "engName": "Resourceful",
+        "name": "Винахідливість",
+        "descriptionEng": "You gain Heroic Inspiration whenever you finish a Long Rest."
+      },
+      {
+        "engName": "Skillful",
+        "name": "Вправність",
+        "descriptionEng": "You gain proficiency in one skill of your choice."
+      },
+      {
+        "engName": "Versatile",
+        "name": "Універсальність",
+        "descriptionEng": "You gain an Origin feat of your choice. Skilled is recommended."
+      }
+    ],
+    "source": "PHB_2024"
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Orc",
+    "name": "Орк",
+    "shortDescription": "Витривалий войовничий народ, обдарований невгамовною силою свого бога Груумша.",
+    "description": "Орки простежують своє походження до Груумша, могутнього бога, що блукав широкими просторами Матеріального Плану. Груумш наділив своїх дітей дарами, щоб допомогти їм долати великі рівнини, просторі печери й бурхливі моря та протистояти чудовиськам, що там чигають.",
+    "creatureType": "Humanoid",
+    "size": [
+      "MEDIUM"
+    ],
+    "speed": 30,
+    "ASI": {},
+    "traits": [
+      {
+        "engName": "Adrenaline Rush",
+        "name": "Викид адреналіну",
+        "descriptionEng": "You can take the Dash action as a Bonus Action. When you do so, you gain a number of Temporary Hit Points equal to your Proficiency Bonus."
+      },
+      {
+        "engName": "Darkvision",
+        "name": "Темнозір",
+        "descriptionEng": "You have Darkvision with a range of 120 feet."
+      },
+      {
+        "engName": "Relentless Endurance",
+        "name": "Невгамовна витривалість",
+        "descriptionEng": "When you are reduced to 0 Hit Points but not killed outright, you can drop to 1 Hit Point instead. Once you use this trait, you can't do so again until you finish a Long Rest. You can use this trait a number of times equal to your Proficiency Bonus, and you regain all expended uses when you finish a Short or Long Rest."
+      }
+    ],
+    "source": "PHB_2024"
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Tiefling",
+    "name": "Тифлінг",
+    "shortDescription": "Народ із демонічною спадщиною, пов'язаний кров'ю з дияволом чи іншим Демоном.",
+    "description": "Тифлінги або народжуються в Нижніх Планах, або мають демонічних предків, що походять звідти. Тифлінга пов'язує кров'ю з дияволом, демоном чи іншим Демоном. Цей зв'язок із Нижніми Планами — демонічна спадщина тифлінга, що приходить з обіцянкою сили.",
+    "creatureType": "Humanoid",
+    "size": [
+      "MEDIUM",
+      "SMALL"
+    ],
+    "speed": 30,
+    "ASI": {},
+    "traits": [
+      {
+        "engName": "Darkvision",
+        "name": "Темнозір",
+        "descriptionEng": "You have Darkvision with a range of 60 feet."
+      },
+      {
+        "engName": "Fiendish Legacy",
+        "name": "Демонічна спадщина",
+        "descriptionEng": "You are the recipient of a legacy that grants you supernatural abilities. Choose a legacy from the Fiendish Legacies table. You gain the level 1 benefit of the chosen legacy."
+      },
+      {
+        "engName": "Otherworldly Presence",
+        "name": "Потойбічна присутність",
+        "descriptionEng": "You know the Thaumaturgy cantrip. When you cast it with this trait, the spell uses the same spellcasting ability you use for your Fiendish Legacy trait. When you reach character levels 3 and 5, you learn a higher-level spell, as shown on the table. You always have that spell prepared. You can cast it once without a spell slot, and you regain the ability to cast it in that way when you finish a Long Rest. You can also cast the spell using any spell slots you have of the appropriate level. Intelligence, Wisdom, or Charisma is your spellcasting ability for the spells you cast with this trait (choose the ability when you select the legacy)."
+      }
+    ],
+    "source": "PHB_2024"
+  }
+]

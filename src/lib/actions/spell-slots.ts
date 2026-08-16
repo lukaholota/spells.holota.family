@@ -1,35 +1,29 @@
 "use server";
 
 import { auth } from "@/lib/auth";
-import { prisma } from "@/lib/prisma";
 import { canEditPers } from "@/lib/actions/pers";
 import { revalidatePath } from "next/cache";
 import { calculateCasterLevel } from "../logic/spell-logic";
 import { SPELL_SLOT_PROGRESSION } from "../refs/static";
+import {
+  findSpellcastingSlotState,
+  findSpellSlotOwnership,
+  updateCurrentPactSlots,
+  updateCurrentSpellSlots,
+} from "@/server/db/spell-slots";
+import { findUserIdByEmail } from "@/server/db/users";
 
 async function assertOwnsPers(persId: number) {
   const session = await auth();
   if (!session?.user?.email) return { ok: false as const, error: "Не авторизовано" };
 
-  const user = await prisma.user.findUnique({
-    where: { email: session.user.email },
-    select: { id: true },
-  });
+  const userId = await findUserIdByEmail(session.user.email);
+  if (userId === null) return { ok: false as const, error: "Користувача не знайдено" };
 
-  if (!user) return { ok: false as const, error: "Користувача не знайдено" };
-
-  const pers = await prisma.pers.findUnique({
-    where: { persId },
-    select: {
-      persId: true,
-      userId: true,
-      currentSpellSlots: true,
-      currentPactSlots: true,
-    },
-  });
+  const pers = await findSpellSlotOwnership(persId);
 
   if (!pers) return { ok: false as const, error: "Немає доступу до персонажа" };
-  const canEdit = await canEditPers(persId, user.id);
+  const canEdit = await canEditPers(persId, userId);
   if (!canEdit) return { ok: false as const, error: "Немає доступу до персонажа" };
 
   return { ok: true as const, pers };
@@ -64,16 +58,12 @@ export async function spendSpellSlot(
 
   next[idx] = Math.max(0, (next[idx] ?? 0) - 1);
 
-  const updated = await prisma.pers.update({
-    where: { persId },
-    data: { currentSpellSlots: next },
-    select: { currentSpellSlots: true },
-  });
+  const updated = await updateCurrentSpellSlots(persId, next);
 
   revalidatePath(`/char/${persId}`);
   revalidatePath(`/character/${persId}`);
 
-  return { success: true, currentSpellSlots: updated.currentSpellSlots as number[] };
+  return { success: true, currentSpellSlots: updated };
 }
 
 /**
@@ -93,16 +83,12 @@ export async function spendPactSlot(
     return { success: true, currentPactSlots: cur };
   }
 
-  const updated = await prisma.pers.update({
-    where: { persId },
-    data: { currentPactSlots: cur - 1 },
-    select: { currentPactSlots: true },
-  });
+  const updated = await updateCurrentPactSlots(persId, cur - 1);
 
   revalidatePath(`/char/${persId}`);
   revalidatePath(`/character/${persId}`);
 
-  return { success: true, currentPactSlots: updated.currentPactSlots };
+  return { success: true, currentPactSlots: updated };
 }
 
 /**
@@ -121,28 +107,16 @@ export async function restoreSpellSlot(
   if (!owned.ok) return { success: false, error: owned.error };
 
   // Need full data for max slots calculation
-  const persWithClass = await prisma.pers.findUnique({
-    where: { persId },
-    include: {
-      class: true,
-      subclass: true,
-      multiclasses: {
-        include: {
-          class: true,
-          subclass: true,
-        },
-      },
-    },
-  });
+  const persWithClass = await findSpellcastingSlotState(persId);
 
   if (!persWithClass) return { success: false, error: "Персонажа не знайдено" };
 
-  const caster = calculateCasterLevel(persWithClass as any);
+  const caster = calculateCasterLevel(persWithClass);
   const casterLevel = Math.max(0, Math.min(20, Math.trunc(caster.casterLevel || 0)));
   const row = (SPELL_SLOT_PROGRESSION as any).FULL?.[casterLevel] as number[] | undefined;
   const max = row ? (row[level - 1] ?? 0) : 0;
 
-  const raw = Array.isArray(persWithClass.currentSpellSlots) ? (persWithClass.currentSpellSlots as number[]) : [];
+  const raw = Array.isArray(persWithClass.currentSpellSlots) ? persWithClass.currentSpellSlots : [];
   const next = Array.from({ length: 9 }, (_, idx) => {
     const v = raw[idx];
     return Number.isFinite(v) ? Math.max(0, Math.trunc(v)) : 0;
@@ -155,16 +129,12 @@ export async function restoreSpellSlot(
 
   next[idx] = next[idx] + 1;
 
-  const updated = await prisma.pers.update({
-    where: { persId },
-    data: { currentSpellSlots: next },
-    select: { currentSpellSlots: true },
-  });
+  const updated = await updateCurrentSpellSlots(persId, next);
 
   revalidatePath(`/char/${persId}`);
   revalidatePath(`/character/${persId}`);
 
-  return { success: true, currentSpellSlots: updated.currentSpellSlots as number[] };
+  return { success: true, currentSpellSlots: updated };
 }
 
 /**
@@ -176,23 +146,11 @@ export async function restorePactSlot(
   const owned = await assertOwnsPers(persId);
   if (!owned.ok) return { success: false, error: owned.error };
 
-  const persWithClass = await prisma.pers.findUnique({
-    where: { persId },
-    include: {
-      class: true,
-      subclass: true,
-      multiclasses: {
-        include: {
-          class: true,
-          subclass: true,
-        },
-      },
-    },
-  });
+  const persWithClass = await findSpellcastingSlotState(persId);
 
   if (!persWithClass) return { success: false, error: "Персонажа не знайдено" };
 
-  const caster = calculateCasterLevel(persWithClass as any);
+  const caster = calculateCasterLevel(persWithClass);
   const pactLevel = Math.max(0, Math.min(20, Math.trunc(caster.pactLevel || 0)));
   const pactRow = (SPELL_SLOT_PROGRESSION as any).PACT?.[pactLevel] as { slots: number; level: number } | undefined;
   const max = pactRow ? pactRow.slots : 0;
@@ -205,14 +163,10 @@ export async function restorePactSlot(
     return { success: true, currentPactSlots: cur };
   }
 
-  const updated = await prisma.pers.update({
-    where: { persId },
-    data: { currentPactSlots: cur + 1 },
-    select: { currentPactSlots: true },
-  });
+  const updated = await updateCurrentPactSlots(persId, cur + 1);
 
   revalidatePath(`/char/${persId}`);
   revalidatePath(`/character/${persId}`);
 
-  return { success: true, currentPactSlots: updated.currentPactSlots };
+  return { success: true, currentPactSlots: updated };
 }

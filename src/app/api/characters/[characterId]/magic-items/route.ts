@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { prisma } from "@/lib/prisma";
+import { attachMagicItem, removeOneMagicItem } from "@/server/db/character-api";
 
 export async function POST(
   request: NextRequest,
@@ -17,14 +17,7 @@ export async function POST(
     const magicItemIdInt = parseInt(magicItemId, 10);
 
     // Create the PersMagicItem link
-    await prisma.persMagicItem.create({
-      data: {
-        persId: persIdInt,
-        magicItemId: magicItemIdInt,
-        isEquipped: false,
-        isAttuned: false,
-      },
-    });
+    await attachMagicItem(persIdInt, magicItemIdInt);
 
     return NextResponse.json({ success: true });
   } catch (error) {
@@ -49,18 +42,7 @@ export async function DELETE(
     const magicItemIdInt = parseInt(magicItemId, 10);
 
     // Delete ONE instance of this item
-    const itemToDelete = await prisma.persMagicItem.findFirst({
-        where: {
-            persId: persIdInt,
-            magicItemId: magicItemIdInt
-        }
-    });
-
-    if (itemToDelete) {
-        await prisma.persMagicItem.delete({
-            where: { persMagicItemId: itemToDelete.persMagicItemId }
-        });
-    }
+    await removeOneMagicItem(persIdInt, magicItemIdInt);
 
     return NextResponse.json({ success: true });
   } catch (error) {

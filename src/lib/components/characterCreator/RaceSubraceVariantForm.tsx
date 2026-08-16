@@ -152,6 +152,7 @@ export const RaceSubraceVariantForm = ({ race, formId, onNextDisabledChange }: P
               return (
                 <Card
                   key={sr.subraceId}
+                  data-testid={`subrace-${sr.name}`}
                   className={clsx(
                     "glass-card transition-all duration-200",
                     enabled ? "cursor-pointer" : "cursor-not-allowed opacity-50",
@@ -195,6 +196,7 @@ export const RaceSubraceVariantForm = ({ race, formId, onNextDisabledChange }: P
           <div className="grid gap-3 sm:grid-cols-2">
             {!hasSubraces ? (
               <Card
+                data-testid="race-variant-standard"
                 className={clsx(
                   "glass-card cursor-pointer transition-all duration-200",
                   standardSelected && "glass-active"
@@ -226,6 +228,7 @@ export const RaceSubraceVariantForm = ({ race, formId, onNextDisabledChange }: P
               return (
                 <Card
                   key={rv.raceVariantId}
+                  data-testid={`race-variant-${rv.name}`}
                   className={clsx(
                     "glass-card transition-all duration-200",
                     enabled ? "cursor-pointer" : "cursor-not-allowed opacity-50",

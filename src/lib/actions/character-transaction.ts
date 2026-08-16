@@ -1,6 +1,6 @@
 'use server';
 
-import { prisma } from '@/lib/prisma';
+import { updatePersLevel, updatePersSubclass } from '@/server/db/legacy-levelup';
 import { learnClassSpells } from './spell-actions';
 
 interface LevelUpChoice {
@@ -49,10 +49,7 @@ export async function confirmLevelUp(input: ConfirmLevelUpInput) {
       // HANDLE: SELECT_SUBCLASS
       // ──────────────────────────────────────────────────────────────────────
       if (choice.stepType === 'SELECT_SUBCLASS') {
-          await prisma.pers.update({
-              where: { persId },
-              data: { subclassId: choice.subclassId }
-          });
+          await updatePersSubclass(persId, choice.subclassId);
       }
 
       // Add other handlers here (FEAT, ASI, HP, etc.)
@@ -60,10 +57,7 @@ export async function confirmLevelUp(input: ConfirmLevelUpInput) {
 
     // 3. Update Character Level
     // Note: In a real app, you might update PersClass level instead/also
-    await prisma.pers.update({
-      where: { persId },
-      data: { level: newLevel },
-    });
+    await updatePersLevel(persId, newLevel);
 
     return { success: true };
   } catch (error) {

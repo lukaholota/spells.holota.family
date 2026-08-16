@@ -5,26 +5,31 @@ import type { Ruleset } from "@prisma/client";
 // KR6.3: hardcoded until the edition switch (O6 Крок 5) lets pers.ruleset drive this.
 const ACTIVE_RULESET: Ruleset = "RULES_2014";
 
-export function loadCharacterCreatorOptions() {
+export function loadCharacterCreatorOptions(options?: { ruleset?: Ruleset }) {
+  const ruleset = options?.ruleset ?? ACTIVE_RULESET;
   return Promise.all([
-    prisma.race.findMany({ where: { ruleset: ACTIVE_RULESET }, include: { raceChoiceOptions: { include: { traits: { include: { feature: true } } } }, subraces: { include: { traits: { include: { feature: true } } } }, raceVariants: { include: { traits: { include: { feature: true } } } }, traits: { include: { feature: true } } }, orderBy: [{ sortOrder: "asc" }, { raceId: "asc" }] }),
-    prisma.class.findMany({ where: { ruleset: ACTIVE_RULESET }, include: { subclasses: { include: { features: { include: { feature: true } }, subclassChoiceOptions: { include: { choiceOption: { include: { features: { include: { feature: true } } } } } }, expandedSpells: true } }, startingEquipmentOption: { include: { equipmentPack: true, weapon: true, armor: true } }, classChoiceOptions: { include: { choiceOption: { include: { features: { include: { feature: true } } } } } }, classOptionalFeatures: { include: { feature: true, replacesFeatures: { include: { replacedFeature: true } }, appearsOnlyIfChoicesTaken: true } }, features: { include: { feature: true } } }, orderBy: [{ sortOrder: "asc" }, { classId: "asc" }] }),
-    prisma.background.findMany({ where: { ruleset: ACTIVE_RULESET }, include: { gainsFeats: true } }),
-    prisma.weapon.findMany({ where: { ruleset: ACTIVE_RULESET }, orderBy: [{ sortOrder: "asc" }, { weaponId: "asc" }] }),
-    prisma.feat.findMany({ where: { ruleset: ACTIVE_RULESET }, include: { grantsFeature: true, featChoiceOptions: { include: { choiceOption: { include: { features: { include: { feature: true } } } } } } }, orderBy: [{ name: "asc" }] }),
+    prisma.race.findMany({ where: { ruleset }, include: { raceChoiceOptions: { include: { traits: { include: { feature: true } } } }, subraces: { include: { traits: { include: { feature: true } } } }, raceVariants: { include: { traits: { include: { feature: true } } } }, traits: { include: { feature: true } } }, orderBy: [{ sortOrder: "asc" }, { raceId: "asc" }] }),
+    prisma.class.findMany({ where: { ruleset }, include: { subclasses: { include: { features: { include: { feature: true } }, subclassChoiceOptions: { include: { choiceOption: { include: { features: { include: { feature: true } } } } } }, expandedSpells: true } }, startingEquipmentOption: { include: { equipmentPack: true, weapon: true, armor: true } }, classChoiceOptions: { include: { choiceOption: { include: { features: { include: { feature: true } } } } } }, classOptionalFeatures: { include: { feature: true, replacesFeatures: { include: { replacedFeature: true } }, appearsOnlyIfChoicesTaken: true } }, features: { include: { feature: true } } }, orderBy: [{ sortOrder: "asc" }, { classId: "asc" }] }),
+    prisma.background.findMany({ where: { ruleset }, include: { gainsFeats: true } }),
+    prisma.weapon.findMany({ where: { ruleset }, orderBy: [{ sortOrder: "asc" }, { weaponId: "asc" }] }),
+    prisma.feat.findMany({ where: { ruleset }, include: { grantsFeature: true, featChoiceOptions: { include: { choiceOption: { include: { features: { include: { feature: true } } } } } } }, orderBy: [{ name: "asc" }] }),
   ]);
 }
 
 export async function loadCreationContent(data: PersFormData) {
+  const bg = await prisma.background.findUnique({ where: { backgroundId: data.backgroundId } });
+  const effectiveBgFeatId = data.backgroundFeatId ?? bg?.originFeatId;
+
   const [race, variant, subrace, background, characterClass, subclass, feat, backgroundFeat] = await Promise.all([
     prisma.race.findUnique({ where: { raceId: data.raceId } }),
     data.raceVariantId ? prisma.raceVariant.findUnique({ where: { raceVariantId: data.raceVariantId } }) : null,
     data.subraceId ? prisma.subrace.findUnique({ where: { subraceId: data.subraceId } }) : null,
-    prisma.background.findUnique({ where: { backgroundId: data.backgroundId } }),
+    Promise.resolve(bg),
     prisma.class.findUnique({
       where: { classId: data.classId },
       select: {
         name: true,
+        ruleset: true,
         spellcastingType: true,
         savingThrows: true,
         armorProficiencies: true,
@@ -54,9 +59,9 @@ export async function loadCreationContent(data: PersFormData) {
           include: { featChoiceOptions: { include: { choiceOption: true } } },
         })
       : null,
-    data.backgroundFeatId
+    effectiveBgFeatId
       ? prisma.feat.findUnique({
-          where: { featId: data.backgroundFeatId },
+          where: { featId: effectiveBgFeatId },
           include: { featChoiceOptions: { include: { choiceOption: true } } },
         })
       : null,

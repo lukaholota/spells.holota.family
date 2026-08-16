@@ -1,167 +1,47 @@
 import MultiStepForm from "@/lib/components/characterCreator/MultiStepForm";
-import { prisma } from "@/lib/prisma";
-import {BackgroundI, ClassI, RaceI} from "@/lib/types/model-types";
+import { loadCharacterCreatorOptions } from "@/server/db/creation-content";
+import { BackgroundI, ClassI, RaceI } from "@/lib/types/model-types";
+import { auth } from "@/lib/auth";
+import { isRules2024Allowed } from "@/rules/access";
+import type { Ruleset } from "@prisma/client";
 
+export default async function Page({
+  searchParams,
+}: {
+  searchParams?: Promise<{ ruleset?: string }>;
+}) {
+  const session = await auth();
+  const canSelect2024 = isRules2024Allowed(session?.user);
 
-export default async function Page() {
+  const resolvedParams = searchParams ? await searchParams : undefined;
+  const requestedRuleset = resolvedParams?.ruleset;
+  const effectiveRuleset: Ruleset =
+    requestedRuleset === "RULES_2024" && canSelect2024
+      ? "RULES_2024"
+      : "RULES_2014";
+
   const [
-    races,
-    classes,
-    backgrounds,
+    loadedRaces,
+    loadedClasses,
+    loadedBackgrounds,
     weapons,
     // armors,
     feats,
-  ] = await Promise.all([
-    prisma.race.findMany({
-      include: {
-        raceChoiceOptions: {
-          include: {
-            traits: {
-              include: {
-                feature: true,
-              }
-            }
-          }
-        },
-        subraces: {
-          include: {
-            traits: {
-              include: {
-                feature: true,
-              }
-            }
-          }
-        },
-        raceVariants: {
-          include: {
-            traits: {
-              include: {
-                feature: true,
-              }
-            }
-          }
-        },
-        traits: {
-          include: {
-            feature: true,
-          }
-        },
-      },
-      orderBy: [
-        { sortOrder: 'asc' },
-        { raceId: 'asc' }
-      ]
-    }) as Promise<RaceI[]>,
-    prisma.class.findMany({
-      include: {
-        subclasses: {
-          include: {
-            features: {
-              include: {
-                feature: true,
-              },
-            },
-            subclassChoiceOptions: {
-              include: {
-                choiceOption: {
-                  include: {
-                    features: {
-                      include: {
-                        feature: true,
-                      },
-                    },
-                  },
-                },
-              },
-            },
-            expandedSpells: true,
-          },
-        },
-        startingEquipmentOption: {
-          include: {
-            equipmentPack: true,
-            weapon: true,
-            armor: true,
-          },
-        },
-        classChoiceOptions: {
-          include: {
-            choiceOption: {
-              include: {
-                features: {
-                  include: {
-                    feature: true,
-                  },
-                },
-              },
-            },
-          },
-        },
-        classOptionalFeatures: {
-          include: {
-            feature: true,
-            replacesFeatures: {
-              include: {
-                replacedFeature: true,
-              },
-            },
-            appearsOnlyIfChoicesTaken: true,
-          },
-        },
-        features: {
-          include: {
-            feature: true,
-          },
-        },
-      },
-      orderBy: [
-        { sortOrder: 'asc' },
-        { classId: 'asc' }
-      ]
-    }) as unknown as Promise<ClassI[]>,
-    prisma.background.findMany({
-      include: {
-        gainsFeats: true,
-      }
-    }) as Promise<BackgroundI[]>,
-    prisma.weapon.findMany({
-      orderBy: [
-        { sortOrder: 'asc' },
-        { weaponId: 'asc' }
-      ]
-    }),
-    prisma.feat.findMany({
-      include: {
-        grantsFeature: true,
-        featChoiceOptions: {
-          include: {
-            choiceOption: {
-              include: {
-                features: {
-                  include: {
-                    feature: true
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      orderBy: [
-        { name: 'asc' }
-      ]
-    }),
-  ])
+  ] = await loadCharacterCreatorOptions({ ruleset: effectiveRuleset });
+
+  const races = loadedRaces as unknown as RaceI[];
+  const classes = loadedClasses as unknown as ClassI[];
+  const backgrounds = loadedBackgrounds as unknown as BackgroundI[];
 
   return (
-    <>
-      <MultiStepForm
-        races={races}
-        classes={classes}
-        backgrounds={backgrounds}
-        weapons={weapons}
-        feats={feats}
-      />
-    </>
+    <MultiStepForm
+      races={races}
+      classes={classes}
+      backgrounds={backgrounds}
+      weapons={weapons}
+      feats={feats}
+      canSelect2024={canSelect2024}
+      initialRuleset={effectiveRuleset}
+    />
   );
 }

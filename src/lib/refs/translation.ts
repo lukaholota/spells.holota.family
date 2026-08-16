@@ -248,7 +248,20 @@ export const classTranslations = {
   ROGUE_2014: "Пройдисвіт",
   SORCERER_2014: "Чародій",
   WARLOCK_2014: "Чорнокнижник",
-  WIZARD_2014: "Чарівник"
+  WIZARD_2014: "Чарівник",
+  ARTIFICER_2024: "Винахідник",
+  BARBARIAN_2024: "Варвар",
+  BARD_2024: "Бард",
+  CLERIC_2024: "Клірик",
+  DRUID_2024: "Друїд",
+  FIGHTER_2024: "Воїн",
+  MONK_2024: "Монах",
+  PALADIN_2024: "Паладин",
+  RANGER_2024: "Слідопит",
+  ROGUE_2024: "Пройдисвіт",
+  SORCERER_2024: "Чародій",
+  WARLOCK_2024: "Чорнокнижник",
+  WIZARD_2024: "Чарівник",
 } as const;
 
 export const classTranslationsEng = {
@@ -264,7 +277,20 @@ export const classTranslationsEng = {
   ROGUE_2014: "Rogue",
   SORCERER_2014: "Sorcerer",
   WARLOCK_2014: "Warlock",
-  WIZARD_2014: "Wizard"
+  WIZARD_2014: "Wizard",
+  ARTIFICER_2024: "Artificer",
+  BARBARIAN_2024: "Barbarian",
+  BARD_2024: "Bard",
+  CLERIC_2024: "Cleric",
+  DRUID_2024: "Druid",
+  FIGHTER_2024: "Fighter",
+  MONK_2024: "Monk",
+  PALADIN_2024: "Paladin",
+  RANGER_2024: "Ranger",
+  ROGUE_2024: "Rogue",
+  SORCERER_2024: "Sorcerer",
+  WARLOCK_2024: "Warlock",
+  WIZARD_2024: "Wizard",
 } as const;
 
 export const subclassTranslations = {

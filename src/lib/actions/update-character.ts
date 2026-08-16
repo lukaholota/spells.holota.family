@@ -1,9 +1,10 @@
 "use server";
 
 import { auth } from "@/lib/auth";
-import { prisma } from "@/lib/prisma";
 import { canEditPers } from "@/lib/actions/pers";
 import { revalidatePath } from "next/cache";
+import { updatePersDetails, type PersDetailsUpdate } from "@/server/db/pers-details";
+import { findUserIdByEmail } from "@/server/db/users";
 
 export type UpdateCharacterPayload = {
   persId: number;
@@ -34,20 +35,15 @@ export async function updateCharacterAction(payload: UpdateCharacterPayload): Pr
   const session = await auth();
   if (!session?.user?.email) return { success: false, error: "Не авторизовано" };
 
-  const user = await prisma.user.findUnique({
-    where: { email: session.user.email },
-    select: { id: true },
-  });
-  if (!user) return { success: false, error: "Користувача не знайдено" };
+  const userId = await findUserIdByEmail(session.user.email);
+  if (userId === null) return { success: false, error: "Користувача не знайдено" };
 
-  const canEdit = await canEditPers(payload.persId, user.id);
+  const canEdit = await canEditPers(payload.persId, userId);
   if (!canEdit) return { success: false, error: "Немає доступу до персонажа" };
 
   const d = payload.data ?? {};
 
-  await prisma.pers.update({
-    where: { persId: payload.persId },
-    data: {
+  const update: PersDetailsUpdate = {
       ...(typeof d.customProficiencies === "string" ? { customProficiencies: d.customProficiencies } : {}),
       ...(typeof d.customLanguagesKnown === "string" ? { customLanguagesKnown: d.customLanguagesKnown } : {}),
       ...(typeof d.customEquipment === "string" ? { customEquipment: d.customEquipment } : {}),
@@ -64,8 +60,8 @@ export async function updateCharacterAction(payload: UpdateCharacterPayload): Pr
       ...(typeof d.sp === "string" ? { sp: String(Math.max(0, parseInt(d.sp) || 0)) } : {}),
       ...(typeof d.gp === "string" ? { gp: String(Math.max(0, parseInt(d.gp) || 0)) } : {}),
       ...(typeof d.pp === "string" ? { pp: String(Math.max(0, parseInt(d.pp) || 0)) } : {}),
-    },
-  });
+  };
+  await updatePersDetails(payload.persId, update);
 
   revalidatePath(`/char/${payload.persId}`);
   revalidatePath(`/character/${payload.persId}`);

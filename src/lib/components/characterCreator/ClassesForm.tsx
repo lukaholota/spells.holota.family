@@ -88,6 +88,7 @@ export const ClassesForm = (
           sortedClasses.map(c =>  (
             <Card
               key={c.classId}
+              data-testid={`class-${c.name}`}
               className={clsx(
                 "glass-card cursor-pointer transition-all duration-200",
                 c.classId === chosenClassId && "glass-active"

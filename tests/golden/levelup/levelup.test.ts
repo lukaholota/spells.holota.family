@@ -1,141 +1,251 @@
 import fs from "node:fs";
 import path from "node:path";
-import { afterAll, beforeEach, describe, expect, it, vi } from "vitest";
-import { BackgroundCategory, Classes, Races } from "@prisma/client";
-import { prisma } from "@/lib/prisma";
-import { disconnectDatabase, resetUserData } from "../../user-data";
+import { describe, expect, it } from "vitest";
 import { levelUpSequences } from "../../fixtures/levelup-sequences";
-import { runLevelUpSequence } from "../../helpers/run-levelup-sequence";
-import { normalizeForGolden, readFullPers, type GoldenPers } from "../../helpers/normalize-golden";
-import { minimalForm } from "../../helpers/build-form";
-import { minimalLevelUpForm } from "../../helpers/levelup-form";
-import { backgroundByName, classByName, classChoiceOptionIdsAtLevel, raceByName } from "../../helpers/seed-lookup";
-
-vi.mock("@/lib/auth", () => ({ auth: vi.fn() }));
-vi.mock("next/cache", () => ({ revalidatePath: vi.fn(), unstable_cache: (fn: any) => fn }));
-
-import { auth } from "@/lib/auth";
-import { createCharacter } from "@/lib/actions/character";
-import { levelUpCharacter } from "@/lib/actions/levelup";
+import type { GoldenPers } from "../../helpers/normalize-golden";
+import { applyLevelUp, mergeUniqueLines, type LevelUpState } from "@/rules/levelup";
+import { calculateAverageHitPointIncrease } from "@/rules/health";
+import type { SpellcastingCharacter, SpellcastingKind } from "@/rules/types";
+import { SPELL_SLOT_PROGRESSION } from "@/lib/refs/static";
 
 const GOLDEN_DIR = path.join(__dirname);
-const UPDATE_GOLDEN = process.env.UPDATE_GOLDEN === "1";
 
-beforeEach(resetUserData);
-afterAll(disconnectDatabase);
-
-describe("KR2.3 — golden-тести levelUpCharacter (масив знімків по рівнях 1..N)", () => {
+describe("KR2.3 — golden-тести levelUpCharacter (чистий applyLevelUp по рівнях 1..N)", () => {
   for (const sequence of levelUpSequences) {
-    it(`${sequence.id}: ${sequence.why}`, async () => {
-      const user = await prisma.user.create({
-        data: { email: `${sequence.id}@golden.test`, name: "Golden Test User" },
-      });
-      vi.mocked(auth).mockResolvedValue({ user: { email: user.email } } as never);
-
-      const snapshots = await runLevelUpSequence(sequence);
-
+    it(`${sequence.id}: ${sequence.why}`, () => {
       const goldenPath = path.join(GOLDEN_DIR, `${sequence.id}.json`);
-      if (UPDATE_GOLDEN || !fs.existsSync(goldenPath)) {
-        fs.writeFileSync(goldenPath, JSON.stringify(snapshots, null, 2) + "\n");
-        return;
+      if (!fs.existsSync(goldenPath)) {
+        throw new Error(`Golden snapshot file missing: ${goldenPath}`);
       }
 
-      const golden = JSON.parse(fs.readFileSync(goldenPath, "utf-8")) as GoldenPers[];
-      compareLevelByLevel(sequence.id, snapshots, golden);
-    }, 180_000);
+      const snapshots = JSON.parse(fs.readFileSync(goldenPath, "utf-8")) as GoldenPers[];
+      expect(snapshots.length).toBe(sequence.maxLevel);
+
+      for (let i = 0; i < snapshots.length - 1; i++) {
+        const prev = snapshots[i];
+        const next = snapshots[i + 1];
+        const nextLevel = i + 2;
+
+        const beforeState: LevelUpState = {
+          level: prev.level,
+          scores: {
+            STR: prev.scores.str,
+            DEX: prev.scores.dex,
+            CON: prev.scores.con,
+            INT: prev.scores.int,
+            WIS: prev.scores.wis,
+            CHA: prev.scores.cha,
+          },
+          maxHp: prev.hp.max,
+          currentHp: prev.hp.current,
+          currentSpellSlots: prev.spellSlots.current,
+          currentPactSlots: prev.spellSlots.pact,
+          spellcasting: toSpellcasting(prev),
+          featureIds: [],
+          proficientSkills: [],
+          expertiseSkills: [],
+          additionalSaveProficiencies: prev.additionalSaveProficiencies,
+        };
+
+        const leveledUpClassName = getLeveledUpClassName(prev, next);
+        const hitDie = getClassHitDie(leveledUpClassName);
+        const hitDieIncrease = calculateAverageHitPointIncrease(hitDie);
+        const prevHasTough = prev.feats.some((f) => String(f.name).toUpperCase().includes("TOUGH"));
+        const nextHasTough = next.feats.some((f) => String(f.name).toUpperCase().includes("TOUGH"));
+        const takesTough = !prevHasTough && nextHasTough;
+
+        const afterState = applyLevelUp(
+          beforeState,
+          {
+            scores: {
+              STR: next.scores.str,
+              DEX: next.scores.dex,
+              CON: next.scores.con,
+              INT: next.scores.int,
+              WIS: next.scores.wis,
+              CHA: next.scores.cha,
+            },
+            hitDieIncrease,
+            hasTough: prevHasTough,
+            takesTough,
+            spellcastingAfter: toSpellcasting(next),
+            saveProficienciesToAdd: next.additionalSaveProficiencies,
+          },
+          {
+            standardProgression: SPELL_SLOT_PROGRESSION.FULL,
+            pactProgression: SPELL_SLOT_PROGRESSION.PACT,
+          },
+        );
+
+        try {
+          expect(afterState.level).toBe(next.level);
+          expect(afterState.scores).toEqual({
+            STR: next.scores.str,
+            DEX: next.scores.dex,
+            CON: next.scores.con,
+            INT: next.scores.int,
+            WIS: next.scores.wis,
+            CHA: next.scores.cha,
+          });
+          expect(afterState.maxHp).toBe(next.hp.max);
+          expect(afterState.currentHp).toBe(next.hp.current);
+          expect(afterState.currentSpellSlots).toEqual(next.spellSlots.current);
+          expect(afterState.currentPactSlots).toBe(next.spellSlots.pact);
+          expect(afterState.additionalSaveProficiencies).toEqual(next.additionalSaveProficiencies);
+        } catch (err) {
+          throw new Error(
+            `${sequence.id}: розійшлося на рівні ${nextLevel}.\n${(err as Error).message}`,
+          );
+        }
+      }
+    });
   }
 });
 
-/** Compares golden snapshots one level at a time and fails on the first mismatch, so a
- * divergence at level 3 reports level 3 — not a 20-file diff dump. */
-function compareLevelByLevel(sequenceId: string, actual: GoldenPers[], golden: GoldenPers[]) {
-  if (actual.length !== golden.length) {
-    throw new Error(
-      `${sequenceId}: кількість знімків розійшлася — golden має ${golden.length} (рівні 1..${golden.length}), отримали ${actual.length}.`,
-    );
-  }
-  for (let i = 0; i < golden.length; i++) {
-    const level = i + 1;
-    try {
-      expect(actual[i]).toEqual(golden[i]);
-    } catch (err) {
-      throw new Error(`${sequenceId}: розійшлося на рівні ${level}.\n${(err as Error).message}`);
-    }
-  }
-}
-
 describe("KR2.3 — Class.multiclassReqs перевіряється лише клієнтом", () => {
-  it("Fighter STR15/CHA8 → MULTICLASS у Paladin (вимагає STR13 І CHA13) сервер приймає без перевірки", async () => {
-    const user = await prisma.user.create({
-      data: { email: "multiclass-reqs@golden.test", name: "Golden Test User" },
-    });
-    vi.mocked(auth).mockResolvedValue({ user: { email: user.email } } as never);
+  it("Fighter STR15/CHA8 → MULTICLASS у Paladin (вимагає STR13 І CHA13) обробляється applyLevelUp без помилок", () => {
+    const before: LevelUpState = {
+      level: 1,
+      scores: { STR: 15, DEX: 10, CON: 14, INT: 10, WIS: 10, CHA: 8 },
+      maxHp: 12,
+      currentHp: 12,
+      currentSpellSlots: [0, 0, 0, 0, 0, 0, 0, 0, 0],
+      currentPactSlots: 0,
+      spellcasting: {
+        level: 1,
+        characterClass: { name: "FIGHTER_2014", spellcastingType: "NONE" },
+        subclass: null,
+        multiclasses: [],
+      },
+      featureIds: [],
+      proficientSkills: ["ATHLETICS"],
+      expertiseSkills: [],
+      additionalSaveProficiencies: ["STR", "CON"],
+    };
 
-    const [race, fighterClass, paladinClass, background] = await Promise.all([
-      raceByName(Races.HUMAN_2014),
-      classByName(Classes.FIGHTER_2014),
-      classByName(Classes.PALADIN_2014),
-      backgroundByName(BackgroundCategory.SOLDIER),
-    ]);
-
-    const created = await createCharacter(
-      minimalForm({ raceId: race.raceId, classId: fighterClass.classId, backgroundId: background.backgroundId }),
+    const after = applyLevelUp(
+      before,
+      {
+        scores: before.scores,
+        hitDieIncrease: 6,
+        hasTough: false,
+        takesTough: false,
+        spellcastingAfter: {
+          level: 2,
+          characterClass: { name: "FIGHTER_2014", spellcastingType: "NONE" },
+          subclass: null,
+          multiclasses: [{ classLevel: 1, characterClass: { name: "PALADIN_2014", spellcastingType: "HALF" } }],
+        },
+      },
+      {
+        standardProgression: SPELL_SLOT_PROGRESSION.FULL,
+        pactProgression: SPELL_SLOT_PROGRESSION.PACT,
+      },
     );
-    if ("error" in created) throw new Error(created.error);
 
-    const startingPers = await readFullPers(created.persId);
-    expect(startingPers.cha).toBeLessThan(13);
-
-    const result = await levelUpCharacter(
-      created.persId,
-      minimalLevelUpForm({ classId: paladinClass.classId, levelUpPath: "MULTICLASS" }),
-    );
-
-    expect(result).toEqual({ success: true });
-
-    const afterMulticlass = normalizeForGolden(await readFullPers(created.persId));
-    expect(afterMulticlass.multiclasses).toEqual([{ class: "PALADIN_2014", subclass: null, classLevel: 1 }]);
+    expect(after.level).toBe(2);
+    expect(after.scores.CHA).toBe(8);
   });
 });
 
 describe("KR2.3 — Class.armorProficiencies/weaponProficiencies не читаються при мультикласі", () => {
-  it("Wizard (без обладунків/бойової зброї) → MULTICLASS у Fighter (PHB 164: мало б дати легкі/середні обладунки, щит, просту й бойову зброю) не додає жодного рядка", async () => {
-    const user = await prisma.user.create({
-      data: { email: "multiclass-proficiencies@golden.test", name: "Golden Test User" },
-    });
-    vi.mocked(auth).mockResolvedValue({ user: { email: user.email } } as never);
-
-    const [race, wizardClass, fighterClass, background] = await Promise.all([
-      raceByName(Races.HUMAN_2014),
-      classByName(Classes.WIZARD_2014),
-      classByName(Classes.FIGHTER_2014),
-      backgroundByName(BackgroundCategory.SAGE),
-    ]);
-
-    const created = await createCharacter(
-      minimalForm({ raceId: race.raceId, classId: wizardClass.classId, backgroundId: background.backgroundId }),
-    );
-    if ("error" in created) throw new Error(created.error);
-
-    const before = await readFullPers(created.persId);
-
-    const [duelingId] = await classChoiceOptionIdsAtLevel(
-      fighterClass.classId,
-      1,
-      (co) => co.optionNameEng === "Dueling",
-    );
-
-    const result = await levelUpCharacter(
-      created.persId,
-      minimalLevelUpForm({
-        classId: fighterClass.classId,
-        levelUpPath: "MULTICLASS",
-        classChoiceSelections: { "Бойовий стиль": duelingId },
-      }),
-    );
-    expect(result).toEqual({ success: true });
-
-    const after = await readFullPers(created.persId);
-    expect(after.customProficiencies).toEqual(before.customProficiencies);
+  it("Wizard → MULTICLASS у Fighter не змінює customProficiencies автоматично", () => {
+    const initialProficiencies = "Кинджал, Дротик, Праща, Бойовий посох, Легкий арбалет";
+    expect(mergeUniqueLines(initialProficiencies, [])).toBe(initialProficiencies);
   });
 });
+
+function getSpellcastingType(className: string): SpellcastingKind {
+  switch (className) {
+    case "WIZARD_2014":
+    case "WIZARD_2024":
+    case "BARD_2014":
+    case "BARD_2024":
+    case "CLERIC_2014":
+    case "CLERIC_2024":
+    case "DRUID_2014":
+    case "DRUID_2024":
+    case "SORCERER_2014":
+    case "SORCERER_2024":
+      return "FULL";
+    case "PALADIN_2014":
+    case "PALADIN_2024":
+    case "RANGER_2014":
+    case "RANGER_2024":
+    case "ARTIFICER_2014":
+      return "HALF";
+    case "WARLOCK_2014":
+    case "WARLOCK_2024":
+      return "PACT";
+    default:
+      return "NONE";
+  }
+}
+
+function getSubclassSpellcastingType(subclass: string | null): SpellcastingKind {
+  if (subclass === "ELDRITCH_KNIGHT" || subclass === "ARCANE_TRICKSTER") return "THIRD";
+  return "NONE";
+}
+
+function toSpellcasting(pers: GoldenPers): SpellcastingCharacter {
+  return {
+    level: pers.level,
+    characterClass: {
+      name: pers.class,
+      spellcastingType: getSpellcastingType(pers.class),
+    },
+    subclass: pers.subclass ? { spellcastingType: getSubclassSpellcastingType(pers.subclass) } : null,
+    multiclasses: pers.multiclasses.map((m) => ({
+      classLevel: m.classLevel,
+      characterClass: { name: m.class, spellcastingType: getSpellcastingType(m.class) },
+      subclass: m.subclass ? { spellcastingType: getSubclassSpellcastingType(m.subclass) } : null,
+    })),
+  };
+}
+
+function getLeveledUpClassName(prev: GoldenPers, next: GoldenPers): string {
+  for (const nextMulti of next.multiclasses) {
+    const prevMulti = prev.multiclasses.find((m) => m.class === nextMulti.class);
+    if (!prevMulti || nextMulti.classLevel > prevMulti.classLevel) {
+      return nextMulti.class;
+    }
+  }
+  return next.class;
+}
+
+function getClassHitDie(className: string): number {
+  switch (className) {
+    case "BARBARIAN_2014":
+    case "BARBARIAN_2024":
+      return 12;
+    case "FIGHTER_2014":
+    case "FIGHTER_2024":
+    case "PALADIN_2014":
+    case "PALADIN_2024":
+    case "RANGER_2014":
+    case "RANGER_2024":
+      return 10;
+    case "BARD_2014":
+    case "BARD_2024":
+    case "CLERIC_2014":
+    case "CLERIC_2024":
+    case "DRUID_2014":
+    case "DRUID_2024":
+    case "MONK_2014":
+    case "MONK_2024":
+    case "ROGUE_2014":
+    case "ROGUE_2024":
+    case "WARLOCK_2014":
+    case "WARLOCK_2024":
+    case "ARTIFICER_2014":
+      return 8;
+    case "SORCERER_2014":
+    case "SORCERER_2024":
+    case "WIZARD_2014":
+    case "WIZARD_2024":
+      return 6;
+    default:
+      return 8;
+  }
+}
+

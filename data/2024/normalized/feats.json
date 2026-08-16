@@ -1,0 +1,2511 @@
+[
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Ability Score Improvement",
+    "name": "Покращення Характеристик",
+    "category": "GENERAL",
+    "prerequisite": "Level 4+",
+    "isRepeatable": true,
+    "benefitsEng": [
+      {
+        "name": "Repeatable",
+        "description": "You can take this feat more than once."
+      }
+    ],
+    "plainDescriptionEng": null,
+    "translationStatus": "fully translated",
+    "source": "PHB_2024",
+    "benefits": [
+      {
+        "name": "Повторюваний",
+        "description": "Ви можете обирати цей рис більше одного разу."
+      }
+    ]
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Actor",
+    "name": "Актор",
+    "category": "GENERAL",
+    "prerequisite": "Level 4+, Charisma 13+",
+    "isRepeatable": false,
+    "benefitsEng": [
+      {
+        "name": "Ability Score Increase",
+        "description": "Increase your Charisma score by 1, to a maximum of 20."
+      },
+      {
+        "name": "Impersonation",
+        "description": "While you're disguised as a real or fictional person, you have Advantage on Charisma (Deception or Performance) checks to convince others that you are that person."
+      },
+      {
+        "name": "Mimicry",
+        "description": "You can mimic the sounds of other creatures, including speech. A creature that hears the mimicry must succeed on a Wisdom (Insight) check to determine the effect is faked (DC 8 plus your Charisma modifier and Proficiency Bonus)."
+      }
+    ],
+    "plainDescriptionEng": null,
+    "translationStatus": "fully translated",
+    "source": "PHB_2024",
+    "benefits": [
+      {
+        "name": "Збільшення характеристики",
+        "description": "Збільште показник Харизми на 1, до максимуму 20."
+      },
+      {
+        "name": "Перевтілення",
+        "description": "Поки ви маскуєтеся під реальну чи вигадану особу, ви маєте перевагу на перевірки Харизми (Обман або Виступ), щоб переконати інших, що ви є цією особою."
+      },
+      {
+        "name": "Мімікрія",
+        "description": "Ви можете імітувати звуки інших істот, зокрема мовлення. Істота, яка чує імітацію, повинна досягти успіху в перевірці Мудрості (Аналіз Поведінки), щоб визначити, що ефект підроблений (СК дорівнює 8 + модифікатор вашої Харизми + Бонус Майстерності)."
+      }
+    ]
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Alert",
+    "name": "Пильний",
+    "category": "ORIGIN",
+    "prerequisite": null,
+    "isRepeatable": false,
+    "benefitsEng": [
+      {
+        "name": "Initiative Proficiency",
+        "description": "When you roll Initiative, you can add your Proficiency Bonus to the roll."
+      },
+      {
+        "name": "Initiative Swap",
+        "description": "Immediately after you roll Initiative, you can swap your Initiative with the Initiative of one willing ally in the same combat. You can't make this swap if you or the ally has the Incapacitated condition."
+      }
+    ],
+    "plainDescriptionEng": null,
+    "translationStatus": "fully translated",
+    "source": "PHB_2024",
+    "benefits": [
+      {
+        "name": "Володіння Ініціативою",
+        "description": "Коли ви кидаєте Ініціативу, ви можете додати свій Бонус Майстерності до кидка."
+      },
+      {
+        "name": "Обмін Ініціативою",
+        "description": "Одразу після того, як ви кинете Ініціативу, ви можете обміняти свою Ініціативу на Ініціативу одного бажаючого союзника в тому самому бою. Ви не можете здійснити цей обмін, якщо ви або союзник маєте стан Недієздатний."
+      }
+    ]
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Archery",
+    "name": "Стрільба з лука",
+    "category": "FIGHTING_STYLE",
+    "prerequisite": "Fighting Style Feature",
+    "isRepeatable": false,
+    "benefitsEng": [],
+    "plainDescriptionEng": "You gain a +2 bonus to attack rolls you make with Ranged weapons.",
+    "translationStatus": "fully translated",
+    "source": "PHB_2024",
+    "description": "Ви отримуєте бонус +2 до кидків атаки, які ви робите зброєю дальнього бою."
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Athlete",
+    "name": "Атлет",
+    "category": "GENERAL",
+    "prerequisite": "Level 4+, Strength or Dexterity 13+",
+    "isRepeatable": false,
+    "benefitsEng": [
+      {
+        "name": "Ability Score Increase",
+        "description": "Increase your Strength or Dexterity score by 1, to a maximum of 20."
+      },
+      {
+        "name": "Climb Speed",
+        "description": "You gain a Climb Speed equal to your Speed."
+      },
+      {
+        "name": "Hop Up",
+        "description": "When you have the Prone condition, you can right yourself with only 5 feet of movement."
+      },
+      {
+        "name": "Jumping",
+        "description": "You can make a running Long or High Jump after moving only 5 feet."
+      }
+    ],
+    "plainDescriptionEng": null,
+    "translationStatus": "fully translated",
+    "source": "PHB_2024",
+    "benefits": [
+      {
+        "name": "Збільшення характеристики",
+        "description": "Збільште показник Сили або Спритності на 1, до максимуму 20."
+      },
+      {
+        "name": "Швидкість лазіння",
+        "description": "Ви отримуєте швидкість лазіння, що дорівнює вашій Швидкості."
+      },
+      {
+        "name": "Швидкий підйом",
+        "description": "Коли ви маєте стан Повалений, ви можете піднятися на ноги, витративши лише 5 фт руху."
+      },
+      {
+        "name": "Стрибки",
+        "description": "Ви можете здійснити стрибок у довжину або у висоту з розбігу, розігнавшись лише на 5 фт."
+      }
+    ]
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Blind Fighting",
+    "name": "Бій наосліп",
+    "category": "FIGHTING_STYLE",
+    "prerequisite": "Fighting Style Feature",
+    "isRepeatable": false,
+    "benefitsEng": [],
+    "plainDescriptionEng": "You have Blindsight with a range of 10 feet.",
+    "translationStatus": "fully translated",
+    "source": "PHB_2024",
+    "description": "Ви маєте сліповид у радіусі 10 футів. У цьому радіусі ви можете фактично бачити, навіть якщо ви засліплені або перебуваєте в темряві. Більше того, ви можете бачити невидиме створіння в цьому радіусі, якщо це створіння не сховалося від вас успішно."
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Boon Of Combat Prowess",
+    "name": "Дар Бойової Майстерності",
+    "category": "EPIC_BOON",
+    "prerequisite": "Level 19+",
+    "isRepeatable": false,
+    "benefitsEng": [
+      {
+        "name": "Ability Score Increase",
+        "description": "Increase one ability score of your choice by 1, to a maximum of 30."
+      },
+      {
+        "name": "Peerless Aim",
+        "description": "When you miss with an attack roll, you can hit instead. Once you use this benefit, you can't use it again until the start of your next turn."
+      }
+    ],
+    "plainDescriptionEng": null,
+    "translationStatus": "fully translated",
+    "source": "PHB_2024",
+    "benefits": [
+      {
+        "name": "Збільшення Показника Характеристики",
+        "description": "Збільшіть один показник характеристики на ваш вибір на 1, до максимуму 30."
+      },
+      {
+        "name": "Бездоганне Влучання",
+        "description": "Коли ви промахуєтеся кидком атаки, ви можете натомість влучити. Використавши цю перевагу, ви не можете використати її знову до початку вашого наступного ходу."
+      }
+    ]
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Boon Of Dimensional Travel",
+    "name": "Дар Мандрів Вимірами",
+    "category": "EPIC_BOON",
+    "prerequisite": "Level 19+",
+    "isRepeatable": false,
+    "benefitsEng": [
+      {
+        "name": "Ability Score Increase",
+        "description": "Increase one ability score of your choice by 1, to a maximum of 30."
+      },
+      {
+        "name": "Blink Steps",
+        "description": "Immediately after you take the Attack action or the Magic action, you can teleport up to 30 feet to an unoccupied space you can see."
+      }
+    ],
+    "plainDescriptionEng": null,
+    "translationStatus": "fully translated",
+    "source": "PHB_2024",
+    "benefits": [
+      {
+        "name": "Збільшення Показника Характеристики",
+        "description": "Збільшіть один показник характеристики на ваш вибір на 1, до максимуму 30."
+      },
+      {
+        "name": "Кроки Мерехтіння",
+        "description": "Одразу після того, як ви здійснюєте Дію Атака або Магічну Дію, ви можете телепортуватися на відстань до 30 футів у незайнятий простір, який бачите."
+      }
+    ]
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Boon Of Energy Resistance",
+    "name": "Дар Опору Стихіям",
+    "category": "EPIC_BOON",
+    "prerequisite": "Level 19+",
+    "isRepeatable": false,
+    "benefitsEng": [
+      {
+        "name": "Ability Score Increase",
+        "description": "Increase one ability score of your choice by 1, to a maximum of 30."
+      },
+      {
+        "name": "Energy Resistances",
+        "description": "You gain Resistance to two of the following damage types of your choice: Acid, Cold, Fire, Lightning, Necrotic, Poison, Psychic, Radiant, or Thunder. Whenever you finish a Long Rest, you can change your choices."
+      },
+      {
+        "name": "Energy Redirection",
+        "description": "When you take damage of one of the types chosen for the Energy Resistances benefit, you can take a Reaction to direct damage of the same type toward another creature you can see within 60 feet of yourself that isn’'t behind Total Cover. If you do so, that creature must succeed on a Dexterity saving throw (DC 8 plus your Constitution modifier and Proficiency Bonus) or take damage equal to 2d12 plus your Constitution modifier."
+      }
+    ],
+    "plainDescriptionEng": null,
+    "translationStatus": "fully translated",
+    "source": "PHB_2024",
+    "benefits": [
+      {
+        "name": "Збільшення Показника Характеристики",
+        "description": "Збільшіть один показник характеристики на ваш вибір на 1, до максимуму 30."
+      },
+      {
+        "name": "Опір Стихіям",
+        "description": "Ви отримуєте Опір до двох типів шкоди на ваш вибір з наведених: Кислотна, Холодна, Вогняна, Блискавична, Некротична, Отруйна, Психічна, Світлом або Громова. Щоразу, коли ви завершуєте довгий відпочинок, ви можете змінити свій вибір."
+      },
+      {
+        "name": "Перенаправлення Стихії",
+        "description": "Коли ви отримуєте шкоду одного з типів, обраних для переваги Опір Стихіям, ви можете використати Реакцію, щоб спрямувати шкоду того самого типу на іншу істоту, яку бачите в межах 60 футів від себе і яка не перебуває за Повним укриттям. Якщо ви це робите, ця істота повинна досягти успіху в ряткидку Спритності (СК 8 плюс ваш модифікатор Статури та Бонус Майстерності) або отримати шкоду, що дорівнює 2к12 плюс ваш модифікатор Статури."
+      }
+    ]
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Boon Of Fate",
+    "name": "Дар Долі",
+    "category": "EPIC_BOON",
+    "prerequisite": "Level 19+",
+    "isRepeatable": false,
+    "benefitsEng": [
+      {
+        "name": "Ability Score Increase",
+        "description": "Increase one ability score of your choice by 1, to a maximum of 30."
+      },
+      {
+        "name": "Improve Fate",
+        "description": "When you or another creature within 60 feet of you succeeds on or fails a D20 Test, you can roll 2d4 and apply the total rolled as a bonus or penalty to the d20 roll. Once you use this benefit, you can’t use it again until you roll Initiative or finish a Short or Long Rest."
+      }
+    ],
+    "plainDescriptionEng": null,
+    "translationStatus": "fully translated",
+    "source": "PHB_2024",
+    "benefits": [
+      {
+        "name": "Збільшення Показника Характеристики",
+        "description": "Збільшіть один показник характеристики на ваш вибір на 1, до максимуму 30."
+      },
+      {
+        "name": "Покращення Долі",
+        "description": "Коли ви або інша істота в межах 60 футів від вас досягає успіху чи зазнає невдачі в Перевірці к20, ви можете кинути 2к4 і застосувати суму кидка як бонус або штраф до кидка к20. Використавши цю перевагу, ви не можете використати її знову, доки не кинете Ініціативу або не завершите короткий чи довгий відпочинок."
+      }
+    ]
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Boon Of Fortitude",
+    "name": "Дар Витривалості",
+    "category": "EPIC_BOON",
+    "prerequisite": "Level 19+",
+    "isRepeatable": false,
+    "benefitsEng": [
+      {
+        "name": "Ability Score Increase",
+        "description": "Increase one ability score of your choice by 1, to a maximum of 30."
+      },
+      {
+        "name": "Fortified Health",
+        "description": "Your Hit Point maximum increases by 40. In addition, whenever you regain Hit Points, you can regain additional Hit Points equal to your Constitution modifier. Once you've regained these additional Hit Points, you can't do so again until the start of your next turn."
+      }
+    ],
+    "plainDescriptionEng": null,
+    "translationStatus": "fully translated",
+    "source": "PHB_2024",
+    "benefits": [
+      {
+        "name": "Збільшення Показника Характеристики",
+        "description": "Збільшіть один показник характеристики на ваш вибір на 1, до максимуму 30."
+      },
+      {
+        "name": "Зміцнене Здоров'я",
+        "description": "Ваш максимум Хіт Поїнтів збільшується на 40. Крім того, щоразу, коли ви відновлюєте Хіт Поїнти, ви можете відновити додаткові Хіт Поїнти, що дорівнюють вашому модифікатору Статури. Відновивши ці додаткові Хіт Поїнти, ви не можете зробити це знову до початку вашого наступного ходу."
+      }
+    ]
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Boon Of Irresistible Offense",
+    "name": "Дар Незворотного Нападу",
+    "category": "EPIC_BOON",
+    "prerequisite": "Level 19+",
+    "isRepeatable": false,
+    "benefitsEng": [
+      {
+        "name": "Ability Score Increase",
+        "description": "Increase your Strength or Dexterity score by 1, to a maximum of 30."
+      },
+      {
+        "name": "Overcome Defenses",
+        "description": "The Bludgeoning, Piercing, and Slashing damage you deal always ignores Resistance."
+      },
+      {
+        "name": "Overwhelming Strike",
+        "description": "When you roll a 20 on the d20 for an attack roll, you can deal extra damage to the target equal to the ability score increased by this feat. The extra damage’s type is the same as the attack’s type."
+      }
+    ],
+    "plainDescriptionEng": null,
+    "translationStatus": "fully translated",
+    "source": "PHB_2024",
+    "benefits": [
+      {
+        "name": "Збільшення Показника Характеристики",
+        "description": "Збільшіть показник Сили або Спритності на 1, до максимуму 30."
+      },
+      {
+        "name": "Подолання Захисту",
+        "description": "Дробляча, Коляча та Рубляча шкода, яку ви завдаєте, завжди ігнорує Опір."
+      },
+      {
+        "name": "Нищівний Удар",
+        "description": "Коли ви викидаєте 20 на к20 для кидка атаки, ви можете завдати цілі додаткової шкоди, що дорівнює показнику характеристики, збільшеному цією рисою. Тип додаткової шкоди збігається з типом шкоди атаки."
+      }
+    ]
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Boon Of Recovery",
+    "name": "Дар Відновлення",
+    "category": "EPIC_BOON",
+    "prerequisite": "Level 19+",
+    "isRepeatable": false,
+    "benefitsEng": [
+      {
+        "name": "Ability Score Increase",
+        "description": "Increase one ability score of your choice by 1, to a maximum of 30."
+      },
+      {
+        "name": "Last Stand",
+        "description": "When you would be reduced to 0 Hit Points, you can drop to 1 Hit Point instead and regain a number of Hit Points equal to half your Hit Point maximum. Once you use this benefit, you can't use it again until you finish a Long Rest."
+      },
+      {
+        "name": "Recover Vitality",
+        "description": "You have a pool of ten d10s. As a Bonus Action, you can expend dice from the pool, roll those dice, and regain a number of Hit Points equal to the roll’s total. You regain all the expended dice when you finish a Long Rest."
+      }
+    ],
+    "plainDescriptionEng": null,
+    "translationStatus": "fully translated",
+    "source": "PHB_2024",
+    "benefits": [
+      {
+        "name": "Збільшення Показника Характеристики",
+        "description": "Збільшіть один показник характеристики на ваш вибір на 1, до максимуму 30."
+      },
+      {
+        "name": "Останній Рубіж",
+        "description": "Коли ви мали б впасти до 0 Хіт Поїнтів, ви можете натомість опуститися до 1 Хіт Поїнта та відновити кількість Хіт Поїнтів, що дорівнює половині вашого максимуму Хіт Поїнтів. Використавши цю перевагу, ви не можете використати її знову, доки не завершите довгий відпочинок."
+      },
+      {
+        "name": "Відновлення Життєвих Сил",
+        "description": "Ви маєте запас із десяти к10. Бонусною Дією ви можете витратити кубики із запасу, кинути їх і відновити кількість Хіт Поїнтів, що дорівнює сумі кидка. Ви відновлюєте всі витрачені кубики, коли завершуєте довгий відпочинок."
+      }
+    ]
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Boon Of Skill",
+    "name": "Дар Майстерності",
+    "category": "EPIC_BOON",
+    "prerequisite": "Level 19+",
+    "isRepeatable": false,
+    "benefitsEng": [
+      {
+        "name": "Ability Score Increase",
+        "description": "Increase one ability score of your choice by 1, to a maximum of 30."
+      },
+      {
+        "name": "All-Around Adept",
+        "description": "You gain proficiency in all skills."
+      },
+      {
+        "name": "Expertise",
+        "description": "Choose one skill in which you lack Expertise. You gain Expertise in that skill."
+      }
+    ],
+    "plainDescriptionEng": null,
+    "translationStatus": "fully translated",
+    "source": "PHB_2024",
+    "benefits": [
+      {
+        "name": "Збільшення Показника Характеристики",
+        "description": "Збільшіть один показник характеристики на ваш вибір на 1, до максимуму 30."
+      },
+      {
+        "name": "Майстер на всі руки",
+        "description": "Ви отримуєте володіння всіма навичками."
+      },
+      {
+        "name": "Експертиза",
+        "description": "Оберіть одну навичку, в якій ви не маєте Експертизи. Ви отримуєте Експертизу в цій навичці."
+      }
+    ]
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Boon Of Speed",
+    "name": "Дар Швидкості",
+    "category": "EPIC_BOON",
+    "prerequisite": "Level 19+",
+    "isRepeatable": false,
+    "benefitsEng": [
+      {
+        "name": "Ability Score Increase",
+        "description": "Increase one ability score of your choice by 1, to a maximum of 30."
+      },
+      {
+        "name": "Escape Artist",
+        "description": "As a Bonus Action, you can take the Disengage action, which also ends the Grappled condition on you."
+      },
+      {
+        "name": "Quickness",
+        "description": "Your Speed increases by 30 feet."
+      }
+    ],
+    "plainDescriptionEng": null,
+    "translationStatus": "fully translated",
+    "source": "PHB_2024",
+    "benefits": [
+      {
+        "name": "Збільшення Показника Характеристики",
+        "description": "Збільшіть один показник характеристики на ваш вибір на 1, до максимуму 30."
+      },
+      {
+        "name": "Майстер Втечі",
+        "description": "Бонусною Дією ви можете здійснити Дію Відступ, яка також припиняє стан Схоплений на вас."
+      },
+      {
+        "name": "Прудкість",
+        "description": "Ваша Швидкість збільшується на 30 футів."
+      }
+    ]
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Boon Of Spell Recall",
+    "name": "Дар Пригадування Заклинань",
+    "category": "EPIC_BOON",
+    "prerequisite": "Level 19+",
+    "isRepeatable": false,
+    "benefitsEng": [
+      {
+        "name": "Ability Score Increase",
+        "description": "Increase your Intelligence, Wisdom, or Charisma score by 1, to a maximum of 30."
+      },
+      {
+        "name": "Free Casting",
+        "description": "Whenever you cast a spell with a level 1-4 spell slot, roll 1d4. If the number you roll is the same as the slot’s level, the slot isn’t expended."
+      }
+    ],
+    "plainDescriptionEng": null,
+    "translationStatus": "fully translated",
+    "source": "PHB_2024",
+    "benefits": [
+      {
+        "name": "Збільшення Показника Характеристики",
+        "description": "Збільшіть показник Інтелекту, Мудрості або Харизми на 1, до максимуму 30."
+      },
+      {
+        "name": "Безкоштовне Накладання",
+        "description": "Щоразу, коли ви накладаєте заклинання, використовуючи слот заклинання 1-4 рівня, киньте к4. Якщо число, яке ви викинули, збігається з рівнем слоту, слот не витрачається."
+      }
+    ]
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Boon Of The Night Spirit",
+    "name": "Дар Духу Ночі",
+    "category": "EPIC_BOON",
+    "prerequisite": "Level 19+",
+    "isRepeatable": false,
+    "benefitsEng": [
+      {
+        "name": "Ability Score Increase",
+        "description": "Increase one ability score of your choice by 1, to a maximum of 30."
+      },
+      {
+        "name": "Merge with Shadows",
+        "description": "While within Dim Light or Darkness, you can give yourself the Invisible condition as a Bonus Action. The condition ends on you immediately after you take an action, a Bonus Action, or a Reaction."
+      },
+      {
+        "name": "Shadowy Form",
+        "description": "While within Dim Light or Darkness, you have Resistance to all damage except Psychic and Radiant."
+      }
+    ],
+    "plainDescriptionEng": null,
+    "translationStatus": "fully translated",
+    "source": "PHB_2024",
+    "benefits": [
+      {
+        "name": "Збільшення Показника Характеристики",
+        "description": "Збільшіть один показник характеристики на ваш вибір на 1, до максимуму 30."
+      },
+      {
+        "name": "Злиття з Тінями",
+        "description": "Перебуваючи в Тьмяному Світлі або Темряві, ви можете Бонусною Дією надати собі стан Невидимий. Цей стан припиняється на вас одразу після того, як ви здійснюєте Дію, Бонусну Дію або Реакцію."
+      },
+      {
+        "name": "Тіньова Форма",
+        "description": "Перебуваючи в Тьмяному Світлі або Темряві, ви маєте Опір до всієї шкоди, окрім Психічної та Світлом."
+      }
+    ]
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Boon Of Truesight",
+    "name": "Дар Істинного Зору",
+    "category": "EPIC_BOON",
+    "prerequisite": "Level 19+",
+    "isRepeatable": false,
+    "benefitsEng": [
+      {
+        "name": "Ability Score Increase",
+        "description": "Increase one ability score of your choice by 1, to a maximum of 30."
+      },
+      {
+        "name": "Truesight",
+        "description": "You have Truesight with a range of 60 feet."
+      }
+    ],
+    "plainDescriptionEng": null,
+    "translationStatus": "fully translated",
+    "source": "PHB_2024",
+    "benefits": [
+      {
+        "name": "Збільшення Показника Характеристики",
+        "description": "Збільшіть один показник характеристики на ваш вибір на 1, до максимуму 30."
+      },
+      {
+        "name": "Істинний зір",
+        "description": "Ви маєте Істинний зір на відстань 60 футів."
+      }
+    ]
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Charger",
+    "name": "Нападник",
+    "category": "GENERAL",
+    "prerequisite": "Level 4+, Strength or Dexterity 13+",
+    "isRepeatable": false,
+    "benefitsEng": [
+      {
+        "name": "Ability Score Increase",
+        "description": "Increase your Strength or Dexterity score by 1, to a maximum of 20."
+      },
+      {
+        "name": "Improved Dash",
+        "description": "When you take the Dash action, your Speed increases by 10 feet for that action."
+      },
+      {
+        "name": "Charge Attack",
+        "description": "If you move at least 10 feet in a straight line toward a target immediately before hitting it with a melee attack roll as part of the Attack action, choose one of the following effects: gain a 1d8 bonus to the attack's damage roll, or push the target up to 10 feet away if it is no more than one size larger than you. You can use this benefit only once on each of your turns."
+      }
+    ],
+    "plainDescriptionEng": null,
+    "translationStatus": "fully translated",
+    "source": "PHB_2024",
+    "benefits": [
+      {
+        "name": "Збільшення характеристики",
+        "description": "Збільште показник Сили або Спритності на 1, до максимуму 20."
+      },
+      {
+        "name": "Покращений Ривок",
+        "description": "Коли ви використовуєте дію Ривок, ваша Швидкість збільшується на 10 фт для цієї дії."
+      },
+      {
+        "name": "Атака наскоком",
+        "description": "Якщо ви перемістилися щонайменше на 10 фт по прямій лінії до цілі безпосередньо перед тим, як влучити по ній рукопашною атакою в рамках дії Атака, оберіть один з наступних ефектів: отримайте бонус +1к8 до кидка шкоди атаки, або відштовхніть ціль на відстань до 10 фт, якщо вона не більш ніж на один розмір більша за вас. Ви можете використати цю перевагу лише один раз за кожен свій хід."
+      }
+    ]
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Chef",
+    "name": "Кухар",
+    "category": "GENERAL",
+    "prerequisite": "Level 4+",
+    "isRepeatable": false,
+    "benefitsEng": [
+      {
+        "name": "Ability Score Increase",
+        "description": "Increase your Constitution or Wisdom score by 1, to a maximum of 20."
+      },
+      {
+        "name": "Cook's Utensils",
+        "description": "You gain proficiency with Cook's Utensils if you don't already have it."
+      },
+      {
+        "name": "Replenishing Meal",
+        "description": "As part of a Short Rest, you can cook special food if you have ingredients and Cook's Utensils on hand. You can prepare enough of this food for a number of creatures equal to 4 plus your Proficiency Bonus. At the end of the Short Rest, any creature who eats the food and spends one or more Hit Dice to regain Hit Points regains an extra 1d8 Hit Points."
+      },
+      {
+        "name": "Bolstering Treats",
+        "description": "With 1 hour of work or when you finish a Long Rest, you can cook a number of treats equal to your Proficiency Bonus if you have ingredients and Cook's Utensils on hand. These special treats last 8 hours after being made. A creature can use a Bonus Action to eat one of those treats to gain a number of Temporary Hit Points equal to your Proficiency Bonus."
+      }
+    ],
+    "plainDescriptionEng": null,
+    "translationStatus": "fully translated",
+    "source": "PHB_2024",
+    "benefits": [
+      {
+        "name": "Збільшення характеристики",
+        "description": "Збільште показник Статури або Мудрості на 1, до максимуму 20."
+      },
+      {
+        "name": "Інструменти кухаря",
+        "description": "Ви отримуєте володіння Інструментами кухаря, якщо ще не володієте ними."
+      },
+      {
+        "name": "Поживна страва",
+        "description": "У рамках короткого відпочинку ви можете приготувати особливу їжу, якщо у вас під рукою є інгредієнти та Інструменти кухаря. Ви можете приготувати достатньо цієї їжі для кількості істот, що дорівнює 4 + ваш Бонус Майстерності. Наприкінці короткого відпочинку будь-яка істота, що з'їла цю їжу та витратила один або більше Кубиків Здоров'я для відновлення Хіт Поїнтів, відновлює додатково 1к8 Хіт Поїнтів."
+      },
+      {
+        "name": "Зміцнювальні ласощі",
+        "description": "Витративши 1 годину роботи або закінчивши довгий відпочинок, ви можете приготувати кількість ласощів, що дорівнює вашому Бонусу Майстерності, якщо у вас під рукою є інгредієнти та Інструменти кухаря. Ці особливі ласощі зберігаються протягом 8 годин після приготування. Істота може Бонусною Дією з'їсти одні з цих ласощів, щоб отримати тимчасові ХП у кількості, що дорівнює вашому Бонусу Майстерності."
+      }
+    ]
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Crafter",
+    "name": "Ремісник",
+    "category": "ORIGIN",
+    "prerequisite": null,
+    "isRepeatable": false,
+    "benefitsEng": [
+      {
+        "name": "Tool Proficiency",
+        "description": "You gain proficiency with three different Artisan's Tools of your choice from the Fast Crafting table."
+      },
+      {
+        "name": "Discount",
+        "description": "Whenever you buy a nonmagical item, you receive a 20 percent discount on it."
+      },
+      {
+        "name": "Fast Crafting",
+        "description": "When you finish a Long Rest, you can craft one piece of gear from the Fast Crafting table, provided you have the Artisan's Tools associated with that item and have proficiency with those tools. The item lasts until you finish another Long Rest, at which point the item falls apart."
+      }
+    ],
+    "plainDescriptionEng": null,
+    "translationStatus": "fully translated",
+    "source": "PHB_2024",
+    "benefits": [
+      {
+        "name": "Володіння Інструментами",
+        "description": "Ви отримуєте володіння трьома різними Інструментами ремісника на ваш вибір із таблиці Швидкого Виготовлення."
+      },
+      {
+        "name": "Знижка",
+        "description": "Щоразу, коли ви купуєте немагічний предмет, ви отримуєте на нього знижку 20 відсотків."
+      },
+      {
+        "name": "Швидке Виготовлення",
+        "description": "Коли ви завершуєте довгий відпочинок, ви можете виготовити один предмет спорядження з таблиці Швидкого Виготовлення, за умови що у вас є пов'язані з цим предметом Інструменти ремісника і ви володієте цими інструментами. Предмет існує, доки ви не завершите ще один довгий відпочинок, після чого він розсипається."
+      }
+    ]
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Crossbow Expert",
+    "name": "Експерт з арбалетів",
+    "category": "GENERAL",
+    "prerequisite": "Level 4+, Dexterity 13+",
+    "isRepeatable": false,
+    "benefitsEng": [
+      {
+        "name": "Ability Score Increase",
+        "description": "Increase your Dexterity score by 1, to a maximum of 20."
+      },
+      {
+        "name": "Ignore Loading",
+        "description": "You ignore the Loading property of the Hand Crossbow, Heavy Crossbow, and Light Crossbow (all called crossbows elsewhere in this feat). If you're holding one of them, you can load a piece of ammunition into it even if you lack a free hand."
+      },
+      {
+        "name": "Firing in Melee",
+        "description": "Being within 5 feet of an enemy doesn't impose Disadvantage on your attack rolls with crossbows."
+      },
+      {
+        "name": "Dual Wielding",
+        "description": "When you make the extra attack of the Light property, you can add your ability modifier to the damage of the extra attack if that attack is with a crossbow that has the Light property and you aren't already adding that modifier to the damage."
+      }
+    ],
+    "plainDescriptionEng": null,
+    "translationStatus": "fully translated",
+    "source": "PHB_2024",
+    "benefits": [
+      {
+        "name": "Збільшення характеристики",
+        "description": "Збільште показник Спритності на 1, до максимуму 20."
+      },
+      {
+        "name": "Ігнорування перезарядки",
+        "description": "Ви ігноруєте властивість Перезарядка ручного арбалета, важкого арбалета та легкого арбалета (у цьому рисі вони всі називаються арбалетами). Якщо ви тримаєте один з них, ви можете зарядити його боєприпасом, навіть якщо у вас немає вільної руки."
+      },
+      {
+        "name": "Стрільба у ближньому бою",
+        "description": "Перебування в межах 5 фт від ворога не накладає перешкоду на ваші кидки атаки арбалетами."
+      },
+      {
+        "name": "Бій двома зброями",
+        "description": "Коли ви здійснюєте додаткову атаку від властивості Легка, ви можете додати ваш модифікатор характеристики до шкоди цієї додаткової атаки, якщо ця атака здійснюється арбалетом із властивістю Легка і ви ще не додаєте цей модифікатор до шкоди."
+      }
+    ]
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Crusher",
+    "name": "Дробильник",
+    "category": "GENERAL",
+    "prerequisite": "Level 4+",
+    "isRepeatable": false,
+    "benefitsEng": [
+      {
+        "name": "Ability Score Increase",
+        "description": "Increase your Strength or Constitution score by 1, to a maximum of 20."
+      },
+      {
+        "name": "Push",
+        "description": "Once per turn, when you hit a creature with an attack that deals Bludgeoning damage, you can move it 5 feet to an unoccupied space if the target is no more than one size larger than you."
+      },
+      {
+        "name": "Enhanced Critical",
+        "description": "When you score a Critical Hit that deals Bludgeoning damage to a creature, attack rolls against that creature have Advantage until the start of your next turn."
+      }
+    ],
+    "plainDescriptionEng": null,
+    "translationStatus": "fully translated",
+    "source": "PHB_2024",
+    "benefits": [
+      {
+        "name": "Збільшення характеристики",
+        "description": "Збільште показник Сили або Статури на 1, до максимуму 20."
+      },
+      {
+        "name": "Поштовх",
+        "description": "Один раз за хід, коли ви влучаєте по істоті атакою, що завдає дроблячої шкоди, ви можете перемістити її на 5 фт у незайнятий простір, якщо ціль не більш ніж на один розмір більша за вас."
+      },
+      {
+        "name": "Посилений критичний удар",
+        "description": "Коли ви завдаєте критичного удару, що завдає дроблячої шкоди істоті, кидки атаки проти цієї істоти мають перевагу до початку вашого наступного ходу."
+      }
+    ]
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Defense",
+    "name": "Оборона",
+    "category": "FIGHTING_STYLE",
+    "prerequisite": "Fighting Style Feature",
+    "isRepeatable": false,
+    "benefitsEng": [],
+    "plainDescriptionEng": "While you're wearing Light, Medium, or Heavy armor, you gain a +1 bonus to Armor Class.",
+    "translationStatus": "fully translated",
+    "source": "PHB_2024",
+    "description": "Поки ви носите броню, ви отримуєте бонус +1 до КБ."
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Defensive Duelist",
+    "name": "Оборонний дуелянт",
+    "category": "GENERAL",
+    "prerequisite": "Level 4+, Dexterity 13+",
+    "isRepeatable": false,
+    "benefitsEng": [
+      {
+        "name": "Ability Score Increase",
+        "description": "Increase your Dexterity score by 1, to a maximum of 20."
+      },
+      {
+        "name": "Parry",
+        "description": "If you're holding a Finesse weapon and another creature hits you with a melee attack, you can take a Reaction to add your Proficiency Bonus to your Armor Class, potentially causing the attack to miss you. You gain this bonus to your AC against melee attacks until the start of your next turn."
+      }
+    ],
+    "plainDescriptionEng": null,
+    "translationStatus": "fully translated",
+    "source": "PHB_2024",
+    "benefits": [
+      {
+        "name": "Збільшення характеристики",
+        "description": "Збільште показник Спритності на 1, до максимуму 20."
+      },
+      {
+        "name": "Парирування",
+        "description": "Якщо ви тримаєте фехтувальну зброю і інша істота влучає по вас рукопашною атакою, ви можете Реакцією додати ваш Бонус Майстерності до вашого Класу Броні, що потенційно може спричинити промах цієї атаки. Ви отримуєте цей бонус до КБ проти рукопашних атак до початку вашого наступного ходу."
+      }
+    ]
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Dual Wielder",
+    "name": "Боєць з двома зброями",
+    "category": "GENERAL",
+    "prerequisite": "Level 4+, Strength or Dexterity 13+",
+    "isRepeatable": false,
+    "benefitsEng": [
+      {
+        "name": "Ability Score Increase",
+        "description": "Increase your Strength or Dexterity score by 1, to a maximum of 20."
+      },
+      {
+        "name": "Enhanced Dual Wielding",
+        "description": "When you take the Attack action on your turn and attack with a weapon that has the Light property, you can make one extra attack as a Bonus Action later on the same turn with a different weapon, which must be a Melee weapon that lacks the Two-Handed property. You don't add your ability modifier to the extra attack's damage unless that modifier is negative."
+      },
+      {
+        "name": "Quick Draw",
+        "description": "You can draw or stow two weapons that lack the Two-Handed property when you would normally be able to draw or stow only one."
+      }
+    ],
+    "plainDescriptionEng": null,
+    "translationStatus": "fully translated",
+    "source": "PHB_2024",
+    "benefits": [
+      {
+        "name": "Збільшення характеристики",
+        "description": "Збільште показник Сили або Спритності на 1, до максимуму 20."
+      },
+      {
+        "name": "Покращений бій двома зброями",
+        "description": "Коли ви використовуєте дію Атака у свій хід і атакуєте зброєю з властивістю Легка, ви можете пізніше того ж ходу здійснити одну додаткову атаку Бонусною Дією іншою зброєю, яка повинна бути рукопашною зброєю без властивості Дворучна. Ви не додаєте свій модифікатор характеристики до шкоди додаткової атаки, якщо цей модифікатор не є від'ємним."
+      },
+      {
+        "name": "Швидке вихоплення",
+        "description": "Ви можете вихопити або сховати дві одноручні зброї (без властивості Дворучна), коли зазвичай могли б вихопити або сховати лише одну."
+      }
+    ]
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Dueling",
+    "name": "Дуель",
+    "category": "FIGHTING_STYLE",
+    "prerequisite": "Fighting Style Feature",
+    "isRepeatable": false,
+    "benefitsEng": [],
+    "plainDescriptionEng": "When you're holding a Melee weapon in one hand and no other weapons, you gain a +2 bonus to damage rolls with that weapon.",
+    "translationStatus": "fully translated",
+    "source": "PHB_2024",
+    "description": "Коли ви тримаєте рукопашну зброю в одній руці і не тримаєте іншої зброї, ви отримуєте бонус +2 до кидків шкоди цією зброєю."
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Durable",
+    "name": "Витривалий",
+    "category": "GENERAL",
+    "prerequisite": "Level 4+",
+    "isRepeatable": false,
+    "benefitsEng": [
+      {
+        "name": "Ability Score Increase",
+        "description": "Increase your Constitution score by 1, to a maximum of 20."
+      },
+      {
+        "name": "Defy Death",
+        "description": "You have Advantage on Death Saving Throws."
+      },
+      {
+        "name": "Speedy Recovery",
+        "description": "As a Bonus Action, you can expend one of your Hit Point Dice, roll the die, and regain a number of Hit Points equal to the roll."
+      }
+    ],
+    "plainDescriptionEng": null,
+    "translationStatus": "fully translated",
+    "source": "PHB_2024",
+    "benefits": [
+      {
+        "name": "Збільшення характеристики",
+        "description": "Збільште показник Статури на 1, до максимуму 20."
+      },
+      {
+        "name": "Виклик смерті",
+        "description": "Ви маєте перевагу на ряткидки смерті."
+      },
+      {
+        "name": "Швидке відновлення",
+        "description": "Бонусною Дією ви можете витратити один зі своїх Кубиків Здоров'я, кинути його та відновити кількість Хіт Поїнтів, що дорівнює результату кидка."
+      }
+    ]
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Elemental Adept",
+    "name": "Адепт стихій",
+    "category": "GENERAL",
+    "prerequisite": "Level 4+, Spellcasting or Pact Magic Feature",
+    "isRepeatable": true,
+    "benefitsEng": [
+      {
+        "name": "Ability Score Increase",
+        "description": "Increase your Intelligence, Wisdom, or Charisma score by 1, to a maximum of 20."
+      },
+      {
+        "name": "Energy Mastery",
+        "description": "Choose one of the following damage types: Acid, Cold, Fire, Lightning, or Thunder. Spells you cast ignore Resistance to damage of the chosen type. In addition, when you roll damage for a spell you cast that deals damage of that type, you can treat any 1 on a damage die as a 2."
+      },
+      {
+        "name": "Repeatable",
+        "description": "You can take this feat more than once, but you must choose a different damage type each time for Energy Mastery."
+      }
+    ],
+    "plainDescriptionEng": null,
+    "translationStatus": "fully translated",
+    "source": "PHB_2024",
+    "benefits": [
+      {
+        "name": "Збільшення характеристики",
+        "description": "Збільште показник Інтелекту, Мудрості або Харизми на 1, до максимуму 20."
+      },
+      {
+        "name": "Панування над стихією",
+        "description": "Оберіть один з наступних типів шкоди: Кислотна, Холодна, Вогняна, Блискавична або Громова. Заклинання, які ви накладаєте, ігнорують опір до шкоди обраного типу. Крім того, коли ви кидаєте кубики шкоди для заклинання, яке ви накладаєте і яке завдає шкоди цього типу, ви можете вважати будь-яку 1 на кубику шкоди за 2."
+      },
+      {
+        "name": "Повторюваний",
+        "description": "Ви можете обирати цей рис більше одного разу, але щоразу ви повинні обирати інший тип шкоди для Панування над стихією."
+      }
+    ]
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Fey Touched",
+    "name": "Доторк феї",
+    "category": "GENERAL",
+    "prerequisite": "Level 4+",
+    "isRepeatable": false,
+    "benefitsEng": [
+      {
+        "name": "Ability Score Increase",
+        "description": "Increase your Intelligence, Wisdom, or Charisma score by 1, to a maximum of 20."
+      },
+      {
+        "name": "Fey Magic",
+        "description": "Choose one level 1 spell from the Divination or Enchantment school of magic. You always have that spell and the Misty Step spell prepared. You can cast each of these spells without expending a spell slot. Once you cast either spell in this way, you can't cast that spell in this way again until you finish a Long Rest. You can also cast these spells using spell slots you have of the appropriate level. The spells' spellcasting ability is the ability increased by this feat."
+      }
+    ],
+    "plainDescriptionEng": null,
+    "translationStatus": "fully translated",
+    "source": "PHB_2024",
+    "benefits": [
+      {
+        "name": "Збільшення характеристики",
+        "description": "Збільште показник Інтелекту, Мудрості або Харизми на 1, до максимуму 20."
+      },
+      {
+        "name": "Магія фей",
+        "description": "Оберіть одне заклинання 1 рівня зі школи Ворожіння або Причарування. Ви завжди маєте це заклинання та заклинання Туманний крок [Misty Step] підготованими. Ви можете накласти кожне з цих заклинань, не витрачаючи слот заклинання. Після того як ви накладете будь-яке з цих заклинань таким чином, ви не можете накласти його так само знову, доки не закінчите довгий відпочинок. Ви також можете накладати ці заклинання, використовуючи наявні у вас слоти заклинань відповідного рівня. Характеристикою заклинання для цих заклинань є та характеристика, яку ви збільшили цим рисом."
+      }
+    ]
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Grappler",
+    "name": "Борець",
+    "category": "GENERAL",
+    "prerequisite": "Level 4+, Strength or Dexterity 13+",
+    "isRepeatable": false,
+    "benefitsEng": [
+      {
+        "name": "Ability Score Increase",
+        "description": "Increase your Strength or Dexterity score by 1, to a maximum of 20."
+      },
+      {
+        "name": "Punch and Grab",
+        "description": "When you hit a creature with an Unarmed Strike as part of the Attack action on your turn, you can use both the Damage and the Grapple option. You can use this benefit only once per turn."
+      },
+      {
+        "name": "Attack Advantage",
+        "description": "You have Advantage on attack rolls against a creature Grappled by you."
+      },
+      {
+        "name": "Fast Wrestler",
+        "description": "You don’t have to spend extra movement to move a creature Grappled by you if the creature is your size or smaller."
+      }
+    ],
+    "plainDescriptionEng": null,
+    "translationStatus": "fully translated",
+    "source": "PHB_2024",
+    "benefits": [
+      {
+        "name": "Збільшення характеристики",
+        "description": "Збільште показник Сили або Спритності на 1, до максимуму 20."
+      },
+      {
+        "name": "Удар і Схоплення",
+        "description": "Коли ви влучаєте по істоті Беззбройним ударом у рамках дії Атака у свій хід, ви можете застосувати одразу варіант Шкода і варіант Схопити. Ви можете використати цю перевагу лише один раз за хід."
+      },
+      {
+        "name": "Перевага в атаці",
+        "description": "Ви маєте перевагу на кидки атаки проти істоти, яку ви Схопили."
+      },
+      {
+        "name": "Швидкий борець",
+        "description": "Вам не потрібно витрачати додатковий рух, щоб перемістити істоту, яку ви Схопили, якщо ця істота вашого розміру або менша."
+      }
+    ]
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Great Weapon Fighting",
+    "name": "Бій великою зброєю",
+    "category": "FIGHTING_STYLE",
+    "prerequisite": "Fighting Style Feature",
+    "isRepeatable": false,
+    "benefitsEng": [],
+    "plainDescriptionEng": "When you roll damage for an attack you make with a Melee weapon that you are holding with two hands, you can treat any 1 or 2 on a damage die as a 3. The weapon must have the Two-Handed or Versatile property to gain this benefit.",
+    "translationStatus": "fully translated",
+    "source": "PHB_2024",
+    "description": "Коли ви викидаєте 1 або 2 на кубику шкоди для атаки, яку ви робите рукопашною зброєю, що тримаєте двома руками, ви можете вважати цей результат за 3. Зброя повинна мати властивість дворучна або універсальна, щоб ви могли отримати цю перевагу."
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Great Weapon Master",
+    "name": "Майстер важкої зброї",
+    "category": "GENERAL",
+    "prerequisite": "Level 4+, Strength 13+",
+    "isRepeatable": false,
+    "benefitsEng": [
+      {
+        "name": "Ability Score Increase",
+        "description": "Increase your Strength score by 1, to a maximum of 20."
+      },
+      {
+        "name": "Heavy Weapon Mastery",
+        "description": "When you hit a creature with a weapon that has the Heavy property as part of the Attack action on your turn, you can cause the weapon to deal extra damage to the target. The extra damage equals your Proficiency Bonus."
+      },
+      {
+        "name": "Hew",
+        "description": "Immediately after you score a Critical Hit with a Melee weapon or reduce a creature to 0 Hit Points with one, you can make one attack with the same weapon as a Bonus Action."
+      }
+    ],
+    "plainDescriptionEng": null,
+    "translationStatus": "fully translated",
+    "source": "PHB_2024",
+    "benefits": [
+      {
+        "name": "Збільшення характеристики",
+        "description": "Збільште показник Сили на 1, до максимуму 20."
+      },
+      {
+        "name": "Майстерність важкої зброї",
+        "description": "Коли ви влучаєте по істоті зброєю з властивістю Важка в рамках дії Атака у свій хід, ви можете змусити зброю завдати цілі додаткової шкоди. Додаткова шкода дорівнює вашому Бонусу Майстерності."
+      },
+      {
+        "name": "Розмашистий удар",
+        "description": "Одразу після того, як ви завдасте критичного удару рукопашною зброєю або знизите Хіт Поїнти істоти до 0 за допомогою неї, ви можете здійснити одну атаку тією самою зброєю Бонусною Дією."
+      }
+    ]
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Healer",
+    "name": "Цілитель",
+    "category": "ORIGIN",
+    "prerequisite": null,
+    "isRepeatable": false,
+    "benefitsEng": [
+      {
+        "name": "Battle Medic",
+        "description": "If you have a Healer's Kit, you can expend one use of it and tend to a creature within 5 feet of yourself as a Utilize action. That creature can expend one of its Hit Point Dice, and you then roll that die. The creature regains a number of Hit Points equal to the roll plus your Proficiency Bonus."
+      },
+      {
+        "name": "Healing Rerolls",
+        "description": "Whenever you roll a die to determine the number of Hit Points you restore with a spell or with this feat's Battle Medic benefit, you can reroll the die if it rolls a 1, and you must use the new roll."
+      }
+    ],
+    "plainDescriptionEng": null,
+    "translationStatus": "fully translated",
+    "source": "PHB_2024",
+    "benefits": [
+      {
+        "name": "Польовий Медик",
+        "description": "Якщо у вас є Набір Цілителя, ви можете витратити один його заряд і подбати про істоту в межах 5 футів від себе Дією Застосування. Ця істота може витратити один зі своїх Кубиків Здоров'я, а потім ви кидаєте цей кубик. Істота відновлює кількість Хіт Поїнтів, що дорівнює результату кидка плюс ваш Бонус Майстерності."
+      },
+      {
+        "name": "Перекидання Лікування",
+        "description": "Щоразу, коли ви кидаєте кубик, щоб визначити кількість Хіт Поїнтів, які відновлюєте заклинанням або перевагою Польовий Медик цієї риси, ви можете перекинути кубик, якщо на ньому випала 1, і повинні використати новий результат."
+      }
+    ]
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Heavily Armored",
+    "name": "Важкоозброєний",
+    "category": "GENERAL",
+    "prerequisite": "Level 4+, Medium Armor Training",
+    "isRepeatable": false,
+    "benefitsEng": [
+      {
+        "name": "Ability Score Increase",
+        "description": "Increase your Constitution or Strength score by 1, to a maximum of 20."
+      },
+      {
+        "name": "Armor Training",
+        "description": "You gain training with Heavy armor."
+      }
+    ],
+    "plainDescriptionEng": null,
+    "translationStatus": "fully translated",
+    "source": "PHB_2024",
+    "benefits": [
+      {
+        "name": "Збільшення характеристики",
+        "description": "Збільште показник Статури або Сили на 1, до максимуму 20."
+      },
+      {
+        "name": "Тренування з обладунками",
+        "description": "Ви отримуєте володіння важкими обладунками."
+      }
+    ]
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Heavy Armor Master",
+    "name": "Майстер важких обладунків",
+    "category": "GENERAL",
+    "prerequisite": "Level 4+, Heavy Armor Training",
+    "isRepeatable": false,
+    "benefitsEng": [
+      {
+        "name": "Ability Score Increase",
+        "description": "Increase your Constitution or Strength score by 1, to a maximum of 20."
+      },
+      {
+        "name": "Damage Reduction",
+        "description": "When you're hit by an attack while you're wearing Heavy armor, any Bludgeoning, Piercing, and Slashing damage dealt to you by that attack is reduced by an amount equal to your Proficiency Bonus."
+      }
+    ],
+    "plainDescriptionEng": null,
+    "translationStatus": "fully translated",
+    "source": "PHB_2024",
+    "benefits": [
+      {
+        "name": "Збільшення характеристики",
+        "description": "Збільште показник Статури або Сили на 1, до максимуму 20."
+      },
+      {
+        "name": "Зменшення шкоди",
+        "description": "Коли по вас влучає атака, поки ви носите важкі обладунки, будь-яка Дробляча, Коляча та Рубляча шкода, завдана вам цією атакою, зменшується на величину, що дорівнює вашому Бонусу Майстерності."
+      }
+    ]
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Inspiring Leader",
+    "name": "Надихаючий лідер",
+    "category": "GENERAL",
+    "prerequisite": "Level 4+, Wisdom or Charisma 13+",
+    "isRepeatable": false,
+    "benefitsEng": [
+      {
+        "name": "Ability Score Increase",
+        "description": "Increase your Wisdom or Charisma score by 1, to a maximum of 20."
+      },
+      {
+        "name": "Bolstering Performance",
+        "description": "When you finish a Short or Long Rest, you can give an inspiring performance: a speech, song, or dance. When you do so, choose up to six allies (which can include yourself) within 30 feet of yourself who witness the performance. The chosen creatures each gain Temporary Hit Points equal to your character level plus the modifier of the ability you increased with this feat."
+      }
+    ],
+    "plainDescriptionEng": null,
+    "translationStatus": "fully translated",
+    "source": "PHB_2024",
+    "benefits": [
+      {
+        "name": "Збільшення характеристики",
+        "description": "Збільште показник Мудрості або Харизми на 1, до максимуму 20."
+      },
+      {
+        "name": "Надихаючий виступ",
+        "description": "Коли ви закінчуєте короткий або довгий відпочинок, ви можете влаштувати надихаючий виступ: промову, пісню чи танець. Роблячи це, оберіть до шести союзників (серед яких можете бути ви самі) у межах 30 фт від вас, які є свідками виступу. Кожна обрана істота отримує тимчасові ХП, що дорівнюють вашому рівню персонажа + модифікатор характеристики, яку ви збільшили цим рисом."
+      }
+    ]
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Interception",
+    "name": "Перехоплення",
+    "category": "FIGHTING_STYLE",
+    "prerequisite": "Fighting Style Feature",
+    "isRepeatable": false,
+    "benefitsEng": [],
+    "plainDescriptionEng": "When a creature you can see hits another creature within 5 feet of you with an attack roll, you can take a Reaction to reduce the damage dealt to the target by 1d10 plus your Proficiency Bonus. You must be holding a Shield or a Simple or Martial weapon to use this Reaction.",
+    "translationStatus": "fully translated",
+    "source": "PHB_2024",
+    "description": "Коли створіння, яке ви бачите, влучає по цілі (окрім вас) у межах 5 футів від вас, ви можете реакцією зменшити шкоду, завдану цілі, на 1к10 + ваш бонус майстерності (мінімум до 0 шкоди). Ви маєте тримати щит або просту чи бойову зброю, щоб використати цю реакцію."
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Keen Mind",
+    "name": "Гострий розум",
+    "category": "GENERAL",
+    "prerequisite": "Level 4+, Intelligence 13+",
+    "isRepeatable": false,
+    "benefitsEng": [
+      {
+        "name": "Ability Score Increase",
+        "description": "Increase your Intelligence score by 1, to a maximum of 20."
+      },
+      {
+        "name": "Lore Knowledge",
+        "description": "Choose one of the following skills: Arcana, History, Investigation, Nature, or Religion. If you lack proficiency in the chosen skill, you gain proficiency in it, and if you already have proficiency in it, you gain Expertise in it."
+      },
+      {
+        "name": "Quick Study",
+        "description": "You can take the Study action as a Bonus Action."
+      }
+    ],
+    "plainDescriptionEng": null,
+    "translationStatus": "fully translated",
+    "source": "PHB_2024",
+    "benefits": [
+      {
+        "name": "Збільшення характеристики",
+        "description": "Збільште показник Інтелекту на 1, до максимуму 20."
+      },
+      {
+        "name": "Знання переказів",
+        "description": "Оберіть одну з наступних навичок: Магія, Історія, Розслідування, Природа або Релігія. Якщо ви не володієте обраною навичкою, ви отримуєте володіння нею, а якщо ви вже володієте нею, ви отримуєте Експертизу в ній."
+      },
+      {
+        "name": "Швидке вивчення",
+        "description": "Ви можете здійснити Дію Вивчення як Бонусну дію."
+      }
+    ]
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Lightly Armored",
+    "name": "Легкоозброєний",
+    "category": "GENERAL",
+    "prerequisite": "Level 4+",
+    "isRepeatable": false,
+    "benefitsEng": [
+      {
+        "name": "Ability Score Increase",
+        "description": "Increase your Strength or Dexterity score by 1, to a maximum of 20."
+      },
+      {
+        "name": "Armor Training",
+        "description": "You gain training with Light armor and Shields."
+      }
+    ],
+    "plainDescriptionEng": null,
+    "translationStatus": "fully translated",
+    "source": "PHB_2024",
+    "benefits": [
+      {
+        "name": "Збільшення характеристики",
+        "description": "Збільште показник Сили або Спритності на 1, до максимуму 20."
+      },
+      {
+        "name": "Тренування з обладунками",
+        "description": "Ви отримуєте володіння легкими обладунками та щитами."
+      }
+    ]
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Lucky",
+    "name": "Щасливчик",
+    "category": "ORIGIN",
+    "prerequisite": null,
+    "isRepeatable": false,
+    "benefitsEng": [
+      {
+        "name": "Luck Points",
+        "description": "You have a number of Luck Points equal to your Proficiency Bonus and can spend the points on the benefits below. You regain your expended Luck Points when you finish a Long Rest."
+      },
+      {
+        "name": "Advantage",
+        "description": "When you roll a d20 for a D20 Test, you can spend 1 Luck Point to give yourself Advantage on the roll."
+      },
+      {
+        "name": "Disadvantage",
+        "description": "When a creature rolls a d20 for an attack roll against you, you can spend 1 Luck Point to impose Disadvantage on that roll."
+      }
+    ],
+    "plainDescriptionEng": null,
+    "translationStatus": "fully translated",
+    "source": "PHB_2024",
+    "benefits": [
+      {
+        "name": "Очки Удачі",
+        "description": "Ви маєте кількість очок удачі, що дорівнює вашому Бонусу Майстерності, і можете витрачати ці очки на переваги нижче. Ви відновлюєте витрачені очки удачі, коли завершуєте довгий відпочинок."
+      },
+      {
+        "name": "Перевага",
+        "description": "Коли ви кидаєте к20 для Перевірки к20, ви можете витратити 1 очко удачі, щоб дати собі перевагу на цей кидок."
+      },
+      {
+        "name": "Перешкода",
+        "description": "Коли істота кидає к20 для кидка атаки проти вас, ви можете витратити 1 очко удачі, щоб накласти перешкоду на цей кидок."
+      }
+    ]
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Mage Slayer",
+    "name": "Вбивця магів",
+    "category": "GENERAL",
+    "prerequisite": "Level 4+",
+    "isRepeatable": false,
+    "benefitsEng": [
+      {
+        "name": "Ability Score Increase",
+        "description": "Increase your Strength or Dexterity score by 1, to a maximum of 20."
+      },
+      {
+        "name": "Concentration Breaker",
+        "description": "When you damage a creature that is concentrating, it has Disadvantage on the saving throw it makes to maintain Concentration."
+      },
+      {
+        "name": "Guarded Mind",
+        "description": "If you fail an Intelligence, a Wisdom, or a Charisma saving throw, you can cause yourself to succeed instead. Once you use this benefit, you can't use it again until you finish a Short or Long Rest."
+      }
+    ],
+    "plainDescriptionEng": null,
+    "translationStatus": "fully translated",
+    "source": "PHB_2024",
+    "benefits": [
+      {
+        "name": "Збільшення характеристики",
+        "description": "Збільште показник Сили або Спритності на 1, до максимуму 20."
+      },
+      {
+        "name": "Руйнівник концентрації",
+        "description": "Коли ви завдаєте шкоди істоті, яка концентрується, вона має перешкоду на ряткидок, який робить для підтримки Концентрації."
+      },
+      {
+        "name": "Захищений розум",
+        "description": "Якщо ви провалюєте ряткидок Інтелекту, Мудрості або Харизми, ви можете зробити так, щоб він натомість вважався успішним. Використавши цю перевагу, ви не можете використати її знову, доки не закінчите короткий або довгий відпочинок."
+      }
+    ]
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Magic Initiate",
+    "name": "Посвячений у магію",
+    "category": "ORIGIN",
+    "prerequisite": null,
+    "isRepeatable": true,
+    "benefitsEng": [
+      {
+        "name": "Two Cantrips",
+        "description": "You learn two cantrips of your choice from the Cleric, Druid, or Wizard spell list. Intelligence, Wisdom, or Charisma is your spellcasting ability for this feat's spells (choose when you select this feat)."
+      },
+      {
+        "name": "Level 1 Spell",
+        "description": "Choose a level 1 spell from the same list you selected for this feat's cantrips. You always have that spell prepared. You can cast it once without a spell slot, and you regain the ability to cast it in that way when you finish a Long Rest. You can also cast the spell using any spell slots you have."
+      },
+      {
+        "name": "Spell Change",
+        "description": "Whenever you gain a new level, you can replace one of the spells you chose for this feat with a different spell of the same level from the chosen spell list."
+      },
+      {
+        "name": "Repeatable",
+        "description": "You can take this feat more than once, but you must choose a different spell list each time."
+      }
+    ],
+    "plainDescriptionEng": null,
+    "translationStatus": "fully translated",
+    "source": "PHB_2024",
+    "benefits": [
+      {
+        "name": "Два Замовляння",
+        "description": "Ви вивчаєте два Замовляння на ваш вибір зі списку заклинань клірика, друїда або чарівника. Інтелект, Мудрість або Харизма є вашою характеристикою для заклинань цієї риси (оберіть під час вибору цієї риси)."
+      },
+      {
+        "name": "Заклинання 1 Рівня",
+        "description": "Оберіть заклинання 1 рівня з того самого списку, який ви обрали для замовлянь цієї риси. Ви завжди маєте це заклинання підготованим. Ви можете накласти його один раз без витрати слоту заклинання, і відновлюєте цю можливість, коли завершуєте довгий відпочинок. Ви також можете накласти це заклинання, використовуючи будь-які слоти заклинань, які маєте."
+      },
+      {
+        "name": "Зміна Заклинання",
+        "description": "Щоразу, коли ви отримуєте новий рівень, ви можете замінити одне із заклинань, обраних для цієї риси, на інше заклинання того самого рівня з обраного списку заклинань."
+      },
+      {
+        "name": "Повторюваність",
+        "description": "Ви можете обирати цю рису більше одного разу, але щоразу повинні обирати інший список заклинань."
+      }
+    ]
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Martial Weapon Training",
+    "name": "Тренування з Бойовою Зброєю",
+    "category": "GENERAL",
+    "prerequisite": "Level 4+",
+    "isRepeatable": false,
+    "benefitsEng": [
+      {
+        "name": "Ability Score Increase",
+        "description": "Increase your Strength or Dexterity score by 1, to a maximum of 20."
+      },
+      {
+        "name": "Weapon Proficiency",
+        "description": "You gain proficiency with Martial weapons."
+      }
+    ],
+    "plainDescriptionEng": null,
+    "translationStatus": "fully translated",
+    "source": "PHB_2024",
+    "benefits": [
+      {
+        "name": "Збільшення характеристики",
+        "description": "Збільште показник Сили або Спритності на 1, до максимуму 20."
+      },
+      {
+        "name": "Володіння зброєю",
+        "description": "Ви отримуєте володіння Бойовою зброєю."
+      }
+    ]
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Medium Armor Master",
+    "name": "Майстер середніх обладунків",
+    "category": "GENERAL",
+    "prerequisite": "Level 4+, Medium Armor Training",
+    "isRepeatable": false,
+    "benefitsEng": [
+      {
+        "name": "Ability Score Increase",
+        "description": "Increase your Strength or Dexterity score by 1, to a maximum of 20."
+      },
+      {
+        "name": "Dexterous Wearer",
+        "description": "While you're wearing Medium armor, you can add 3, rather than 2, to your AC if you have a Dexterity score of 16 or higher."
+      }
+    ],
+    "plainDescriptionEng": null,
+    "translationStatus": "fully translated",
+    "source": "PHB_2024",
+    "benefits": [
+      {
+        "name": "Збільшення Характеристики",
+        "description": "Збільште ваш показник Сили або Спритності на 1, до максимуму 20."
+      },
+      {
+        "name": "Спритний Носій",
+        "description": "Поки ви носите середні обладунки, ви можете додати 3, а не 2, до вашого КБ, якщо ваш показник Спритності 16 або вище."
+      }
+    ]
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Moderately Armored",
+    "name": "Середньоозброєний",
+    "category": "GENERAL",
+    "prerequisite": "Level 4+, Light Armor Training",
+    "isRepeatable": false,
+    "benefitsEng": [
+      {
+        "name": "Ability Score Increase",
+        "description": "Increase your Strength or Dexterity score by 1, to a maximum of 20."
+      },
+      {
+        "name": "Armor Training",
+        "description": "You gain training with Medium armor."
+      }
+    ],
+    "plainDescriptionEng": null,
+    "translationStatus": "fully translated",
+    "source": "PHB_2024",
+    "benefits": [
+      {
+        "name": "Збільшення Характеристики",
+        "description": "Збільште ваш показник Сили або Спритності на 1, до максимуму 20."
+      },
+      {
+        "name": "Тренування з обладунками",
+        "description": "Ви отримуєте володіння середніми обладунками."
+      }
+    ]
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Mounted Combatant",
+    "name": "Верховий боєць",
+    "category": "GENERAL",
+    "prerequisite": "Level 4+",
+    "isRepeatable": false,
+    "benefitsEng": [
+      {
+        "name": "Ability Score Increase",
+        "description": "Increase your Strength, Dexterity, or Wisdom score by 1, to a maximum of 20."
+      },
+      {
+        "name": "Mounted Strike",
+        "description": "While mounted, you have Advantage on attack rolls against any unmounted creature within 5 feet of your mount that is at least one size smaller than the mount."
+      },
+      {
+        "name": "Leap Aside",
+        "description": "If your mount is subjected to an effect that allows it to make a Dexterity saving throw to take only half damage, it instead takes no damage if it succeeds on the saving throw and only half damage if it fails. For your mount to gain this benefit, you must be riding it, and neither of you can have the Incapacitated condition."
+      },
+      {
+        "name": "Veer",
+        "description": "While mounted, you can force an attack that hits your mount to hit you instead if you don't have the Incapacitated condition."
+      }
+    ],
+    "plainDescriptionEng": null,
+    "translationStatus": "fully translated",
+    "source": "PHB_2024",
+    "benefits": [
+      {
+        "name": "Збільшення Характеристики",
+        "description": "Збільште ваш показник Сили, Спритності або Мудрості на 1, до максимуму 20."
+      },
+      {
+        "name": "Атака Верхи",
+        "description": "Поки ви верхи, ви маєте перевагу на кидки атаки проти будь-якої неверхової істоти в межах 5 футів від вашого скакуна, розмір якої щонайменше на один менший за розмір скакуна."
+      },
+      {
+        "name": "Стрибок Убік",
+        "description": "Якщо ваш скакун піддається впливу ефекту, який дозволяє йому зробити ряткидок Спритності, щоб отримати лише половину шкоди, він натомість не отримує шкоди в разі успішного ряткидка і отримує лише половину шкоди в разі невдалого. Щоб ваш скакун отримав цю перевагу, ви повинні їхати на ньому верхи, і жоден з вас не може мати стан Недієздатний."
+      },
+      {
+        "name": "Відхилення",
+        "description": "Поки ви верхи, ви можете змусити атаку, що влучає по вашому скакуну, натомість влучити по вас, якщо ви не маєте стану Недієздатний."
+      }
+    ]
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Musician",
+    "name": "Музикант",
+    "category": "ORIGIN",
+    "prerequisite": null,
+    "isRepeatable": false,
+    "benefitsEng": [
+      {
+        "name": "Instrument Training",
+        "description": "You gain proficiency with three Musical Instruments of your choice."
+      },
+      {
+        "name": "Encouraging Song",
+        "description": "As you finish a Short or Long Rest, you can play a song on a Musical Instrument with which you have proficiency and give Heroic Inspiration to allies who hear the song. The number of allies you can affect in this way equals your Proficiency Bonus."
+      }
+    ],
+    "plainDescriptionEng": null,
+    "translationStatus": "fully translated",
+    "source": "PHB_2024",
+    "benefits": [
+      {
+        "name": "Музична Підготовка",
+        "description": "Ви отримуєте володіння трьома музичними інструментами на ваш вибір."
+      },
+      {
+        "name": "Надихаюча Пісня",
+        "description": "Завершуючи короткий або довгий відпочинок, ви можете зіграти пісню на музичному інструменті, яким володієте, і надати союзникам, які чують цю пісню, Героїчне натхнення. Кількість союзників, на яких ви можете так вплинути, дорівнює вашому Бонусу Майстерності."
+      }
+    ]
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Observant",
+    "name": "Спостережливий",
+    "category": "GENERAL",
+    "prerequisite": "Level 4+, Intelligence or Wisdom 13+",
+    "isRepeatable": false,
+    "benefitsEng": [
+      {
+        "name": "Ability Score Increase",
+        "description": "Increase your Intelligence or Wisdom score by 1, to a maximum of 20."
+      },
+      {
+        "name": "Keen Observer",
+        "description": "Choose one of the following skills: Insight, Investigation, or Perception. If you lack proficiency with the chosen skill, you gain proficiency in it, and if you already have proficiency in it, you gain Expertise in it."
+      },
+      {
+        "name": "Quick Search",
+        "description": "You can take the Search action as a Bonus Action."
+      }
+    ],
+    "plainDescriptionEng": null,
+    "translationStatus": "fully translated",
+    "source": "PHB_2024",
+    "benefits": [
+      {
+        "name": "Збільшення Характеристики",
+        "description": "Збільште ваш показник Інтелекту або Мудрості на 1, до максимуму 20."
+      },
+      {
+        "name": "Пильний Спостерігач",
+        "description": "Оберіть одну з наступних навичок: Аналіз Поведінки, Розслідування або Уважність. Якщо ви не володієте обраною навичкою, ви отримуєте володіння нею, а якщо ви вже нею володієте — ви отримуєте Експертизу в ній."
+      },
+      {
+        "name": "Швидкий Пошук",
+        "description": "Ви можете здійснити дію Пошук Бонусною Дією."
+      }
+    ]
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Piercer",
+    "name": "Проколювач",
+    "category": "GENERAL",
+    "prerequisite": "Level 4+",
+    "isRepeatable": false,
+    "benefitsEng": [
+      {
+        "name": "Ability Score Increase",
+        "description": "Increase your Strength or Dexterity by 1, to a maximum of 20."
+      },
+      {
+        "name": "Puncture",
+        "description": "Once per turn, when you hit a creature with an attack that deals Piercing damage, you can reroll one of the attack’s damage dice, and you must use the new roll."
+      },
+      {
+        "name": "Enhanced Critical",
+        "description": "When you score a Critical Hit that deals Piercing damage to a creature, you can roll one additional damage die when determining the extra Piercing damage the target takes."
+      }
+    ],
+    "plainDescriptionEng": null,
+    "translationStatus": "fully translated",
+    "source": "PHB_2024",
+    "benefits": [
+      {
+        "name": "Збільшення Характеристики",
+        "description": "Збільште ваш показник Сили або Спритності на 1, до максимуму 20."
+      },
+      {
+        "name": "Прокол",
+        "description": "Один раз за хід, коли ви влучаєте по істоті атакою, що наносить Колючу шкоду, ви можете перекинути один із кубиків шкоди цієї атаки, і ви повинні використати новий результат."
+      },
+      {
+        "name": "Посилений Критичний Удар",
+        "description": "Коли ви завдаєте істоті критичного удару, що наносить Колючу шкоду, ви можете кинути один додатковий кубик шкоди при визначенні додаткової Колючої шкоди, яку отримує ціль."
+      }
+    ]
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Poisoner",
+    "name": "Отруйник",
+    "category": "GENERAL",
+    "prerequisite": "Level 4+",
+    "isRepeatable": false,
+    "benefitsEng": [
+      {
+        "name": "Ability Score Increase",
+        "description": "Increase your Dexterity or Intelligence score by 1, to a maximum of 20."
+      },
+      {
+        "name": "Potent Poison",
+        "description": "When you make a damage roll that deals Poison damage, it ignores Resistance to Poison damage."
+      },
+      {
+        "name": "Brew Poison",
+        "description": "You gain proficiency with the Poisoner’s Kit. With 1 hour of work using such a kit and expending 50 GP worth of materials, you can create a number of poison doses equal to your Proficiency Bonus. As a Bonus Action, you can apply a poison dose to a weapon or piece of ammunition. Once applied, the poison retains its potency for 1 minute or until you deal damage with the poisoned item, whichever is shorter. When a creature takes damage from the poisoned item, that creature must succeed on a Constitution saving throw (DC 8 plus the modifier of the ability increased by this feat and your Proficiency Bonus) or take 2d8 Poison damage and have the Poisoned condition until the end of your next turn."
+      }
+    ],
+    "plainDescriptionEng": null,
+    "translationStatus": "fully translated",
+    "source": "PHB_2024",
+    "benefits": [
+      {
+        "name": "Збільшення Характеристики",
+        "description": "Збільште ваш показник Спритності або Інтелекту на 1, до максимуму 20."
+      },
+      {
+        "name": "Сильна Отрута",
+        "description": "Коли ви робите кидок шкоди, що наносить Отруйну шкоду, він ігнорує опір до Отруйної шкоди."
+      },
+      {
+        "name": "Варіння Отрути",
+        "description": "Ви отримуєте володіння Набором Отруйника. Витративши 1 годину роботи з таким набором і матеріали вартістю 50 золотих, ви можете створити кількість доз отрути, що дорівнює вашому Бонусу Майстерності. Бонусною Дією ви можете нанести дозу отрути на зброю або одиницю боєприпасів. Після нанесення отрута зберігає силу протягом 1 хвилини або доки ви не завдасте шкоди отруєним предметом — залежно від того, що настане раніше. Коли істота отримує шкоду від отруєного предмета, вона повинна досягти успіху в ряткидку Статури (СК 8 плюс модифікатор характеристики, збільшеної цим рисом, і ваш Бонус Майстерності), інакше отримує 2к8 Отруйної шкоди і має стан Отруєний до кінця вашого наступного ходу."
+      }
+    ]
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Polearm Master",
+    "name": "Майстер древкової зброї",
+    "category": "GENERAL",
+    "prerequisite": "Level 4+, Strength or Dexterity 13+)",
+    "isRepeatable": false,
+    "benefitsEng": [
+      {
+        "name": "Ability Score Increase",
+        "description": "Increase your Dexterity or Strength score by 1, to a maximum of 20."
+      },
+      {
+        "name": "Pole Strike",
+        "description": "Immediately after you take the Attack action and attack with a Quarterstaff, a Spear, or a weapon that has the Heavy and Reach properties, you can use a Bonus Action to make a melee attack with the opposite end of the weapon. The weapon deals Bludgeoning damage, and the weapon’s damage die for this attack is a d4."
+      },
+      {
+        "name": "Reactive Strike",
+        "description": "While you're holding a Quarterstaff, a Spear, or a weapon that has the Heavy and Reach properties, you can take a Reaction to make one melee attack against a creature that enters the reach you have with that weapon."
+      }
+    ],
+    "plainDescriptionEng": null,
+    "translationStatus": "fully translated",
+    "source": "PHB_2024",
+    "benefits": [
+      {
+        "name": "Збільшення Характеристики",
+        "description": "Збільште ваш показник Спритності або Сили на 1, до максимуму 20."
+      },
+      {
+        "name": "Удар Держаком",
+        "description": "Одразу після того, як ви здійснюєте дію Атака та атакуєте жердиною, списом або зброєю, що має властивості Важка та Досяжність, ви можете використати Бонусну Дію, щоб здійснити рукопашну атаку протилежним кінцем зброї. Ця зброя наносить Дроблячу шкоду, а кубик шкоди для цієї атаки — к4."
+      },
+      {
+        "name": "Реактивний Удар",
+        "description": "Поки ви тримаєте жердину, спис або зброю, що має властивості Важка та Досяжність, ви можете використати Реакцію, щоб здійснити одну рукопашну атаку проти істоти, яка входить у межі вашої досяжності цією зброєю."
+      }
+    ]
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Protection",
+    "name": "Захист",
+    "category": "FIGHTING_STYLE",
+    "prerequisite": "Fighting Style Feature",
+    "isRepeatable": false,
+    "benefitsEng": [],
+    "plainDescriptionEng": "When a creature you can see attacks a target other than you that is within 5 feet of you, you can take a Reaction to interpose your Shield if you're holding one. You impose Disadvantage on the triggering attack roll and all other attack rolls against the target until the start of your next turn if you remain within 5 feet of the target.",
+    "translationStatus": "fully translated",
+    "source": "PHB_2024",
+    "description": "Коли створіння, яке ви бачите, атакує ціль окрім вас у межах 5 футів від вас, ви можете реакцією підняти щит, якщо тримаєте його, і накласти перешкоду на цей кидок атаки та на всі наступні кидки атаки проти цілі до початку вашого наступного ходу, якщо ви лишаєтесь у межах 5 футів від цілі."
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Resilient",
+    "name": "Стійкий",
+    "category": "GENERAL",
+    "prerequisite": "Level 4+",
+    "isRepeatable": false,
+    "benefitsEng": [
+      {
+        "name": "Ability Score Increase",
+        "description": "Choose one ability in which you lack saving throw proficiency. Increase the chosen ability score by 1, to a maximum of 20."
+      },
+      {
+        "name": "Saving Throw Proficiency",
+        "description": "You gain saving throw proficiency with the chosen ability."
+      }
+    ],
+    "plainDescriptionEng": null,
+    "translationStatus": "fully translated",
+    "source": "PHB_2024",
+    "benefits": [
+      {
+        "name": "Збільшення Характеристики",
+        "description": "Оберіть одну характеристику, ряткидком якої ви не володієте. Збільште обраний показник характеристики на 1, до максимуму 20."
+      },
+      {
+        "name": "Володіння Ряткидком",
+        "description": "Ви отримуєте володіння ряткидком обраної характеристики."
+      }
+    ]
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Ritual Caster",
+    "name": "Ритуальний заклинатель",
+    "category": "GENERAL",
+    "prerequisite": "Level 4+, Intelligence, Wisdom, or Charisma 13+",
+    "isRepeatable": false,
+    "benefitsEng": [
+      {
+        "name": "Ability Score Increase",
+        "description": "Increase your Intelligence, Wisdom, or Charisma score by 1, to a maximum of 20."
+      },
+      {
+        "name": "Ritual Spells",
+        "description": "Choose a number of level 1 spells equal to your Proficiency Bonus that have the Ritual tag. You always have those spells prepared, and you can cast them with any spell slots you have. The spells’ spellcasting ability is the ability increased by this feat. Whenever your Proficiency Bonus increases thereafter, you can add an additional level 1 spell with the Ritual tag to the spells always prepared with this feature."
+      },
+      {
+        "name": "Quick Ritual",
+        "description": "With this benefit, you can cast a Ritual spell that you have prepared using its regular casting time rather than the extended time for a Ritual. Doing so doesn't require a spell slot. Once you cast the spell in this way, you can't use this benefit again until you finish a Long Rest."
+      }
+    ],
+    "plainDescriptionEng": null,
+    "translationStatus": "fully translated",
+    "source": "PHB_2024",
+    "benefits": [
+      {
+        "name": "Збільшення Характеристики",
+        "description": "Збільште ваш показник Інтелекту, Мудрості або Харизми на 1, до максимуму 20."
+      },
+      {
+        "name": "Ритуальні Заклинання",
+        "description": "Оберіть кількість заклинань 1 рівня, що дорівнює вашому Бонусу Майстерності, з-поміж тих, що позначені як Ритуальні. Ви завжди маєте ці заклинання підготованими і можете накладати їх, використовуючи будь-які наявні у вас слоти заклинань. Характеристикою для накладання цих заклинань є та, яку ви збільшили цим рисом. Щоразу, коли надалі зростає ваш Бонус Майстерності, ви можете додати ще одне заклинання 1 рівня, позначене як Ритуальне, до заклинань, які завжди підготовані завдяки цій перевазі."
+      },
+      {
+        "name": "Швидкий Ритуал",
+        "description": "Завдяки цій перевазі ви можете накласти підготоване Ритуальне заклинання, використовуючи його звичайний час накладання, а не подовжений час, потрібний для ритуалу. Це не вимагає витрати слоту заклинання. Після того, як ви накладете заклинання таким чином, ви не можете використати цю перевагу знову, доки не завершите довгий відпочинок."
+      }
+    ]
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Savage Attacker",
+    "name": "Жорстокий нападник",
+    "category": "ORIGIN",
+    "prerequisite": null,
+    "isRepeatable": false,
+    "benefitsEng": [],
+    "plainDescriptionEng": "You've trained to deal particularly damaging strikes. Once per turn when you hit a target with a weapon, you can roll the weapon's damage dice twice and use either roll against the target.",
+    "translationStatus": "fully translated",
+    "source": "PHB_2024",
+    "description": "Ви натренувалися завдавати особливо болючих ударів. Один раз на хід, коли ви влучаєте по цілі зброєю, ви можете кинути кубики шкоди зброї двічі та використати будь-який із двох результатів проти цілі."
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Sentinel",
+    "name": "Вартовий",
+    "category": "GENERAL",
+    "prerequisite": "Level 4+, Strength or Dexterity 13+",
+    "isRepeatable": false,
+    "benefitsEng": [
+      {
+        "name": "Ability Score Increase",
+        "description": "Increase your Strength or Dexterity score by 1, to a maximum of 20."
+      },
+      {
+        "name": "Guardian",
+        "description": "Immediately after a creature within 5 feet of you takes the Disengage action or hits a target other than you with an attack, you can make an Opportunity Attack against that creature."
+      },
+      {
+        "name": "Halt",
+        "description": "When you hit a creature with an Opportunity Attack, the creature’s Speed becomes 0 for the rest of the current turn."
+      }
+    ],
+    "plainDescriptionEng": null,
+    "translationStatus": "fully translated",
+    "source": "PHB_2024",
+    "benefits": [
+      {
+        "name": "Збільшення Характеристики",
+        "description": "Збільште ваш показник Сили або Спритності на 1, до максимуму 20."
+      },
+      {
+        "name": "Охоронець",
+        "description": "Одразу після того, як істота в межах 5 футів від вас здійснює дію Відступ або влучає атакою по цілі, яка не є вами, ви можете здійснити Принагідну атаку проти цієї істоти."
+      },
+      {
+        "name": "Зупинка",
+        "description": "Коли ви влучаєте по істоті Принагідною атакою, швидкість цієї істоти стає 0 до кінця поточного ходу."
+      }
+    ]
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Shadow Touched",
+    "name": "Доторк тіні",
+    "category": "GENERAL",
+    "prerequisite": "Level 4+",
+    "isRepeatable": false,
+    "benefitsEng": [
+      {
+        "name": "Ability Score Increase",
+        "description": "Increase your Intelligence, Wisdom, or Charisma score by 1, to a maximum of 20."
+      },
+      {
+        "name": "Shadow Magic",
+        "description": "Choose one level 1 spell from the Illusion or Necromancy school of magic. You always have that spell and the Invisibility spell prepared. You can cast each of these spells without expending a spell slot. Once you cast either spell in this way, you can't cast that spell in this way again until you finish a Long Rest. You can also cast these spells using spell slots you have of the appropriate level. The spells’ spellcasting ability is the ability increased by this feat."
+      }
+    ],
+    "plainDescriptionEng": null,
+    "translationStatus": "fully translated",
+    "source": "PHB_2024",
+    "benefits": [
+      {
+        "name": "Збільшення Характеристики",
+        "description": "Збільште ваш показник Інтелекту, Мудрості або Харизми на 1, до максимуму 20."
+      },
+      {
+        "name": "Тіньова Магія",
+        "description": "Оберіть одне заклинання 1 рівня зі школи магії Ілюзія або Некромантія. Ви завжди маєте це заклинання та заклинання Невидимість [Invisibility] підготованими. Ви можете накласти кожне з цих заклинань без витрати слоту заклинання. Після того, як ви накладете одне з цих заклинань у такий спосіб, ви не можете накласти те саме заклинання так знову, доки не завершите довгий відпочинок. Ви також можете накладати ці заклинання, використовуючи наявні у вас слоти заклинань відповідного рівня. Характеристикою для накладання цих заклинань є та, яку ви збільшили цим рисом."
+      }
+    ]
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Sharpshooter",
+    "name": "Влучний стрілець",
+    "category": "GENERAL",
+    "prerequisite": "Level 4+, Dexterity 13+",
+    "isRepeatable": false,
+    "benefitsEng": [
+      {
+        "name": "Ability Score Increase",
+        "description": "Increase your Dexterity score by 1, to a maximum of 20."
+      },
+      {
+        "name": "Bypass Cover",
+        "description": "Your ranged attacks with weapons ignore Half Cover and Three-Quarters Cover."
+      },
+      {
+        "name": "Firing in Melee",
+        "description": "Being within 5 feet of an enemy doesn’t impose Disadvantage on your attack rolls with Ranged weapons."
+      },
+      {
+        "name": "Long Shots",
+        "description": "Attacking at long range doesn't impose Disadvantage on your attack rolls with Ranged weapons."
+      }
+    ],
+    "plainDescriptionEng": null,
+    "translationStatus": "fully translated",
+    "source": "PHB_2024",
+    "benefits": [
+      {
+        "name": "Збільшення Характеристики",
+        "description": "Збільште ваш показник Спритності на 1, до максимуму 20."
+      },
+      {
+        "name": "Ігнорування Укриття",
+        "description": "Ваші дальні атаки зброєю ігнорують половинне укриття та три чверті укриття."
+      },
+      {
+        "name": "Стрільба в Рукопашній",
+        "description": "Перебування в межах 5 футів від ворога не накладає перешкоду на ваші кидки атаки дальньою зброєю."
+      },
+      {
+        "name": "Дальні Постріли",
+        "description": "Атака на велику дистанцію не накладає перешкоду на ваші кидки атаки дальньою зброєю."
+      }
+    ]
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Shield Master",
+    "name": "Майстер щита",
+    "category": "GENERAL",
+    "prerequisite": "Level 4+, Shield Training",
+    "isRepeatable": false,
+    "benefitsEng": [
+      {
+        "name": "Ability Score Increase",
+        "description": "Increase your Strength score by 1, to a maximum of 20."
+      },
+      {
+        "name": "Shield Bash",
+        "description": "If you attack a creature within 5 feet of you as part of the Attack action and hit with a Melee weapon, you can immediately bash the target with your Shield if it's equipped, forcing the target to make a Strength saving throw (DC 8 plus your Strength modifier and Proficiency Bonus). On a failed save, you either push the target 5 feet from you or cause it to have the Prone condition (your choice). You can use this benefit only once on each of your turns."
+      },
+      {
+        "name": "Interpose Shield",
+        "description": "If you're subjected to an effect that allows you to make a Dexterity saving throw to take only half damage, you can take a Reaction to take no damage if you succeed on the saving throw and are holding a Shield."
+      }
+    ],
+    "plainDescriptionEng": null,
+    "translationStatus": "fully translated",
+    "source": "PHB_2024",
+    "benefits": [
+      {
+        "name": "Збільшення Характеристики",
+        "description": "Збільште ваш показник Сили на 1, до максимуму 20."
+      },
+      {
+        "name": "Удар Щитом",
+        "description": "Якщо ви атакуєте істоту в межах 5 футів від вас у рамках дії Атака і влучаєте рукопашною зброєю, ви можете одразу вдарити ціль своїм щитом, якщо він у вас екіпірований, змушуючи ціль зробити ряткидок Сили (СК 8 плюс ваш модифікатор Сили і Бонус Майстерності). У разі провалу ряткидка ви або відштовхуєте ціль на 5 футів від себе, або даєте їй стан Повалений (на ваш вибір). Ви можете використати цю перевагу лише один раз за кожен свій хід."
+      },
+      {
+        "name": "Захист Щитом",
+        "description": "Якщо ви піддаєтеся впливу ефекту, який дозволяє вам зробити ряткидок Спритності, щоб отримати лише половину шкоди, ви можете використати Реакцію, щоб не отримати шкоди взагалі, якщо ви досягнете успіху в ряткидку і тримаєте щит."
+      }
+    ]
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Skill Expert",
+    "name": "Експерт у навичках",
+    "category": "GENERAL",
+    "prerequisite": "Level 4+",
+    "isRepeatable": false,
+    "benefitsEng": [
+      {
+        "name": "Ability Score Increase",
+        "description": "Increase one ability score of your choice by 1, to a maximum of 20."
+      },
+      {
+        "name": "Skill Proficiency",
+        "description": "You gain proficiency in one skill of your choice."
+      },
+      {
+        "name": "Expertise",
+        "description": "Choose one skill in which you have proficiency but lack Expertise. You gain Expertise with that skill."
+      }
+    ],
+    "plainDescriptionEng": null,
+    "translationStatus": "fully translated",
+    "source": "PHB_2024",
+    "benefits": [
+      {
+        "name": "Збільшення Характеристики",
+        "description": "Збільште один показник характеристики на ваш вибір на 1, до максимуму 20."
+      },
+      {
+        "name": "Володіння Навичкою",
+        "description": "Ви отримуєте володіння однією навичкою на ваш вибір."
+      },
+      {
+        "name": "Експертиза",
+        "description": "Оберіть одну навичку, якою ви володієте, але не маєте в ній Експертизи. Ви отримуєте Експертизу в цій навичці."
+      }
+    ]
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Skilled",
+    "name": "Умілець",
+    "category": "ORIGIN",
+    "prerequisite": null,
+    "isRepeatable": true,
+    "benefitsEng": [
+      {
+        "name": "Repeatable",
+        "description": "You can take this feat more than once."
+      }
+    ],
+    "plainDescriptionEng": null,
+    "translationStatus": "fully translated",
+    "source": "PHB_2024",
+    "benefits": [
+      {
+        "name": "Повторюваність",
+        "description": "Ви можете обирати цю рису більше одного разу."
+      }
+    ]
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Skulker",
+    "name": "Скритний",
+    "category": "GENERAL",
+    "prerequisite": "Level 4+, Dexterity 13+",
+    "isRepeatable": false,
+    "benefitsEng": [
+      {
+        "name": "Ability Score Increase",
+        "description": "Increase your Dexterity score by 1, to a maximum of 20."
+      },
+      {
+        "name": "Blindsight",
+        "description": "You have Blindsight with a range of 10 feet."
+      },
+      {
+        "name": "Fog of War",
+        "description": "You exploit the distractions of battle, gaining Advantage on any Dexterity (Stealth) check you make as part of the Hide action during combat."
+      },
+      {
+        "name": "Sniper",
+        "description": "If you make an attack roll while hidden and the roll misses, making the attack roll doesn’t reveal your location."
+      }
+    ],
+    "plainDescriptionEng": null,
+    "translationStatus": "fully translated",
+    "source": "PHB_2024",
+    "benefits": [
+      {
+        "name": "Збільшення Характеристики",
+        "description": "Збільште ваш показник Спритності на 1, до максимуму 20."
+      },
+      {
+        "name": "Сліповид",
+        "description": "Ви маєте сліповид з дистанцією 10 футів."
+      },
+      {
+        "name": "Туман Війни",
+        "description": "Ви користуєтеся відволіканнями бою, отримуючи перевагу на будь-яку перевірку Спритності (Непомітність), яку ви робите в рамках дії Сховатися під час бою."
+      },
+      {
+        "name": "Снайпер",
+        "description": "Якщо ви робите кидок атаки, перебуваючи схованим, і цей кидок промахується, здійснення кидка атаки не розкриває ваше місцезнаходження."
+      }
+    ]
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Slasher",
+    "name": "Рубака",
+    "category": "GENERAL",
+    "prerequisite": "Level 4+",
+    "isRepeatable": false,
+    "benefitsEng": [
+      {
+        "name": "Ability Score Increase",
+        "description": "Increase your Strength or Dexterity score by 1, to a maximum of 20."
+      },
+      {
+        "name": "Hamstring",
+        "description": "Once per turn when you hit a creature with an attack that deals Slashing damage, you can reduce the Speed of that creature by 10 feet until the start of your next turn."
+      },
+      {
+        "name": "Enhanced Critical",
+        "description": "When you score a Critical Hit that deals Slashing damage to a creature, it has Disadvantage on attack rolls until the start of your next turn."
+      }
+    ],
+    "plainDescriptionEng": null,
+    "translationStatus": "fully translated",
+    "source": "PHB_2024",
+    "benefits": [
+      {
+        "name": "Збільшення Характеристики",
+        "description": "Збільште ваш показник Сили або Спритності на 1, до максимуму 20."
+      },
+      {
+        "name": "Підрізання Сухожиль",
+        "description": "Один раз за хід, коли ви влучаєте по істоті атакою, що наносить Рублячу шкоду, ви можете зменшити швидкість цієї істоти на 10 футів до початку вашого наступного ходу."
+      },
+      {
+        "name": "Посилений Критичний Удар",
+        "description": "Коли ви завдаєте істоті критичного удару, що наносить Рублячу шкоду, вона отримує перешкоду на кидки атаки до початку вашого наступного ходу."
+      }
+    ]
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Speedy",
+    "name": "Швидкий",
+    "category": "GENERAL",
+    "prerequisite": "Level 4+, Dexterity or Constitution 13+",
+    "isRepeatable": false,
+    "benefitsEng": [
+      {
+        "name": "Ability Score Increase",
+        "description": "Increase your Dexterity or Constitution score by 1, to a maximum of 20."
+      },
+      {
+        "name": "Speed Increase",
+        "description": "Your Speed increases by 10 feet."
+      },
+      {
+        "name": "Dash over Difficult Terrain",
+        "description": "When you take the Dash action on your turn, Difficult Terrain doesn't cost you extra movement for the rest of that turn."
+      },
+      {
+        "name": "Agile Movement",
+        "description": "Opportunity Attacks have Disadvantage against you."
+      }
+    ],
+    "plainDescriptionEng": null,
+    "translationStatus": "fully translated",
+    "source": "PHB_2024",
+    "benefits": [
+      {
+        "name": "Збільшення Характеристики",
+        "description": "Збільште ваш показник Спритності або Статури на 1, до максимуму 20."
+      },
+      {
+        "name": "Збільшення Швидкості",
+        "description": "Ваша швидкість збільшується на 10 футів."
+      },
+      {
+        "name": "Ривок Складною Місцевістю",
+        "description": "Коли ви здійснюєте дію Ривок у свій хід, складна місцевість не коштує вам додаткового руху до кінця цього ходу."
+      },
+      {
+        "name": "Спритний Рух",
+        "description": "Принагідні атаки проти вас здійснюються з перешкодою."
+      }
+    ]
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Spell Sniper",
+    "name": "Снайпер заклять",
+    "category": "GENERAL",
+    "prerequisite": "Level 4+, Spellcasting or Pact Magic Feature",
+    "isRepeatable": false,
+    "benefitsEng": [
+      {
+        "name": "Ability Score Increase",
+        "description": "Increase your Intelligence, Wisdom, or Charisma score by 1, to a maximum of 20."
+      },
+      {
+        "name": "Bypass Cover",
+        "description": "Your attack rolls for spells ignore Half Cover and Three-Quarters Cover."
+      },
+      {
+        "name": "Casting in Melee",
+        "description": "Being within 5 feet of an enemy doesn’t impose Disadvantage on your attack rolls with spells."
+      },
+      {
+        "name": "Increased Range",
+        "description": "When you cast a spell that has a range of at least 10 feet and requires you to make an attack roll, you can increase the spell's range by 60 feet."
+      }
+    ],
+    "plainDescriptionEng": null,
+    "translationStatus": "fully translated",
+    "source": "PHB_2024",
+    "benefits": [
+      {
+        "name": "Збільшення Характеристики",
+        "description": "Збільште ваш показник Інтелекту, Мудрості або Харизми на 1, до максимуму 20."
+      },
+      {
+        "name": "Ігнорування Укриття",
+        "description": "Ваші кидки атаки заклинаннями ігнорують половинне укриття та три чверті укриття."
+      },
+      {
+        "name": "Накладання в Рукопашній",
+        "description": "Перебування в межах 5 футів від ворога не накладає перешкоду на ваші кидки атаки заклинаннями."
+      },
+      {
+        "name": "Збільшена Дистанція",
+        "description": "Коли ви накладаєте заклинання з дистанцією щонайменше 10 футів, яке вимагає кидка атаки, ви можете збільшити дистанцію цього заклинання на 60 футів."
+      }
+    ]
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Tavern Brawler",
+    "name": "Забіяка з таверни",
+    "category": "ORIGIN",
+    "prerequisite": null,
+    "isRepeatable": false,
+    "benefitsEng": [
+      {
+        "name": "Enhanced Unarmed Strike",
+        "description": "When you hit with your Unarmed Strike and deal damage, you can deal Bludgeoning damage equal to 1d4 plus your Strength modifier instead of the normal damage of an Unarmed Strike."
+      },
+      {
+        "name": "Damage Rerolls",
+        "description": "Whenever you roll a damage die for your Unarmed Strike, you can reroll the die if it rolls a 1, and you must use the new roll."
+      },
+      {
+        "name": "Improvised Weaponry",
+        "description": "You have proficiency with improvised weapons."
+      },
+      {
+        "name": "Push",
+        "description": "When you hit a creature with an Unarmed Strike as part of the Attack action on your turn, you can deal damage to the target and also push it 5 feet away from you. You can use this benefit only once per turn."
+      }
+    ],
+    "plainDescriptionEng": null,
+    "translationStatus": "fully translated",
+    "source": "PHB_2024",
+    "benefits": [
+      {
+        "name": "Посилений Беззбройний удар",
+        "description": "Коли ви влучаєте своїм Беззбройним ударом і завдаєте шкоди, ви можете завдати Дроблячої шкоди, що дорівнює 1к4 плюс ваш модифікатор Сили, замість звичайної шкоди Беззбройного удару."
+      },
+      {
+        "name": "Перекидання Шкоди",
+        "description": "Щоразу, коли ви кидаєте кубик шкоди для свого Беззбройного удару, ви можете перекинути кубик, якщо на ньому випала 1, і повинні використати новий результат."
+      },
+      {
+        "name": "Імпровізована Зброя",
+        "description": "Ви отримуєте володіння імпровізованою зброєю."
+      },
+      {
+        "name": "Поштовх",
+        "description": "Коли ви влучаєте по істоті Беззбройним ударом як частиною Дії Атака у свій хід, ви можете завдати цілі шкоди, а також відштовхнути її на 5 футів від себе. Ви можете використати цю перевагу лише один раз за хід."
+      }
+    ]
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Telekinetic",
+    "name": "Телекінетик",
+    "category": "GENERAL",
+    "prerequisite": "Level 4+",
+    "isRepeatable": false,
+    "benefitsEng": [
+      {
+        "name": "Ability Score Increase",
+        "description": "Increase your Intelligence, Wisdom, or Charisma score by 1, to a maximum of 20."
+      },
+      {
+        "name": "Minor Telekinesis",
+        "description": "You learn the Mage Hand spell. You can cast it without Verbal or Somatic components, you can make the spectral hand Invisible, and its range and the distance it can be away from you both increase by 30 feet when you cast it. The spell’s spellcasting ability is the ability increased by this feat."
+      },
+      {
+        "name": "Telekinetic Shove",
+        "description": "As a Bonus Action, you can telekinetically shove one creature you can see within 30 feet of yourself. When you do so, the target must succeed on a Strength saving throw (DC 8 plus the ability modifier of the score increased by this feat and your Proficiency Bonus) or be moved 5 feet toward or away from you."
+      }
+    ],
+    "plainDescriptionEng": null,
+    "translationStatus": "fully translated",
+    "source": "PHB_2024",
+    "benefits": [
+      {
+        "name": "Збільшення Характеристики",
+        "description": "Збільште ваш показник Інтелекту, Мудрості або Харизми на 1, до максимуму 20."
+      },
+      {
+        "name": "Мала Телекінезія",
+        "description": "Ви вивчаєте заклинання Магічна рука [Mage Hand]. Ви можете накладати його без вербальних або соматичних компонентів, можете зробити примарну руку невидимою, а її дистанція та відстань, на яку вона може віддалятися від вас, збільшуються на 30 футів, коли ви накладаєте це заклинання. Характеристикою для накладання цього заклинання є та, яку ви збільшили цим рисом."
+      },
+      {
+        "name": "Телекінетичний Поштовх",
+        "description": "Бонусною Дією ви можете телекінетично штовхнути одну істоту, яку бачите в межах 30 футів від себе. Коли ви це робите, ціль повинна досягти успіху в ряткидку Сили (СК 8 плюс модифікатор характеристики, збільшеної цим рисом, і ваш Бонус Майстерності), інакше вона переміщується на 5 футів до вас або від вас."
+      }
+    ]
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Telepathic",
+    "name": "Телепат",
+    "category": "GENERAL",
+    "prerequisite": "Level 4+",
+    "isRepeatable": false,
+    "benefitsEng": [
+      {
+        "name": "Ability Score Increase",
+        "description": "Increase your Intelligence, Wisdom, or Charisma score by 1, to a maximum of 20."
+      },
+      {
+        "name": "Telepathic Utterance",
+        "description": "You can speak telepathically to any creature you can see within 60 feet of yourself. Your telepathic utterances are in a language you know, and the creature understands you only if it knows that language. Your communication doesn't give the creature the ability to respond to you telepathically."
+      },
+      {
+        "name": "Detect Thoughts",
+        "description": "You always have the Detect Thoughts spell prepared. You can cast it without a spell slot or spell components, and you must finish a Long Rest before you can cast it in this way again. You can also cast it using spell slots you have of the appropriate level. Your spellcasting ability for the spell is the ability increased by this feat."
+      }
+    ],
+    "plainDescriptionEng": null,
+    "translationStatus": "fully translated",
+    "source": "PHB_2024",
+    "benefits": [
+      {
+        "name": "Збільшення Характеристики",
+        "description": "Збільште ваш показник Інтелекту, Мудрості або Харизми на 1, до максимуму 20."
+      },
+      {
+        "name": "Телепатичне Мовлення",
+        "description": "Ви можете говорити телепатично з будь-якою істотою, яку бачите в межах 60 футів від себе. Ваше телепатичне мовлення звучить мовою, яку ви знаєте, і істота розуміє вас, лише якщо знає цю мову. Це спілкування не надає істоті здатності відповідати вам телепатично."
+      },
+      {
+        "name": "Виявлення Думок",
+        "description": "Ви завжди маєте заклинання Виявлення думок [Detect Thoughts] підготованим. Ви можете накласти його без витрати слоту заклинання чи компонентів заклинання, і повинні завершити довгий відпочинок, перш ніж зможете накласти його так знову. Ви також можете накладати його, використовуючи наявні у вас слоти заклинань відповідного рівня. Характеристикою для накладання цього заклинання є та, яку ви збільшили цим рисом."
+      }
+    ]
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Thrown Weapon Fighting",
+    "name": "Бій метальною зброєю",
+    "category": "FIGHTING_STYLE",
+    "prerequisite": "Fighting Style Feature",
+    "isRepeatable": false,
+    "benefitsEng": [],
+    "plainDescriptionEng": "When you hit with a ranged attack roll using a weapon that has the Thrown property, you gain a +2 bonus to the damage roll.",
+    "translationStatus": "fully translated",
+    "source": "PHB_2024",
+    "description": "Коли ви влучаєте кидком атаки дальнього бою зброєю з властивістю метальна, ви отримуєте бонус +2 до кидка шкоди."
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Tough",
+    "name": "Здоровань",
+    "category": "ORIGIN",
+    "prerequisite": null,
+    "isRepeatable": false,
+    "benefitsEng": [],
+    "plainDescriptionEng": "Your Hit Point maximum increases by an amount equal to twice your character level when you gain this feat. Whenever you gain a character level thereafter, your Hit Point maximum increases by an additional 2 Hit Points.",
+    "translationStatus": "fully translated",
+    "source": "PHB_2024",
+    "description": "Ваш максимум хіт-поїнтів збільшується на суму, що дорівнює подвоєному вашому рівню, коли ви берете цю рису. Кожного разу, коли ви отримуєте рівень після цього, ваш максимум хіт-поїнтів збільшується на додаткові 2 хіт-поїнти."
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Two Weapon Fighting",
+    "name": "Бій двома зброями",
+    "category": "FIGHTING_STYLE",
+    "prerequisite": "Fighting Style Feature",
+    "isRepeatable": false,
+    "benefitsEng": [],
+    "plainDescriptionEng": "When you make an extra attack as a result of using a weapon that has the Light property, you can add your ability modifier to the damage of that attack if you aren't already adding it to the damage.",
+    "translationStatus": "fully translated",
+    "source": "PHB_2024",
+    "description": "Коли ви робите додаткову атаку внаслідок використання зброї з властивістю легка, ви можете додати свій модифікатор характеристики до шкоди цієї атаки, якщо ви ще не додаєте його."
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Unarmed Fighting",
+    "name": "Рукопашний бій",
+    "category": "FIGHTING_STYLE",
+    "prerequisite": "Fighting Style Feature",
+    "isRepeatable": false,
+    "benefitsEng": [],
+    "plainDescriptionEng": "When you hit with your Unarmed Strike and deal damage, you can deal Bludgeoning damage equal to 1d6 plus your Strength modifier instead of the normal damage of an Unarmed Strike. If you aren't holding any weapons or a Shield when you make the attack roll, the d6 becomes a d8. At the start of each of your turns, you can deal 1d4 Bludgeoning damage to one creature Grappled by you.",
+    "translationStatus": "fully translated",
+    "source": "PHB_2024",
+    "description": "Коли ви влучаєте Беззбройним ударом і завдаєте шкоди, ви можете завдати дробильної шкоди 1к6 плюс ваш модифікатор Сили замість звичайної шкоди Беззбройного удару. Якщо на момент кидка атаки ви не тримаєте жодної зброї чи щита, к6 стає к8. На початку кожного свого ходу ви можете завдати 1к4 дробильної шкоди одному створінню, Схопленому вами."
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "War Caster",
+    "name": "Бойовий заклинатель",
+    "category": "GENERAL",
+    "prerequisite": "Level 4+, Spellcasting or Pact Magic Feature",
+    "isRepeatable": false,
+    "benefitsEng": [
+      {
+        "name": "Ability Score Increase",
+        "description": "Increase your Intelligence, Wisdom, or Charisma score by 1, to a maximum of 20."
+      },
+      {
+        "name": "Concentration",
+        "description": "You have Advantage on Constitution saving throws that you make to maintain Concentration."
+      },
+      {
+        "name": "Reactive Spell",
+        "description": "When a creature provokes an Opportunity Attack from you by leaving your reach, you can take a Reaction to cast a spell at the creature rather than making an Opportunity Attack. The spell must have a casting time of one action and must target only that creature."
+      },
+      {
+        "name": "Somatic Components",
+        "description": "You can perform the Somatic components of spells even when you have weapons or a Shield in one or both hands."
+      }
+    ],
+    "plainDescriptionEng": null,
+    "translationStatus": "fully translated",
+    "source": "PHB_2024",
+    "benefits": [
+      {
+        "name": "Збільшення Характеристики",
+        "description": "Збільште ваш показник Інтелекту, Мудрості або Харизми на 1, до максимуму 20."
+      },
+      {
+        "name": "Концентрація",
+        "description": "Ви маєте перевагу на ряткидки Статури, які ви робите для підтримки Концентрації."
+      },
+      {
+        "name": "Реактивне Заклинання",
+        "description": "Коли істота провокує від вас Принагідну атаку, покидаючи межі вашої досяжності, ви можете використати Реакцію, щоб накласти заклинання на цю істоту замість здійснення Принагідної атаки. Заклинання повинно мати час накладання одна дія і має бути націленим лише на цю істоту."
+      },
+      {
+        "name": "Соматичні Компоненти",
+        "description": "Ви можете виконувати соматичні компоненти заклинань, навіть якщо тримаєте зброю або щит в одній чи обох руках."
+      }
+    ]
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Weapon Master",
+    "name": "Майстер зброї",
+    "category": "GENERAL",
+    "prerequisite": "Level 4+",
+    "isRepeatable": false,
+    "benefitsEng": [
+      {
+        "name": "Ability Score Increase",
+        "description": "Increase your Strength or Dexterity score by 1, to a maximum of 20."
+      },
+      {
+        "name": "Mastery Property",
+        "description": "Your training with weapons allows you to use the mastery property of one kind of Simple or Martial weapon of your choice, provided you have proficiency with it. Whenever you finish a Long Rest, you can change the kind of weapon to another eligible kind."
+      }
+    ],
+    "plainDescriptionEng": null,
+    "translationStatus": "fully translated",
+    "source": "PHB_2024",
+    "benefits": [
+      {
+        "name": "Збільшення Характеристики",
+        "description": "Збільште ваш показник Сили або Спритності на 1, до максимуму 20."
+      },
+      {
+        "name": "Властивість Майстерності",
+        "description": "Ваше тренування зі зброєю дозволяє вам використовувати властивість майстерності одного виду простої або бойової зброї на ваш вибір, за умови, що ви володієте нею. Щоразу, коли ви завершуєте довгий відпочинок, ви можете змінити вид зброї на інший придатний вид."
+      }
+    ]
+  }
+]

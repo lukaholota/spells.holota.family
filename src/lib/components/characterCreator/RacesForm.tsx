@@ -153,17 +153,17 @@ export const RacesForm = (
     return ua.includes(normalizedRaceSearch) || eng.includes(normalizedRaceSearch);
   }, [normalizedRaceSearch]);
 
-  const sourceLabel = (race: RaceI) => sourceTranslations[race.source as keyof typeof sourceTranslations] ?? race.source;
+  const is2024 = useMemo(() => races.some((r) => r.ruleset === "RULES_2024" || r.name.endsWith("2024")), [races]);
 
   const coreRaces = useMemo(
     () => races
-      .filter(r => r.name.endsWith('2014'))
+      .filter(r => is2024 ? (r.ruleset === "RULES_2024" || r.name.endsWith("2024")) : r.name.endsWith('2014'))
       .filter(r => matchesSearch(r.name))
       .sort((a, b) => (a.sortOrder - b.sortOrder) || (a.raceId - b.raceId)),
-    [races, matchesSearch]
+    [races, is2024, matchesSearch]
   );
   const otherRaces = useMemo(
-    () => races
+    () => is2024 ? [] : races
       .filter(r => !r.name.endsWith('2014'))
       .filter(r => matchesSearch(r.name))
       .sort((a, b) => {
@@ -173,7 +173,7 @@ export const RacesForm = (
         // Then by raceId as fallback
         return a.raceId - b.raceId;
       }),
-    [races, matchesSearch]
+    [races, is2024, matchesSearch]
   );
 
   const hasNoResults = !coreRaces.length && !otherRaces.length;
@@ -184,7 +184,7 @@ export const RacesForm = (
       <form id={formId} onSubmit={onSubmit} className="w-full space-y-4">
       <div className="space-y-2 text-center">
         <h2 className="font-rpg-display text-3xl font-semibold uppercase tracking-widest text-slate-200 sm:text-4xl">
-          Оберіть расу
+          {is2024 ? "Оберіть вид" : "Оберіть расу"}
         </h2>
         <p className="text-sm text-slate-400">Натисніть на картку, щоб продовжити.</p>
       </div>
@@ -225,13 +225,14 @@ export const RacesForm = (
       <div className="space-y-3">
         <div>
           <div className="mb-2 flex items-center justify-between">
-            <p className="text-sm font-semibold text-white">PHB 2014</p>
+            <p className="text-sm font-semibold text-white">{is2024 ? "PHB 2024" : "PHB 2014"}</p>
             <Badge variant="outline" className="border-white/15 bg-white/5 text-slate-200">Джерело</Badge>
           </div>
           <div className="grid gap-3 sm:grid-cols-2">
             {coreRaces.map(r =>  (
               <Card
                 key={r.raceId}
+                data-testid={`race-${r.name}`}
                 className={clsx(
                   "glass-card cursor-pointer transition-all duration-200",
                   r.raceId === chosenRaceId && "glass-active"
@@ -264,16 +265,18 @@ export const RacesForm = (
           </div>
         </div>
 
-        <details className="glass-panel border-gradient-rpg rounded-xl" open={forceOpenOther || undefined}>
-          <summary className="cursor-pointer list-none px-4 py-3 text-sm font-semibold text-white hover:bg-white/5 [&::-webkit-details-marker]:hidden">
-            Інші джерела
-          </summary>
-          <div className="border-t border-white/10 p-3">
-            <div className="grid gap-3 sm:grid-cols-2">
-              {otherRaces.map(r =>  (
-                <Card
-                  key={r.raceId}
-                  className={clsx(
+        {!is2024 && otherRaces.length > 0 && (
+          <details className="glass-panel border-gradient-rpg rounded-xl" open={forceOpenOther || undefined}>
+            <summary className="cursor-pointer list-none px-4 py-3 text-sm font-semibold text-white hover:bg-white/5 [&::-webkit-details-marker]:hidden">
+              Інші джерела
+            </summary>
+            <div className="border-t border-white/10 p-3">
+              <div className="grid gap-3 sm:grid-cols-2">
+                {otherRaces.map(r =>  (
+              <Card
+                key={r.raceId}
+                data-testid={`race-${r.name}`}
+                className={clsx(
                     "glass-card cursor-pointer transition-all duration-200",
                     r.raceId === chosenRaceId && "glass-active"
                   )}
@@ -305,6 +308,7 @@ export const RacesForm = (
             </div>
           </div>
         </details>
+        )}
       </div>
 
       <input

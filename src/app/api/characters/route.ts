@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { auth } from "@/lib/auth";
-import { prisma } from "@/lib/prisma";
+import { listCharacterSpellIndex } from "@/server/db/character-api";
+import { findUserIdByEmail } from "@/server/db/users";
 
 /**
  * GET /api/characters
@@ -13,31 +14,13 @@ export async function GET() {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
-  const user = await prisma.user.findUnique({
-    where: { email: session.user.email },
-    select: { id: true },
-  });
+  const userId = await findUserIdByEmail(session.user.email);
 
-  if (!user) {
+  if (userId === null) {
     return NextResponse.json({ error: "User not found" }, { status: 404 });
   }
 
-  const characters = await prisma.pers.findMany({
-    where: { userId: user.id },
-    select: {
-      persId: true,
-      name: true,
-      persSpells: {
-        select: { spellId: true },
-      },
-    },
-  });
-
-  const result = characters.map((c) => ({
-    characterId: c.persId,
-    name: c.name,
-    spellIds: c.persSpells.map((ps) => ps.spellId),
-  }));
+  const result = await listCharacterSpellIndex(userId);
 
   return NextResponse.json(result);
 }

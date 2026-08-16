@@ -30,7 +30,6 @@ import {
 import {
   MulticlassReqs,
   SkillProficiencies,
-  ToolProficiencies,
   WeaponProficiencies,
   WeaponProficienciesSpecial,
 } from "@/lib/types/model-types";
@@ -114,7 +113,7 @@ export const formatSkillProficiencies = (skills?: SkillProficiencies | null) => 
   return `Обери ${count}: ${formatList(actualOptions)}`;
 };
 
-export const formatToolProficiencies = (tools?: ToolProficiencies | null, chooseCount?: number | null) => {
+export const formatToolProficiencies = (tools?: string[] | null, chooseCount?: number | null) => {
   const parts: string[] = [];
 
   if (tools && tools.length) {

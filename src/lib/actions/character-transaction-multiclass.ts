@@ -1,6 +1,6 @@
 'use server';
 
-import { prisma } from '@/lib/prisma';
+import { findPersLevel } from '@/server/db/legacy-levelup';
 import { confirmLevelUp } from './character-transaction';
 
 interface MulticlassConfirmLevelUpInput {
@@ -16,7 +16,6 @@ export async function confirmMulticlassLevelUp(input: MulticlassConfirmLevelUpIn
   
   if (newClassChoice) {
       // Handle adding a new class to PersClass
-      // await prisma.persClass.create(...)
       return { success: true, message: "Новий клас додано!" };
   }
 
@@ -25,10 +24,10 @@ export async function confirmMulticlassLevelUp(input: MulticlassConfirmLevelUpIn
   // For now, we assume single class or primary class logic via the standard confirmLevelUp
   
   // We need to calculate the new TOTAL level
-  const pers = await prisma.pers.findUnique({ where: { persId: input.persId } });
-  if (!pers) return { success: false, error: "Character not found" };
+  const persLevel = await findPersLevel(input.persId);
+  if (persLevel === null) return { success: false, error: "Character not found" };
 
-  const newTotalLevel = pers.level + 1;
+  const newTotalLevel = persLevel + 1;
 
   // Delegate to the standard handler
   return await confirmLevelUp({

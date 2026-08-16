@@ -30,21 +30,25 @@ import FeatsForm from "@/lib/components/characterCreator/FeatsForm";
 import { BackgroundFeatsForm } from "@/lib/components/characterCreator/BackgroundFeatsForm";
 import { ExpertiseForm } from "@/lib/components/characterCreator/ExpertiseForm";
 import { LanguagesForm } from "@/lib/components/characterCreator/LanguagesForm";
+import { resolveCreationSteps } from "@/lib/components/characterCreator/creation-step-resolver";
 
 import { createCharacter } from "@/lib/actions/character";
 import { extractSkillsFromChoiceOption, extractExpertisesFromChoiceOption, extractSkillFromOptionName } from "@/lib/logic/characterUtils";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
+import { getRulesStrategy } from "@/rules/strategies";
 import { PersFormData } from "@/lib/zod/schemas/persCreateSchema";
 import { useSession } from "next-auth/react";
 import posthog from "posthog-js";
 
 interface Props {
-  races: RaceI[]
-  classes: ClassI[],
-  backgrounds: BackgroundI[],
-  weapons: Weapon[],
-  feats: FeatPrisma[],
+  races: RaceI[];
+  classes: ClassI[];
+  backgrounds: BackgroundI[];
+  weapons: Weapon[];
+  feats: FeatPrisma[];
+  canSelect2024?: boolean;
+  initialRuleset?: "RULES_2014" | "RULES_2024";
 }
 
 export const MultiStepForm = (
@@ -54,6 +58,8 @@ export const MultiStepForm = (
     backgrounds,
     weapons,
     feats,
+    canSelect2024 = false,
+    initialRuleset = "RULES_2014",
   }: Props
 ) => {
   const { data: session, status: sessionStatus } = useSession();
@@ -76,6 +82,15 @@ export const MultiStepForm = (
   const [highestStepCompleted, setHighestStepCompleted] = useState<number>(0);
   const router = useRouter();
   const didMountRef = useRef(false);
+
+  const currentRuleset = (formData.ruleset ?? initialRuleset ?? "RULES_2014") as "RULES_2014" | "RULES_2024";
+
+  const handleRulesetChange = useCallback((newRuleset: "RULES_2014" | "RULES_2024") => {
+    if (newRuleset === currentRuleset) return;
+    resetForm();
+    updateFormData({ ruleset: newRuleset });
+    router.push(`/char?ruleset=${newRuleset}`);
+  }, [currentRuleset, resetForm, updateFormData, router]);
 
   useEffect(() => {
     if (!isHydrated) return;
@@ -411,9 +426,9 @@ export const MultiStepForm = (
 
   const hasSubclasses = useMemo(() => {
     if (!cls) return false;
-    const allowedClasses = ["CLERIC_2014", "WARLOCK_2014", "SORCERER_2014"];
-    return allowedClasses.includes(cls.name) && (cls.subclasses?.length ?? 0) > 0;
-  }, [cls]);
+    const strategy = getRulesStrategy((cls.ruleset as "RULES_2014" | "RULES_2024") ?? currentRuleset);
+    return strategy.needsSubclassSelection({ subclassLevel: cls.subclassLevel }, false, 1) && (cls.subclasses?.length ?? 0) > 0;
+  }, [cls, currentRuleset]);
 
   const hasLevelOneSubclassChoices = useMemo(
     () => Boolean(subclass?.subclassChoiceOptions?.some((opt) => (opt.levelsGranted || []).includes(1))),
@@ -542,76 +557,21 @@ export const MultiStepForm = (
   }, [race, cls, subclass, subrace, bg, feat, backgroundFeat, activeFeatures, formData.raceChoiceSelections]);
 
   const steps = useMemo(() => {
-    const dynamicSteps: { id: string; name: string; component: string }[] = [
-      { id: "race", name: "Раса", component: "races" },
-    ];
-
-    if (hasSubraces || hasRaceVariants) {
-      const name = hasSubraces && hasRaceVariants
-        ? "Підраса чи Варіант"
-        : hasSubraces
-          ? "Підраса"
-          : "Варіант раси";
-
-      dynamicSteps.push({ id: "raceDetails", name, component: "raceDetails" });
-    }
-
-    if (hasRaceChoiceOptions) {
-      dynamicSteps.push({ id: "raceChoices", name: "Опції раси", component: "raceChoices" });
-    }
-
-    dynamicSteps.push({ id: "class", name: "Клас", component: "class" });
-
-    if (hasSubclasses) {
-      dynamicSteps.push({ id: "subclass", name: "Підклас", component: "subclass" });
-    }
-
-    if (hasLevelOneSubclassChoices) {
-      dynamicSteps.push({ id: "subclassChoices", name: "Опції підкласу", component: "subclassChoices" });
-    }
-
-    if (hasLevelOneChoices) {
-      dynamicSteps.push({ id: "classChoices", name: "Опції класу", component: "classChoices" });
-    }
-
-    if (hasLevelOneOptionalFeatures) {
-      dynamicSteps.push({ id: "classOptional", name: "Додаткові риси", component: "classOptional" });
-    }
-
-    dynamicSteps.push(
-      { id: "background", name: "Передісторія", component: "background" },
-      { id: "asi", name: "Характеристики", component: "asi" },
-      { id: "skills", name: "Навички", component: "skills" },
-    );
-
-    if (hasFeatChoice) {
-      dynamicSteps.push({ id: "feat", name: "Риса", component: "feat" });
-    }
-    if (hasFeatChoices) {
-      dynamicSteps.push({ id: "featChoices", name: "Опції риси", component: "featChoices" });
-    }
-
-    if (hasBackgroundFeatChoice) {
-      dynamicSteps.push({ id: "backgroundFeat", name: "Риса походження", component: "backgroundFeat" });
-    }
-    if (hasBackgroundFeatChoices) {
-      dynamicSteps.push({ id: "backgroundFeatChoices", name: "Опції риси походження", component: "backgroundFeatChoices" });
-    }
-
-    if (hasExpertiseChoice) {
-      dynamicSteps.push({ id: "expertise", name: "Експертиза", component: "expertise" });
-    }
-
-    if (hasLanguageChoice) {
-      dynamicSteps.push({ id: "languages", name: "Мови", component: "languages" });
-    }
-
-    dynamicSteps.push(
-      { id: "equipment", name: "Спорядження", component: "equipment" },
-      { id: "name", name: "Імʼя", component: "name" },
-    );
-
-    return dynamicSteps;
+    return resolveCreationSteps({
+      hasSubraces,
+      hasRaceVariants,
+      hasRaceChoiceOptions,
+      hasSubclasses,
+      hasLevelOneSubclassChoices,
+      hasLevelOneChoices,
+      hasLevelOneOptionalFeatures,
+      hasFeatChoice,
+      hasFeatChoices,
+      hasBackgroundFeatChoice,
+      hasBackgroundFeatChoices,
+      hasExpertiseChoice,
+      hasLanguageChoice,
+    });
   }, [
     hasLevelOneChoices,
     hasLevelOneOptionalFeatures,
@@ -952,10 +912,6 @@ export const MultiStepForm = (
   const activeFormId = `character-step-form-${currentStep}`;
 
   useEffect(() => {
-    setNextDisabled(false);
-  }, [currentStep]);
-
-  useEffect(() => {
     if (!isHydrated) return;
     if (!didMountRef.current) {
       didMountRef.current = true;
@@ -975,6 +931,9 @@ export const MultiStepForm = (
         onReset={resetForm}
         onOpenAuth={() => setAuthDialogOpen(true)}
         isAuthenticated={sessionStatus === "authenticated" && !!session?.user}
+        canSelect2024={canSelect2024}
+        ruleset={currentRuleset}
+        onRulesetChange={handleRulesetChange}
       />
 
       <Card className="shadow-2xl">
@@ -1003,6 +962,9 @@ export const MultiStepForm = (
                     <button
                       key={step.id}
                       type="button"
+                      data-testid={`creation-step-${step.id}`}
+                      data-step-id={step.id}
+                      data-active={isActive ? "true" : "false"}
                       disabled={!canJump && !isActive}
                       onClick={() => jumpToStep(stepOrder)}
                       className={clsx(

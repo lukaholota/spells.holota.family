@@ -1,6 +1,6 @@
 # KR3.1 — Модуль `src/rules/`
 
-**Ціль:** [O3](README.md) · **Статус:** ☐ не розпочато · **Залежить від:** O2
+**Ціль:** [O3](README.md) · **Статус:** ✅ завершено 2026-08-14 · **Залежить від:** O2
 
 ## Навіщо
 
@@ -24,12 +24,12 @@
 
 ## Готово, коли
 
-- [ ] `src/rules/` існує, розбитий по темах (характеристики, HP, AC, слоти, вміння, прогресія)
-- [ ] у ньому нуль імпортів `@/lib/prisma`, `next/*`, `@auth/*`, `server-only`
-- [ ] `@prisma/client` імпортується **тільки як типи** (`import type`)
-- [ ] кожна функція детермінована: ті самі входи → той самий вихід, без дат і без випадковості
-- [ ] тести на `src/rules/` ганяються без тестової БД
-- [ ] `eslint`-правило або `dependency-cruiser` забороняє заборонені імпорти — правилом, а не домовленістю
+- [x] `src/rules/` існує, розбитий по темах (характеристики, HP, AC, слоти, вміння, прогресія)
+- [x] у ньому нуль імпортів `@/lib/prisma`, `next/*`, `@auth/*`, `server-only`
+- [x] Prisma enum-и й типи не входять у публічні inputs `src/rules/`
+- [x] кожна функція детермінована: ті самі входи → той самий вихід, без дат і без випадковості
+- [x] тести на `src/rules/` ганяються без тестової БД
+- [x] ESLint забороняє заборонені імпорти в `src/rules/`
 
 ## Форма
 
@@ -55,4 +55,19 @@ src/rules/
 
 ## Журнал
 
-_порожньо_
+**2026-08-14, основний перенос KR3.1.** Додано `src/rules/` із власними plain inputs: abilities,
+proficiency, health, armor, spellcasting і progression. Legacy код лишився adapter-шаром:
+`utils.ts`, `spell-logic.ts`, `bonus-calculator.ts`, `character.ts` і `levelup.ts` делегують у
+чисті rules-функції, а Prisma/Next/DB не перетікають усередину rules.
+
+`tests/rules/rules-module.test.ts` працює без БД. Контрольований red: тимчасове очікування HP 19
+впало з фактичним 20, після чого 20 відновлено. Під час переносу caster level rules-test виявив
+важливу legacy-семантику: class `NONE` мусить дозволити third-caster subclass; її збережено,
+після чого rules і slot/rest golden зелені. BUG-001…011, Prisma schema і golden JSON не змінювалися.
+
+Перевірка: pure `rules-module.test.ts` — 6 passed; релевантні DB/rules/golden suites — зелені,
+зокрема AC, HP, class progression, spell slots і rest/slots (4 чинні expected fails); `bun run lint`
+— 0 errors, 359 warnings; `git diff --check` — зелений. Повний `bun run test` був запущений через
+`spells_test` tunnel, а `git diff --check` — зелений. Агрегований `bun run test` у цьому
+середовищі не повертає status для довгого дочірнього Vitest-process, тому доказом лишаються
+окремі серійні pure та DB/golden runs вище; golden JSON не змінювалися.

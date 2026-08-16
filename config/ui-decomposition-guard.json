@@ -1,0 +1,55 @@
+{
+  "size": {
+    "maxLines": 400,
+    "legacy": {
+      "src/app/char/home/CharHomeClient.tsx": 2263,
+      "src/app/magic-items/magic-items-client.tsx": 870,
+      "src/app/spells/spells-client.tsx": 1510,
+      "src/lib/components/characterCreator/ASIForm.tsx": 830,
+      "src/lib/components/characterCreator/ClassChoiceOptionsForm.tsx": 436,
+      "src/lib/components/characterCreator/EquipmentForm.tsx": 415,
+      "src/lib/components/characterCreator/FeatChoiceOptionsForm.tsx": 1211,
+      "src/lib/components/characterCreator/MultiStepForm.tsx": 1093,
+      "src/lib/components/characterCreator/NameForm.tsx": 843,
+      "src/lib/components/characterCreator/SkillsForm.tsx": 690,
+      "src/lib/components/characterCreator/modals/ClassInfoModal.tsx": 878,
+      "src/lib/components/characterSheet/AddSpellDialog.tsx": 487,
+      "src/lib/components/characterSheet/ModifyStatModal.tsx": 699,
+      "src/lib/components/characterSheet/SpellInfoModal.tsx": 469,
+      "src/lib/components/characterSheet/slides/CombatSlide.tsx": 720,
+      "src/lib/components/characterSheet/slides/FeaturesSlide.tsx": 879,
+      "src/lib/components/characterSheet/slides/MagicSlide.tsx": 1296,
+      "src/lib/components/characterSheet/slides/MainStatsSlide.tsx": 1092,
+      "src/lib/components/levelUp/LevelUpWizard.tsx": 2126
+    }
+  },
+  "jsxNesting": {
+    "maxDepth": 14,
+    "legacy": {}
+  },
+  "clones": {
+    "paths": ["src/app", "src/components", "src/lib/components"],
+    "minLines": 40,
+    "minTokens": 200,
+    "legacy": [
+      {
+        "files": [
+          "src/lib/components/characterCreator/BackgroundFeatsForm.tsx",
+          "src/lib/components/characterCreator/FeatsForm.tsx"
+        ],
+        "maxLines": 119,
+        "owner": "KR4.3",
+        "added": "2026-08-15"
+      },
+      {
+        "files": [
+          "src/components/ui/dialog.tsx",
+          "src/lib/components/ui/dialog.tsx"
+        ],
+        "maxLines": 120,
+        "owner": "KR4.3",
+        "added": "2026-08-15"
+      }
+    ]
+  }
+}

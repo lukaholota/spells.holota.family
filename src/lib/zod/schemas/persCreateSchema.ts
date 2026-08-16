@@ -263,6 +263,18 @@ export const fullCharacterSchema = z.object({
   expertiseSchema: expertiseSchema.optional(),
   languagesSchema: languagesSchema.optional(),
   equipmentSchema: equipmentSchema.optional(),
+  ruleset: z.enum(["RULES_2014", "RULES_2024"]).default("RULES_2014").optional(),
+  backgroundAsiChoice: z.union([
+    z.object({
+      mode: z.literal("+2/+1"),
+      plusTwo: z.nativeEnum(Ability),
+      plusOne: z.nativeEnum(Ability),
+    }),
+    z.object({
+      mode: z.literal("+1/+1/+1"),
+      abilities: z.array(z.nativeEnum(Ability)).length(3),
+    }),
+  ]).optional(),
   nameSchema: nameSchema.optional()
   ,
   // -------------------------------------------------------------------------

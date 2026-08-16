@@ -23,6 +23,14 @@ const eslintConfig = [
   },
   ...compat.extends("next/core-web-vitals", "next/typescript"),
   {
+    files: ["src/rules/**/*.{ts,tsx}"],
+    rules: {
+      "no-restricted-imports": ["error", {
+        patterns: ["@prisma/client", "@/lib/prisma", "next/*", "@auth/*", "server-only"],
+      }],
+    },
+  },
+  {
     rules: {
       '@typescript-eslint/no-explicit-any': 'warn',
       '@typescript-eslint/no-unused-vars': ['warn', { 
@@ -44,6 +52,15 @@ const eslintConfig = [
     rules: {
       '@typescript-eslint/no-explicit-any': 'off'
     }
+  },
+  {
+    files: ["src/rules/**/*.{ts,tsx}", "src/server/db/**/*.{ts,tsx}"],
+    rules: {
+      "no-restricted-syntax": ["error", {
+        selector: 'TSAsExpression > TSAnyKeyword',
+        message: "Use a narrowed unknown value, a type guard, or a precise DTO instead of as any.",
+      }],
+    },
   },
 ];
 

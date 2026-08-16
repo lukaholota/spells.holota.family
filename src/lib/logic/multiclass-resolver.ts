@@ -1,4 +1,4 @@
-import { prisma } from '@/lib/prisma';
+import { findPersPrimaryClass } from '@/server/db/multiclass-content';
 
 export interface ClassLevelInfo {
   classId: number;
@@ -14,14 +14,7 @@ export interface MulticlassCharacter {
 }
 
 export async function getMulticlassInfo(persId: number): Promise<MulticlassCharacter> {
-  const pers = await prisma.pers.findUnique({
-    where: { persId },
-    include: {
-      class: true, // Primary class
-      // Тут має бути зв'язок з PersClass для мультикласів
-      // persClasses: { include: { class: true } } 
-    },
-  });
+  const pers = await findPersPrimaryClass(persId);
 
   if (!pers) throw new Error('Character not found');
 
@@ -31,15 +24,11 @@ export async function getMulticlassInfo(persId: number): Promise<MulticlassChara
   const classes: ClassLevelInfo[] = [
       {
           classId: pers.classId,
-          className: pers.class.name,
+          className: pers.className,
           classLevel: pers.level,
           hitDie: 10, // TODO: Get from constant or DB
       }
   ];
-
-  // Mock logic for multiclass if PersClass existed
-  // const extraClasses = await prisma.persClass.findMany(...)
-  // classes.push(...)
 
   return {
     persId,

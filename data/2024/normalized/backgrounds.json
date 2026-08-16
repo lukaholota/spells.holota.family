@@ -1,0 +1,578 @@
+[
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Acolyte",
+    "name": "Служитель",
+    "shortDescription": "Ви служили в храмі, вивчали релігію та навчилися спрямовувати дещицю божественної сили.",
+    "description": "Ви присвятили себе служінню в храмі — чи то в місті, чи то в усамітненому священному гаю. Там ви проводили обряди на честь бога чи пантеону. Ви служили під наглядом жерця й вивчали релігію. Завдяки настановам жерця та власній відданості ви також навчилися спрямовувати дещицю божественної сили на службу своєму місцю поклоніння та людям, які там молилися.",
+    "abilityOptions": [
+      "INT",
+      "WIS",
+      "CHA"
+    ],
+    "skillProficiencies": [
+      {
+        "enum": "INSIGHT",
+        "nameUa": "Аналіз Поведінки"
+      },
+      {
+        "enum": "RELIGION",
+        "nameUa": "Релігія"
+      }
+    ],
+    "toolProficiency": {
+      "engText": "Calligrapher's Supplies",
+      "toolCategory": null,
+      "isChoice": false,
+      "nameUa": "Каліграфічний набір",
+      "note": "Немає відповідного значення ToolCategory (CALLIGRAPHERS_SUPPLIES відсутнє в enum) — потребує owner-apply SQL у KR6.3"
+    },
+    "originFeat": {
+      "engName": "Magic Initiate (Cleric)",
+      "nameUa": "Посвячений у магію (Клірик)"
+    },
+    "equipmentEngText": "Choose A or B: (A) Calligrapher’s Supplies, Book (prayers), Holy Symbol, Parchment (10 sheets), Robe, 8 GP; or (B) 50 GP",
+    "grantsGoldInstead": 50,
+    "source": "PHB_2024"
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Artisan",
+    "name": "Ремісник",
+    "shortDescription": "Ви виросли в ремісничій майстерні та опанували основи ремесла.",
+    "description": "Відколи ви стали достатньо міцними, щоб носити відро, ви мили підлогу й тримали лад у ремісничій майстерні за кілька мідяків на день. Коли настав час навчатися ремеслу, ви навчилися створювати прості вироби власноруч, а також вести солодкі розмови з вибагливими покупцями. Ваше ремесло також розвинуло у вас гострий погляд на деталі.",
+    "abilityOptions": [
+      "STR",
+      "DEX",
+      "INT"
+    ],
+    "skillProficiencies": [
+      {
+        "enum": "INVESTIGATION",
+        "nameUa": "Розслідування"
+      },
+      {
+        "enum": "PERSUASION",
+        "nameUa": "Переконання"
+      }
+    ],
+    "toolProficiency": {
+      "engText": "Choose one kind of Artisan’s Tools",
+      "toolCategory": "ARTISAN_TOOLS",
+      "isChoice": true,
+      "nameUa": "Інструменти ремісника (на вибір)",
+      "note": null
+    },
+    "originFeat": {
+      "engName": "Crafter",
+      "nameUa": "Ремісник"
+    },
+    "equipmentEngText": "Choose A or B: (A) Artisan's Tools (same as above), 2 Pouches, Traveler’s Clothes, 32 GP; or (B) 50 GP",
+    "grantsGoldInstead": 50,
+    "source": "PHB_2024"
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Charlatan",
+    "name": "Шахрай",
+    "shortDescription": "Ви навчилися наживатися на довірливих людях брехнею та підробками.",
+    "description": "Щойно ви стали достатньо дорослими, аби замовити ель, у вас з'явився улюблений стілець у кожній таверні в межах десяти миль від рідного дому. Мандруючи від шинку до шинку, ви навчилися наживатися на бідолахах, які шукали втішної брехні — може, підробленого зілля чи фальшивого родоводу.",
+    "abilityOptions": [
+      "DEX",
+      "CON",
+      "CHA"
+    ],
+    "skillProficiencies": [
+      {
+        "enum": "DECEPTION",
+        "nameUa": "Обман"
+      },
+      {
+        "enum": "SLEIGHT_OF_HAND",
+        "nameUa": "Спритність рук"
+      }
+    ],
+    "toolProficiency": {
+      "engText": "Forgery Kit",
+      "toolCategory": "FORGERY_KIT",
+      "isChoice": false,
+      "nameUa": "Набір фальшивомонетника",
+      "note": null
+    },
+    "originFeat": {
+      "engName": "Skilled",
+      "nameUa": "Умілець"
+    },
+    "equipmentEngText": "Choose A or B: (A) Forgery Kit, Costume, Fine Clothes, 15 GP; or (B) 50 GP",
+    "grantsGoldInstead": 50,
+    "source": "PHB_2024"
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Criminal",
+    "name": "Злочинець",
+    "shortDescription": "Ви заробляли на життя крадіжками та обходом закону в темних провулках міста.",
+    "description": "Ви заробляли на життя в темних провулках, зрізаючи гаманці чи обкрадаючи крамниці. Можливо, ви належали до невеликої зграї однодумців-злочинців, які прикривали одне одного. А може, були самотнім вовком, який протистояв місцевій гільдії злодіїв і ще грізнішим порушникам закону.",
+    "abilityOptions": [
+      "DEX",
+      "CON",
+      "INT"
+    ],
+    "skillProficiencies": [
+      {
+        "enum": "SLEIGHT_OF_HAND",
+        "nameUa": "Спритність рук"
+      },
+      {
+        "enum": "STEALTH",
+        "nameUa": "Непомітність"
+      }
+    ],
+    "toolProficiency": {
+      "engText": "Thieves' Tools",
+      "toolCategory": "THIEVES_TOOLS",
+      "isChoice": false,
+      "nameUa": "Інструменти злодія",
+      "note": null
+    },
+    "originFeat": {
+      "engName": "Alert",
+      "nameUa": "Пильний"
+    },
+    "equipmentEngText": "Choose A or B: (A) 2 Daggers, Thieves' Tools, Crowbar, 2 Pouches, Traveler's Clothes, 16 GP; or (B) 50 GP",
+    "grantsGoldInstead": 50,
+    "source": "PHB_2024"
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Entertainer",
+    "name": "Артист",
+    "shortDescription": "Ви виросли серед мандрівних ярмарків і навчилися розважати публіку.",
+    "description": "Значну частину юності ви провели, слідуючи за мандрівними ярмарками й карнавалами, виконуючи дрібні доручення для музикантів і акробатів в обмін на уроки. Можливо, ви навчилися ходити по канату, грати на лютні у своєму особливому стилі чи декламувати вірші з бездоганною дикцією. Донині ви живете заради оплесків і прагнете сцени.",
+    "abilityOptions": [
+      "STR",
+      "DEX",
+      "CHA"
+    ],
+    "skillProficiencies": [
+      {
+        "enum": "ACROBATICS",
+        "nameUa": "Акробатика"
+      },
+      {
+        "enum": "PERFORMANCE",
+        "nameUa": "Виступ"
+      }
+    ],
+    "toolProficiency": {
+      "engText": "Choose one kind of Musical Instrument",
+      "toolCategory": "MUSICAL_INSTRUMENT",
+      "isChoice": true,
+      "nameUa": "Музичний інструмент (на вибір)",
+      "note": null
+    },
+    "originFeat": {
+      "engName": "Musician",
+      "nameUa": "Музикант"
+    },
+    "equipmentEngText": "Choose A or B: (A) Musical Instrument (same as above), 2 Costumes, Mirror, Perfume, Traveler’s Clothes, 11 GP; or (B) 50 GP",
+    "grantsGoldInstead": 50,
+    "source": "PHB_2024"
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Farmer",
+    "name": "Фермер",
+    "shortDescription": "Ви виросли близько до землі, доглядаючи тварин і обробляючи поля.",
+    "description": "Ви виросли близько до землі. Роки догляду за тваринами й обробітку землі винагородили вас терпінням і міцним здоров'ям. Ви маєте гостре відчуття щедрості природи поряд зі здоровою повагою до її гніву.",
+    "abilityOptions": [
+      "STR",
+      "CON",
+      "WIS"
+    ],
+    "skillProficiencies": [
+      {
+        "enum": "ANIMAL_HANDLING",
+        "nameUa": "Поводження з тваринами"
+      },
+      {
+        "enum": "NATURE",
+        "nameUa": "Природа"
+      }
+    ],
+    "toolProficiency": {
+      "engText": "Carpenter's Tools",
+      "toolCategory": "ARTISAN_TOOLS",
+      "isChoice": false,
+      "nameUa": "Теслярські інструменти",
+      "note": "2014-специфічний enum CARPENTERS_TOOLS відсутній; ARTISAN_TOOLS — найближче наявне значення"
+    },
+    "originFeat": {
+      "engName": "Tough",
+      "nameUa": "Здоровань"
+    },
+    "equipmentEngText": "Choose A or B: (A) Sickle, Carpenter's Tools, Healer's Kit, Iron Pot, Shovel, Traveler's Clothes, 30 GP; or (B) 50 GP",
+    "grantsGoldInstead": 50,
+    "source": "PHB_2024"
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Guard",
+    "name": "Вартовий",
+    "shortDescription": "Ви несли варту на мурах, пильнуючи і зовнішні загрози, і внутрішній лад.",
+    "description": "Ваші ноги нили, коли ви згадуєте незліченні години на посту у вежі. Вас навчили одним оком стежити за тим, що діється за стіною, вигладаючи мародерів із сусіднього лісу, а іншим — за тим, що всередині, шукаючи кишенькових злодіїв і бешкетників.",
+    "abilityOptions": [
+      "STR",
+      "INT",
+      "WIS"
+    ],
+    "skillProficiencies": [
+      {
+        "enum": "ATHLETICS",
+        "nameUa": "Атлетика"
+      },
+      {
+        "enum": "PERCEPTION",
+        "nameUa": "Уважність"
+      }
+    ],
+    "toolProficiency": {
+      "engText": "Choose one kind of Gaming Set",
+      "toolCategory": "GAMING_SET",
+      "isChoice": true,
+      "nameUa": "Ігровий набір (на вибір)",
+      "note": null
+    },
+    "originFeat": {
+      "engName": "Alert",
+      "nameUa": "Пильний"
+    },
+    "equipmentEngText": "Choose A or B: (A) Spear, Light Crossbow, 20 Bolts, Gaming Set (same as above), Hooded Lantern, Manacles, Quiver, Traveler’s Clothes, 12 GP; or (B) 50 GP",
+    "grantsGoldInstead": 50,
+    "source": "PHB_2024"
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Guide",
+    "name": "Провідник",
+    "shortDescription": "Ви виросли в дикій природі й навчилися дбати про себе далеко від цивілізації.",
+    "description": "Ви виросли просто неба, далеко від освоєних земель. Домівкою вам було будь-яке місце, де ви розстеляли спальник. У дикій природі є дива — дивні монстри, незаймані ліси та річки, зарослі руїни великих залів, якими колись ходили велетні — і ви навчилися дбати про себе, досліджуючи їх. Часом ви супроводжували дружніх жерців природи, які навчали вас основ спрямування магії дикої природи.",
+    "abilityOptions": [
+      "DEX",
+      "CON",
+      "WIS"
+    ],
+    "skillProficiencies": [
+      {
+        "enum": "STEALTH",
+        "nameUa": "Непомітність"
+      },
+      {
+        "enum": "SURVIVAL",
+        "nameUa": "Виживання"
+      }
+    ],
+    "toolProficiency": {
+      "engText": "Cartographer's Tools",
+      "toolCategory": "CARTOGRAPHERS_TOOLS",
+      "isChoice": false,
+      "nameUa": "Інструменти картографа",
+      "note": null
+    },
+    "originFeat": {
+      "engName": "Magic Initiate (Druid)",
+      "nameUa": "Посвячений у магію (Друїд)"
+    },
+    "equipmentEngText": "Choose A or B: (A) Shortbow, 20 Arrows, Cartographer’s Tools, Bedroll, Quiver, Tent, Traveler's Clothes, 3 GP; or (B) 50 GP",
+    "grantsGoldInstead": 50,
+    "source": "PHB_2024"
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Hermit",
+    "name": "Відлюдник",
+    "shortDescription": "Ви провели ранні роки в самотності, розмірковуючи над таємницями буття.",
+    "description": "Свої ранні роки ви провели усамітнено в хатині чи монастирі, розташованому далеко за околицею найближчого поселення. У ті дні вашими єдиними супутниками були лісові істоти та ті, хто час від часу навідувався з новинами про зовнішній світ і припасами. Самотність дозволила вам провести чимало годин, розмірковуючи над таємницями творіння.",
+    "abilityOptions": [
+      "CON",
+      "WIS",
+      "CHA"
+    ],
+    "skillProficiencies": [
+      {
+        "enum": "MEDICINE",
+        "nameUa": "Медицина"
+      },
+      {
+        "enum": "RELIGION",
+        "nameUa": "Релігія"
+      }
+    ],
+    "toolProficiency": {
+      "engText": "Herbalism Kit",
+      "toolCategory": "HERBALISM_KIT",
+      "isChoice": false,
+      "nameUa": "Набір травника",
+      "note": null
+    },
+    "originFeat": {
+      "engName": "Healer",
+      "nameUa": "Цілитель"
+    },
+    "equipmentEngText": "Choose A or B: (A) Quarterstaff, Herbalism Kit, Bedroll, Book (philosophy), Lamp, Oil (3 flasks), Traveler's Clothes, 16 GP; or (B) 50 GP",
+    "grantsGoldInstead": 50,
+    "source": "PHB_2024"
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Merchant",
+    "name": "Торговець",
+    "shortDescription": "Ви навчилися основ комерції, купуючи й продаючи товари в мандрах.",
+    "description": "Ви навчалися ремесла в торговця, каравановода чи крамаря, опановуючи основи комерції. Ви багато мандрували й заробляли на життя, купуючи та продаючи сировину, потрібну ремісникам для їхнього ремесла, або готові вироби таких майстрів. Можливо, ви перевозили товари з місця на місце (кораблем, возом чи караваном) або купували їх у мандрівних торговців і продавали у власній крамниці.",
+    "abilityOptions": [
+      "CON",
+      "INT",
+      "CHA"
+    ],
+    "skillProficiencies": [
+      {
+        "enum": "ANIMAL_HANDLING",
+        "nameUa": "Поводження з тваринами"
+      },
+      {
+        "enum": "PERSUASION",
+        "nameUa": "Переконання"
+      }
+    ],
+    "toolProficiency": {
+      "engText": "Navigator's Tools",
+      "toolCategory": "NAVIGATORS_TOOLS",
+      "isChoice": false,
+      "nameUa": "Інструменти навігатора",
+      "note": null
+    },
+    "originFeat": {
+      "engName": "Lucky",
+      "nameUa": "Щасливчик"
+    },
+    "equipmentEngText": "Choose A or B: (A) Navigator’s Tools, 2 Pouches, Traveler's Clothes, 22 GP; or (B) 50 GP",
+    "grantsGoldInstead": 50,
+    "source": "PHB_2024"
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Noble",
+    "name": "Шляхтич",
+    "shortDescription": "Ви виросли в замку серед багатства й привілеїв, здобувши першокласну освіту.",
+    "description": "Ви виросли в замку, оточені багатством, владою та привілеями. Ваша родина дрібних аристократів подбала про те, щоб ви отримали першокласну освіту — частину якої ви цінували, а частину зневажали. Час, проведений у замку, особливо довгі години спостереження за родиною при дворі, також навчив вас багато чого про лідерство.",
+    "abilityOptions": [
+      "STR",
+      "INT",
+      "CHA"
+    ],
+    "skillProficiencies": [
+      {
+        "enum": "HISTORY",
+        "nameUa": "Історія"
+      },
+      {
+        "enum": "PERSUASION",
+        "nameUa": "Переконання"
+      }
+    ],
+    "toolProficiency": {
+      "engText": "Choose one kind of Gaming Set",
+      "toolCategory": "GAMING_SET",
+      "isChoice": true,
+      "nameUa": "Ігровий набір (на вибір)",
+      "note": null
+    },
+    "originFeat": {
+      "engName": "Skilled",
+      "nameUa": "Умілець"
+    },
+    "equipmentEngText": "Choose A or B: (A) Gaming Set (same as above), Fine Clothes, Perfume, 29 GP; or (B) 50 GP",
+    "grantsGoldInstead": 50,
+    "source": "PHB_2024"
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Sage",
+    "name": "Мудрець",
+    "shortDescription": "Ви провели роки серед бібліотек маєтків і монастирів, здобуваючи знання.",
+    "description": "Свої формувальні роки ви провели, мандруючи між маєтками та монастирями, виконуючи різні дрібні доручення й послуги в обмін на доступ до їхніх бібліотек. Ви гаяли чимало довгих вечорів, вивчаючи книги та сувої, пізнаючи знання мультивсесвіту — навіть основи магії — і ваш розум прагне більшого.",
+    "abilityOptions": [
+      "CON",
+      "INT",
+      "WIS"
+    ],
+    "skillProficiencies": [
+      {
+        "enum": "ARCANA",
+        "nameUa": "Магія"
+      },
+      {
+        "enum": "HISTORY",
+        "nameUa": "Історія"
+      }
+    ],
+    "toolProficiency": {
+      "engText": "Calligrapher's Supplies",
+      "toolCategory": null,
+      "isChoice": false,
+      "nameUa": "Каліграфічний набір",
+      "note": "Немає відповідного значення ToolCategory (CALLIGRAPHERS_SUPPLIES відсутнє в enum) — потребує owner-apply SQL у KR6.3"
+    },
+    "originFeat": {
+      "engName": "Magic Initiate (Wizard)",
+      "nameUa": "Посвячений у магію (Чарівник)"
+    },
+    "equipmentEngText": "Choose A or B: (A) Quarterstaff, Calligrapher's Supplies, Book (history), Parchment (8 sheets), Robe, 8 GP; or (B) 50 GP",
+    "grantsGoldInstead": 50,
+    "source": "PHB_2024"
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Sailor",
+    "name": "Моряк",
+    "shortDescription": "Ви жили як мореплавець, борознячи моря й переживаючи шторми.",
+    "description": "Ви жили як мореплавець — вітер у спину, палуба хитається під ногами. Ви сиділи на барних стільцях у більшій кількості портів, ніж можете пригадати, стикалися з могутніми штормами й обмінювалися історіями з людьми, що живуть під хвилями.",
+    "abilityOptions": [
+      "STR",
+      "DEX",
+      "WIS"
+    ],
+    "skillProficiencies": [
+      {
+        "enum": "ACROBATICS",
+        "nameUa": "Акробатика"
+      },
+      {
+        "enum": "PERCEPTION",
+        "nameUa": "Уважність"
+      }
+    ],
+    "toolProficiency": {
+      "engText": "Navigator's Tools",
+      "toolCategory": "NAVIGATORS_TOOLS",
+      "isChoice": false,
+      "nameUa": "Інструменти навігатора",
+      "note": null
+    },
+    "originFeat": {
+      "engName": "Tavern Brawler",
+      "nameUa": "Забіяка з таверни"
+    },
+    "equipmentEngText": "Choose A or B: (A) Dagger, Navigator's Tools, Rope, Traveler's Clothes, 20 GP; or (B) 50 GP",
+    "grantsGoldInstead": 50,
+    "source": "PHB_2024"
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Scribe",
+    "name": "Писар",
+    "shortDescription": "Ви навчилися вишуканого письма й пильної уваги до деталей у скрипторії.",
+    "description": "Свої формувальні роки ви провели в скрипторії, монастирі, присвяченому збереженню знань, або в державній установі, де навчилися писати впевненою рукою й створювати вишукано написані тексти. Можливо, ви переписували урядові документи чи копіювали томи літератури. Можливо, у вас є хист до написання поезії, оповідань чи наукових досліджень. Понад усе ви маєте пильну увагу до деталей, що допомагає уникати помилок у документах, які ви копіюєте й створюєте.",
+    "abilityOptions": [
+      "DEX",
+      "INT",
+      "WIS"
+    ],
+    "skillProficiencies": [
+      {
+        "enum": "INVESTIGATION",
+        "nameUa": "Розслідування"
+      },
+      {
+        "enum": "PERCEPTION",
+        "nameUa": "Уважність"
+      }
+    ],
+    "toolProficiency": {
+      "engText": "Calligrapher's Supplies",
+      "toolCategory": null,
+      "isChoice": false,
+      "nameUa": "Каліграфічний набір",
+      "note": "Немає відповідного значення ToolCategory (CALLIGRAPHERS_SUPPLIES відсутнє в enum) — потребує owner-apply SQL у KR6.3"
+    },
+    "originFeat": {
+      "engName": "Skilled",
+      "nameUa": "Умілець"
+    },
+    "equipmentEngText": "Choose A or B: (A) Calligrapher’s Supplies, Fine Clothes, Lamp, Oil (3 flasks), Parchment (12 sheets), 23 GP; or (B) 50 GP",
+    "grantsGoldInstead": 50,
+    "source": "PHB_2024"
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Soldier",
+    "name": "Солдат",
+    "shortDescription": "Ви готувалися до війни змалку і застосували підготовку на полі бою.",
+    "description": "Ви почали готуватися до війни, щойно досягли повноліття, і зберігаєте лише крихти спогадів про життя до того, як узяли до рук зброю. Битва — у вашій крові. Часом ви ловите себе на тому, що механічно виконуєте базові бойові вправи, які вивчили першими. Зрештою ви застосували цю підготовку на полі бою, захищаючи королівство, ведучи війну.",
+    "abilityOptions": [
+      "STR",
+      "DEX",
+      "CON"
+    ],
+    "skillProficiencies": [
+      {
+        "enum": "ATHLETICS",
+        "nameUa": "Атлетика"
+      },
+      {
+        "enum": "INTIMIDATION",
+        "nameUa": "Залякування"
+      }
+    ],
+    "toolProficiency": {
+      "engText": "Choose one kind of Gaming Set",
+      "toolCategory": "GAMING_SET",
+      "isChoice": true,
+      "nameUa": "Ігровий набір (на вибір)",
+      "note": null
+    },
+    "originFeat": {
+      "engName": "Savage Attacker",
+      "nameUa": "Жорстокий нападник"
+    },
+    "equipmentEngText": "Choose A or B: (A) Spear, Shortbow, 20 Arrows, Gaming Set (same as above), Healer's Kit, Quiver, Traveler’s Clothes, 14 GP; or (B) 50 GP",
+    "grantsGoldInstead": 50,
+    "source": "PHB_2024"
+  },
+  {
+    "ruleset": "RULES_2024",
+    "engName": "Wayfarer",
+    "name": "Мандрівник",
+    "shortDescription": "Ви виросли на вулицях серед знедолених і навчилися виживати попри нестатки.",
+    "description": "Ви виросли на вулицях серед таких самих знедолених покидьків долі — декого з них друзями, декого — суперниками. Ви спали де доводилось і бралися за будь-яку роботу заради їжі. Часом, коли голод ставав нестерпним, ви вдавалися до крадіжок. Та попри це ви ніколи не втрачали гордості й ніколи не полишали надії. Доля ще не закінчила з вами.",
+    "abilityOptions": [
+      "DEX",
+      "WIS",
+      "CHA"
+    ],
+    "skillProficiencies": [
+      {
+        "enum": "INSIGHT",
+        "nameUa": "Аналіз Поведінки"
+      },
+      {
+        "enum": "STEALTH",
+        "nameUa": "Непомітність"
+      }
+    ],
+    "toolProficiency": {
+      "engText": "Thieves' Tools",
+      "toolCategory": "THIEVES_TOOLS",
+      "isChoice": false,
+      "nameUa": "Інструменти злодія",
+      "note": null
+    },
+    "originFeat": {
+      "engName": "Lucky",
+      "nameUa": "Щасливчик"
+    },
+    "equipmentEngText": "Choose A or B: (A) 2 Daggers, Thieves' Tools, Gaming Set (any), Bedroll, 2 Pouches, Traveler's Clothes, 16 GP; or (B) 50 GP",
+    "grantsGoldInstead": 50,
+    "source": "PHB_2024"
+  }
+]

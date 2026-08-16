@@ -1,0 +1,50 @@
+import { afterAll, describe, expect, it } from "vitest";
+import { Classes } from "@prisma/client";
+import { prisma } from "@/lib/prisma";
+import { disconnectDatabase } from "../user-data";
+
+const SUBCLASS_LEVELS = [
+  // PHB 2014, с. 48, 52, 56, 64, 70, 76, 82, 88, 94, 100, 106, 112.
+  [Classes.BARBARIAN_2014, 3], [Classes.BARD_2014, 3], [Classes.CLERIC_2014, 1],
+  [Classes.DRUID_2014, 2], [Classes.FIGHTER_2014, 3], [Classes.MONK_2014, 3],
+  [Classes.PALADIN_2014, 3], [Classes.RANGER_2014, 3], [Classes.ROGUE_2014, 3],
+  [Classes.SORCERER_2014, 1], [Classes.WARLOCK_2014, 1], [Classes.WIZARD_2014, 2],
+] as const;
+
+const ABILITY_SCORE_UP_LEVELS = [
+  // PHB 2014, с. 48, 52, 56, 64, 70, 76, 82, 88, 94, 100, 106, 112.
+  [Classes.BARBARIAN_2014, [4, 8, 12, 16, 19]],
+  [Classes.BARD_2014, [4, 8, 12, 16, 19]],
+  [Classes.CLERIC_2014, [4, 8, 12, 16, 19]],
+  [Classes.DRUID_2014, [4, 8, 12, 16, 19]],
+  [Classes.FIGHTER_2014, [4, 6, 8, 12, 14, 16, 19]],
+  [Classes.MONK_2014, [4, 8, 12, 16, 19]],
+  [Classes.PALADIN_2014, [4, 8, 12, 16, 19]],
+  [Classes.RANGER_2014, [4, 8, 12, 16, 19]],
+  [Classes.ROGUE_2014, [4, 8, 10, 12, 16, 19]],
+  [Classes.SORCERER_2014, [4, 8, 12, 16, 19]],
+  [Classes.WARLOCK_2014, [4, 8, 12, 16, 19]],
+  [Classes.WIZARD_2014, [4, 8, 12, 16, 19]],
+] as const;
+
+afterAll(disconnectDatabase);
+
+describe("KR2.5 — subclass та ASI levels 12 PHB-класів", () => {
+  // Artificer належить TCoE; він не входить у 12 класів PHB, визначених цим KR.
+  it.each(SUBCLASS_LEVELS)("%s обирає підклас на %i рівні", async (className, expectedLevel) => {
+    const characterClass = await classByName(className);
+    expect(characterClass.subclassLevel).toBe(expectedLevel);
+  });
+
+  it.each(ABILITY_SCORE_UP_LEVELS)("%s має рівні ASI %j", async (className, expectedLevels) => {
+    const characterClass = await classByName(className);
+    expect(characterClass.abilityScoreUpLevels).toEqual(expectedLevels);
+  });
+});
+
+function classByName(name: Classes) {
+  return prisma.class.findFirstOrThrow({
+    where: { name },
+    select: { subclassLevel: true, abilityScoreUpLevels: true },
+  });
+}

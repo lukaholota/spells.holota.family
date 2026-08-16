@@ -21,7 +21,28 @@ on:
   workflow_dispatch:
 
 jobs:
+  rules-coverage:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: UI decomposition guard
+        run: bun run check:ui-decomposition
+
+      - name: Rules coverage
+        run: bun run test:rules:coverage
+
   checks:
+    needs: rules-coverage
     runs-on: ubuntu-latest
     # Тести роблять TRUNCATE у spells_ci_test. Дві джоби одночасно затирали б дані одна одній
     # і давали б плаваючі падіння. cancel-in-progress: false — щоб прогін не обривався на півдорозі.
@@ -61,6 +82,9 @@ jobs:
 
       - name: Types
         run: bunx tsc --noEmit
+
+      - name: DB boundary
+        run: bun run check:db-boundary
 
       - name: Lint
         run: bun run lint

@@ -1,0 +1,95 @@
+[
+  {
+    "kind": "renamed",
+    "old2014EngName": "Feeblemind",
+    "new2024EngName": "Befuddlement",
+    "levelSchoolText": "Level 8 Enchantment (Bard, Druid, Warlock, Wizard) Casting Time: Action Range: 150 feet Compon",
+    "confidence": "confirmed"
+  },
+  {
+    "kind": "renamed",
+    "old2014EngName": "Branding Smite",
+    "new2024EngName": "Shining Smite",
+    "levelSchoolText": "Level 2 Transmutation (Paladin) Casting Time: Bonus Action, which you take immediately after h",
+    "confidence": "confirmed"
+  },
+  {
+    "kind": "new",
+    "new2024EngName": "Arcane Vigor",
+    "levelSchoolText": "Level 2 Abjuration (Artificer, Sorcerer, Wizard) Casting Time: Bonus Action Range: Self Compon",
+    "confidence": "confirmed"
+  },
+  {
+    "kind": "new",
+    "new2024EngName": "Divine Smite",
+    "levelSchoolText": "Level 1 Evocation (Paladin) Casting Time: Bonus Action, which you take immediately after hitti",
+    "confidence": "confirmed"
+  },
+  {
+    "kind": "new",
+    "new2024EngName": "Elementalism",
+    "levelSchoolText": "Transmutation Cantrip (Artificer, Druid, Sorcerer, Wizard) Casting Time: Action Range: 30 feet",
+    "confidence": "confirmed"
+  },
+  {
+    "kind": "new",
+    "new2024EngName": "Fount of Moonlight",
+    "levelSchoolText": "Level 4 Evocation (Bard, Druid) Casting Time: Action Range: Self Components: V, S Duration: Co",
+    "confidence": "confirmed"
+  },
+  {
+    "kind": "new",
+    "new2024EngName": "Power Word Fortify",
+    "levelSchoolText": "Level 7 Enchantment (Bard, Cleric) Casting Time: Action Range: 60 foot Components: V Duration:",
+    "confidence": "confirmed"
+  },
+  {
+    "kind": "new",
+    "new2024EngName": "Sorcerous Burst",
+    "levelSchoolText": "Evocation Cantrip (Sorcerer) Casting Time: Action Range: 120 feet Components: V, S Duration: I",
+    "confidence": "confirmed"
+  },
+  {
+    "kind": "new",
+    "new2024EngName": "Starry Wisp",
+    "levelSchoolText": "Evocation Cantrip (Bard, Druid) Casting Time: Action Range: 60 feet Components: V, S Duration:",
+    "confidence": "confirmed"
+  },
+  {
+    "kind": "new",
+    "new2024EngName": "Summon Dragon",
+    "levelSchoolText": "Level 5 Conjuration (Wizard) Casting Time: Action Range: 60 feet Components: V, S, M (an objec",
+    "confidence": "confirmed"
+  },
+  {
+    "kind": "new",
+    "new2024EngName": "Tasha's Bubbling Cauldron",
+    "levelSchoolText": "Level 6 Conjuration (Warlock, Wizard) Casting Time: Action Range: 5 feet Components: V, S, M (",
+    "confidence": "confirmed"
+  },
+  {
+    "kind": "new-suspect-mistagged",
+    "new2024EngName": "Jallarzi's Storm of Radiance",
+    "levelSchoolText": "Level 5 Evocation (Warlock, Wizard) Casting Time: Action Range: 120 feet Components: V, S, M (",
+    "confidence": "low — wiki tags 'Player's Handbook' but name pattern (Chosen-of-Mystra NPC name) matches the Forgotten Realms - Heroes of Faerun sibling spells fetched alongside it; likely a wiki data-entry error, needs owner/SRD confirmation before treating as core PHB"
+  },
+  {
+    "kind": "new-suspect-mistagged",
+    "new2024EngName": "Yolande's Regal Presence",
+    "levelSchoolText": "Level 5 Enchantment (Bard, Wizard) Casting Time: Action Range: Self Components: Component: V,",
+    "confidence": "low — wiki tags 'Player's Handbook' but name pattern (Chosen-of-Mystra NPC name) matches the Forgotten Realms - Heroes of Faerun sibling spells fetched alongside it; likely a wiki data-entry error, needs owner/SRD confirmation before treating as core PHB"
+  },
+  {
+    "kind": "not-a-rename-2014-duplicate-quirk",
+    "note2014": "Our 2014 corpus has BOTH 'Arcane Hand' and \"Bigby's Hand\" (and both 'Arcane Sword' and \"Mordenkainen's Sword\") as separate PHB spell_id rows — a pre-existing historical duplicate from OGL-safe naming.",
+    "note2024": "The 2024 wiki uses \"Bigby's Hand\"/\"Mordenkainen's Sword\" exclusively, matching one of the two existing 2014 duplicate names. This is NOT a 2024 rename — it just means 'Arcane Hand'/'Arcane Sword' (2014) have no 2024 counterpart under that specific name, while their sibling duplicate does.",
+    "affected2014Names": [
+      "Arcane Hand",
+      "Arcane Sword"
+    ],
+    "matches2024Names": [
+      "Bigby's Hand",
+      "Mordenkainen's Sword"
+    ]
+  }
+]

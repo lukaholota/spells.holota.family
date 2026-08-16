@@ -1,6 +1,6 @@
 # KR3.6 — Прибрати `as any` з ядра
 
-**Ціль:** [O3](README.md) · **Статус:** ☐ не розпочато · **Залежить від:** KR3.1, KR3.4
+**Ціль:** [O3](README.md) · **Статус:** ✅ закрито 2026-08-15 · **Залежить від:** KR3.1, KR3.4
 
 ## Навіщо
 
@@ -13,11 +13,11 @@
 
 ## Готово, коли
 
-- [ ] нуль `as any` у `src/rules/`
-- [ ] нуль `as any` у `src/server/db/`
-- [ ] JSON-колонки описані типами й розбираються через zod на межі бази
-- [ ] `eslint` забороняє `as any` у цих двох каталогах (решта — попередження)
-- [ ] загальна кількість по `src/` записана в журнал для порівняння
+- [x] нуль `as any` у `src/rules/`
+- [x] нуль `as any` у `src/server/db/`
+- [x] JSON-колонки описані типами й розбираються через zod на межі бази
+- [x] `eslint` забороняє `as any` у цих двох каталогах (решта — попередження)
+- [x] загальна кількість по `src/` записана в журнал для порівняння
 
 ## Де вони живуть
 
@@ -47,4 +47,17 @@
 
 ## Журнал
 
-_порожньо_
+2026-08-15 — закрито. Початковий audit: 89 `as any` у шести DB-файлах; у `src/rules/` уже було
+нуль. JSON boundary винесено в `src/server/db/json.ts`: zod звужує records, string/enum arrays і
+weapon proficiency shapes. Prisma relation/scalar поля тепер використовуються напряму.
+
+`rg -n --glob '*.ts' 'as any' src/rules src/server/db` — нуль. Усього лишилось 79 `as any` по
+`src/` — поза межами KR3.6, переважно O4/UI debt. ESLint отримав вузький `TSAsExpression >
+TSAnyKeyword` error gate для `src/rules/` і `src/server/db/`; controlled-red через stdin
+підтвердив, що `input as any` відхиляється.
+
+Proof: `bun run test:rules:coverage` green (95.32% statements, 85.46% branches),
+`bun run check:db-boundary` green, targeted lint green. `bunx tsc --noEmit` має лише два
+заздалегідь відомі test-only errors у `tests/fixtures/builds/custom-asi-system.ts` і
+`tests/rules/prepared-spells.test.ts`. Isolated serial golden proof
+`fighter6-wizard14-multiclass` green (2 passed, 20 skipped, exit 0); golden JSON byte-stable.

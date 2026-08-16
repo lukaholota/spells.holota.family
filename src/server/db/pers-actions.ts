@@ -1,0 +1,1303 @@
+'use server';
+
+import { auth } from "@/lib/auth";
+import { prisma } from "@/lib/prisma";
+import { revalidatePath } from "next/cache";
+import { FeatureDisplayType, RestType, MagicItem, Prisma } from "@prisma/client";
+import { featTranslations } from "@/lib/refs/translation";
+import { translateValue } from "@/lib/components/characterCreator/infoUtils";
+import { FeatureSource } from "@/lib/utils/features";
+import { clonePersWithRelations, PERS_DUPLICATION_INCLUDE } from "@/lib/logic/pers-duplication";
+
+async function getCurrentUserId() {
+    const session = await auth();
+    if (!session?.user?.email) return null;
+
+    const user = await prisma.user.findUnique({
+        where: { email: session.user.email },
+        select: { id: true },
+    });
+
+    return user?.id ?? null;
+}
+
+export async function canEditPers(persId: number, userId: number) {
+    const pers = await prisma.pers.findUnique({
+        where: { persId },
+        select: {
+            userId: true,
+            folderId: true,
+            additionalUsers: { select: { userId: true } },
+        },
+    });
+
+    if (!pers) return false;
+    if (pers.userId === userId) return true;
+    if (pers.additionalUsers.some((u) => u.userId === userId)) return true;
+
+    if (pers.folderId) {
+        const membership = await prisma.persFolderMember.findUnique({
+            where: { folderId_userId: { folderId: pers.folderId, userId } },
+            select: { canEdit: true },
+        });
+        if (membership?.canEdit) return true;
+    }
+
+    return false;
+}
+
+const FOLDER_COLOR_REGEX = /^#(?:[0-9a-fA-F]{3}){1,2}$/;
+
+function normalizeFolderName(name: string) {
+    return String(name || "")
+        .normalize("NFKC")
+        .replace(/[\u0000-\u001F\u007F]/g, "")
+        .trim()
+        .slice(0, 80);
+}
+
+function normalizePersName(name: string) {
+    return String(name || "")
+        .normalize("NFKC")
+        .replace(/[\u0000-\u001F\u007F]/g, "")
+        .trim()
+        .slice(0, 60);
+}
+
+function normalizeFolderColor(color: string) {
+    const value = color.trim();
+    if (!FOLDER_COLOR_REGEX.test(value)) return "#38bdf8";
+    return value.toLowerCase();
+}
+
+async function assertFolderOwnership(folderId: number, userId: number) {
+    const folder = await prisma.persFolder.findUnique({
+        where: { folderId },
+        select: { folderId: true, userId: true, parentFolderId: true, name: true, color: true, isPinned: true },
+    });
+
+    if (!folder || folder.userId !== userId) {
+        return null;
+    }
+
+    return folder;
+}
+
+async function isFolderDescendant(userId: number, folderId: number, potentialParentId: number | null) {
+    if (!potentialParentId) return false;
+
+    let cursor: number | null = potentialParentId;
+    while (cursor) {
+        if (cursor === folderId) return true;
+        const parent = await prisma.persFolder.findUnique({
+            where: { folderId: cursor },
+            select: { parentFolderId: true, userId: true },
+        });
+        if (!parent || parent.userId !== userId) return false;
+        cursor = parent.parentFolderId ?? null;
+    }
+
+    return false;
+}
+
+export async function getUserPerses() {
+    const session = await auth();
+    if (!session?.user?.email) {
+        return [];
+    }
+
+    const user = await prisma.user.findUnique({
+        where: { email: session.user.email },
+    });
+
+    if (!user) return [];
+
+    return prisma.pers.findMany({
+        where: {
+            AND: [
+                {
+                    OR: [
+                        { userId: user.id },
+                        { additionalUsers: { some: { userId: user.id } } },
+                    ],
+                },
+                {
+                    OR: [
+                        { isSnapshot: false },
+                        { isSnapshot: true, isActive: true },
+                    ],
+                },
+            ],
+        },
+        include: {
+            race: true,
+            class: true,
+            background: true,
+        },
+        orderBy: { createdAt: "desc" },
+    });
+}
+
+export async function getUserPersHomeData() {
+    const userId = await getCurrentUserId();
+    if (!userId) return { perses: [], folders: [] };
+
+    const [perses, folders] = await Promise.all([
+        prisma.pers.findMany({
+            where: {
+                AND: [
+                    {
+                        OR: [
+                            { userId },
+                            { additionalUsers: { some: { userId } } },
+                        ],
+                    },
+                    {
+                        OR: [
+                            { isSnapshot: false },
+                            { isSnapshot: true, isActive: true },
+                        ],
+                    },
+                ],
+            },
+            include: {
+                race: true,
+                class: true,
+                subclass: true,
+                background: true,
+                multiclasses: {
+                    include: {
+                        class: true,
+                        subclass: true,
+                    },
+                },
+            },
+            orderBy: { createdAt: "desc" },
+        }),
+        prisma.persFolder.findMany({
+            where: {
+                OR: [
+                    { userId },
+                    { members: { some: { userId } } },
+                ],
+            },
+            select: {
+                folderId: true,
+                name: true,
+                color: true,
+                isPinned: true,
+                parentFolderId: true,
+            },
+            orderBy: [{ isPinned: "desc" }, { name: "asc" }],
+        }),
+    ]);
+
+    const folderIds = new Set(folders.map((folder) => folder.folderId));
+    const normalizedFolders = folders.map((folder) => {
+        if (folder.parentFolderId && !folderIds.has(folder.parentFolderId)) {
+            return { ...folder, parentFolderId: null };
+        }
+        return folder;
+    });
+
+    return { perses, folders: normalizedFolders };
+}
+
+export async function renamePers(persId: number, name: string) {
+    const userId = await getCurrentUserId();
+    if (!userId) return { success: false as const, error: "Не авторизовано" };
+
+    const next = normalizePersName(name);
+    if (!next) return { success: false as const, error: "Ім'я не може бути порожнім" };
+    if (next.length > 60) return { success: false as const, error: "Ім'я занадто довге" };
+
+    const canEdit = await canEditPers(persId, userId);
+    if (!canEdit) return { success: false as const, error: "Немає доступу до персонажа" };
+
+    await prisma.pers.update({
+        where: { persId },
+        data: { name: next },
+    });
+
+    revalidatePath("/char/home");
+    revalidatePath(`/char/${persId}`);
+    revalidatePath(`/character/${persId}`);
+    return { success: true as const };
+}
+
+export async function deletePers(persId: number) {
+    const userId = await getCurrentUserId();
+    if (!userId) return { success: false as const, error: "Не авторизовано" };
+
+    const canEdit = await canEditPers(persId, userId);
+    if (!canEdit) return { success: false as const, error: "Немає доступу до персонажа" };
+
+    await prisma.$transaction([
+        prisma.pers.deleteMany({
+            where: {
+                userId,
+                parentPersId: persId,
+            },
+        }),
+        prisma.pers.delete({
+            where: { persId },
+        }),
+    ]);
+
+    revalidatePath("/char/home");
+    return { success: true as const };
+}
+
+export async function duplicatePers(persId: number) {
+    const userId = await getCurrentUserId();
+    if (!userId) return { success: false as const, error: "Не авторизовано" };
+
+    try {
+        const pers = await prisma.pers.findUnique({
+            where: { persId },
+            include: PERS_DUPLICATION_INCLUDE,
+        });
+
+        if (!pers) {
+            return { success: false as const, error: "Немає доступу до персонажа" };
+        }
+        const canEdit = await canEditPers(persId, userId);
+        if (!canEdit) return { success: false as const, error: "Немає доступу до персонажа" };
+
+        const duplicate = await prisma.$transaction(async (tx) => clonePersWithRelations(tx, pers));
+
+        revalidatePath("/char/home");
+        
+        const persHomeItem = {
+            persId: duplicate.persId,
+            name: duplicate.name,
+            level: duplicate.level,
+            currentHp: duplicate.currentHp,
+            maxHp: duplicate.maxHp,
+            raceName: pers.race.name,
+            className: pers.class.name,
+            backgroundName: pers.background.name,
+            shareToken: duplicate.shareToken,
+            folderId: duplicate.folderId,
+            isPinned: duplicate.isPinned,
+            classNames: [
+                pers.class?.name,
+                ...pers.multiclasses
+                    .map((multiclass) => multiclass.class?.name)
+                    .filter((name): name is NonNullable<typeof name> => name !== undefined),
+            ].filter((name): name is NonNullable<typeof name> => name !== undefined),
+            subclassNames: [
+                pers.subclass?.name,
+                ...pers.multiclasses
+                    .map((multiclass) => multiclass.subclass?.name)
+                    .filter((name): name is NonNullable<typeof name> => name !== undefined),
+            ].filter((name): name is NonNullable<typeof name> => name !== undefined),
+        };
+
+        return { success: true as const, pers: persHomeItem };
+    } catch (error) {
+        console.error("Duplication failed:", error);
+        return { success: false as const, error: "Не вдалося скопіювати персонажа" };
+    }
+}
+
+export async function createPersFolder(input: { name: string; color?: string; parentFolderId?: number | null }) {
+    const userId = await getCurrentUserId();
+    if (!userId) return { success: false as const, error: "Не авторизовано" };
+
+    const name = normalizeFolderName(input.name);
+    if (!name) return { success: false as const, error: "Назва папки не може бути порожньою" };
+
+    const color = normalizeFolderColor(input.color ?? "#38bdf8");
+    let parentFolderId: number | null = null;
+
+    if (typeof input.parentFolderId === "number") {
+        const parent = await assertFolderOwnership(input.parentFolderId, userId);
+        if (!parent) return { success: false as const, error: "Немає доступу до папки" };
+        parentFolderId = parent.folderId;
+    }
+
+    const folder = await prisma.persFolder.create({
+        data: {
+            userId,
+            name,
+            color,
+            parentFolderId,
+        },
+        select: {
+            folderId: true,
+            name: true,
+            color: true,
+            isPinned: true,
+            parentFolderId: true,
+        },
+    });
+
+    revalidatePath("/char/home");
+    return { success: true as const, folder };
+}
+
+export async function renamePersFolder(folderId: number, nextName: string) {
+    const userId = await getCurrentUserId();
+    if (!userId) return { success: false as const, error: "Не авторизовано" };
+
+    const name = normalizeFolderName(nextName);
+    if (!name) return { success: false as const, error: "Назва папки не може бути порожньою" };
+
+    const folder = await assertFolderOwnership(folderId, userId);
+    if (!folder) return { success: false as const, error: "Немає доступу до папки" };
+
+    await prisma.persFolder.update({
+        where: { folderId },
+        data: { name },
+    });
+
+    revalidatePath("/char/home");
+    return { success: true as const };
+}
+
+export async function setPersFolderColor(folderId: number, nextColor: string) {
+    const userId = await getCurrentUserId();
+    if (!userId) return { success: false as const, error: "Не авторизовано" };
+
+    const folder = await assertFolderOwnership(folderId, userId);
+    if (!folder) return { success: false as const, error: "Немає доступу до папки" };
+
+    const color = normalizeFolderColor(nextColor);
+    await prisma.persFolder.update({
+        where: { folderId },
+        data: { color },
+    });
+
+    revalidatePath("/char/home");
+    return { success: true as const };
+}
+
+export async function setPersFolderPinned(folderId: number, isPinned: boolean) {
+    const userId = await getCurrentUserId();
+    if (!userId) return { success: false as const, error: "Не авторизовано" };
+
+    const folder = await assertFolderOwnership(folderId, userId);
+    if (!folder) return { success: false as const, error: "Немає доступу до папки" };
+
+    await prisma.persFolder.update({
+        where: { folderId },
+        data: { isPinned },
+    });
+
+    revalidatePath("/char/home");
+    return { success: true as const };
+}
+
+export async function deletePersFolder(folderId: number) {
+    const userId = await getCurrentUserId();
+    if (!userId) return { success: false as const, error: "Не авторизовано" };
+
+    const folder = await assertFolderOwnership(folderId, userId);
+    if (!folder) return { success: false as const, error: "Немає доступу до папки" };
+
+    const nextParentId = folder.parentFolderId ?? null;
+
+    await prisma.$transaction([
+        prisma.pers.updateMany({
+            where: { userId, folderId },
+            data: { folderId: nextParentId },
+        }),
+        prisma.persFolder.updateMany({
+            where: { userId, parentFolderId: folderId },
+            data: { parentFolderId: nextParentId },
+        }),
+        prisma.persFolder.delete({
+            where: { folderId },
+        }),
+    ]);
+
+    revalidatePath("/char/home");
+    return { success: true as const };
+}
+
+export async function duplicatePersFolder(folderId: number) {
+    const userId = await getCurrentUserId();
+    if (!userId) return { success: false as const, error: "Не авторизовано" };
+
+    const source = await assertFolderOwnership(folderId, userId);
+    if (!source) return { success: false as const, error: "Немає доступу до папки" };
+
+    const created = await prisma.$transaction(async (tx) => {
+        const root = await tx.persFolder.findUnique({
+            where: { folderId },
+            select: {
+                folderId: true,
+                name: true,
+                color: true,
+                isPinned: true,
+                parentFolderId: true,
+            },
+        });
+
+        if (!root) return null;
+
+        const cloneFolder = async (folder: typeof root, parentId: number | null, addCopySuffix: boolean) => {
+            const createdFolder = await tx.persFolder.create({
+                data: {
+                    userId,
+                    name: addCopySuffix ? `${folder.name} (Копія)` : folder.name,
+                    color: folder.color,
+                    isPinned: folder.isPinned,
+                    parentFolderId: parentId,
+                },
+                select: {
+                    folderId: true,
+                    name: true,
+                    color: true,
+                    isPinned: true,
+                    parentFolderId: true,
+                },
+            });
+
+            const perses = await tx.pers.findMany({
+                where: { userId, folderId: folder.folderId },
+                include: PERS_DUPLICATION_INCLUDE,
+            });
+
+            for (const pers of perses) {
+                await clonePersWithRelations(tx, pers, {
+                    name: `${pers.name} (Копія)`,
+                    folderId: createdFolder.folderId,
+                    isPinned: pers.isPinned ?? false,
+                });
+            }
+
+            const children = await tx.persFolder.findMany({
+                where: { userId, parentFolderId: folder.folderId },
+                select: { folderId: true, name: true, color: true, isPinned: true, parentFolderId: true },
+            });
+
+            for (const child of children) {
+                await cloneFolder(child, createdFolder.folderId, false);
+            }
+
+            return createdFolder;
+        };
+
+        return cloneFolder(root, root.parentFolderId ?? null, true);
+    });
+
+    if (!created) return { success: false as const, error: "Не вдалося скопіювати папку" };
+
+    revalidatePath("/char/home");
+    return { success: true as const, folder: created };
+}
+
+export async function movePersToFolder(persId: number, folderId: number | null) {
+    const userId = await getCurrentUserId();
+    if (!userId) return { success: false as const, error: "Не авторизовано" };
+
+    const canEdit = await canEditPers(persId, userId);
+    if (!canEdit) return { success: false as const, error: "Немає доступу до персонажа" };
+
+    let nextFolderId: number | null = null;
+    if (typeof folderId === "number") {
+        const folder = await assertFolderOwnership(folderId, userId);
+        if (!folder) return { success: false as const, error: "Немає доступу до папки" };
+        nextFolderId = folder.folderId;
+    }
+
+    await prisma.$transaction(async (tx) => {
+        await tx.pers.update({
+            where: { persId },
+            data: { folderId: nextFolderId },
+        });
+
+        if (typeof nextFolderId === "number") {
+            const members = await tx.persFolderMember.findMany({
+                where: { folderId: nextFolderId, canEdit: true },
+                select: { userId: true },
+            });
+
+            if (members.length > 0) {
+                await tx.persAdditionalUser.createMany({
+                    data: members.map((m) => ({ persId, userId: m.userId })),
+                    skipDuplicates: true,
+                });
+            }
+        }
+    });
+
+    revalidatePath("/char/home");
+    return { success: true as const };
+}
+
+export async function movePersFolder(folderId: number, parentFolderId: number | null) {
+    const userId = await getCurrentUserId();
+    if (!userId) return { success: false as const, error: "Не авторизовано" };
+
+    const folder = await assertFolderOwnership(folderId, userId);
+    if (!folder) return { success: false as const, error: "Немає доступу до папки" };
+
+    let nextParentId: number | null = null;
+    if (typeof parentFolderId === "number") {
+        const parent = await assertFolderOwnership(parentFolderId, userId);
+        if (!parent) return { success: false as const, error: "Немає доступу до папки" };
+        if (parent.folderId === folderId) {
+            return { success: false as const, error: "Неможливо перемістити папку в саму себе" };
+        }
+        const isDescendant = await isFolderDescendant(userId, folderId, parent.folderId);
+        if (isDescendant) {
+            return { success: false as const, error: "Неможливо перемістити папку в її підпапку" };
+        }
+        nextParentId = parent.folderId;
+    }
+
+    await prisma.persFolder.update({
+        where: { folderId },
+        data: { parentFolderId: nextParentId },
+    });
+
+    revalidatePath("/char/home");
+    return { success: true as const };
+}
+
+export async function setPersPinned(persId: number, isPinned: boolean) {
+    const userId = await getCurrentUserId();
+    if (!userId) return { success: false as const, error: "Не авторизовано" };
+
+    const canEdit = await canEditPers(persId, userId);
+    if (!canEdit) return { success: false as const, error: "Немає доступу до персонажа" };
+
+    await prisma.pers.update({
+        where: { persId },
+        data: { isPinned },
+    });
+
+    revalidatePath("/char/home");
+    return { success: true as const };
+}
+
+export async function getUserPersesSpellIndex() {
+    const session = await auth();
+    if (!session?.user?.email) {
+        return [];
+    }
+
+    const user = await prisma.user.findUnique({
+        where: { email: session.user.email },
+    });
+
+    if (!user) return [];
+
+    const perses = await prisma.pers.findMany({
+        where: { 
+            userId: user.id,
+            isSnapshot: false,
+            isActive: true
+        },
+        select: {
+            persId: true,
+            name: true,
+            persSpells: {
+                select: {
+                    spellId: true,
+                },
+            },
+        },
+        orderBy: { updatedAt: "desc" },
+    });
+
+    return perses.map((p) => ({
+        persId: p.persId,
+        name: p.name,
+        spellIds: p.persSpells.map((s) => s.spellId),
+    }));
+}
+
+export async function getPersById(id: number) {
+    const session = await auth();
+    if (!session?.user?.email) return null;
+
+    const pers = await prisma.pers.findUnique({
+        where: { persId: id },
+        include: {
+            race: {
+                include: {
+                    traits: {
+                        include: {
+                            feature: true
+                        }
+                    }
+                }
+            },
+            subrace: {
+                include: {
+                    traits: {
+                        include: {
+                            feature: true
+                        }
+                    }
+                }
+            },
+            class: {
+                include: {
+                    features: {
+                        include: {
+                            feature: true
+                        }
+                    }
+                }
+            },
+            subclass: {
+                include: {
+                    features: {
+                        include: {
+                            feature: true
+                        }
+                    }
+                }
+            },
+            multiclasses: {
+                include: {
+                    class: {
+                        include: {
+                            features: {
+                                include: {
+                                    feature: true,
+                                },
+                            },
+                        },
+                    },
+                    subclass: {
+                        include: {
+                            features: {
+                                include: {
+                                    feature: true,
+                                },
+                            },
+                        },
+                    },
+                },
+            },
+            background: true,
+            skills: true,
+            feats: { 
+                include: { 
+                    feat: {
+                        include: {
+                            grantsFeature: true,
+                        },
+                    },
+                    choices: {
+                        include: {
+                            choiceOption: true,
+                        }
+                    }
+                } 
+            },
+            raceVariants: {
+                include: {
+                    traits: {
+                        include: {
+                            feature: true,
+                        },
+                    },
+                },
+            },
+            magicItems: {
+                include: {
+                    magicItem: true
+                }
+            },
+            features: { include: { feature: true } },
+            classOptionalFeatures: { include: { feature: true } },
+            choiceOptions: { include: { features: { include: { feature: true } } } },
+            raceChoiceOptions: { include: { traits: { include: { feature: true } } } },
+            spells: true,
+            persSpells: {
+                include: {
+                    spell: true,
+                },
+                orderBy: [
+                    { spell: { level: "asc" } },
+                    { spell: { name: "asc" } },
+                ],
+            },
+            weapons: { include: { weapon: true } },
+            armors: { include: { armor: true } },
+            resourcePools: true,
+            user: true,
+        }
+    });
+    
+    if (!pers) return null;
+
+    const user = await prisma.user.findUnique({ where: { email: session.user.email } });
+    if (!user) return null;
+
+    const isOwner = pers.userId === user.id;
+    if (!isOwner) {
+        const additional = await prisma.persAdditionalUser.findUnique({
+            where: { persId_userId: { persId: pers.persId, userId: user.id } },
+            select: { persId: true },
+        });
+
+        const folderMember = pers.folderId
+            ? await prisma.persFolderMember.findUnique({
+                where: { folderId_userId: { folderId: pers.folderId, userId: user.id } },
+                select: { canEdit: true },
+            })
+            : null;
+
+        if (!additional && !folderMember?.canEdit) return null;
+    }
+
+    return pers;
+}
+
+export type PersWithRelations = NonNullable<Awaited<ReturnType<typeof getPersById>>>;
+export type PersWeaponWithWeapon = PersWithRelations['weapons'][number];
+export type PersArmorWithArmor = PersWithRelations['armors'][number];
+
+export type CharacterFeatureGroupKey = "passive" | "actions" | "bonusActions" | "reactions";
+
+export interface CharacterFeatureItem {
+    key: string;
+    featureId?: number;
+    usesPoolKey?: string | null;
+    usePrice?: number | null;
+    name: string;
+    shortDescription?: string | null;
+    description: string;
+    displayTypes: FeatureDisplayType[];
+    primaryType: FeatureDisplayType;
+    source: FeatureSource;
+    sourceName: string;
+    usesRemaining?: number | null;
+    usesPer?: number | null;
+    restType?: RestType | null;
+    createdAt?: number | null;
+    magicItem?: Partial<MagicItem> | null;
+}
+
+export type CharacterFeaturesGroupedResult = Record<CharacterFeatureGroupKey, CharacterFeatureItem[]>;
+
+function normalizeDisplayTypes(input: unknown): FeatureDisplayType[] {
+    if (Array.isArray(input)) {
+        const values = input.filter(Boolean) as FeatureDisplayType[];
+        return values.length > 0 ? values : [FeatureDisplayType.PASSIVE];
+    }
+    if (typeof input === "string" && input.length > 0) {
+        return [input as FeatureDisplayType];
+    }
+    return [FeatureDisplayType.PASSIVE];
+}
+
+function getPrimaryDisplayType(displayTypes: FeatureDisplayType[]): FeatureDisplayType {
+    const normalized = normalizeDisplayTypes(displayTypes);
+    // Priority: ACTION > BONUSACTION > REACTION > PASSIVE
+    if (normalized.includes(FeatureDisplayType.ACTION)) return FeatureDisplayType.ACTION;
+    if (normalized.includes(FeatureDisplayType.BONUSACTION)) return FeatureDisplayType.BONUSACTION;
+    if (normalized.includes(FeatureDisplayType.REACTION)) return FeatureDisplayType.REACTION;
+    return FeatureDisplayType.PASSIVE;
+}
+
+function toPrimaryGroupKey(primaryType: FeatureDisplayType): CharacterFeatureGroupKey {
+    switch (primaryType) {
+        case FeatureDisplayType.ACTION:
+            return "actions";
+        case FeatureDisplayType.BONUSACTION:
+            return "bonusActions";
+        case FeatureDisplayType.REACTION:
+            return "reactions";
+        default:
+            return "passive";
+    }
+}
+
+const PERS_FEATURES_INCLUDE = {
+    features: { include: { feature: true }, orderBy: { persFeatureId: "asc" } },
+    race: { include: { traits: { include: { feature: true } } } },
+    subrace: { include: { traits: { include: { feature: true } } } },
+    class: { include: { features: { include: { feature: true } } } },
+    subclass: { include: { features: { include: { feature: true } } } },
+    multiclasses: {
+        include: {
+            class: { include: { features: { include: { feature: true } } } },
+            subclass: { include: { features: { include: { feature: true } } } },
+        }
+    },
+    raceVariants: { include: { traits: { include: { feature: true } } } },
+    feats: {
+        include: {
+            feat: true,
+            choices: {
+                include: {
+                    choiceOption: true,
+                },
+            },
+        },
+    },
+    choiceOptions: { include: { features: { include: { feature: true } } } },
+    raceChoiceOptions: { include: { traits: { include: { feature: true } } } },
+    persInfusions: {
+        include: {
+            infusion: {
+                include: {
+                    replicatedMagicItem: true,
+                    feature: true
+                }
+            }
+        }
+    },
+    resourcePools: true,
+    user: true,
+} satisfies Prisma.PersInclude;
+
+function buildCharacterFeaturesGrouped(pers: any): CharacterFeaturesGroupedResult {
+    // Build a map of featureId -> Source
+    // Also build a map of featureId -> ClassLevel for determining class-based scaling uses
+    const sourceMap = new Map<number, "RACE" | "SUBRACE" | "CLASS" | "SUBCLASS">();
+    const featureClassLevelMap = new Map<number, number>();
+
+    const multiclassSum = pers.multiclasses.reduce((acc, current) => acc + (Number(current.classLevel) || 0), 0);
+    const mainClassLevel = Math.max(1, (Number(pers.level) || 1) - multiclassSum);
+
+    const addFeaturesToLevelMap = (features: any[], level: number) => {
+        features.forEach(f => {
+             if (f.feature?.featureId) featureClassLevelMap.set(f.feature.featureId, level);
+             else if (f.featureId) featureClassLevelMap.set(f.featureId, level);
+        });
+    };
+
+    // Main class
+    addFeaturesToLevelMap(pers.class.features, mainClassLevel);
+    if (pers.subclass) addFeaturesToLevelMap(pers.subclass.features, mainClassLevel);
+
+    pers.multiclasses.forEach(mc => {
+        const lvl = Number(mc.classLevel) || 1;
+        addFeaturesToLevelMap(mc.class.features, lvl);
+        if (mc.subclass) addFeaturesToLevelMap(mc.subclass.features, lvl);
+    });
+    
+    pers.race.traits.forEach(t => { if (t.featureId) sourceMap.set(t.featureId, "RACE"); });
+    pers.subrace?.traits.forEach(t => { if (t.featureId) sourceMap.set(t.featureId, "SUBRACE"); });
+    pers.class.features.forEach(f => { if (f.featureId) sourceMap.set(f.featureId, "CLASS"); });
+    pers.subclass?.features.forEach(f => { if (f.featureId) sourceMap.set(f.featureId, "SUBCLASS"); });
+    
+    pers.multiclasses.forEach(mc => {
+        mc.class.features.forEach(f => { if (f.featureId) sourceMap.set(f.featureId, "CLASS"); });
+        mc.subclass?.features.forEach(f => { if (f.featureId) sourceMap.set(f.featureId, "SUBCLASS"); });
+    });
+
+    pers.raceVariants.forEach(rv => {
+        rv.traits.forEach(t => { if (t.featureId) sourceMap.set(t.featureId, "RACE"); });
+    });
+
+    // Identify features that come from choices to label them correctly in the main loop
+    const choiceFeatureIds = new Map<number, FeatureSource>();
+    pers.choiceOptions.forEach(co => co.features.forEach(cof => choiceFeatureIds.set(cof.feature.featureId, "CHOICE")));
+    pers.raceChoiceOptions.forEach(rco => rco.traits.forEach(t => { if (t.featureId) choiceFeatureIds.set(t.featureId, "RACE_CHOICE"); }));
+
+    const poolRemainingByKey = new Map<string, number | null>();
+    pers.resourcePools?.forEach(pool => {
+        poolRemainingByKey.set(pool.poolKey, pool.usesRemaining ?? null);
+    });
+
+    const poolProvidersByKey = new Map<string, any>();
+    const registerPoolProvider = (feature: any) => {
+        if (!feature?.usesPoolKey) return;
+        if (poolProvidersByKey.has(feature.usesPoolKey)) return;
+
+        const hasCounts =
+            feature.usesCountDependsOnProficiencyBonus ||
+            typeof feature.usesCount === "number" ||
+            (feature.usesCountSpecial && typeof feature.usesCountSpecial === "object");
+
+        if (hasCounts) poolProvidersByKey.set(feature.usesPoolKey, feature);
+    };
+
+    const collectPoolProviders = (features: any[] = []) => {
+        features.forEach(f => registerPoolProvider(f?.feature ?? f));
+    };
+
+    collectPoolProviders(pers.features.map(pf => pf.feature));
+    collectPoolProviders(pers.class.features);
+    collectPoolProviders(pers.subclass?.features ?? []);
+    pers.multiclasses.forEach(mc => {
+        collectPoolProviders(mc.class.features);
+        collectPoolProviders(mc.subclass?.features ?? []);
+    });
+    collectPoolProviders(pers.race.traits.map(t => t.feature));
+    collectPoolProviders(pers.subrace?.traits.map(t => t.feature) ?? []);
+    pers.raceVariants.forEach(rv => collectPoolProviders(rv.traits.map(t => t.feature)));
+    pers.choiceOptions.forEach(co => collectPoolProviders(co.features.map(f => f.feature)));
+    pers.raceChoiceOptions.forEach(rco => collectPoolProviders(rco.traits.map(t => t.feature)));
+    pers.persInfusions.forEach(pi => registerPoolProvider(pi.infusion?.feature));
+
+
+    const buckets: CharacterFeaturesGroupedResult = {
+        passive: [],
+        actions: [],
+        bonusActions: [],
+        reactions: [],
+    };
+
+    const proficiencyBonus = (level: number) => {
+        if (!Number.isFinite(level) || level <= 0) return 2;
+        return 2 + Math.floor((level - 1) / 4);
+    };
+
+    const calculateMaxUsesForFeature = (f: any) => {
+        if (!f) return null;
+        const special = f.usesCountSpecial;
+        const getClassLevel = () => {
+            if (f.featureId && featureClassLevelMap.has(f.featureId)) {
+                return featureClassLevelMap.get(f.featureId) ?? pers.level;
+            }
+            return pers.level;
+        };
+
+        const getAbilityMod = (stat: string) => {
+            const key = String(stat || "").toLowerCase();
+            const abilityScores: Record<string, number> = {
+                str: pers.str,
+                dex: pers.dex,
+                con: pers.con,
+                int: pers.int,
+                wis: pers.wis,
+                cha: pers.cha,
+            };
+            const score = abilityScores[key];
+            if (typeof score !== "number") return 0;
+            return Math.floor((score - 10) / 2);
+        };
+
+        if (Array.isArray(special)) {
+            const classLevel = getClassLevel();
+            const match = [...special]
+                .filter((entry) => typeof entry?.lvl === "number" && classLevel >= entry.lvl)
+                .sort((a, b) => b.lvl - a.lvl)[0];
+            if (match && typeof match.uses === "number") return match.uses;
+        }
+
+        if (special && typeof special === "object" && special.equalsToClassLevel === true) {
+            return getClassLevel();
+        }
+
+        if (special && typeof special === "object" && special.type === "FORMULA") {
+            const operation = String(special.operation || "ADD").toUpperCase();
+            const minimum = typeof special.minimum === "number" ? special.minimum : null;
+
+            if (special.group === "STAT_BASED") {
+                const base = Number(special.base ?? 0);
+                const mod = getAbilityMod(special.stat);
+                const value = operation === "MULTIPLY" ? base * mod : base + mod;
+                return minimum !== null ? Math.max(minimum, value) : value;
+            }
+
+            if (special.group === "LEVEL_BASED") {
+                const classLevel = getClassLevel();
+                const multiplier = Number(special.multiplier ?? 1);
+                const base = Number(special.base ?? 0);
+                const value = operation === "MULTIPLY" ? classLevel * multiplier : base + classLevel;
+                return minimum !== null ? Math.max(minimum, value) : value;
+            }
+
+            if (special.group === "PROFICIENCY_BONUS") {
+                const pb = proficiencyBonus(pers.level);
+                const multiplier = Number(special.multiplier ?? 1);
+                const base = Number(special.base ?? 0);
+                const value = operation === "MULTIPLY" ? pb * multiplier : base + pb;
+                return minimum !== null ? Math.max(minimum, value) : value;
+            }
+        }
+
+        if (f.usesCountDependsOnProficiencyBonus) return proficiencyBonus(pers.level);
+        if (typeof f.usesCount === "number") return f.usesCount;
+        return null;
+    };
+
+    const getPoolInfo = (f: any) => {
+        if (!f?.usesPoolKey) return null;
+        const provider = poolProvidersByKey.get(f.usesPoolKey) ?? f;
+        const maxUses = calculateMaxUsesForFeature(provider);
+        const remaining = poolRemainingByKey.get(f.usesPoolKey) ?? null;
+        const restType = provider?.limitedUsesPer ?? f?.limitedUsesPer ?? null;
+        return { maxUses, remaining, restType };
+    };
+
+    const seenFeatureIds = new Set<number>();
+    const seenNames = new Set<string>();
+
+    const push = (item: Omit<CharacterFeatureItem, "primaryType" | "displayTypes"> & { displayTypes: FeatureDisplayType[] }) => {
+        if (item.featureId && seenFeatureIds.has(item.featureId)) return;
+        const normalizedName = item.name.trim().toLowerCase();
+        if (seenNames.has(normalizedName)) return;
+
+        if (item.featureId) seenFeatureIds.add(item.featureId);
+        seenNames.add(normalizedName);
+
+        const displayTypes = normalizeDisplayTypes(item.displayTypes);
+        const primaryType = getPrimaryDisplayType(displayTypes);
+        const key = toPrimaryGroupKey(primaryType);
+        buckets[key].push({
+            ...item,
+            displayTypes,
+            primaryType,
+        });
+    };
+
+    // 1) Explicit pers_feature (usually level-up granted)
+    for (const pf of pers.features) {
+        const f = pf.feature;
+
+        const poolInfo = getPoolInfo(f);
+
+        const usesPer = poolInfo?.maxUses ?? (() => {
+            const special = f.usesCountSpecial;
+            if (special && typeof special === 'object' && special.equalsToClassLevel === true) {
+                 return featureClassLevelMap.get(f.featureId) ?? pers.level;
+            }
+
+            if (f.usesCountDependsOnProficiencyBonus) return proficiencyBonus(pers.level);
+            if (typeof f.usesCount === "number") return f.usesCount;
+            return null;
+        })();
+
+        let source = sourceMap.get(f.featureId) || "PERS";
+        if (source === "PERS") {
+            const choiceSource = choiceFeatureIds.get(f.featureId);
+            if (choiceSource) source = choiceSource;
+        }
+
+        push({
+            key: `PERS:feature:${f.featureId}`,
+            featureId: f.featureId,
+            usesPoolKey: f.usesPoolKey ?? null,
+            usePrice: f.usePrice ?? 1,
+            name: f.name,
+            shortDescription: f.shortDescription ?? null,
+            description: f.description,
+            displayTypes: normalizeDisplayTypes(f.displayType),
+            source: source as FeatureSource,
+            sourceName: f.name,
+            usesRemaining: poolInfo?.remaining ?? pf.usesRemaining ?? null,
+            usesPer,
+            restType: poolInfo?.restType ?? f.limitedUsesPer ?? null,
+            createdAt: pf.persFeatureId,
+        });
+    }
+
+    // 2) Choice options stored directly on pers -> push remaining FEATURES
+    for (const co of pers.choiceOptions ?? []) {
+        for (const cof of co.features ?? []) {
+            const f = cof.feature;
+
+            push({
+                key: `CHOICE:${co.groupName}:option:${co.choiceOptionId}:feature:${f.featureId}`,
+                featureId: f.featureId,
+                usesPoolKey: f.usesPoolKey ?? null,
+                usePrice: f.usePrice ?? 1,
+                name: f.name,
+                shortDescription: f.shortDescription ?? null,
+                description: f.description,
+                displayTypes: normalizeDisplayTypes(f.displayType),
+                source: "CHOICE",
+                sourceName: co.groupName,
+                createdAt: co.choiceOptionId, // fallback
+                usesRemaining: null,
+                usesPer: f.usesCount, // Simplified, Pact usually passive
+                restType: f.limitedUsesPer,
+            });
+        }
+    }
+    for (const rco of pers.raceChoiceOptions ?? []) {
+        for (const rcot of rco.traits ?? []) {
+            if (!rcot.feature) continue;
+            const f = rcot.feature;
+
+            push({
+                key: `RACE_CHOICE:${rco.choiceGroupName}:option:${rco.optionId}:feature:${f.featureId}`,
+                featureId: f.featureId,
+                usesPoolKey: f.usesPoolKey ?? null,
+                usePrice: f.usePrice ?? 1,
+                name: f.name,
+                shortDescription: f.shortDescription ?? null,
+                description: f.description,
+                displayTypes: normalizeDisplayTypes(f.displayType),
+                source: "RACE_CHOICE",
+                sourceName: rco.choiceGroupName,
+                createdAt: rco.optionId, // fallback
+                usesRemaining: null,
+                usesPer: f.usesCount,
+                restType: f.limitedUsesPer,
+            });
+        }
+    }
+
+    // 3) Feats + their selected feat choice options
+    for (const pf of pers.feats ?? []) {
+        const featName = pf.feat.name;
+        const displayTypes = [FeatureDisplayType.PASSIVE];
+
+        const normalizeFeatKey = (value: string) =>
+            String(value ?? "")
+                .trim()
+                .replace(/[^A-Za-z0-9]+/g, "_")
+                .replace(/_+/g, "_")
+                .replace(/^_+|_+$/g, "")
+                .toUpperCase();
+
+        const translatedFeatName =
+            featTranslations[featName as keyof typeof featTranslations] ||
+            featTranslations[String(featName).toUpperCase() as keyof typeof featTranslations] ||
+            featTranslations[normalizeFeatKey(featName) as keyof typeof featTranslations] ||
+            featName;
+
+        // Always show the feat itself as a trait item
+        push({
+            key: `FEAT:${pf.featId}`,
+            name: featName,
+            description: pf.feat.description,
+            displayTypes,
+            source: "FEAT",
+            sourceName: featName,
+        });
+
+        // Additionally show selected choices (if any)
+        if (!pf.choices || pf.choices.length === 0) {
+            continue;
+        }
+
+        for (const choice of pf.choices) {
+            if (!choice.choiceOption) continue;
+
+            const rawGroupName = String(choice.choiceOption.groupName || "");
+
+            const translateEmbeddedTokens = (text: string) => {
+                if (!text) return text;
+                return text
+                    .replace(/\b[A-Z][A-Z0-9_]{2,}\b/g, (token) => translateValue(token))
+                    .replace(/\b[a-z][a-z0-9_]{2,}\b/g, (token) => translateValue(token.toUpperCase()));
+            };
+
+            const groupNameRawTranslated = translateEmbeddedTokens(rawGroupName);
+            const groupName = groupNameRawTranslated
+                ? groupNameRawTranslated.split(featName).join(translatedFeatName)
+                : groupNameRawTranslated;
+            const optionName = translateValue(choice.choiceOption.optionName);
+
+            push({
+                key: `FEAT:${pf.featId}:choice:${choice.choiceOptionId}`,
+                name: optionName,
+                description: groupName ? `${groupName}: ${optionName}` : optionName,
+                displayTypes,
+                source: "FEAT",
+                sourceName: featName,
+            });
+        }
+    }
+    
+    // 4) Artificer Infusions
+    for (const pi of pers.persInfusions ?? []) {
+        const inf = pi.infusion;
+        const feature = inf.feature;
+        
+        const usesPer = feature ? (() => {
+            if (feature.usesCountDependsOnProficiencyBonus) return proficiencyBonus(pers.level);
+            if (typeof feature.usesCount === "number") return feature.usesCount;
+            return null;
+        })() : null;
+
+        push({
+            key: `INFUSION:${pi.persInfusionId}`,
+            name: feature?.name || inf.name,
+            description: feature?.description || inf.replicatedMagicItem?.description || inf.name,
+            shortDescription: feature?.shortDescription,
+            displayTypes: feature?.displayType as FeatureDisplayType[] || [FeatureDisplayType.PASSIVE],
+            source: "INFUSION",
+            sourceName: "Вливання",
+            magicItem: inf.replicatedMagicItem ?? null,
+            usesPoolKey: feature?.usesPoolKey ?? null,
+            usePrice: feature?.usePrice ?? 1,
+            usesPer,
+            restType: feature?.limitedUsesPer ?? null,
+            usesRemaining: feature?.usesCount, // Fallback, though not tracked yet
+        });
+    }
+
+    return buckets;
+}
+
+export async function getCharacterFeaturesGrouped(persId: number): Promise<CharacterFeaturesGroupedResult | null> {
+    const session = await auth();
+    if (!session?.user?.email) return null;
+
+    const user = await prisma.user.findUnique({
+        where: { email: session.user.email },
+    });
+    if (!user) return null;
+
+    const pers = await prisma.pers.findUnique({
+        where: { persId },
+        include: PERS_FEATURES_INCLUDE,
+    });
+
+    if (!pers) return null;
+    const canEdit = await canEditPers(persId, user.id);
+    if (!canEdit) return null;
+    return buildCharacterFeaturesGrouped(pers);
+}
+
+export async function getCharacterFeaturesGroupedByShareToken(token: string): Promise<CharacterFeaturesGroupedResult | null> {
+    if (!token) return null;
+
+    const editToken = await prisma.persShareToken.findUnique({
+        where: { token },
+        select: { persId: true }
+    });
+
+    const pers = await prisma.pers.findUnique({
+        where: editToken ? { persId: editToken.persId } : { shareToken: token },
+        include: PERS_FEATURES_INCLUDE,
+    });
+
+    if (!pers) return null;
+
+    return buildCharacterFeaturesGrouped(pers);
+}
+
+export async function getUserPersesMagicItemIndex() {
+    const session = await auth();
+    if (!session?.user?.email) {
+        return [];
+    }
+
+    const user = await prisma.user.findUnique({
+        where: { email: session.user.email },
+    });
+
+    if (!user) return [];
+
+    const perses = await prisma.pers.findMany({
+        where: { 
+            userId: user.id,
+            isSnapshot: false,
+            isActive: true
+        },
+        select: {
+            persId: true,
+            name: true,
+            magicItems: {
+               select: {
+                   magicItemId: true
+               }
+            }
+        },
+        orderBy: { updatedAt: "desc" },
+    });
+
+    return perses.map((p) => ({
+        persId: p.persId,
+        name: p.name,
+        magicItemIds: p.magicItems.map((mi) => mi.magicItemId),
+    }));
+}

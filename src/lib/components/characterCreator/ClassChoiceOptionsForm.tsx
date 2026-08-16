@@ -4,35 +4,12 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { ClassI } from "@/lib/types/model-types";
 import { useStepForm } from "@/hooks/useStepForm";
 import { classChoiceOptionsSchema } from "@/lib/zod/schemas/persCreateSchema";
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import { Card } from "@/components/ui/card";
 import { classTranslations, classTranslationsEng } from "@/lib/refs/translation";
-import { translateValue } from "@/lib/components/characterCreator/infoUtils";
-import clsx from "clsx";
 import { usePersFormStore } from "@/lib/stores/persFormStore";
-import { Button } from "@/components/ui/button";
-import { HelpCircle } from "lucide-react";
 import { ControlledInfoDialog, InfoSectionTitle } from "@/lib/components/characterCreator/EntityInfoDialog";
 import { FormattedDescription } from "@/components/ui/FormattedDescription";
-
-const stripMarkdownPreview = (value: string) => {
-  return value
-    .replace(/\r\n/g, "\n")
-    .replace(/<a\s+[^>]*>(.*?)<\/a>/gi, "$1")
-    .replace(/<[^>]+>/g, " ")
-    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, "$1")
-    .replace(/`{1,3}([^`]+)`{1,3}/g, "$1")
-    .replace(/\*\*([^*]+)\*\*/g, "$1")
-    .replace(/__([^_]+)__/g, "$1")
-    .replace(/\*([^*]+)\*/g, "$1")
-    .replace(/_([^_]+)_/g, "$1")
-    .replace(/^#{1,6}\s+/gm, "")
-    .replace(/^>\s?/gm, "")
-    .replace(/^\s*[-*+]\s+/gm, "")
-    .replace(/^\s*\d+\.\s+/gm, "")
-    .replace(/\s+/g, " ")
-    .trim();
-};
+import { ClassChoiceOptionGroups } from "@/lib/components/characterCreator/ClassChoiceOptionGroups";
 
 interface Props {
   selectedClass?: ClassI | null;
@@ -50,8 +27,6 @@ import { checkPrerequisite } from "@/lib/logic/prerequisiteUtils";
 
 const displayName = (cls?: ClassI | null) =>
   cls ? classTranslations[cls.name] || classTranslationsEng[cls.name] || cls.name : "Клас";
-
-const isEnumLike = (value?: string | null) => !!value && /^[A-Z0-9_]+$/.test(value);
 
 const ClassChoiceOptionsForm = ({ selectedClass, availableOptions, formId, onNextDisabledChange, pickCount = 1, groupPickCounts, initialPact, initialLevel }: Props) => {
   const { updateFormData, nextStep, formData } = usePersFormStore();
@@ -264,132 +239,12 @@ const ClassChoiceOptionsForm = ({ selectedClass, availableOptions, formId, onNex
         </p>
       </div>
 
-      <div className="space-y-4">
-        {groupedOptions.map(({ groupName, options }) => (
-          <Card
-            key={groupName}
-            className=""
-          >
-            <CardContent className="space-y-3 p-4">
-              {(() => {
-                const required = Math.max(1, Number(groupPickCounts?.[groupName] ?? pickCount) || 1);
-                const selectedCount = Array.isArray(selections[groupName])
-                  ? (selections[groupName] as number[]).length
-                  : selections[groupName]
-                    ? 1
-                    : 0;
-
-                return (
-              <div className="flex items-center justify-between gap-3">
-                <div>
-                  <p className="text-xs uppercase tracking-[0.14em] text-slate-400">Група</p>
-                  <p className="text-base font-semibold text-white">{groupName}</p>
-                </div>
-                <Badge variant="outline" className="border-white/15 bg-white/5 text-slate-200">
-                  Обрано: {selectedCount}/{required}
-                </Badge>
-              </div>
-                );
-              })()}
-
-              <div className="grid gap-3 grid-cols-1">
-                {options.map((opt) => {
-                  const optionId = opt.choiceOptionId;
-                  const ukrLabel = opt.choiceOption.optionName;
-                  const engLabel = opt.choiceOption.optionNameEng;
-                  const label = ukrLabel || (isEnumLike(engLabel) ? translateValue(engLabel) : engLabel);
-
-                  const featureObjects = (opt.choiceOption.features || [])
-                    .map((item) => item.feature)
-                    .filter(Boolean) as Array<{ shortDescription?: string | null; description?: string | null }>;
-
-                  const previewText =
-                    featureObjects.find((f) => (f.shortDescription ?? "").trim())?.shortDescription ||
-                    featureObjects.find((f) => (f.description ?? "").trim())?.description ||
-                    "";
-
-                  const prereqResult = checkPrerequisite(opt.choiceOption.prerequisites, {
-                    classLevel: charLevel,
-                    pact: charPact,
-                    existingChoiceOptionIds: Object.values(selections).flat().filter(id => typeof id === 'number') as number[]
-                  });
-
-                  return (
-                    <Card
-                      key={optionId}
-                      className={clsx(
-                        "glass-card cursor-pointer transition-all duration-200",
-                        (() => {
-                          const required = Math.max(1, Number(groupPickCounts?.[groupName] ?? pickCount) || 1);
-                          const isMulti = required > 1;
-                          const selectedArray = Array.isArray(selections[groupName]) ? (selections[groupName] as number[]) : [];
-                          const isSelected = isMulti ? selectedArray.includes(optionId) : selections[groupName] === optionId;
-                          const atLimit = isMulti ? selectedArray.length >= required : false;
-
-                          if (isSelected) return "glass-active";
-                          if (isMulti && atLimit) return "opacity-50 grayscale-[0.5]";
-                          return false;
-                        })()
-                      )}
-                      onClick={(e) => {
-                        if ((e.target as HTMLElement | null)?.closest?.('[data-stop-card-click]')) return;
-                        selectOption(groupName, optionId, options)
-                      }}
-                    >
-                      <CardContent className="flex h-full flex-col gap-2 p-3 sm:p-4">
-                        <div className="flex items-start justify-between gap-2">
-                          <p className="text-sm font-semibold text-white break-words flex-1">{label}</p>
-
-                          <div className="flex items-center gap-2">
-                            <div
-                              onPointerDown={(e) => {
-                                e.stopPropagation();
-                              }}
-                              onClick={(e) => {
-                                e.stopPropagation();
-                              }}
-                            >
-                              <Button
-                                type="button"
-                                size="icon"
-                                variant="secondary"
-                                className="glass-panel border-gradient-rpg h-8 w-8 rounded-full text-slate-100 transition-all duration-200 hover:text-white focus-visible:ring-cyan-400/30"
-                                aria-label={`Інформація про ${label}`}
-                                // Використовуємо ControlledInfoDialog з EntityInfoDialog.tsx для модалки з деталями фіч.
-                                onClick={() => openFeaturesInfo(label || "Опція", opt.choiceOption.features)}
-                              >
-                                <HelpCircle className="h-4 w-4" />
-                              </Button>
-                            </div>
-                          </div>
-                        </div>
-
-                        {!prereqResult.met && (prereqResult.reasons?.length || prereqResult.reason) && (
-                          <div className="bg-rose-500/10 border border-rose-500/20 rounded px-2 py-1 text-[11px] font-medium text-rose-400 space-y-0.5">
-                            {prereqResult.reasons ? (
-                              prereqResult.reasons.map((r, i) => (
-                                <div key={i}>{r}</div>
-                              ))
-                            ) : (
-                              <div>{prereqResult.reason}</div>
-                            )}
-                          </div>
-                        )}
-
-                        {previewText ? (
-                          <p className="text-sm text-slate-400 line-clamp-2">
-                            {stripMarkdownPreview(String(previewText))}
-                          </p>
-                        ) : null}
-                      </CardContent>
-                    </Card>
-                  );
-                })}
-              </div>
-            </CardContent>
-          </Card>
-        ))}
-      </div>
+      <ClassChoiceOptionGroups
+        groupedOptions={groupedOptions}
+        selectionState={{ charLevel, charPact, groupPickCounts, pickCount, selections }}
+        onSelectOption={selectOption}
+        onShowFeatures={openFeaturesInfo}
+      />
 
       <ControlledInfoDialog
         open={infoOpen}

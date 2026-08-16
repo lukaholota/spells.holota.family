@@ -3,11 +3,14 @@
  * All functions handle null/undefined JSON fields gracefully
  */
 
-import { Ability, Skills, SkillProficiencyType, AbilityBonusType, WeaponProperty } from "@prisma/client";
+import { Ability, Skills, SkillProficiencyType, WeaponProperty } from "@prisma/client";
 import type { Feature } from "@prisma/client";
 import { PersWithRelations, PersWeaponWithWeapon } from "@/lib/actions/pers";
 import { getAbilityMod, getProficiencyBonus, skillAbilityMap } from "./utils";
-import { ACBaseFormula, ModifiesAC, NaturalArmorAC, RaceAC, StatBonuses, SkillBonuses, SimpleBonusValue } from "@/lib/types/model-types";
+import { calculateArmorClass } from "@/rules/armor";
+import { calculateSavingThrowProficiencyBonus, calculateSkillProficiencyBonus } from "@/rules/proficiency";
+import type { AbilityKey, ArmorAbilityBonusType } from "@/rules/types";
+import { StatBonuses, SkillBonuses, SimpleBonusValue } from "@/lib/types/model-types";
 
 // ============================================================================
 // JSON Parsers (handle null/undefined/invalid JSON)
@@ -221,59 +224,6 @@ function getFeatureACBonus(pers: PersWithRelations, hasArmor: boolean, hasShield
   return bonus;
 }
 
-function isRaceACBaseFormula(ac: unknown): ac is Extract<RaceAC, { base: number; bonus: Ability | null }> {
-  return !!ac && typeof ac === "object" && "base" in ac && typeof (ac as any).base === "number" && "bonus" in ac;
-}
-
-function isNaturalArmorAC(m: unknown): m is NaturalArmorAC {
-  return (
-    !!m &&
-    typeof m === "object" &&
-    "naturalArmor" in m &&
-    !!(m as any).naturalArmor &&
-    typeof (m as any).naturalArmor === "object" &&
-    typeof (m as any).naturalArmor.baseAC === "number" &&
-    typeof (m as any).naturalArmor.addsDex === "boolean"
-  );
-}
-
-function isACBaseFormula(m: unknown): m is ACBaseFormula {
-  return !!m && typeof m === "object" && "base" in m && typeof (m as any).base === "number";
-}
-
-function meetsACPrerequisites(prereqs: unknown, hasArmor: boolean, hasShield: boolean): boolean {
-  const list = Array.isArray(prereqs) ? prereqs : [];
-  for (const tag of list) {
-    if (tag === "UNARMORED" && hasArmor) return false;
-    if (tag === "NO_SHIELD" && hasShield) return false;
-  }
-  return true;
-}
-
-function evaluateACBaseFormula(pers: PersWithRelations, formula: ACBaseFormula): number {
-  let value = formula.base;
-  const stats = formula.bonus?.stats ?? [];
-  for (const stat of stats) {
-    value += calculateFinalModifier(pers, stat);
-  }
-  return value;
-}
-
-function evaluateNaturalArmor(pers: PersWithRelations, natural: NaturalArmorAC): number {
-  const dexMod = calculateFinalModifier(pers, Ability.DEX);
-  return natural.naturalArmor.baseAC + (natural.naturalArmor.addsDex ? dexMod : 0);
-}
-
-function evaluateModifiesAC(pers: PersWithRelations, modifiesAC: ModifiesAC): number | null {
-  if (isNaturalArmorAC(modifiesAC)) {
-    return evaluateNaturalArmor(pers, modifiesAC);
-  }
-  if (isACBaseFormula(modifiesAC)) {
-    return evaluateACBaseFormula(pers, modifiesAC);
-  }
-  return null;
-}
-
 // ============================================================================
 // Final Value Calculators
 // ============================================================================
@@ -312,7 +262,7 @@ export function calculateFinalSave(
   const mod = calculateFinalModifier(pers, ability);
   const additionalSaves = (pers as any).additionalSaveProficiencies as Ability[] ?? [];
   const isProficient = additionalSaves.includes(ability);
-  const pb = isProficient ? calculateFinalProficiency(pers) : 0;
+  const pb = calculateSavingThrowProficiencyBonus(isProficient, calculateFinalProficiency(pers));
   const saveBonus = getSaveBonus(pers, ability);
   
   // Also add misc save bonuses from existing field
@@ -342,13 +292,11 @@ export function calculateFinalSkill(
   const pb = calculateFinalProficiency(pers);
   let total = abilityMod + modBonus;
 
-  // Bard feature: add half proficiency bonus (floor) to checks that don't already add PB.
-  // Applies to skills where the character is NOT proficient/expertise/half.
-  if (proficiency === "NONE" && hasJackOfAllTrades(pers)) total += Math.floor(pb / 2);
-
-  if (proficiency === SkillProficiencyType.HALF) total += Math.floor(pb / 2);
-  if (proficiency === SkillProficiencyType.PROFICIENT) total += pb;
-  if (proficiency === SkillProficiencyType.EXPERTISE) total += pb * 2;
+  total += calculateSkillProficiencyBonus(
+    proficiency,
+    pb,
+    proficiency === "NONE" && hasJackOfAllTrades(pers),
+  );
 
   total += getSkillBonus(pers, skill);
   return { total, proficiency };
@@ -359,92 +307,60 @@ export function calculateFinalProficiency(pers: PersWithRelations): number {
   return getProficiencyBonus(pers.level) + getSimpleBonus(pers, "proficiency");
 }
 
-function computeAbilityBonus(pers: PersWithRelations, type: AbilityBonusType, abilities: Ability[]): number {
-  if (type === AbilityBonusType.NONE) return 0;
-  const unique = Array.from(new Set(Array.isArray(abilities) ? abilities : []));
-  let sum = 0;
-  for (const ability of unique) {
-    let mod = calculateFinalModifier(pers, ability);
-    if (type === AbilityBonusType.MAX2 && ability === Ability.DEX) {
-      mod = Math.min(mod, 2);
-    }
-    sum += mod;
-  }
-  return sum;
-}
-
 /** Calculate final AC */
 export function calculateFinalAC(pers: PersWithRelations): number {
-  const dexMod = calculateFinalModifier(pers, Ability.DEX);
-  
-  // 1. Find equipped armor
   const equippedArmor = pers.armors.find(a => a.equipped);
+  const hasArmor = Boolean(equippedArmor);
+  const wearsShield = pers.wearsShield;
 
-  const actualHasArmor = !!equippedArmor;
-  const hasShield = pers.wearsShield;
+  return calculateArmorClass({
+    dexterityModifier: calculateFinalModifier(pers, Ability.DEX),
+    abilityModifiers: getAbilityModifiers(pers),
+    equippedArmor: equippedArmor ? toRuleArmor(equippedArmor) : null,
+    baseArmorClassOverride: pers.overrideBaseAC,
+    raceStaticArmorClassBonus: (pers as unknown as { raceStaticAcBonus?: number }).raceStaticAcBonus,
+    wearsShield,
+    shieldArmorClassBonus: pers.additionalShieldBonus,
+    simpleArmorClassBonus: getSimpleBonus(pers, "ac"),
+    featureArmorClassBonus: getFeatureACBonus(pers, hasArmor, wearsShield),
+    magicItemArmorClassBonus: getMagicItemACBonus(pers, hasArmor, wearsShield),
+  });
+}
 
-  // Highest priority: explicit base override from user.
-  // This bypasses armor/race/feature base formulas, but still allows additive bonuses.
-  const overrideBaseAC = pers.overrideBaseAC;
-  const hasBaseOverride = typeof overrideBaseAC === "number" && Number.isFinite(overrideBaseAC);
+function getAbilityModifiers(pers: PersWithRelations): Record<AbilityKey, number> {
+  return {
+    STR: calculateFinalModifier(pers, Ability.STR),
+    DEX: calculateFinalModifier(pers, Ability.DEX),
+    CON: calculateFinalModifier(pers, Ability.CON),
+    INT: calculateFinalModifier(pers, Ability.INT),
+    WIS: calculateFinalModifier(pers, Ability.WIS),
+    CHA: calculateFinalModifier(pers, Ability.CHA),
+  };
+}
 
-  let baseAC: number;
+function toRuleArmor(equippedArmor: PersWithRelations["armors"][number]) {
+  const characterArmor = equippedArmor as unknown as {
+    abilityBonuses?: AbilityKey[];
+    abilityBonusType?: ArmorAbilityBonusType;
+  };
+  const baseArmor = equippedArmor.armor as unknown as {
+    abilityBonuses?: AbilityKey[];
+    abilityBonusType?: ArmorAbilityBonusType;
+  };
 
-  if (hasBaseOverride) {
-    baseAC = Math.trunc(overrideBaseAC);
-  } else if (equippedArmor) {
-    const armorBase = equippedArmor.overrideBaseAC ?? equippedArmor.armor.baseAC;
-    const misc = equippedArmor.miscACBonus ?? 0;
-
-    const persAbilities = Array.isArray((equippedArmor as any).abilityBonuses)
-      ? (((equippedArmor as any).abilityBonuses as Ability[]) ?? [])
-      : [];
-    const armorAbilities = Array.isArray((equippedArmor.armor as any).abilityBonuses)
-      ? (((equippedArmor.armor as any).abilityBonuses as Ability[]) ?? [])
-      : [];
-
-    const persType = (equippedArmor as any).abilityBonusType as AbilityBonusType | undefined;
-    const armorType = (equippedArmor.armor as any).abilityBonusType as AbilityBonusType | undefined;
-    let type = persType ?? armorType ?? AbilityBonusType.FULL;
-    // Backward-compat: old PersArmor rows get default FULL, which would override armor's MAX2.
-    // If the character row doesn't specify any ability bonuses yet, treat its type as not explicitly set.
-    if (armorType && persType === AbilityBonusType.FULL && persAbilities.length === 0) {
-      type = armorType;
-    }
-
-    // Backward-compat: old PersArmor rows may have empty abilityBonuses.
-    // If type is NONE, respect it. Otherwise, fall back to the base Armor defaults.
-    const abilities = type === AbilityBonusType.NONE ? persAbilities : (persAbilities.length > 0 ? persAbilities : armorAbilities);
-    const bonus = computeAbilityBonus(pers, type, abilities);
-    baseAC = armorBase + bonus + misc;
-  } else {
-    // No equipped armor => unarmored.
-    // All special formulas (natural armor / unarmored defense) are represented as equipable PersArmor entries.
-    baseAC = 10 + dexMod;
-  }
-
-  // Race static AC bonus (toggleable). Applies regardless of armor.
-  // No implicit fallback: if the pers field is missing/undefined, treat as 0.
-  const raceStatic = (pers as any).raceStaticAcBonus;
-  if (typeof raceStatic === "number" && Number.isFinite(raceStatic)) {
-    baseAC += Math.trunc(raceStatic);
-  }
-  
-  // 2. Add shield
-  if (hasShield) {
-    baseAC += 2 + pers.additionalShieldBonus;
-  }
-  
-  // 3. Add custom AC bonuses from simple bonus system
-  baseAC += getSimpleBonus(pers, "ac");
-
-  // 3.5 Add AC bonuses granted by active features (e.g., Defense)
-  baseAC += getFeatureACBonus(pers, actualHasArmor, hasShield);
-
-  // 4. Add Magic Items AC bonus
-  baseAC += getMagicItemACBonus(pers, actualHasArmor, hasShield);
-
-  return baseAC;
+  return {
+    baseArmorClass: equippedArmor.armor.baseAC,
+    characterOverrideBaseArmorClass: equippedArmor.overrideBaseAC,
+    miscArmorClassBonus: equippedArmor.miscACBonus,
+    characterAbilityBonuses: Array.isArray(characterArmor.abilityBonuses)
+      ? characterArmor.abilityBonuses
+      : [],
+    armorAbilityBonuses: Array.isArray(baseArmor.abilityBonuses)
+      ? baseArmor.abilityBonuses
+      : [],
+    characterAbilityBonusType: characterArmor.abilityBonusType,
+    armorAbilityBonusType: baseArmor.abilityBonusType,
+  };
 }
 
 /** Calculate final speed (base 30 + bonuses) */

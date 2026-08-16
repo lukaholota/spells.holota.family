@@ -1,17 +1,15 @@
 import NextAuth, { NextAuthConfig } from "next-auth"
 import { OAuth2Client } from "google-auth-library";
-import { PrismaAdapter } from "@auth/prisma-adapter";
 import Google from "@auth/core/providers/google";
 import Credentials from "@auth/core/providers/credentials";
-import { prisma } from "@/lib/prisma";
-import type { User } from "@prisma/client";
+import { authAdapter, findOrCreateGoogleUser } from "@/server/db/auth";
 
 const googleClient = new OAuth2Client();
 
 export const config = {
   secret: process.env.AUTH_SECRET,
   trustHost: true,
-  adapter: PrismaAdapter(prisma),
+  adapter: authAdapter,
   session: { strategy: "jwt" },
   providers: [
     Google({
@@ -52,43 +50,12 @@ export const config = {
             console.error("Invalid payload data", { sub, email, email_verified });
             return null;
           }
-          let user: User | null = await prisma.account.findUnique({
-            where: {
-              provider_providerAccountId: {
-                provider: "google",
-                providerAccountId: sub,
-              }
-            },
-            include: { user: true }
-          }).then((acc) => acc?.user ?? null);
-          if (!user) {
-            user = await prisma.user.findUnique({
-              where: { email }
-            });
-
-            if (!user) {
-              user = await prisma.user.create({
-                data: {
-                  email,
-                  name,
-                  image: picture || null,
-                  emailVerified: new Date(), 
-                }
-              });
-            }
-            await prisma.account.create({
-              data: {
-                userId: user.id,
-                type: "oauth", 
-                provider: "google",
-                providerAccountId: sub,
-              }
-            });
-          }
-
-          if (!user) {
-            return null;
-          }
+          const user = await findOrCreateGoogleUser({
+            providerAccountId: sub,
+            email,
+            name,
+            image: picture,
+          });
 
           return {
             id: String(user.id),

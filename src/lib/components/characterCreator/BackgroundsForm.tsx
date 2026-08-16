@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 // import type {Background} from "@prisma/client"
 import {
@@ -75,20 +75,22 @@ export const BackgroundsForm = (
 
   const getLabel = useCallback((name: string) => backgroundTranslations[name] || backgroundTranslationsEng[name] || name, []);
 
+  const is2024 = useMemo(() => backgrounds.some((b) => b.ruleset === "RULES_2024" || b.source === Source.PHB_2024), [backgrounds]);
+
   const primaryBackgrounds = useMemo(
     () => backgrounds
-      .filter(b => PHB_BACKGROUNDS.has(b.name))
+      .filter(b => is2024 ? true : PHB_BACKGROUNDS.has(b.name))
       .filter(b => matchesSearch(b.name))
       .sort((a, b) => getLabel(a.name).localeCompare(getLabel(b.name), 'uk')),
-    [backgrounds, matchesSearch, getLabel]
+    [backgrounds, is2024, matchesSearch, getLabel]
   );
   const otherBackgrounds = useMemo(
-    () => backgrounds
+    () => is2024 ? [] : backgrounds
       .filter(b => b.source !== Source.PHB_2024)
       .filter(b => !PHB_BACKGROUNDS.has(b.name))
       .filter(b => matchesSearch(b.name))
       .sort((a, b) => getLabel(a.name).localeCompare(getLabel(b.name), 'uk')),
-    [backgrounds, matchesSearch, getLabel]
+    [backgrounds, is2024, matchesSearch, getLabel]
   );
 
   const hasNoResults = !primaryBackgrounds.length && !otherBackgrounds.length;
@@ -100,7 +102,9 @@ export const BackgroundsForm = (
         <h2 className="font-rpg-display text-3xl font-semibold uppercase tracking-widest text-slate-200 sm:text-4xl">
           Оберіть передісторію
         </h2>
-        <p className="text-sm text-slate-400">Спершу показані варіанти з Книги Гравця (2014), решта в акордеоні нижче.</p>
+        <p className="text-sm text-slate-400">
+          {is2024 ? "Варіанти походження з Книги Гравця (2024)." : "Спершу показані варіанти з Книги Гравця (2014), решта в акордеоні нижче."}
+        </p>
       </div>
 
       <div className="glass-panel border-gradient-rpg rounded-xl p-3 sm:p-4">

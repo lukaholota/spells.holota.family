@@ -1,0 +1,46 @@
+import { describe, expect, it } from "vitest";
+import { loadCharacterCreatorOptions } from "@/server/db/creation-content";
+
+describe("Character Creator Content Loading by Ruleset", () => {
+  it("loads 2024 content when ruleset is RULES_2024", async () => {
+    const [races, classes, backgrounds, weapons, feats] = await loadCharacterCreatorOptions({
+      ruleset: "RULES_2024",
+    });
+
+    expect(races.length).toBeGreaterThan(0);
+    expect(races.every((r) => r.ruleset === "RULES_2024")).toBe(true);
+
+    expect(classes.length).toBe(13);
+    expect(classes.every((c) => c.ruleset === "RULES_2024")).toBe(true);
+
+    expect(backgrounds.length).toBe(16);
+    expect(backgrounds.every((b) => b.ruleset === "RULES_2024")).toBe(true);
+
+    expect(weapons.length).toBeGreaterThan(0);
+    expect(weapons.every((w) => w.ruleset === "RULES_2024")).toBe(true);
+
+    expect(feats.length).toBeGreaterThan(0);
+    expect(feats.every((f) => f.ruleset === "RULES_2024")).toBe(true);
+  });
+
+  it("loads 2014 content when ruleset is RULES_2014 (or default)", async () => {
+    const [races, classes, backgrounds, weapons, feats] = await loadCharacterCreatorOptions({
+      ruleset: "RULES_2014",
+    });
+
+    expect(races.length).toBeGreaterThan(0);
+    expect(races.every((r) => r.ruleset === "RULES_2014")).toBe(true);
+
+    expect(classes.length).toBeGreaterThan(0);
+    expect(classes.every((c) => c.ruleset === "RULES_2014")).toBe(true);
+
+    expect(backgrounds.length).toBeGreaterThan(0);
+    expect(backgrounds.every((b) => b.ruleset === "RULES_2014")).toBe(true);
+
+    expect(weapons.length).toBeGreaterThan(0);
+    expect(weapons.every((w) => w.ruleset === "RULES_2014")).toBe(true);
+
+    expect(feats.length).toBeGreaterThan(0);
+    expect(feats.every((f) => f.ruleset === "RULES_2014")).toBe(true);
+  });
+});
