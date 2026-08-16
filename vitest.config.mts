@@ -8,12 +8,11 @@ export default defineConfig({
     include: [
       "src/**/*.test.ts",
       "tests/rules/**/*.test.ts",
-      "tests/content/**/*.test.ts",
+      "tests/logic/**/*.test.ts",
       "tests/golden/levelup/**/*.test.ts",
-      "tests/database.test.ts",
+      "tests/content/rules2024-import.test.ts",
     ],
     setupFiles: ["tests/setup.ts"],
-    // Only tests/database.test.ts touches spells_test DB, all other tests are pure in-memory.
     fileParallelism: true,
   },
 });
