@@ -1,4 +1,5 @@
 import { BackgroundCategory, Classes, Races } from "@prisma/client";
+import type { PersFormData } from "@/lib/zod/schemas/persCreateSchema";
 import { backgroundByName, classByName, raceByName } from "../../helpers/seed-lookup";
 import { ALL_CUSTOM_ASI, minimalForm } from "../../helpers/build-form";
 import type { Build } from "./types";
@@ -17,7 +18,7 @@ export const build: Build = {
       classId: cls.classId,
       backgroundId: background.backgroundId,
       asiSystem: "CUSTOM",
-      customAsi: ALL_CUSTOM_ASI,
+      customAsi: ALL_CUSTOM_ASI as unknown as PersFormData["customAsi"],
       asi: [],
     });
   },
