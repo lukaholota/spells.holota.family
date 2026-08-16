@@ -42,6 +42,8 @@
     "prisma/seed/toFuture",
     "prisma/seed/**",
     "node_modules/.prisma/**",
-    "spell-list/**"
+    "spell-list/**",
+    "tests/**",
+    "playwright.config.ts"
   ]
 }
